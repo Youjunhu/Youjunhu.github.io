@@ -1,0 +1,30 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-10001}{QQ2-1-1}{Introduction}}{3}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-20002}{QQ2-1-2}{Advection equation}}{3}\relax 
+\doTocEntry\toclof{1}{\csname a:TocLink\endcsname{1}{x1-20061}{}{\ignorespaces Evolution of the waveform computed by the Lax-Friedrichs scheme (left) and the Crank--Nicolson implicit scheme (right). Simulations are performed with the Initial condition given by $y (x, t = 0) = \o:mathop: {\mathgroup \symoperators exp}\nolimits (- 100 (x - 0.5)^2)$, time-step size $d t = 0.05 d x / c$, grid spacing $d x = 1 / (N_x - 1)$, $N_x = 200$. Both schemes give correct the propagation speed, but the Lax-Friedrichs scheme introduces heavy damping in the solution.}}{figure}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-30003}{QQ2-1-4}{Wave equation}}{8}\relax 
+\doTocEntry\tocsubsection{3.1}{\csname a:TocLink\endcsname{1}{x1-40003.1}{QQ2-1-5}{Maxwell's equation in 1D case}}{9}\relax 
+\doTocEntry\tocsubsection{3.2}{\csname a:TocLink\endcsname{1}{x1-50003.2}{QQ2-1-6}{The Lax scheme}}{11}\relax 
+\doTocEntry\tocsubsection{3.3}{\csname a:TocLink\endcsname{1}{x1-60003.3}{QQ2-1-7}{The Crank--Nicolson scheme}}{12}\relax 
+\doTocEntry\toclof{2}{\csname a:TocLink\endcsname{1}{x1-60052}{}{\ignorespaces Evolution of the TEM waveform $(B_y, E_z)$ computed by the Crank--Nicolson implicit scheme. Simulations are performed with the initial condition $E_z (x, t = 0) = 0$, $B_y (x, t = 0) = \o:mathop: {\mathgroup \symoperators exp}\nolimits (- (x - x_0)^2 / (0.1 L)^2)$, $x_0 = 0.5 m$, $L = 1 m$, time-step size $d t = 0.01 d x / c$, grid spacing $d x = 1 / (N_x - 1)$, $N_x = 100$. Fixed zero boundary condition is used: $E_z (x = 0) = E_z (x = L) = 0$, $B_y (x = 0) = B_y (x = L) = 0$. Since the waveform has not reach the boundary, the boundary has no effect on the evolution. The results show that two traveling waves emerge from the Gaussian waveform of $B_y$, propagating in the opposite directions. The propagation speed is correct.}}{figure}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-70004}{QQ2-1-9}{Diffusion equation}}{17}\relax 
+\doTocEntry\toclof{3}{\csname a:TocLink\endcsname{1}{x1-70013}{}{\ignorespaces Stencil of an explicit scheme (left) implicit scheme (middle) and the Crank-Nicolson implicit scheme (right) for the diffusion equation $u_t = u_{x x}$.}}{figure}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-80005}{QQ2-1-11}{Poisson's equation}}{20}\relax 
+\doTocEntry\tocsubsection{5.1}{\csname a:TocLink\endcsname{1}{x1-90005.1}{QQ2-1-12}{Discretized form using finite differencing}}{21}\relax 
+\doTocEntry\toclof{4}{\csname a:TocLink\endcsname{1}{x1-90034}{}{\ignorespaces Five-points stencil of the finite differencing scheme in Eq. (\o:ref {18-7-21-p2}).}}{figure}\relax 
+\doTocEntry\tocsubsection{5.2}{\csname a:TocLink\endcsname{1}{x1-100005.2}{QQ2-1-14}{Matrix form of the difference scheme}}{24}\relax 
+\doTocEntry\toclof{5}{\csname a:TocLink\endcsname{1}{x1-100015}{}{\ignorespaces Row-ordering of the 2D discrete unknowns $\varphi _{i, j}$ on a $3 \times 3$ mesh.}}{figure}\relax 
+\doTocEntry\tocsubsection{5.3}{\csname a:TocLink\endcsname{1}{x1-110005.3}{QQ2-1-16}{Verification of the numerical solution}}{29}\relax 
+\doTocEntry\toclof{6}{\csname a:TocLink\endcsname{1}{x1-110036}{}{\ignorespaces Comparison between the numerical solution and analytic solution of Poisson' equation. Numerical parameters: grid number $M = 50$, $N = 50$. The resulting linear system has $2500$ unknowns. PETSc provides a flexible way of choosing different algorithms for solving the linear system via command line options. The command line options used for this case is: {\ttfamily  {mpiexec -n 3 ./poisson -pc\_type bjacobi -sub\_pc\_type ilu -ksp\_type bcgs -ksp\_monitor}}, which chooses the preconditioner type and Krylov subspace method type. The KSP residual norm is $1.456 \times 10^{- 7}$ after 25 iterations.}}{figure}\relax 
+\doTocEntry\tocsection{6}{\csname a:TocLink\endcsname{1}{x1-120006}{QQ2-1-18}{A simple example of numerical instability}}{32}\relax 
+\doTocEntry\toclof{7}{\csname a:TocLink\endcsname{1}{x1-120057}{}{\ignorespaces Comparison between the analytic solution (\o:ref {18-4-11-p3}) (black) and the numerical solution (blue) calculated by the scheme (\o:ref {18-4-11-1}) with $\Delta t = 2.1$. Other parameters: $y_0 = 1$, $a = 1$.}}{figure}\relax 
+\doTocEntry\toclof{8}{\csname a:TocLink\endcsname{1}{x1-120088}{}{\ignorespaces Comparison between the analytic solution (\o:ref {18-4-11-p3}) (black) and the numerical solution (blue) calculated by the scheme (\o:ref {18-4-11-p1}) with $\Delta t = 2.1$. Other parameters: $y_0 = 1$, $a = 1$.}}{figure}\relax 
+\doTocEntry\tocsection{7}{\csname a:TocLink\endcsname{1}{x1-130007}{QQ2-1-21}{Finite difference}}{39}\relax 
+\doTocEntry\tocsection{8}{\csname a:TocLink\endcsname{1}{x1-140008}{QQ2-1-22}{The predictor-corrector method}}{39}\relax 
+\doTocEntry\tocsection{9}{\csname a:TocLink\endcsname{1}{x1-150009}{QQ2-1-23}{Spectral method-----to be revised}}{41}\relax 
+\doTocEntry\tocsubsection{9.1}{\csname a:TocLink\endcsname{1}{x1-160009.1}{QQ2-1-24}{Pseudo-spectral method}}{43}\relax 
+\doTocEntry\tocsubsection{9.2}{\csname a:TocLink\endcsname{1}{x1-170009.2}{QQ2-1-25}{Galerkin method}}{44}\relax 
+\doTocEntry\tocsubsubsection{9.2.1}{\csname a:TocLink\endcsname{1}{x1-180009.2.1}{QQ2-1-26}{Computation of $\sum _{n = 0}^{N - 1} \mathaccent "705E\relax {V}_{m - n} \mathaccent "705E\relax {\psi }_n$ in initial value problems}}{47}\relax 
+\doTocEntry\tocsection{10}{\csname a:TocLink\endcsname{1}{x1-1900010}{QQ2-1-27}{Interpolating}}{47}\relax 
+\doTocEntry\tocsection{11}{\csname a:TocLink\endcsname{1}{x1-2000011}{QQ2-1-28}{von Neuman stability analysis}}{47}\relax 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-2100011}{QQ2-1-29}{References}}{53}\relax 

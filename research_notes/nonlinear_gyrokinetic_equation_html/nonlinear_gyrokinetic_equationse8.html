@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Transform gyrokinetic equation from (X,&mu;,𝜀,&alpha;) to (X,&mu;,v∥,&alpha;) coordinates</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<meta name="date" content="2019-01-28 10:19:00" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 2770--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse9.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse7.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse7.html#tailnonlinear_gyrokinetic_equationse7.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationse8.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse8.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">B   </span> <a 
+ id="x31-44000B"></a>Transform gyrokinetic equation from (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,𝜀,&alpha;</span>) to (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,&alpha;</span>) coordinates</h3>
+<!--l. 2772--><p class="noindent" >The gyrokinetic equation given above is written in terms of variables (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,𝜀,&alpha;</span>), where <span 
+class="cmmi-10">&alpha; </span>is the
+gyro-phase. Next, we transform it into coordinates (<span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,&mu;</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,&alpha;</span><span 
+class="cmsy-10">&prime;</span>) which is deﬁned by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44001r221"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation247x.png" alt="(|  X &prime;(X,&mu;,𝜀,&alpha;) = X
+|{  &mu;&prime;(X, &mu;,𝜀,&alpha;) = &mu;
+|  &alpha;&prime;(X,&mu;,𝜀,&alpha;) = &alpha;
+|(  v (X,&mu;,𝜀,&alpha;) = ± ∘2-(𝜀-&minus;-&mu;B-(X))
+    ∥                      0
+" class="math-display"  /></center></td><td class="equation-label">(221)</td></tr></table>
+<!--l. 2784--><p class="nopar" >
+Use this deﬁnition and the chain rule, the gradient operators in (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,𝜀,&alpha;</span>) variables are written, in terms
+of (<span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,&mu;</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,&alpha;</span><span 
+class="cmsy-10">&prime;</span>) variables, as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation248x.png" alt="   |                  |              |               |               |
+-&part;-||         &part;X-&prime; -&part;--||       &part;&mu;-&prime;-&part;-||        &part;v∥ -&part;-||        &part;&alpha;-&prime;-&part;-||
+&part;X |&mu;,𝜀,&alpha;  =   &part;X  &sdot;&part;X &prime;|&mu;&prime;,v ,&alpha;&prime; + &part;X &part;&mu;&prime;|X&prime;,v ,&alpha;&prime; + &part;X &part;v∥| &prime; &prime; &prime; + &part;X &part;&alpha;&prime;|X&prime;,&mu;&prime;,v
+                         ∥               ∥            X ,&mu; ,&alpha;                ∥
+         =   -&part;-&prime; + 0-&part;&prime; &minus;-&mu; &part;B0-&part; + 0-&part;&prime;                                 (222)
+             &part;X     &part;&mu;   v∥ &part;X &part;v ∥   &part;&alpha;
+" class="math-display"  /><a 
+ id="x31-44002r222"></a></center>
+</div>and <div class="eqnarray">
+                                                                                  
+                                                                                  
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation249x.png" alt="  |
+&part;-||      =  &part;X-&prime;-&part;--+ &part;&mu;&prime;-&part;- + &part;v∥-&part;- + &part;&alpha;&prime;-&part;-
+&part;𝜀|X,&mu;,&alpha;      &part;𝜀 &part;X &prime;  &part; 𝜀&part;&mu; &prime;  &part;𝜀 &part;v∥   &part;𝜀 &part;&alpha; &prime;
+              &part;      &part;    1  &part;      &part;
+         =  0&part;X-&prime; + 0&part;&mu;&prime; + v-&part;v +0 &part;&alpha;&prime;                     (223)
+                           ∥  ∥
+" class="math-display"  /></center>
+</div>Then, in terms of independent variable (<span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,&mu;</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,&alpha;</span><span 
+class="cmsy-10">&prime;</span>), equation (<a 
+href="nonlinear_gyrokinetic_equationse5.html#x22-29001r133">133<!--tex4ht:ref: 16-10-16-2 --></a>) is written <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation250x.png" alt="[ &part;                     -&part;-]                         &mu;-&part;B0-&part;&delta;G0-
+ &part;t +(v∥e∥ + VD + &delta;VD ) &sdot;&part;X &prime; &delta;G0 &minus; (v∥e∥ + VD + &delta;VD ) &sdot;v∥dX &part;v∥
+         (                )
+= &minus; &delta;VD &sdot; &part;F0&prime; &minus;-&mu; &part;B0-&part;F0- &minus; q-&part;⟨&delta;L⟩&alpha;&part;F0-1-,                     (224)
+          &part;X    v∥ dX  &part;v∥    m   &part;t   &part;v∥v∥
+" class="math-display"  /><a 
+ id="x31-44004r224"></a></center>
+</div>where <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">V</span><sub><span 
+class="cmmi-7">D</span></sub> and <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">&delta;L</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">&alpha;</span></sub> involve the gyro-averaging operator <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">&alpha;</span></sub>. The gyro-averaging operator in
+(<span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,&mu;</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,&alpha;</span><span 
+class="cmsy-10">&prime;</span>) coordinates is similar to that in the old coordinates since the perpendicular velocity variable
+<span 
+class="cmmi-10">&mu; </span>is identical between the two coordinate systems. Also note that the perturbed guiding-center velocity
+<span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">V</span><sub><span 
+class="cmmi-7">D</span></sub> is given by
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44005r225"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation251x.png" alt="&delta;VD = e∥-×-&nabla;X-⟨&delta;ϕ⟩&alpha; + v∥⟨&delta;B-&perp;⟩&alpha;,
+           B0            B0
+" class="math-display"  /></center></td><td class="equation-label">(225)</td></tr></table>
+                                                                                  
+                                                                                  
+<!--l. 2843--><p class="nopar" >
+where <span 
+class="cmmi-10">&part;∕&part;</span><span 
+class="cmbx-10">X </span>(rather than <span 
+class="cmmi-10">&part;∕&part;</span><span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">&prime;</span>) is used. Since <span 
+class="cmmi-10">&delta;ϕ</span>(<span 
+class="cmbx-10">x</span>) = <span 
+class="cmmi-10">&delta;ϕ</span><sub><span 
+class="cmmi-7">g</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,&alpha;</span><span 
+class="cmsy-10">&prime;</span>), which is independent of <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>, then
+Eq. (<a 
+href="#x31-44002r222">222<!--tex4ht:ref: 19-1-2-e1 --></a>) indicates that <span 
+class="cmmi-10">&part;&delta;ϕ∕&part;</span><span 
+class="cmbx-10">X </span>= <span 
+class="cmmi-10">&part;&delta;ϕ∕&part;</span><span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">&prime;</span>.
+</p><!--l. 2850--><p class="indent" >   Dropping terms of order higher than <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">&lambda;</span><sup><span 
+class="cmr-7">2</span></sup>), equation (<a 
+href="#x31-44004r224">224<!--tex4ht:ref: 18-12-17-3 --></a>) is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation252x.png" alt="[ &part;                       &part; ]              &part; &delta;G0
+  &part;t + (v∥e∥ + VD + &delta;VD )&sdot;&part;X-&prime; &delta;G0 &minus; e∥ &sdot;&mu;&nabla;B0-&part;v
+         (    )   (                      )    ∥
+= &minus; &delta;VD &sdot;  &part;F0- +   &delta;VD  &sdot;&mu;&nabla;B0 &minus; -q &part;⟨&delta;L-⟩&alpha;-  &part;F0-1,          (226)
+           &part;X &prime;                 m    &part;t    &part;v∥v∥
+" class="math-display"  /></center>
+</div>Similarly, in terms of independent variable (<span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,&mu;</span><span 
+class="cmsy-10">&prime;</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,&alpha;</span><span 
+class="cmsy-10">&prime;</span>), equation (<a 
+href="nonlinear_gyrokinetic_equationsu17.html#x23-30004r138">138<!--tex4ht:ref: 17-5-13-p2 --></a>) is written as
+   <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation253x.png" alt="[                          ]
+ &part;-+ (v∥e∥ + VD + &delta;VD ) &sdot;-&part;- &delta;f &minus; e∥ &sdot;&mu;&nabla;B0 &part;-&delta;f
+ &part;t      (    )        (&part;X&prime;       )       &part;v∥
+          &part;F0-          -&mu;     &part;F0-
+= &minus; &delta;VD &sdot; &part;X &prime;  +&delta;VD  &sdot; v∥&nabla;B0  &part;v∥
+  q [ &part;⟨v &sdot;&delta;A⟩    (              ⟨&delta;B  ⟩ )          ] &part;F 1
+&minus;--  &minus;--------&alpha; &minus;  v∥e∥ + VD +v∥ ---&perp;-&alpha;- &sdot;&nabla;X ⟨&delta;ϕ⟩&alpha;  --0---,     (227)
+ m        &part;t                       B0              &part;v∥ v∥
+" class="math-display"  /><a 
+ id="x31-44007r227"></a></center>
+</div>The guiding-center velocity in the macroscopic (equilibrium) ﬁeld is given by
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44008r228"></a>
+                                                                                  
+                                                                                  
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation254x.png" alt="v e + V  =  B⋆0-v + --&mu;--B  × &nabla;B  + --1---E × B
+ ∥ ∥   D    B⋆∥0 ∥  &Omega;B ⋆∥0 0      0  B0B ⋆∥0 0    0
+" class="math-display"  /></center></td><td class="equation-label">(228)</td></tr></table>
+<!--l. 2891--><p class="nopar" >
+where
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44009r229"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation255x.png" alt="B⋆0 = B0 +B0 v∥&nabla; × b,
+            &Omega;
+" class="math-display"  /></center></td><td class="equation-label">(229)</td></tr></table>
+<!--l. 2896--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44010r230"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation256x.png" alt="               (   v         )
+B ⋆∥ &equiv; b &sdot;B⋆ = B 1+ -∥b &sdot;&nabla; × b  ,
+                    &Omega;
+" class="math-display"  /></center></td><td class="equation-label">(230)</td></tr></table>
+<!--l. 2901--><p class="nopar" >
+Using <span 
+class="cmmi-10">B</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmmi-7">⋆</span></sup> <span 
+class="cmsy-10">&asymp; </span><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>, then expression (<a 
+href="#x31-44008r228">228<!--tex4ht:ref: 18-12-17-1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44011r231"></a>
+                                                                                  
+                                                                                  
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation257x.png" alt="                  v2∥          &mu;             1
+v∥e∥ + VD = v∥b + &Omega;-&nabla; × b  + &Omega;B0B0 × &nabla;B0 + B2-E0 × B0,
+                 cu◟rvat◝◜ured◞rift ◟-----◝◜----◞  ◟-0-◝◜---◞
+                                &nabla;B drift       E×B drift
+" class="math-display"  /></center></td><td class="equation-label">(231)</td></tr></table>
+<!--l. 2911--><p class="nopar" >
+where the curvature drift, <span 
+class="cmsy-10">&nabla;</span><span 
+class="cmmi-10">B </span>drift, and <span 
+class="cmbx-10">E</span><sub><span 
+class="cmr-7">0</span></sub> <span 
+class="cmsy-10">× </span><span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub> drift can be identiﬁed. Note that the perturbed
+guiding-center velocity <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">V</span><sub><span 
+class="cmmi-7">D</span></sub> is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44012r232"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation258x.png" alt="      e  × &nabla;X ⟨&delta;ϕ⟩&alpha;     ⟨&delta;B  ⟩
+&delta;VD = -∥---------- + v∥---&perp;-&alpha;.
+           B0            B0
+" class="math-display"  /></center></td><td class="equation-label">(232)</td></tr></table>
+<!--l. 2919--><p class="nopar" >
+Using the above results, equation (<a 
+href="#x31-44007r227">227<!--tex4ht:ref: 17-5-13-p2m --></a>) is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation259x.png" alt="[ &part;                      &part; ]             &part;&delta;f
+ &part;t + (v∥e∥ + VD + &delta;VD )&sdot; &part;X&prime;-&delta;f &minus; e∥ &sdot;&mu;&nabla;B0 &part;v
+        (     )  (                        ) ∥(          )
+= &minus; &delta;VD &sdot; &part;F0- +   e∥ ×-&nabla;X-⟨&delta;ϕ⟩&alpha;+ v∥⟨&delta;B-&perp;⟩&alpha; &sdot; -&mu;&nabla;B0 &part;F0-
+          &part;X &prime;          B0           B0       v∥     &part;v∥
+  q [ &part;⟨v &sdot;&delta;A⟩    (      v2         &mu;              1            ⟨&delta;B  ⟩ )         ] &part;F  1
+&minus;--  &minus;--------&alpha; &minus;  v∥e∥ +-∥ &nabla; ×b + ----B0 × &nabla;B0 + --2E0 × B0 + v∥---&perp;-&alpha;  &sdot;&nabla;X ⟨&delta;ϕ⟩&alpha;  -(0233,)
+ m        &part;t              &Omega;        &Omega;B0            B 0             B0               &part;v∥v∥
+" class="math-display"  /></center>
+</div>Collecting coeﬃcients before <span 
+class="cmmi-10">&part;F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕&part;v</span><sub><span 
+class="cmsy-7">∥</span></sub>, we ﬁnd that the two terms involving <span 
+class="cmsy-10">&nabla;</span><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub> (terms in blue and red)
+cancel each other, yielding <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation260x.png" alt="[                          ]
+ &part;-+ (v∥e∥ + VD + &delta;VD )&sdot;-&part;&prime;-&delta;f &minus; e∥ &sdot;&mu;&nabla;B0 &part;&delta;f
+ &part;t     (     )         &part;X               &part;v ∥
+= &minus; &delta;V &sdot;  &part;F0-
+      D   &part;X &prime;
+    [                                (      v2                             )         ]
++-q  m-v∥⟨&delta;B-&perp;⟩&alpha;-&sdot;(&mu; &nabla;B0) + &part;⟨v&sdot;&delta;A-⟩&alpha;+   v∥b + -∥&nabla; × b + -12E0 × B0 + v∥⟨&delta;B&perp;-⟩&alpha;  &sdot;&nabla;X  ⟨&delta;ϕ⟩&alpha;  &part;F0(213,4)
+ m   q     B0                &part;t             &Omega;         B0              B0               &part;v∥v∥
+" class="math-display"  /><a 
+ id="x31-44014r234"></a></center>
+</div>This equation agrees with Eq. (8) in I. Holod&#x2019;s 2009 pop paper (gyro-averaging is wrongly omitted in that
+paper) and W. Deng&#x2019;s 2011 NF paper. Equation (<a 
+href="#x31-44014r234">234<!--tex4ht:ref: 18-9-18-e1 --></a>) drops all terms higher than <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">&lambda;</span><sup><span 
+class="cmr-7">2</span></sup>) and as a result
+the coeﬃcient before <span 
+class="cmmi-10">&part;&delta;f∕&part;v</span><sub><span 
+class="cmsy-7">∥</span></sub> contains only the mirror force, i.e.,
+   <table 
+class="equation"><tr><td><a 
+ id="x31-44015r235"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation261x.png" alt="dv∥= &minus; e∥ &sdot;&mu;&nabla;B0,
+dt
+" class="math-display"  /></center></td><td class="equation-label">(235)</td></tr></table>
+                                                                                  
+                                                                                  
+<!--l. 2970--><p class="nopar" >
+which is independent of any perturbations.
+                                                                                  
+                                                                                  
+</p>
+   <!--l. 2973--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse9.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse7.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse7.html#tailnonlinear_gyrokinetic_equationse7.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse8.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse8.html" >up</a>] </p></div>
+<!--l. 2973--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse8.html"></a> </p> 
+</body></html> 

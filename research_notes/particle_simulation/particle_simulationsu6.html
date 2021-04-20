@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Eﬀective ﬁeld on a marker</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 588--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu7.html" >next</a>] [<a 
+href="particle_simulationsu5.html" >prev</a>] [<a 
+href="particle_simulationsu5.html#tailparticle_simulationsu5.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu6.html">tail</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu6.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x10-110003.3"></a>Eﬀective ﬁeld on a marker</h4>
+<!--l. 590--><p class="noindent" >The eﬀective ﬁeld on a marker is deﬁned as the averaged ﬁeld on the group of particles represented by the marker. To get
+the averaged ﬁeld, we need to reconstruct a continuum electric ﬁeld from the ﬁeld values on the discrete
+grids.
+</p><!--l. 595--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">3.3.1   </span> <a 
+ id="x10-120003.3.1"></a>Piecewise constant function</h5>
+<!--l. 597--><p class="noindent" >One of many methods of reconstructing the continuum electric ﬁeld is to assume that the ﬁeld is constant in each cell, i.e.,
+piecewise constant function, i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x10-12001r45"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation45x.png" alt="                    (      )   (      )   (      )
+          &sum;           &alpha;&minus;-&alpha;i-     &beta; &minus;-&beta;i    &gamma;-&minus;-&gamma;i
+E(&alpha;,&beta;,&gamma;) =    Ei,j,kb0   &Delta;&alpha;    b0   &Delta;&beta;    b0  &Delta; &gamma;   ,
+          i,j,k
+" class="math-display"  /></center></td><td class="equation-label">(45)</td></tr></table>
+<!--l. 605--><p class="nopar" >
+where <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">i,j,k</span></sub> is the ﬁeld value at grid-points (centers of cells) obtained by solving the ﬁeld equation. The electric ﬁeld on a
+computational marker is the average of the electric ﬁeld over all the physical particles contained in the marker,
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x10-12002r46"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation46x.png" alt="     1 &int; +&infin; &int; +&infin; &int; +&infin;          (&int;      )
+Ep = ---              E (&alpha;,&beta;,&gamma;)    fpdv  𝒥rd&alpha;d &beta;d&gamma;
+     wp &minus; &infin;  &minus; &infin;  &minus; &infin;
+" class="math-display"  /></center></td><td class="equation-label">(46)</td></tr></table>
+<!--l. 614--><p class="nopar" >
+Using <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> given in Eq. (<a 
+href="particle_simulationse3.html#x7-8001r22">22<!--tex4ht:ref: 3-23-p12 --></a>) in the above equation, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x10-12003r47"></a>
+
+   <center class="math-display" >
+<img 
+src="particle_simulation47x.png" alt="     &int;    &int;    &int;             [        (      ) ][       (       )] [       (      ) ]
+       +&infin;   +&infin;   +&infin;           -1--     &alpha;-&minus;-&alpha;p    -1--     &beta;-&minus;-&beta;p    -1--     &gamma; &minus;-&gamma;p
+Ep =  &minus; &infin;  &minus; &infin;  &minus; &infin; E (&alpha;,&beta;,&gamma;) &Delta; &alpha;pS1D   &Delta; &alpha;p     &Delta; &beta;pS1D   &Delta; &beta;p     &Delta;&gamma;pS1D    &Delta;&gamma;p    d&alpha;d&beta;d&gamma;,
+" class="math-display"  /></center></td><td class="equation-label">(47)</td></tr></table>
+<!--l. 624--><p class="nopar" >
+where the Jacobian and <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">p</span></sub> disappear. Use the reconstructed electric ﬁeld [Eq. (<a 
+href="#x10-12001r45">45<!--tex4ht:ref: 2-23-p20 --></a>)] in the above equation,
+giving
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x10-12004r48"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation48x.png" alt="             &int;    &int;    &int;      (      )   (      )  (      )         (      )         (      )        (      )
+E  = &sum;  E     + &infin;  + &infin;  + &infin; b  &alpha;-&minus;-&alpha;i  b  &beta;-&minus;-&beta;i b   &gamma; &minus;-&gamma;i --1-S    &alpha;-&minus;-&alpha;p  -1--S    &beta;-&minus;-&beta;p  -1--S    &gamma; &minus;-&gamma;p d&alpha;d&beta;d&gamma;
+ p   i,j,k i,j,k  &minus;&infin;   &minus;&infin;   &minus;&infin;  0   &Delta; &alpha;    0   &Delta; &beta;    0   &Delta; &gamma;   &Delta; &alpha;p 1D   &Delta; &alpha;p   &Delta; &beta;p 1D   &Delta; &beta;p   &Delta;&gamma;p  1D    &Delta;&gamma;p
+" class="math-display"  /></center></td><td class="equation-label">(48)</td></tr></table>
+<!--l. 636--><p class="nopar" >
+If we choose the shape function <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub> as the b-spline function <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">l</span></sub> with &Delta;<span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">p</span></sub> = &Delta;<span 
+class="cmmi-10">&alpha;</span>, &Delta;<span 
+class="cmmi-10">&beta;</span><sub><span 
+class="cmmi-7">p</span></sub> = &Delta;<span 
+class="cmmi-10">&beta;</span>, and &Delta;<span 
+class="cmmi-10">&gamma;</span><sub><span 
+class="cmmi-7">p</span></sub> = &Delta;<span 
+class="cmmi-10">&gamma;</span>, then the
+above equation is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x10-12005r49"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation49x.png" alt="    &sum;           (&alpha;i &minus; &alpha;p)    ( &beta;j &minus; &beta;p)    (&gamma;k &minus; &gamma;p )
+Ep =    Ei,j,kbl+1  --&Delta;-&alpha;--  bl+1  --&Delta;&beta;--- bl+1  --&Delta;-&gamma;-- ,
+    i,j,k
+" class="math-display"  /></center></td><td class="equation-label">(49)</td></tr></table>
+<!--l. 645--><p class="nopar" >
+which speciﬁes how the eﬀective ﬁeld on a marker is related to the nearby ﬁeld on the grid-points.
+</p><!--l. 649--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">3.3.2   </span> <a 
+ id="x10-130003.3.2"></a>Piecewise linear function</h5>
+<!--l. 651--><p class="noindent" >Another way of reconstructing the continuum electric ﬁeld is to assume that the ﬁeld is linear function between grids. In
+this case, if the spatial shape function of markers is Dirac delta function, then it is obvious that the eﬀective ﬁeld
+on a marker can be obtained by linearly interpolating the ﬁelds on the nearyby grids. If the spatial shape
+function of markers is <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">0</span></sub>, what is the interpolation scheme of obtaining the eﬀective ﬁeld on a marker? To be
+worked out. The result will be a little complicated than the linear interpolation and thus involves more
+
+computational overhead. The beneﬁt can be that the noise can be further reduced, compared with the linear
+interpolation.
+
+</p>
+   <!--l. 662--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu7.html" >next</a>] [<a 
+href="particle_simulationsu5.html" >prev</a>] [<a 
+href="particle_simulationsu5.html#tailparticle_simulationsu5.html" >prev-tail</a>] [<a 
+href="particle_simulationsu6.html" >front</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu6.html" >up</a>] </p></div>
+<!--l. 662--><p class="indent" >   <a 
+ id="tailparticle_simulationsu6.html"></a>  </p> 
+</body></html> 

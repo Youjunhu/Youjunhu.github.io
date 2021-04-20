@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Numerical implementation of periodic condition
+(290)</TITLE>
+<META NAME="description" CONTENT="Numerical implementation of periodic condition
+(290)">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node74.html">
+<LINK REL="previous" HREF="node72.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node74.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html952"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html950"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html944"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html953"
+  HREF="node74.html">contours on a magnetic</A>
+<B> Up:</B> <A NAME="tex2html951"
+  HREF="node71.html">Visualization of field-line-following coordinates</A>
+<B> Previous:</B> <A NAME="tex2html945"
+  HREF="node72.html">Periodic conditions of physical</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00082200000000000000">
+Numerical implementation of periodic condition
+(</A><A HREF="node72.html#17-11-2-p1">290</A>)
+</H3>
+
+<P>
+For the fully kinetic ion module of GEM code that I am developing, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> is
+chosen in the range <!-- MATH
+ $[0 : 2 \pi]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="52" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img613.png"
+ ALT="$ [0
+: 2 \pi]$"></SPAN>. The condition (<A HREF="node72.html#17-11-2-p1">290</A>) imposes
+the following boundary condition:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+g (\psi, 2 \pi, \alpha) = g (\psi, 0, \alpha + 2 \pi q) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="212" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img932.png"
+ ALT="$\displaystyle g (\psi, 2 \pi, \alpha) = g (\psi, 0, \alpha + 2 \pi q) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">291</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+If <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> is on a grid, <!-- MATH
+ $\alpha + 2 \pi q$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img933.png"
+ ALT="$ \alpha + 2 \pi q$"></SPAN> is usually not on a grid.
+Therefore, to get the value of <!-- MATH
+ $g (\psi, 0, \alpha + 2 \pi q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="113" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img934.png"
+ ALT="$ g (\psi, 0, \alpha + 2 \pi q)$"></SPAN>, an
+interpolation of the discrete date over the generalized toroidal angle
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> (or equivalently <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN>) is needed, as is shown in Fig.
+<A HREF="#17-11-2-1">18</A>.
+
+<P>
+ 
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="17-11-2-1"></A><A NAME="7954"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 18:</STRONG>
+Twenty magnetic field lines (on <!-- MATH
+ $\psi = 0.2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.png"
+ ALT="$ \psi = 0.2$"></SPAN>
+  magnetic surface) sarting at differnt toroidal angle (blue points) on the
+  midplane (<!-- MATH
+ $\theta = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$ \theta = 0$"></SPAN>) go a full poloidal loop (i.e., <!-- MATH
+ $\Delta \theta = 2
+  \pi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$ \Delta \theta = 2 \pi $"></SPAN>), arriving at a toroidal angle (red points) which are different from
+  their respective starting toroidal angle. The field values on the red points
+  can be obtained by interpolating the field values on the blue points. The
+  safety factor of the magnetic surface <SPAN CLASS="MATH"><IMG
+ WIDTH="61" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$ q = 1.79$"></SPAN>. Magnetic field from EAST
+  discharge #59954@3.03s.</CAPTION>
+<TR><TD><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2fr3/p.eps}}$
+ -->
+<IMG
+ WIDTH="363" HEIGHT="217" ALIGN="BOTTOM" BORDER="0"
+ SRC="img935.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2fr3/p.eps}}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html952"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html950"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html944"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html953"
+  HREF="node74.html">contours on a magnetic</A>
+<B> Up:</B> <A NAME="tex2html951"
+  HREF="node71.html">Visualization of field-line-following coordinates</A>
+<B> Previous:</B> <A NAME="tex2html945"
+  HREF="node72.html">Periodic conditions of physical</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

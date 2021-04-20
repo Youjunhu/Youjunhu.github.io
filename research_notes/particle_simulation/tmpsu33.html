@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Uniformly distributed random number</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <!--l. 1817--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu34.html" >next</a>] [<a 
+href="#tailtmpsu33.html">tail</a>] [<a 
+href="tmpse7.html#tmpsu33.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
+ id="x41-460007.1"></a>Uniformly distributed random number</h4>
+<!--l. 1819--><p class="noindent" >Generating random numbers that are uniform distributed in the range [0<span 
+class="cmmi-10">,</span>1] is the basis for generating non-uniform
+distribution. Because the same program with the same input always produces the same output, it is not possible to write a
+program that produces truly random numbers. However, for most purposes, a pseudo-random number sequence will work
+almost as well. By “pseudo-random number”, we mean a repeatable sequence of numbers that has statistical properties
+similar to a random sequence. The most well-known algorithm for generating pseudo-random sequences of
+integers is the linear congruental method<span class="cite">[<a 
+href="tmpli1.html#XFitzpatrickcp">4</a>]</span>, in which the <span 
+class="cmmi-10">n</span>th and (<span 
+class="cmmi-10">n </span>+ 1)th integers in the sequence is related
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-46001r134"></a>
+   <center class="math-display" >
+<img 
+src="tmp159x.png" alt="In+1 = Mod (AIn + C,M ),
+" class="math-display"  /></center></td><td class="equation-label">(134)</td></tr></table>
+<!--l. 1831--><p class="nopar" >
+where Mod is the remainder function, <span 
+class="cmmi-10">A</span>, <span 
+class="cmmi-10">C</span>, and <span 
+class="cmmi-10">M </span>are positive integer constants. The ﬁrst number in the sequence, which
+is called the seed value, is selected by users. Equation (<a 
+href="#x41-46001r134">134<!--tex4ht:ref: 2-19-e1 --></a>) can generate pseudo-random number that is uniform
+distributed in the range [0<span 
+class="cmmi-10">,M </span><span 
+class="cmsy-10">&minus; </span>1]. The obtained sequence can be scaled by a factor of <span 
+class="cmmi-10">M </span><span 
+class="cmsy-10">&minus; </span>1 to lie in the range [0<span 
+class="cmmi-10">,</span>1].
+Figure <a 
+href="#x41-4600212">12<!--tex4ht:ref: 7-9-p1 --></a> plots the possibility density of 10<sup><span 
+class="cmr-7">6</span></sup> values returned by Eq. (<a 
+href="#x41-46001r134">134<!--tex4ht:ref: 2-19-e1 --></a>)  with parameters <span 
+class="cmmi-10">A </span>= 16807, <span 
+class="cmmi-10">C </span>= 0,
+<span 
+class="cmmi-10">M </span>= 2147483647 (this choice is called the Park and Miller method). In practice we need to use Schrange&#x2019;s algorithm to
+avoid integer overﬂow<span class="cite">[<a 
+href="tmpli1.html#XFitzpatrickcp">4</a>]</span>.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x41-4600212"></a>
+
+
+<!--l. 1844--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/pic_code/fig2/tmp.png" alt="pict"  
+ width="180.67499pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 12: </span><span  
+class="content">The distribution of the 10<sup><span 
+class="cmr-7">6</span></sup>  values returned by the the random number generator Eq. (<a 
+href="#x41-46001r134">134<!--tex4ht:ref: 2-19-e1 --></a>). The
+possibility density (value of the distribution function) is obtained by the following steps: (1) divide the range
+[0<span 
+class="cmmi-10">,</span>1] into 100 sub-regions; (2) then counts respectively the number of the returned value whose values are in the
+sub-regions; (3) the numbers of value in each sub-region obtained this way is further divided by the total number of
+values (10<sup><span 
+class="cmr-7">6</span></sup>) to give the relativistic possibilities; (4) scale the relativistic possibilities by 100 times, which gives the
+exact possibility density (this scaling is needed because the sub-region is of length 1<span 
+class="cmmi-10">∕</span>100, instead of unit length).
+Note that the value of the possibility density can be larger than one.</span></div><!--tex4ht:label?: x41-4600212 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1858--><p class="indent" >    
+</p><!--l. 1860--><p class="indent" >   Another way to visualize whether the values generated by the random generator are random distributed in the region
+[0<span 
+class="cmmi-10">,</span>1] is to view how the points (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">+1</span></sub>) are distributed in the two-dimension plane, as is plotted in Fig.
+<a 
+href="#x41-4600313">13<!--tex4ht:ref: 1-22-1 --></a>.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x41-4600313"></a>
+
+
+<!--l. 1866--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/pic_code/fig3/tmp.png" alt="pict"  
+ width="180.67499pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 13: </span><span  
+class="content">Plot of <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> verse <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">+1</span></sub> for <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,</span>10<sup><span 
+class="cmr-7">4</span></sup>. Here <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> are random numbers generated by the random number
+generator.</span></div><!--tex4ht:label?: x41-4600313 -->
+
+   </div><hr class="endfigure" />
+
+   <!--l. 1872--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu34.html" >next</a>] [<a 
+href="tmpsu33.html" >front</a>] [<a 
+href="tmpse7.html#tmpsu33.html" >up</a>] </p></div>
+<!--l. 1872--><p class="indent" >   <a 
+ id="tailtmpsu33.html"></a> </p> 
+</body></html> 

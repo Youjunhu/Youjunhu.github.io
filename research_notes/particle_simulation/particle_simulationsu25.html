@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Finite diﬀerence solver for Poisson equation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1403--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu26.html" >next</a>] [<a 
+href="particle_simulationsu24.html" >prev</a>] [<a 
+href="particle_simulationsu24.html#tailparticle_simulationsu24.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu25.html">tail</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu25.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.10   </span> <a 
+ id="x31-360005.10"></a>Finite diﬀerence solver for Poisson equation</h4>
+<!--l. 1405--><p class="noindent" >Using the center diﬀerence scheme for the second order derivative, the discrete form of Eq. (<a 
+href="particle_simulationsu24.html#x30-35001r100">100<!--tex4ht:ref: 10-11-1 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-36001r114"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation125x.png" alt="ϕi&minus; 1 &minus; 2ϕi + ϕi+1 = &minus; &Delta;2&rho;i
+" class="math-display"  /></center></td><td class="equation-label">(114)</td></tr></table>
+<!--l. 1409--><p class="nopar" >
+Using the boundary condition <span 
+class="cmmi-10">ϕ</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">ϕ</span><sub><span 
+class="cmmi-7">N</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">1</span></sub> = 0, equation (<a 
+href="#x31-36001r114">114<!--tex4ht:ref: 12-27-5 --></a>) is written in the following tridiagonal matrix
+form:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-36002r115"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation126x.png" alt="A ϕ = b
+" class="math-display"  /></center></td><td class="equation-label">(115)</td></tr></table>
+<!--l. 1414--><p class="nopar" >
+where
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x31-36003r116"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation127x.png" alt="    (  &minus; 2 1    0 0    0  )          ( &rho;     )
+    |  1   &minus; 2  1 0    0  |          | &rho;1    |
+    ||  .   .    . .    .  ||        2 || .2    ||
+A = ||  ..   ..    .. ..    ..  || ,b = &minus; &Delta; || ..     ||
+    (  0   0    1 &minus; 2  1  )          ( &rho;N &minus;3 )
+       0   0    0 1    &minus; 2             &rho;N &minus;2
+
+" class="math-display"  /></center></td><td class="equation-label">(116)</td></tr></table>
+<!--l. 1430--><p class="nopar" >
+The results presented in this note are obtained by using the FFT solver, instead of the ﬁnite diﬀerence
+solver.
+
+</p>
+   <!--l. 1434--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu26.html" >next</a>] [<a 
+href="particle_simulationsu24.html" >prev</a>] [<a 
+href="particle_simulationsu24.html#tailparticle_simulationsu24.html" >prev-tail</a>] [<a 
+href="particle_simulationsu25.html" >front</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu25.html" >up</a>] </p></div>
+<!--l. 1434--><p class="indent" >   <a 
+ id="tailparticle_simulationsu25.html"></a> </p> 
+</body></html> 

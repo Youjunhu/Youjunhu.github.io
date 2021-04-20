@@ -1,0 +1,2234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Computational physics</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="computational_physics.tex"> 
+<meta name="date" content="2018-07-23 14:11:00"> 
+<link rel="stylesheet" type="text/css" href="computational_physics.css"> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  
+
+                                                                  
+                                                                  
+
+                                                                  
+
+<h2 class="titleHead">Computational physics</h2>
+                       <div class="author" > <span 
+class="cmr-12">Youjun Hu</span>
+<br /><span 
+class="cmr-12">Institute of Plasma Physics, Chinese Academy of Sciences</span>
+<br />                 <span 
+class="cmr-12">Email: yjhu@ipp.cas.cn </span></div><br />
+<div class="date" ><span 
+class="cmr-12">July 23, 2018</span></div>
+   </div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Introduction</h3>
+<!--l. 26--><p class="noindent" >Physics becomes concrete, impressive, and fun when we compute it numerically and
+visualize the process by graphics. Computational physics are primarily about
+numerically solving three types of partial differential equations (PDEs), namely
+hyperbolic, parabolic, and elliptic PDEs, which respectively correspond to advection
+(wave) equations, diffusion equations, and Poisson&#8217;s equations.
+<!--l. 33--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>Advection equation</h3>
+<!--l. 35--><p class="noindent" >In one-dimensional case, an advection equation takes the following form:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics0x.png" alt="&part;y-= &minus; c&part;y,
+ &part;t     &part;x
+" class="math-display" ><a 
+ id="x1-2001r1"></a></center></td><td class="equation-label">(1)</td></tr></table>
+                                                                  
+
+                                                                  
+<!--l. 38--><p class="nopar" >
+where <span 
+class="cmmi-10">c </span>is a constant. A natural choice of differencing scheme for the above equation
+is
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics1x.png" alt="y(n+1)&minus; y(n)  y((ni+)1) &minus; y((ni&minus;)1)
+-i-------i- = ------------,
+     &Delta;t           2&Delta;x
+" class="math-display" ><a 
+ id="x1-2002r2"></a></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 44--><p class="nopar" >
+which however is unconditionally unstable (tested by me numerically. the stability
+analysis can prove that the above scheme is unconditional unstable<span class="cite">[<a 
+href="#XFitzpatrickcp">2</a>]</span>). The
+Lax-Friedrichs scheme modifies the above scheme to the following form:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics2x.png" alt="        y(n) +y(n)        (n)     (n)
+y(in+1)&minus;--(i&minus;1)2-(i+1)-     y(i+1) &minus;-y(i&minus;1)
+        &Delta;t        = &minus; c    2&Delta;x     ,
+" class="math-display" ><a 
+ id="x1-2003r3"></a></center></td><td class="equation-label">(3)</td></tr></table>
+<!--l. 53--><p class="nopar" >
+which is stable if the CFL condition is satisfied. However this scheme introduces
+heavy damping in the solution, as is shown in Fig <a 
+href="#x1-20061">1<!--tex4ht:ref: 18-4-9-2 --></a>. The Lax-Friedrichs scheme is an
+explicit scheme. Let us try implicit schemes. One natural choice of implicit scheme is
+of the following form:
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics3x.png" alt="                  &lfloor; (n+1)   (n+1)    (n)     (n)  &rfloor;
+y(in+1)&minus;-y(ni)     1 &lceil;y(i+1)-&minus;-y(i&minus;1)   y(i+1) &minus;-y(i&minus;1)&rceil;
+     &Delta;t     = &minus; 2c      2&Delta;x      +     2&Delta;x      ,
+" class="math-display" ><a 
+ id="x1-2004r4"></a></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 62--><p class="nopar" >
+which is called the Crank&#8211;Nicolson implicit scheme. An implicit scheme usually
+requires that an linear equations system be solved because the unknown future values
+are usually coupled together. The scheme (<a 
+href="#x1-2004r4">4<!--tex4ht:ref: 18-4-8-1 --></a>) can be organized in the following
+form
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics4x.png" alt="            &lfloor;y(n+1)&minus; y(n+1)&rfloor;            &lfloor; y(n)  &minus; y(n)  &rfloor;
+y(in+1)+ &Delta;tc &lceil;-(i+1)---(i&minus;1)&rceil; = y(ni)&minus;  &Delta;tc&lceil; -(i+1)---(i&minus;1)&rceil;,
+         2        2&Delta;x               2        2&Delta;x
+" class="math-display" ><a 
+ id="x1-2005r5"></a></center></td><td class="equation-label">(5)</td></tr></table>
+<!--l. 71--><p class="nopar" >
+which is a traditional equation system. Figure <a 
+href="#x1-20061">1<!--tex4ht:ref: 18-4-9-2 --></a> compares the results calculated by
+the Lax-Friedrichs scheme and the Crank&#8211;Nicolson scheme, which shows that no
+damping is introduced by the Crank-Nicolson scheme.
+<!--l. 77--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-20061"></a>
+                                                                  
+
+                                                                  
+<!--l. 78--><p class="noindent" ><img 
+src="computational_physics5x.png" alt="PIC" class="graphics" width="291.0875pt" height="153.57375pt" ><!--tex4ht:graphics  
+name="computational_physics5x.png" src="/home/yj/project_new/1d_advection/fig1/p.eps"  
+--><img 
+src="computational_physics6x.png" alt="PIC" class="graphics" width="291.0875pt" height="153.57375pt" ><!--tex4ht:graphics  
+name="computational_physics6x.png" src="/home/yj/project_new/1d_advection_crank_nicholson/fig1/p.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;1:  </span><span  
+class="content">Evolution  of  the  waveform  computed  by  the  Lax-Friedrichs
+scheme (left) and the Crank&#8211;Nicolson implicit scheme (right). Simulations are
+performed with the Initial condition given by <span 
+class="cmmi-10">y</span>(<span 
+class="cmmi-10">x,t </span>= 0) = exp(<span 
+class="cmsy-10">&minus;</span>100(<span 
+class="cmmi-10">x</span><span 
+class="cmsy-10">&minus;</span>0<span 
+class="cmmi-10">.</span>5)<sup><span 
+class="cmr-7">2</span></sup>),
+time-step size <span 
+class="cmmi-10">dt </span>= 0<span 
+class="cmmi-10">.</span>05<span 
+class="cmmi-10">dx&#x2215;c</span>, grid spacing <span 
+class="cmmi-10">dx </span>= 1<span 
+class="cmmi-10">&#x2215;</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">x</span></sub> <span 
+class="cmsy-10">&minus; </span>1), <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">x</span></sub> = 200. Both
+schemes  give  correct  the  propagation  speed,  but  the  Lax-Friedrichs  scheme
+introduces heavy damping in the solution.</span></div><!--tex4ht:label?: x1-20061 -->
+                                                                  
+
+                                                                  
+<!--l. 86--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 88--><p class="indent" >   &#x00A0;
+<!--l. 90--><p class="indent" >   &#x00A0;
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-30003"></a>Wave equation</h3>
+<!--l. 94--><p class="noindent" >A wave equation in one-dimension takes the following form:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics7x.png" alt=" 2      2
+&part;-y = c&part;-y,
+&part;t2    &part;x2
+" class="math-display" ><a 
+ id="x1-3001r6"></a></center></td><td class="equation-label">(6)</td></tr></table>
+<!--l. 98--><p class="nopar" >
+which is a second order differential equation and can be written as two coupled
+advection equations. Define a new function <span 
+class="cmmi-10">&xi; </span>by
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics8x.png" alt="&part;&xi;-= &part;y-
+&part;t   &part;x
+" class="math-display" ><a 
+ id="x1-3002r7"></a></center></td><td class="equation-label">(7)</td></tr></table>
+<!--l. 104--><p class="nopar" >
+Then Eq. (<a 
+href="#x1-3001r6">6<!--tex4ht:ref: 18-4-15-1 --></a>) can be written as
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics9x.png" alt=" 2
+&part;-y2 = c-&part;&xi;-,
+&part;t     &part;t&part;x
+" class="math-display" ><a 
+ id="x1-3003r8"></a></center></td><td class="equation-label">(8)</td></tr></table>
+<!--l. 109--><p class="nopar" >
+which can be simplified as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics10x.png" alt="&part;y    &part;&xi;
+---= c---.
+&part;t    &part;x
+" class="math-display" ><a 
+ id="x1-3004r9"></a></center></td><td class="equation-label">(9)</td></tr></table>
+<!--l. 114--><p class="nopar" >
+Equation (<a 
+href="#x1-3002r7">7<!--tex4ht:ref: 18-4-15-2 --></a>) and (<a 
+href="#x1-3004r9">9<!--tex4ht:ref: 18-4-15-3 --></a>) are two couple advection equations.
+<!--l. 118--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x1-40003.1"></a>Maxwell&#8217;s equation in 1D case</h4>
+<!--l. 120--><p class="noindent" >For Maxwell&#8217;s equation in one-dimension case, there are two independent TEM
+modes, one of which is described by
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics11x.png" alt="&part;By- = &part;Ez,
+ &part;t    &part;x
+" class="math-display" ><a 
+ id="x1-4001r10"></a></center></td><td class="equation-label">(10)</td></tr></table>
+                                                                  
+
+                                                                  
+<!--l. 124--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics12x.png" alt="&part;Ez- = c2 &part;By,
+ &part;t      &part;x
+" class="math-display" ><a 
+ id="x1-4002r11"></a></center></td><td class="equation-label">(11)</td></tr></table>
+<!--l. 127--><p class="nopar" >
+where <span 
+class="cmmi-10">c </span>= 1<span 
+class="cmmi-10">&#x2215;</span><img 
+src="computational_physics13x.png" alt="&radic; &mu;0&#x03B5;0-"  class="sqrt" > is the speed of light in vacuum. In an electromagnetic wave, <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">z</span></sub> is
+<span 
+class="cmmi-10">c </span>times of <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">z</span></sub> in SI units. To make the two variables in the above equation takes
+similar magnitude, define <span class="overline"><span 
+class="cmmi-10">E</span></span><sub><span 
+class="cmmi-7">z</span></sub> = <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">z</span></sub><span 
+class="cmmi-10">&#x2215;c</span>. Then using (<span class="overline"><span 
+class="cmmi-10">E</span></span><sub><span 
+class="cmmi-7">z</span></sub><span 
+class="cmmi-10">,B</span><sub><span 
+class="cmmi-7">y</span></sub>) as variables, the above
+equations are written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics14x.png" alt="        --
+&part;By-   &part;Ez-
+ &part;t = c &part;x ,
+" class="math-display" ><a 
+ id="x1-4003r12"></a></center></td><td class="equation-label">(12)</td></tr></table>
+<!--l. 136--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics15x.png" alt=" --
+&part;Ez-   &part;By-
+ &part;t = c &part;x ,
+" class="math-display" ><a 
+ id="x1-4004r13"></a></center></td><td class="equation-label">(13)</td></tr></table>
+<!--l. 140--><p class="nopar" >
+<!--l. 142--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x1-50003.2"></a>The Lax scheme</h4>
+<!--l. 144--><p class="noindent" >Similar to the case of advection equation, the following simple differencing scheme for
+the vacuum TEM equations (<a 
+href="#x1-4003r12">12<!--tex4ht:ref: 18-4-15-4 --></a>) and (<a 
+href="#x1-4004r13">13<!--tex4ht:ref: 18-4-15-5 --></a>):
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics16x.png" alt="  (n+1)    (n)    -(n)    --(n)
+B-yi--&minus;-B-yi = cEz(i+1) &minus;-E-z(i&minus;1).
+     &Delta;t              2&Delta;x
+" class="math-display" ><a 
+ id="x1-5001r14"></a></center></td><td class="equation-label">(14)</td></tr></table>
+<!--l. 149--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics17x.png" alt="E-(zn+i1)&minus; E-(zn)i    By(n()i+1) &minus; B (ny)(i&minus;1)
+-----&Delta;t----- = c-----2&Delta;x-------.
+" class="math-display" ><a 
+ id="x1-5002r15"></a></center></td><td class="equation-label">(15)</td></tr></table>
+<!--l. 154--><p class="nopar" >
+is unstable (tested numerically by me). The Lax scheme modifies the above scheme to
+the following form:
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics18x.png" alt="        B (n)  +B(n)      --      --
+B-(ny+i1)&minus;---y(i&minus;1)2-y(i+1)    E-(nz()i+1)-&minus;E-(zn)(i&minus;1)
+         &Delta;t          = c     2&Delta;x       .
+" class="math-display" ><a 
+ id="x1-5003r16"></a></center></td><td class="equation-label">(16)</td></tr></table>
+<!--l. 163--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics19x.png" alt="--(n+1)   E(nz()i&minus;1)+E(zn)(i+1)-     (n)      (n)
+E-zi--&minus;-------2----- = cB-y(i+1)-&minus; B-y(i&minus;1).
+         &Delta;t                  2&Delta;x
+" class="math-display" ><a 
+ id="x1-5004r17"></a></center></td><td class="equation-label">(17)</td></tr></table>
+<!--l. 169--><p class="nopar" >
+I tested this and found it induces heavy damping as it does in the case of advection
+equation.
+<!--l. 173--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x1-60003.3"></a>The Crank&#8211;Nicolson scheme</h4>
+<!--l. 175--><p class="noindent" >Let us try the Crank-Nicolson implicit scheme:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics20x.png" alt="                 ( --      --       --       --    )
+B(yn(+i)1)&minus; B(yn()i)   1   E (nz(+i+11)) &minus;E (zn+(i1&minus;)1)  E (nz)(i+1) &minus; E(zn()i&minus;1)
+-----&Delta;t------= 2c( -----2&Delta;x-------+ ------2&Delta;x------) ,
+" class="math-display" ><a 
+ id="x1-6001r18"></a></center></td><td class="equation-label">(18)</td></tr></table>
+<!--l. 183--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics21x.png" alt="-(n+1)  -(n)     (   (n+1)    (n+1)    (n)     (n)  )
+Ez(i)--&minus;-Ez(i)-  1 ( B-y(i+1) &minus;-By(i&minus;1) B-y(i+1) &minus;-By(i&minus;1))
+     &Delta;t      = 2c        2&Delta;x      +       2&Delta;x        .
+" class="math-display" ><a 
+ id="x1-6002r19"></a></center></td><td class="equation-label">(19)</td></tr></table>
+<!--l. 189--><p class="nopar" >
+The above differencing scheme can be organized in the following form:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics22x.png" alt="            (--(n+1)   -(n+1))       ( --(n)    --(n)   )
+B(n+1)&minus; &Delta;tc (E-z(i+1) &minus;-Ez(i&minus;1)) = &Delta;tc( E-z(i+1)-&minus;E-z(i&minus;1)) + B(n),
+ y(i)     2         2&Delta;x           2         2&Delta;x            y(i)
+" class="math-display" ><a 
+ id="x1-6003r20"></a></center></td><td class="equation-label">(20)</td></tr></table>
+<!--l. 198--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics23x.png" alt="            (  (n+1)   (n+1))       (   (n)      (n)  )
+E(n+1)&minus; &Delta;t-c( By(i+1) &minus;-By(i&minus;-1)) = &Delta;tc( B-y(i+1) &minus;-By(i&minus;1)) + E(n).
+ z(i)     2         2&Delta;x           2          2&Delta;x           z(i)
+" class="math-display" ><a 
+ id="x1-6004r21"></a></center></td><td class="equation-label">(21)</td></tr></table>
+<!--l. 204--><p class="nopar" >
+which is a linear equation system for (<span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">yi</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1)</span></sup><span 
+class="cmmi-10">,</span><span class="overline"><span 
+class="cmmi-10">E</span></span><sub><span 
+class="cmmi-7">zi</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1)</span></sup>) with <span 
+class="cmmi-10">i </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">x</span></sub>, where
+<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">x</span></sub> is the number of grids in the <span 
+class="cmmi-10">x </span>direction. This linear system is solved by using LU
+decomposition of the coefficient matrix (the LU decomposition can be viewed as the
+matrix form of Gaussian elimination.). The evolution of the wave form calculated by
+this scheme is plotted in Fig. <a 
+href="#x1-60052">2<!--tex4ht:ref: 18-4-9-1 --></a>.
+<!--l. 212--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-60052"></a>
+                                                                  
+
+                                                                  
+<!--l. 213--><p class="noindent" ><img 
+src="computational_physics24x.png" alt="PIC" class="graphics" width="291.0875pt" height="153.57375pt" ><!--tex4ht:graphics  
+name="computational_physics24x.png" src="/home/yj/project_new/1d_TEM_wave/fig1/p.eps"  
+--><img 
+src="computational_physics25x.png" alt="PIC" class="graphics" width="291.0875pt" height="153.57375pt" ><!--tex4ht:graphics  
+name="computational_physics25x.png" src="/home/yj/project_new/1d_TEM_wave/fig2/p.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;2:  </span><span  
+class="content">Evolution  of  the  TEM  waveform  (<span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">y</span></sub><span 
+class="cmmi-10">,E</span><sub><span 
+class="cmmi-7">z</span></sub>)  computed  by  the
+Crank&#8211;Nicolson  implicit  scheme.  Simulations  are  performed  with  the  initial
+condition <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">z</span></sub>(<span 
+class="cmmi-10">x,t </span>= 0) = 0, <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">x,t </span>= 0) = exp(<span 
+class="cmsy-10">&minus;</span>(<span 
+class="cmmi-10">x</span><span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub>)<sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">&#x2215;</span>(0<span 
+class="cmmi-10">.</span>1<span 
+class="cmmi-10">L</span>)<sup><span 
+class="cmr-7">2</span></sup>), <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub> = 0<span 
+class="cmmi-10">.</span>5<span 
+class="cmmi-10">m</span>,
+<span 
+class="cmmi-10">L </span>= 1<span 
+class="cmmi-10">m</span>, time-step size <span 
+class="cmmi-10">dt </span>= 0<span 
+class="cmmi-10">.</span>01<span 
+class="cmmi-10">dx&#x2215;c</span>, grid spacing <span 
+class="cmmi-10">dx </span>= 1<span 
+class="cmmi-10">&#x2215;</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmsy-10">&minus;</span>1), <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">x</span></sub> = 100.
+Fixed  zero  boundary  condition  is  used:  <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">z</span></sub>(<span 
+class="cmmi-10">x  </span>=  0)  =  <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">z</span></sub>(<span 
+class="cmmi-10">x  </span>=  <span 
+class="cmmi-10">L</span>)  =  0,
+<span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">x </span>= 0) = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">L</span>) = 0. Since the waveform has not reach the boundary,
+the boundary has no effect on the evolution. The results show that two traveling
+waves emerge from the Gaussian waveform of <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">y</span></sub>, propagating in the opposite
+directions. The propagation speed is correct.</span></div><!--tex4ht:label?: x1-60052 -->
+                                                                  
+
+                                                                  
+<!--l. 224--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 226--><p class="indent" >   &#x00A0;
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-70004"></a>Diffusion equation</h3>
+<!--l. 230--><p class="noindent" >The stencil used in the explicit, implicit, and Crank&#8211;Nicolson implicit method is
+given in Figure (<a 
+href="#x1-70013">3<!--tex4ht:ref: 18-4-15-8 --></a>).
+<!--l. 233--><p class="indent" >   &#x00A0;
+<!--l. 235--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-70013"></a>
+                                                                  
+
+                                                                  
+<!--l. 236--><p class="noindent" ><img 
+src="computational_physics26x.png" alt="PIC" class="graphics" width="148.555pt" height="93.34874pt" ><!--tex4ht:graphics  
+name="computational_physics26x.png" src="/home/yj/theory/figures/implicit_scheme/explicit-1.eps"  
+--><img 
+src="computational_physics27x.png" alt="PIC" class="graphics" width="151.56624pt" height="101.37874pt" ><!--tex4ht:graphics  
+name="computational_physics27x.png" src="/home/yj/theory/figures/implicit_scheme/explicit-2.eps"  
+--><img 
+src="computational_physics28x.png" alt="PIC" class="graphics" width="151.56624pt" height="101.37874pt" ><!--tex4ht:graphics  
+name="computational_physics28x.png" src="/home/yj/theory/figures/implicit_scheme/explicit-3.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;3: </span><span  
+class="content">Stencil of an explicit scheme (left) implicit scheme (middle) and the
+Crank-Nicolson implicit scheme (right) for the diffusion equation <span 
+class="cmmi-10">u</span><sub><span 
+class="cmmi-7">t</span></sub> = <span 
+class="cmmi-10">u</span><sub><span 
+class="cmmi-7">xx</span></sub>.</span></div><!--tex4ht:label?: x1-70013 -->
+                                                                  
+
+                                                                  
+<!--l. 240--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 242--><p class="indent" >   This part is to be continued.
+<!--l. 244--><p class="indent" >   &#x00A0;
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-80005"></a>Poisson&#8217;s equation</h3>
+<!--l. 248--><p class="noindent" >Poisson&#8217;s equation is written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics29x.png" alt="&nabla;2&phi; = S,
+" class="math-display" ><a 
+ id="x1-8001r22"></a></center></td><td class="equation-label">(22)</td></tr></table>
+<!--l. 251--><p class="nopar" >
+where <span 
+class="cmmi-10">S </span>is a known source term. In Cartesian coordinates and in the 2D case, the
+above equation is written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics30x.png" alt="&part;2&phi;   &part;2&phi;
+--2-+ --2-= S(x,y).
+&part;x    &part;x
+" class="math-display" ><a 
+ id="x1-8002r23"></a></center></td><td class="equation-label">(23)</td></tr></table>
+<!--l. 257--><p class="nopar" >
+Consider solving the above equation in a rectangular domain with <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">a</span></sub> <span 
+class="msam-10">&le; </span><span 
+class="cmmi-10">x </span><span 
+class="msam-10">&le; </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">b</span></sub> and
+<span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">a</span></sub> <span 
+class="msam-10">&le; </span><span 
+class="cmmi-10">y </span><span 
+class="msam-10">&le; </span><span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">b</span></sub> and with <span 
+class="cmmi-10">&phi; </span>= 0 on the boundary.
+                                                                  
+
+                                                                  
+<!--l. 262--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x1-90005.1"></a>Discretized form using finite differencing</h4>
+<!--l. 264--><p class="noindent" >Discretize <span 
+class="cmmi-10">x </span>as <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">i</span></sub> = <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">a</span></sub> + (<span 
+class="cmmi-10">i </span>+ 1)&Delta;<sub><span 
+class="cmmi-7">x</span></sub>, where &Delta;<sub><span 
+class="cmmi-7">x</span></sub> = (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">b</span></sub> <span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">a</span></sub>)<span 
+class="cmmi-10">&#x2215;</span>(<span 
+class="cmmi-10">M </span>+ 1) and
+<span 
+class="cmmi-10">i </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,M </span><span 
+class="cmsy-10">&minus; </span>1. Similarly, discretize <span 
+class="cmmi-10">y </span>as <span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">a</span></sub> + (<span 
+class="cmmi-10">j </span>+ 1)&Delta;<sub><span 
+class="cmmi-7">y</span></sub>, where
+&Delta;<sub><span 
+class="cmmi-7">y</span></sub> = (<span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">b</span></sub> <span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">a</span></sub>)<span 
+class="cmmi-10">&#x2215;</span>(<span 
+class="cmmi-10">N </span>+ 1) and <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1. Then the above equation can be
+discretized by using the following finite difference:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics31x.png" alt="&phi;i+1,j &minus;-2&phi;i,j +-&phi;i&minus;1,j + &phi;i,j+1 &minus;-2&phi;i,j-+&phi;i,j&minus;-1= S ,
+        &Delta;2x                   &Delta;2y            i,j
+" class="math-display" ><a 
+ id="x1-9001r24"></a></center></td><td class="equation-label">(24)</td></tr></table>
+<!--l. 273--><p class="nopar" >
+where <span 
+class="cmmi-10">&phi;</span><sub><span 
+class="cmmi-7">i,j</span></sub> = <span 
+class="cmmi-10">&phi;</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">i</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmmi-7">j</span></sub>) and <span 
+class="cmmi-10">S</span><sub><span 
+class="cmmi-7">i,j</span></sub> = <span 
+class="cmmi-10">S</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">i</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmmi-7">j</span></sub>). Equation (<a 
+href="#x1-9001r24">24<!--tex4ht:ref: 18-7-21-p1 --></a>) can be arranged
+as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics32x.png" alt="a&phi;i+1,j + a&phi;i&minus;1,j + c&phi;i,j + b&phi;i,j+1 + b&phi;i,j&minus;1 = Si,j,
+" class="math-display" ><a 
+ id="x1-9002r25"></a></center></td><td class="equation-label">(25)</td></tr></table>
+<!--l. 279--><p class="nopar" >
+where <span 
+class="cmmi-10">a </span>= 1<span 
+class="cmmi-10">&#x2215;</span>&Delta;<sub><span 
+class="cmmi-7">x</span></sub><sup><span 
+class="cmr-7">2</span></sup>, <span 
+class="cmmi-10">b </span>= 1<span 
+class="cmmi-10">&#x2215;</span>&Delta;<sub><span 
+class="cmmi-7">y</span></sub><sup><span 
+class="cmr-7">2</span></sup>, and <span 
+class="cmmi-10">c </span>= <span 
+class="cmsy-10">&minus;</span><img 
+src="computational_physics33x.png" alt="(        )
+  2&Delta;2x + 2&Delta;2y-"  class="left" align="middle">. This is a 5-points stencil, as is
+illustrated in Fig. <a 
+href="#x1-90034">4<!--tex4ht:ref: 18-7-21-p4 --></a>.
+<!--l. 284--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-90034"></a>
+                                                                  
+
+                                                                  
+<!--l. 285--><p class="noindent" ><img 
+src="computational_physics34x.png" alt="PIC" class="graphics" width="154.5775pt" height="138.51749pt" ><!--tex4ht:graphics  
+name="computational_physics34x.png" src="/home/yj/theory/figures/ordering/5point-1.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;4: </span><span  
+class="content">Five-points stencil of the finite differencing scheme in Eq. (<a 
+href="#x1-9002r25">25<!--tex4ht:ref: 18-7-21-p2 --></a>).</span></div><!--tex4ht:label?: x1-90034 -->
+                                                                  
+
+                                                                  
+<!--l. 288--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 290--><p class="indent" >   &#x00A0;
+<!--l. 292--><p class="indent" >   In this discritization, the boundary conditions are written as <span 
+class="cmmi-10">&phi;</span><sub><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">,j</span></sub> = <span 
+class="cmmi-10">&phi;</span><sub><span 
+class="cmmi-7">M,j</span></sub> = 0
+and <span 
+class="cmmi-10">&phi;</span><sub><span 
+class="cmmi-7">i,</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">1</span></sub> = <span 
+class="cmmi-10">&phi;</span><sub><span 
+class="cmmi-7">i,N</span></sub> = 0.
+   <h4 class="subsectionHead"><span class="titlemark">5.2   </span> <a 
+ id="x1-100005.2"></a>Matrix form of the difference scheme</h4>
+<!--l. 297--><p class="noindent" >In order to solve the linear equation system (<a 
+href="#x1-9002r25">25<!--tex4ht:ref: 18-7-21-p2 --></a>), we prefer to formulate it in a
+matrix form. In order to do this, we need to order the 2D discrete unknowns
+<span 
+class="cmmi-10">&phi;</span><sub><span 
+class="cmmi-7">i,j</span></sub> in a 1D sequence. Two natural ordering schemes are the row-ordering
+and the column ordering. I choose the row ordering, as is illustrated in Fig.
+<a 
+href="#x1-100015">5<!--tex4ht:ref: 18-7-21-1 --></a>.
+<!--l. 303--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-100015"></a>
+                                                                  
+
+                                                                  
+<!--l. 304--><p class="noindent" ><img 
+src="computational_physics35x.png" alt="PIC" class="graphics" width="289.07999pt" height="112.42pt" ><!--tex4ht:graphics  
+name="computational_physics35x.png" src="/home/yj/theory/figures/ordering/ordering-1.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;5: </span><span  
+class="content">Row-ordering of the 2D discrete unknowns <span 
+class="cmmi-10">&phi;</span><sub><span 
+class="cmmi-7">i,j</span></sub> on a 3 <span 
+class="cmsy-10">&#x00D7; </span>3 mesh.</span></div><!--tex4ht:label?: x1-100015 -->
+                                                                  
+
+                                                                  
+<!--l. 307--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 309--><p class="indent" >   Using the above ordering, the linear equation system (<a 
+href="#x1-9002r25">25<!--tex4ht:ref: 18-7-21-p2 --></a>) for the special case of a
+3 <span 
+class="cmsy-10">&#x00D7; </span>3 mesh is written as the following matrix form:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics36x.png" alt="(                           ) (    )   (     )
+  c  a     b                    &phi;0        S0
+|| a  c  a     b             || || &phi;1 ||   ||  S1 ||
+||    a  c        b          || || &phi;2 ||   ||  S2 ||
+|| b        c  a     b       || || &phi;3 ||   ||  S3 ||
+||    b     a  c  a     b    || || &phi;4 || = ||  S4 || ,
+||       b     a  c        b || || &phi;5 ||   ||  S5 ||
+||          b        c  a    || || &phi;6 ||   ||  S6 ||
+(             b     a  c  a ) ( &phi;7 )   (  S7 )
+                 b     a  c     &phi;8        S8
+" class="math-display" ><a 
+ id="x1-10002r26"></a></center></td><td class="equation-label">(26)</td></tr></table>
+<!--l. 344--><p class="nopar" >
+where all the blank elements are zeros. This 9 <span 
+class="cmsy-10">&#x00D7; </span>9 matrix is sparse but is not
+tridiagonal. Each row of the matrix corresponds to one difference equation at a grid
+point. It is not difficult to generalize the above 9 <span 
+class="cmsy-10">&#x00D7; </span>9 matrix to a general <span 
+class="cmmi-10">MN </span><span 
+class="cmsy-10">&#x00D7;</span><span 
+class="cmmi-10">MN</span>
+matrix. The general pattern is that those rows that corresponds to inner grid points
+have the following pattern (<span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,b,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,a,c,a,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,b,</span><span 
+class="cmmi-10">&hellip;</span>), where <span 
+class="cmmi-10">c </span>is on the diagonal location
+and the distance between <span 
+class="cmmi-10">b </span>and <span 
+class="cmmi-10">c </span>is <span 
+class="cmmi-10">M</span>. For those rows that correspond to boundary
+grid points, some <span 
+class="cmmi-10">b </span>and/or <span 
+class="cmmi-10">a </span>can be absent. Specifically, (1) the left <span 
+class="cmmi-10">a </span>is absent for all
+the rows corresponding to the left boundary grids; (2) the right <span 
+class="cmmi-10">a </span>is absent for all the
+rows corresponding to the right boundary grids; (3) the left <span 
+class="cmmi-10">b </span>is absent for all the
+rows corresponding to bottom boundary grids; (4) the right <span 
+class="cmmi-10">b </span>is absent for all the
+rows corresponding to the top boundary grids. The following Fotran code
+illustrates how to set up the matrix elements for this kind of sparse matrix:
+<div class="alltt">
+<!--l. 361--><p class="noindent" ><div class="obeylines-v">            <span 
+class="cmtt-10">dx=1.0/(m+1)</span>
+<br /><span 
+class="cmtt-10">dy=1.0/(n+1)</span>
+<br /><span 
+class="cmtt-10">a_coef=</span><span 
+class="cmtt-10">&#x00A0;1./dx**2</span>
+<br /><span 
+class="cmtt-10">b_coef=1./dy**2</span>
+<br /><span 
+class="cmtt-10">c_coef</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;-2*(a_coef+b_coef)</span>
+<br /><span 
+class="cmtt-10">A=0</span><span 
+class="cmtt-10">&#x00A0;!initialize</span><span 
+class="cmtt-10">&#x00A0;coefficent</span><span 
+class="cmtt-10">&#x00A0;matrix</span>
+                                                                  
+
+                                                                  
+<br /><span 
+class="cmtt-10">do</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;II=0,m*n-1</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;A(II,II)=c_coeff</span><span 
+class="cmtt-10">&#x00A0;!diagonal</span><span 
+class="cmtt-10">&#x00A0;elements</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;j</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II/m</span><span 
+class="cmtt-10">&#x00A0;!recover</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;original</span><span 
+class="cmtt-10">&#x00A0;index</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;y</span><span 
+class="cmtt-10">&#x00A0;direction</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;2D</span><span 
+class="cmtt-10">&#x00A0;mesh</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(j.gt.0)</span><span 
+class="cmtt-10">&#x00A0;A(II,II-m)=b_coef</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(j.lt.n-1)</span><span 
+class="cmtt-10">&#x00A0;A(II,II+m)=b_coeff</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;i</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;j*m</span><span 
+class="cmtt-10">&#x00A0;!recover</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;original</span><span 
+class="cmtt-10">&#x00A0;index</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;x</span><span 
+class="cmtt-10">&#x00A0;direction</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;2D</span><span 
+class="cmtt-10">&#x00A0;mesh</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(i.gt.0)</span><span 
+class="cmtt-10">&#x00A0;A(II,II-1)=a_coeff</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(i.lt.m-1)</span><span 
+class="cmtt-10">&#x00A0;A(II,II+1)=a_coeff</span>
+<br /><span 
+class="cmtt-10">enddo</span>
+</div>
+</div>
+I use PETSc parallel library<span class="cite">[<a 
+href="#Xpetsc-web-page">1</a>]</span> to solve the above linear system. In this case,
+the corresponding code for setting up the matrix in parallel is as follows:
+<div class="alltt">
+<!--l. 381--><p class="noindent" ><div class="obeylines-v">            <span 
+class="cmtt-10">dx=1.0/(m+1)</span>
+<br /><span 
+class="cmtt-10">dy=1.0/(n+1)</span>
+<br /><span 
+class="cmtt-10">a_coef=</span><span 
+class="cmtt-10">&#x00A0;1./dx**2</span>
+<br /><span 
+class="cmtt-10">b_coef=1./dy**2</span>
+<br /><span 
+class="cmtt-10">c_coef</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;-2*(a_coef+b_coef)</span>
+<br /><span 
+class="cmtt-10">call</span><span 
+class="cmtt-10">&#x00A0;MatGetOwnershipRange(A,Istart,Iend,ierr)</span>
+<br /><span 
+class="cmtt-10">do</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;II=Istart,Iend-1</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;call</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;MatSetValues(A,ione,II,ione,II,c_coef,INSERT_VALUES,ierr)</span><span 
+class="cmtt-10">&#x00A0;!diagonal</span><span 
+class="cmtt-10">&#x00A0;elements</span>
+<br />
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;j</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II/m</span><span 
+class="cmtt-10">&#x00A0;!recover</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;original</span><span 
+class="cmtt-10">&#x00A0;index</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;y</span><span 
+class="cmtt-10">&#x00A0;direction</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;2D</span><span 
+class="cmtt-10">&#x00A0;mesh</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(j.gt.0)</span><span 
+class="cmtt-10">&#x00A0;then</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;JJ</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;m</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;call</span><span 
+class="cmtt-10">&#x00A0;MatSetValues(A,ione,II,ione,JJ,b_coef,INSERT_VALUES,ierr)</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;endif</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(j.lt.n-1)</span><span 
+class="cmtt-10">&#x00A0;then</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;JJ</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II</span><span 
+class="cmtt-10">&#x00A0;+</span><span 
+class="cmtt-10">&#x00A0;m</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;call</span><span 
+class="cmtt-10">&#x00A0;MatSetValues(A,ione,II,ione,JJ,b_coef,INSERT_VALUES,ierr)</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;endif</span>
+<br />
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;i</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;j*m</span><span 
+class="cmtt-10">&#x00A0;!recover</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;original</span><span 
+class="cmtt-10">&#x00A0;index</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;x</span><span 
+class="cmtt-10">&#x00A0;direction</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;2D</span><span 
+class="cmtt-10">&#x00A0;mesh</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(i.gt.0)</span><span 
+class="cmtt-10">&#x00A0;then</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;JJ</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;1</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;call</span><span 
+class="cmtt-10">&#x00A0;MatSetValues(A,ione,II,ione,JJ,a_coef,INSERT_VALUES,ierr)</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;endif</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(i.lt.m-1)</span><span 
+class="cmtt-10">&#x00A0;then</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;JJ</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;II</span><span 
+class="cmtt-10">&#x00A0;+</span><span 
+class="cmtt-10">&#x00A0;1</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;call</span><span 
+class="cmtt-10">&#x00A0;MatSetValues(A,ione,II,ione,JJ,a_coef,INSERT_VALUES,ierr)</span>
+<br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;endif</span>
+<br /><span 
+class="cmtt-10">enddo</span>
+<br /><span 
+class="cmtt-10">call</span><span 
+class="cmtt-10">&#x00A0;MatAssemblyBegin(A,MAT_FINAL_ASSEMBLY,ierr)</span>
+                                                                  
+
+                                                                  
+<br /><span 
+class="cmtt-10">call</span><span 
+class="cmtt-10">&#x00A0;MatAssemblyEnd</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;(A,MAT_FINAL_ASSEMBLY,ierr)</span>
+</div>
+</div>
+All the elements that are not updated by <span 
+class="cmtt-10">MatSetValues </span>in the above code are by
+default zero.
+   <h4 class="subsectionHead"><span class="titlemark">5.3   </span> <a 
+ id="x1-110005.3"></a>Verification of the numerical solution</h4>
+<!--l. 418--><p class="noindent" >For the particular source term given by
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics37x.png" alt="S(x,y) = sin(&pi;x) sin(&pi;y),
+" class="math-display" ><a 
+ id="x1-11001r27"></a></center></td><td class="equation-label">(27)</td></tr></table>
+<!--l. 421--><p class="nopar" >
+then
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics38x.png" alt="&phi; (x,y) = &minus;-12 sin(&pi;x)sin(&pi;y),
+          2&pi;
+" class="math-display" ><a 
+ id="x1-11002r28"></a></center></td><td class="equation-label">(28)</td></tr></table>
+<!--l. 425--><p class="nopar" >
+satisfies the equation and the boundary condition <span 
+class="cmmi-10">&psi; </span>= 0 at <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">a</span></sub> = 0, <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">b</span></sub> = 1, <span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">a</span></sub> = 0,
+and <span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">b</span></sub> = 1. Therefore the above expression is an analytic solution to the problem.
+Figure <a 
+href="#x1-110036">6<!--tex4ht:ref: 2018-7-23-a1 --></a> compares the numerical solution with the analytic one, which indicates the
+two results agree with each other, and thus verifying the correctness of the numerical
+solution.
+<!--l. 433--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-110036"></a>
+                                                                  
+
+                                                                  
+<!--l. 434--><p class="noindent" ><img 
+src="computational_physics39x.png" alt="PIC" class="graphics" width="254.95248pt" height="190.7125pt" ><!--tex4ht:graphics  
+name="computational_physics39x.png" src="/home/yj/project_new/petsc_space/poisson/p.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6: </span><span  
+class="content">Comparison between the numerical solution and analytic solution
+of  Poisson&#8217;  equation.  Numerical  parameters:  grid  number  <span 
+class="cmmi-10">M  </span>=  50,  <span 
+class="cmmi-10">N  </span>=
+50.   The   resulting   linear   system   has   2500   unknowns.   PETSc   provides
+a   flexible   way   of   choosing   different   algorithms   for   solving   the   linear
+system  via  command  line  options.  The  command  line  options  used  for
+this case is: <span 
+class="cmtt-10">mpiexec -n 3 ./poisson -pc</span><span 
+class="cmtt-10">_type bjacobi -sub</span><span 
+class="cmtt-10">_pc</span><span 
+class="cmtt-10">_type ilu</span>
+<span 
+class="cmtt-10">-ksp</span><span 
+class="cmtt-10">_type bcgs -ksp</span><span 
+class="cmtt-10">_monitor</span>,  which  chooses  the  preconditioner  type  and
+Krylov subspace method type. The KSP residual norm is 1<span 
+class="cmmi-10">.</span>456 <span 
+class="cmsy-10">&#x00D7; </span>10<sup><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">7</span></sup> after 25
+iterations.</span></div><!--tex4ht:label?: x1-110036 -->
+                                                                  
+
+                                                                  
+<!--l. 444--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 446--><p class="indent" >   &#x00A0;
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-120006"></a>A simple example of numerical instability</h3>
+<!--l. 450--><p class="noindent" >For the following ordinary differential equation:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics40x.png" alt="dy = &minus; ay,
+dt
+" class="math-display" ><a 
+ id="x1-12001r29"></a></center></td><td class="equation-label">(29)</td></tr></table>
+<!--l. 453--><p class="nopar" >
+where <span 
+class="cmmi-10">a </span>is a positive constant, with the initial condition <span 
+class="cmmi-10">y</span>(0) = <span 
+class="cmmi-10">y</span><sub><span 
+class="cmr-7">0</span></sub>, the analytic
+solution is given by
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics41x.png" alt="y = y0exp(&minus; at),
+" class="math-display" ><a 
+ id="x1-12002r30"></a></center></td><td class="equation-label">(30)</td></tr></table>
+<!--l. 458--><p class="nopar" >
+which is a monotonically decreasing function of <span 
+class="cmmi-10">t</span>. Let us try to solve this initial value
+problem numerically. Discritizing time as &#x00A0;<span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">n</span>&Delta;<span 
+class="cmmi-10">t </span>with &Delta;<span 
+class="cmmi-10">t &#x003E; </span>0, we use the
+following explicit differencing scheme:
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics42x.png" alt=" (n+1)   (n)
+y----&minus;-y---= &minus; ay(n),
+    &Delta;t
+" class="math-display" ><a 
+ id="x1-12003r31"></a></center></td><td class="equation-label">(31)</td></tr></table>
+<!--l. 464--><p class="nopar" >
+i.e.,
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics43x.png" alt="y(n+1) = (1 &minus; &Delta;ta )y(n),
+" class="math-display" ><a 
+ id="x1-12004r32"></a></center></td><td class="equation-label">(32)</td></tr></table>
+<!--l. 468--><p class="nopar" >
+where <span 
+class="cmmi-10">y</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">)</span></sup> = <span 
+class="cmmi-10">y</span>(<span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span></sub>) and <span 
+class="cmmi-10">y</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1)</span></sup> = <span 
+class="cmmi-10">y</span>(<span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub>). If we choose a large time-step &Delta;<span 
+class="cmmi-10">t </span>with
+&Delta;<span 
+class="cmmi-10">t &#x003E; </span>2<span 
+class="cmmi-10">&#x2215;a</span>, then <span 
+class="cmsy-10">|</span>1 <span 
+class="cmsy-10">&minus; </span>&Delta;<span 
+class="cmmi-10">ta</span><span 
+class="cmsy-10">| </span><span 
+class="cmmi-10">&#x003E; </span>1 and the above scheme gives a numerical solution with
+amplitude increasing with time, instead of decaying. This is totally different from the
+analytic solution, which indicates the numerical solution is wrong in this case. This
+kind of wrong numerical solution is called a numerical instability. An example is
+shown in Fig. <a 
+href="#x1-120057">7<!--tex4ht:ref: 18-4-11-2 --></a>.
+<!--l. 477--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-120057"></a>
+                                                                  
+
+                                                                  
+<!--l. 478--><p class="noindent" ><img 
+src="computational_physics44x.png" alt="PIC" class="graphics" width="276.03125pt" height="218.81749pt" ><!--tex4ht:graphics  
+name="computational_physics44x.png" src="/home/yj/project_new/numerical_instability/fig1/f.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;7:  </span><span  
+class="content">Comparison  between  the  analytic  solution  (<a 
+href="#x1-12002r30">30<!--tex4ht:ref: 18-4-11-p3 --></a>)  (black)  and  the
+numerical solution (blue) calculated by the scheme (<a 
+href="#x1-12004r32">32<!--tex4ht:ref: 18-4-11-1 --></a>) with &Delta;<span 
+class="cmmi-10">t </span>= 2<span 
+class="cmmi-10">.</span>1. Other
+parameters: <span 
+class="cmmi-10">y</span><sub><span 
+class="cmr-7">0</span></sub> = 1, <span 
+class="cmmi-10">a </span>= 1.</span></div><!--tex4ht:label?: x1-120057 -->
+                                                                  
+
+                                                                  
+<!--l. 483--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 485--><p class="indent" >   &#x00A0;
+<!--l. 487--><p class="indent" >   Let us consider the following implicit scheme
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics45x.png" alt="y(n+1) &minus;-y(n)     (n+1)
+    &Delta;t     = &minus; ay    ,
+" class="math-display" ><a 
+ id="x1-12006r33"></a></center></td><td class="equation-label">(33)</td></tr></table>
+<!--l. 490--><p class="nopar" >
+(where the right-hand side is evaluated at the future time time), i.e.,
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics46x.png" alt=" (n+1)     y(n)
+y     = 1+-a&Delta;t-.
+" class="math-display" ><a 
+ id="x1-12007r34"></a></center></td><td class="equation-label">(34)</td></tr></table>
+<!--l. 494--><p class="nopar" >
+Note that no matter how large the time step-length &Delta;<span 
+class="cmmi-10">t </span>is, the above scheme always
+give a solution which is decreasing with time, i.e., no numerical instability appears.
+An example is shown in Fig. <a 
+href="#x1-120088">8<!--tex4ht:ref: 18-4-11-p2 --></a>.
+<!--l. 499--><p class="indent" >   <hr class="figure"><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x1-120088"></a>
+                                                                  
+
+                                                                  
+<!--l. 500--><p class="noindent" ><img 
+src="computational_physics47x.png" alt="PIC" class="graphics" width="276.03125pt" height="218.81749pt" ><!--tex4ht:graphics  
+name="computational_physics47x.png" src="/home/yj/project_new/numerical_instability/fig2/f.eps"  
+-->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;8:  </span><span  
+class="content">Comparison  between  the  analytic  solution  (<a 
+href="#x1-12002r30">30<!--tex4ht:ref: 18-4-11-p3 --></a>)  (black)  and  the
+numerical solution (blue) calculated by the scheme (<a 
+href="#x1-12007r34">34<!--tex4ht:ref: 18-4-11-p1 --></a>) with &Delta;<span 
+class="cmmi-10">t </span>= 2<span 
+class="cmmi-10">.</span>1. Other
+parameters: <span 
+class="cmmi-10">y</span><sub><span 
+class="cmr-7">0</span></sub> = 1, <span 
+class="cmmi-10">a </span>= 1.</span></div><!--tex4ht:label?: x1-120088 -->
+                                                                  
+
+                                                                  
+<!--l. 505--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 507--><p class="indent" >   If a one-step explicit scheme is unstable, then the corresponding implicit scheme
+is stable. This is because that an implicit scheme corresponds to a time-reversed
+version of the corresponding explicit scheme.
+<!--l. 511--><p class="indent" >   &#x00A0;
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-130007"></a>Finite difference</h3>
+<!--l. 515--><p class="noindent" >Taylor expansion of <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">x</span>) at <span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">i</span></sub> is written as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics48x.png" alt="                            2
+f(xi + h) = f(xi)+ hf(1)(xi)+ h-f (2)(xi)+ O (h3)
+                            2
+" class="math-display" ><a 
+ id="x1-13001r35"></a></center></td><td class="equation-label">(35)</td></tr></table>
+<!--l. 519--><p class="nopar" >
+<!--l. 522--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">8   </span> <a 
+ id="x1-140008"></a>The predictor-corrector method</h3>
+<!--l. 524--><p class="noindent" >This method is very similar to and often confused with the Runge-Kutta method.
+Consider the following differential equation
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics49x.png" alt="dy
+--= f(y)
+dt
+" class="math-display" ><a 
+ id="x1-14001r36"></a></center></td><td class="equation-label">(36)</td></tr></table>
+                                                                  
+
+                                                                  
+<!--l. 528--><p class="nopar" >
+A natural discretized form that is time-centered would be
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics50x.png" alt="y    = y + &Delta;t-[f (y   )+ f(y )].
+ n+1    n   2    n+1      n
+" class="math-display" ><a 
+ id="x1-14002r37"></a></center></td><td class="equation-label">(37)</td></tr></table>
+<!--l. 532--><p class="nopar" >
+Unfortunately the presence of <span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub> on the right-hand side makes this scheme
+implicit, and thus a direct solution is possible only for some special cases (e.g. <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">y</span>) is
+a linear function of <span 
+class="cmmi-10">y</span>). Generally, we need to use iterations to solve the above
+equation. A convenient initial guess is <span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub> <span 
+class="cmsy-10">&asymp; </span><span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">n</span></sub>. If we iterate for only twice,
+i.e.,
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics51x.png" alt="y(1n)+1 = yn + &Delta;tf(yn)
+" class="math-display" ><a 
+ id="x1-14003r38"></a></center></td><td class="equation-label">(38)</td></tr></table>
+<!--l. 540--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics52x.png" alt="y(2) = y + &Delta;t-[f (y(1))+ f(y )].
+ n+1    n   2    n+1      n
+" class="math-display" ><a 
+ id="x1-14004r39"></a></center></td><td class="equation-label">(39)</td></tr></table>
+<!--l. 543--><p class="nopar" >
+Then this is the predictor-corrector method (also called Heun&#8217;s method). This
+method consists of a guess for <span 
+class="cmmi-10">y</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub> based on the Euler method (the Prediction)
+followed by a correction using trapezoidal rule.
+<!--l. 548--><p class="indent" >   If we iterate until convergence, then this is a general implicit scheme.
+<!--l. 550--><p class="indent" >   &#x00A0;
+<!--l. 552--><p class="indent" >   &#x00A0;
+<!--l. 554--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">9   </span> <a 
+ id="x1-150009"></a>Spectral method&#8212;&#8211;to be revised</h3>
+<!--l. 556--><p class="noindent" >Spectral methods refers to methods of using linear combination of global basis
+functions to approximate a unknown function. Here &#8220;global&#8221; means that the basis
+functions extending over the whole spatial domain of interest, i.e., has a support as
+large as the whole domain of interest (contrast to the finite element method, which
+use local basis functions). Here we consider Fourier spectral method, which uses
+trigonometric functions as basis functions. Consider the following two-point boundary
+value problem:
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics53x.png" alt="        [   2       ]
+L &psi;(x) &equiv; &minus; &part;--+ V (x) &psi;(x) = S (x),
+           &part;x2
+" class="math-display" ><a 
+ id="x1-15001r40"></a></center></td><td class="equation-label">(40)</td></tr></table>
+<!--l. 566--><p class="nopar" >
+with the boundary condition <span 
+class="cmmi-10">&psi;</span>(<span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">L</span>) = <span 
+class="cmmi-10">&psi;</span>(<span 
+class="cmmi-10">x </span>= 0), where <span 
+class="cmmi-10">V </span>(<span 
+class="cmmi-10">x</span>) and <span 
+class="cmmi-10">S</span>(<span 
+class="cmmi-10">x</span>) are known
+functions. Expand <span 
+class="cmmi-10">&psi;</span>(<span 
+class="cmmi-10">x</span>) in terms of the Fourier basis functions:
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics54x.png" alt="      N &minus;1      (      )
+&psi;(x) &asymp; &sum;  &#x02C6;&psi;n exp  n 2&pi;ix- ,
+       n=0          L
+" class="math-display" ><a 
+ id="x1-15002r41"></a></center></td><td class="equation-label">(41)</td></tr></table>
+<!--l. 573--><p class="nopar" >
+where <img 
+src="computational_physics55x.png" alt="&#x02C6;&psi;"  class="circ" > <sub><span 
+class="cmmi-7">n</span></sub> are unknown coefficients. Substitute this expression into the left-hand side
+of Eq. (<a 
+href="#x1-15001r40">40<!--tex4ht:ref: 18-1-24-p1 --></a>), we obtain <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="computational_physics56x.png" alt="    (    )       (      )                 (     )
+N&sum;&minus;1  2&pi;n-2 &#x02C6;       2&pi;ix    N&sum;&minus; 1    &#x02C6;       2&pi;ix
+       L    &psi;nexp  n  L   +     V(x)&psi;nexp  n  L   .  (42)
+ n=0                        n=0
+" class="math-display" ></center>
+</div>Define the residual <span 
+class="cmmi-10">R </span>as the difference between the above expression and the source
+term <span 
+class="cmmi-10">S</span>(<span 
+class="cmmi-10">x</span>), i.e.,
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics57x.png" alt="    N&sum;&minus;1( 2&pi;n)2       ( 2&pi;ix )  N&sum;&minus;1          (  2&pi;ix )
+R =      ----  &#x02C6;&psi;nexp  n----  +     V(x)&#x02C6;&psi;n exp  n ---- &minus; S (x).
+    n=0   L              L     n=0               L
+" class="math-display" ><a 
+ id="x1-15004r43"></a></center></td><td class="equation-label">(43)</td></tr></table>
+                                                                  
+
+                                                                  
+<!--l. 587--><p class="nopar" >
+We want the residual to be as small as possible in the whole domain of interested.
+We need to define how to measure the smallness of the residual. A general
+method is to choose some &#8220;test functions&#8221; and take the inner product of
+the test functions with the residual over the whole domain. Then the inner
+product is used to measure the smallness of the residual. Different spectral
+methods are classified by the different &#8220;test functions&#8221; chosen for the inner
+product.
+<!--l. 596--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">9.1   </span> <a 
+ id="x1-160009.1"></a>Pseudo-spectral method</h4>
+<!--l. 598--><p class="noindent" >In the Pseudo-spectral method, the test functions are chosen to be <span 
+class="cmmi-10">&delta;</span>(<span 
+class="cmmi-10">x</span><span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">m</span></sub>), where
+<span 
+class="cmmi-10">&delta; </span>is the Dirac-delta function and <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">m</span></sub> with <span 
+class="cmmi-10">m </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1 are special
+spatial points chosen for a set of basis functions. These points are called
+collocation points and differs for different basis functions used. For Fourier
+basis functions the collocation points are points with uniform interval given
+by <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">m</span></sub> = <span 
+class="cmmi-10">mL&#x2215;N </span>with <span 
+class="cmmi-10">m </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1. Performing the inner product
+<span 
+class="cmex-10">&int;</span>
+ <sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmmi-7">L</span></sup>(<span 
+class="cmmi-10">&hellip;</span>)<span 
+class="cmmi-10">&delta;</span>(<span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">m</span></sub>)<span 
+class="cmmi-10">dx </span>on the residual and demand the result to be zero, we
+obtain
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics58x.png" alt="N&sum;&minus; 1(2&pi;n )2      (  2&pi;ix  )  N&sum;&minus; 1           (  2&pi;ix )
+     ----  &psi;&#x02C6;n exp  n----m- +     &#x02C6;&psi;nV(xm )exp n ----m- &minus; S(xm) = 0,
+n=0   L               L      n=0                 L
+" class="math-display" ><a 
+ id="x1-16001r44"></a></center></td><td class="equation-label">(44)</td></tr></table>
+<!--l. 610--><p class="nopar" >
+which can be organized as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics59x.png" alt="                    [               ]
+N&sum;&minus; 1      ( 2&pi;ixm )  (2&pi;n )2
+    &#x02C6;&psi;nexp  n--L---    -L--   +V (xm)  = S(xm).
+n=0
+" class="math-display" ><a 
+ id="x1-16002r45"></a></center></td><td class="equation-label">(45)</td></tr></table>
+<!--l. 616--><p class="nopar" >
+where <span 
+class="cmmi-10">m </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">N </span><span 
+class="cmsy-10">&minus; </span>1. Equation (<a 
+href="#x1-16002r45">45<!--tex4ht:ref: 18-1-25-a1 --></a>) is a linear equation system for the
+expansion coefficients <img 
+src="computational_physics60x.png" alt="&#x02C6;&psi;"  class="circ" > <sub><span 
+class="cmmi-7">n</span></sub>. Since taking the inner product with a Dirac-delta
+function <span 
+class="cmmi-10">&delta;</span>(<span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">m</span></sub>) correspond to choosing a particular spatial point <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">m</span></sub>,
+the above equation is actually demanding that the approximate function
+satisfies the original differential equation exactly on the set of collocation
+points.
+<!--l. 624--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">9.2   </span> <a 
+ id="x1-170009.2"></a>Galerkin method</h4>
+<!--l. 626--><p class="noindent" >Choose the set of test functions as exp(<span 
+class="cmsy-10">&minus;</span>2<span 
+class="cmmi-10">&pi;imx&#x2215;L</span>) with <span 
+class="cmmi-10">m </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1. Perform
+the inner product of the residual with the test functions exp(<span 
+class="cmsy-10">&minus;</span>2<span 
+class="cmmi-10">&pi;imx&#x2215;L</span>), i.e.,
+<img 
+src="computational_physics61x.png" alt="L1"  class="frac" align="middle"> <span 
+class="cmex-10">&int;</span>
+   <sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmmi-7">L</span></sup><span 
+class="cmmi-10">R</span> exp(<span 
+class="cmsy-10">&minus;</span>2<span 
+class="cmmi-10">&pi;imx&#x2215;L</span>)<span 
+class="cmmi-10">dx</span>, and demand the result to be zero, yielding
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics62x.png" alt="(     )                    &int;          (        )
+  2&pi;m- 2 &#x02C6;    N&sum;&minus;1    &#x02C6;    1- L           2&pi;imx-
+   L     &psi;m +    Vmn &psi;n &minus; L 0  S(x)exp  &minus;  L     dx = 0,
+              n=0
+" class="math-display" ><a 
+ id="x1-17001r46"></a></center></td><td class="equation-label">(46)</td></tr></table>
+<!--l. 634--><p class="nopar" >
+where use has been made of
+   <center class="math-display" >
+<img 
+src="computational_physics63x.png" alt="1 &int; L    (2&pi;ix       )
+L-    exp  --L-(n &minus; m)  dx = &delta;nm,
+   0
+" class="math-display" ></center>
+<!--l. 637--><p class="nopar" > with <span 
+class="cmmi-10">&delta;</span><sub><span 
+class="cmmi-7">nm</span></sub> is the Kronicle-delta function, and
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics64x.png" alt="        &int; L        (           )
+Vmn = 1-   V (x )exp  2&pi;ix (n &minus; m)  dx.
+      L  0            L
+" class="math-display" ><a 
+ id="x1-17002r47"></a></center></td><td class="equation-label">(47)</td></tr></table>
+<!--l. 642--><p class="nopar" >
+Direct evaluating the integration of the source term as appearing in Eq. (<a 
+href="#x1-17001r46">46<!--tex4ht:ref: 18-1-24-p5 --></a>) involves
+<span 
+class="cmmi-10">N </span>operation for each value of <span 
+class="cmmi-10">m </span>and thus total <span 
+class="cmmi-10">N</span><sup><span 
+class="cmr-7">2</span></sup> operations are needed. The
+computational efficiency can be improved by first expanding <span 
+class="cmmi-10">S</span>(<span 
+class="cmmi-10">x</span>) in terms of the
+basis function (as what is done for <span 
+class="cmmi-10">&psi;</span>):
+   <center class="math-display" >
+<img 
+src="computational_physics65x.png" alt="       N&minus;1      (      )
+S(x) &asymp; &sum;  S&#x02C6; exp n 2&pi;ix-  .
+       n=0 n        L
+" class="math-display" ></center>
+<!--l. 649--><p class="nopar" > Then the integration of the source term reduces to <span 
+class="cmmi-10">&#x015C;</span><sub><span 
+class="cmmi-7">m</span></sub>. Then equation (<a 
+href="#x1-17001r46">46<!--tex4ht:ref: 18-1-24-p5 --></a>) is
+written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics66x.png" alt="(2&pi;m-)2      N&sum;&minus;1
+   L    &#x02C6;&psi;m +    Vmn &#x02C6;&psi;n = &#x02C6;Sm.
+             n=0
+" class="math-display" ><a 
+ id="x1-17003r48"></a></center></td><td class="equation-label">(48)</td></tr></table>
+<!--l. 655--><p class="nopar" >
+Since computing <span 
+class="cmmi-10">&#x015C;</span><sub><span 
+class="cmmi-7">m</span></sub> with <span 
+class="cmmi-10">m </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1 using FFT involves only <span 
+class="cmmi-10">N</span> log <span 
+class="cmmi-10">N</span>
+operations, this method is more efficient than directly evaluating the integration.
+Similar situation apply to the computation of <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">mn</span></sub>. The matrix <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">mn</span></sub> depends on <span 
+class="cmmi-10">m</span>
+and <span 
+class="cmmi-10">n </span>through the combination (<span 
+class="cmmi-10">n </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">m</span>). Since both <span 
+class="cmmi-10">m </span>and <span 
+class="cmmi-10">n </span>are in the range
+[0 : <span 
+class="cmmi-10">N </span><span 
+class="cmsy-10">&minus; </span>1], the range of (<span 
+class="cmmi-10">n </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">m</span>) is also in [0 : <span 
+class="cmmi-10">N </span><span 
+class="cmsy-10">&minus; </span>1]. Therefore the matrix
+<span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">mn</span></sub> has <span 
+class="cmmi-10">N </span>independent matrix elements. Computing each one of these <span 
+class="cmmi-10">N</span>
+elements by directly evaluating the integration (<a 
+href="#x1-17002r47">47<!--tex4ht:ref: 18-1-25-a4 --></a>) involves <span 
+class="cmmi-10">N </span>operations.
+Therefore, to obtain all the <span 
+class="cmmi-10">N </span>independent elements, the number of operations is
+                                                                  
+
+                                                                  
+<span 
+class="cmmi-10">N</span><sup><span 
+class="cmr-7">2</span></sup>. The same method used to compute the source term can be applied to
+compute <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">mn</span></sub>, which reduces the operation number to <span 
+class="cmmi-10">N</span> log <span 
+class="cmmi-10">N</span>. Expand <span 
+class="cmmi-10">V </span>(<span 
+class="cmmi-10">x</span>)
+as
+   <center class="math-display" >
+<img 
+src="computational_physics67x.png" alt="      N&sum;&minus;1     (  2&pi;ix)
+V(x) &asymp;    &#x02C6;Vkexp  k-L--
+       k=0
+" class="math-display" ></center>
+<!--l. 669--><p class="nopar" > then <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">mn</span></sub> is written as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics68x.png" alt="       1 &int; LN&sum;&minus; 1     (  2&pi;ix)    ( 2&pi;ix       )
+Vmn  = --       &#x02C6;Vkexp  k----  exp  ----(n &minus; m)  dx = &#x02C6;Vm&minus;n.
+       L  0 k=0          L          L
+" class="math-display" ><a 
+ id="x1-17004r49"></a></center></td><td class="equation-label">(49)</td></tr></table>
+<!--l. 675--><p class="nopar" >
+Therefore Eq. (<a 
+href="#x1-17003r48">48<!--tex4ht:ref: 18-1-25-a6 --></a>) is finally written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics69x.png" alt="(     )2     N&minus; 1
+  2&pi;m--  &#x02C6;&psi;  + &sum;   &#x02C6;V   &psi;&#x02C6; = S&#x02C6; ,
+   L     m   n=0  m&minus;n  n   m
+" class="math-display" ><a 
+ id="x1-17005r50"></a></center></td><td class="equation-label">(50)</td></tr></table>
+<!--l. 680--><p class="nopar" >
+which is a linear equation system for <img 
+src="computational_physics70x.png" alt="&#x02C6;&psi;"  class="circ" > <sub><span 
+class="cmmi-7">m</span></sub> with <span 
+class="cmmi-10">m </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1.
+                                                                  
+
+                                                                  
+<!--l. 685--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">9.2.1   </span> <a 
+ id="x1-180009.2.1"></a>Computation of <span 
+class="cmex-10">&sum;</span>
+  <sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">=0</span></sub><sup><span 
+class="cmmi-7">N</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">1</span></sup><img 
+src="computational_physics71x.png" alt="&#x02C6;V"  class="circ" ><sub><span 
+class="cmmi-7">m</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmmi-7">n</span></sub><img 
+src="computational_physics72x.png" alt="&psi;&#x02C6;"  class="circ" > <sub><span 
+class="cmmi-7">n</span></sub> in initial value problems</h5>
+<!--l. 687--><p class="noindent" >Equation (<a 
+href="#x1-17005r50">50<!--tex4ht:ref: 18-1-25-a8 --></a>) can be considered as a stead-state equation of the following
+time-dependent equation
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics73x.png" alt="&part;&#x02C6;&psi;m   ( 2&pi;m )2     N&sum;&minus;1
+-&part;t-=   -L--  &psi;&#x02C6;m  +    &#x02C6;Vm &minus;n&#x02C6;&psi;n &minus; S&#x02C6;m,
+                    n=0
+" class="math-display" ><a 
+ id="x1-18001r51"></a></center></td><td class="equation-label">(51)</td></tr></table>
+<!--l. 693--><p class="nopar" >
+Note that the term <span 
+class="cmex-10">&sum;</span>
+  <sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">=0</span></sub><sup><span 
+class="cmmi-7">N</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">1</span></sup><img 
+src="computational_physics74x.png" alt=" &#x02C6;
+V"  class="circ" ><sub><span 
+class="cmmi-7">m</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmmi-7">n</span></sub><img 
+src="computational_physics75x.png" alt="&#x02C6;
+&psi;"  class="circ" > <sub><span 
+class="cmmi-7">n</span></sub> on the right-hand side of the above equation
+involves matrix multification, which involves <span 
+class="cmmi-10">N</span><sup><span 
+class="cmr-7">2</span></sup> operations. When solving Eq.
+(<a 
+href="#x1-18001r51">51<!--tex4ht:ref: 18-1-25-a9 --></a>) as an initial value problem, where <img 
+src="computational_physics76x.png" alt=" &#x02C6;
+&psi;"  class="circ" > <sub><span 
+class="cmmi-7">m</span></sub> is known at the current time
+step, there is an efficient way of evaluating <span 
+class="cmex-10">&sum;</span>
+  <sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">=0</span></sub><sup><span 
+class="cmmi-7">N</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">1</span></sup><img 
+src="computational_physics77x.png" alt="V&#x02C6;"  class="circ" ><sub><span 
+class="cmmi-7">m</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmmi-7">n</span></sub><img 
+src="computational_physics78x.png" alt="&psi;&#x02C6;"  class="circ" > <sub><span 
+class="cmmi-7">n</span></sub> which avoids
+the computationally expensive matrix multification. Note that the term
+<span 
+class="cmex-10">&sum;</span>
+  <sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">=0</span></sub><sup><span 
+class="cmmi-7">N</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">1</span></sup><img 
+src="computational_physics79x.png" alt="&#x02C6;V"  class="circ" ><sub><span 
+class="cmmi-7">m</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmmi-7">n</span></sub><img 
+src="computational_physics80x.png" alt="&#x02C6;&psi;"  class="circ" > <sub><span 
+class="cmmi-7">n</span></sub> is actually the Fourier transform of <span 
+class="cmmi-10">V </span>(<span 
+class="cmmi-10">x</span>)<span 
+class="cmmi-10">&psi;</span>(<span 
+class="cmmi-10">x</span>). Thus
+an efficient method of computing this term is to first transform <img 
+src="computational_physics81x.png" alt="&psi;&#x02C6;"  class="circ" > <sub><span 
+class="cmmi-7">n</span></sub> back
+to real space and doing the multification between <span 
+class="cmmi-10">V </span>(<span 
+class="cmmi-10">x</span>) and <span 
+class="cmmi-10">&psi;</span>(<span 
+class="cmmi-10">x</span>) in real
+space. Then transform the result back to Fourier space. Since the transform
+can be performed by FFT, which involves only <span 
+class="cmmi-10">N</span> log <span 
+class="cmmi-10">N </span>operations, this
+method is more efficient than directly computing the matrix multification
+<span 
+class="cmex-10">&sum;</span>
+  <sub><span 
+class="cmmi-7">n</span></sub><img 
+src="computational_physics82x.png" alt="&#x02C6;V"  class="circ" ><sub><span 
+class="cmmi-7">m</span><span 
+class="cmsy-7">&minus;</span><span 
+class="cmmi-7">n</span></sub><img 
+src="computational_physics83x.png" alt="&#x02C6;&psi;"  class="circ" ><sub><span 
+class="cmmi-7">n</span></sub>.
+<!--l. 709--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">10   </span> <a 
+ id="x1-1900010"></a>Interpolating</h3>
+<!--l. 711--><p class="noindent" >ddd
+<!--l. 713--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">11   </span> <a 
+ id="x1-2000011"></a>von Neuman stability analysis</h3>
+<!--l. 715--><p class="noindent" >&#x00A0;
+<!--l. 717--><p class="indent" >   Ampere&#8217;s equation is written
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics84x.png" alt="&nabla; &#x00D7; &delta;B = &mu;0&delta;Ji + &mu;0&delta;Je
+" class="math-display" ><a 
+ id="x1-20001r52"></a></center></td><td class="equation-label">(52)</td></tr></table>
+<!--l. 721--><p class="nopar" >
+Neglecting the ion current, then the above equation is written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics85x.png" alt="&nabla; &#x00D7; &delta;B = &mu; &delta;J
+          0  e
+" class="math-display" ><a 
+ id="x1-20002r53"></a></center></td><td class="equation-label">(53)</td></tr></table>
+<!--l. 725--><p class="nopar" >
+Using <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">J</span><sub><span 
+class="cmmi-7">e</span></sub> = <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">en</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">u</span><sub><span 
+class="cmmi-7">e</span></sub>, the above equation is written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics86x.png" alt="&nabla; &#x00D7; &delta;B = &minus; &mu;0ene0&delta;ue
+" class="math-display" ><a 
+ id="x1-20003r54"></a></center></td><td class="equation-label">(54)</td></tr></table>
+<!--l. 730--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics87x.png" alt="&rArr; (&nabla; &#x00D7; &delta;B)&#x00D7; B0 = &minus; &mu;0ene0&delta;ue &#x00D7; B0
+" class="math-display" ><a 
+ id="x1-20004r55"></a></center></td><td class="equation-label">(55)</td></tr></table>
+<!--l. 734--><p class="nopar" >
+Using <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">u</span><sub><span 
+class="cmmi-7">e</span></sub> <span 
+class="cmsy-10">&#x00D7; </span><span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">E</span>, the above equation is written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics88x.png" alt="&rArr;  (&nabla; &#x00D7; &delta;B )&#x00D7; B  = &mu; en &delta;E
+              0    0  e0
+" class="math-display" ><a 
+ id="x1-20005r56"></a></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 740--><p class="nopar" >
+Define <span 
+class="cmmi-10">&beta;</span><sub><span 
+class="cmmi-7">e</span></sub> = <span 
+class="cmmi-10">&mu;</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">en</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmr-7">0</span></sub>, then the above equation is written as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics89x.png" alt="&delta;E = 1-(&nabla; &#x00D7; &delta;B)&#x00D7; B0
+     &beta;e
+" class="math-display" ><a 
+ id="x1-20006r57"></a></center></td><td class="equation-label">(57)</td></tr></table>
+<!--l. 745--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics90x.png" alt="            1
+&rArr; &delta;E(n+1) =--(&nabla; &#x00D7; &delta;B (n+1))&#x00D7; B0
+           &beta;e
+" class="math-display" ><a 
+ id="x1-20007r58"></a></center></td><td class="equation-label">(58)</td></tr></table>
+<!--l. 749--><p class="nopar" >
+Faraday&#8217;s law is written as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics91x.png" alt="&delta;B (n+1) &minus; &delta;B(n)
+--------------= &minus; [&alpha; &nabla; &#x00D7; &delta;E(n+1) +(1 &minus; &alpha; )&nabla; &#x00D7; &delta;E (n)]
+      &Delta;t
+" class="math-display" ><a 
+ id="x1-20008r59"></a></center></td><td class="equation-label">(59)</td></tr></table>
+<!--l. 755--><p class="nopar" >
+Assume <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub> is uniform and performing Fourier transformation over the space,
+equations () and () are written
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics92x.png" alt="          1
+&delta;E&#x02C6;(n+1) = &beta;-(ik &#x00D7; &delta;&#x02C6;B(n+1)) &#x00D7;B0
+           e
+" class="math-display" ><a 
+ id="x1-20009r60"></a></center></td><td class="equation-label">(60)</td></tr></table>
+<!--l. 761--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics93x.png" alt=" &#x02C6; (n+1)   &#x02C6; (n)
+&delta;B-----&minus;-&delta;B--- = &minus; [&#x03B8;ik &#x00D7; &delta;&#x02C6;E(n+1) +(1 &minus; &#x03B8;)ik&#x00D7; &delta;&#x02C6;E (n)]
+      &Delta;t
+" class="math-display" ><a 
+ id="x1-20010r61"></a></center></td><td class="equation-label">(61)</td></tr></table>
+<!--l. 767--><p class="nopar" >
+Consider the case that <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub> is along the <span 
+class="cmbx-10">z </span>direction and <span 
+class="cmbx-10">k </span>= <span 
+class="cmmi-10">k</span><img 
+src="computational_physics94x.png" alt="&#x02C6;z"  class="circ" >, equation () is written
+as
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics95x.png" alt="&delta;E&#x02C6;(n+1) = 1-(ikB0&delta;B&#x02C6;(n+1) +ik&delta;B&#x02C6;(nz+1)B0)
+          &beta;e
+" class="math-display" ><a 
+ id="x1-20011r62"></a></center></td><td class="equation-label">(62)</td></tr></table>
+<!--l. 773--><p class="nopar" >
+Using this in Eq. (), yielding
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics96x.png" alt="&delta;&#x02C6;B(n+1) &minus; &delta;&#x02C6;B(n)   [   kB                            ]
+--------------= &minus;  &minus; &#x03B8;--0k &#x00D7; &delta;&#x02C6;B(n+1) + (1&minus; &#x03B8;)ik &#x00D7; &delta;&#x02C6;E(n)
+      &Delta;t               &beta;e
+" class="math-display" ><a 
+ id="x1-20012r63"></a></center></td><td class="equation-label">(63)</td></tr></table>
+<!--l. 780--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="computational_physics97x.png" alt="&delta;&#x02C6;B(n+1) &minus; &delta;&#x02C6;B(n)   [   kB              kB                                         ]
+--------------= &minus;  &minus; &#x03B8;--0k &delta;B &#x02C6;(xn+1)&#x02C6;y + &#x03B8;-0k&delta;B&#x02C6;(yn+1)&#x02C6;x + (1 &minus; &#x03B8;)ik&delta; &#x02C6;E(xn)&#x02C6;y&minus; (1&minus; &#x03B8;)ik&delta;E &#x02C6;(yn)&#x02C6;x
+      &Delta;t               &beta;e              &beta;e
+" class="math-display" ><a 
+ id="x1-20013r64"></a></center></td><td class="equation-label">(64)</td></tr></table>
+<!--l. 788--><p class="nopar" >
+<!--l. 791--><p class="indent" >   &#x00A0;
+<!--l. 793--><p class="indent" >   Assume <span 
+class="cmmi-10">&delta;</span><img 
+src="computational_physics98x.png" alt="&#x02C6;E"  class="circ" ><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">)</span></sup> and <span 
+class="cmmi-10">&delta;</span><img 
+src="computational_physics99x.png" alt="&#x02C6;B"  class="circ" ><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">)</span></sup> take the following form
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics100x.png" alt="  (n)     (0)i(&minus;n&omega;&Delta;t)
+&delta;&#x02C6;E   = &delta;&#x02C6;E   e
+" class="math-display" ><a 
+ id="x1-20014r65"></a></center></td><td class="equation-label">(65)</td></tr></table>
+<!--l. 798--><p class="nopar" >
+   <table 
+class="equation"><tr><td>
+   <center class="math-display" >
+<img 
+src="computational_physics101x.png" alt="&delta;&#x02C6;B(n) = &delta;&#x02C6;B (0)ei(&minus;n&omega;&Delta;t)
+" class="math-display" ><a 
+ id="x1-20015r66"></a></center></td><td class="equation-label">(66)</td></tr></table>
+<!--l. 802--><p class="nopar" >
+<!--l. 805--><p class="indent" >   &#x00A0;
+<!--l. 807--><p class="indent" >   &#x00A0;
+                                                                  
+
+                                                                  
+<!--l. 809--><p class="noindent" >
+   <h3 class="likesectionHead"><a 
+ id="x1-2100011"></a>References</h3>
+<!--l. 809--><p class="noindent" >
+   <div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+ [1]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="Xpetsc-web-page"></a>Satish  Balay,  Shrirang  Abhyankar,  Mark&#x00A0;F.&#x00A0;Adams,  Jed  Brown,
+   Peter   Brune,   Kris   Buschelman,   Lisandro   Dalcin,   Victor   Eijkhout,
+   William&#x00A0;D.&#x00A0;Gropp, Dinesh Kaushik, Matthew&#x00A0;G.&#x00A0;Knepley, Dave&#x00A0;A.&#x00A0;May,
+   Lois&#x00A0;Curfman  McInnes,  Richard&#x00A0;Tran  Mills,  Todd  Munson,  Karl  Rupp,
+   Patrick Sanan, Barry&#x00A0;F.&#x00A0;Smith, Stefano Zampini, Hong Zhang , and Hong
+   Zhang. PETSc Web page. 2018. <a 
+href="http://www.mcs.anl.gov/petsc" class="url" ><span 
+class="cmtt-10">http://www.mcs.anl.gov/petsc</span></a>.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ [2]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XFitzpatrickcp"></a>Richard  Fitzpatrick.   <span 
+class="cmti-10">Computational  Physics:An  introductory  course</span>.
+   Richard Fitzpatrick, 2004.</p></div>
+<!--l. 823--><p class="indent" >   &#x00A0;
+    
+</body></html> 
+
+                                                                  
+
+

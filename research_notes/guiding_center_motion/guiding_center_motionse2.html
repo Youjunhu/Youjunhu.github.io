@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Benchmark of the code</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="guiding_center_motion.tex" /> 
+<meta name="date" content="2019-01-05 20:39:00" /> 
+<link rel="stylesheet" type="text/css" href="guiding_center_motion.css" /> 
+</head><body 
+>
+   <!--l. 880--><div class="crosslinks"><p class="noindent">[<a 
+href="guiding_center_motionse3.html" >next</a>] [<a 
+href="guiding_center_motionse1.html" >prev</a>] [<a 
+href="guiding_center_motionse1.html#tailguiding_center_motionse1.html" >prev-tail</a>] [<a 
+href="#tailguiding_center_motionse2.html">tail</a>] [<a 
+href="guiding_center_motion.html#guiding_center_motionse2.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x8-100002"></a>Benchmark of the code</h3>
+<!--l. 882--><p class="noindent" >There are three constants of motion for the guiding center motion, namely, the canonical toroidal angular
+momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub>, the magnetic moment <span 
+class="cmmi-10">&mu;</span>, and the total kinetic energey <span 
+class="cmmi-10">𝜀</span>. Examining how well the kinetic
+energy <span 
+class="cmmi-10">𝜀 </span>and the toroidal angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub>are conserved provides a way to evaluate the accuracy of
+the numerical code. The kinetic energy <span 
+class="cmmi-10">𝜀 </span>and toroidal angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub> are deﬁned
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-10001r76"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion90x.png" alt="    1   2  1   2
+𝜀 = 2mv  = 2 mv∥ +B &mu;
+" class="math-display"  /></center></td><td class="equation-label">(76)</td></tr></table>
+<!--l. 890--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-10002r77"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion91x.png" alt="       g(&Psi;-)
+Pϕ = m  B  v∥ + Ze&Psi;,
+" class="math-display"  /></center></td><td class="equation-label">(77)</td></tr></table>
+<!--l. 893--><p class="nopar" >
+Deﬁne <span 
+class="cmmi-10">𝜀</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmmi-7">n</span></sub><sup><span 
+class="cmr-7">2</span></sup> and <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕn</span></sub> = <span 
+class="cmmi-10">ZeB</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">n</span></sub><sup><span 
+class="cmr-7">2</span></sup>, then the normalized forms of <span 
+class="cmmi-10">𝜀 </span>and <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub> are written
+as
+                                                                                  
+                                                                                  
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-10003r78"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion92x.png" alt="-    𝜀    1-   ---
+𝜀 &equiv;---2 = -v2∥ + &mu;B
+   mv n   2
+" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
+<!--l. 899--><p class="nopar" >
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="guiding_center_motion93x.png" alt="--      P-ϕ-
+Pϕ  &equiv;   Pϕn
+         1  v   --
+    =   --g -∥+ &Psi;                             (79)
+        2&pi;  B
+" class="math-display"  /></center>
+</div>Figure <a 
+href="#x8-100056">6<!--tex4ht:ref: 8-10-e1 --></a> plots the time evolution of the kinetic energy <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and toroidal angular momentum <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> for an
+energetic ion in EAST magnetic conﬁguration. The results shows that <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> are conserved to
+acceptable accuracy for a long time (100 poloidal periods of the orbit).
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                  
+                                                                                  
+<a 
+ id="x8-100056"></a>
+                                                                                  
+                                                                                  
+
+<!--l. 912--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31b/p.png" alt="pict"  
+ width="218.8175pt" /> <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31/p.png" alt="pict"  
+ width="218.8175pt" /> <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31c/p.png" alt="pict"  
+ width="152.57pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 6: </span><span  
+class="content">Time evolution of the kinetic energy <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> (a) and toroidal angular momentum <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> (b)
+for a Deuteron of 20keV launched at the low-ﬁeld-side midplane (<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">ini</span></sub> = 2<span 
+class="cmmi-10">.</span>15<span 
+class="cmmi-10">m,Z</span><sub><span 
+class="cmr-7">ini</span></sub> = 0<span 
+class="cmmi-10">m</span>) with
+pitch angle <span 
+class="cmmi-10">𝜃 </span>= 75<sup><span 
+class="cmsy-7">∘</span></sup>. The results shows that <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> are conserved to acceptable accuracy (<span class="overline"><span 
+class="cmmi-10">𝜀</span></span><sub><span 
+class="cmmi-7">k</span></sub>
+decreased by 1<span 
+class="cmmi-10">.</span>8 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">5</span></sup>  and <span class="bar-css"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> by 3<span 
+class="cmmi-10">.</span>2 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmsy-7">&minus;</span><span 
+class="cmr-7">4</span></sup>  during the time of 100 poloidal periods). The
+corresponding poloidal orbit is plotted in (c). Fourth-order Runge-Kutta time advancing scheme is
+used in integrating the orbit with a time step of 1<span 
+class="cmmi-10">∕</span>183 poloidal period. The magnetic equilibrium
+is from EAST discharge #62585@2.8s (gﬁle provided by ZhengZheng).</span></div><!--tex4ht:label?: x8-100056 -->
+                                                                                  
+                                                                                  
+   </div><hr class="endfigure" />
+   <div class="subsectionTOCS">
+    <span class="subsectionToc" >2.1 <a 
+href="guiding_center_motionsu6.html#x9-110002.1">Trapped and circulating particles</a></span>
+<br />    <span class="subsectionToc" >2.2 <a 
+href="guiding_center_motionsu7.html#x10-120002.2">Analytical estimation of bounce frequency of deeply trapped particles</a></span>
+<br />    <span class="subsectionToc" >2.3 <a 
+href="guiding_center_motionsu8.html#x11-130002.3">Methods of determining drift orbits</a></span>
+<br />    <span class="subsectionToc" >2.4 <a 
+href="guiding_center_motionsu9.html#x12-140002.4">Toroidal procession</a></span>
+<br />    <span class="subsectionToc" >2.5 <a 
+href="guiding_center_motionsu10.html#x13-150002.5">Radial drift –check!!</a></span>
+<br />    <span class="subsectionToc" >2.6 <a 
+href="guiding_center_motionsu11.html#x14-160002.6">Width of guiding center orbit</a></span>
+<br />    <span class="subsectionToc" >2.7 <a 
+href="guiding_center_motionsu12.html#x15-170002.7">3D trajectory of guiding-center</a></span>
+<br />    <span class="subsectionToc" >2.8 <a 
+href="guiding_center_motionsu13.html#x16-180002.8">Trapped particle fraction</a></span>
+   </div>
+
+
+
+
+
+
+
+                                                                                  
+                                                                                  
+   <!--l. 1525--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="guiding_center_motionse3.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="guiding_center_motionse1.html" ><span 
+class="ecrm-1000">prev</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="guiding_center_motionse1.html#tailguiding_center_motionse1.html" ><span 
+class="ecrm-1000">prev-tail</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="guiding_center_motionse2.html" ><span 
+class="ecrm-1000">front</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="guiding_center_motion.html#guiding_center_motionse2.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+<!--l. 1525--><p class="indent" >   <a 
+ id="tailguiding_center_motionse2.html"></a> </p> 
+</body></html> 

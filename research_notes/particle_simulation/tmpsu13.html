@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Time evolution of the physical distribution function</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <!--l. 897--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu14.html" >next</a>] [<a 
+href="#tailtmpsu13.html">tail</a>] [<a 
+href="tmpse4.html#tmpsu13.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x18-210004.1"></a>Time evolution of the physical distribution function</h4>
+<!--l. 899--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">4.1.1   </span> <a 
+ id="x18-220004.1.1"></a>Full-f formula</h5>
+<!--l. 901--><p class="noindent" >The collisionless kinetic equation (Vlasov equation) is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-22001r59"></a>
+   <center class="math-display" >
+<img 
+src="tmp60x.png" alt="&part;f-+ v&sdot; &part;f-+-q(E + v× B )&sdot; &part;f-= 0,
+&part;t     &part;x   m             &part;v
+" class="math-display"  /></center></td><td class="equation-label">(59)</td></tr></table>
+<!--l. 906--><p class="nopar" >
+It is ready to ﬁnd that the characteristic lines of the equation is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-22002r60"></a>
+   <center class="math-display" >
+<img 
+src="tmp61x.png" alt="dx-= v,
+dt
+" class="math-display"  /></center></td><td class="equation-label">(60)</td></tr></table>
+<!--l. 910--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-22003r61"></a>
+   <center class="math-display" >
+<img 
+src="tmp62x.png" alt="dv    q
+---=  -(E + v ×B ).
+ dt   m
+" class="math-display"  /></center></td><td class="equation-label">(61)</td></tr></table>
+<!--l. 915--><p class="nopar" >
+Along a characteristic line, the kinetic equation is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-22004r62"></a>
+   <center class="math-display" >
+<img 
+src="tmp63x.png" alt="df
+-- = 0,
+dt
+" class="math-display"  /></center></td><td class="equation-label">(62)</td></tr></table>
+<!--l. 919--><p class="nopar" >
+where <span 
+class="cmmi-10">f </span>is the total particle distribution function (full-f). Particles methods that use Monte-Carlo sampling to approximate
+the total <span 
+class="cmmi-10">f </span>are called total-f or full-f method.
+</p><!--l. 924--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">4.1.2   </span> <a 
+ id="x18-230004.1.2"></a>Delta-f formula</h5>
+<!--l. 926--><p class="noindent" >Since the phenomena we consider in tokamak plasmas are usually developing from an equilibrium or near-equilibrium state,
+it is desirable to calculate the the evolution of the only the perturbation, instead of the total <span 
+class="cmmi-10">f</span>. Therefore, we write <span 
+class="cmmi-10">f </span>as
+the sum of a known time-independent distribution function <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub> (<span 
+class="cmmi-10">&part;f</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕&part;t</span>=0) and a unknown time-dependent perturbation <span 
+class="cmmi-10">&delta;f</span>
+(<span 
+class="cmmi-10">&part;&delta;f∕&part;t</span><span 
+class="cmmi-10">&ne;</span>0):
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-23001r63"></a>
+   <center class="math-display" >
+<img 
+src="tmp64x.png" alt="f = f0 + &delta;f,
+" class="math-display"  /></center></td><td class="equation-label">(63)</td></tr></table>
+<!--l. 934--><p class="nopar" >
+Then the kinetic equation (<a 
+href="#x18-22004r62">62<!--tex4ht:ref: 3-8-p1 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-23002r64"></a>
+   <center class="math-display" >
+<img 
+src="tmp65x.png" alt="d&delta;f    df0
+-dt-= &minus;-dt .
+" class="math-display"  /></center></td><td class="equation-label">(64)</td></tr></table>
+<!--l. 938--><p class="nopar" >
+Particle methods that use Monte-Carlo sampling to approximate the  <span 
+class="cmmi-10">&delta;f </span>are usually called <span 
+class="cmmi-10">&delta;f </span>method. When the
+right-hand side of Eq. (<a 
+href="#x18-23002r64">64<!--tex4ht:ref: 3-8-p3 --></a>) is known, Eq. (<a 
+href="#x18-23002r64">64<!--tex4ht:ref: 3-8-p3 --></a>) can be integrated to obtain the time evolution of <span 
+class="cmmi-10">&delta;f</span>. The time evolution of
+<span 
+class="cmmi-10">&delta;f </span>can also be obtained by using
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-23003r65"></a>
+   <center class="math-display" >
+<img 
+src="tmp66x.png" alt="&delta;f(t,Z (t)) = f(t = 0,Z (t = 0))&minus; f (Z (t)).
+      j             j          0  j
+" class="math-display"  /></center></td><td class="equation-label">(65)</td></tr></table>
+<!--l. 947--><p class="nopar" >
+In this way, the time integration of <span 
+class="cmmi-10">&delta;f∕dt </span>is avoided, which may reduce the computational overhead and improve the
+accuracy of <span 
+class="cmmi-10">&delta;f</span>. This seemingly trivial method was emphasized in a CPC paper<span class="cite">[<a 
+href="tmpli1.html#Xallfrey2003">1</a>]</span>, which introduces an adaptive <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub>
+method based on this idea. I have tested this method in my toy code about the 1D Landau damping, which
+gave the same results as the usual method. However, Yang Chen pointed out that this method is never
+used in simulations of tokamak plasmas due to the following reasons. The chosen equilibrium distribution
+function <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub> in tokamak plasmas simulation is usually not a solution the following time-independent Vlasov
+equation:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-23004r66"></a>
+   <center class="math-display" >
+<img 
+src="tmp67x.png" alt="v&sdot; &part;f0 + q-(E + v × B )&sdot; &part;f0= 0,
+   &part;x   m   0       0   &part;v
+
+" class="math-display"  /></center></td><td class="equation-label">(66)</td></tr></table>
+<!--l. 962--><p class="nopar" >
+Instead, the chosen <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub> is a solution of the following equation
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-23005r67"></a>
+   <center class="math-display" >
+<img 
+src="tmp68x.png" alt="v&sdot; &part;f0 + q-(E0 + v × B0)&sdot; &part;f0= S,
+   &part;x   m               &part;v
+" class="math-display"  /></center></td><td class="equation-label">(67)</td></tr></table>
+<!--l. 968--><p class="nopar" >
+where <span 
+class="cmmi-10">S </span>is a nonzero term. On the other hand, the perturbation part is governed by the following equation
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-23006r68"></a>
+   <center class="math-display" >
+<img 
+src="tmp69x.png" alt="d&delta;f     q              &part;f
+----= &minus;--(&delta;E + v× &delta;B )&sdot;--0.
+ dt    m               &part;v
+" class="math-display"  /></center></td><td class="equation-label">(68)</td></tr></table>
+<!--l. 974--><p class="nopar" >
+Then it is ready to prove that the actual kinetic equation for the full <span 
+class="cmmi-10">f </span>in the usual tokamak simulation is actually given
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-23007r69"></a>
+   <center class="math-display" >
+<img 
+src="tmp70x.png" alt="df
+-- = S,
+dt
+" class="math-display"  /></center></td><td class="equation-label">(69)</td></tr></table>
+<!--l. 979--><p class="nopar" >
+which indicates that <span 
+class="cmmi-10">f </span>is not a constant along the characteristic curves and thus is not consistent with the algorithm given
+in Eq. (<a 
+href="#x18-23003r65">65<!--tex4ht:ref: 17-6-12-p9 --></a>). **may be wrong, check**The case given in Eq. (<a 
+href="#x18-23007r69">69<!--tex4ht:ref: 17-6-12-p11 --></a>) is the more relevant case to tokamak experiments where a
+particular form of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub> is maintained by external sources and we are asked to calculate the perturbation evolution around
+<span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub>.**wrong!
+
+</p>
+   <!--l. 987--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu14.html" >next</a>] [<a 
+href="tmpsu13.html" >front</a>] [<a 
+href="tmpse4.html#tmpsu13.html" >up</a>] </p></div>
+<!--l. 987--><p class="indent" >   <a 
+ id="tailtmpsu13.html"></a>  </p> 
+</body></html> 

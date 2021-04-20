@@ -1,0 +1,416 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Formula for matrix elements </TITLE>
+<META NAME="description" CONTENT="Formula for matrix elements ">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="previous" HREF="node45.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node47.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html586"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html584"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html580"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html587"
+  HREF="node47.html">misc contents</A>
+<B> Up:</B> <A NAME="tex2html585"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html581"
+  HREF="node45.html">Local magnetic shear</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00086000000000000000"></A><A NAME="11-12-p6"></A>
+<BR>
+Formula for matrix elements <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ C_{22}$"></SPAN>
+</H2>
+
+<P>
+Next, consider the calculation of matrix elements <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ C_{22}$"></SPAN>. In cylindrical
+coordinates, we have
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\nabla \cdot \left( \frac{\nabla \Psi}{| \nabla \Psi |^2} \right) & = &
+  \nabla \cdot \left( \frac{\Psi_R}{| \nabla \Psi |^2} \mathbf{e}_R +
+  \frac{\Psi_Z}{| \nabla \Psi |^2} \mathbf{e}_Z \right) \nonumber\\
+  & = & \frac{1}{R}  \frac{\partial}{\partial R} \left( R \frac{\Psi_R}{|
+  \nabla \Psi |^2} \right) + \frac{\partial}{\partial Z} \left(
+  \frac{\Psi_Z}{| \nabla \Psi |^2} \right) \nonumber\\
+  & = &  \frac{\Psi_R}{R | \nabla \Psi |^2} + \frac{\partial}{\partial R}
+  \left( \frac{\Psi_R}{| \nabla \Psi |^2} \right) + \Psi_{Z Z} \frac{1}{|
+  \nabla \Psi |^2} + \Psi_Z \left[ - \frac{1}{| \nabla \Psi |^4} (2 \Psi_R
+  \Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}) \right] \nonumber\\
+  & = &  \frac{\Psi_R}{R | \nabla \Psi |^2} + \Psi_{R R} \left( \frac{1}{|
+  \nabla \Psi |^2} \right) + \Psi_R \left[ - \frac{1}{| \nabla \Psi |^4} (2
+  \Psi_R \Psi_{R R} + 2 \Psi_Z \Psi_{Z R}) \right] + \Psi_{Z Z} \frac{1}{|
+  \nabla \Psi |^2} + \Psi_Z \left[ - \frac{1}{| \nabla \Psi |^4} (2 \Psi_R
+  \Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}) \right] \nonumber\\
+  & = & \frac{\Psi_R}{R | \nabla \Psi |^2} + \frac{\Psi_{R R} + \Psi_{Z Z}}{|
+  \nabla \Psi |^2} - \frac{1}{| \nabla \Psi |^4} (2 \Psi_R \Psi_R \Psi_{R R} +
+  4 \Psi_R \Psi_Z \Psi_{Z R} + 2 \Psi_Z \Psi_Z \Psi_{Z Z})
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="97" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img848.png"
+ ALT="$\displaystyle \nabla \cdot \left( \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="200" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img849.png"
+ ALT="$\displaystyle \nabla \cdot \left( \frac{\Psi_R}{\vert \nabla \Psi \vert^2} \mathbf{e}_R +
+\frac{\Psi_Z}{\vert \nabla \Psi \vert^2} \mathbf{e}_Z \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="245" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img850.png"
+ ALT="$\displaystyle \frac{1}{R} \frac{\partial}{\partial R} \left( R \frac{\Psi_R}{\v...
+...c{\partial}{\partial Z} \left(
+\frac{\Psi_Z}{\vert \nabla \Psi \vert^2} \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="551" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img851.png"
+ ALT="$\displaystyle \frac{\Psi_R}{R \vert \nabla \Psi \vert^2} + \frac{\partial}{\par...
+...{\vert \nabla \Psi \vert^4} (2 \Psi_R
+\Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="831" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img852.png"
+ ALT="$\displaystyle \frac{\Psi_R}{R \vert \nabla \Psi \vert^2} + \Psi_{R R} \left( \f...
+...{\vert \nabla \Psi \vert^4} (2 \Psi_R
+\Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="542" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img853.png"
+ ALT="$\displaystyle \frac{\Psi_R}{R \vert \nabla \Psi \vert^2} + \frac{\Psi_{R R} + \...
+..._R \Psi_R \Psi_{R R} +
+4 \Psi_R \Psi_Z \Psi_{Z R} + 2 \Psi_Z \Psi_Z \Psi_{Z Z})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">300</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using this, <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ C_{22}$"></SPAN> is written
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="150901-2"></A><!-- MATH
+ \begin{eqnarray}
+C_{22} & = & - | \nabla \Psi |^2 \nabla \cdot \left( \frac{\nabla \Psi}{|
+  \nabla \Psi |^2} \right) \nonumber\\
+  & = & - \frac{\Psi_R}{R} - (\Psi_{R R} + \Psi_{Z Z}) + \frac{1}{| \nabla
+  \Psi |^2} (2 \Psi_R \Psi_R \Psi_{R R} + 4 \Psi_R \Psi_Z \Psi_{Z R} + 2
+  \Psi_Z \Psi_Z \Psi_{Z Z}) .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img854.png"
+ ALT="$\displaystyle C_{22}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="151" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img855.png"
+ ALT="$\displaystyle - \vert \nabla \Psi \vert^2 \nabla \cdot \left( \frac{\nabla \Psi}{\vert
+\nabla \Psi \vert^2} \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="536" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img856.png"
+ ALT="$\displaystyle - \frac{\Psi_R}{R} - (\Psi_{R R} + \Psi_{Z Z}) + \frac{1}{\vert \...
+... \Psi_R \Psi_{R R} + 4 \Psi_R \Psi_Z \Psi_{Z R} + 2
+\Psi_Z \Psi_Z \Psi_{Z Z}) .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">301</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Equation (<A HREF="#150901-2">301</A>) is used in GTAW to calculate <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ C_{22}$"></SPAN>.
+
+<P>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ C_{22}$"></SPAN> can also be calculated in the magnetic surface coordinates.
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-20-2"></A><!-- MATH
+ \begin{equation}
+\frac{C_{22}}{\Psi' | \nabla \psi |^2} = - \Psi' \nabla \cdot
+  \left( \frac{\nabla \Psi}{| \nabla \Psi |^2} \right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="216" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img857.png"
+ ALT="$\displaystyle \frac{C_{22}}{\Psi' \vert \nabla \psi \vert^2} = - \Psi' \nabla \cdot \left( \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">302</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+the term on the r.h.s of the above equation is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-20-1"></A><!-- MATH
+ \begin{eqnarray}
+\nabla \cdot \left( \frac{\nabla \Psi}{| \nabla \Psi |^2} \right) & = &
+  \nabla \cdot \left( \frac{\nabla \Psi}{R^2}  \frac{R^2}{| \nabla \Psi |^2}
+  \right) \nonumber\\
+  & = & \frac{R^2}{| \nabla \Psi |^2} \nabla \cdot \left( \frac{\nabla
+  \Psi}{R^2} \right) + \frac{\nabla \Psi}{R^2} \cdot \nabla \left(
+  \frac{R^2}{| \nabla \Psi |^2} \right) .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="97" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img848.png"
+ ALT="$\displaystyle \nabla \cdot \left( \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="127" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img858.png"
+ ALT="$\displaystyle \nabla \cdot \left( \frac{\nabla \Psi}{R^2} \frac{R^2}{\vert \nabla \Psi \vert^2}
+\right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="279" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img859.png"
+ ALT="$\displaystyle \frac{R^2}{\vert \nabla \Psi \vert^2} \nabla \cdot \left( \frac{\...
+... \Psi}{R^2} \cdot \nabla \left(
+\frac{R^2}{\vert \nabla \Psi \vert^2} \right) .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">303</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+The first term on the r.h.s of Eq. (<A HREF="#8-20-1">303</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\frac{R^2}{| \nabla \Psi |^2} \nabla \cdot \left( \frac{\nabla \Psi}{R^2}
+  \right) & = & \frac{1}{| \nabla \Psi |^2} \triangle^{\ast} \Psi \nonumber\\
+  & = & \frac{1}{| \nabla \Psi |^2} \left[ -{\textmu}_0 R^2 \frac{d p_0}{d
+  \Psi} - \frac{d g}{d \Psi} g (\Psi) \right] .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="127" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img860.png"
+ ALT="$\displaystyle \frac{R^2}{\vert \nabla \Psi \vert^2} \nabla \cdot \left( \frac{\nabla \Psi}{R^2}
+\right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="83" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img861.png"
+ ALT="$\displaystyle \frac{1}{\vert \nabla \Psi \vert^2} \triangle^{\ast} \Psi$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="219" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img862.png"
+ ALT="$\displaystyle \frac{1}{\vert \nabla \Psi \vert^2} \left[ -{\textmu}_0 R^2 \frac{d p_0}{d
+\Psi} - \frac{d g}{d \Psi} g (\Psi) \right] .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">304</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+The second term on the r.h.s of Eq. (<A HREF="#8-20-1">303</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\frac{\nabla \Psi}{R^2} \cdot \nabla \left( \frac{R^2}{| \nabla \Psi |^2}
+  \right) & = & \frac{\Psi'}{R^2} \left[ | \nabla \psi |^2
+  \frac{\partial}{\partial \psi} \left( \frac{R^2}{| \nabla \Psi |^2} \right)
+  + (\nabla \theta \cdot \nabla \psi) \frac{\partial}{\partial \theta} \left(
+  \frac{R^2}{| \nabla \Psi |^2} \right) \right]
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="129" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img863.png"
+ ALT="$\displaystyle \frac{\nabla \Psi}{R^2} \cdot \nabla \left( \frac{R^2}{\vert \nabla \Psi \vert^2}
+\right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="363" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img864.png"
+ ALT="$\displaystyle \frac{\Psi'}{R^2} \left[ \vert \nabla \psi \vert^2
+\frac{\partial...
+...}{\partial \theta} \left(
+\frac{R^2}{\vert \nabla \Psi \vert^2} \right) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">305</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using these, Eq. (<A HREF="#8-20-2">302</A>) is finally written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\frac{C_{22}}{\Psi' | \nabla \psi |^2} & = & \Psi' \left[ {\textmu}_0
+  \frac{d p_0}{d \Psi}  \frac{R^2}{| \nabla \Psi |^2} + \frac{d g}{d \Psi} g
+  (\Psi) \frac{1}{| \nabla \Psi |^2} \right] - \Psi'^2 \left[ \frac{| \nabla
+  \psi |^2}{R^2} \frac{\partial}{\partial \psi} \left( \frac{R^2}{| \nabla
+  \Psi |^2} \right) + \frac{\nabla \theta \cdot \nabla \psi}{R^2}
+  \frac{\partial}{\partial \theta} \left( \frac{R^2}{| \nabla \Psi |^2}
+  \right) \right]
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="65" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img865.png"
+ ALT="$\displaystyle \frac{C_{22}}{\Psi' \vert \nabla \psi \vert^2}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="611" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img866.png"
+ ALT="$\displaystyle \Psi' \left[ {\textmu}_0
+\frac{d p_0}{d \Psi} \frac{R^2}{\vert \n...
+...}{\partial \theta} \left( \frac{R^2}{\vert \nabla \Psi \vert^2}
+\right) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">306</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+<P>
+ 
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html586"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html584"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html580"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html587"
+  HREF="node47.html">misc contents</A>
+<B> Up:</B> <A NAME="tex2html585"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html581"
+  HREF="node45.html">Local magnetic shear</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

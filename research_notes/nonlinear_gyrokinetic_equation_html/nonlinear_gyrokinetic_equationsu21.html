@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Comments on how to split the distribution function</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<meta name="date" content="2019-01-28 10:19:00" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 2084--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu22.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu20.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu20.html#tailnonlinear_gyrokinetic_equationsu20.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationsu21.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html#nonlinear_gyrokinetic_equationsu21.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.5   </span> <a 
+ id="x27-360005.5"></a>Comments on how to split the distribution function</h4>
+<!--l. 2086--><p class="noindent" >In particle simulations, the seemingly trivial thing on how to split the distribution function is always
+considered to be a big deal. Separating the perturbed part from the equilibrium part is considered to
+be a big deal and gives rise to the famous name “<span 
+class="cmmi-10">&delta;f </span>particle method”, in contrast to the
+conventional particle method which is now called full-f particle method. Summarizing the
+above result, we know that the total distribution function <span 
+class="cmmi-10">F </span>is split in the following form:
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation169x.png" alt="F   =  F0 + &delta;F
+                -q           &part;F0-  -q        &part;F0-
+    =  F0 + &delta;h+ m (&delta;&Phi; &minus; ⟨&delta;&Phi;⟩&alpha;) &part;𝜀 + m ⟨v &sdot;&delta;A ⟩&alpha; &part;𝜀 ,          (160)
+" class="math-display"  /></center>
+</div>and only <span 
+class="cmmi-10">&delta;h </span>is actually evolved by using markers and its moment in the phase-space is evaluated via
+Monte-Carlo integration. The blue and red terms in the above expression depends on the perturbed ﬁeld
+and their value can be obtained from the values on the grid and the velocity integration can be performed
+analytically. However, in some cases, the phase space integration of the blue terms must be evaluated
+using markers, i.e., using Monte-Carlo method, to avoid the inaccurate cancellation between the
+integration of these parts and the integration of <span 
+class="cmmi-10">&delta;h </span>(which are computed using Monte-Carlo method).
+When will the inaccurate cancellation is signiﬁcant depends on the problem being investigated and thus
+can only be determined by actual numerical experiments. Many electromagnetic particle simulation
+experiments indicate that the parallel current carried by the blue term must be evaluated via Monte-Carlo
+method, otherwise inaccurate cancellation between this term and <span 
+class="cmmi-10">&delta;h </span>will give rise to numerical
+instabilities.
+                                                                                  
+                                                                                  
+   <!--l. 2115--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu22.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu20.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu20.html#tailnonlinear_gyrokinetic_equationsu20.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu21.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html#nonlinear_gyrokinetic_equationsu21.html" >up</a>] </p></div>
+<!--l. 2115--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationsu21.html"></a> </p> 
+</body></html> 

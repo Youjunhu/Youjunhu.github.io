@@ -1,0 +1,941 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Local magnetic shear</TITLE>
+<META NAME="description" CONTENT="Local magnetic shear">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node46.html">
+<LINK REL="previous" HREF="node42.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html578"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html576"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html570"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html579"
+  HREF="node46.html">Formula for matrix elements</A>
+<B> Up:</B> <A NAME="tex2html577"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html571"
+  HREF="node44.html">Expression of geodesic curvature</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00085000000000000000">
+Local magnetic shear</A>
+</H2>
+
+<P>
+The negative local magnetic shear is defined by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="6-29-3"></A><!-- MATH
+ \begin{equation}
+S = \left( \nabla \times \frac{\mathbf{B}_0 \times \nabla
+  \Psi}{| \nabla \Psi |^2} \right) \cdot \frac{(\mathbf{B}_0 \times \nabla
+  \Psi)}{| \nabla \Psi |^2} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="258" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img804.png"
+ ALT="$\displaystyle S = \left( \nabla \times \frac{\mathbf{B}_0 \times \nabla \Psi}{\...
+...ht) \cdot \frac{(\mathbf{B}_0 \times \nabla \Psi)}{\vert \nabla \Psi \vert^2} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">284</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+There are two ways of calculating <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN>. The first way is to calculate <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN> in
+cylindrical coordinate system; the second one is in flux coordinate system.
+Next, consider the first way. We have
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\frac{\mathbf{B}_0 \times \nabla \Psi}{| \nabla \Psi |^2} & = &
+  \frac{(\nabla \Psi \times \nabla \phi + g \nabla \phi) \times \nabla \Psi}{|
+  \nabla \Psi |^2} \nonumber\\
+  & = & \frac{| \nabla \Psi |^2 \nabla \phi + g \nabla \phi \times \nabla
+  \Psi}{| \nabla \Psi |^2} \nonumber\\
+  & = & \nabla \phi + g \frac{\nabla \phi \times \nabla \Psi}{| \nabla \Psi
+  |^2} .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="73" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img805.png"
+ ALT="$\displaystyle \frac{\mathbf{B}_0 \times \nabla \Psi}{\vert \nabla \Psi \vert^2}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="183" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img806.png"
+ ALT="$\displaystyle \frac{(\nabla \Psi \times \nabla \phi + g \nabla \phi) \times \nabla \Psi}{\vert
+\nabla \Psi \vert^2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="167" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img807.png"
+ ALT="$\displaystyle \frac{\vert \nabla \Psi \vert^2 \nabla \phi + g \nabla \phi \times \nabla
+\Psi}{\vert \nabla \Psi \vert^2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="130" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img808.png"
+ ALT="$\displaystyle \nabla \phi + g \frac{\nabla \phi \times \nabla \Psi}{\vert \nabla \Psi
+\vert^2} .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">285</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using this, Eq. (<A HREF="#6-29-3">284</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-20-e5"></A><!-- MATH
+ \begin{eqnarray}
+S & = & \left[ \nabla \times \left( \nabla \phi + g \frac{\nabla \phi \times
+  \nabla \Psi}{| \nabla \Psi |^2} \right) \right] \cdot \left[ \nabla \phi + g
+  \frac{\nabla \phi \times \nabla \Psi}{| \nabla \Psi |^2} \right] \nonumber\\
+  & = & \left[ \nabla \times \left( g \frac{\nabla \phi \times \nabla \Psi}{|
+  \nabla \Psi |^2} \right) \right] \cdot \left[ \nabla \phi + g \frac{\nabla
+  \phi \times \nabla \Psi}{| \nabla \Psi |^2} \right] .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img809.png"
+ ALT="$\displaystyle S$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="349" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img810.png"
+ ALT="$\displaystyle \left[ \nabla \times \left( \nabla \phi + g \frac{\nabla \phi \ti...
+...hi + g
+\frac{\nabla \phi \times \nabla \Psi}{\vert \nabla \Psi \vert^2} \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="314" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img811.png"
+ ALT="$\displaystyle \left[ \nabla \times \left( g \frac{\nabla \phi \times \nabla \Ps...
+... + g \frac{\nabla
+\phi \times \nabla \Psi}{\vert \nabla \Psi \vert^2} \right] .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">286</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Next, we work in cylindrical coordinates and obtain
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+g \frac{\nabla \phi \times \nabla \Psi}{| \nabla \Psi |^2} & = & \frac{1}{|
+  \nabla \Psi |^2}  \frac{g}{R} \Psi_Z \hat{\mathbf{R}} - \frac{1}{| \nabla
+  \Psi |^2}  \frac{g}{R} \Psi_R \hat{\mathbf{Z}}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="83" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img812.png"
+ ALT="$\displaystyle g \frac{\nabla \phi \times \nabla \Psi}{\vert \nabla \Psi \vert^2}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="216" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img813.png"
+ ALT="$\displaystyle \frac{1}{\vert
+\nabla \Psi \vert^2} \frac{g}{R} \Psi_Z \hat{\mathbf{R}} - \frac{1}{\vert \nabla
+\Psi \vert^2} \frac{g}{R} \Psi_R \hat{\mathbf{Z}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">287</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-21-p1"></A><!-- MATH
+ \begin{equation}
+\nabla \times \left[ g \frac{\nabla \phi \times \nabla
+  \Psi}{| \nabla \Psi |^2} \right] = \left[ \frac{\partial}{\partial Z} \left(
+  \frac{1}{| \nabla \Psi |^2}  \frac{g}{R} \Psi_Z \right) +
+  \frac{\partial}{\partial R} \left( \frac{1}{| \nabla \Psi |^2}  \frac{g}{R}
+  \Psi_R \right) \right] \hat{\ensuremath{\boldsymbol{\phi}}} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="480" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img814.png"
+ ALT="$\displaystyle \nabla \times \left[ g \frac{\nabla \phi \times \nabla \Psi}{\ver...
+...rt^2} \frac{g}{R} \Psi_R \right) \right] \hat{\ensuremath{\boldsymbol{\phi}}} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">288</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using Eq. (<A HREF="#8-21-p1">288</A>), Eq. (<A HREF="#8-20-e5">286</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+S = \left[ \frac{\partial}{\partial Z} \left( \frac{1}{| \nabla \Psi |^2}
+  \frac{g}{R} \Psi_Z \right) + \frac{\partial}{\partial R} \left( \frac{1}{|
+  \nabla \Psi |^2}  \frac{g}{R} \Psi_R \right) \right] \frac{1}{R} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="366" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img815.png"
+ ALT="$\displaystyle S = \left[ \frac{\partial}{\partial Z} \left( \frac{1}{\vert \nab...
+...{1}{\vert \nabla \Psi \vert^2} \frac{g}{R} \Psi_R \right) \right] \frac{1}{R} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">289</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The two partial derivatives appearing in the above equation can be calculated
+to give
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\frac{\partial}{\partial Z} \left( \frac{1}{| \nabla \Psi |^2}  \frac{g}{R}
+  \Psi_Z \right) & = & \frac{1}{\Psi_R^2 + \Psi_Z^2}  \frac{1}{R} (g \Psi_Z)_Z
+  - \frac{2 \Psi_R \Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}}{[\Psi_R^2 + \Psi_Z^2]^2}
+  \frac{g}{R} \Psi_Z \nonumber\\
+  & = & \frac{1}{\Psi_R^2 + \Psi_Z^2}  \frac{g \Psi_{Z Z} + g' \Psi_Z^2}{R} -
+  \frac{2 \Psi_R \Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}}{[\Psi_R^2 + \Psi_Z^2]^2} 
+  \frac{g}{R} \Psi_Z . 
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="139" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img816.png"
+ ALT="$\displaystyle \frac{\partial}{\partial Z} \left( \frac{1}{\vert \nabla \Psi \vert^2} \frac{g}{R}
+\Psi_Z \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="349" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img817.png"
+ ALT="$\displaystyle \frac{1}{\Psi_R^2 + \Psi_Z^2} \frac{1}{R} (g \Psi_Z)_Z
+- \frac{2 ...
+...R \Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}}{[\Psi_R^2 + \Psi_Z^2]^2}
+\frac{g}{R} \Psi_Z$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="383" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img818.png"
+ ALT="$\displaystyle \frac{1}{\Psi_R^2 + \Psi_Z^2} \frac{g \Psi_{Z Z} + g' \Psi_Z^2}{R...
+...\Psi_{R Z} + 2 \Psi_Z \Psi_{Z Z}}{[\Psi_R^2 + \Psi_Z^2]^2}
+\frac{g}{R} \Psi_Z .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">290</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+<P>
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\frac{\partial}{\partial R} \left( \frac{1}{| \nabla \Psi |^2}  \frac{g}{R}
+  \Psi_R \right) & = & \frac{1}{\Psi_R^2 + \Psi_Z^2}  \left( \frac{g}{R}
+  \Psi_R \right)_R - \frac{2 \Psi_R \Psi_{R R} + 2 \Psi_Z \Psi_{Z
+  R}}{[\Psi_R^2 + \Psi_Z^2]^2}  \frac{g}{R} \Psi_R \nonumber\\
+  & = & \frac{1}{\Psi_R^2 + \Psi_Z^2}  \left( \frac{g}{R} \Psi_{R R} + \Psi_R
+  \frac{g' \Psi_R R - g}{R^2} \right) - \frac{2 \Psi_R \Psi_{R R} + 2 \Psi_Z
+  \Psi_{Z R}}{[\Psi_R^2 + \Psi_Z^2]^2}  \frac{g}{R} \Psi_R .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="139" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img819.png"
+ ALT="$\displaystyle \frac{\partial}{\partial R} \left( \frac{1}{\vert \nabla \Psi \vert^2} \frac{g}{R}
+\Psi_R \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="351" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img820.png"
+ ALT="$\displaystyle \frac{1}{\Psi_R^2 + \Psi_Z^2} \left( \frac{g}{R}
+\Psi_R \right)_R...
+...R \Psi_{R R} + 2 \Psi_Z \Psi_{Z
+R}}{[\Psi_R^2 + \Psi_Z^2]^2} \frac{g}{R} \Psi_R$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="480" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img821.png"
+ ALT="$\displaystyle \frac{1}{\Psi_R^2 + \Psi_Z^2} \left( \frac{g}{R} \Psi_{R R} + \Ps...
+...\Psi_{R R} + 2 \Psi_Z
+\Psi_{Z R}}{[\Psi_R^2 + \Psi_Z^2]^2} \frac{g}{R} \Psi_R .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">291</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using these, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-21-p4"></A><!-- MATH
+ \begin{equation}
+S = \frac{1}{\Psi_R^2 + \Psi_Z^2}  \frac{1}{R^2} \left( g
+  \Psi_{Z Z} + g' \Psi_Z^2 + g \Psi_{R R} + \Psi_R \frac{g' \Psi_R R - g}{R}
+  \right) - \frac{1}{[\Psi_R^2 + \Psi_Z^2]^2}  \frac{g}{R^2}  (4 \Psi_R
+  \Psi_{R Z} \Psi_Z + 2 \Psi_Z^2 \Psi_{Z Z} + 2 \Psi_R^2 \Psi_{R R}) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="821" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img822.png"
+ ALT="$\displaystyle S = \frac{1}{\Psi_R^2 + \Psi_Z^2} \frac{1}{R^2} \left( g \Psi_{Z ...
+... (4 \Psi_R \Psi_{R Z} \Psi_Z + 2 \Psi_Z^2 \Psi_{Z Z} + 2 \Psi_R^2 \Psi_{R R}) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">292</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+(The above results for <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN> has been verified by using Mathematica Software.)
+The results calculated by using Eq. (<A HREF="#8-21-p4">292</A>) are plotted in Fig.
+<A HREF="#8-21-p3a">32</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="8-21-p3a"></A><A NAME="7523"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 32:</STRONG>
+The local magnetic shear <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN> as a function of the
+  poloidal angle. The different lines corresponds to the shear on different
+  magnetic surfaces. The stars correspond to the values of the shear on the
+  boundary magnetic surface while the plus signs correspond to the value on
+  the innermost magnetic surface (the magnetic surface adjacent to the
+  magnetic axis). The equilibrium is a Solovev equilibrium.</CAPTION>
+<TR><TD><IMG
+ WIDTH="379" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="img823.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig33/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+Next, we consider the calculation of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN> in the flux coordinates system
+<!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img728.png"
+ ALT="$ (\psi, \theta, \phi)$"></SPAN>. The <!-- MATH
+ $\mathbf{B}_0 \times \nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="69" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img200.png"
+ ALT="$ \mathbf{B}_0 \times
+\nabla \Psi$"></SPAN> term can be
+written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\mathbf{B}_0 \times \nabla \Psi & = & [\nabla \Psi \times \nabla \phi + g
+  \nabla \phi] \times \nabla \Psi \nonumber\\
+  & = & \Psi'^2 | \nabla \psi |^2 \nabla \phi + g \Psi' \nabla \phi \times
+  \nabla \psi \nonumber\\
+  & = & \Psi'^2 | \nabla \psi |^2 \nabla \phi + g \Psi' \mathcal{J}^{- 1}
+  \left( - \frac{\mathcal{J}^2 \nabla \psi \cdot \nabla \theta}{R^2} \nabla
+  \psi + \frac{\mathcal{J}^2 | \nabla \psi |^2}{R^2} \nabla \theta \right)
+  \nonumber\\
+  & = & - \Psi' \frac{g\mathcal{J} \nabla \psi \cdot \nabla \theta}{R^2}
+  \nabla \psi + \Psi' \frac{g\mathcal{J} | \nabla \psi |^2}{R^2} \nabla \theta
+  + \Psi'^2 | \nabla \psi |^2 \nabla \phi
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="69" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img760.png"
+ ALT="$\displaystyle \mathbf{B}_0 \times \nabla \Psi$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="176" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img761.png"
+ ALT="$\displaystyle [\nabla \Psi \times \nabla \phi + g
+\nabla \phi] \times \nabla \Psi$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="201" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img824.png"
+ ALT="$\displaystyle \Psi'^2 \vert \nabla \psi \vert^2 \nabla \phi + g \Psi' \nabla \phi \times
+\nabla \psi$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="415" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img825.png"
+ ALT="$\displaystyle \Psi'^2 \vert \nabla \psi \vert^2 \nabla \phi + g \Psi' \mathcal{...
+...psi + \frac{\mathcal{J}^2 \vert \nabla \psi \vert^2}{R^2} \nabla \theta \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="369" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img826.png"
+ ALT="$\displaystyle - \Psi' \frac{g\mathcal{J} \nabla \psi \cdot \nabla \theta}{R^2}
+...
+...psi \vert^2}{R^2} \nabla \theta
++ \Psi'^2 \vert \nabla \psi \vert^2 \nabla \phi$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">293</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="6-29-4"></A><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{\mathbf{B}_0 \times \nabla \Psi}{| \nabla
+  \Psi |^2} = - \frac{g\mathcal{J}}{\Psi' R^2}  \frac{\nabla \psi \cdot \nabla
+  \theta}{| \nabla \psi |^2} \nabla \psi + \frac{g\mathcal{J}}{\Psi' R^2}
+  \nabla \theta + \nabla \phi .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="379" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img827.png"
+ ALT="$\displaystyle \Rightarrow \frac{\mathbf{B}_0 \times \nabla \Psi}{\vert \nabla \...
+...t^2} \nabla \psi + \frac{g\mathcal{J}}{\Psi' R^2} \nabla \theta + \nabla \phi .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">294</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+By using the curl formula in generalized coordinates <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img728.png"
+ ALT="$ (\psi, \theta, \phi)$"></SPAN>,
+we obtain
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="6-29-5"></A><!-- MATH
+ \begin{eqnarray}
+\nabla \times \frac{\mathbf{B}_0 \times \nabla \Psi}{| \nabla \Psi |^2} & =
+  & \nabla \times \left( - \frac{g\mathcal{J}}{\Psi' R^2}  \frac{\nabla \psi
+  \cdot \nabla \theta}{| \nabla \psi |^2} \nabla \psi +
+  \frac{g\mathcal{J}}{\Psi' R^2} \nabla \theta + \nabla \phi \right)
+  \nonumber\\
+  & = & \left[ \frac{\partial}{\partial \psi} \left(
+  \frac{g\mathcal{J}}{\Psi' R^2} \right) + \frac{\partial}{\partial \theta}
+  \left( \frac{g\mathcal{J}}{\Psi' R^2}  \frac{\nabla \psi \cdot \nabla
+  \theta}{| \nabla \psi |^2} \right) \right] \nabla \psi \times \nabla \theta
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="105" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img828.png"
+ ALT="$\displaystyle \nabla \times \frac{\mathbf{B}_0 \times \nabla \Psi}{\vert \nabla \Psi \vert^2}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="320" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img829.png"
+ ALT="$\displaystyle \nabla \times \left( - \frac{g\mathcal{J}}{\Psi' R^2} \frac{\nabl...
+...nabla \psi +
+\frac{g\mathcal{J}}{\Psi' R^2} \nabla \theta + \nabla \phi \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="345" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img830.png"
+ ALT="$\displaystyle \left[ \frac{\partial}{\partial \psi} \left(
+\frac{g\mathcal{J}}{...
+...ta}{\vert \nabla \psi \vert^2} \right) \right] \nabla \psi \times \nabla \theta$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">295</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using Eqs. (<A HREF="#6-29-4">294</A>) and (<A HREF="#6-29-5">295</A>), the negative local magnetic
+shear [Eq. (<A HREF="#6-29-3">284</A>)] is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="7-16-p1"></A><!-- MATH
+ \begin{eqnarray}
+S & = & \left\{ \left[ \frac{\partial}{\partial \psi} \left(
+  \frac{g\mathcal{J}}{\Psi' R^2} \right) + \frac{\partial}{\partial \theta}
+  \left( \frac{g\mathcal{J}}{\Psi' R^2}  \frac{\nabla \psi \cdot \nabla
+  \theta}{| \nabla \psi |^2} \right) \right] \nabla \psi \times \nabla \theta
+  \right\} \cdot \left( - \frac{g\mathcal{J}}{\Psi' R^2}  \frac{\nabla \psi
+  \cdot \nabla \theta}{| \nabla \psi |^2} \nabla \psi +
+  \frac{g\mathcal{J}}{\Psi' R^2} \nabla \theta + \nabla \phi \right)
+  \nonumber\\
+  & = & \left[ \frac{\partial}{\partial \psi} \left(
+  \frac{g\mathcal{J}}{\Psi' R^2} \right) + \frac{\partial}{\partial \theta}
+  \left( \frac{g\mathcal{J}}{\Psi' R^2}  \frac{\nabla \psi \cdot \nabla
+  \theta}{| \nabla \psi |^2} \right) \right] \nabla \psi \times \nabla \theta
+  \cdot \nabla \phi \nonumber\\
+  & = & \left[ \frac{\partial}{\partial \psi} \left(
+  \frac{g\mathcal{J}}{\Psi' R^2} \right) + \frac{\partial}{\partial \theta}
+  \left( \frac{g\mathcal{J}}{\Psi' R^2}  \frac{\nabla \psi \cdot \nabla
+  \theta}{| \nabla \psi |^2} \right) \right] \mathcal{J}^{- 1} .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img809.png"
+ ALT="$\displaystyle S$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="660" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img831.png"
+ ALT="$\displaystyle \left\{ \left[ \frac{\partial}{\partial \psi} \left(
+\frac{g\math...
+...nabla \psi +
+\frac{g\mathcal{J}}{\Psi' R^2} \nabla \theta + \nabla \phi \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="380" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img832.png"
+ ALT="$\displaystyle \left[ \frac{\partial}{\partial \psi} \left(
+\frac{g\mathcal{J}}{...
+...psi \vert^2} \right) \right] \nabla \psi \times \nabla \theta
+\cdot \nabla \phi$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="316" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img833.png"
+ ALT="$\displaystyle \left[ \frac{\partial}{\partial \psi} \left(
+\frac{g\mathcal{J}}{...
+...t \nabla
+\theta}{\vert \nabla \psi \vert^2} \right) \right] \mathcal{J}^{- 1} .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">296</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Note that the partial derivatives <!-- MATH
+ $\partial / \partial \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img834.png"
+ ALT="$ \partial / \partial \psi$"></SPAN> and <!-- MATH
+ $\partial /
+\partial \theta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img835.png"
+ ALT="$ \partial /
+\partial \theta$"></SPAN> in Eq. (<A HREF="#7-16-p1">296</A>) is taken in the <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img728.png"
+ ALT="$ (\psi, \theta, \phi)$"></SPAN>
+coordinates and they are usually different from their counterparts in <!-- MATH
+ $(\psi,
+\theta, \zeta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img409.png"
+ ALT="$ (\psi, \theta, \zeta)$"></SPAN> coordinates. In Eq. (<A HREF="#7-16-p1">296</A>), the partial derivatives
+are operating on equilibrium quantity, which is independent of <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img579.png"
+ ALT="$ \phi$"></SPAN> and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \zeta $"></SPAN>. In this case, the partial derivatives in the two sets of coordinates
+are equal to each other. Figure <A HREF="#8-12-p11">33</A> plots the poloidal dependence
+of local magnetic shear <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN> and <!-- MATH
+ $| \nabla \Psi |^2 S$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.png"
+ ALT="$ \vert \nabla \Psi \vert^2 S$"></SPAN>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="8-12-p11"></A><A NAME="7544"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 33:</STRONG>
+The local magnetic shear <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN> (left) and <!-- MATH
+ $| \nabla
+  \Psi |^2 S$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.png"
+ ALT="$ \vert \nabla \Psi \vert^2 S$"></SPAN> (right) as a function of the poloidal angle. The different lines
+  corresponds to the shear on different magnetic surfaces. The stars
+  correspond to the values of the shear on the boundary magnetic surface while
+  the plus signs correspond to the value on the innermost magnetic surface
+  (the magnetic surface adjacent to the magnetic axis). The equilibrium is a
+  Solovev equilibrium.</CAPTION>
+<TR><TD><IMG
+ WIDTH="379" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="img836.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig31/tmp.eps}"><IMG
+ WIDTH="379" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="img837.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig31/tmp3.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+Next, let us examine the flux surface average of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN>, which is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="7-16-e1"></A><!-- MATH
+ \begin{eqnarray}
+\langle S \rangle & = & \frac{\int_0^{2 \pi} S\mathcal{J}d \theta}{\int_0^{2
+  \pi} \mathcal{J}d \theta} \nonumber\\
+  & = & \frac{1}{\int_0^{2 \pi} \mathcal{J}d \theta} \int_0^{2 \pi} \left[
+  \frac{\partial}{\partial \psi} \left( \frac{g\mathcal{J}}{\Psi' R^2} \right)
+  + \frac{\partial}{\partial \theta} \left( \frac{g\mathcal{J}}{\Psi' R^2}
+  \frac{\nabla \psi \cdot \nabla \theta}{| \nabla \psi |^2} \right) \right] d
+  \theta \nonumber\\
+  & = & \frac{1}{\int_0^{2 \pi} \mathcal{J}d \theta} \int_0^{2 \pi} \left[
+  \frac{\partial}{\partial \psi} \left( \frac{g\mathcal{J}}{\Psi' R^2} \right)
+  \right] d \theta \nonumber\\
+  & = & \frac{1}{\int_0^{2 \pi} \mathcal{J}d \theta} 
+  \frac{\partial}{\partial \psi} \int_0^{2 \pi} \frac{g\mathcal{J}}{\Psi' R^2}
+  d \theta
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img838.png"
+ ALT="$\displaystyle \langle S \rangle$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="76" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img839.png"
+ ALT="$\displaystyle \frac{\int_0^{2 \pi} S\mathcal{J}d \theta}{\int_0^{2
+\pi} \mathcal{J}d \theta}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="395" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img840.png"
+ ALT="$\displaystyle \frac{1}{\int_0^{2 \pi} \mathcal{J}d \theta} \int_0^{2 \pi} \left...
+...a \psi \cdot \nabla \theta}{\vert \nabla \psi \vert^2} \right) \right] d
+\theta$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="228" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img841.png"
+ ALT="$\displaystyle \frac{1}{\int_0^{2 \pi} \mathcal{J}d \theta} \int_0^{2 \pi} \left...
+...}{\partial \psi} \left( \frac{g\mathcal{J}}{\Psi' R^2} \right)
+\right] d \theta$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="182" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img842.png"
+ ALT="$\displaystyle \frac{1}{\int_0^{2 \pi} \mathcal{J}d \theta}
+\frac{\partial}{\partial \psi} \int_0^{2 \pi} \frac{g\mathcal{J}}{\Psi' R^2}
+d \theta$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">297</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Note that the global safety factor is given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+q (\psi) = - \frac{1}{2 \pi}  \int_0^{2 \pi} \frac{g\mathcal{J}}{\Psi' R^2}
+  d \theta .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="186" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img843.png"
+ ALT="$\displaystyle q (\psi) = - \frac{1}{2 \pi} \int_0^{2 \pi} \frac{g\mathcal{J}}{\Psi' R^2} d \theta .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">298</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using this, equation (<A HREF="#7-16-e1">297</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="7-16-e3"></A><!-- MATH
+ \begin{equation}
+\langle S \rangle = - \frac{2 \pi}{\int_0^{2 \pi}
+  \mathcal{J}d \theta}  \frac{d q (\psi)}{d \psi},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="170" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$\displaystyle \langle S \rangle = - \frac{2 \pi}{\int_0^{2 \pi} \mathcal{J}d \theta} \frac{d q (\psi)}{d \psi},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">299</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Equation (<A HREF="#7-16-e3">299</A>) provides a way to verify the correctness of the
+numerical implementation of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN>. Figure <A HREF="#8-12-p10">34</A> compares <!-- MATH
+ $d q / d \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ d q / d \psi $"></SPAN>
+with <!-- MATH
+ $- \langle S \rangle \left( \int_0^{2 \pi} \mathcal{J}d \theta \right) /
+(2 \pi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="159" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img845.png"
+ ALT="$ - \langle S \rangle \left( \int_0^{2 \pi} \mathcal{J}d \theta \right) /
+(2 \pi)$"></SPAN>, which shows that the two results agree with each other well.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="8-12-p10"></A><A NAME="7556"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 34:</STRONG>
+<!-- MATH
+ $d q / d \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ d q / d \psi $"></SPAN> (solid line) and <!-- MATH
+ $- \langle S
+  \rangle \int_0^{2 \pi} \mathcal{J}d \theta / (2 \pi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="138" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img846.png"
+ ALT="$ - \langle S
+\rangle \int_0^{2 \pi} \mathcal{J}d \theta / (2 \pi)$"></SPAN> (plus mark) as a
+  function of the radial coordinate <!-- MATH
+ $\overline{\Psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \overline {\Psi }$"></SPAN> (<!-- MATH
+ $\overline{\Psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \overline {\Psi }$"></SPAN> is
+  the normalized poloidal magnetic flux). The equilibrium is a Solovev
+  equilibrium.</CAPTION>
+<TR><TD><IMG
+ WIDTH="247" HEIGHT="186" ALIGN="BOTTOM" BORDER="0"
+ SRC="img847.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig31/tmp2.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html578"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html576"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html570"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html579"
+  HREF="node46.html">Formula for matrix elements</A>
+<B> Up:</B> <A NAME="tex2html577"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html571"
+  HREF="node44.html">Expression of geodesic curvature</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>free_software</title>
+<meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--<link rel="stylesheet" type="text/css" href="http://theory.ipp.ac.cn/~yj/style2.css" media="screen" />-->
+<link rel="stylesheet" type="text/css" href="style2.css" media="screen" />
+</head>
+<body>
+<h1>Free softwares I use</h1>
+<!--I value the freedom to modify and improve the software I use, so I prefer to use softewares that respect users' freedom to do theses things. Now the only software satisfying this kind of requirement is the open source software developed by the free software communities.-->
+<!--<p>"Free software refers to software that ensures that the end users have the freedom of studying and modifying that software. The issue is therefore not about price, but about the freedoms of the end users; e.g. free software guarantees these freedom-rights by providing source codes to the end users."</p>-->
+<p>
+One of the aims of science is to make science transparent rather than secret, making learning science easy rather than hard. Open-source movements are providing us a free and clean world where we can explore and learn new things and enjoy our learning and working when using computers. Open-source resources equipped with a powerful search engine (e.g. Google) are transforming the way we learn programming. Using free software instead of proprietary one is a trend in computational physics community. By using open-source softwares, we can do whatever we want to do with our computers. It is not only possible but also efficient and fun to use only free softwares in doing research.
+
+</p>
+<p>I have been a GNU/Linux user since 2007. This page lists the free softwares I use frequently. These softwares are all open source softwares, most of which are very popular in open-source communities. 
+"Free software has become the foundation of a learning society where we share our knowledge in a way that others can build upon and enjoy."
+</p>
+<h2><a href="http://www.gnu.org">GNU operating system</a></h2>
+<p>GNU is a Unix-like operating system. For me, GNU/Linux operating system provides a stable, flexible, and highly customizable working platform. The specific GNU/Linux distributions I use are <a href="https://www.debian.org/">Debian</a> and <a href="https://www.ubuntu.com"> Ubuntu</a></p>
+<!--<p> Nowadays, free operating systems, e.g. GNU/Linux, are getting more and more popular. Although MS windows operating system still dominates in the scientific community, the situation may change in the near future (within 10 years in my opinion).</p>-->
+
+<h2><a href="https://www.scipy.org/">SciPy NumPy matplotlib</a></h2>
+<p>After using Gnuplot for many years, I decided to switch gradually to using these Python packages (SciPy, NumPy, and matplotlib) to do visualization because it is fun to use <a href="https://www.python.org/">Python</a>.</p>
+
+<h2><a href="http://www.sympy.org">SymPy</a></h2>
+<p>Before 2017, I used <a href="http://maxima.sourceforge.net/">Maxima</a> (a famous computer algebra system in free software communities). I am now using <a href="http://www.sympy.org">SymPy</a>, which is a computer algebra system written in Python and using python as the interface language. I now prefer Python-based tools because it is straightforward and fun to use Python.
+There are a huge number of python modules (often with "Py" in their names), which are angels of open-source community. They are demonstrating the strength of the open-source model and how the world is being changed by those who develop and use open-source softwares.</p>
+
+<h2>PGF/TikZ</h2>
+PGF/TikZ are languages for producing vector graphics. The following figures visualize magnetic field lines on tokamak magnetic surfaces with different values of safety factor q. The quality of the graphics created by PGF/TikZ is amazing.
+<DIV class="figure">
+<img  src="project_new/TikZ/torus_and_q/q0.1.png" width="400"  /> <img  src="project_new/TikZ/torus_and_q/q0.5.png" width="400"  />
+<img  src="project_new/TikZ/torus_and_q/q1.png" width="400"  /> <img  src="project_new/TikZ/torus_and_q/q2.png" width="400"  />
+<img  src="project_new/TikZ/torus_and_q/q3.png" width="400"  /> <img  src="project_new/TikZ/torus_and_q/q4.png" width="400"  />
+<p class="caption">        <strong>Fig. </strong> Magnetic field lines on q=1/10 magnetic surface (upper left), q=1/2 magnetic surface (upper right), q=1 magnetic surface (middle left), q=2 magnetic surface (middle right), q=3 magnetic surface (lower left), and q=4 magnetic surface (lower right). Source codes for producing these figures: <a href="project_new/TikZ/torus_and_q/p.sh">p.sh</a> and <a href="project_new/TikZ/torus_and_q/torus.sketch">torus.sketch</a>. </p>
+</DIV>
+
+<h2><a href="http://www.gnuplot.info/">Gnuplot</a></h2>
+<p>Gnuplot is command-line driven graphing utility. Most of the figures in my publications are created by gnuplot. The gnuplot terminals I frequently use include x11, postscript, epslatex, png, and gif.</p>
+<p>Gnuplot can generate animation by using the "gif" terminal. The following are some examples, which describe, respectively, (1) <a href="http://theory.ipp.ac.cn/~yj/figures/traveling_wave.plt">a traveling wave</a>, (2) <a href="figures/standing_wave.plt">a standing wave </a>that forms due to two traveling waves with the same frequency and aptitude but opposite directions of propagation, (3) <a href="http://theory.ipp.ac.cn/~yj/figures/two_wave_packages.plt">two interacting wave packets</a>, (4)<a href="figures/wave_packet1.plt">a wave packet with the group velocity larger than phase velocity</a>, and (5)<a href="figures/wave_packet2.plt"> a wave-packet with the group velocity less than the phase velocity</a></p>
+<DIV align=center>
+<p><img  src="figures/traveling_wave.gif" alt="wave" width="400" /> <img  src="figures/standing_wave.gif" alt="wave" width="400" /> <img  src="figures/two_wave_packages.gif" alt="wave" width="400"/> </p>
+</DIV>
+<DIV class="figure">
+<img  src="figures/wave_packet1.gif" width="400" /> <img  src="figures/wave_packet2.gif" width="400" />
+<p class="caption">
+        <strong>Fig. </strong> Left: A wave packet with the group velocity larger than the phase velocity (<a href="figures/wave_packet1.plt">code to produce this figure</a>). Right: a wave-packet with the group velocity less than the phase velocity (right) (<a href="figures/wave_packet2.plt">code to produce this figure</a>).
+    </p>
+</DIV>
+<p>The following is a 2D animation describing m=4 ballooning modes in tokamak (right figure is for a mode with radial phase variation):</p>
+<DIV ALIGN=CENTER>
+<p><img  src="figures/ballooning_modes.gif" alt="ballooning modes" width="400" /> <img  src="figures/ballooning_modes2.gif" alt="ballooning modes" width="400" /> </p>
+<!--<p><img  src="figures/AE1.gif" alt="ballooning modes" width="800" /> <img  src="figures/AE2.gif" alt="ballooning modes" width="800" /> </p>-->
+</DIV>
+<p>The following is an animation of a guiding center orbit in EAST tokamak:</p>
+<!--<DIV ALIGN=CENTER>
+<p><img  src="figures/orbit_3d.gif" alt="orbit 3D" width="500" /> </p>
+</DIV>
+<p> Another 3D animation of guiding center orbit with the corresponding banana orbit on the poloidal plane (10keV Deuterium ion with pitch angle 80 degree starting from (R=2.1m,Z=0) in EAST#38300@3.9 magnetic equilibrium):</p>
+<DIV ALIGN=CENTER>
+<p><img  src="figures/orbit_3d_b.gif" alt="orbit 3D" width="500" /><img  src="figures/banana.gif" width="500" /> </p>
+</DIV>-->
+<DIV class="figure">
+<img  src="figures/orbit_3d_c.gif" alt="orbit 3D" width="400" /><img  src="figures/banana.gif" width="400" />
+<p class="caption">
+        <strong>Fig. </strong> Left: 3D view; Right: 2D poloidal view
+    </p>
+</DIV>
+
+<p>The three-body problem is the simplest system that can not be analytically solved, where numerical simulations are generally required. The following is a simple simulation of 10 positive-charged particles interacting with each other. This is a toy project. I took one hour for me to write the simulation code (in Fortran) and make the animation (using gnuplot).  Partilce-based numerical methods are often attractive to us because these methods seem easy to understand, simple to write codes for, and it is fun to animate the results.</p>
+<DIV class="figure">
+<img src="figures/n-body.gif" width="500" /> 
+<p class="caption">
+        <strong>Fig. </strong> A simple molecular dynamics simulation (a type of N-body simulation) of 10 positive-charged particles interacting with each other.
+    </p>
+</DIV>
+
+<!--<p>tmp content, Huasheng Xie:</p>
+<p><img  src="figures/xie1.png" width="800" /></p>
+-->
+<h2><a href="http://www.texmacs.org">TeXmacs</a></h2>
+<p>I rely heavily on Texmacs to write <a href="./research_notes/" >notes containing mathematical formulas</a>. In recent years, I seldom use paper and pencil for deriving mathematical formulas, all these are done in Texmacs. Texmacs is a free wysiwyw (what you see is what you want) format editor with special features for scientists. If you are still writing obscure TEX codes to prepare papers for publication, and want to know what is the right way to prepare papers without MS word, I recommend you to try Texmacs.</p>
+<p>I also use Texmacs as an interface to <a href="http://maxima.sourceforge.net/">Maxima</a> (a famous computer algebra system in free software communities). Here is a screen-shot of my using Maxima in Texmacs:</p>
+<DIV ALIGN=CENTER>
+<img  src="figures/texmacs_maxima_screenshot2.jpg"  width="800" /> 
+</DIV>
+<h2><a href="http://www.gnu.org/software/emacs/">Emacs</a></h2>
+<p>Emacs can be called "the king of text editors". I use it to write various codes, misc notes, and, of course, this web page.</p>
+
+<h2>Vector graphics editor:  <a href="https://inkscape.org/">inkscape</a>, <a href="http://xfig.org/">Xfig</a></h2>
+<p>In science, we prefer vector graphics over raster graphics (also called bitmap). The reason is that the former uses paths, points, lines, curves and shapes or polygons (which are all based upon mathematical equations) to represent images, which makes the images generated can be scaled without degrading the clarity of the images (raster graphics represent images as an array of pixlels and thus scale with loss of clarity).</p>
+<p>Xfig is a vector graphics editor I have once used. Xfig is easy to use and is enough for drawing simple technical vector graphics. The following is a vector graphic created by Xfig, describing the neutral beam injection geometry on EAST tokamak.
+<DIV ALIGN=CENTER>
+<p><img  src="figures/nbi_east.png" alt="NBI_east" width="300"/></p>
+</DIV>
+There is  no further development of Xfig in recent years. I plan to switch to using " <a href="https://inkscape.org/">inkscape</a>,", which is said to be a much more advanced vector graphic editors. I have learned the basics about inkscape but have never drawn a delicate vector graphic using it. Besides Xfig,I also use frequently a vector graphic tool included in TeXmacs.</p>
+
+<h2><a href="http://www.tug.org/metapost.html">Metapost</a>, <a href="http://asymptote.sourceforge.net/index.html">asymptote</a></h2>
+<p>Metapost is a vector graphic programming language that can be used to produce high-quality graphics. I use it to draw sketch map used in my papers and presentation to make things clear. A figure used in my Ph.D. thesis is as follows:</p>
+<DIV ALIGN=CENTER>
+<p><img  src="figures/scheme.gif" alt="scheme" /></p>
+</DIV>
+<p>asymptote is a vector graphic language, which is inspired by MetaPost, with a much cleaner programming syntax and IEEE floating-point numerics</p>
+
+<h2><a href="http://www.gnu.org/software/bash/">Bash</a></h2>
+<p>Bash is the default command-line interpreter for most Linux distributions. While the most frequent use of bash is to provide a command line to execute commands, the most powerful ability of bash is its use as a script language, which makes most of my routine works in Linux automatic and error-free.</p>
+<!--<h2><a href="http://en.wikipedia.org/wiki/C_shell">csh</a></h2>
+<p>Another command-line interpreter. I prefer csh to bash because the overall style of csh looks more like C and is more readable to me.</p>-->
+
+<h2><a href="http://core.tcl.tk/expect/index">Expect</a></h2>
+<p>Expect scripting language is able to talk with your interactive programs that require user interaction, eliminating the need of your interactive response.
+Expect scripting language works by waiting a prompting message output by a program (this message indicates that there is a following user interaction required), if the actual message output by the program match the message defined in the expect command, then the Expect script will send the corresponding response defined in the expect script, which will act as the original user interaction.
+You can say that this tool is your robot which will automate your scripts by avoiding your interaction (e.g., typing a password).</p>
+<pre>
+spawn                  Starting a script or a program.
+expect                  Waiting for program output.
+send                      Sending a reply to your program.
+</pre>
+<p>    The spawn command is used to start a script or a program like the shell, FTP, Telnet, SSH, SCP, and so on.
+    The Expect command defines and waits for a particular message.  If the message output by the program match the message defined in the expect command, the send command will send a reply to a script or a program, which acts as a substitute for the user interaction.
+The following is an expect script, in which I use oathtool to generate the time-based one-time-password and store the result in a variable otp and send this password to scp, so that I can scp a file from my local machine to the nersc supercomputer without manually generating and typing the one-time-password.
+</p>
+
+<pre>
+#!/usr/bin/expect -f
+set otp [exec oathtool --totp -b my_secrete_key]
+set timeout -1
+spawn scp a.f90 usrname@cori.nersc.gov:~/
+expect "Password + OTP:"
+send -- "my_passwd${otp}\r"
+expect eof
+</pre>
+
+<h2><a href="http://www.gnu.org/software/make/">GNU make</a></h2>
+<p>I use "GNU make" to control the compiling process of Fortran codes written by me.</p>
+<h2><a href="http://rsync.samba.org/">rsync</a></h2>
+<p>I use rsync to synchronize the content of several directories between my laptop, desktop computer, and the cluster.</p>
+
+<h2><a href="https://en.wikipedia.org/wiki/Cron">cron</a></h2>
+<p>cron is a system daemon used to execute tasks at designated times. Cron is a time-based job scheduler, which we can use to schedule jobs (commands or shell scripts) to run periodically at fixed times, dates, or intervals. I use cron to schedule jobs such as converting some files on my desktop computer to PDF/html formats and then uploading these files to my website at midnight.</p>
+
+
+<h2><a href="http://www.latex2html.org/">Latex2html</a></h2>
+<p> I use latex2html to transform latex files (which themselves are exported from texmacs format) to html format. The <a href="./research_notes/tokamak_equilibrium/">html version of my research notes</a> are obtained this way.</p>
+
+
+<h2>grep/<a href="http://www.gnu.org/software/sed/">sed</a>/<a href="https://www.gnu.org/software/gawk/">AWK</a>/Perl</h2>
+<p>Sed is a stream editor, which is usually invoked in shell scripts to transform text files.  I often use sed to alter parameters in input namelist files of fortran programs. Doing this way makes the process of parameter scan automatic, thus making the process error-free. Sed was inspired by the popular grep command (I use grep many times daily). AWK language evovled as a successor of sed. Both sed and AWK inspired and influenced the Perl language. Tools for text processing/extraction are important for computer automation and are helpful for managing large program with many source files.
+Which tools one chooses to use depends on many factors (see <a href="https://stackoverflow.com/questions/366980/what-are-the-differences-between-perl-python-awk-and-sed">this stackoverflow question</a>).
+</p>  
+<h2><a href="http://www.fvwm.org/">FVWM</a></h2>
+<p>FVWM is a window manager for X window system, which is simple and at the same time highly configurable.
+I prefer X window system plus FVWM as my desktop environment rather than the heavy desktop environment such as Gnome and KDE, though they are excellent and work well for most people. <a href="my_screenshot.jpg">This</a> is the screen shot of my desktop. My FVWM configure file can be found <a href="my_fvwm_config">here</a>.</p>
+<h2><a href="http://projects.gnome.org/evince/">Evince</a></h2>
+<p>Evince is a viewer for multiple document formats, including PDF, djvu, and Postscript. </p>
+<!--It seems Evince lacks some important features such as shortcuts for going forward and backward. Occasionally, I use "adobe PDF reader for Linux"-->
+<h2><a href="http://www.gnu.org/software/gv/">gv</a></h2>
+<p>I use gv to view eps figure created by gnuplot.</p>
+<h2><a href="http://en.wikipedia.org/wiki/MPlayer">mplayer</a></h2>
+<p>Mplayer is an excellent video and audio player. Mplayer can play video even when you do not start the X window system. I use the following command to play randomly the music files in my ~/music directory:</p>
+<pre>cd ~/music/ &amp;&amp; mplayer `ls |sort --random-sort`</pre>
+We can also use the -shuffle option along with the find command to play randomly all the mp3 files on the system:
+<pre>find -iname '*.mp3' >mylist && mplayer  -shuffle -playlist mylist</pre>
+
+
+<h2>Firefox</h2>
+<p>Mozilla Firefox is a free and open source web browser, which is one of the most popular open source softwares</p>
+<h2><a href="http://en.wikipedia.org/">Wikipedia</a></h2>
+<p> Wikipedia in English is a good and free source of knowledge. It is convenient to edit the content of wikipedia. I have been a contributor of wikipedia since 2007. Although I usually make minor revision to wikipedia, I am happy to know that I contribute to the improvement of the content of wikipedia. </p>
+<!--<p>By the way, I had denoted 5 Chinese yuan to Wikipedia foundation.</p>-->
+<h2>rxvt-unicode</h2>
+<p>An X11 terminal supporting Chinese.</p>
+<h2><a href="http://www.gnu.org/s/wget/">GNU wget</a></h2>
+<p>GNU Wget is a utility for downloading files from the Web. A useful function of Wget is the so-called "recursive downloading", which follows links in webpages, to create local versions of remote web sites, fully mirroring the directory structure of the original site. For example, I use the following command line to download all the lecture notes on Electromagnetism at Prof. Fitzpatrick's website:</p>
+<pre>wget -r -l 2 -p http://farside.ph.utexas.edu/teaching/jk1/Electromagnetism/index.html</pre>
+<h2><a href="http://www.openssh.com/">OpenSSH</a></h2>
+<p>a program for logging into and/or executing commands on a remote machine. Openssh encrypts all traffic to effectively eliminate connection hijacking and other attacks. In China, this encrypting feature, along with the port forwarding capability, provides one way to visit some websites outside China.
+</p>
+<h2>Claws Mail</h2>
+<p>A simple email client. Though I have used it for several years, I do not like it.</p>
+<h2>Stardict</h2>
+<p>A dictionary software I use. However, I do not think it is an excellent dictionary software.</p>
+<h2>Chinese input method: <a href="http://code.google.com/p/fcitx">fcitx</a></h2>
+<p>I switch to using fctix after using the <a href="https://sourceforge.net/projects/scim/">scim</a> input method for 8 years (since 2007).</p>
+
+<h2><a href="http://gcc.gnu.org/fortran/">gfortran</a></h2>
+<p> Gfortran (GNU Fortran compiler) is my primary Fortran compiler.</p>
+<h2><a href="http://www.netlib.org/lapack/">Lapack</a></h2>
+<p>LAPACK (Linear Algebra Package) is a robust library for numerical linear algebra. All linear algebra related works in numerical codes written by me are done by calling the corresponding Lapack subroutines.</p>
+<h2>rox-filer</h2>
+<p>a file manager, seldom used </p>
+<h2>gthumb</h2>
+<p>Gthumb is an image viewer and organizer</p>
+<h2>gimp</h2>
+<p>The GNU Image Manipulation Program for X Window systems.</p>
+<h2><a href="http://www.imagemagick.org/">ImageMagick suite  of tools</a></h2>
+<p>ImageMagick provides a suit of command-line utilities, such as convert and import, which can be used to create, edit, compose, or convert bitmap images. 
+</p>
+<h2>Various command-line utilities</h2>
+<p>Various command-line utilities that can be used to finish various tasks: grep, diff, sort, wc, paste, ps, jobs, kill, top, du, find, ls, cd, cp, scp, mv, mkdir, cat, rm, tar, chmod, apptitude, sudo, patch, man, pdftk, epsmerge,epstool, lftp, ...</p>
+<p>The following one-line awk script</p>
+<pre>history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10</pre>
+<p>gives the top 10 commands invoked from my terminal:</p>
+<pre>
+     1	3244  16.22%   ls
+     2	3222  16.11%   cd
+     3	2357  11.785%  gnuplot
+     4	1982  9.91%    make
+     5	1322  6.61%    gv
+     6	978   4.89%    mv
+     7	786   3.93%    cp
+     8	673   3.365%   texmacs
+     9	630   3.15%    evince
+    10	502   2.51%    rm
+</pre>
+
+<p><a href="index.html">Back to Youjun Hu's Homepage</a></p>
+
+</body>
+</html>

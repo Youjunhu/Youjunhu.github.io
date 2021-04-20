@@ -1,0 +1,445 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fixed boundary tokamak equilibrium problem</TITLE>
+<META NAME="description" CONTENT="Fixed boundary tokamak equilibrium problem">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node91.html">
+<LINK REL="previous" HREF="node87.html">
+<LINK REL="up" HREF="tokamak_equilibrium.html">
+<LINK REL="next" HREF="node90.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1110"
+  HREF="node90.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1108"
+  HREF="tokamak_equilibrium.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1102"
+  HREF="node88.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1111"
+  HREF="node90.html">Finite difference form of</A>
+<B> Up:</B> <A NAME="tex2html1109"
+  HREF="tokamak_equilibrium.html">Notes on tokamak equilibrium</A>
+<B> Previous:</B> <A NAME="tex2html1103"
+  HREF="node88.html">Large aspect ratio expansion</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000110000000000000000">
+Fixed boundary tokamak equilibrium problem</A>
+</H1>
+
+<P>
+The fixed boundary equilibrium problem (also called the ``inverse equilibrium
+problem'' by some authors) refers to the case where the shape of a magnetic
+surface is given and one is asked to solve the equilibrium within this
+magnetic surface. To make it convenient to deal with the shape of the
+boundary, one usually use a general coordinates system which has one
+coordinate surface coinciding with the given magnetic surface. This makes it
+trivial to deal with the irregular boundary. To obtain the equilibrium, one
+needs to solve the GS equation in the general coordinate system. Next we
+derive the form of the GS equation in a general coordinate system. The main
+task is to derive the form of the toroidal elliptic operator in the general
+coordinate system. The toroidal elliptic operator takes the form
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-23-5"></A><!-- MATH
+ \begin{equation}
+\triangle^{\ast} \Psi \equiv R^2 \nabla \cdot \left(
+  \frac{1}{R^2} \nabla \Psi \right)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="176" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1274.png"
+ ALT="$\displaystyle \triangle^{\ast} \Psi \equiv R^2 \nabla \cdot \left( \frac{1}{R^2} \nabla \Psi \right)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">414</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+For an arbitrary general coordinate system <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN> (the <!-- MATH
+ $(\psi,
+\theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN> coordinate system here is an arbitrary general coordinate
+system except that <!-- MATH
+ $\nabla \phi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img488.png"
+ ALT="$ \nabla
+\phi$"></SPAN> is perpendicular to both <!-- MATH
+ $\nabla \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img466.png"
+ ALT="$ \nabla \psi$"></SPAN> and
+<!-- MATH
+ $\nabla \theta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img80.png"
+ ALT="$ \nabla \theta $"></SPAN>), the toroidal elliptic operator is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-23-4"></A><!-- MATH
+ \begin{equation}
+\triangle^{\star} \Psi = \frac{R^2}{\mathcal{J}} \left\{
+  \left[ \Psi_{\psi} \frac{\mathcal{J}}{R^2} | \nabla \psi |^2 \right]_{\psi}
+  + \left[ \Psi_{\theta} \frac{\mathcal{J}}{R^2} | \nabla \theta |^2
+  \right]_{\theta} + \left[ \Psi_{\psi} \frac{\mathcal{J}}{R^2} (\nabla \psi
+  \cdot \nabla \theta) \right]_{\theta} + \left[ \Psi_{\theta}
+  \frac{\mathcal{J}}{R^2} \nabla \theta \cdot \nabla \psi \right]_{\psi}
+  \right\},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="653" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1275.png"
+ ALT="$\displaystyle \triangle^{\star} \Psi = \frac{R^2}{\mathcal{J}} \left\{ \left[ \...
+...frac{\mathcal{J}}{R^2} \nabla \theta \cdot \nabla \psi \right]_{\psi} \right\},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">415</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the subscripts denotes partial derivatives, <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> is the
+Jacobian of the coordinate system <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN>. [Next, we provide
+the proof of Eq. (<A HREF="#4-23-4">415</A>). The gradient of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> is written as (note
+that <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> is independent of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN>)
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-23-1"></A><!-- MATH
+ \begin{equation}
+\nabla \Psi = \frac{\partial \Psi}{\partial \theta} \nabla
+  \theta + \frac{\partial \Psi}{\partial \psi} \nabla \psi,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="171" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1276.png"
+ ALT="$\displaystyle \nabla \Psi = \frac{\partial \Psi}{\partial \theta} \nabla \theta + \frac{\partial \Psi}{\partial \psi} \nabla \psi,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">416</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which is in the covariant form. To calculate the divergence of <!-- MATH
+ $\nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img182.png"
+ ALT="$ \nabla \Psi$"></SPAN>,
+it is convenient to express <!-- MATH
+ $\nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img182.png"
+ ALT="$ \nabla \Psi$"></SPAN> in terms of the contravariant basis
+vectors. Using the metric matrix, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\nabla \psi = | \nabla \psi |^2 \nabla \theta \times \nabla \phi
+  \mathcal{J}+ \nabla \psi \cdot \nabla \theta \nabla \phi \times \nabla \psi
+  \mathcal{J},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="328" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1277.png"
+ ALT="$\displaystyle \nabla \psi = \vert \nabla \psi \vert^2 \nabla \theta \times \nab...
+...J}+ \nabla \psi \cdot \nabla \theta \nabla \phi \times \nabla \psi \mathcal{J},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">417</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\nabla \theta = \nabla \psi \cdot \nabla \theta \nabla \theta \times \nabla
+  \phi \mathcal{J}+ | \nabla \theta |^2 \nabla \phi \times \nabla \psi
+  \mathcal{J}.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="322" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1278.png"
+ ALT="$\displaystyle \nabla \theta = \nabla \psi \cdot \nabla \theta \nabla \theta \ti...
+...cal{J}+ \vert \nabla \theta \vert^2 \nabla \phi \times \nabla \psi \mathcal{J}.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">418</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using these, Eq. (<A HREF="#4-23-1">416</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\nabla \Psi & = & \Psi_{\theta} (\nabla \psi \cdot \nabla \theta \nabla
+  \theta \times \nabla \phi \mathcal{J}+ | \nabla \theta |^2 \nabla \phi
+  \times \nabla \psi \mathcal{J}) + \Psi_{\psi} (| \nabla \psi |^2 \nabla
+  \theta \times \nabla \phi \mathcal{J}+ \nabla \psi \cdot \nabla \theta
+  \nabla \phi \times \nabla \psi \mathcal{J}) \nonumber\\
+  & = & (\Psi_{\theta} \nabla \psi \cdot \nabla \theta + \Psi_{\psi} | \nabla
+  \psi |^2) \nabla \theta \times \nabla \phi \mathcal{J}+ (\Psi_{\theta} |
+  \nabla \theta |^2 + \Psi_{\psi} \nabla \psi \cdot \nabla \theta) \nabla \phi
+  \times \nabla \psi \mathcal{J}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="30" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1279.png"
+ ALT="$\displaystyle \nabla \Psi$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="631" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1280.png"
+ ALT="$\displaystyle \Psi_{\theta} (\nabla \psi \cdot \nabla \theta \nabla
+\theta \tim...
+...J}+ \nabla \psi \cdot \nabla \theta
+\nabla \phi \times \nabla \psi \mathcal{J})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="519" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1281.png"
+ ALT="$\displaystyle (\Psi_{\theta} \nabla \psi \cdot \nabla \theta + \Psi_{\psi} \ver...
+...si} \nabla \psi \cdot \nabla \theta) \nabla \phi
+\times \nabla \psi \mathcal{J}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">419</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using the divergence formula, the elliptic operator in Eq. (<A HREF="#4-23-5">414</A>) is
+written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\triangle^{\ast} \Psi & = & R^2 \nabla \cdot \left( \frac{1}{R^2} \nabla
+  \Psi \right) \nonumber\\
+  & = & R^2 \nabla \cdot \left[ \frac{1}{R^2} (\Psi_{\theta} \nabla \psi
+  \cdot \nabla \theta + \Psi_{\psi} | \nabla \psi |^2) \nabla \theta \times
+  \nabla \phi \mathcal{J}+ \frac{1}{R^2} (\Psi_{\theta} | \nabla \theta |^2 +
+  \Psi_{\psi} \nabla \psi \cdot \nabla \theta) \nabla \phi \times \nabla \psi
+  \mathcal{J} \right] \nonumber\\
+  & = & \frac{R^2}{\mathcal{J}} \left[ \frac{\partial}{\partial \psi} \left(
+  \frac{\mathcal{J}}{R^2} (\Psi_{\theta} \nabla \psi \cdot \nabla \theta +
+  \Psi_{\psi} | \nabla \psi |^2) \right) + \frac{\partial}{\partial \theta}
+  \left( \frac{\mathcal{J}}{R^2} (\Psi_{\theta} | \nabla \theta |^2 +
+  \Psi_{\psi} \nabla \psi \cdot \nabla \theta) \right) \right], \\
+  & = & \frac{R^2}{\mathcal{J}} \left[ \left( \Psi_{\theta}
+  \frac{\mathcal{J}}{R^2} \nabla \psi \cdot \nabla \theta \right)_{\psi} +
+  \left( \Psi_{\psi} \frac{\mathcal{J}}{R^2} | \nabla \psi |^2 \right)_{\psi}
+  + \left( \Psi_{\theta} \frac{\mathcal{J}}{R^2} | \nabla \theta |^2
+  \right)_{\theta} + \left( \Psi_{\psi} \frac{\mathcal{J}}{R^2} \nabla \psi
+  \cdot \nabla \theta \right)_{\theta} \right], \nonumber
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="38" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1282.png"
+ ALT="$\displaystyle \triangle^{\ast} \Psi$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="120" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1283.png"
+ ALT="$\displaystyle R^2 \nabla \cdot \left( \frac{1}{R^2} \nabla
+\Psi \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="620" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1284.png"
+ ALT="$\displaystyle R^2 \nabla \cdot \left[ \frac{1}{R^2} (\Psi_{\theta} \nabla \psi
+...
+...la \psi \cdot \nabla \theta) \nabla \phi \times \nabla \psi
+\mathcal{J} \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="555" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1285.png"
+ ALT="$\displaystyle \frac{R^2}{\mathcal{J}} \left[ \frac{\partial}{\partial \psi} \le...
+... \theta \vert^2 +
+\Psi_{\psi} \nabla \psi \cdot \nabla \theta) \right) \right],$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">420</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="606" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1286.png"
+ ALT="$\displaystyle \frac{R^2}{\mathcal{J}} \left[ \left( \Psi_{\theta}
+\frac{\mathca...
+...rac{\mathcal{J}}{R^2} \nabla \psi
+\cdot \nabla \theta \right)_{\theta} \right],$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+which is identical with Eq. (<A HREF="#4-23-4">415</A>).]
+
+<P>
+Using Eq. (<A HREF="#4-23-4">415</A>), the GS equation [Eq. (<A HREF="node20.html#7-1-p1">53</A>)] is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-25-7"></A><!-- MATH
+ \begin{equation}
+\frac{R^2}{\mathcal{J}} \left[ \left( \Psi_{\psi}
+  \frac{\mathcal{J}}{R^2} | \nabla \psi |^2 \right)_{\psi} + \left(
+  \Psi_{\theta} \frac{\mathcal{J}}{R^2} | \nabla \theta |^2 \right)_{\theta} +
+  \left( \Psi_{\theta} \frac{\mathcal{J}}{R^2} \nabla \psi \cdot \nabla \theta
+  \right)_{\psi} + \left( \Psi_{\psi} \frac{\mathcal{J}}{R^2} \nabla \psi
+  \cdot \nabla \theta \right)_{\theta} \right] = - \mu_0 R^2 \frac{d P}{d
+  \Psi} - \frac{d g}{d \Psi} g,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="749" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1287.png"
+ ALT="$\displaystyle \frac{R^2}{\mathcal{J}} \left[ \left( \Psi_{\psi} \frac{\mathcal{...
+...ight)_{\theta} \right] = - \mu_0 R^2 \frac{d P}{d \Psi} - \frac{d g}{d \Psi} g,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">421</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which is the form of the GS equation in <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN> coordinate
+system.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1112"
+  HREF="node90.html">Finite difference form of toroidal elliptic operator in general
+coordinate system</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1110"
+  HREF="node90.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1108"
+  HREF="tokamak_equilibrium.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1102"
+  HREF="node88.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1111"
+  HREF="node90.html">Finite difference form of</A>
+<B> Up:</B> <A NAME="tex2html1109"
+  HREF="tokamak_equilibrium.html">Notes on tokamak equilibrium</A>
+<B> Previous:</B> <A NAME="tex2html1103"
+  HREF="node88.html">Large aspect ratio expansion</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

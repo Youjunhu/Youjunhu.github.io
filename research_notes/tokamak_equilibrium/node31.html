@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Free boundary equilibrium problem</TITLE>
+<META NAME="description" CONTENT="Free boundary equilibrium problem">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node32.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="tokamak_equilibrium.html">
+<LINK REL="next" HREF="node32.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html487"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html485"
+  HREF="tokamak_equilibrium.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html479"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html488"
+  HREF="node32.html">Curvilinear coordinate system</A>
+<B> Up:</B> <A NAME="tex2html486"
+  HREF="tokamak_equilibrium.html">Notes on tokamak equilibrium</A>
+<B> Previous:</B> <A NAME="tex2html480"
+  HREF="node30.html">Density limit</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00030000000000000000">
+Free boundary equilibrium problem</A>
+</H1>
+
+<P>
+Free boundary equilibrium problem refers to the case where the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN>
+on the boundary of the computational box is unknown and must be determined
+from the current from both the plasma and external coils. Suppose the
+computational box is a rectangle on <SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ (R, Z)$"></SPAN> plane. If all the current
+perpendicular to <SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ (R, Z)$"></SPAN> plane is known, the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> at any point can
+be uniquely determined by using the Green function method, which gives
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-31-1"></A><!-- MATH
+ \begin{equation}
+\Psi (R', Z') = \int_P G (R, Z ; R', Z') J_{\phi} d R d Z +
+  \sum_{i = 1}^{N_c} G (R^c_i, Z_i^c ; R', Z') I_{\phi} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="454" HEIGHT="66" ALIGN="MIDDLE" BORDER="0"
+ SRC="img417.png"
+ ALT="$\displaystyle \Psi (R', Z') = \int_P G (R, Z ; R', Z') J_{\phi} d R d Z + \sum_{i = 1}^{N_c} G (R^c_i, Z_i^c ; R', Z') I_{\phi} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">98</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In solving the equilibrium problem, the current in external coils is given and
+known while the current carried by the plasma is unknown, which need to be
+derived from the information of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> via Eq. (<A HREF="node23.html#7-26-1m">61</A>), i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="7-26-2m"></A><!-- MATH
+ \begin{equation}
+J_{\phi} = - \frac{1}{\mu_0 R} \triangle^{\ast} \Psi .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="126" HEIGHT="49" ALIGN="MIDDLE" BORDER="0"
+ SRC="img418.png"
+ ALT="$\displaystyle J_{\phi} = - \frac{1}{\mu_0 R} \triangle^{\ast} \Psi .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">99</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+To numerically solve GS equation within the computational box, we need the
+value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> on the boundary of the box as a boundary condition. Thus we
+need to adopt some initial guess of the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> on the boundary, then
+solve the GS equation to get the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> within the computational box.
+Using the computed <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN>, we can calculate the value of the plasma current
+perpendicular to the <SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ (R, Z)$"></SPAN> plane through Eq. (<A HREF="#7-26-2m">99</A>). After this,
+all the current (current in the plasma and in the external coils)
+perpendicular to the poloidal plane is known, we can calculate the value of
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> on the boundary of the box, <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img419.png"
+ ALT="$ \Psi_b$"></SPAN>, by using the Green function
+formulation Eq. (<A HREF="#10-31-1">98</A>). Note that <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img419.png"
+ ALT="$ \Psi_b$"></SPAN> calculated this way
+usually differs from the initial guess of the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> on the boundary.
+Thus, we need to use the <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img419.png"
+ ALT="$ \Psi_b$"></SPAN> calculated this way as a new guess value of
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> on the computational boundary and repeat the above procedures. The
+process is repeated until <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img419.png"
+ ALT="$ \Psi_b$"></SPAN> obtained in two successive iterations
+agrees with each other to a prescribed tolerance.
+
+<P>
+Before considering the free boundary equilibrium problem, it is instructive to
+consider the fixed boundary equilibrium problem, where the shape of the last
+closed flux surface is given, because this kind of problem provides basic
+knowledge for dealing with the more complicated free boundary problem. In
+dealing with the fixed boundary problem, the curvilinear coordinate system is
+useful. Specifically, the convenience provided by a curvilinear coordinate
+system in solving the fixed boundary tokamak equilibrium problem is that the
+curvilinear coordinates can be properly chosen to make one of the coordinate
+surfaces coincide with the given boundary flux surface, so that the boundary
+condition becomes trivial in this curvilinear coordinate system.
+
+<P>
+Next section discusses the basic theory of curvilinear coordinates system. (I
+learned the theory of general coordinates from the appendix of Ref.
+[<A
+ HREF="node111.html#boozer2005">3</A>], which is concise and easy to understand.) Many analytical
+theories and numerical codes use the curvilinear coordinate systems that are
+constructed with one coordinate surface coinciding with the magnetic surface.
+These kinds of curvilinear coordinates are usually called the magnetic surface
+coordinates. In these coordinate systems, we need to choose a poloidal
+coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> and a toroidal coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.png"
+ ALT="$ \zeta $"></SPAN>. A particular choice for
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.png"
+ ALT="$ \zeta $"></SPAN> is such one that makes the magnetic field lines be
+straight lines on <!-- MATH
+ $(\theta, \zeta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img420.png"
+ ALT="$ (\theta, \zeta)$"></SPAN> plane. This kind of coordinate system is
+usually called a flux coordinate system.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html487"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html485"
+  HREF="tokamak_equilibrium.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html479"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html488"
+  HREF="node32.html">Curvilinear coordinate system</A>
+<B> Up:</B> <A NAME="tex2html486"
+  HREF="tokamak_equilibrium.html">Notes on tokamak equilibrium</A>
+<B> Previous:</B> <A NAME="tex2html480"
+  HREF="node30.html">Density limit</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

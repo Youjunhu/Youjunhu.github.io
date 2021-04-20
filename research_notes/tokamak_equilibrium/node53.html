@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Radial coordinate</TITLE>
+<META NAME="description" CONTENT="Radial coordinate">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="previous" HREF="node52.html">
+<LINK REL="up" HREF="node46.html">
+<LINK REL="next" HREF="node54.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html727"
+  HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html725"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html721"
+  HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html728"
+  HREF="node54.html">Constructing magnetic surface coordinate</A>
+<B> Up:</B> <A NAME="tex2html726"
+  HREF="node46.html">Calculating coordinate</A>
+<B> Previous:</B> <A NAME="tex2html722"
+  HREF="node52.html">Verification of Jabobian</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00053700000000000000"></A><A NAME="9-27-1"></A>
+<BR>
+Radial coordinate
+</H3>
+
+<P>
+The cylindrical coordinates <!-- MATH
+ $(R, \phi, Z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img122.png"
+ ALT="$ (R, \phi, Z)$"></SPAN> is a right-hand system, with the
+positive direction of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ Z$"></SPAN> pointing vertically up. In GTAW code, the positive
+direction of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> is chosen in the anticlockwise direction when observers
+look along the direction of <!-- MATH
+ $\hat{\ensuremath{\boldsymbol{\phi}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.png"
+ ALT="$ \hat{\ensuremath{\boldsymbol{\phi}}}$"></SPAN>. Then the definition
+<!-- MATH
+ $\mathcal{J}^{- 1} = \nabla \psi \times \nabla \theta \cdot \nabla \phi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="155" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img648.png"
+ ALT="$ \mathcal{J}^{- 1} = \nabla \psi \times \nabla \theta \cdot \nabla \phi$"></SPAN>
+indicates that (1) <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> is negative if <!-- MATH
+ $\nabla \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img466.png"
+ ALT="$ \nabla \psi$"></SPAN> points from the
+magnetic axis to LCFS; (2) <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> is positive if <!-- MATH
+ $\nabla \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img466.png"
+ ALT="$ \nabla \psi$"></SPAN> points
+from the LCFS to the magnetic axis. This can be used to determine the sign of
+Jacobian after using the analytical formula to obtain the absolute value of
+Jacobian.
+
+<P>
+The radial coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> can be chosen to be various surface function,
+e.g., volume, poloidal or toroidal magnetic flux within a magnetic surface.
+
+<P>
+The frequently used radial coordinates include <!-- MATH
+ $\overline{\Psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \overline {\Psi }$"></SPAN>, and
+<!-- MATH
+ $\sqrt{\overline{\Psi}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img649.png"
+ ALT="$ \sqrt{\overline{\Psi}}$"></SPAN>, where <!-- MATH
+ $\overline{\Psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \overline {\Psi }$"></SPAN> is defined by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\overline{\Psi} = \frac{\Psi - \Psi_0}{\Psi_a - \Psi_0},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="105" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img650.png"
+ ALT="$\displaystyle \overline{\Psi} = \frac{\Psi - \Psi_0}{\Psi_a - \Psi_0},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">202</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$ \Psi_0$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img651.png"
+ ALT="$ \Psi_a$"></SPAN> are the values of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> at the magnetic axis and
+LCFS, respectively. For the last two choices of the radial coordinate, <!-- MATH
+ $\nabla
+\psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img466.png"
+ ALT="$ \nabla \psi$"></SPAN> points from the magnetic axis to LCFS. Other choices of the radial
+coordinates include the toroidal magnetic flux and its square root,
+<!-- MATH
+ $\overline{\Psi}_t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img652.png"
+ ALT="$ \overline{\Psi}_t$"></SPAN>, and <!-- MATH
+ $\sqrt{\overline{\Psi}_t}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$ \sqrt {\overline {\Psi }_t}$"></SPAN>, where <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img653.png"
+ ALT="$ \Psi_t$"></SPAN> and
+<!-- MATH
+ $\overline{\Psi}_t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img652.png"
+ ALT="$ \overline{\Psi}_t$"></SPAN> are defined by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{d \Psi_t}{d \Psi} = 2 \pi q, \Psi_t (0) = 0
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="155" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img654.png"
+ ALT="$\displaystyle \frac{d \Psi_t}{d \Psi} = 2 \pi q, \Psi_t (0) = 0$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">203</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\overline{\Psi}_t = \frac{\Psi_t}{\Psi_t (1)},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="90" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img655.png"
+ ALT="$\displaystyle \overline{\Psi}_t = \frac{\Psi_t}{\Psi_t (1)},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">204</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+respectively, where <!-- MATH
+ $\Psi_t (0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.png"
+ ALT="$ \Psi_t (0)$"></SPAN> and <!-- MATH
+ $\Psi_t (1)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img657.png"
+ ALT="$ \Psi_t (1)$"></SPAN> are the values of <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img653.png"
+ ALT="$ \Psi_t$"></SPAN>
+at the magnetic axis and LCFS, respectively.
+
+<P>
+If <!-- MATH
+ $\psi = \sqrt{\overline{\Psi}_t}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img658.png"
+ ALT="$ \psi = \sqrt{\overline{\Psi}_t}$"></SPAN>, then
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{d \Psi}{d \psi} = \frac{d \Psi}{d \Psi_t}  \frac{d \Psi_t}{d \psi} =
+  \frac{1}{2 \pi q}  \frac{d \Psi_t}{d \psi} = \frac{1}{2 \pi q}  \frac{d
+  \Psi_t}{d \overline{\Psi_t}}  \frac{d \overline{\Psi}_t}{d \psi} =
+  \frac{1}{2 \pi q} \Psi_t (1) 2 \psi
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="408" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img659.png"
+ ALT="$\displaystyle \frac{d \Psi}{d \psi} = \frac{d \Psi}{d \Psi_t} \frac{d \Psi_t}{d...
+...si_t}} \frac{d \overline{\Psi}_t}{d \psi} = \frac{1}{2 \pi q} \Psi_t (1) 2 \psi$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">205</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html727"
+  HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html725"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html721"
+  HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html728"
+  HREF="node54.html">Constructing magnetic surface coordinate</A>
+<B> Up:</B> <A NAME="tex2html726"
+  HREF="node46.html">Calculating coordinate</A>
+<B> Previous:</B> <A NAME="tex2html722"
+  HREF="node52.html">Verification of Jabobian</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

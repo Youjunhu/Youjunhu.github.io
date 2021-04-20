@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Deﬁnition of the Discrete Sine Transform (DST)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="fourier_analysis.tex" /> 
+<meta name="date" content="2019-01-05 20:48:00" /> 
+<link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
+</head><body 
+>
+   <!--l. 931--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu15.html" >next</a>] [<a 
+href="#tailfourier_analysissu14.html">tail</a>] [<a 
+href="fourier_analysisse6.html#fourier_analysissu14.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">6.1   </span> <a 
+ id="x21-200006.1"></a>Deﬁnition of the Discrete Sine Transform (DST)</h4>
+<!--l. 933--><p class="noindent" >There are several slightly diﬀerent types of Discrete Sine Transforms (DST). One
+form I saw in W. Press&#x2019;s numerical recipe book is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x21-20001r77"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis82x.png" alt="     N&sum;&minus;1     (    )
+Hk =     hjsin  k&pi;j- ,
+      j=0        N
+" class="math-display"  /></center></td><td class="equation-label">(77)</td></tr></table>
+<!--l. 938--><p class="nopar" >
+where <span 
+class="cmmi-10">h</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">N</span></sub> = 0 are assumed. This form can be formally obtained by replacing
+DFT&#x2019;s exponential function exp(2<span 
+class="cmmi-10">&pi;ikj∕N</span>) by sin(<span 
+class="cmmi-10">&pi;kj∕N</span>). The inverse sine
+transformation is given by (I did not derive this, but had numerically veriﬁed that
+this transform recovers the original data if applied after the sine transform (<a 
+href="#x21-20001r77">77<!--tex4ht:ref: 18-1-11-a2 --></a>) (code
+at /home/yj/project_new/test_space/sine_expansion/t2.f90))
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x21-20002r78"></a>
+
+   <center class="math-display" >
+<img 
+src="fourier_analysis83x.png" alt="       N&minus;1      (    )
+hj = 2-&sum;   Hksin  k&pi;j- ,
+     N k=0        N
+" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
+<!--l. 950--><p class="nopar" >
+which is identical with the forward sine transformation except for the normalization
+factor 2<span 
+class="cmmi-10">∕N</span>. (The the elements with index of zero can also be excluded from the
+summation (<a 
+href="#x21-20001r77">77<!--tex4ht:ref: 18-1-11-a2 --></a>) and (<a 
+href="#x21-20002r78">78<!--tex4ht:ref: 18-8-15-p1 --></a>) since these elements are zero). Replacing <span 
+class="cmmi-10">j∕N </span>in Eq. (<a 
+href="#x21-20002r78">78<!--tex4ht:ref: 18-8-15-p1 --></a>)
+by (<span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub>)<span 
+class="cmmi-10">∕L </span>, we obtain the reconstructing function
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x21-20003r79"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis84x.png" alt="       2 N&sum;&minus;1      ( k&pi;(x&minus; x0))
+h(x) = N-   Hk sin  ---L------ .
+         k=0
+" class="math-display"  /></center></td><td class="equation-label">(79)</td></tr></table>
+<!--l. 959--><p class="nopar" >
+Figure (<a 
+href="#x21-200045">5<!--tex4ht:ref: 18-8-15-p3 --></a>) illustrates the grids used in the above expansion.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x21-200045"></a>
+
+
+<!--l. 963--><p class="noindent" ><img 
+src="my_figure/home/yj/theory/figures/sin_expansion/grids-2.png" alt="pict"  
+ width="283.0575pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 5:  </span><span  
+class="content">Grid  indexes  start  from  0  and  ends  at  <span 
+class="cmmi-10">N</span>.  <span 
+class="cmmi-10">h</span><sub><span 
+class="cmr-7">0</span></sub>  =  <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">N</span></sub>  =  0,  i.e.,
+<span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub>) = <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub> + <span 
+class="cmmi-10">L</span>) = 0.</span></div><!--tex4ht:label?: x21-200045 -->
+
+   </div><hr class="endfigure" />
+<!--l. 968--><p class="indent" >    
+</p><!--l. 970--><p class="indent" >   We need a fast method of computing the above DST. All fast methods for this
+ﬁnally need to make use of the fast method used in the computation of DFT. To
+conveniently use the fast method of DFT, we need to deﬁne the DST in a way that
+the DST can be easily connected to the DFT so that the DFT fast method can be
+easily applied to compute the DST. A standard way of making this easy is to deﬁne
+the DST via the DFT of an odd extension of the original data. Next, let us discuss
+this.
+
+</p>
+   <!--l. 978--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu15.html" >next</a>] [<a 
+href="fourier_analysissu14.html" >front</a>] [<a 
+href="fourier_analysisse6.html#fourier_analysissu14.html" >up</a>] </p></div>
+<!--l. 978--><p class="indent" >   <a 
+ id="tailfourier_analysissu14.html"></a> </p> 
+</body></html> 

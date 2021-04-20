@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Linear Landau damping</TITLE>
+<META NAME="description" CONTENT="Linear Landau damping">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html62"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html60"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html54"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html63"
+  HREF="node3.html">Nonlinear Landau damping</A>
+<B> Up:</B> <A NAME="tex2html61"
+  HREF="node1.html">Particle simulation of wave</A>
+<B> Previous:</B> <A NAME="tex2html55"
+  HREF="node1.html">Particle simulation of wave</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00011000000000000000">
+Linear Landau damping</A>
+</H2>
+
+<P>
+In the early phase of the simulation
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="16-1-25-p1"></A><!-- MATH
+ \begin{equation}
+t \ll \sqrt{2 \pi} / \omega_b,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="95" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$\displaystyle t \ll \sqrt{2 \pi} / \omega_b,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">8</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$ \omega_b$"></SPAN> is the bounce angular frequency of particles in the trough of
+the wave, the trapped particles effects can be neglected. This phase can be
+considered as the linear phase where the linear Landau damping theory
+(discussed later in this note) is valid. The bounce angular frequency of
+particles in the trough of the wave is given by[<A
+ HREF="node23.html#gurnett2004">1</A>]
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\omega_b = \sqrt{\frac{k q E_0}{m}} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="102" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img50.png"
+ ALT="$\displaystyle \omega_b = \sqrt{\frac{k q E_0}{m}} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">9</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using this, the condition (<A HREF="#16-1-25-p1">8</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{t}{T} \ll \sqrt{\frac{m \omega^2}{2 \pi k q E}} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="115" HEIGHT="70" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.png"
+ ALT="$\displaystyle \frac{t}{T} \ll \sqrt{\frac{m \omega^2}{2 \pi k q E}} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">10</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This condition reduces to <!-- MATH
+ $t / T \ll 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.png"
+ ALT="$ t / T \ll 1$"></SPAN> for the case plotted in Fig.
+<A HREF="node1.html#16-1-25-1">2</A>, where we see that the total kinetic energy of the particles
+increases monotonously with time during this period. From the data in Fig.
+<A HREF="node1.html#16-1-25-1">2</A>, the temporal change rate of the total kinetic energy is
+estimated as <!-- MATH
+ $d \overline{E}_k / d \overline{t} = 0.08$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="105" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$ d \overline{E}_k / d \overline{t} = 0.08$"></SPAN>. Next, I compare this
+result with those given by the analytic formula (<A HREF="node9.html#9-23-e30">39</A>) (given later
+in this note), which is written
+<P><!-- MATH
+ \begin{displaymath}
+\frac{d E_k}{d t} = - \frac{\pi \omega}{|k| k}  \frac{(q E)^2}{2 m}  \left[
+   \frac{d f (v_0)}{d v_0} \right]_{v_0 = \omega / k} .
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="262" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$\displaystyle \frac{d E_k}{d t} = - \frac{\pi \omega}{\vert k\vert k} \frac{(q E)^2}{2 m} \left[
+\frac{d f (v_0)}{d v_0} \right]_{v_0 = \omega / k} . $">
+</DIV><P></P>
+Using Eq. (<A HREF="node1.html#1-26-a1">7</A>) and <!-- MATH
+ $v_t / v_p = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_t / v_p = 1$"></SPAN>, the above expression is written
+<P><!-- MATH
+ \begin{displaymath}
+\frac{d E_k}{d t} = \pi \frac{(q E)^2}{2 m \omega}  \frac{1}{\sqrt{2 \pi}}
+   \exp \left( - \frac{1}{2} \right)
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="223" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$\displaystyle \frac{d E_k}{d t} = \pi \frac{(q E)^2}{2 m \omega} \frac{1}{\sqrt{2 \pi}}
+\exp \left( - \frac{1}{2} \right) $">
+</DIV><P></P>
+Multiplying by <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ T$"></SPAN> and then dividing by <!-- MATH
+ $m v_t^2 / 2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$ m v_t^2 / 2$"></SPAN>, the above expression is
+written
+<P><!-- MATH
+ \begin{displaymath}
+\frac{d \overline{E}_k}{d \overline{t}} = 4 \pi^2  \frac{(k q E)^2}{m^2
+   \omega^4}  \frac{1}{2 \sqrt{2 \pi}} \exp \left( - \frac{1}{2} \right)
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="255" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img57.png"
+ ALT="$\displaystyle \frac{d \overline{E}_k}{d \overline{t}} = 4 \pi^2 \frac{(k q E)^2}{m^2
+\omega^4} \frac{1}{2 \sqrt{2 \pi}} \exp \left( - \frac{1}{2} \right) $">
+</DIV><P></P>
+Using <!-- MATH
+ $2 \pi k q E / m \omega^2 = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="120" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ 2 \pi k q E / m \omega ^2 = 1$"></SPAN>, the above expression is written as
+<P><!-- MATH
+ \begin{displaymath}
+\frac{1}{2 \sqrt{2 \pi}} \exp \left( - \frac{1}{2} \right) = 0.12
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="174" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img58.png"
+ ALT="$\displaystyle \frac{1}{2 \sqrt{2 \pi}} \exp \left( - \frac{1}{2} \right) = 0.12 $">
+</DIV><P></P>
+The result given by the analytic formula is slightly different from that of
+the simulation (0.12 vs 0.08). Considering the various approximations used in
+deriving the analytic formula, the two results can be considered to be in
+agreement with each other.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html62"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html60"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html54"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html63"
+  HREF="node3.html">Nonlinear Landau damping</A>
+<B> Up:</B> <A NAME="tex2html61"
+  HREF="node1.html">Particle simulation of wave</A>
+<B> Previous:</B> <A NAME="tex2html55"
+  HREF="node1.html">Particle simulation of wave</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

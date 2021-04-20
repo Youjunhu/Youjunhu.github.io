@@ -1,0 +1,434 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Particle simulation of wave particle interactions</TITLE>
+<META NAME="description" CONTENT="Particle simulation of wave particle interactions">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="landau_damping.html">
+<LINK REL="up" HREF="landau_damping.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html48"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html46"
+  HREF="landau_damping.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html40"
+  HREF="landau_damping.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html49"
+  HREF="node2.html">Linear Landau damping</A>
+<B> Up:</B> <A NAME="tex2html47"
+  HREF="landau_damping.html">Notes on Landau damping</A>
+<B> Previous:</B> <A NAME="tex2html41"
+  HREF="landau_damping.html">Notes on Landau damping</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00010000000000000000"></A><A NAME="8-25-p10"></A>
+<BR>
+Particle simulation of wave particle interactions
+</H1>
+
+<P>
+Consider a longitudinal wave given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\mathbf{E}= \hat{\mathbf{z}} E \cos (k z - \omega t) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="152" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$\displaystyle \mathbf{E}= \hat{\mathbf{z}} E \cos (k z - \omega t) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">1</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The equations of motion of a test particle in the wave field are given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-23-p1"></A><!-- MATH
+ \begin{equation}
+m \frac{d v}{d t} = q E \cos (k z - \omega t),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="174" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$\displaystyle m \frac{d v}{d t} = q E \cos (k z - \omega t),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">2</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-23-p2"></A><!-- MATH
+ \begin{equation}
+\frac{d z}{d t} = v,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$\displaystyle \frac{d z}{d t} = v,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $v \equiv \mathbf{v} \cdot \hat{\mathbf{z}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ v \equiv \mathbf{v} \cdot \hat{\mathbf{z}}$"></SPAN> is the <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ z$"></SPAN> component of the
+velocity of the particle.
+
+<P>
+Normalize <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ z$"></SPAN> by the wavelength <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ \lambda$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$ t$"></SPAN> by the wave period <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ T$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img30.png"
+ ALT="$ v$"></SPAN> by
+the phase velocity <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ v_p$"></SPAN>, i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\overline{z} = \frac{z}{\lambda}, \overline{t} = \frac{t}{T}, \overline{v} =
+  \frac{v}{v_p},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="156" HEIGHT="49" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$\displaystyle \overline{z} = \frac{z}{\lambda}, \overline{t} = \frac{t}{T}, \overline{v} = \frac{v}{v_p},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">4</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\lambda = 2 \pi / k$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="69" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$ \lambda = 2 \pi / k$"></SPAN>, <!-- MATH
+ $T = 2 \pi / \omega$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$ T = 2 \pi / \omega$"></SPAN>, <!-- MATH
+ $v_p = \omega / k$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$ v_p = \omega / k$"></SPAN>. Using
+the normalized quantities, Eqs. (<A HREF="#8-23-p1">2</A>) and (<A HREF="#8-23-p2">3</A>) are
+written, respectively, as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{d \overline{v}}{d \overline{t}} = \frac{2 \pi k q E}{m \omega^2} \cos
+  [2 \pi (\overline{z} - \overline{t})],
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="197" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$\displaystyle \frac{d \overline{v}}{d \overline{t}} = \frac{2 \pi k q E}{m \omega^2} \cos [2 \pi ( \overline{z} - \overline{t})],$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">5</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{d \overline{z}}{d \overline{t}} = \overline{v} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$\displaystyle \frac{d \overline{z}}{d \overline{t}} = \overline{v} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">6</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The initial distribution function of particles <!-- MATH
+ $f_0 (z, v)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ f_0 (z, v)$"></SPAN> is taken to be
+uniform in space and Maxwellian in velocity,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="1-26-a1"></A><!-- MATH
+ \begin{equation}
+f_0 (z, v) = f_m (v) = \frac{1}{v_t \sqrt{2 \pi}} \exp
+  \left( - \frac{v^2}{2 v_t^2} \right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="286" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$\displaystyle f_0 (z, v) = f_m (v) = \frac{1}{v_t \sqrt{2 \pi}} \exp \left( - \frac{v^2}{2 v_t^2} \right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">7</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which satisfies the normalization condition <!-- MATH
+ $\int_{- \infty}^{\infty} f_0 (v)
+d v = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="119" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$ \int_{- \infty}^{\infty} f_0 (v)
+d v = 1$"></SPAN>. In my particle simulation code (/home/yj/project_new/pic_code), <!-- MATH
+ $4
+\times 10^5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.png"
+ ALT="$ 4
+\times 10^5$"></SPAN> particles are initially loaded random in <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ z$"></SPAN> and Maxwellian in
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img30.png"
+ ALT="$ v$"></SPAN>. Then the motion equations of every particle are followed numerically to
+obtain the location and velocity at later time. In the numerical code, when a
+particle leaves from the region <!-- MATH
+ $0 \leqslant \overline{x} \leqslant 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="72" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.png"
+ ALT="$ 0 \leqslant \overline{x} \leqslant 1$"></SPAN>, it is
+shifted by one wavelength to return to this region. This shift does not
+influence the force on the particle and it simulates the situation of infinite
+length in <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ z$"></SPAN> direction, where when a particle leave the region <!-- MATH
+ $0 \leqslant
+\overline{x} \leqslant 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="72" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.png"
+ ALT="$ 0 \leqslant \overline{x} \leqslant 1$"></SPAN> from the right boundary, a particle of the same
+velocity will enter the region from the left boundary, and vice versa.
+
+<P>
+The velocity distribution at later time is obtained by counting the number of
+particles in each velocity interval. Figure <A HREF="#8-25-p1">1</A>a compares the
+velocity distribution function at <!-- MATH
+ $\overline{t} = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \overline {t} = 0$"></SPAN> and <!-- MATH
+ $\overline{t} = 10$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \overline {t} = 10$"></SPAN>,
+which shows that the distribution is flatted in the resonant region <!-- MATH
+ $v / v_p =
+1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.png"
+ ALT="$ v / v_p = 1$"></SPAN>, which suggests that the total kinetic energy of particles may be
+increased. Figure <A HREF="#16-1-25-1">2</A> plots the temporal evolution of the total
+kinetic energy of the particles, which confirms that the kinetic energy is
+increased by the wave. The conservation of energy tell us that the increased
+kinetic energy of particles must be drawn from the wave, i.e., the wave
+encounters damping.
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="8-25-p1"></A><A NAME="1478"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1:</STRONG>
+Comparison of the velocity distribution function
+  (spatially averaged) at various time, which shows that the distribution is
+  distorted in the resonant region (<!-- MATH
+ $v / v_p \approx 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ v / v_p \approx 1$"></SPAN>). Other parameters:
+  <!-- MATH
+ $v_t / v_p = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_t / v_p = 1$"></SPAN>, <!-- MATH
+ $2 \pi k q E / m \omega^2 = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="120" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ 2 \pi k q E / m \omega ^2 = 1$"></SPAN>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="319" HEIGHT="231" ALIGN="BOTTOM" BORDER="0"
+ SRC="img44.png"
+ ALT="\includegraphics{/home/yj/project_new/pic_code/fig5/p.eps}"><IMG
+ WIDTH="319" HEIGHT="231" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="\includegraphics{/home/yj/project_new/pic_code/fig7/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="16-1-25-1"></A><A NAME="1479"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+Temporal evolution of the total kinetic energy of
+  the particles, where <!-- MATH
+ $\overline{E}_k = \sum_{i = 1}^{i = N} \frac{1}{2} m
+  v^2_i / \left( N \frac{1}{2} m v_t^2 \right)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="211" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \overline{E}_k = \sum_{i = 1}^{i = N} \frac{1}{2} m
+v^2_i / \left( N \frac{1}{2} m v_t^2 \right)$"></SPAN>.  Other parameters: <!-- MATH
+ $v_t /
+  v_p = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_t / v_p = 1$"></SPAN>, <!-- MATH
+ $2 \pi k q E / m \omega^2 = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="120" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ 2 \pi k q E / m \omega ^2 = 1$"></SPAN>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="325" HEIGHT="229" ALIGN="BOTTOM" BORDER="0"
+ SRC="img47.png"
+ ALT="\includegraphics{/home/yj/project_new/pic_code/fig10/p.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Although the above simulation is performed by holding the wave amplitude
+constant, it takes into account all the nonlinear physics of the particle
+motion in the wave field. Therefore this is a nonlinear simulation.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html50"
+  HREF="node2.html">Linear Landau damping</A>
+<LI><A NAME="tex2html51"
+  HREF="node3.html">Nonlinear Landau damping</A>
+<LI><A NAME="tex2html52"
+  HREF="node4.html">Inverse Landau damping</A>
+<LI><A NAME="tex2html53"
+  HREF="node5.html">Density fluctuation induced by the wave</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html48"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html46"
+  HREF="landau_damping.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html40"
+  HREF="landau_damping.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html49"
+  HREF="node2.html">Linear Landau damping</A>
+<B> Up:</B> <A NAME="tex2html47"
+  HREF="landau_damping.html">Notes on Landau damping</A>
+<B> Previous:</B> <A NAME="tex2html41"
+  HREF="landau_damping.html">Notes on Landau damping</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

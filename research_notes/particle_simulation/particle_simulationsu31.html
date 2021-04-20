@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Energy conservation (check!)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1695--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu32.html" >next</a>] [<a 
+href="particle_simulationsu30.html" >prev</a>] [<a 
+href="particle_simulationsu30.html#tailparticle_simulationsu30.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu31.html">tail</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu31.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.16   </span> <a 
+ id="x37-420005.16"></a>Energy conservation (check!)</h4>
+<!--l. 1697--><p class="noindent" >Next we check how well the total energy of the system is conserved in a total-f simulation. The total physical particles in
+the system is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-42001r127"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation152x.png" alt="     N&sum;p
+Ns =    wj,
+     j=0
+" class="math-display"  /></center></td><td class="equation-label">(127)</td></tr></table>
+<!--l. 1701--><p class="nopar" >
+The spatial volume occupied by these physical particles is given by <span 
+class="cmmi-10">V </span>= <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">s</span></sub><span 
+class="cmmi-10">∕n</span><sub><span 
+class="cmr-7">0</span></sub>, where <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub> is the equilibrium electron
+number density. Since the length along the <span 
+class="cmmi-10">x </span>direction of the system is <span 
+class="cmmi-10">L</span><sub></sub>, the cross section <span 
+class="cmmi-10">S</span><sub><span 
+class="cmmi-7">yz</span></sub> of volume occupied by these
+physical particles is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-42002r128"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation153x.png" alt="          &sum;Np
+S   = V-= --j=0wj-.
+ yz   L     Ln0
+" class="math-display"  /></center></td><td class="equation-label">(128)</td></tr></table>
+<!--l. 1708--><p class="nopar" >
+Then the total electrical energy in the volume is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-42003r129"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation154x.png" alt="         &int;
+           Lx 1   2        &sum;n 1   2
+WE  = Syz 0   2𝜀0E dx &asymp; Syz   2𝜀0E (xi)&Delta;
+                           i=1
+
+" class="math-display"  /></center></td><td class="equation-label">(129)</td></tr></table>
+<!--l. 1713--><p class="nopar" >
+Deﬁne <span 
+class="cmmi-10">W</span><sub><span 
+class="cmr-7">0</span></sub> = (<span 
+class="cmmi-10">mv</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">∕</span>2)<span 
+class="cmex-10">&sum;</span>
+  <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub>, and the normalized electric energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">E</span></sub> = <span 
+class="cmmi-10">W</span><sub><span 
+class="cmmi-7">E</span></sub><span 
+class="cmmi-10">∕W</span><sub><span 
+class="cmr-7">0</span></sub>, which can be further written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-42004r130"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation155x.png" alt="      &sum;N      &sum;n   1    2       &sum;n   1    2        &sum;n   1  -2   (   2)2   &sum;n   -2 --
+W-E = --j=0-wj--i=12𝜀0E&sum;(xi)&Delta;-= --i=12𝜀0E-(xi)dx=  --i=1-2𝜀0Eidx- mv-0   = --i=1-Eidx-.
+        ne0L    (mv20∕2)  wj       ne0L(mv20∕2)     ne0L(mv20∕2)  e&lambda;D          L
+" class="math-display"  /></center></td><td class="equation-label">(130)</td></tr></table>
+<!--l. 1724--><p class="nopar" >
+The total particle kinetic energy in the system is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-42005r131"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation156x.png" alt="     &sum;Np   1   2
+Wk =     wj2mv j.
+      j=0
+" class="math-display"  /></center></td><td class="equation-label">(131)</td></tr></table>
+<!--l. 1728--><p class="nopar" >
+Deﬁne the normalized kinetic energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub> = <span 
+class="cmmi-10">W</span><sub><span 
+class="cmmi-7">k</span></sub><span 
+class="cmmi-10">∕W</span><sub><span 
+class="cmr-7">0</span></sub>, which can be further written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-42006r132"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation157x.png" alt="      &sum;N     1   2   &sum;N     -2
+W-k = --j=0-wj2&sum;mv-j=  --j=&sum;0-wjvj.
+      (mv20∕2)  wj        wj
+" class="math-display"  /></center></td><td class="equation-label">(132)</td></tr></table>
+<!--l. 1734--><p class="nopar" >
+Figure <a 
+href="#x37-420079">9<!--tex4ht:ref: 3-10-p1 --></a> plots the time evolution of <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">E</span></sub>, <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub> <span 
+class="cmsy-10">&minus;</span><span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>(<span 
+class="cmmi-10">t </span>= 0), and <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub> +<span class="overline"> <span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">E</span></sub> <span 
+class="cmsy-10">&minus;</span><span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>(<span 
+class="cmmi-10">t </span>= 0), which indicates the total energy is
+approximately conserved.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x37-420079"></a>
+
+
+<!--l. 1741--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/pic_full-f/fig16/t.png" alt="pict"  
+ width="361.34999pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 9: </span><span  
+class="content">Time evolution of the electric energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">E</span></sub>, kinetic energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>, and total energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub> +<span class="overline"> <span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">E</span></sub> <span 
+class="cmsy-10">&minus;</span><span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>(<span 
+class="cmmi-10">t </span>= 0).
+<span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>(<span 
+class="cmmi-10">t </span>= 0) = 0<span 
+class="cmmi-10">.</span>9991. Full-f simulation without imposing external perturbation.</span></div><!--tex4ht:label?: x37-420079 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1749--><p class="indent" >    
+</p><!--l. 1751--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x37-4200810"></a>
+
+
+<!--l. 1754--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/pic_full-f/fig15/t.png" alt="pict"  
+ width="361.34999pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 10: </span><span  
+class="content">Time evolution of the electric energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">E</span></sub>, kinetic energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>, and total energy <span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>+<span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">E</span></sub><span 
+class="cmsy-10">&minus;</span><span class="overline"><span 
+class="cmmi-10">W</span></span><sub><span 
+class="cmmi-7">k</span></sub>(<span 
+class="cmmi-10">t </span>= 0).
+Full-f simulation with perturbation <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">&minus;&rarr;</span><span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> + 0<span 
+class="cmmi-10">.</span>05<span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> sin(<span 
+class="cmmi-10">kr</span><sub><span 
+class="cmmi-7">j</span></sub>)</span></div><!--tex4ht:label?: x37-4200810 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1761--><p class="indent" >    
+</p><!--l. 1763--><p class="indent" >    
+
+</p>
+   <!--l. 1765--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu32.html" >next</a>] [<a 
+href="particle_simulationsu30.html" >prev</a>] [<a 
+href="particle_simulationsu30.html#tailparticle_simulationsu30.html" >prev-tail</a>] [<a 
+href="particle_simulationsu31.html" >front</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu31.html" >up</a>] </p></div>
+<!--l. 1765--><p class="indent" >   <a 
+ id="tailparticle_simulationsu31.html"></a> </p> 
+</body></html> 

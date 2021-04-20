@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>From discrete spectrum to continuous spectrum: Fourier series&rarr;Fourier
+transformation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="fourier_analysis.tex" /> 
+<meta name="date" content="2019-01-05 20:48:00" /> 
+<link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
+</head><body 
+>
+   <!--l. 187--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysisse4.html" >next</a>] [<a 
+href="fourier_analysisse2.html" >prev</a>] [<a 
+href="fourier_analysisse2.html#tailfourier_analysisse2.html" >prev-tail</a>] [<a 
+href="#tailfourier_analysisse3.html">tail</a>] [<a 
+href="fourier_analysis.html#fourier_analysisse3.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x6-50003"></a>From discrete spectrum to continuous spectrum: Fourier series<span 
+class="cmsy-10">&rarr;</span>Fourier
+transformation</h3>
+<!--l. 189--><p class="noindent" >The Fourier series discussed above indicates that a periodic function is composed of
+discrete spectrum and is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5001r19"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis18x.png" alt="       &infin;
+h(t) = &sum;    cein2&pi;t∕T,
+     n= &minus;&infin; n
+" class="math-display"  /></center></td><td class="equation-label">(19)</td></tr></table>
+<!--l. 194--><p class="nopar" >
+where <span 
+class="cmmi-10">T </span>is the period of <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>). The <span 
+class="cmmi-10">n</span>th term of the above Fourier series corresponds
+to a harmonic with frequency
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5002r20"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis19x.png" alt="fn = n-,
+     T
+" class="math-display"  /></center></td><td class="equation-label">(20)</td></tr></table>
+<!--l. 199--><p class="nopar" >
+and the expansion coeﬃcient <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">n</span></sub> is given by
+</p>
+
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5003r21"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis20x.png" alt="     1-&int; T∕2     &minus;in2&pi;t∕T
+cn = T  &minus;T∕2h(t)e       dt.
+" class="math-display"  /></center></td><td class="equation-label">(21)</td></tr></table>
+<!--l. 204--><p class="nopar" >
+In terms of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span></sub>, the coeﬃcient in Eq. (<a 
+href="#x6-5003r21">21<!--tex4ht:ref: 9-28-2 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5004r22"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis21x.png" alt="           1 &int; T∕2
+cn = c(fn) = T-     h(t)e&minus;i2&pi;tfndt
+              &minus;T∕2
+" class="math-display"  /></center></td><td class="equation-label">(22)</td></tr></table>
+<!--l. 209--><p class="nopar" >
+In terms of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span></sub>, the Fourier series in Eq. (<a 
+href="#x6-5001r19">19<!--tex4ht:ref: 9-27-e14 --></a>) is written </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis22x.png" alt="          &infin;&sum;        i2&pi;tfn
+h(t) =        c(fn)e
+         n=&minus;&infin;&infin;
+     =   T &sum;    c(fn)ei2&pi;tfn 1-               (23)
+          n= &minus;&infin;           T
+" class="math-display"  /><a 
+ id="x6-5005r23"></a></center>
+</div>Note that <span 
+class="cmmi-10">c</span>(<span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span></sub>)<span 
+class="cmmi-10">e</span><sup><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">2</span><span 
+class="cmmi-7">&pi;tf</span><sub><span 
+class="cmmi-5">n</span></sub></sup> is the value of function <span 
+class="cmmi-10">c</span>(<span 
+class="cmmi-10">f</span>)<span 
+class="cmmi-10">e</span><sup><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">2</span><span 
+class="cmmi-7">&pi;tf</span></sup> at <span 
+class="cmmi-10">f </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span></sub>. Further note
+that the interval between <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span></sub> and <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub> is 1<span 
+class="cmmi-10">∕T</span>. Thus the above summation is the
+rectangular formula for numerically calculating the integration <span 
+class="cmex-10">&int;</span>
+ <sub><span 
+class="cmsy-7">&minus;&infin;</span></sub><sup><span 
+class="cmsy-7">&infin;</span></sup><span 
+class="cmmi-10">c</span>(<span 
+class="cmmi-10">f</span>)<span 
+class="cmmi-10">e</span><sup><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">2</span><span 
+class="cmmi-7">&pi;tf</span></sup><span 
+class="cmmi-10">df</span>.
+Therefore, equation (<a 
+href="#x6-5005r23">23<!--tex4ht:ref: 9-28-5 --></a>) can be approximately written as
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5006r24"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis23x.png" alt="       &int; &infin;      i2&pi;tf
+h(t) &asymp; T &minus;&infin; c(f)e   df,
+" class="math-display"  /></center></td><td class="equation-label">(24)</td></tr></table>
+<!--l. 225--><p class="nopar" >
+which will become exact when the interval 1<span 
+class="cmmi-10">∕T </span><span 
+class="cmsy-10">&rarr; </span>0, i.e., <span 
+class="cmmi-10">T </span><span 
+class="cmsy-10">&rarr;&infin;</span>. Therefore, for the
+case <span 
+class="cmmi-10">T </span><span 
+class="cmsy-10">&rarr;&infin;</span>, the Fourier series exactly becomes
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5007r25"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis24x.png" alt="       &int;
+         &infin;      i2&pi;tf
+h(t) = T &minus;&infin; c(f)e   df,
+" class="math-display"  /></center></td><td class="equation-label">(25)</td></tr></table>
+<!--l. 231--><p class="nopar" >
+where <span 
+class="cmmi-10">c</span>(<span 
+class="cmmi-10">f</span>) is given by Eq. (<a 
+href="#x6-5004r22">22<!--tex4ht:ref: 9-27-e11 --></a>), i.e.,
+</p>
+
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5008r26"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis25x.png" alt="        &int;
+      1-  &infin;     &minus;i2&pi;tf
+c(f ) = T &minus;&infin; h(t)e     dt.
+" class="math-display"  /></center></td><td class="equation-label">(26)</td></tr></table>
+<!--l. 236--><p class="nopar" >
+Note that the function <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) given in Eqs. (<a 
+href="#x6-5007r25">25<!--tex4ht:ref: 9-28-6 --></a>) is proportional to <span 
+class="cmmi-10">Tc</span>(<span 
+class="cmmi-10">f</span>) while the
+function <span 
+class="cmmi-10">c</span>(<span 
+class="cmmi-10">f</span>) given in Eq. (<a 
+href="#x6-5008r26">26<!--tex4ht:ref: 9-28-7 --></a>) is proportional to 1<span 
+class="cmmi-10">∕T</span>. Since <span 
+class="cmmi-10">T </span><span 
+class="cmsy-10">&rarr;&infin;</span>, it is desired to
+eliminate the <span 
+class="cmmi-10">T </span>and 1<span 
+class="cmmi-10">∕T </span>factors in Eqs. (<a 
+href="#x6-5007r25">25<!--tex4ht:ref: 9-28-6 --></a>) and (<a 
+href="#x6-5008r26">26<!--tex4ht:ref: 9-28-7 --></a>), which can be easily achieved
+by deﬁning a new function
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5009r27"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis26x.png" alt="H(f) = T c(f).
+" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
+<!--l. 244--><p class="nopar" >
+Then the Fourier series is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5010r28"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis27x.png" alt="      &int;
+        &infin;      i2&pi;tf
+h(t) = &minus;&infin; H (f )e    df,
+" class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
+<!--l. 248--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5011r29"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis28x.png" alt="       &int;
+H (f) =  &infin; h (t)e&minus;i2&pi;tfdt.
+        &minus; &infin;
+" class="math-display"  /></center></td><td class="equation-label">(29)</td></tr></table>
+<!--l. 252--><p class="nopar" >
+Equations (<a 
+href="#x6-5010r28">28<!--tex4ht:ref: 9-28-10 --></a>) and (<a 
+href="#x6-5011r29">29<!--tex4ht:ref: 9-28-11 --></a>) are the Fourier transformation pairs discussed in the next
+section. [Note that the signs in the exponential of Eq. (<a 
+href="#x6-5010r28">28<!--tex4ht:ref: 9-28-10 --></a>) and (<a 
+href="#x6-5011r29">29<!--tex4ht:ref: 9-28-11 --></a>) are
+opposite. Which one should be minus or positive is actually a matter of
+convention because a trivial variable substitution <span 
+class="cmmi-10">f</span><span 
+class="cmsy-10">&prime; </span>= <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">f </span>can change the
+sign between minus and positive. Proof. In terms of <span 
+class="cmmi-10">f</span><span 
+class="cmsy-10">&prime;</span>, Eq. (<a 
+href="#x6-5010r28">28<!--tex4ht:ref: 9-28-10 --></a>) is written
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis29x.png" alt="         &int; &minus;&infin;
+h(t) =        H (&minus; f&prime;)e&minus;i2&pi;tf&prime;d(&minus; f&prime;),
+          &infin;
+         &int; &infin;      &prime; &minus;i2&pi;tf&prime;  &prime;
+     =    &minus;&infin; H (&minus; f )e      df ,                 (30)
+" class="math-display"  /><a 
+ id="x6-5012r30"></a></center>
+</div>Deﬁne <div class="eqnarray">
+
+   <center class="math-display" >
+<img 
+src="fourier_analysis30x.png" alt="--  &prime;          &prime;
+H (f)  &equiv;  H&int; (&infin;&minus; f )
+       =      h (t)ei2&pi;tf&prime;dt.                (31)
+           &minus; &infin;
+" class="math-display"  /><a 
+ id="x6-5013r31"></a></center>
+</div>Then Eq. (<a 
+href="#x6-5012r30">30<!--tex4ht:ref: 9-28-23 --></a>) is written
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5014r32"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis31x.png" alt="      &int; &infin;
+h(t) =     H-(f&prime;)e&minus;i2&pi;tf&prime;df&prime;
+       &minus;&infin;
+" class="math-display"  /></center></td><td class="equation-label">(32)</td></tr></table>
+<!--l. 274--><p class="nopar" >
+The signs in the exponential of Eqs. (<a 
+href="#x6-5013r31">31<!--tex4ht:ref: 9-28-20 --></a>) and (<a 
+href="#x6-5014r32">32<!--tex4ht:ref: 9-28-21 --></a>) are opposite to Eqs. (<a 
+href="#x6-5011r29">29<!--tex4ht:ref: 9-28-11 --></a>) and (<a 
+href="#x6-5010r28">28<!--tex4ht:ref: 9-28-10 --></a>),
+respectively.]
+</p><!--l. 278--><p class="indent" >   The book “Numerical recipe”<span class="cite">[<a 
+href="fourier_analysisli1.html#Xpress1992">2</a>]</span> I use (<a 
+href="#x6-5013r31">31<!--tex4ht:ref: 9-28-20 --></a>) as the forward Fourier transformation
+and Eq. (<a 
+href="#x6-5014r32">32<!--tex4ht:ref: 9-28-21 --></a>) as the backward one. However, the open-source software FFTW uses
+Eqs. (<a 
+href="#x6-5011r29">29<!--tex4ht:ref: 9-28-11 --></a>) as the forward transformation and Eq. (<a 
+href="#x6-5010r28">28<!--tex4ht:ref: 9-28-10 --></a>) as the backward one. When
+using a Fourier transformation library, it is necessary to know which convention is
+used in order to correctly use the output of the library.
+</p><!--l. 285--><p class="indent" >   [
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5015r33"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis32x.png" alt="&int;                                &int;                    &int;                      &int;
+  &infin; dh(t)e&minus;i2&pi;tfdt = h(t)e&minus;i2&pi;tf|+ &infin;&minus;  &infin; h(t)de&minus;i2&pi;tf dt = &minus;  &infin;  h(t)de&minus;i2&pi;tfdt = i2&pi;f   &infin; h(t)e&minus;i2&pi;tfdt = i2&pi;fH (f)
+ &minus;&infin;  dt                     &minus; &infin;   &minus;&infin;       dt          &minus;&infin;       dt            &minus;&infin;
+" class="math-display"  /></center></td><td class="equation-label">(33)</td></tr></table>
+<!--l. 292--><p class="nopar" >
+]
+</p><!--l. 295--><p class="indent" >    
+
+</p>
+   <!--l. 297--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysisse4.html" >next</a>] [<a 
+href="fourier_analysisse2.html" >prev</a>] [<a 
+href="fourier_analysisse2.html#tailfourier_analysisse2.html" >prev-tail</a>] [<a 
+href="fourier_analysisse3.html" >front</a>] [<a 
+href="fourier_analysis.html#fourier_analysisse3.html" >up</a>] </p></div>
+<!--l. 297--><p class="indent" >   <a 
+ id="tailfourier_analysisse3.html"></a> </p> 
+</body></html> 

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Multi-dimensional Fourier series</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="fourier_analysis.tex" /> 
+<meta name="date" content="2019-01-05 20:48:00" /> 
+<link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
+</head><body 
+>
+   <!--l. 1171--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu19.html" >next</a>] [<a 
+href="#tailfourier_analysissu18.html">tail</a>] [<a 
+href="fourier_analysisse7.html#fourier_analysissu18.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
+ id="x26-250007.1"></a>Multi-dimensional Fourier series</h4>
+<!--l. 1173--><p class="noindent" >Compared with Eq. (<a 
+href="fourier_analysissu1.html#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>) that uses the trigonometric functions, Fourier series (<a 
+href="fourier_analysissu2.html#x5-4006r11">11<!--tex4ht:ref: 2-25-p6 --></a>) and
+(<a 
+href="fourier_analysissu2.html#x5-4007r12">12<!--tex4ht:ref: 2-25-p7 --></a>), which is expressed in terms of the complex exponential function <span 
+class="cmmi-10">e</span><sup><span 
+class="cmmi-7">in&pi;x∕L</span></sup>, is
+more compact. The convenience introduced by the complex exponential function can
+be appreciated more when we deal with multiple-dimensional Fourier series. For
+example, a two-dimensional function <span 
+class="cmmi-10">G</span>(<span 
+class="cmmi-10">x,y</span>) can be expanded as Fourier series about
+<span 
+class="cmmi-10">x</span>,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-25001r98"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis105x.png" alt="          &sum;&infin;        im&pi;x∕L
+G (x,y) =      cm (y)e     x,
+         m=&minus;&infin;
+" class="math-display"  /></center></td><td class="equation-label">(98)</td></tr></table>
+<!--l. 1183--><p class="nopar" >
+where 2<span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">x</span></sub> is the period of <span 
+class="cmmi-10">G </span>in <span 
+class="cmmi-10">x </span>direction. The expansion coeﬃcients <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">m</span></sub>(<span 
+class="cmmi-10">y</span>) can be
+further expanded as Fourier series about <span 
+class="cmmi-10">y</span>,
+
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-25002r99"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis106x.png" alt="        &infin;&sum;       in&pi;y∕Ly
+cm (y) =     (cmne      ),
+       n=&minus;&infin;
+" class="math-display"  /></center></td><td class="equation-label">(99)</td></tr></table>
+<!--l. 1189--><p class="nopar" >
+where 2<span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">y</span></sub> is the period of <span 
+class="cmmi-10">G </span>in <span 
+class="cmmi-10">y </span>direction. Using Eq. (<a 
+href="#x26-25002r99">99<!--tex4ht:ref: 10-22-p1 --></a>) in Eq. (<a 
+href="#x26-25001r98">98<!--tex4ht:ref: 10-22-p2 --></a>), we
+obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-25003r100"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis107x.png" alt="          &infin;&sum;    &sum;&infin;
+G(x,y) =           cmnein&pi;y∕Ly+im&pi;x∕Lx,
+        m= &minus;&infin; n=&minus;&infin;
+" class="math-display"  /></center></td><td class="equation-label">(100)</td></tr></table>
+<!--l. 1195--><p class="nopar" >
+where the coeﬃcients <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">mn</span></sub> can be written </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis108x.png" alt="            &int;    [    &int;                    ]
+         -1-- Ly  -1--  Lx       &minus; im &pi;x∕Lx     &minus;in&pi;y∕Ly
+cmn  =   2Ly  &minus;Ly 2Lx  &minus;Lx G(x,y)e       dx  e       dy.
+               &int; Ly&int; Lx
+     =   --1---         G(x,y)e&minus;im &pi;x∕Lx&minus;in&pi;y∕Lydxdy.      (101)
+         4LxLy  &minus;Ly &minus; Lx
+" class="math-display"  /><a 
+ id="x26-25004r101"></a></center>
+</div>Equations (<a 
+href="#x26-25003r100">100<!--tex4ht:ref: 10-22-e1 --></a>) and (<a 
+href="#x26-25004r101">101<!--tex4ht:ref: 2-4-1 --></a>) give the two-dimensional Fourier series of <span 
+class="cmmi-10">G</span>(<span 
+class="cmmi-10">x,y</span>). We see
+that the extension of Fourier series from one-dimension case to two-dimension case is
+straightforward when expressed in terms of the complex exponential function
+<span 
+class="cmmi-10">e</span><sup><span 
+class="cmmi-7">in&pi;x∕L</span></sup>. However, if we use sin(<span 
+class="cmmi-10">m&pi;x∕L</span><sub><span 
+class="cmmi-7">x</span></sub>), cos(<span 
+class="cmmi-10">m&pi;x∕L</span><sub><span 
+class="cmmi-7">x</span></sub>), sin(<span 
+class="cmmi-10">n&pi;y∕L</span><sub><span 
+class="cmmi-7">y</span></sub>), and
+cos(<span 
+class="cmmi-10">n&pi;y∕L</span><sub><span 
+class="cmmi-7">y</span></sub>) as basis functions, the two-dimensional Fourier series of <span 
+class="cmmi-10">G</span>(<span 
+class="cmmi-10">x,y</span>) is a
+little complicated (refer to Sec. <a 
+href="fourier_analysissu19.html#x27-260007.2">7.2<!--tex4ht:ref: 10-23-8 --></a>). (check??== <span 
+class="ecrm-1000">&#x003E;The ﬁnal result is given</span>
+<span 
+class="ecrm-1000">by</span>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-25005r102"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis109x.png" alt="          &infin;    &infin; [       (           )          (           )]
+G (x,y) =  &sum;   &sum;   Gc   cos  m-&pi;x + n&pi;y- + Gs  sin  m&pi;x-+ n&pi;y-   ,
+         n=&minus;&infin; m=0   nm      Lx    Ly       nm     Lx     Ly
+" class="math-display"  /></center></td><td class="equation-label">(102)</td></tr></table>
+<!--l. 1217--><p class="nopar" >
+<span 
+class="ecrm-1000">where the coeﬃcient </span><span 
+class="cmmi-10">G</span><sub><span 
+class="cmr-7">00</span></sub><sup><span 
+class="cmmi-7">c</span></sup> <span 
+class="ecrm-1000">is given by</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-25006r103"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis110x.png" alt=" c      1   &int; Ly&int; Lx
+G00 = 4LxLy-         G(x,y)dxdy.
+             &minus;Ly &minus; Lx
+" class="math-display"  /></center></td><td class="equation-label">(103)</td></tr></table>
+
+<!--l. 1222--><p class="nopar" >
+<span 
+class="ecrm-1000">and other coeﬃcients are given by</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-25007r104"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis111x.png" alt="                               (           )
+  c    --1---&int; Ly&int; Lx            m&pi;x-  n&pi;y-
+G nm = 2LxLy  &minus;L  &minus; L G(x,y)cos  Lx  +  Ly   dxdy.
+                y    x
+" class="math-display"  /></center></td><td class="equation-label">(104)</td></tr></table>
+<!--l. 1227--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-25008r105"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis112x.png" alt="  s      1   &int; Ly&int; Lx          (m &pi;x   n&pi;y )
+G nm = 2LxLy-         G(x,y)sin  -Lx- + -Ly- dxdy.
+              &minus;Ly &minus; Lx
+" class="math-display"  /></center></td><td class="equation-label">(105)</td></tr></table>
+<!--l. 1232--><p class="nopar" >
+<span 
+class="ecrm-1000">)</span>
+
+</p>
+   <!--l. 1235--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="fourier_analysissu19.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="fourier_analysissu18.html" ><span 
+class="ecrm-1000">front</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="fourier_analysisse7.html#fourier_analysissu18.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+<!--l. 1235--><p class="indent" >   <a 
+ id="tailfourier_analysissu18.html"></a> </p> 
+</body></html> 

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Monte-Carlo sampling of 6D guiding-center phase-space </title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<meta name="date" content="2019-01-28 10:19:00" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 311--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu6.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu4.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu4.html#tailnonlinear_gyrokinetic_equationsu4.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationsu5.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu5.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">2.5   </span> <a 
+ id="x8-70002.5"></a>Monte-Carlo sampling of 6D guiding-center phase-space </h4>
+<!--l. 313--><p class="noindent" >Suppose that the 6D guiding-center phase-space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is described by (<span 
+class="cmmi-10">&psi;,𝜃,ϕ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">&perp;</span></sub><span 
+class="cmmi-10">,&alpha;</span>) coordinates. The
+Jacobian of the coordinate system is given by <span 
+class="cmsy-10">𝒥 </span>= <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">&perp;</span></sub>, where <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub> is the Jacobian of (<span 
+class="cmmi-10">&psi;,𝜃,ϕ</span>)
+coordinates. Suppose that we sample the 6D phase-space by using the following probability density
+function:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-7001r14"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation13x.png" alt="                                 [            ]
+                  -1 (-m--)3∕2      m-(v2∥-+v2&perp;-)
+P(&psi;,𝜃,ϕ,v∥,v&perp;,&alpha;) = Vr 2&pi;T     exp &minus;     2T      ,
+" class="math-display"  /></center></td><td class="equation-label">(14)</td></tr></table>
+<!--l. 323--><p class="nopar" >
+where <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">r</span></sub> is the volume of the spatial simulation box, <span 
+class="cmmi-10">T </span>is a constant temperature. (<span 
+class="cmmi-10">P </span>given above is
+actually independent of <span 
+class="cmmi-10">&psi;,𝜃,ϕ </span>and <span 
+class="cmmi-10">&alpha;</span>.) It is ready to verify that <span 
+class="cmmi-10">P </span>satisﬁes the following normalization
+condition:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-7002r15"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation14x.png" alt="&int;   &int;          &int;  &int; +&infin; &int; &infin; &int; 2&pi;
+      PdvdX  =                 Pv&perp;d&alpha;dv&perp;dv ∥𝒥rd&psi;d𝜃dϕ = 1.
+ Vr             Vr &minus;&infin;   0   0
+" class="math-display"  /></center></td><td class="equation-label">(15)</td></tr></table>
+                                                                                  
+                                                                                  
+<!--l. 332--><p class="nopar" >
+We use the rejection method to numerically generate <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub> markers that satisfy the above probability
+density function. [The eﬀective probability density function actually used in the rejection method is <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">&prime;</span>,
+which is related to <span 
+class="cmmi-10">P </span>by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-7003r16"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation15x.png" alt="  &prime;
+P  = |𝒥r𝒥v |P = |𝒥r|v&perp;P.
+" class="math-display"  /></center></td><td class="equation-label">(16)</td></tr></table>
+<!--l. 339--><p class="nopar" >
+Note that <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">&prime; </span>does not depend on the gyro-angle <span 
+class="cmmi-10">&alpha;</span>.] Then the phase-space volume occupied by a marker is
+given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-7004r17"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation16x.png" alt="      1   -1--   ------------Vr-------------
+Vpj = g = NpP =    (m  )3∕2   [  m(v2∥j+v2&perp;j)],
+                 Np 2&pi;T    exp &minus; ---2T----
+" class="math-display"  /></center></td><td class="equation-label">(17)</td></tr></table>
+<!--l. 346--><p class="nopar" >
+which is independent of <span 
+class="cmmi-10">&psi;</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,𝜃</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,ϕ</span><sub><span 
+class="cmmi-7">j</span></sub> and <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span></sub>. The weight of a marker is then given by <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">pj</span></sub><span 
+class="cmmi-10">&delta;f</span><sub><span 
+class="cmmi-7">gj</span></sub>, where
+<span 
+class="cmmi-10">&delta;f</span><sub><span 
+class="cmmi-7">g</span></sub> is the perturbed distribution function evolved in simulations.
+</p><!--l. 351--><p class="indent" >   Although the distribution function <span 
+class="cmmi-10">&delta;f</span><sub><span 
+class="cmmi-7">g</span></sub> to be sampled in gyrokinetic simulations is independent of the
+gyro-angle <span 
+class="cmmi-10">&alpha;</span>, we still need to sample the gyro-angle because we need to use the inverse guiding-center
+transformation, which needs the gyro-angle. Each marker needs to have a speciﬁc gyro-angle value <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span></sub> so
+that we know how to transform its <span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub> to <span 
+class="cmbx-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> and then do the charge deposition in <span 
+class="cmbx-10">x </span>space. To increase the
+resolution over the gyro-angle, we need to increase the number of markers. However, thanks to the
+fact that both sampling probability density function <span 
+class="cmmi-10">P </span>and <span 
+class="cmmi-10">&delta;f</span><sub><span 
+class="cmmi-7">g</span></sub> are independent of <span 
+class="cmmi-10">&alpha;</span>, the
+resolution over the gyro-angle can be increased in a simple way. Speciﬁcally, for a marker with
+                                                                                  
+                                                                                  
+(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">&perp;</span><span 
+class="cmmi-7">j</span></sub>), its gyro-angle value <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span></sub> can be adjusted arbitrary without changing the value of
+its weight <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> because both the phase-space volume <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">pj</span></sub> and <span 
+class="cmmi-10">&delta;f</span><sub><span 
+class="cmmi-7">gj</span></sub> are independent of <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span></sub>. In
+other words, we have the freedom of choosing the value of <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span></sub> and the independence of <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">pj</span></sub>
+and <span 
+class="cmmi-10">&delta;f</span><sub><span 
+class="cmmi-7">gj</span></sub> on <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span></sub> guarantees that the weight of the marker is still equal to the original value
+that this marker takes. Suppose that we choose 4 diﬀerent values of <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span></sub> for the <span 
+class="cmmi-10">j</span> th marker,
+denoted by <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">1</span></sub>, <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">2</span></sub>, <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">3</span></sub>, and <span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">4</span></sub>. Then for each of the four gyro-angle values, we do the inverse
+guiding-center transformation and then do the charge deposition using their original weight <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub>
+for each marker and then loop over all the markers. Denote a grid quantity (e.g. density)
+build by the deposition process by <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">1</span></sub>(<span 
+class="cmbx-10">x</span>), <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">2</span></sub>(<span 
+class="cmbx-10">x</span>), <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">3</span></sub>(<span 
+class="cmbx-10">x</span>), and <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">4</span></sub>(<span 
+class="cmbx-10">x</span>), corresponding to using
+the four gyro-angle values. Then the more accurate estimation of the grid quantity is given
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x8-7005r18"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation17x.png" alt="       n (x)+ n (x)+ n (x)+ n (x )
+n(x) = -1------2------3------4---.
+                   4
+" class="math-display"  /></center></td><td class="equation-label">(18)</td></tr></table>
+<!--l. 380--><p class="nopar" >
+This corresponds to sampling the 6D phase-space 4 separate times (each time with identical sampling
+points in (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">&perp;</span></sub>) but diﬀerent sampling points in <span 
+class="cmmi-10">&alpha;</span>) and then using the averaging of the 4 Monte-Carlo
+integrals to estimate the exact value. This estimation can also be (roughly) considered as a Monte-Carlo
+estimation using 4 times larger number of markers as that is originally used (the Monte-Carlo estimation
+using truly 4 time larger number of markers is more accurate than the result we obtained above because
+the former also increase the resolution of (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">&perp;</span></sub>) while the latter keeps the resolution of (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">&perp;</span></sub>)
+unchanged.)
+</p><!--l. 392--><p class="indent" >   In numerical code, one may split the weight <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> as <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">∕</span>4 in doing the deposition and then add the
+contributions from all the 4 gyro-angles when doing the deposition and then one does not need to take the
+averaging at the end. However, interpreting in this way is confusing to me because, with a single sampling
+of the phase-space, the phase-space volume or weight can not be easily split. I prefer the above
+interpretation that the 6D phase space is sampled 4 separate times and thus we get 4 estimations and
+ﬁnally we take the averaging of these 4 estimations. It took me several days to ﬁnally ﬁnd this way of
+understanding.
+</p><!--l. 402--><p class="indent" >   In summary, the phase-space to be sampled in gyrokinetic simulations are still 6D rather than
+5D. In this sense, the statement that gyrokinetic simulation works in a 5D phase space is
+misleading. We are still working in the 6D phase-space. The only subtle thing is that the sixth
+dimension, i.e., gyro-angle, can be sampled in a easy way that is independent of the other 5
+variables.
+                                                                                  
+                                                                                  
+</p><!--l. 409--><p class="indent" >   In numerical implementation, the gyro-angle may not be explicitly used. We just try to calculate 4
+arbitrary points on the gyro-ring that are easy to calculate. Some codes (e.g. ORB5) may introduce a
+random variable to rotate these 4 points for diﬀerent markers so that the gyro-angle is sampled more
+unbiased.
+                                                                                  
+                                                                                  
+</p>
+   <!--l. 415--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu6.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu4.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu4.html#tailnonlinear_gyrokinetic_equationsu4.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu5.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu5.html" >up</a>] </p></div>
+<!--l. 415--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationsu5.html"></a> </p> 
+</body></html> 

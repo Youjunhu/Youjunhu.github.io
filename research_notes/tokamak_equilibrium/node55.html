@@ -1,0 +1,484 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Finding magnetic surfaces</TITLE>
+<META NAME="description" CONTENT="Finding magnetic surfaces">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node56.html">
+<LINK REL="previous" HREF="node54.html">
+<LINK REL="up" HREF="node54.html">
+<LINK REL="next" HREF="node56.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html750"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html748"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html742"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html751"
+  HREF="node56.html">Magnetic surface average</A>
+<B> Up:</B> <A NAME="tex2html749"
+  HREF="node54.html">Constructing magnetic surface coordinate</A>
+<B> Previous:</B> <A NAME="tex2html743"
+  HREF="node54.html">Constructing magnetic surface coordinate</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00061000000000000000">
+Finding magnetic surfaces</A>
+</H2>
+
+<P>
+Two-dimensional data <!-- MATH
+ $\Psi (R, Z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \Psi (R, Z)$"></SPAN> on a rectangular grids <SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ (R, Z)$"></SPAN> is read
+from the G_EQDSK file (G-file) of EFIT code. Based on the 2D array data, I
+use 2D cubic spline interpolation to construct a interpolating function <!-- MATH
+ $\Psi
+= \Psi (R, Z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="94" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img271.png"
+ ALT="$ \Psi = \Psi (R, Z)$"></SPAN>. To construct a magnetic surface coordinate system, we need to
+find the contours of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN>, i.e., magnetic surfaces. The values of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> on
+the magnetic axis, <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$ \Psi_0$"></SPAN>, and the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> on the last closed flux
+surface (LCFS), <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img419.png"
+ ALT="$ \Psi_b$"></SPAN>, are given in G-file. Using these two values, I
+construct a 1D array ``psival'' with value of elements changing uniform from
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$ \Psi_0$"></SPAN> to <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img419.png"
+ ALT="$ \Psi_b$"></SPAN>. Then I try to find the contours of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> with contour
+level value ranging from <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$ \Psi_0$"></SPAN> to <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img419.png"
+ ALT="$ \Psi_b$"></SPAN>. This is done in the following
+way: construct a series of straight line (in the poloidal plane) that starts
+from the location of the magnetic axis and ends at one of the points on the
+LCFS. Combine the straight line equation, <SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img661.png"
+ ALT="$ Z = Z (R)$"></SPAN>, with the interpolating
+function <!-- MATH
+ $\Psi (R, Z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \Psi (R, Z)$"></SPAN>, we obtain a one variable function <!-- MATH
+ $h = \Psi (R, Z
+(R))$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="115" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img662.png"
+ ALT="$ h = \Psi (R, Z
+(R))$"></SPAN>. Then finding the location where <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> is equal to a specified value
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img663.png"
+ ALT="$ \Psi_i$"></SPAN>, is reduced to finding the root of the equation <!-- MATH
+ $\Psi (R, Z (R)) -
+\Psi_i = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="151" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img664.png"
+ ALT="$ \Psi (R, Z (R)) -
+\Psi_i = 0$"></SPAN>. Since this is a one variable equation, the root can be easily
+found by using simple root finding scheme, such as bisection and Newton's
+method (bisection method is used in GTAW code). After finding the the roots
+for each value in the array ``psival'' on each straight lines, the process of
+finding the contours of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> is finished. The contours of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> found this
+way are plotted in Fig. <A HREF="#4-3-p2">8</A>.
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="4-3-p2"></A><A NAME="7828"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8:</STRONG>
+Verification of the numerical code that calculates
+  the contours of the poloidal flux <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN>. The bold line in the figure
+  indicates the LCFS. The contour lines (solid lines) given by the gnuplot
+  program agrees well with the results I calculate by using interpolation and
+  root-finding method (the two sets of contours are indistinguishable in this
+  scale). My code only calculate the contour lines within the LCFS, while
+  those given by gnuplot contains additional contour lines below the X point
+  and on the left top in the figure. Eqdisk file of the equilibrium was
+  provided by Dr. Guoqiang Li (filename: g013606.07104).</CAPTION>
+<TR><TD><IMG
+ WIDTH="272" HEIGHT="388" ALIGN="BOTTOM" BORDER="0"
+ SRC="img665.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig1/contour.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+In the above, we mentioned that the point of magnetic axis and points on the
+LCFS are needed to construct the straight lines. In G-file, points on LCFS are
+given explicitly in an array. The location of magnetic axis is also explicitly
+given in G-file. It is obvious that some of the straight lines <SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img661.png"
+ ALT="$ Z = Z (R)$"></SPAN>
+that pass through the location of magnetic axis and points on the LCFS will
+have very large or even infinite slope. On these lines, finding the accurate
+root of the equation <!-- MATH
+ $\Psi (R, Z (R)) - \Psi_i = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="151" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img664.png"
+ ALT="$ \Psi (R, Z (R)) -
+\Psi_i = 0$"></SPAN> is difficult or even
+impossible. The way to avoid this situation is obvious: switch to use function
+<SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img666.png"
+ ALT="$ R = R (Z)$"></SPAN> instead of <SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img661.png"
+ ALT="$ Z = Z (R)$"></SPAN> when the slope of <SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img661.png"
+ ALT="$ Z = Z (R)$"></SPAN> is large (the
+switch condition I used is <!-- MATH
+ $|d Z / d R| > 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="89" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img667.png"
+ ALT="$ \vert d Z / d R\vert &gt; 1$"></SPAN>).
+
+<P>
+In constructing the flux surface coordinate with desired Jacobian, we will
+need the absolute value of the gradient of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN>, <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN>, on some
+specified spatial points. To achieve this, we need to construct a
+interpolating function for <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN>. The <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> can be
+written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+| \nabla \Psi | = \sqrt{\left( \frac{\partial \Psi}{\partial R} \right)^2 +
+  \left( \frac{\partial \Psi}{\partial Z} \right)^2},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="212" HEIGHT="71" ALIGN="MIDDLE" BORDER="0"
+ SRC="img668.png"
+ ALT="$\displaystyle \vert \nabla \Psi \vert = \sqrt{\left( \frac{\partial \Psi}{\partial R} \right)^2 + \left( \frac{\partial \Psi}{\partial Z} \right)^2},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">206</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+By using the center difference scheme to evaluate the partial derivatives with
+respect to <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ R$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ Z$"></SPAN> in the above equation (using one side difference scheme
+for the points on the rectangular boundary), we can obtain an 2D array for the
+value of <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> on the rectangular <SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ (R, Z)$"></SPAN> grids. Using this 2D
+array, we can construct an interpolating function for <!-- MATH
+ $\nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img182.png"
+ ALT="$ \nabla \Psi$"></SPAN> by using
+the cubic spline interpolation scheme.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="2515"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 9:</STRONG>
+Grid points (the intersecting points of two curves in the figure)
+  corresponding to uniform poloidal flux and uniform poloidal arc length for
+  EAST equilibrium shot 13606 at 7.1s (left) (G-file name: g013606.07104) and
+  shot 38300 at 3.9s (right) (G-file name: g038300.03900).</CAPTION>
+<TR><TD><IMG
+ WIDTH="159" HEIGHT="185" ALIGN="BOTTOM" BORDER="0"
+ SRC="img669.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig2/plt.eps}"><IMG
+ WIDTH="146" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img670.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig40/plt.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="2519"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 10:</STRONG>
+<!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> as a function of the poloidal angle. The
+  different lines corresponds to the values of <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> on different
+  magnetic surfaces. The stars correspond to the values on the boundary
+  magnetic surface while the plus signs correspond to the value on the
+  innermost magnetic surface (the magnetic surface adjacent to the magnetic
+  axis). The equilibrium is for EAST shot 38300 at 3.9s.</CAPTION>
+<TR><TD><IMG
+ WIDTH="379" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="img671.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig41/p2.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7830"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11:</STRONG>
+The Poloidal magnetic field <!-- MATH
+ $B_p = | \nabla \Psi | / R$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="100" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ B_p = \vert \nabla \Psi \vert / R$"></SPAN> (left) and
+  toroidal magnetic field <!-- MATH
+ $B_{\phi} = g / R$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$ B_{\phi } = g / R$"></SPAN> (right) as a function of the
+  poloidal angle. The different lines corresponds to the values on different
+  magnetic surfaces. The stars correspond to the values on the boundary
+  magnetic surface while the plus signs correspond to the value on the
+  innermost magnetic surface (the magnetic surface adjacent to the magnetic
+  axis). The equilibrium is for EAST shot 38300 at 3.9s.</CAPTION>
+<TR><TD><IMG
+ WIDTH="381" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="img672.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig41/p3.eps}"><IMG
+ WIDTH="381" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="img673.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig41/p4.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="2528"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12:</STRONG>
+Equal-arc Jacobian as a function of the poloidal angle on different
+  magnetic surfaces. The dotted line corresponds to the values of Jacobian on
+  the boundary magnetic surface. The equilibrium is for EAST shot 38300 at
+  3.9s.</CAPTION>
+<TR><TD><IMG
+ WIDTH="369" HEIGHT="266" ALIGN="BOTTOM" BORDER="0"
+ SRC="img674.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig41/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="2532"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 13:</STRONG>
+<!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> as a function of the poloidal angle. The
+  different lines corresponds to values of <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> on different
+  magnetic surfaces. The stars correspond to the values of <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN>
+  on the boundary magnetic surface while the plus signs correspond to the
+  value on the innermost magnetic surface (the magnetic surface adjacent to
+  the magnetic axis). The equilibrium is a Solovev equilibrium.</CAPTION>
+<TR><TD><IMG
+ WIDTH="379" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="img675.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig32/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="2536"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 14:</STRONG>
+Jacobian on different magnetic surfaces as a function of the
+  poloidal angle. The equilibrium is a Solovev equilibrium and the Jacobian is
+  an equal-arc Jacobian. The stars correspond to the values of Jacobian on the
+  boundary magnetic surface while the plus signs correspond to the value on
+  the innermost magnetic surface (the magnetic surface adjacent to the
+  magnetic axis).</CAPTION>
+<TR><TD><IMG
+ WIDTH="365" HEIGHT="266" ALIGN="BOTTOM" BORDER="0"
+ SRC="img676.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig29/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html750"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html748"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html742"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html751"
+  HREF="node56.html">Magnetic surface average</A>
+<B> Up:</B> <A NAME="tex2html749"
+  HREF="node54.html">Constructing magnetic surface coordinate</A>
+<B> Previous:</B> <A NAME="tex2html743"
+  HREF="node54.html">Constructing magnetic surface coordinate</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

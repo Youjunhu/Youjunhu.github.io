@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Gyrokinetic equation in forms amenable to numerical simulation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<meta name="date" content="2019-01-28 10:19:00" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 1690--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse6.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse4.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse4.html#tailnonlinear_gyrokinetic_equationse4.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationse5.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse5.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x22-290005"></a>Gyrokinetic equation in forms amenable to numerical simulation</h3>
+<!--l. 1692--><p class="noindent" >In the case of isotropic <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>, Frieman-Chen&#x2019;s gyrokinetic equation for <span 
+class="cmmi-10">&delta;G</span><sub><span 
+class="cmr-7">0</span></sub> is given by </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation135x.png" alt="[                          ]
+ -&part;
+ &part;t + (v∥e∥ + VD + &delta;VD )&sdot;&nabla;X  &delta;G0
+                q &part;⟨&delta;L ⟩ &part;F
+= &minus; &delta;VD &sdot;&nabla;XF0 &minus; -------&alpha;--0,                      (133)
+                m   &part;t   &part;𝜀
+" class="math-display"  /><a 
+ id="x22-29001r133"></a></center>
+</div>where <span 
+class="cmmi-10">&delta;G</span><sub><span 
+class="cmr-7">0</span></sub> is the gyro-phase independent part of the perturbed distribution <span 
+class="cmmi-10">&delta;F</span>, and is related to <span 
+class="cmmi-10">&delta;F</span>
+by
+   <table 
+class="equation"><tr><td><a 
+ id="x22-29002r134"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation136x.png" alt="     -q   &part;F0-
+&delta;F = m &delta;&Phi; &part;𝜀  + &delta;G0,
+" class="math-display"  /></center></td><td class="equation-label">(134)</td></tr></table>
+<!--l. 1707--><p class="nopar" >
+where the ﬁrst term is called “the adiabatic term”, which depends on gyro-phase <span 
+class="cmmi-10">&alpha; </span>via <span 
+class="cmmi-10">&delta;ϕ</span>. In Eq. (<a 
+href="#x22-29001r133">133<!--tex4ht:ref: 16-10-16-2 --></a>),
+<span 
+class="cmmi-10">&delta;L </span>= <span 
+class="cmmi-10">&delta;</span>&Phi; <span 
+class="cmsy-10">&minus; </span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">&sdot; </span><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">A</span>.
+                                                                                  
+                                                                                  
+</p><!--l. 1714--><p class="noindent" >
+</p>
+   <div class="subsectionTOCS">
+    <span class="subsectionToc" >5.1 <a 
+href="nonlinear_gyrokinetic_equationsu17.html#x23-300005.1">Eliminate <span 
+class="cmmi-10">&part;</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">&delta;ϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">&alpha;</span></sub><span 
+class="cmmi-10">∕&part;t </span>term on the right-hand side of GK equation</a></span>
+<br />    <span class="subsectionToc" >5.2 <a 
+href="nonlinear_gyrokinetic_equationsu18.html#x24-310005.2">Eliminate <span 
+class="cmmi-10">&part;</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">&sdot;</span><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">&alpha;</span></sub><span 
+class="cmmi-10">∕&part;t </span>term on the right-hand side of GK equation</a></span>
+<br />     <span class="subsubsectionToc" >5.2.1 <a 
+href="nonlinear_gyrokinetic_equationsu18.html#x24-320005.2.1" id="QQ2-24-34">For special case <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">A </span><span 
+class="cmsy-10">&asymp; </span><span 
+class="cmmi-10">&delta;A</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub></a></span>
+<br />    <span class="subsectionToc" >5.3 <a 
+href="nonlinear_gyrokinetic_equationsu19.html#x25-330005.3">Summary of split of the distribution function</a></span>
+<br />     <span class="subsubsectionToc" >5.3.1 <a 
+href="nonlinear_gyrokinetic_equationsu19.html#x25-340005.3.1" id="QQ2-25-36">Velocity space moment of <img 
+src="nonlinear_gyrokinetic_equation137x.png" alt="q
+m-"  class="frac" align="middle" /><span 
+class="cmsy-10">⟨</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">&sdot; </span><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">&alpha;</span></sub><img 
+src="nonlinear_gyrokinetic_equation138x.png" alt="&part;F
+-&part;0𝜀"  class="frac" align="middle" /></a></span>
+<br />    <span class="subsectionToc" >5.4 <a 
+href="nonlinear_gyrokinetic_equationsu20.html#x26-350005.4">Generalized split-weight scheme for electrons</a></span>
+<br />    <span class="subsectionToc" >5.5 <a 
+href="nonlinear_gyrokinetic_equationsu21.html#x27-360005.5">Comments on how to split the distribution function</a></span>
+<br />    <span class="subsectionToc" >5.6 <a 
+href="nonlinear_gyrokinetic_equationsu22.html#x28-370005.6">Poisson&#x2019;s equation and polarization density</a></span>
+<br />     <span class="subsubsectionToc" >5.6.1 <a 
+href="nonlinear_gyrokinetic_equationsu22.html#x28-380005.6.1" id="QQ2-28-40">Special case: <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> is Maxwellian</a></span>
+<br />     <span class="subsubsectionToc" >5.6.2 <a 
+href="nonlinear_gyrokinetic_equationsu22.html#x28-390005.6.2" id="QQ2-28-41">Pade approximation</a></span>
+<br />     <span class="subsubsectionToc" >5.6.3 <a 
+href="nonlinear_gyrokinetic_equationsu22.html#x28-400005.6.3" id="QQ2-28-43">Long wavelength approximation of the polarization density</a></span>
+<br />     <span class="subsubsectionToc" >5.6.4 <a 
+href="nonlinear_gyrokinetic_equationsu22.html#x28-410005.6.4" id="QQ2-28-44">Polarization density expressed in terms of Laplacian operator</a></span>
+   </div>
+
+
+
+
+
+                                                                                  
+                                                                                  
+   <!--l. 2566--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse6.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse4.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse4.html#tailnonlinear_gyrokinetic_equationse4.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse5.html" >up</a>] </p></div>
+<!--l. 2566--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse5.html"></a> </p> 
+</body></html> 

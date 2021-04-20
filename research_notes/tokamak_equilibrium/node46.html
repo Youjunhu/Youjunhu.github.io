@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Calculating coordinate</TITLE>
+<META NAME="description" CONTENT="Calculating coordinate">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="previous" HREF="node45.html">
+<LINK REL="up" HREF="node43.html">
+<LINK REL="next" HREF="node47.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html652"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html650"
+  HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html646"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html653"
+  HREF="node47.html">Normalized poloidal coordinate</A>
+<B> Up:</B> <A NAME="tex2html651"
+  HREF="node43.html">Magnetic surface coordinate system</A>
+<B> Previous:</B> <A NAME="tex2html647"
+  HREF="node45.html">Relation between Jacobian and</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00053000000000000000">
+Calculating <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> coordinate</A>
+</H2>
+
+<P>
+Once <!-- MATH
+ $|\mathcal{J} \nabla \psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img608.png"
+ ALT="$ \vert\mathcal{J} \nabla \psi \vert$"></SPAN> is known, one can use Eq. (<A HREF="node45.html#5-30-p1">188</A>) to
+calculate the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> of a point by performing the following line
+integral:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="12-31-1"></A><!-- MATH
+ \begin{equation}
+\theta_{i, j} = \int_0^{\mathbf{x}_{i, j}}
+  \frac{R}{|\mathcal{J} \nabla \psi |} d l_p
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="160" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img609.png"
+ ALT="$\displaystyle \theta_{i, j} = \int_0^{\mathbf{x}_{i, j}} \frac{R}{\vert\mathcal{J} \nabla \psi \vert} d l_p$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">189</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the line integration is along the contour <!-- MATH
+ $\Psi = \Psi_j$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img610.png"
+ ALT="$ \Psi = \Psi_j$"></SPAN>. It is here
+that the positive direction of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> can be selected. It is obvious that
+the sign of the Jacobian of the constructed coordinates may be different from
+the <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> appearing in Eq. (<A HREF="#12-31-1">189</A>), depending on the positive
+direction chosen for the poloidal coordinate. Denote the Jacobian of the
+constructed coordinates by <!-- MATH
+ $\mathcal{J}'$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img611.png"
+ ALT="$ \mathcal{J}'$"></SPAN>, then
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\mathcal{J}' = \pm \mathcal{J}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.png"
+ ALT="$\displaystyle \mathcal{J}' = \pm \mathcal{J}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">190</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This sign should be taken into account after the radial coordinate and the
+positive direction of the poloidal angle are chosen. In GTAW code, I choose
+the positive direction of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> to be in anticlockwise direction when
+observers look along the direction of <!-- MATH
+ $\hat{\ensuremath{\boldsymbol{\phi}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.png"
+ ALT="$ \hat{\ensuremath{\boldsymbol{\phi}}}$"></SPAN>. To achieve
+this, the line integration in Eq. (<A HREF="#12-31-1">189</A>) should be along the
+anticlockwise direction. (I use the determination of the direction matrix, a
+well known method in graphic theory, to determine the direction from the given
+discrete points on a magnetic surface.)
+
+<P>
+In order to evaluate the integration in Eq. (<A HREF="#12-31-1">189</A>), we need to select
+a zero point for <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> coordinate. The usual choice for <!-- MATH
+ $\theta = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$ \theta = 0$"></SPAN> line
+is a horizontal ray on the midplane that starts from the magnetic axis and
+points to the low filed side of the device (this is my choice in the GTAW
+code).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html654"
+  HREF="node47.html">Normalized poloidal coordinate</A>
+<LI><A NAME="tex2html655"
+  HREF="node48.html">Jacobian for equal-arc-length poloidal angle</A>
+<LI><A NAME="tex2html656"
+  HREF="node49.html">Jacobian for equal-volume poloidal angle</A>
+<LI><A NAME="tex2html657"
+  HREF="node50.html">Jacobian for straight-field-line poloidal
+angle</A>
+<LI><A NAME="tex2html658"
+  HREF="node51.html">Comparison between different types of poloidal angle</A>
+<LI><A NAME="tex2html659"
+  HREF="node52.html">Verification of Jabobian</A>
+<LI><A NAME="tex2html660"
+  HREF="node53.html">Radial coordinate</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html652"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html650"
+  HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html646"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html653"
+  HREF="node47.html">Normalized poloidal coordinate</A>
+<B> Up:</B> <A NAME="tex2html651"
+  HREF="node43.html">Magnetic surface coordinate system</A>
+<B> Previous:</B> <A NAME="tex2html647"
+  HREF="node45.html">Relation between Jacobian and</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

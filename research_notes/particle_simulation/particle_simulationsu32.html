@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Numerical results for two-stream instability</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1765--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu31.html" >prev</a>] [<a 
+href="particle_simulationsu31.html#tailparticle_simulationsu31.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu32.html">tail</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu32.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.17   </span> <a 
+ id="x38-430005.17"></a>Numerical results for two-stream instability</h4>
+<!--l. 1767--><p class="noindent" >Choose an equilibrium distribution function <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmmi-10">x,v</span><sub><span 
+class="cmmi-7">x</span></sub>) of the following form:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x38-43001r133"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation158x.png" alt="                      {         (          )            (          )}
+                  ne0  &radic;-1---      (v&minus;-vb)2    &radic;-1---      (v+-vb)2
+F0(x,vx) = F0(vx) = 2    2&pi;vt exp &minus;   2vt2    +  2&pi;vt exp &minus;   2v2t      ,
+" class="math-display"  /></center></td><td class="equation-label">(133)</td></tr></table>
+<!--l. 1773--><p class="nopar" >
+where <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmr-7">0</span></sub> is a constant which is chosen so that <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">ion</span></sub>. It is obvious that this initial condition corresponds to an
+equilibrium state. It is well-known that when <span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">b</span></sub> <span 
+class="cmmi-10">&#x003E; v</span><sub><span 
+class="cmmi-7">t</span></sub>, this equilibrium is unstable to an instability called the two-stream
+instability, which destroys the equilibrium state. In practice, the numerical noise associated with the PIC method is usually
+large enough to provide the initial perturbation to make this instability grow up. Thus, to see the instability, we usually do
+not need to manually impose any perturbation to the equilibrium. Figure <a 
+href="#x38-4300211">11<!--tex4ht:ref: 12-20-e1 --></a> plots the distribution of the electron makers in
+the phase space (<span 
+class="cmmi-10">x,v</span>) at <span class="overline"><span 
+class="cmmi-10">t</span></span> = 0 and <span class="overline"><span 
+class="cmmi-10">t</span></span> = 17<span 
+class="cmmi-10">.</span>5 in a full-f simulation. Every particle marker appears as a black dot on Figure
+<a 
+href="#x38-4300211">11<!--tex4ht:ref: 12-20-e1 --></a>. Note that, since this is a full-<span 
+class="cmmi-10">f </span>simulation and the markers are loaded according to the initial distribution function,
+statistical weights of all the marker are equal to each other and remain constant during the time evolution.
+Therefore more markers means more real particles. And since every particle marker appears as a black dot on
+Figure <a 
+href="#x38-4300211">11<!--tex4ht:ref: 12-20-e1 --></a>, region with denser markers appears blacker. Thus the graphics in Figure <a 
+href="#x38-4300211">11<!--tex4ht:ref: 12-20-e1 --></a> can be considered as
+contour plots of the distribution function with the brightness indicating the value (blacker meaning higher
+value).
+</p><!--l. 1794--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x38-4300211"></a>
+
+
+<!--l. 1797--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/pic_full-f/fig1/a.png" alt="pict"  
+ width="216.81pt" /> <img 
+src="my_figure/home/yj/project_new/pic_full-f/fig1/p2.png" alt="pict"  
+ width="216.81pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 11: </span><span  
+class="content">Electron distribution function in the phase-space evaluated at <span 
+class="cmmi-10">t </span>= 0 and <span class="overline"><span 
+class="cmmi-10">t</span></span> = 17<span 
+class="cmmi-10">.</span>5 for a one-dimensional
+electrostatic simulation of the two-stream instability performed with <span 
+class="cmmi-10">N</span><sub><span 
+class="cmr-7">loaded</span></sub> = 2 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmr-7">4</span></sup>, <span 
+class="cmmi-10">N </span>= 1024, <span 
+class="cmmi-10">L∕&lambda;</span><sub><span 
+class="cmmi-7">D</span></sub> = 100,
+<span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">b</span></sub><span 
+class="cmmi-10">∕v</span><sub><span 
+class="cmmi-7">t</span></sub> = 3, and <span 
+class="cmmi-10">&delta;t&omega;</span><sub><span 
+class="cmmi-7">p</span></sub> = 0<span 
+class="cmmi-10">.</span>1.</span></div><!--tex4ht:label?: x38-4300211 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1805--><p class="indent" >   to be continued.
+</p><!--l. 1807--><p class="indent" >   My Fortran code solving the two-stream instability problem is in the directory /home/yj/project_new/pic_full-f/ of my
+computer.
+
+</p>
+   <!--l. 1810--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu31.html" >prev</a>] [<a 
+href="particle_simulationsu31.html#tailparticle_simulationsu31.html" >prev-tail</a>] [<a 
+href="particle_simulationsu32.html" >front</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu32.html" >up</a>] </p></div>
+<!--l. 1810--><p class="indent" >   <a 
+ id="tailparticle_simulationsu32.html"></a> </p> 
+</body></html> 

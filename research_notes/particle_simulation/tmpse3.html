@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Shape function of markers: basis functions used in expanding distribution function</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <!--l. 316--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpse4.html" >next</a>] [<a 
+href="tmpse2.html" >prev</a>] [<a 
+href="tmpse2.html#tailtmpse2.html" >prev-tail</a>] [<a 
+href="#tailtmpse3.html">tail</a>] [<a 
+href="tmp.html#tmpse3.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x7-80003"></a>Shape function of markers: basis functions used in expanding distribution function</h3>
+<!--l. 318--><p class="noindent" >A marker (super-particle) in PIC simulations represents a group of physical particles, which has their own distribution
+function given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8001r22"></a>
+   <center class="math-display" >
+<img 
+src="tmp21x.png" alt="fp(v,r) = wpSv(v&minus; vp)S(r&minus; rp),
+" class="math-display"  /></center></td><td class="equation-label">(22)</td></tr></table>
+<!--l. 323--><p class="nopar" >
+where the subscript <span 
+class="cmmi-10">p </span>denotes quantities on a marker, <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">p</span></sub> is the weight of the marker deﬁned above,  <span 
+class="cmmi-10">S</span><sub><span 
+class="cmmi-7">v</span></sub>(<span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">p</span></sub>) and
+<span 
+class="cmmi-10">S</span>(<span 
+class="cmbx-10">r </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmbx-10">r</span><sub><span 
+class="cmmi-7">p</span></sub>) are the shape functions in the velocity space and real space, respectively. Here <span 
+class="cmmi-10">S</span><sub><span 
+class="cmmi-7">v</span></sub> and <span 
+class="cmmi-10">S </span>have physical diemsion
+of 1<span 
+class="cmmi-10">∕</span>length<sup><span 
+class="cmr-7">3</span></sup> and 1<span 
+class="cmmi-10">∕</span>velocity <sup><span 
+class="cmr-7">3</span></sup> so that the physical dimension of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> given in expression (<a 
+href="#x7-8001r22">22<!--tex4ht:ref: 3-23-p12 --></a>) is consistent with the physical
+dimension of a distribution function.
+</p><!--l. 332--><p class="indent" >   In standard PIC simulation, the shape of markers in the velocity space is always a Dirac delta function:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8002r23"></a>
+   <center class="math-display" >
+<img 
+src="tmp22x.png" alt="Sv(v&minus; vp) = &delta;3(v&minus; vp),
+" class="math-display"  /></center></td><td class="equation-label">(23)</td></tr></table>
+<!--l. 336--><p class="nopar" >
+where <span 
+class="cmmi-10">&delta;</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">p</span></sub>) is the three-dimensional Dirac delta function. In this case, all the physical particles represnted by a
+marker have the same veloicty <span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">p</span></sub>. [In terms of general velocity coordinates (<span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">&alpha;</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">&beta;</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">&gamma;</span></sub>), the three-dimensional Dirac delta
+function is deﬁned via the 1D Dirac delta function as follows:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8003r24"></a>
+   <center class="math-display" >
+<img 
+src="tmp23x.png" alt="             1
+&delta;3(v&minus; vp) = ---&delta;(v&alpha; &minus; v&alpha;p)&delta;(v&beta; &minus; v&beta;p)&delta;(v&gamma; &minus; v&gamma;p),
+            |𝒥v |
+" class="math-display"  /></center></td><td class="equation-label">(24)</td></tr></table>
+<!--l. 346--><p class="nopar" >
+where <span 
+class="cmsy-10">𝒥 </span>is the the Jacobian of the general velocity coordinate system (<span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">&alpha;</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">&beta;</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">&gamma;</span></sub>). Note that <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">v</span></sub> is dimensionless and the
+1D Dirac delta function <span 
+class="cmmi-10">&delta;</span>(<span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">&alpha;</span></sub> <span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">&alpha;p</span></sub>) has a physical dimension of 1<span 
+class="cmmi-10">∕v</span><sub><span 
+class="cmmi-7">&alpha;</span></sub>.]
+</p><!--l. 352--><p class="indent" >   The shape function in the real space, <span 
+class="cmmi-10">S</span>(<span 
+class="cmbx-10">r </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmbx-10">r</span><sub><span 
+class="cmmi-7">p</span></sub>), can also be chosen as the Dirac delta function. In practice, ﬁnite-size
+shape in spatial space is often adopted, i.e., the physical particles represented by a marker have diﬀerent spatial locations.
+Along with the cell-averaging (discussed later), ﬁnite-size shape function has the eﬀect of making the resulting
+self-consistent ﬁeld more smooth, reducing (ideally completely removing) the artiﬁcial collision eﬀects (the interaction
+among close particles) associated with using very few markers to approximate a plasma that has many physical particles in
+a Debye sphere<span class="cite">[<a 
+href="tmpli1.html#Xlapenta_pic">7</a>]</span>.
+</p><!--l. 362--><p class="indent" >   A 3D shape function can be constructed by combining three 1D shape functions and the Jacobian of the coordinate
+system. For example, in (<span 
+class="cmmi-10">&alpha;,&beta;,&gamma;</span>) coordinate system, a 3D shape function is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8004r25"></a>
+   <center class="math-display" >
+<img 
+src="tmp24x.png" alt="           1 [  1     ( &alpha; &minus; &alpha; )] [ 1     ( &beta; &minus; &beta; ) ][ 1     (&gamma; &minus; &gamma; )]
+S (r &minus; rp) = --- ----S1D  -----p    ----S1D   ----p-   ----S1D  -----p   ,
+           𝒥r  &Delta;&alpha;p       &Delta;&alpha;p      &Delta;&beta;p       &Delta;&beta;p     &Delta; &gamma;p      &Delta; &gamma;p
+" class="math-display"  /></center></td><td class="equation-label">(25)</td></tr></table>
+<!--l. 372--><p class="nopar" >
+where <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub> = <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub>(<span 
+class="cmmi-10">&alpha;,&beta;,&gamma;</span>) is the Jacobian of (<span 
+class="cmmi-10">&alpha;,&beta;,&gamma;</span>) coordinate system, &Delta;<span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">p</span></sub>, &Delta;<span 
+class="cmmi-10">&beta;</span><sub><span 
+class="cmmi-7">p</span></sub>, and &Delta;<span 
+class="cmmi-10">&gamma;</span><sub><span 
+class="cmmi-7">p</span></sub> are the scale-lengths of the
+support of the 1D shape function <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub> along <span 
+class="cmmi-10">&alpha;</span>, <span 
+class="cmmi-10">&beta;</span>, and <span 
+class="cmmi-10">&gamma; </span>directions, respectively. The 1D shape function <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub> should satisfy
+the following normalization:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8005r26"></a>
+   <center class="math-display" >
+<img 
+src="tmp25x.png" alt="&int; &infin;
+    S1D (&xi; &minus; &xi;p)d&xi; = 1,
+ &minus; &infin;
+" class="math-display"  /></center></td><td class="equation-label">(26)</td></tr></table>
+<!--l. 381--><p class="nopar" >
+where <span 
+class="cmmi-10">&xi; </span>is one of the spatial coordinates. The reason to include the Jacobian in the deﬁnition of the 3D shape function is
+that this makes <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> be consistent with the deﬁnition of a distribution function, i.e., satisfy the following
+normalization:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8006r27"></a>
+
+   <center class="math-display" >
+<img 
+src="tmp26x.png" alt="&int;
+
+   fpdvdr = wp,
+" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
+<!--l. 388--><p class="nopar" >
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8007r28"></a>
+   <center class="math-display" >
+<img 
+src="tmp27x.png" alt="             (                          )
+&int; &infin; &int; &infin;  &int; &infin;  &int; &infin; &int;    &int; +&infin;
+ &minus; &infin;  &minus;&infin;  &minus;&infin;   &minus;&infin;  &minus; &infin;  &minus;&infin;  fp𝒥vdv &alpha;dv&beta;dv&gamma;  𝒥rd&alpha;d &beta;d&gamma; = wp.
+" class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
+<!--l. 395--><p class="nopar" >
+While not strictly necessary, symmetric shapes are usually chosen, i.e. <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub> has the property: <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub>(<span 
+class="cmmi-10">&xi; </span><span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">&xi;</span><sub><span 
+class="cmmi-7">p</span></sub>) = <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub>(<span 
+class="cmmi-10">&xi;</span><sub><span 
+class="cmmi-7">p</span></sub> <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">&xi;</span>).
+The support of <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub> should be compact (i.e. it is zero outside a small region) so that physical particles represnted by the
+marker are localized to a small portion of the space. Compact support of <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub> can make the deposition and gathering
+operations (deﬁned later) computationally eﬃcient. Modern PIC codes usually use the so-called b-splines as the spatial
+shape functions. The b-spline functions are a series of consecutively higher order functions obtained from each other by
+integration:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8008r29"></a>
+   <center class="math-display" >
+<img 
+src="tmp28x.png" alt="      &int;
+        &infin;      &prime;       &prime;  &prime;
+bl(&xi;) = &minus;&infin; bl&minus; 1(&xi; )b0(&xi; &minus; &xi; )d&xi;
+" class="math-display"  /></center></td><td class="equation-label">(29)</td></tr></table>
+<!--l. 408--><p class="nopar" >
+with the 0th b-spline being the ﬂat-top function deﬁned as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8009r30"></a>
+   <center class="math-display" >
+<img 
+src="tmp29x.png" alt="       {
+b0(&xi;) =  1   for|&xi;| &#x003C; 1∕2 .
+         0   other
+" class="math-display"  /></center></td><td class="equation-label">(30)</td></tr></table>
+<!--l. 418--><p class="nopar" >
+Then, by using Eqs. (<a 
+href="#x7-8008r29">29<!--tex4ht:ref: 18-12-14-1 --></a>) and (<a 
+href="#x7-8009r30">30<!--tex4ht:ref: 18-12-14-2 --></a>), it is ready to derive the expression of <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">1</span></sub>(<span 
+class="cmmi-10">&xi;</span>), which is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8010r31"></a>
+   <center class="math-display" >
+<img 
+src="tmp30x.png" alt="       {
+b1(&xi;) =   1&minus; |&xi;|  for|&xi;| &#x003C; 1 .
+         0       other
+" class="math-display"  /></center></td><td class="equation-label">(31)</td></tr></table>
+<!--l. 429--><p class="nopar" >
+The graphics of the ﬁrst two b-splines, <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmmi-10">&xi;</span>) and <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">1</span></sub>(<span 
+class="cmmi-10">&xi;</span>), are shown in Fig. <a 
+href="#x7-80111">1<!--tex4ht:ref: 17-6-25-p1 --></a>.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x7-80111"></a>
+
+
+<!--l. 434--><p class="noindent" ><img 
+src="my_figure/home/yj/theory/particle_simulation/figures/fig1/p.png" alt="pict"  
+ width="182.6825pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 1: </span><span  
+class="content">Graphics of the ﬁrst two b-splines, <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmmi-10">&xi;</span>) and <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">1</span></sub>(<span 
+class="cmmi-10">&xi;</span>).</span></div><!--tex4ht:label?: x7-80111 -->
+
+   </div><hr class="endfigure" />
+<!--l. 439--><p class="indent" >   The 1D shape function based on the b-spline function is then given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8012r32"></a>
+   <center class="math-display" >
+<img 
+src="tmp31x.png" alt="S1D(&xi;) = bl(&xi;),
+" class="math-display"  /></center></td><td class="equation-label">(32)</td></tr></table>
+<!--l. 442--><p class="nopar" >
+Most PIC codes use <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">0</span></sub>, i.e, the ﬂat-top function, as the shape function and choose the support of the shape function &Delta;<sub><span 
+class="cmmi-7">p</span></sub>
+equal to the grid spacing. (k-spectra of particle shape functions, to be continued)
+</p><!--l. 447--><p class="indent" >   The shape functions are essentially identical to the basis functions used in ﬁnite element methods.
+</p><!--l. 450--><p class="indent" >   The spatial shape of markers determines how physical particles represented by a marker are distributed to spatial cells
+(called deposition) and also how the force on a marker is related to the nearby electromagnetic ﬁeld. Note that the
+phase-space volume occupied (or sampled) by a marker is diﬀerent from the concept of the spatial-shape of a
+marker.
+</p><!--l. 456--><p class="indent" >   The physical particle distribution is the sum of all the particle elements given in expression (<a 
+href="#x7-8001r22">22<!--tex4ht:ref: 3-23-p12 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8013r33"></a>
+   <center class="math-display" >
+<img 
+src="tmp32x.png" alt="    &sum;       &sum;     3
+f =    fp =    wp&delta; (v &minus; vp)S(r&minus; rp).
+     p       p
+" class="math-display"  /></center></td><td class="equation-label">(33)</td></tr></table>
+<!--l. 461--><p class="nopar" >
+</p>
+   <div class="subsectionTOCS">
+    <span class="subsectionToc" >3.1 <a 
+href="tmpsu4.html#x8-90003.1">Integration in velocity space</a></span>
+<br />    <span class="subsectionToc" >3.2 <a 
+href="tmpsu5.html#x9-100003.2">Cell-averaged velocity moment</a></span>
+<br />    <span class="subsectionToc" >3.3 <a 
+href="tmpsu6.html#x10-110003.3">Eﬀective ﬁeld on a marker</a></span>
+<br />     <span class="subsubsectionToc" >3.3.1 <a 
+href="tmpsu6.html#x10-120003.3.1" id="QQ2-10-14">Piecewise constant function</a></span>
+<br />     <span class="subsubsectionToc" >3.3.2 <a 
+href="tmpsu6.html#x10-130003.3.2" id="QQ2-10-15">Piecewise linear function</a></span>
+<br />    <span class="subsectionToc" >3.4 <a 
+href="tmpsu7.html#x11-140003.4">Eﬀective force on a marker</a></span>
+<br />    <span class="subsectionToc" >3.5 <a 
+href="tmpsu8.html#x12-150003.5">Numerical implementation in codes</a></span>
+<br />    <span class="subsectionToc" >3.6 <a 
+href="tmpsu9.html#x13-160003.6">Monte-Carlo integration in phase-space</a></span>
+<br />    <span class="subsectionToc" >3.7 <a 
+href="tmpsu10.html#x14-170003.7">On accuracy and noise: particle methods vs. Euler-grid-based methods</a></span>
+<br />    <span class="subsectionToc" >3.8 <a 
+href="tmpsu11.html#x15-180003.8">Practical comparison between particle methods and Euler-grid-based methods</a></span>
+<br />    <span class="subsectionToc" >3.9 <a 
+href="tmpsu12.html#x16-190003.9">Modeling collisions in PIC simulations</a></span>
+   </div>
+
+
+
+
+
+
+
+
+
+   <!--l. 889--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpse4.html" >next</a>] [<a 
+href="tmpse2.html" >prev</a>] [<a 
+href="tmpse2.html#tailtmpse2.html" >prev-tail</a>] [<a 
+href="tmpse3.html" >front</a>] [<a 
+href="tmp.html#tmpse3.html" >up</a>] </p></div>
+<!--l. 889--><p class="indent" >   <a 
+ id="tailtmpse3.html"></a> </p> 
+</body></html> 

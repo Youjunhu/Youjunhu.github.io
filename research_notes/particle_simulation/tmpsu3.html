@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Weights of markers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <!--l. 240--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu2.html" >prev</a>] [<a 
+href="tmpsu2.html#tailtmpsu2.html" >prev-tail</a>] [<a 
+href="#tailtmpsu3.html">tail</a>] [<a 
+href="tmpse2.html#tmpsu3.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x6-60002.2"></a>Weights of markers</h4>
+<!--l. 242--><p class="noindent" >Denote the physical particle distribution function in question by <span 
+class="cmmi-10">f </span>(<span 
+class="cmmi-10">f </span>can be the full-f or <span 
+class="cmmi-10">&delta;f</span>, depending on the context).
+The weight of a marker in this note is deﬁned as the number of physical particles carried by <span 
+class="cmmi-10">f </span>in the corresponding
+phase-space volume sampled by the marker, i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-6001r14"></a>
+   <center class="math-display" >
+<img 
+src="tmp13x.png" alt="wj = f(Zj)dVpj,
+" class="math-display"  /></center></td><td class="equation-label">(14)</td></tr></table>
+<!--l. 248--><p class="nopar" >
+which, by using Eq. (<a 
+href="tmpsu2.html#x5-4005r5">5<!--tex4ht:ref: 16-3-22-p1 --></a>),  is further written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-6002r15"></a>
+   <center class="math-display" >
+<img 
+src="tmp14x.png" alt="wj = f(Zj)
+     g(Zj)
+" class="math-display"  /></center></td><td class="equation-label">(15)</td></tr></table>
+<!--l. 252--><p class="nopar" >
+or, by using Eq. (<a 
+href="tmpsu2.html#x5-4011r11">11<!--tex4ht:ref: 18-1-28-p3 --></a>), is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-6003r16"></a>
+   <center class="math-display" >
+<img 
+src="tmp15x.png" alt="wj = -f&prime;(Zj-)|𝒥r(Zj)𝒥v(Zj)|.
+     g (Zj)
+" class="math-display"  /></center></td><td class="equation-label">(16)</td></tr></table>
+
+<!--l. 257--><p class="nopar" >
+</p><!--l. 259--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">2.2.1   </span> <a 
+ id="x6-70002.2.1"></a>Some discussions</h5>
+<!--l. 261--><p class="noindent" >In most PIC codes I wrote, I implement several kinds of marker distribution functions, which can be chosen via an option.
+In practice, I primarily use the marker distribution <span 
+class="cmmi-10">g </span>that is uniform in real space and Maxwellian in velocity space with a
+constant temperature (the other forms of marker distributions are used occasionally for benchmarking purpose), i.e., <span 
+class="cmmi-10">g </span>is
+given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-7001r17"></a>
+   <center class="math-display" >
+<img 
+src="tmp16x.png" alt="      (     )       (      )
+   Np-  -m--- 3∕2       mv2-
+g = V   2&pi;Tg    exp  &minus; 2Tg  ,
+" class="math-display"  /></center></td><td class="equation-label">(17)</td></tr></table>
+<!--l. 270--><p class="nopar" >
+where <span 
+class="cmmi-10">T</span><sub><span 
+class="cmmi-7">g</span></sub> is a constant temperature, <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub> is the number of markers, and <span 
+class="cmmi-10">V </span>is the spatial volume of the computational box.
+This marker distribution satisﬁes the normalization <span 
+class="cmex-10">&int;</span>
+  <span 
+class="cmmi-10">gd</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">r </span>= <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub>.
+</p><!--l. 275--><p class="indent" >   [In the literature on <span 
+class="cmmi-10">&delta;f </span>PIC simulations, the weight deﬁned by diﬀerent authors may diﬀer by a factor and this factor is
+taken into account when calculating velocity moments using the weight. For example, in Ben&#x2019;s thesis<span class="cite">[<span 
+class="cmbx-10">?</span>]</span>, the weight is
+deﬁned as <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j⋆</span></sub> = <span 
+class="cmmi-10">&delta;f∕f</span><sub><span 
+class="cmr-7">0</span></sub>, where <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub> is the equilibrium physical distribution function. Assume that <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub> is an Maxwellian
+distribution with constant temperature <span 
+class="cmmi-10">T</span><sub><span 
+class="cmmi-7">g</span></sub>, then the marker distribution given in Eq. (<a 
+href="#x6-7001r17">17<!--tex4ht:ref: 18-12-15-1 --></a>) can be written in terms of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub> as
+<span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">f</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">V </span>), where <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub> is the equilibrium number density. Then <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j⋆</span></sub> and the weight <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> deﬁned above is related
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-7002r18"></a>
+   <center class="math-display" >
+<img 
+src="tmp17x.png" alt="w =  &delta;f-= -&delta;f-n V = w  -V-n .
+ j   g    f0Np 0      j⋆Np  0
+" class="math-display"  /></center></td><td class="equation-label">(18)</td></tr></table>
+<!--l. 288--><p class="nopar" >
+As another example, in the <span 
+class="cmtt-10">GEM </span>code, the particle weight is deﬁned by <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">⋆</span></sub> = <span 
+class="cmmi-10">&delta;f∕g</span><sub><span 
+class="cmmi-7">⋆</span></sub> and <span 
+class="cmmi-10">g</span><sub><span 
+class="cmmi-7">⋆</span></sub> is chosen as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-7003r19"></a>
+
+   <center class="math-display" >
+<img 
+src="tmp18x.png" alt="    (  m  )3∕2   (   mv2)
+g⋆ =  2&pi;T--   exp  &minus; 2T-- ,
+         g             g
+" class="math-display"  /></center></td><td class="equation-label">(19)</td></tr></table>
+<!--l. 294--><p class="nopar" >
+which is related to <span 
+class="cmmi-10">g </span>deﬁned in Eq. (<a 
+href="#x6-7001r17">17<!--tex4ht:ref: 18-12-15-1 --></a>) by <span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">g</span><sub><span 
+class="cmmi-7">⋆</span></sub><span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">∕V </span>. Here <span 
+class="cmmi-10">g</span><sub><span 
+class="cmmi-7">⋆</span></sub> satisﬁes the normalization <span 
+class="cmex-10">&int;</span>
+  <span 
+class="cmmi-10">g</span><sub><span 
+class="cmmi-7">⋆</span></sub><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">r </span>= <span 
+class="cmmi-10">V </span>. Then the
+relation of <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">⋆j</span></sub> in <span 
+class="cmtt-10">GEM </span>and <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> in this note is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-7004r20"></a>
+   <center class="math-display" >
+<img 
+src="tmp19x.png" alt="     &delta;f      &delta;f        V
+wj = -g-= g-N-∕V- = wj⋆N--,
+           ⋆  p         p
+" class="math-display"  /></center></td><td class="equation-label">(20)</td></tr></table>
+<!--l. 302--><p class="nopar" >
+Note that <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j⋆</span></sub> deﬁned here is of number density dimension. Actually used in the code is the normalized weight deﬁned by
+<span class="overline"><span 
+class="cmmi-10">w</span></span><sub><span 
+class="cmmi-7">j⋆</span></sub> = <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j⋆</span></sub><span 
+class="cmmi-10">∕n</span><sub><span 
+class="cmmi-7">u</span></sub>, where <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">u</span></sub> is the number density unit used in <span 
+class="cmtt-10">GEM</span>. Then the relation between <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> and <span class="overline"><span 
+class="cmmi-10">w</span></span><sub><span 
+class="cmmi-7">j⋆</span></sub> is given
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-7005r21"></a>
+   <center class="math-display" >
+<img 
+src="tmp20x.png" alt="--      Np         Np
+wj⋆ = wj nuV ,= wj (n-x3)V-,
+                   u u
+" class="math-display"  /></center></td><td class="equation-label">(21)</td></tr></table>
+<!--l. 311--><p class="nopar" >
+where <span class="overline"><span 
+class="cmmi-10">V</span> </span> = <span 
+class="cmmi-10">V∕x</span><sub><span 
+class="cmmi-7">u</span></sub><sup><span 
+class="cmr-7">3</span></sup> and <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">u</span></sub> is the length unit used in <span 
+class="cmtt-10">GEM</span>.]
+
+</p>
+   <!--l. 315--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu2.html" >prev</a>] [<a 
+href="tmpsu2.html#tailtmpsu2.html" >prev-tail</a>] [<a 
+href="tmpsu3.html" >front</a>] [<a 
+href="tmpse2.html#tmpsu3.html" >up</a>] </p></div>
+<!--l. 315--><p class="indent" >   <a 
+ id="tailtmpsu3.html"></a>  </p> 
+</body></html> 

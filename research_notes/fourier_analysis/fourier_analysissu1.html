@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Fourier series in terms of trigonometric functions cosine and sine</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="fourier_analysis.tex" /> 
+<meta name="date" content="2019-01-05 20:48:00" /> 
+<link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
+</head><body 
+>
+   <!--l. 63--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu2.html" >next</a>] [<a 
+href="#tailfourier_analysissu1.html">tail</a>] [<a 
+href="fourier_analysisse2.html#fourier_analysissu1.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x4-30002.1"></a>Fourier series in terms of trigonometric functions cosine and sine</h4>
+<!--l. 65--><p class="noindent" >If <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span>) is a function of period 2<span 
+class="cmmi-10">L</span>, then it can be proved that <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span>) can be expressed as
+the following series
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3001r1"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis0x.png" alt="      &infin;&sum;       ( n&pi; )   &infin;&sum;       (n&pi;  )
+h(x ) =   ancos  L-x  +    bnsin  -L-x ,
+      n=0              n=1
+" class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
+<!--l. 70--><p class="nopar" >
+which is called the Fourier series. It is not trivial to prove the above statement (what
+is needed in the proof is to prove that the set of functions cos(<span 
+class="cmmi-10">n&pi;x∕L</span>) and
+sin(<span 
+class="cmmi-10">n&pi;x∕L</span>) with <span 
+class="cmmi-10">n </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmsy-10">&infin; </span>is a “complete set”). We will not concern us here with
+this proof and simply start working with the Fourier series in Eq. (<a 
+href="#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>). At this point it
+is not clear yet what the coeﬃcients <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> and <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">n</span></sub> are. Taking product of Eq. (<a 
+href="#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>) with
+cos(<span 
+class="cmmi-10">j&pi;x∕L</span>) and sin(<span 
+class="cmmi-10">j&pi;x∕L</span>), respectively, and then integrating form <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">L </span>to <span 
+class="cmmi-10">L</span>, we
+obtain
+
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3002r2"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis1x.png" alt="     1-&int; L
+a0 = 2L &minus; Lh(x)dx,
+" class="math-display"  /></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 81--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3003r3"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis2x.png" alt="     1 &int; L       ( j&pi; )
+aj = L-    h(x )cos  L-x  dx,
+        &minus;L
+" class="math-display"  /></center></td><td class="equation-label">(3)</td></tr></table>
+<!--l. 86--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3004r4"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis3x.png" alt="    1 &int; L       ( j&pi; )
+bj = L    h(x )sin  L-x  dx,
+       &minus;L
+
+" class="math-display"  /></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 91--><p class="nopar" >
+for <span 
+class="cmmi-10">j </span><span 
+class="msam-10">&ge; </span>1. In order to make the coeﬃcients <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> be uniformly expressed by Eq. (<a 
+href="#x4-3003r3">3<!--tex4ht:ref: 2-25-p1 --></a>), we
+modify the Fourier series to the following form
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3005r5"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis4x.png" alt="       a0  &sum;&infin;       (n&pi;- )  &sum;&infin;      (n-&pi; )
+h(x) = 2 +    an cos  L x  +    bnsin  L x .
+           n=1              n=1
+" class="math-display"  /></center></td><td class="equation-label">(5)</td></tr></table>
+<!--l. 99--><p class="nopar" >
+Then it is obvious that the coeﬃcients <span 
+class="cmmi-10">a</span><sub><span 
+class="cmr-7">0</span></sub> can be evaluated by using Eq. (<a 
+href="#x4-3003r3">3<!--tex4ht:ref: 2-25-p1 --></a>). Note
+that <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span>) can be a complex-valued function (the independent variable <span 
+class="cmmi-10">x </span>is
+still a real number). In this case, the coeﬃcients <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> and <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">n</span></sub> are complex
+numbers.
+
+</p>
+   <!--l. 105--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu2.html" >next</a>] [<a 
+href="fourier_analysissu1.html" >front</a>] [<a 
+href="fourier_analysisse2.html#fourier_analysissu1.html" >up</a>] </p></div>
+<!--l. 105--><p class="indent" >   <a 
+ id="tailfourier_analysissu1.html"></a> </p> 
+</body></html> 

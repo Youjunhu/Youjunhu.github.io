@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Parallel momentum equation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<meta name="date" content="2019-01-28 10:19:00" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 3404--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu30.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu28.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu28.html#tailnonlinear_gyrokinetic_equationsu28.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationsu29.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse10.html#nonlinear_gyrokinetic_equationsu29.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">D.3   </span> <a 
+ id="x40-53000D.3"></a>Parallel momentum equation</h4>
+<!--l. 3406--><p class="noindent" >Multiplying the linear drift kinetic equation (<a 
+href="nonlinear_gyrokinetic_equationsu28.html#x39-52006r267">267<!--tex4ht:ref: 17-5-14-e3 --></a>) by <span 
+class="cmmi-10">qv</span><sub><span 
+class="cmsy-7">∥</span></sub> and then integrating over velocity space, we
+obtain </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation293x.png" alt="        &int;                         &int;
+&part;&delta;j∥ + q  dvv∥(v∥e∥ + vD) &sdot;&nabla;X &delta;f &minus; q  dvv∥e∥ &sdot;&mu;&nabla;B &part;&delta;f-
+ &part;t  &int;     (            )          &int;      (     &part;v∥ )
+                    &delta;B&perp;-                   vE-  &delta;B-&perp;        &part;F0-
+= &minus; q  dvv∥  vE + v∥ B0   &sdot;&nabla;XF0  + q  dvv∥   v∥ +  B0   &sdot;&mu;&nabla;B  &part;v∥
+  q  &int;      [(    v  )    ] &part;F
+&minus; --q  dvv∥   e∥ +--D  &sdot;&delta;E  --0.                                  (268)
+  m                v∥       &part;v∥
+" class="math-display"  /><a 
+ id="x40-53001r268"></a></center>
+</div>Consider the simple case that <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> does not carry current, i.e., <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) is an even function about <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>.
+Then it is obvious that the integration of the terms in red in Eq. (<a 
+href="#x40-53001r268">268<!--tex4ht:ref: 17-5-18-1 --></a>) are all zero. Among the rest terms,
+only the following term
+   <table 
+class="equation"><tr><td><a 
+ id="x40-53002r269"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation294x.png" alt="  q  &int;                &part;F  1
+&minus; --q  dvv∥[(v∥e∥)&sdot;&delta;E ]--0--
+  m                   &part;v∥v∥
+" class="math-display"  /></center></td><td class="equation-label">(269)</td></tr></table>
+<!--l. 3434--><p class="nopar" >
+explicitly depends on <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">E</span>. Using <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>= 2<span 
+class="cmmi-10">&pi;Bdv</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">d&mu;</span>, the integration in the above expression can be
+analytically performed, giving </p><div class="eqnarray">
+                                                                                  
+                                                                                  
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation295x.png" alt="     &int;
+&minus; q-q  dvv∥[(v∥e∥)&sdot;&delta;E ]&part;F0-1-
+  m                  &part;v ∥v∥
+    q2&int;               &part;F0
+= &minus; m-  2&pi;Bdv ∥d&mu;v∥&delta;E∥&part;v∥-
+     2&int;           &int;
+= &minus; q-  2&pi;Bd &mu;&delta;E∥   v∥&part;F0dv∥
+    m             (   &part;v∥    )
+    q2&int;               &int;
+= &minus; m   2&pi;Bd &mu;&delta;E∥  0&minus;    F0dv∥
+  q2
+= --&delta;E ∥n0.                                       (270)
+  m
+" class="math-display"  /></center>
+</div>Using these results, the parallel momentum equation (<a 
+href="#x40-53001r268">268<!--tex4ht:ref: 17-5-18-1 --></a>) is written <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation296x.png" alt="&part;&delta;j∥     q2         &int;                         &int;             &part;&delta;f-
+ &part;t   =  m &delta;E ∥n0 &minus; q dvv∥(v∥e∥ + vD )&sdot;&nabla;X &delta;f + q dvv∥e∥ &sdot;&mu;&nabla;B &part;v ∥
+            &int;     (       )         &int;     (     )
+         &minus; q  dvv∥  v∥&delta;B&perp;-  &sdot;&nabla;F0 + q  dvv∥  &delta;B&perp;-  &sdot;&mu;&nabla;B &part;F0-,        (271)
+                       B0                    B0        &part;v∥
+" class="math-display"  /><a 
+ id="x40-53004r271"></a></center>
+</div>where the explicit dependence on <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">E </span>is via the ﬁrst term <span 
+class="cmmi-10">q</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">&delta;E</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕m</span>, with all the the other terms being
+explicitly independent of <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">E </span>(<span 
+class="cmmi-10">&delta;f </span>and <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">B </span>implicitly depend on <span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">E</span>).
+<!--l. 3471--><p class="indent" >   Equation (<a 
+href="#x40-53004r271">271<!--tex4ht:ref: 17-5-18-p3 --></a>) involve derivatives of <span 
+class="cmmi-10">&delta;f </span>with respect to space and <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> and these should be avoided in
+the particle method whose goal is to avoid directly evaluating these derivatives. Using integration by parts,
+the terms involving <span 
+class="cmmi-10">&part;∕&part;v</span><sub><span 
+class="cmsy-7">∥</span></sub> can be simpliﬁed, yielding </p><div class="eqnarray">
+                                                                                  
+                                                                                  
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation297x.png" alt="                    &int;                                  &int;
+&part;&delta;j∥- =   q2&delta;E n  &minus; q  dvv (ve  + v )&sdot;&nabla;  &delta;f &minus; q(e  &sdot;&nabla;B  )  &mu;&delta;fdv
+&part;t       m   ∥ 0         ∥  ∥∥    D    X       ∥     0
+           &int;      (  &delta;B-&perp;)         ( &delta;B&perp;-)       &int;
+         &minus; q  dvv∥ v∥ B0   &sdot;&nabla;F0 &minus; q   B0   &sdot;(&nabla;B0)   &mu;F0dv,         (272)
+" class="math-display"  /></center>
+</div>Deﬁne <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">&perp;</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmex-10">&int;</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">&perp;</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>2<span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>and <span 
+class="cmmi-10">&delta;p</span><sub><span 
+class="cmsy-7">&perp;</span></sub> = <span 
+class="cmex-10">&int;</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">&perp;</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">&delta;f∕</span>2<span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span>, then the above equation is written
+<div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation298x.png" alt="                    &int;
+&part;&delta;j∥      q2                                           -&delta;p&perp;
+ &part;t   =   m &delta;E∥n0 &minus; q  dvv∥(v∥e∥ + vD )&sdot;&nabla;X &delta;f &minus; q(e∥ &sdot;&nabla;B0 )mB0
+            &int;      (  &delta;B &perp;)         ( &delta;B&perp; )        p&perp;0
+         &minus; q  dvv ∥ v∥-B--  &sdot;&nabla;F0 &minus; q  B---  &sdot;(&nabla;B0 )mB--,           (273)
+                        0               0            0
+" class="math-display"  /><a 
+ id="x40-53006r273"></a></center>
+</div>Next, we try to eliminate the spatial gradient of <span 
+class="cmmi-10">&delta;f </span>by changing the order of integration. The second term
+on the right-hand side of Eq. (<a 
+href="#x40-53006r273">273<!--tex4ht:ref: 17-5-18-p8 --></a>) is written <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation299x.png" alt="   &int;
+&minus; q  dvv∥(v∥e∥) &sdot;&nabla;X &delta;f,
+     &int;
+= &minus; q  2&pi;B0dv∥d&mu;v2∥e∥ &sdot;&nabla;X &delta;f
+               &int;
+= &minus; q2&pi;B0e ∥ &sdot;&nabla;X   v2∥&delta;f dv∥d&mu;
+             (      &int;        )
+= &minus; qB  e &sdot;&nabla;    --1-   mv2&delta;fdv
+      0 ∥   X  mB0      ∥
+             (  &delta;p∥ )
+= &minus; qB0e ∥ &sdot;&nabla;X  mB0-  ,                            (274)
+" class="math-display"  /></center>
+</div>where <span 
+class="cmmi-10">&delta;p</span><sub><span 
+class="cmsy-7">∥</span></sub> = <span 
+class="cmex-10">&int;</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">&delta;fd</span><span 
+class="cmbx-10">v</span>. Similarly, the term <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">q</span> <span 
+class="cmex-10">&int;</span>
+ <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><img 
+src="nonlinear_gyrokinetic_equation300x.png" alt="(v  &delta;B-&perp;)
+  ∥ B0"  class="left" align="middle" /><span 
+class="cmsy-10">&sdot;&nabla;</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> is written as <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation301x.png" alt="   &int;      (      )
+             &delta;B&perp;-
+&minus; q  dvv∥  v∥ B0   &sdot;&nabla;XF0
+     &int;           (  &delta;B  )
+= &minus; q  2&pi;B0dv ∥d&mu;  v2∥---&perp;  &sdot;&nabla;XF0
+     (     )       &int; B0
+= &minus; q  &delta;B&perp;-  &sdot;B0 &nabla;X   (v2F02&pi;dv∥d&mu;)
+     ( B0  )       [  &int;∥          ]
+       &delta;B&perp;-         -1      2
+= &minus; q  B0    &sdot;B0 &nabla;X  B   (mv ∥F0dv)
+             (  p∥0 )
+= &minus; q&delta;B&perp; &sdot;&nabla;X   ----                                 (275)
+               mB0
+" class="math-display"  /></center>
+</div>where <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmex-10">&int;</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span>. Similarly, the term <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">q</span> <span 
+class="cmex-10">&int;</span>
+ <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> <span 
+class="cmsy-10">&sdot;&nabla;</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">&delta;f </span>can be written as the gradient of
+moments of <span 
+class="cmmi-10">&delta;f</span>. Let us work on this. The drift <span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> is given by
+   <table 
+class="equation"><tr><td><a 
+ id="x40-53009r276"></a>
+                                                                                  
+                                                                                  
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation302x.png" alt="        v∥
+vD  = B0-&Omega;&nabla;⋆×-bv∥ + -&mu;-⋆B0 × &nabla;B0.
+         B ∥        &Omega;B ∥
+" class="math-display"  /></center></td><td class="equation-label">(276)</td></tr></table>
+<!--l. 3541--><p class="nopar" >
+where <span 
+class="cmmi-10">B</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmmi-7">⋆</span></sup> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><img 
+src="nonlinear_gyrokinetic_equation303x.png" alt="(             )
+ 1 + v∥&Omega;b &sdot;&nabla; × b"  class="left" align="middle" /> (refer to my another notes).  Using <span 
+class="cmbx-10">b</span><span 
+class="cmsy-10">&sdot;&nabla;×</span><span 
+class="cmbx-10">b </span><span 
+class="cmsy-10">&asymp; </span>0, we obtain <span 
+class="cmmi-10">B</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmmi-7">⋆</span></sup> <span 
+class="cmsy-10">&asymp; </span><span 
+class="cmmi-10">B</span>.
+Then <span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> is written
+</p>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation304x.png" alt="       2
+v  =  v∥&nabla; × b+ -&mu;b × &nabla;B  .
+  D   &Omega;        &Omega;        0
+" class="math-display"  /></center>
+<!--l. 3547--><p class="nopar" > Using this and <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>= 2<span 
+class="cmmi-10">&pi;B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">dv</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">d&mu;</span>, the term <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">q</span> <span 
+class="cmex-10">&int;</span>
+ <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> <span 
+class="cmsy-10">&sdot;&nabla;</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">&delta;f </span>is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation305x.png" alt="  &int;                       &int;            ( v2        &mu;        )
+&minus; q  dvv∥vD &sdot;&nabla;X &delta;f  =  &minus; q  2&pi;B0dv∥d&mu;v∥  -∥&nabla; × b + -b × &nabla;B0   &sdot;&nabla;X &delta;f
+                                         &Omega; &int;       &Omega;                         &int;
+                              1-              3               1-
+                    =  &minus; q2&pi;B0 &Omega; (&nabla; × b )&sdot;&nabla;X  v∥&delta;fdv∥d&mu;&minus; q2&pi;B0 &Omega; (b × &nabla;B0 )&sdot;&nabla;X   v∥&mu;&delta;fdv∥d&mu;
+                            1            ( 1 &int;   3    )      1              ( 1  &int;        )
+                    =  &minus; qB0 &Omega;-(&nabla; × b) &sdot;&nabla;X B0-   v∥&delta;fdv  &minus; qB0 &Omega;(b × &nabla;B0 )&sdot;&nabla;X   B0-  v∥&mu;&delta;fdv  ,
+                                     (    &int;       )                  (    &int;        )
+                    =  &minus; m (&nabla; × b)&sdot;&nabla;X  -1-  v3∥&delta;fdv  &minus; m (b × &nabla;B0 )&sdot;&nabla;X   -1-  v∥&mu;&delta;fdv  ,  (277)
+                                       B0                              B0
+" class="math-display"  /></center>
+</div>which are the third order moments of <span 
+class="cmmi-10">&delta;f </span>and may be neglect-able (a guess, not veriﬁed). Using the above
+results, the linear parallel momentum equation is ﬁnally written <div class="eqnarray">
+   <center class="math-display" >
+                                                                                  
+                                                                                  
+<img 
+src="nonlinear_gyrokinetic_equation306x.png" alt="&part;&delta;j∥      e2ne0               ( &delta;p∥ )            &delta;p&perp;
+-&part;t-  =   -m--&delta;E ∥ + eB0b &sdot;&nabla;X  mB--  + e(b &sdot;&nabla;B0 )mB--
+                    (     )    (  0  )             0
+         +e &delta;B&perp; &sdot;&nabla;X   -p∥0-  + e  &delta;B&perp;-  &sdot;(&nabla;B0 )-p&perp;0.
+                      mB0(   &int;    B0  )       mB0        (   &int;         )
+                          1--   3                        -1-
+         &minus; m (&nabla; × b )&sdot;&nabla;X   B0   v∥&delta;f dv  &minus; m(b ×&nabla;B0 ) &sdot;&nabla;X   B0    v∥&mu;&delta;f dv  (278)
+" class="math-display"  /><a 
+ id="x40-53011r278"></a></center>
+</div>Deﬁne
+   <table 
+class="equation"><tr><td><a 
+ id="x40-53012r279"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation307x.png" alt="       (     )
+        -p∥0     &nabla;B0-p&perp;0-
+D0 = &nabla;  mB0   +  B0  mB0 ,
+" class="math-display"  /></center></td><td class="equation-label">(279)</td></tr></table>
+<!--l. 3590--><p class="nopar" >
+which, for the isotropic case (<span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">&perp;</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">p</span><sub><span 
+class="cmr-7">0</span></sub>), is simpliﬁed to
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x40-53013r280"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation308x.png" alt="     &nabla;p0-
+D0 = mB0 .
+" class="math-display"  /></center></td><td class="equation-label">(280)</td></tr></table>
+<!--l. 3595--><p class="nopar" >
+then Eq. (<a 
+href="#x40-53011r278">278<!--tex4ht:ref: 17-5-19-2 --></a>) is written as </p><div class="eqnarray">
+                                                                                  
+                                                                                  
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation309x.png" alt="&part;&delta;j∥  =  e2n0&delta;E  + e&delta;B  &sdot;D
+ &part;t       m    ∥  (   &perp; ) 0
+                    &delta;p∥-             &delta;p&perp;-
+      +  eB0b &sdot;&nabla;X   mB0   + e(b &sdot;&nabla;B0 )mB0
+                      ( 1 &int;        )                  ( 1 &int;         )
+      &minus;  m (&nabla; × b )&sdot;&nabla;X   B--  v3∥&delta;f dv  &minus; m (b ×&nabla;B0 ) &sdot;&nabla;X  B--   v∥&mu;&delta;f dv . (281)
+                         0                               0
+" class="math-display"  /></center>
+</div>
+                                                                                  
+                                                                                  
+   <!--l. 3611--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu30.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu28.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu28.html#tailnonlinear_gyrokinetic_equationsu28.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu29.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equationse10.html#nonlinear_gyrokinetic_equationsu29.html" >up</a>] </p></div>
+<!--l. 3611--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationsu29.html"></a> </p> 
+</body></html> 

@@ -1,0 +1,541 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Averaging over initial spatial location and
+velocity of particles</TITLE>
+<META NAME="description" CONTENT="Averaging over initial spatial location and
+velocity of particles">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html128"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html126"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html120"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html129"
+  HREF="node9.html">Resonant particles</A>
+<B> Up:</B> <A NAME="tex2html127"
+  HREF="node6.html">Analytical theory of wave</A>
+<B> Previous:</B> <A NAME="tex2html121"
+  HREF="node7.html">Iterative method for solving</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00022000000000000000"></A><A NAME="10-24-2"></A>
+<BR>
+Averaging over initial spatial location and
+velocity of particles
+</H2>
+
+<P>
+Assume the distribution function of the particles is given by <!-- MATH
+ $F (v_0, z_0) =
+f (v_0) h (z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="160" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img109.png"
+ ALT="$ F (v_0, z_0) =
+f (v_0) h (z_0)$"></SPAN> and <!-- MATH
+ $h (z_0) = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img110.png"
+ ALT="$ h (z_0) = 1$"></SPAN>, i.e. the distribution is uniform in space.
+
+<P>
+Consider the averaging over the initial position of particles. Define
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\langle \ldots \rangle_{z_0} \equiv \frac{k}{2 \pi} \int_0^{2 \pi / k}
+  (\ldots) h (z_0) d z_0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="233" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img111.png"
+ ALT="$\displaystyle \langle \ldots \rangle_{z_0} \equiv \frac{k}{2 \pi} \int_0^{2 \pi / k} (\ldots) h (z_0) d z_0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">25</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which is an operator averaging over the initial position of particles in the
+interval of one wave length. Using this operator on both sides of Eq.
+(<A HREF="node7.html#9-23-p10">24</A>), we obtain
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-23-p1"></A><!-- MATH
+ \begin{eqnarray}
+\left\langle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)
+  \right\rangle_{z_0} & = & \langle v_0 q E \cos (k z_0 + \alpha t) \rangle -
+  \left\langle \sin (k z_0 + \alpha t) k v_0 \frac{(q E)^2}{m} \left[  \frac{-
+  \cos (k z_0 + \alpha t) + \cos (k z_0)}{\alpha^2} - \frac{\sin (k
+  z_0)}{\alpha} t \right] \right\rangle + \left\langle \frac{(q E)^2}{m}
+  \frac{\sin (k z_0 + \alpha t) - \sin (k z_0)}{\alpha} \cos (k z_0 + \alpha
+  t) \right\rangle\\
+  & = & 0 - \frac{k}{2 \pi} k v_0 \frac{(q E)^2}{m} \int_0^{2 \pi / k} \sin
+  (k z_0 + \alpha t) \left[  \frac{- \cos (k z_0 + \alpha t) + \cos (k
+  z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t \right] d z_0 + \frac{k}{2
+  \pi}  \frac{(q E)^2}{m} \int_0^{2 \pi / k}  \frac{\sin (k z_0 + \alpha t) -
+  \sin (k z_0)}{\alpha} \cos (k z_0 + \alpha t) d z_0 . 
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="127" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img112.png"
+ ALT="$\displaystyle \left\langle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)
+\right\rangle_{z_0}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="988" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img113.png"
+ ALT="$\displaystyle \langle v_0 q E \cos (k z_0 + \alpha t) \rangle -
+\left\langle \s...
+...k z_0 + \alpha t) - \sin (k z_0)}{\alpha} \cos (k z_0 + \alpha
+t) \right\rangle$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">26</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="1001" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img114.png"
+ ALT="$\displaystyle 0 - \frac{k}{2 \pi} k v_0 \frac{(q E)^2}{m} \int_0^{2 \pi / k} \s...
+...\sin (k z_0 + \alpha t) -
+\sin (k z_0)}{\alpha} \cos (k z_0 + \alpha t) d z_0 .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">27</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Note that the term <!-- MATH
+ $v_0 q E \cos (k z_0 + \alpha t)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="135" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img115.png"
+ ALT="$ v_0 q E \cos (k z_0 + \alpha t)$"></SPAN> corresponds to the power
+of the electric field acting on those particles that move at a constant speed
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img116.png"
+ ALT="$ v_0$"></SPAN>. Also note this term is reduced to zero when averaged over the initial
+position <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img117.png"
+ ALT="$ z_0$"></SPAN> no mater whether it is a resonant particle (i.e., <!-- MATH
+ $\alpha
+\approx 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img118.png"
+ ALT="$ \alpha
+\approx 0$"></SPAN>) or not (i.e., <!-- MATH
+ $\alpha \neq 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img119.png"
+ ALT="$ \alpha \neq 0$"></SPAN>). (This important fact is seldom
+mentioned in textbooks, which is one of the motivations that I wrote this
+note.) Changing to the new variable <!-- MATH
+ $x \equiv k z_0 + \alpha t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="94" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img120.png"
+ ALT="$ x \equiv k z_0 + \alpha t$"></SPAN>, the above
+equation is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-24-6"></A><A NAME="9-23-p11"></A><!-- MATH
+ \begin{eqnarray}
+\left\langle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)
+  \right\rangle_{z_0} & = & - \frac{k}{2 \pi} k v_0 \frac{(q E)^2}{m}
+  \int_{\alpha t}^{2 \pi + \alpha t} \sin (x) \left[  \frac{- \cos (x) + \cos
+  (x - \alpha t)}{\alpha^2} - \frac{\sin (x - \alpha t)}{\alpha} t \right]
+  \frac{1}{k} d x + \frac{k}{2 \pi}  \frac{(q E)^2}{m} \int_{\alpha t}^{2 \pi
+  + \alpha t}  \frac{\sin (x) - \sin (x - \alpha t)}{\alpha} \cos (x)
+  \frac{1}{k} d x \nonumber\\
+  & = & - \frac{1}{2 \pi} k v_0 \frac{(q E)^2}{m} \int_{\alpha t}^{2 \pi +
+  \alpha t} \sin (x) \left[  \frac{\cos (x - \alpha t)}{\alpha^2} - \frac{\sin
+  (x - \alpha t)}{\alpha} t \right] d x - \frac{1}{2 \pi}  \frac{(q E)^2}{m}
+  \int_{\alpha t}^{2 \pi + \alpha t}  \frac{\sin (x - \alpha t)}{\alpha} \cos
+  (x) d x \nonumber\\
+  & = & - \frac{1}{2 \pi} k v_0 \frac{(q E)^2}{m} \left[ \frac{1}{\alpha^2}
+  \int_{\alpha t}^{2 \pi + \alpha t} \sin (x) \cos (x - \alpha t) d x -
+  \frac{t}{\alpha} \int_{- \alpha t}^{2 \pi - \alpha t} \sin (x) \sin (x -
+  \alpha t) d x \right] - \frac{1}{2 \pi}  \frac{(q E)^2}{m}  \frac{1}{\alpha}
+  \int_{\alpha t}^{2 \pi + \alpha t} \sin (x - \alpha t) \cos (x) d x
+  \nonumber\\
+  & = & - \frac{1}{2 \pi} k v_0 \frac{(q E)^2}{m} \left[ \frac{\pi}{\alpha^2}
+  \sin (\alpha t) - \frac{t}{\alpha} \pi \cos (\alpha t) \right] + \frac{1}{2
+  \pi}  \frac{(q E)^2}{m}  \frac{1}{\alpha} \pi \sin (\alpha t) \nonumber\\
+  & = & \frac{(q E)^2}{2 m} \left[ - k v_0 \frac{1}{\alpha^2} \sin (\alpha t)
+  + k v_0 \frac{t}{\alpha} \cos (\alpha t) + \frac{1}{\alpha} \sin (\alpha t)
+  \right] \nonumber\\
+  & = & \frac{(q E)^2}{2 m} \left[ - (\alpha + \omega) \frac{1}{\alpha^2}
+  \sin (\alpha t) + (\alpha + \omega) \frac{t}{\alpha} \cos (\alpha t) +
+  \frac{1}{\alpha} \sin (\alpha t) \right]\\
+  & = & \frac{(q E)^2}{2 m} \left[ - \frac{\omega}{\alpha^2} \sin (\alpha t)
+  + t \cos (\alpha t) + \frac{\omega t}{\alpha} \cos (\alpha t) \right],
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="127" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img112.png"
+ ALT="$\displaystyle \left\langle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)
+\right\rangle_{z_0}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="881" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img121.png"
+ ALT="$\displaystyle - \frac{k}{2 \pi} k v_0 \frac{(q E)^2}{m}
+\int_{\alpha t}^{2 \pi ...
+...alpha t} \frac{\sin (x) - \sin (x - \alpha t)}{\alpha} \cos (x)
+\frac{1}{k} d x$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="718" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img122.png"
+ ALT="$\displaystyle - \frac{1}{2 \pi} k v_0 \frac{(q E)^2}{m} \int_{\alpha t}^{2 \pi ...
+...t_{\alpha t}^{2 \pi + \alpha t} \frac{\sin (x - \alpha t)}{\alpha} \cos
+(x) d x$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="870" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img123.png"
+ ALT="$\displaystyle - \frac{1}{2 \pi} k v_0 \frac{(q E)^2}{m} \left[ \frac{1}{\alpha^...
+...{1}{\alpha}
+\int_{\alpha t}^{2 \pi + \alpha t} \sin (x - \alpha t) \cos (x) d x$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="451" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img124.png"
+ ALT="$\displaystyle - \frac{1}{2 \pi} k v_0 \frac{(q E)^2}{m} \left[ \frac{\pi}{\alph...
+...right] + \frac{1}{2
+\pi} \frac{(q E)^2}{m} \frac{1}{\alpha} \pi \sin (\alpha t)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="369" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img125.png"
+ ALT="$\displaystyle \frac{(q E)^2}{2 m} \left[ - k v_0 \frac{1}{\alpha^2} \sin (\alph...
+...v_0 \frac{t}{\alpha} \cos (\alpha t) + \frac{1}{\alpha} \sin (\alpha t)
+\right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="427" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img126.png"
+ ALT="$\displaystyle \frac{(q E)^2}{2 m} \left[ - (\alpha + \omega) \frac{1}{\alpha^2}...
+...ga) \frac{t}{\alpha} \cos (\alpha t) +
+\frac{1}{\alpha} \sin (\alpha t) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">28</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="328" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img127.png"
+ ALT="$\displaystyle \frac{(q E)^2}{2 m} \left[ - \frac{\omega}{\alpha^2} \sin (\alpha t)
++ t \cos (\alpha t) + \frac{\omega t}{\alpha} \cos (\alpha t) \right],$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">29</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+which agrees with Eq. (8) in Chapter 8 of Stix's book. Next, we will average
+Eq. (<A HREF="#9-23-p11">29</A>) over the distribution of initial velocity. Define the
+averaging operator in velocity space
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-p5"></A><!-- MATH
+ \begin{equation}
+\langle \ldots \rangle_{v_0} = \int_{- \infty}^{\infty}
+  (\ldots) f (v_0) d v_0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="198" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.png"
+ ALT="$\displaystyle \langle \ldots \rangle_{v_0} = \int_{- \infty}^{\infty} (\ldots) f (v_0) d v_0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">30</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img129.png"
+ ALT="$ f (v_0)$"></SPAN> is the one-dimensional distribution function, which satisfies
+the following normalizing condition
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\int_{- \infty}^{\infty} f (v_0) d v_0 = 1.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="133" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img130.png"
+ ALT="$\displaystyle \int_{- \infty}^{\infty} f (v_0) d v_0 = 1.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">31</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Changing to the variables <!-- MATH
+ $\alpha \equiv k v_0 - \omega$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="90" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img131.png"
+ ALT="$ \alpha \equiv k v_0 - \omega$"></SPAN>, equation
+(<A HREF="#9-23-p5">30</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-p6"></A><!-- MATH
+ \begin{equation}
+\langle \ldots \rangle_{v_0} = \frac{1}{|k|} \int_{-
+  \infty}^{\infty} (\ldots) f \left( \frac{\alpha + \omega}{k} \right) d
+  \alpha,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="263" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img132.png"
+ ALT="$\displaystyle \langle \ldots \rangle_{v_0} = \frac{1}{\vert k\vert} \int_{- \infty}^{\infty} (\ldots) f \left( \frac{\alpha + \omega}{k} \right) d \alpha,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">32</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Define
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+g (\alpha) \equiv f \left( \frac{\alpha + \omega}{k} \right) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="143" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img133.png"
+ ALT="$\displaystyle g (\alpha) \equiv f \left( \frac{\alpha + \omega}{k} \right) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">33</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+then equation (<A HREF="#9-23-p6">32</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\langle \ldots \rangle_{v_0} = \frac{1}{|k|} \int_{- \infty}^{\infty}
+  (\ldots) g (\alpha) d \alpha,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="211" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img134.png"
+ ALT="$\displaystyle \langle \ldots \rangle_{v_0} = \frac{1}{\vert k\vert} \int_{- \infty}^{\infty} (\ldots) g (\alpha) d \alpha,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">34</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Taking the average over the initial velocity, Eq. (<A HREF="#9-23-p11">29</A>) is written
+as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-e11"></A><!-- MATH
+ \begin{eqnarray}
+\left\langle \left\langle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)
+  \right\rangle_{z_0} \right\rangle_{v_0} & = & \left\langle \frac{(q E)^2}{2
+  m} \left[ - \frac{\omega}{\alpha^2} \sin (\alpha t) + t \cos (\alpha t) +
+  \frac{\omega t}{\alpha} \cos (\alpha t) \right] \right\rangle_{v_0}
+  \nonumber\\
+  & = & \frac{1}{|k|}  \frac{(q E)^2}{2 m} \int_{- \infty}^{\infty} \left[ -
+  \frac{\omega}{\alpha^2} \sin (\alpha t) + t \cos (\alpha t) + \frac{\omega
+  t}{\alpha} \cos (\alpha t) \right] g (\alpha) d \alpha
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="166" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle \left\langle \left\langle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)
+\right\rangle_{z_0} \right\rangle_{v_0}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="358" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img136.png"
+ ALT="$\displaystyle \left\langle \frac{(q E)^2}{2
+m} \left[ - \frac{\omega}{\alpha^2}...
+...\alpha t) +
+\frac{\omega t}{\alpha} \cos (\alpha t) \right] \right\rangle_{v_0}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="429" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img137.png"
+ ALT="$\displaystyle \frac{1}{\vert k\vert} \frac{(q E)^2}{2 m} \int_{- \infty}^{\inft...
+...\alpha t) + \frac{\omega
+t}{\alpha} \cos (\alpha t) \right] g (\alpha) d \alpha$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">35</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+It can be proved that the integration <!-- MATH
+ $\int_{- \infty}^{\infty} t \cos (\alpha
+t) g (\alpha) d \alpha$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="145" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img138.png"
+ ALT="$ \int_{- \infty}^{\infty} t \cos (\alpha
+t) g (\alpha) d \alpha$"></SPAN> and<!-- MATH
+ $\int_{- \infty}^{\infty} \frac{t}{\alpha} \cos
+(\alpha t) g (\alpha) d \alpha$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="152" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img139.png"
+ ALT="$ \int_{- \infty}^{\infty} \frac{t}{\alpha} \cos
+(\alpha t) g (\alpha) d \alpha$"></SPAN> in the above equation approach zero rapidly
+for large <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$ t$"></SPAN> (refer to Sec. <A HREF="node14.html#9-24-30">2.5.3</A>). Thus, in the sense of time
+asymptotic, we are left with only the integration of the first term, which is
+written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-e10"></A><!-- MATH
+ \begin{equation}
+- \frac{1}{|k|}  \frac{(q E)^2}{2 m} \int_{-
+  \infty}^{\infty} \frac{\omega}{\alpha^2} \sin (\alpha t) g (\alpha) d \alpha
+  .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="245" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img140.png"
+ ALT="$\displaystyle - \frac{1}{\vert k\vert} \frac{(q E)^2}{2 m} \int_{- \infty}^{\infty} \frac{\omega}{\alpha^2} \sin (\alpha t) g (\alpha) d \alpha .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">36</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html128"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html126"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html120"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html129"
+  HREF="node9.html">Resonant particles</A>
+<B> Up:</B> <A NAME="tex2html127"
+  HREF="node6.html">Analytical theory of wave</A>
+<B> Previous:</B> <A NAME="tex2html121"
+  HREF="node7.html">Iterative method for solving</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

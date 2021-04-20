@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Integration of orbit and weight of markers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1446--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu28.html" >next</a>] [<a 
+href="particle_simulationsu26.html" >prev</a>] [<a 
+href="particle_simulationsu26.html#tailparticle_simulationsu26.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu27.html">tail</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu27.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.12   </span> <a 
+ id="x33-380005.12"></a>Integration of orbit and weight of markers</h4>
+<!--l. 1448--><p class="noindent" >The evolution equation of orbit and weight can be generally written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x33-38001r118"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation129x.png" alt="dv = H (r,v,E),
+dt     1
+" class="math-display"  /></center></td><td class="equation-label">(118)</td></tr></table>
+<!--l. 1451--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x33-38002r119"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation130x.png" alt="dw-= H2 (r,v,E),
+dt
+" class="math-display"  /></center></td><td class="equation-label">(119)</td></tr></table>
+<!--l. 1454--><p class="nopar" >
+where <span 
+class="cmmi-10">H</span><sub><span 
+class="cmr-7">1</span></sub> and <span 
+class="cmmi-10">H</span><sub><span 
+class="cmr-7">2</span></sub> are known function. Note that <span 
+class="cmmi-10">E</span>, as well as <span 
+class="cmmi-10">r </span>and <span 
+class="cmmi-10">v</span>, depends on time <span 
+class="cmmi-10">t</span>. However <span 
+class="cmmi-10">E</span>
+is not speciﬁed as an evolution equation. Instead, <span 
+class="cmmi-10">E </span>is determined by a ﬁeld equation, namely Poisson&#x2019;s
+equation.
+</p><!--l. 1460--><p class="indent" >   The classical 4th Runge-Kutta time integrator requires four evaluations of the function appearing on the right-hand side
+of the equation of motion per time step. In PIC method, this corresponds to that the ﬁeld equation needs to be solved for
+four times. For large-scale simulation (e.g. spatial three-dimension simulation), solving the ﬁeld equation is
+usually time-consuming. Considering this, lower order Runge-Kutta (e.g. 2nd order), which requires fewer
+times of evaluation of functions (and thus fewer times of solving the ﬁeld equation) may be preferred in
+practice.
+</p><!--l. 1469--><p class="indent" >   We use the 2nd Runge-Kutta method to integrate orbit and weight of markers. In this method, <span 
+class="cmmi-10">r</span>, <span 
+class="cmmi-10">v</span>, and <span 
+class="cmmi-10">w </span>are ﬁrst
+integrated from <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span></sub> to the half time-step <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub> using (<span 
+class="cmmi-10">r</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmmi-10">,E</span><sub><span 
+class="cmmi-7">n</span></sub>) to evaluate the right-hand side of Eqs. (<a 
+href="#x33-38001r118">118<!--tex4ht:ref: 17-7-21-e1 --></a>) and
+(<a 
+href="#x33-38002r119">119<!--tex4ht:ref: 17-7-21-e2 --></a>). Then we solve the Poisson&#x2019;s equation at <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub> to obtain <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub> using the already obtained values of
+(<span 
+class="cmmi-10">r</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub>). After <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub> is obtained, <span 
+class="cmmi-10">r</span>, <span 
+class="cmmi-10">v</span>, and <span 
+class="cmmi-10">w </span>are integrated from <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span></sub> to <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub> by using the values at the
+half time-step, namely (<span 
+class="cmmi-10">r</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,E</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub>). Forgetting to solve the ﬁeld equation at <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub> to get <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub> is
+one of the mistakes I made during writing the code. Forgetting to do this means that I am still using <span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">n</span></sub>, instead of
+<span 
+class="cmmi-10">E</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span><span 
+class="cmmi-7">∕</span><span 
+class="cmr-7">2</span></sub>, in taking the full step from <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span></sub> to <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub>, which amounts to the (inaccurate and thus may be unstable) Euler
+scheme.
+
+</p><!--l. 1484--><p class="indent" >   [Besides, the leapfrog scheme (2nd order accuracy) is often adopted to integrate the equations of motion. This scheme is
+given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x33-38003r120"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation131x.png" alt="v(i+1∕2) = v(i&minus;1∕2) +a(i)dt,
+" class="math-display"  /></center></td><td class="equation-label">(120)</td></tr></table>
+<!--l. 1488--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x33-38004r121"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation132x.png" alt=" (i+1)   (i)   (i+1∕2)
+x    = x   + v     dt
+" class="math-display"  /></center></td><td class="equation-label">(121)</td></tr></table>
+<!--l. 1491--><p class="nopar" >
+where <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">i</span></sub> = <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">i</span></sub>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">i</span></sub>) is the acceleration of the particle at the time step <span 
+class="cmmi-10">i</span>. The leapfrog scheme given by Eqs. (<a 
+href="#x33-38004r121">121<!--tex4ht:ref: 3-1-e1 --></a>) and (<a 
+href="#x33-38003r120">120<!--tex4ht:ref: 3-1-e2 --></a>)
+can be equivalently written as<span class="cite">[<a 
+href="particle_simulationli1.html#Xartcompsci">6</a>]</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x33-38005r122"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation133x.png" alt="x(i+1) = x (i) + v(i)dt+ 1a(i)dt2
+                    2
+" class="math-display"  /></center></td><td class="equation-label">(122)</td></tr></table>
+<!--l. 1498--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x33-38006r123"></a>
+
+   <center class="math-display" >
+<img 
+src="particle_simulation134x.png" alt=" (i+1)   (i)  1  (i)   (i+1)
+v     = v  + 2(a  + a    )dt,
+" class="math-display"  /></center></td><td class="equation-label">(123)</td></tr></table>
+<!--l. 1502--><p class="nopar" >
+The leapfrog scheme given by Eqs. (<a 
+href="#x33-38005r122">122<!--tex4ht:ref: 12-24-4 --></a>) and (<a 
+href="#x33-38006r123">123<!--tex4ht:ref: 12-24-5 --></a>) was implemented in my code, but was not tested seriously (I usually
+used the 2n Runge-Kutta method discussed above). Note  that, for electrostatic case, <span 
+class="cmmi-10">a</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">+1)</span></sup> is independent of <span 
+class="cmmi-10">v</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">+1)</span></sup> and
+depends only on <span 
+class="cmmi-10">x</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">+1)</span></sup>, which is already obtained by Eq. (<a 
+href="#x33-38005r122">122<!--tex4ht:ref: 12-24-4 --></a>). Thus the scheme given by Eqs. (<a 
+href="#x33-38005r122">122<!--tex4ht:ref: 12-24-4 --></a>) and (<a 
+href="#x33-38006r123">123<!--tex4ht:ref: 12-24-5 --></a>) is still an
+explicit scheme.]
+
+</p>
+   <!--l. 1510--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu28.html" >next</a>] [<a 
+href="particle_simulationsu26.html" >prev</a>] [<a 
+href="particle_simulationsu26.html#tailparticle_simulationsu26.html" >prev-tail</a>] [<a 
+href="particle_simulationsu27.html" >front</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu27.html" >up</a>] </p></div>
+<!--l. 1510--><p class="indent" >   <a 
+ id="tailparticle_simulationsu27.html"></a> </p> 
+</body></html> 

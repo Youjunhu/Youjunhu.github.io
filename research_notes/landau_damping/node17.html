@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Normalization</TITLE>
+<META NAME="description" CONTENT="Normalization">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html222"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html220"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html214"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html223"
+  HREF="node18.html">Phase mixing and linear</A>
+<B> Up:</B> <A NAME="tex2html221"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<B> Previous:</B> <A NAME="tex2html215"
+  HREF="node16.html">One-dimensional Vlasov-Poisson equations</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00032000000000000000">
+Normalization</A>
+</H2>
+
+<P>
+The reduced equilibrium distribution function <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img224.png"
+ ALT="$ F_0$"></SPAN> satisfies the
+normalization condition <!-- MATH
+ $\int_{- \infty}^{\infty} F_0 (v_z) d v_z = n_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="144" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img239.png"
+ ALT="$ \int_{- \infty}^{\infty} F_0 (v_z) d v_z = n_0$"></SPAN>,
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$ n_0$"></SPAN> the number density of electrons. Denote the thermal velocity of
+the equilibrium distribution by <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img241.png"
+ ALT="$ v_t$"></SPAN>. Then Eq. (<A HREF="node16.html#11-5-p7">70</A>) can be written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial \hat{F}_1}{\partial t} = - i k v_z  \hat{F}_1 - \frac{q^2
+  n_0}{\varepsilon_0 m}  \frac{1}{i k v_t} \left( \frac{v_t}{n_0}
+  \frac{\partial F_0}{\partial v_z} \right)  \int_{- \infty}^{\infty}
+  \hat{F}_1 d v_z,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="361" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img242.png"
+ ALT="$\displaystyle \frac{\partial \hat{F}_1}{\partial t} = - i k v_z \hat{F}_1 - \fr...
+...c{\partial F_0}{\partial v_z} \right) \int_{- \infty}^{\infty} \hat{F}_1 d v_z,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">72</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which can be further written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-27-p7"></A><!-- MATH
+ \begin{equation}
+\frac{\partial \hat{F}_1}{\partial t} = - i k v_t
+  \overline{v}_z  \hat{F}_1 - \frac{\omega_p^2}{i k v_t} \left(
+  \frac{v_t^2}{n_0}  \frac{\partial F_0}{\partial v_z} \right)  \int_{-
+  \infty}^{\infty} \hat{F}_1 d \overline{v}_z,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="340" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img243.png"
+ ALT="$\displaystyle \frac{\partial \hat{F}_1}{\partial t} = - i k v_t \overline{v}_z ...
+...F_0}{\partial v_z} \right) \int_{- \infty}^{\infty} \hat{F}_1 d \overline{v}_z,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\overline{v}_z = v_z / v_t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="78" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img244.png"
+ ALT="$ \overline{v}_z = v_z / v_t$"></SPAN>, <!-- MATH
+ $\omega_p = \sqrt{n_0 q^2 / (\varepsilon_0
+m)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="139" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img245.png"
+ ALT="$ \omega_p = \sqrt{n_0 q^2 / (\varepsilon_0
+m)}$"></SPAN> is the electron plasma frequency. Define <!-- MATH
+ $\overline{t} = t \omega_p$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img246.png"
+ ALT="$ \overline{t} = t \omega_p$"></SPAN>,
+then Eq. (<A HREF="#9-27-p7">73</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial \hat{F}_1}{\partial \overline{t}} = - \frac{i k v_t
+  }{\omega_p} \overline{v}_z  \hat{F}_1 - \frac{\omega_p}{i k v_t} \left(
+  \frac{v_t^2}{n_0}  \frac{\partial F_0}{\partial v_z} \right) \int_{-
+  \infty}^{\infty} \hat{F}_1 d \overline{v}_z,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="344" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img247.png"
+ ALT="$\displaystyle \frac{\partial \hat{F}_1}{\partial \overline{t}} = - \frac{i k v_...
+...F_0}{\partial v_z} \right) \int_{- \infty}^{\infty} \hat{F}_1 d \overline{v}_z,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">74</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Define <!-- MATH
+ $a = i k v_t / \omega_p$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="87" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img248.png"
+ ALT="$ a = i k v_t / \omega_p$"></SPAN>, then the above equation is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-27-p5"></A><!-- MATH
+ \begin{equation}
+\frac{\partial \hat{F}_1}{\partial \overline{t}} = - a
+  \overline{v}_z  \hat{F}_1 - \frac{1}{a} \left( \frac{v_t^2}{n_0}
+  \frac{\partial F_0}{\partial v_z} \right) \int_{- \infty}^{\infty} \hat{F}_1
+  d \overline{v}_z,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="302" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img249.png"
+ ALT="$\displaystyle \frac{\partial \hat{F}_1}{\partial \overline{t}} = - a \overline{...
+...F_0}{\partial v_z} \right) \int_{- \infty}^{\infty} \hat{F}_1 d \overline{v}_z,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">75</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

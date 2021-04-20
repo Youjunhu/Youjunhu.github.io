@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Axisymmetric equilibrium magnetic ﬁeld</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tokamak_equilibrium.tex" /> 
+<link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
+</head><body 
+>
+   <!--l. 802--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu14.html" >next</a>] [<a 
+href="tokamak_equilibriumsu12.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu12.html#tailtokamak_equilibriumsu12.html" >prev-tail</a>] [<a 
+href="#tailtokamak_equilibriumsu13.html">tail</a>] [<a 
+href="tokamak_equilibriumse3.html#tokamak_equilibriumsu13.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x17-240003.3"></a>Axisymmetric equilibrium magnetic ﬁeld</h4>
+<!--l. 804--><p class="noindent" >A general axisymmetric magnetic ﬁeld (which is not necessarily an equilibrium magnetic ﬁeld), is given
+by Eq. (<a 
+href="tokamak_equilibriumse1.html#x2-1010r10">10<!--tex4ht:ref: 7-28-6 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x17-24001r66"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium99x.png" alt="B = ∇◟Ψ-×◝◜∇-ϕ◞+  g◟∇◝ϕ◜◞,
+     poloidal   toroidal
+" class="math-display"  /></center></td><td class="equation-label">(66)</td></tr></table>
+<!--l. 809--><p class="nopar" >
+For the above axisymmetric magnetic ﬁeld to be consistent with the force balance equation
+(<a 
+href="tokamak_equilibriumsu11.html#x15-19002r55">55<!--tex4ht:ref: 7-7-force --></a>), there are additional requirements for Ψ and <span 
+class="cmmi-10">g</span>. Speciﬁcally, Ψ is restricted by the GS
+equation and <span 
+class="cmmi-10">g </span>should be a function of only Ψ. Therefore an axisymmetric equilibrium
+magnetic ﬁeld is fully determined by two functions, Ψ = Ψ(<span 
+class="cmmi-10">R,Z</span>) and <span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">g</span>(Ψ). The Ψ is
+determined by solving the GS equation with speciﬁed RHS source terms and boundary
+conditions.
+</p><!--l. 818--><p class="indent" >   The RHS source terms in the GS equation (<a 
+href="tokamak_equilibriumsu12.html#x16-23005r65">65<!--tex4ht:ref: 7-1-p1 --></a>) are <span 
+class="cmmi-10">P</span>(Ψ) and <span 
+class="cmmi-10">g</span>(Ψ), both of which must be speciﬁed
+before the GS equation can be solved. For most cases, the source terms are nonlinear about Ψ and thus
+the GS equation is a two-dimensional (in terms of the cylindrical coordinates <span 
+class="cmmi-10">R </span>and <span 
+class="cmmi-10">Z</span>) nonlinear
+partial diﬀerential equation for Ψ.
+</p><!--l. 824--><p class="indent" >   For most choices of <span 
+class="cmmi-10">P</span>(Ψ) and <span 
+class="cmmi-10">g</span>(Ψ), the GS equation (<a 
+href="tokamak_equilibriumsu12.html#x16-23005r65">65<!--tex4ht:ref: 7-1-p1 --></a>) has to be solved numerically. For some
+particular choices of <span 
+class="cmmi-10">P </span>and <span 
+class="cmmi-10">g </span>proﬁles, analytical solutions are available, one of which is the Solovév
+equilibrium and is discussed in Appendix <a 
+href="tokamak_equilibriumsu75.html#x90-119000A.1">A.1<!--tex4ht:ref: 20-4-8-p1 --></a>.
+</p><!--l. 829--><p class="indent" >   Note that we solve the GS equation in order to obtain the poloidal magnetic ﬂux Ψ and
+thus the poloidal magnetic ﬁeld. The toroidal magnetic ﬁeld must be speciﬁed in some
+way before we can solve the GS equation. There are several ways of specifying the toroidal
+magnetic ﬁeld: (1) given <span 
+class="cmmi-10">g</span>(Ψ), (2) given <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">j</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⟩</span>, (3) given the safety factor <span 
+class="cmmi-10">q</span>(Ψ). There are simple
+relations between <span 
+class="cmmi-10">g</span>, <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">j</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⟩</span>, and <span 
+class="cmmi-10">q</span>, which allows translation form one to another (discussed later).
+In transport simulations, <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">j</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⟩ </span>is obtained from current drive models (check!!!). Note that
+the speciﬁcation of the source terms (<span 
+class="cmmi-10">P</span>, <span 
+class="cmmi-10">g</span>, <span 
+class="cmmi-10">q</span>, and <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">j</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⟩</span>) usually involve the unknown Ψ
+(via not only the explicit presence of Ψ, but also the ﬂux-surface averaging which implicit
+involves Ψ). This indicates that iterations are needed when numerically solving the GS
+equation.
+                                                                                
+
+                                                                                
+</p><!--l. 843--><p class="indent" >   Many physical processes in tokamak are sensitive to the magnetic conﬁguration. Serious numerical
+simulations should use magnetic ﬁeld that satisﬁes the Grad-Shafranov equation and, if possible, use
+realistic magnetic ﬁelds reconstructed from experimental data.
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 848--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu14.html" >next</a>] [<a 
+href="tokamak_equilibriumsu12.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu12.html#tailtokamak_equilibriumsu12.html" >prev-tail</a>] [<a 
+href="tokamak_equilibriumsu13.html" >front</a>] [<a 
+href="tokamak_equilibriumse3.html#tokamak_equilibriumsu13.html" >up</a>] </p></div>
+<!--l. 848--><p class="indent" >   <a 
+ id="tailtokamak_equilibriumsu13.html"></a> </p> 
+</body></html> 

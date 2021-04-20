@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Normalization</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1173--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu21.html" >next</a>] [<a 
+href="particle_simulationsu19.html" >prev</a>] [<a 
+href="particle_simulationsu19.html#tailparticle_simulationsu19.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu20.html">tail</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu20.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.5   </span> <a 
+ id="x26-310005.5"></a>Normalization</h4>
+<!--l. 1175--><p class="noindent" >Choose a typical number density <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub> and a typical velocity <span 
+class="cmmi-10">v</span><sub><span 
+class="cmr-7">0</span></sub>, then deﬁne the electron plasma frequency <span 
+class="cmmi-10">&omega;</span><sub><span 
+class="cmmi-7">pe</span></sub> and the Debye
+length <span 
+class="cmmi-10">&lambda;</span><sub><span 
+class="cmmi-7">D</span></sub> as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31001r89"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation90x.png" alt="     ∘ -----
+        n0e2
+&omega;pe =  m--𝜀-,
+         e 0
+" class="math-display"  /></center></td><td class="equation-label">(89)</td></tr></table>
+<!--l. 1180--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31002r90"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation91x.png" alt="     -v0-
+&lambda;D = &omega;pe,
+" class="math-display"  /></center></td><td class="equation-label">(90)</td></tr></table>
+<!--l. 1184--><p class="nopar" >
+respectively. Using <span 
+class="cmmi-10">&omega;</span><sub><span 
+class="cmmi-7">pe</span></sub> and <span 
+class="cmmi-10">&lambda;</span><sub><span 
+class="cmmi-7">D</span></sub>, deﬁne the following normalized quantities:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31003r91"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation92x.png" alt="-      --  -x- -- --eϕ-- --  v0  -    vx --   ni
+t = t&omega;pe,x = &lambda;D ,ϕ = mev20,F = n0F,vx = v0,ni = n0
+" class="math-display"  /></center></td><td class="equation-label">(91)</td></tr></table>
+<!--l. 1192--><p class="nopar" >
+In terms of these normalized quantities, equation (<a 
+href="particle_simulationsu16.html#x22-27006r78">78<!--tex4ht:ref: 10-10-3 --></a>) is written
+
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31004r92"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation93x.png" alt=" --
+dF-= 0,
+dt
+" class="math-display"  /></center></td><td class="equation-label">(92)</td></tr></table>
+<!--l. 1196--><p class="nopar" >
+and the Poisson equation (<a 
+href="particle_simulationsu17.html#x23-28001r79">79<!--tex4ht:ref: 10-10-4 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31005r93"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation94x.png" alt=" 2--
+d-ϕ = &minus; &rho;.
+dx2
+" class="math-display"  /></center></td><td class="equation-label">(93)</td></tr></table>
+<!--l. 1201--><p class="nopar" >
+where <span class="overline"><span 
+class="cmmi-10">&rho;</span></span> =<span class="overline"> <span 
+class="cmmi-10">n</span></span><sub><span 
+class="cmr-7">ion</span></sub> <span 
+class="cmsy-10">&minus;</span><span 
+class="cmex-10">&int;</span>
+ <sub><span 
+class="cmsy-7">&minus;&infin;</span></sub><sup><span 
+class="cmsy-7">&infin;</span></sup><span class="overline"><span 
+class="cmmi-10">F</span></span><span 
+class="cmmi-10">d</span><span class="overline"><span 
+class="cmmi-10">v</span></span><sub><span 
+class="cmmi-7">x</span></sub>.
+</p><!--l. 1205--><p class="indent" >   The equations for the characteristic lines, Eq. (<a 
+href="particle_simulationsu16.html#x22-27004r76">76<!--tex4ht:ref: 10-10-1 --></a>) and (<a 
+href="particle_simulationsu16.html#x22-27005r77">77<!--tex4ht:ref: 10-10-2 --></a>), are written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31006r94"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation95x.png" alt=" --
+dx= vx,
+dt
+" class="math-display"  /></center></td><td class="equation-label">(94)</td></tr></table>
+<!--l. 1209--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31007r95"></a>
+   <center class="math-display" >
+
+<img 
+src="particle_simulation96x.png" alt=" -     --
+dvx = dϕ.
+ dt   dx
+" class="math-display"  /></center></td><td class="equation-label">(95)</td></tr></table>
+<!--l. 1213--><p class="nopar" >
+The electric ﬁeld is given by <span 
+class="cmmi-10">E </span>= <span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">dϕ∕dx</span>, which, in terms of normalized quantities, is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31008r96"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation97x.png" alt="       --
+E-= &minus; dϕ,
+      dx
+" class="math-display"  /></center></td><td class="equation-label">(96)</td></tr></table>
+<!--l. 1218--><p class="nopar" >
+where <span class="overline"><span 
+class="cmmi-10">E</span></span> = <span 
+class="cmmi-10">Ee&lambda;</span><sub><span 
+class="cmmi-7">D</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">mv</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup>).
+</p><!--l. 1221--><p class="indent" >   In terms of the normalized quantities, the evolution equation (<a 
+href="particle_simulationsu19.html#x25-30004r87">87<!--tex4ht:ref: 3-25-a5 --></a>) of <span 
+class="cmmi-10">&delta;F </span>is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31009r97"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation98x.png" alt=" --      --
+d&delta;F--= E&part;-F0
+dt      &part;vx
+" class="math-display"  /></center></td><td class="equation-label">(97)</td></tr></table>
+<!--l. 1226--><p class="nopar" >
+In terms of <span 
+class="cmmi-10">&delta;</span><span class="overline"><span 
+class="cmmi-10">F</span></span>, Poisson&#x2019;s equation is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x26-31010r98"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation99x.png" alt="  --  &int;
+-dϕ     &infin;  -- -
+dx2 =  &minus;&infin; &delta;F dvx,
+" class="math-display"  /></center></td><td class="equation-label">(98)</td></tr></table>
+<!--l. 1231--><p class="nopar" >
+where <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">ion</span></sub> = <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmr-7">0</span></sub> has been assumed.
+</p><!--l. 1234--><p class="indent" >    
+
+</p>
+   <!--l. 1236--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu21.html" >next</a>] [<a 
+href="particle_simulationsu19.html" >prev</a>] [<a 
+href="particle_simulationsu19.html#tailparticle_simulationsu19.html" >prev-tail</a>] [<a 
+href="particle_simulationsu20.html" >front</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu20.html" >up</a>] </p></div>
+<!--l. 1236--><p class="indent" >   <a 
+ id="tailparticle_simulationsu20.html"></a> </p> 
+</body></html> 

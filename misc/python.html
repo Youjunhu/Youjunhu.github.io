@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="http://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>No title</title>
+    <meta content="TeXmacs 1.99.9" name="generator"></meta>
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } .subsup {
+      display: inline; vertical-align: -0.2em } .subsup td { padding: 0px;
+      text-align: left} .fraction { display: inline; vertical-align: -0.8em }
+      .fraction td { padding: 0px; text-align: center } .wide { position:
+      relative; margin-left: -0.4em } .accent { position: relative;
+      margin-left: -0.4em; top: -0.1em } .title-block { width: 100%;
+      text-align: center } .title-block p { margin: 0px } .compact-block p {
+      margin-top: 0px; margin-bottom: 0px } .left-tab { text-align: left }
+      .center-tab { text-align: center } .balloon-anchor { border-bottom: 1px
+      dotted #000000; outline:none;                  cursor: help; position:
+      relative; }.balloon-anchor [hidden] { margin-left: -999em; position:
+      absolute; display: none; }.balloon-anchor:hover [hidden] { position:
+      absolute; left: 1em; top: 2em; z-index: 99; margin-left: 0; width:
+      500px; display: inline-block; }.balloon-body { }.ornament  {
+      border-width: 1px; border-style: solid; border-color:  black; display:
+      inline-block; padding: 0.2em; } .right-tab { float: right; position:
+      relative; top: -1em } 
+    </style>
+  </head>
+  <body>
+    <table class="title-block">
+      <tr>
+        <td><table class="title-block">
+          <tr>
+            <td><font size="+3"><b>Programming in Python</b></font></td>
+          </tr>
+        </table><p style="margin-top: 1em; margin-bottom: 1em">
+          <div class="compact-block">
+            <table class="title-block">
+              <tr>
+                <td><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <span style="margin-left: 0pt"></span>
+                  <table style="display: inline; vertical-align: -0.55em">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          <class style="font-variant: small-caps">by Youjun Hu</class>
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <span style="margin-left: 0pt"></span>
+                  <table style="display: inline; vertical-align: -0.55em">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          Institute of Plasma Physics, Chinese Academy of
+                          Sciences
+                        </p>
+                        <p>
+                          Email: yjhu@ipp.cas.cn
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p></td>
+              </tr>
+            </table>
+          </div>
+        </p></td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <h2 id="auto-1">1<span style="margin-left: 1em"></span>Introduction</h2>
+    <p>
+      Python is getting so popular that nearly every scientist needs to know a
+      little bit of Python, in a similar way that a scientist needs to know
+      English. Python is generally considered as a diverse and intuitive
+      language, which is suitable for both beginners and experienced
+      programmers. Many high school students in USA are familar with python
+      and many famous companies like Google and Facebook are using Python. A
+      popular language is worth learning. Python can be used:
+    </p>
+    <ul>
+      <li>
+        <p>
+          alongside other softwares to create workflows (system scripting), as
+          a &ldquo;glue&rdquo; language. Many people use python to avoid
+          writing shell scripts in Linux, considering the irregular syntax of
+          shell script languages.
+        </p>
+      </li>
+      <li>
+        <p>
+          to handle big data and perform complex mathematics (number
+          crunching, visulaztion).
+        </p>
+      </li>
+    </ul>
+    <p>
+      My primary use of Python is to read numerical data, analyze and
+      visualize these data by using some libraries such as <code>numpy</code>
+      and <code>matplotlib</code>.
+    </p>
+    <ul>
+      <li>
+        <p>
+          All Python (intepretor) releases are open source. Python has lots of
+          libraries, documentation, and an active community. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Python works on different platforms (Linux, Windows, Mac, etc).
+          Python runs in interpreting mode, meaning that code can be executed
+          as soon as it is written.
+        </p>
+      </li>
+      <li>
+        <p>
+          Python was designed for convenience, and uses <strong>dynamically
+          typed</strong> variables.
+        </p>
+      </li>
+      <li>
+        <p>
+          Python uses lexical scope, like most contemporary programming
+          languages.
+        </p>
+      </li>
+      <li>
+        <p>
+          Python can be treated in a <strong>procedural</strong> way, an
+          <strong>object-orientated</strong> way or a
+          <strong>functional</strong> way.
+        </p>
+      </li>
+    </ul>
+    <p>
+      One of Python zens is &ldquo;Readability counts&rdquo;. To implement
+      this, Python relies on indentation, using whitespace, to define blocks,
+      such as loops, branchings, function and class definitions. This enhances
+      source code readability. Other programming languages often use brackets
+      for this purpose (e.g., <code>C</code> and <code>Java</code> use
+      curly-brackets). Partially due to this easy-to-eyes syntax (using
+      indentation as level indicators), python codes are considered (by most
+      programmers) as concise, clear, easy-to-learn, and easy-to-read. Writing
+      Python code is very similar to writing pseudo code and this often allows
+      developers to write programs with fewer lines than some other
+      programming languages would allow.
+    </p>
+    <p>
+      A python statement/expression can be terminated by a newline or
+      semicolon (similar to <code>Fortran</code>, different from
+      <code>C</code> where newlines are equivalent to whilespces and
+      semicolons at the end of a command is necessary), semicolons at the end
+      of a command is not necessary, but if used, can suppress some output in
+      interactive modes.
+    </p>
+    <p>
+      Comments in python: (1) anything after a hash (<code>#</code>) in a line
+      is a comment. (2) triple double-quotes introduce string literals, which
+      can have multiple-lines, and thus can serve as multiple-line comments.
+    </p>
+    <p>
+      Python is case sensitive.
+    </p>
+    <p>
+      Before going to details, it is helpful to have a look at all the
+      keywords in Python (so that we can easily distinguish user variables
+      from these keywords in a syntax form):
+    </p>
+    <p>
+      Value Keywords: <code>True, False, None</code>
+    </p>
+    <p>
+      Operator Keywords: <code>and, or, not, in, is</code>
+    </p>
+    <p>
+      Control Flow Keywords: <code>if, elif, else</code>
+    </p>
+    <p>
+      Iteration Keywords: <code>for, while, break, continue, else</code>
+    </p>
+    <p>
+      Structure Keywords: <code>def, class, with, as, pass, lambda</code>
+    </p>
+    <p>
+      Returning Keywords: <code>return, yield</code>
+    </p>
+    <p>
+      Import Keywords: <code>import, from, as</code>
+    </p>
+    <p>
+      Exception-Handling Keywords: <code>try, except, raise, finally, else,
+      assert</code>
+    </p>
+    <p>
+      Asynchronous Programming Keywords: <code>async, await</code>
+    </p>
+    <p>
+      Variable Handling Keywords: <code>del, global, nonlocal</code>
+    </p>
+    <p>
+      Two keywords have additional uses beyond their initial use cases. The
+      <code>else</code> keyword is also used with loops as well as with try
+      and except. The <code>as</code> keyword is also used with the
+      <code>with</code> keyword.
+    </p>
+    <p>
+      
+    </p>
+    <h3 id="auto-2">1.1<span style="margin-left: 1em"></span>Run Python</h3>
+    <h4 id="auto-3">1.1.1<span style="margin-left: 1em"></span>Interactive mode</h4>
+    <p>
+      In a Linux terminal, invoking <code>python</code> without any comandline
+      option will enable the interactive mode, where we can type python source
+      code. I often use this mode to do simple calculations:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+yj@pic:~$ python
+&gt;&gt;&gt; 2 + 3
+5</pre>
+    <h4 id="auto-4">1.1.2<span style="margin-left: 1em"></span>Script file mode</h4>
+    <p>
+      Create a Python script file <code>a.py</code> (by using any text
+      editor):
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+x = &quot;World&quot;
+print(&quot;Hello &quot; + x)</pre>
+    <p>
+      Then run it in a Linux terminal by specifying the interpreter and the
+      script file:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+python a.py</pre>
+    <p>
+      Another way (prefered) is to specify the interpreter in the script file,
+      such as:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+#!/usr/bin/python3
+x = &quot;World&quot;
+print(&quot;Hello &quot; + x)</pre>
+    <p>
+      where the first line specifies the interpreter for the present script
+      file. Then we give executable permission to this file:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+chmod u+x a.py</pre>
+    <p>
+      And run it in a Linux terminal (assume that the file is in the present
+      directory):
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+./a.py</pre>
+    <p>
+      nomenclature: script vs. module
+    </p>
+    <p>
+      A plain text file containing Python code that is intended to be directly
+      executed by the user is usually called script, which is an informal term
+      that means top-level program file.
+    </p>
+    <p>
+      On the other hand, a plain text file, which contains Python code that is
+      designed to be imported and used from another Python file, is called
+      module.
+    </p>
+    <p>
+      So, the main difference between a module and a script is that modules
+      are meant to be imported, while scripts are made to be directly
+      executed.
+    </p>
+    <h3 id="auto-5">1.2<span style="margin-left: 1em"></span>Statement Vs. function call</h3>
+    <p>
+      Arguments in a function call are enclosed in round-brackets whereas
+      arguments to a keyword statement are usually provided without
+      round-brackets. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+x=1
+del x</pre>
+    <p>
+      where <code>del</code> is a keyword statement and thus its argument
+      <code>x</code> is not enclosed by round-brackets. In Python3,
+      <code>print</code> becomes a function (in python2, it is a keyword
+      statement). Therefore, arguments to python3 print must be enclosed by
+      round-brackets:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+print(&quot;hello&quot;)</pre>
+    <p>
+      In Python3, <code>exec</code> is a build-in function (rather than a
+      keyword) and thus must be called with parentheses:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+exec(&quot;x=12*7&quot;)</pre>
+    <h3 id="auto-6">1.3<span style="margin-left: 1em"></span>Use python library</h3>
+    <p>
+      Use <code>import</code> to get access to python libraries. For example: 
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+import numpy as np
+import matplotlib.pyplot as plt</pre>
+    <h2 id="auto-7">2<span style="margin-left: 1em"></span>Assignments</h2>
+    <p>
+      <code>=</code> is used as the assignment operator. In a dynamically
+      typed language as python, since there is no type declariation (which
+      defines a new variable in statically typed languages), the assigenment
+      operation is the most used way of introducing a new variable.
+    </p>
+    <p>
+      Python assignment statements do not return values. Python supports
+      structured assignments. For example:
+    </p>
+    <p>
+      <code><p>
+        a,b,c=1,2,3
+      </p><p>
+        (a, (b,c))=(10, (20,30))
+      </p></code>
+    </p>
+    <h3 id="auto-8">2.1<span style="margin-left: 1em"></span>Value Type</h3>
+    <p>
+      Python is a language with dynamically typed variables, which means the
+      type of a variable can change during runtime and hence there is no type
+      declaration for variables. More accurately, typing is associated with
+      the value that a variable assumes rather than the variable itself (a
+      variable is a pointer pointing to that value, or more accurately, a
+      variable is a point to the location where a value is stored). A variable
+      is defined/created (i.e., its type is determined and memory is
+      allocated) when we assign a value to a name (note that although the type
+      declaration for variables is not needed, a variable still needs to be
+      defined/ created before we can reference/use it. ). For example,
+      <code>abc = &ldquo;hello&rdquo;</code> defines a variable
+      <code>abc</code> pointing to a string type (we can use
+      <code>print(type(abc))</code> to check the type of the variable.)
+      Complex numbers are written with a <code>j</code> as the imaginary part.
+      For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+x = 3+5j
+print(type(x))
+&lt;class 'complex'&gt;</pre>
+    <p>
+      Python's primitive types includes string, int, float, complex, bool.
+      Besides primitive types, python provides many useful data structures,
+      such as lists, sets, dicts (discussed later). For example
+      <code>abc=[]</code> defines a variable <code>abc</code> pointing to a
+      list type.
+    </p>
+    <h3 id="auto-9">2.2<span style="margin-left: 1em"></span>Scope of variables</h3>
+    <p>
+      Python adopts the lexical scope. Only <code>def</code> and
+      <code>lambda</code> can introduce new scopes. A variable created outside
+      of a function is known as a global variable. A variable created inside a
+      function's body is known as a local variable. Formal arguments
+      identifiers also behave as local variables.
+    </p>
+    <p>
+      The scope of a variable becomes a little subtle for dynamically typed
+      languages, compared with statically typed languages. In Python,
+      variables that are <strong>only</strong> <strong>referenced</strong>
+      inside a function are implicitly <strong>global</strong>. If a variable
+      is <strong>assigned</strong> a value anywhere within the function's
+      body, it's assumed to be a <strong>local</strong> unless explicitly
+      declared as <code>global</code>.
+    </p>
+    <p>
+      Therefore, to access a global variable inside a function, the safe way
+      is to declare it as global using <code>global</code> key word. If not
+      using <code>global</code> keyword, a variable will be considered as a
+      local variable if there is an assignment statement to the variable
+      somewhere in the body. This local variable will shadow the corresponding
+      global variable. The locality of the variable will apply before the
+      assignment creating the local variable, and thus if we use it before the
+      assignment, we will get the UnboundLocalError: local variable 'x&rdquo;
+      referenced before assignment.
+    </p>
+    <p>
+      Similarly, in a nested scope, we can use keyword <code>nonlocal</code>
+      to declare that a variable is from enclosing scopes (scopes enclosing
+      the present scope).
+    </p>
+    <p>
+      The LEGB rule is a kind of name lookup procedure, which determines the
+      order in which Python looks up names. If you reference a given name,
+      then Python will look that name up sequentially in the local, enclosing,
+      global, and built-in scope. If the name exits, then you'll get the first
+      occurrence of it. Otherwise, you'll get an error.
+    </p>
+    <h2 id="auto-10">3<span style="margin-left: 1em"></span>Define and call a function</h2>
+    <p>
+      Use keyword <code>def</code> to define a function. The syntax is as
+      follows:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def func_name ( arg1, arg2, &hellip; ):
+    statements
+    return something</pre>
+    <p>
+      The function name follows the keyword <code>def</code>. Then the list of
+      parameters, a colon, and a newline follow. Increase indent, the body of
+      the function definition starts (use <code>return</code> to return
+      value). Going back to the original indent terminates the function
+      definition.
+    </p>
+    <p>
+      For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def sum(ls):
+    s=0
+    for x in ls:
+        s=s+x
+    return s</pre>
+    <p>
+      Call a function:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+sum([1,2,3]) # call the function defined above, the result is 6
+a = sum([1,2,3]) # call the function and assign the returned value to a variable</pre>
+    <p>
+      Python passes sequences by reference and others by value.
+    </p>
+    <p>
+      You can define another function inside the body of a function, i.e., a
+      nested function.
+    </p>
+    <p>
+      optional parameters,<span style="margin-left: 1em"></span>parameter default values.
+    </p>
+    <h3 id="auto-11">3.1<span style="margin-left: 1em"></span>Nested function and return function as
+    value</h3>
+    <p>
+      When you handle a nested function as data, the statements that make up
+      that function are packaged together with the environment in which they
+      execute. The resulting object is known as a closure. In other words, a
+      closure is an inner or nested function that carries information about
+      its enclosing scope, even though this scope has completed its execution.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      In Python, we can define a function inside the body of a function
+      definition (function inside function). And we can return the inner
+      function as the return value of the enclosing function. For example
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; def power_factory(exp):
+&hellip;     def power(base):
+&hellip;         return base ** exp
+&hellip;     return power
+&hellip;
+&gt;&gt;&gt; square = power_factory(2)
+&gt;&gt;&gt; square(10)
+100
+&gt;&gt;&gt; cube = power_factory(3)
+&gt;&gt;&gt; cube(10)
+1000</pre>
+    <p>
+      Variables like <code>exp</code> are called free variables. They are
+      variables that are used in a code block but not defined there. Free
+      variables are the mechanism that closures use to retain state
+      information between calls.
+    </p>
+    <p>
+      
+    </p>
+    <h2 id="auto-12">4<span style="margin-left: 1em"></span>Built-in functions and library functions</h2>
+    <p>
+      Complete list of python built-in functions can be found at <a href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a>
+    </p>
+    <p>
+      As an example of useful built-in functions, <code>dir()</code>, without
+      arguments, return the list of names in the current local scope. With an
+      argument, <code>dir</code> attempt to return a list of attributes and
+      methods for that object.
+    </p>
+    <p>
+      Unlike <code>Fortran</code>, mathematical functions like
+      <code>sin</code> and <code>cos</code> are not built-in functions of
+      Python interpreter. These functions are defined in <code>math</code>
+      module. To use them:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+import math
+math.sin(1.0)</pre>
+    <p>
+      But, I prefer to use mathematical functions defined in
+      <code>numpy</code> module, which are usually more powerful than their
+      counterparts in <code>math</code> module. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [5]: import numpy as np
+In [6]: np.sin(1.0)
+Out[6]: 0.8414709848078965
+In [7]: a = [1,2,3] #define a list
+In [8]: np.sin(a)
+Out[8]: array([0.84147098, 0.90929743, 0.14112001])
+In [9]: math.sin(a)
+TypeError: must be real number, not list</pre>
+    <p>
+      
+    </p>
+    <h2 id="auto-13">5<span style="margin-left: 1em"></span>Flow control</h2>
+    <h3 id="auto-14">5.1<span style="margin-left: 1em"></span>Logical expressions</h3>
+    <p>
+      Python supports the following relation operators:
+    </p>
+    <ul>
+      <li>
+        <p>
+          Equals: <code>a == b</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          Not Equals: <code>a != b</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          Less than: <code>a &lt; b</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          Less than or equal to: <code>a &lt;= b</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          Greater than: <code>a &gt; b</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          Greater than or equal to: <code>a &gt;= b</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          Belongs to:<span style="margin-left: 1em"></span><code>a in b</code>
+        </p>
+      </li>
+    </ul>
+    <p>
+      The value of the above expression is of logical(bool) type. Python's
+      logical operators are keywords <code>and</code> and <code>or</code>,
+      which can be used to combine logical expressions to form a new logical
+      expression. These logical expressions can be used in several ways, most
+      commonly in <code>if</code> structures and <code>while</code> loops.
+    </p>
+    <h3 id="auto-15">5.2<span style="margin-left: 1em"></span>Conditionals</h3>
+    <p>
+      Python <code>if</code> structure takes the following form:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+if a==0:
+    print(&quot;a is zero&quot;)
+elif a&lt;0:
+    print(&quot;a is negative&quot;)
+else:
+    print(&quot;a is positive&quot;)</pre>
+    <p>
+      The blocks in a <code>if</code> structur does not introduce a new scope.
+      Therefore, if new variables are defined in the blocks, they are still
+      visible outside the <code>if</code> structure.
+    </p>
+    <p>
+      One-line <code>if</code> structure:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+if a &gt; b: print(&quot;a is greater than b&quot;)</pre>
+    <p>
+      where we have only one statement to execute and we put it on the same
+      line as the <code>if</code> statement.
+    </p>
+    <p>
+      Short hand <code>if &hellip; else</code>. If you have only one statement
+      to execute, one for if, and one for else, you can put it all on the same
+      line:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+print(&quot;A&quot;) if a &gt; b else print(&quot;B&quot;)</pre>
+    <p>
+      The advantage of one-line <code>if</code> structure is that we can pass
+      the return value seamlessly to other operation (functional style). For
+      example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+abs_A = (A if a&gt;=0 else -A)</pre>
+    <h3 id="auto-16">5.3<span style="margin-left: 1em"></span>Loop structure</h3>
+    <p>
+      Python has two primitive loops: <code>while</code> loop and
+      <code>for</code> loop.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+i = 1 # while-loop requires relevant variables to be ready
+while i &lt; 6:
+     print(i)
+     i =i + 1</pre>
+    <p>
+      The above <code>while</code> loop is quite similar to that in Fortran,
+      which looks like the following:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve">i = 1
+do while(i&lt;6)
+   print *, i
+   i = i + 1
+enddo</pre></pre>
+    <p>
+      Another python loop structure is the <code>for</code> loop, which is
+      used for iterating over a <strong>sequence</strong> (that is either a
+      list, a tuple, a dictionary, a set, or a string)
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+for x in sequence:
+    body</pre>
+    <p>
+      The above <code>for</code> loop is less like the <code>for</code> loop
+      in C programming language, which looks like the following:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+for(i=start; i&lt;some_threthod; some_operation_modifying_i) {loop_body}</pre>
+    <p>
+      With <code>for</code> loop we can execute a set of statements, once for
+      each item in a list, tuple, set etc. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+for  x in fruits:
+    print(x)</pre>
+    <pre class="verbatim" xml:space="preserve">
+for x in range(0, 3):
+    print(x)</pre>
+    <p>
+      The <code>else</code> keyword in a <code>for</code> loop specifies a
+      block of code to be executed when the loop is finished:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+for x in range(6):
+    print(x)
+else:
+    print(&quot;Finally finished!&quot;)</pre>
+    <p>
+      <code>continue</code> and <code>break</code> are similar to
+      <code>cycle</code> and <code>exit</code> of Fortran and can be used in
+      both <code>while</code> and <code>for</code> structures.
+    </p>
+    <p>
+      In the above, <code>x</code> acts as a dummy variable, which does not
+      need to be defined before the loop. The <code>for</code> loop does not
+      form a new scope. This means that the variable <code>x</code> is
+      acessible outside the loop. On exist from the <code>for</code> loop, the
+      value of <code>x</code> is equal to the value got from the last
+      iteration. If <code>x</code> is defined before the <code>for</code>
+      loop, its value will be modified by the <code>for</code> loop.
+    </p>
+    <p>
+      Note that the keyword <code>in</code> is used in Python for two
+      different purposes: (1) The <code>in</code> keyword is used to check if
+      a value is present in a sequence (list, range, string etc.). (2) The
+      <code>in</code> keyword is also used to iterate through a sequence in a
+      <code>for</code> loop.
+    </p>
+    <h2 id="auto-17">6<span style="margin-left: 1em"></span>Built-in data structure</h2>
+    <p>
+      Python has four primitive data structures, namely list, tuple, set, and
+      dict:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+L = [3, &quot;hello&quot;, 0.5] # list
+t = (1,2,&quot;apple&quot;,3) # tuple
+s = {&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;} #set
+d = {&quot;a&quot;:1, &quot;b&quot;:2} #dict, each element has two filds, key and value, separated by :</pre>
+    <p>
+      Examining the above codes, we can summarize the sytax for differnt data
+      structure: (1) elements in the four data structures are all separated by
+      commas; (2) lists are written with <strong>square-brackets</strong>,
+      tuples are written with <strong>round-brackets</strong> (parentheses),
+      sets and dicts are written with <strong>curly-brackets</strong>; (3) a
+      dict (or hash) is a special set in which each element has two fields,
+      key and value, which are separated by a colon.
+    </p>
+    <p>
+      Lists and tuples are <strong>ordered</strong> collections and thus
+      support <strong>indexing</strong> whereas sets and dicts are
+      <strong>unordered</strong> and do not support indexing. The difference
+      between a list and a tuple lies in that a list can be modfied but a
+      tuple is unchangable.
+    </p>
+    <p>
+      The primitive type <code>string</code> can also be considered a
+      nontrivial data structure, which supports indexing, similar to a list.
+    </p>
+    <h3 id="auto-18">6.1<span style="margin-left: 1em"></span>List</h3>
+    <p>
+      One of the most fundamental data structures in any language is the
+      array. Python does not have a native array data structure, but it has
+      the list data structure which is more general: a list in Python can
+      contain items of various types. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+myList = [3, &quot;hello&quot;, 0.5] #define a list containing three items of different types</pre>
+    <p>
+      Since a list contains misc items, which are not just numbers, some
+      operations on lists are different from array operations that we expect
+      in an array Language. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [12]: a=[1,2,3]
+In [13]: 2*a
+Out[13]: [1, 2, 3, 1, 2, 3] #rather than doubling each element vale in the list</pre>
+    <p>
+      Adding lists concatenates them, just as the &ldquo;<tt>+</tt>&rdquo;
+      operator concatenates strings. To use the standard array operation, we
+      can use <code>numpy.asarray</code> to convert a list to an array:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [16]: b=np.asarray(a)
+In [17]: 2*b
+Out[17]: array([2, 4, 6])</pre>
+    <p>
+      The Python standard library defines an array type, which is still a list
+      type, except that the type of objects stored in it is constrained to a
+      single type. The methods of this array type are different from the usual
+      array operation. For example, <code>2*a</code> is not to double the
+      value of the each element in the array:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [1]: import array
+In [2]: a=array.array('d', [1,2])
+In [3]: 2*a
+Out[3]: array('d', [1.0, 2.0, 1.0, 2.0])</pre>
+    <p>
+      As a result, this array type is not as versatile, efficient, or useful
+      as the NumPy array. We will not be using Python arrays at all.
+      Therefore, whenever we refer to an &ldquo;array,&rdquo; we mean a
+      &ldquo;NumPy array.&rdquo;
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [1]: import numpy as np
+In [2]: a=[1,2,3]
+In [3]: b=np.array(a)
+In [4]: b
+Out[4]: array([1, 2, 3])
+In [5]: 2*b
+Out[5]: array([2, 4, 6])</pre>
+    <h4 id="auto-19">6.1.1<span style="margin-left: 1em"></span>Addressing and Slicing lists</h4>
+    <p>
+      List elements can be accessed by using indexes. Indexes of a list start
+      from zero, i.e., <code>myList[0]</code> corresponds to the first item in
+      the list. Elements of a list can also be accessed by using negative
+      index. For example <code>myList[-1]</code> refers to the last element of
+      the list, and <code>myList[-2]</code> refers to the next-to-last element
+      of the list, etc.
+    </p>
+    <p>
+      We can use slicing notation to pick out a sublist, e.g., <code>b =
+      myList[0:2]</code>. Python use the convention that the final element
+      specified, i.e. <code>myList[2]</code> in this case, is not included in
+      a list slice. If the upper and/or lower limit are omitted, the
+      corresponding list limit will be used, e.g., <code>myList[:]</code>
+      refers to the whole list.
+    </p>
+    <p>
+      Nested lists (multidimensional lists, lists of lists) can be referenced
+      by using multiply index, such as <code>myList[0][1]</code>, not
+      <code>myList[0,1]</code>. The latter notation only works for
+      <code>numpy</code> array objects.
+    </p>
+    <p>
+      
+    </p>
+    <h4 id="auto-20">6.1.2<span style="margin-left: 1em"></span>List methods</h4>
+    <p>
+      Python is an object-orientated language, and as such it uses classes to
+      define data types, including its primitive types. A list object has some
+      predefined methods. These methods are invoked in the same way as in
+      other object-orientated Languages, i.e.,
+      <code>instant.method(arg1,arg2,&hellip;)</code>. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+mylist.append('d') #will add 'd' to the list
+mylist.pop(2) # will remove items by position (index), remove the 3rd item
+mylist.remove(x) # Remove the first item from the list whose value is x.
+mylist.index(x) #return the index of the first item whose value is x
+mylist.count(x) # Return the number of times x appears in the list.
+list.insert(i, x) #will insert an item before element with index i.</pre>
+    <p>
+      We can view all the methods defined for a object by using the built-in
+      function <code>dir</code>. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+L = [] # define a list object
+dir(L) # view all the methods of the list object</pre>
+    <h3 id="auto-21">6.2<span style="margin-left: 1em"></span>List Comprehensions</h3>
+    <p>
+      A list comprehension consists of brackets containing an expression
+      followed by a <code>for</code> clause, then zero or more
+      <code>for</code> or <code>if</code> clauses. The result will be a new
+      list resulting from evaluating the expression in the context of the
+      <code>for</code> and <code>if</code> clauses. For example,
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; ls=[1,2,-3,-4]
+&gt;&gt;&gt; [math.sqrt(x) for x in ls if x&gt;0]
+[1.0, 1.414]</pre>
+    <p>
+      The following code combines the elements of two lists if they are not
+      equal:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]</pre>
+    <h3 id="auto-22">6.3<span style="margin-left: 1em"></span>String and string methods</h3>
+    <p>
+      Single or double quotation marks are used to define a string value:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [17]: a = 'hello, world' # string
+In [18]: a = &quot;hello, world&quot; # string</pre>
+    <p>
+      Each character in a string corresponds to an index and can be accessed
+      using index notation (similar to a list):
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [19]: a[0]
+Out[19]: 'h'
+In [21]: a[0:6]
+Out[21]: 'hello,'</pre>
+    <p>
+      String methods:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+a = &quot;hello, world&quot; # string
+a.split(&quot;,&quot;)  #Splits the string at the specified separator, and returns a list
+a.find(&quot;o&quot;) #Searches the string for &quot;o&quot; and returns the position of where it was found</pre>
+    <p>
+      Again, we can view all the methods defined for <code>string</code>
+      object by using the built-in function <code>dir</code>. Or search
+      &ldquo;python string methods&rdquo; online to find useful methods of
+      string objects. Note that all string methods returns new values. They do
+      not change the original string.
+    </p>
+    <h3 id="auto-23">6.4<span style="margin-left: 1em"></span>Tuple</h3>
+    <p>
+      Another data structure similar to list is tuple, which is an ordered
+      collection of items enclosed in round-brackets (parentheses):
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+t=(1,2,&quot;apple&quot;)</pre>
+    <p>
+      The round-brackets are optional.
+    </p>
+    <p>
+      Slicing and addressing a tuple are similar to those of a list. Like a
+      list, we can loop through the tuple items by using a <code>for</code>
+      loop. Unlike a list,  Tuples are <strong>unchangeable</strong>. Once a
+      tuple is created, we cannot change its values.
+    </p>
+    <h4 id="auto-24">6.4.1<span style="margin-left: 1em"></span>Tuple methods</h4>
+    <pre class="verbatim" xml:space="preserve">
+mytuble.count(&quot;apple&quot;) # Returns the number of times a specified value occurs in a tuple
+mytuble.index(&quot;apple&quot;) # Searches the tuple for a specified value and returns the index</pre>
+    <h3 id="auto-25">6.5<span style="margin-left: 1em"></span>Set</h3>
+    <pre class="verbatim" xml:space="preserve">
+a={&quot;dd&quot;, 1, (3,4)} #an items in set can be a tuple, but can not be a list</pre>
+    <h4 id="auto-26">6.5.1<span style="margin-left: 1em"></span>Access items in a set</h4>
+    <p>
+      We can not access an item in a set by referring to an index, since sets
+      are unordered and have no index:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [7]: a={&quot;dd&quot;, 1}
+In [8]: a[1]
+TypeError: 'set' object does not support indexing</pre>
+    <p>
+      But we can loop through a set using <code>for</code> loop, or ask if a
+      specified value is present in a set by using the <code>in</code>
+      keyword.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+myset = {&quot;apple&quot;, &lsquo;&lsquo;banana&quot;, &lsquo;&lsquo;cherry&quot;}
+print(&quot;banana&quot; in myset) #True
+for x in myset:
+    print(x)</pre>
+    <h4 id="auto-27">6.5.2<span style="margin-left: 1em"></span>Set methods</h4>
+    <pre class="verbatim" xml:space="preserve">
+myset.add(&quot;apple&quot;) # adds an element to the set
+myset.remove(&quot;apple&quot;) # removes a particular element from the set
+myset.pop() # removes an random element from the set, retuns the removed item</pre>
+    <h4 id="auto-28">6.5.3<span style="margin-left: 1em"></span>Set comprehension</h4>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt;s={v for v in 'abcdabcd' if v not in 'cb'}
+&gt;&gt;&gt; print(s)
+{'a', 'd'}
+&gt;&gt;&gt; type(s)
+&lt;class 'set'&gt;</pre>
+    <p>
+      In <code>Racket</code>, the above set comprehension is written as
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(for/set ([v &quot;ABCDABCD&quot;] #:unless (member v (string-&gt;list &quot;CB&quot;))) v )</pre>
+    <p>
+      
+    </p>
+    <h3 id="auto-29">6.6<span style="margin-left: 1em"></span>Dictionary</h3>
+    <p>
+      A dictionary is a collection of a pair of items enclosed in curly
+      brackets:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+d={&quot;a&quot;:1, &quot;b&quot;:2} #each element has two filds, key and value, separated by :</pre>
+    <p>
+      In other languages, data types similar to Python dictionaries may be
+      called &ldquo;hashmaps&rdquo; or &ldquo;associative arrays&rdquo;.
+    </p>
+    <p>
+      Dictionaries can be built up and added to in a straightforward manner:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [8]: d = {}
+In [9]: d[&quot;last name&quot;] = &lsquo;&lsquo;Alberts&quot;
+In [10]: d[&quot;first name&quot;] = &lsquo;&lsquo;Marie&quot;
+In [11]: d[&quot;birthday&quot;] = &lsquo;&lsquo;January 27&quot;
+In [12]: d
+Out[12]: {'birthday': 'January 27', 'first name': 'Marie','last name': 'Alberts'}        </pre>
+    <p>
+      The type of keys of a dictionary can be string, int, float, and even a
+      tuple. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+In [15]: A={(1,2):4, &quot;b&quot;:5}
+In [16]: A[(1,2)]
+Out[16]: 4</pre>
+    <p>
+      It is interesting to note that referencing a dictionary item is very
+      similar to referencing a list element if the keys are of int type.
+    </p>
+    <h4 id="auto-30">6.6.1<span style="margin-left: 1em"></span>Dictionary methods</h4>
+    <pre class="verbatim" xml:space="preserve">
+d={&quot;a&quot;:1, &quot;b&quot;:2}
+d.keys() # return all the keys of a dictionary
+d.values() # return all the values of a dictionary</pre>
+    <p>
+      
+    </p>
+    <h2 id="auto-31">7<span style="margin-left: 1em"></span>File Handling</h2>
+    <p>
+      The key function for working with files in Python is the
+      <code>open()</code> function, which takes two parameters;
+      <em>filename</em>, and <em>mode</em>, and returns a file object. For
+      example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+f = open('t.txt', 'r')</pre>
+    <p>
+      There are four different modes for opening a file:
+    </p>
+    <p>
+      <code>&quot;r&quot;</code> - Read - Default value. Opens a file for
+      reading, error if the file does not exist
+    </p>
+    <p>
+      <code>&quot;a&quot;</code> - Append - Opens a file for appending,
+      creates the file if it does not exist
+    </p>
+    <p>
+      <code>&quot;w&quot;</code> - Write - Opens a file for writing, creates
+      the file if it does not exist
+    </p>
+    <p>
+      <code>&quot;x&quot;</code> - Create - Creates the specified file,
+      returns an error if the file exists
+    </p>
+    <p>
+      In addition you can specify if the file should be handled as binary or
+      text mode
+    </p>
+    <p>
+      <code>&quot;t&quot;</code> - Text - Default value. Text mode
+    </p>
+    <p>
+      <code>&quot;b&quot;</code> - Binary - Binary mode (e.g. images)
+    </p>
+    <h3 id="auto-32">7.1<span style="margin-left: 1em"></span>Methods of file objects</h3>
+    <p>
+      A python file object has several predefined methods, such as
+      <code>read</code>, <code>readline</code>, <code>readlines</code>, etc.
+      For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+f = open('t.txt', 'r')
+txt = f.read() #readin the entire file, return a string
+f.close() #close the file
+f = open('t.txt', 'r')
+txt1 = f.readline() #readin one line from the file, return a string
+txt2 = f.readline() #readin another line from the file
+f.close()
+f = open('t.txt', 'r')
+txt = f.readlines() #read the entire file, return a list of string (one string=&gt;one line)</pre>
+    <p>
+      A file object can also be converted to a list:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+f = open('t.txt', 'r')
+a = list(f) # return a list, the same as a=f.readlines()</pre>
+    <p>
+      A python file object is also an iterator, which means that we can loop
+      over the file object:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+f=open('t.txt', 'r')
+for line in f:
+    print(line, end='')</pre>
+    <h2 id="auto-33">8<span style="margin-left: 1em"></span>Python class and object</h2>
+    <p>
+      Python is an object oriented programming language. Almost everything in
+      Python is an object, with its properties and methods. Define a class
+      named <code>MyClass</code>, with a property named <code>x</code>:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+class MyClass:
+      x = 5</pre>
+    <p>
+      Now we can use the class <code>MyClass</code> defined above to create an
+      object:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+p1 = MyClass()
+print(p1.x)  #use the dot notation to access a property:</pre>
+    <p>
+      Python Iterators
+    </p>
+    <p>
+      An iterator is an object that contains a countable number of values and
+      can be iterated upon, meaning that we can traverse through all the
+      values. Technically, in Python, an iterator is an object which
+      implements the iterator protocol, which consist of the methods
+      <code>__iter__()</code> and <code>__next__()</code>. The
+      <code>for</code> loop actually creates an iterator object and executes
+      the <code>next()</code> method for each loop.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      When developing this document, I read the following materials:
+    </p>
+    <p>
+      https://docs.python.org/
+    </p>
+    <p>
+      https://www.w3schools.com/python/
+    </p>
+    <p>
+      https://physics.nyu.edu/pine/pymanual/html/
+    </p>
+    <h2 id="auto-34">9<span style="margin-left: 1em"></span>Numpy and matplotlib</h2>
+    <h3 id="auto-35">9.1<span style="margin-left: 1em"></span>Numpy array</h3>
+    <p>
+      The data of a NumPy array are stored in contiguous block of system
+      memory. This is the main difference between an array and a pure Python
+      structure, such as a list, where the items are scattered across the
+      system memory. This aspect is the critical feature that makes NumPy
+      arrays efficient.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Practically all software has some bugs; it's a matter of frequency and
+      severity rather than absolute perfection.
+    </p>
+    <p>
+      When a bug does occur, you want to spend the minimum amount of time
+      getting from the observed symptom to the root cause.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Parallelism consists of performing multiple operations at the same time.
+      Multiprocessing is a means to effect parallelism, Multiprocessing is
+      well-suited for CPU-bound tasks: tightly bound for loops and
+      mathematical computations usually fall into this category.
+    </p>
+    <p>
+      Threading is a concurrent execution model whereby multiple threads take
+      turns executing tasks. One process can contain multiple threads. 
+    </p>
+    <p>
+      While a CPU-bound task is characterized by the computer's cores
+      continually working hard from start to finish, an IO-bound job is
+      dominated by a lot of waiting on input/output to complete.
+    </p>
+    <p>
+      non-blocking function
+    </p>
+    <p>
+      Over the last few years, a separate design has been more comprehensively
+      built into CPython: asynchronous IO, enabled through the standard
+      library's asyncio package and the new async and await language keywords.
+      (async IO is not a newly invented concept, and it has existed or is
+      being built into other languages and runtime environments, such as Go,
+      C#, or Scala.)
+    </p>
+    <p>
+      Async IO is not threading, nor is it multiprocessing. It is not built on
+      top of either of these.
+    </p>
+    <p>
+      In fact, async IO is a single-threaded, single-process design: it uses
+      cooperative multitasking.
+    </p>
+  </body>
+</html>

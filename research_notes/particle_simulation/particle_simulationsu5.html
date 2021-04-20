@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Cell-averaged velocity moment</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 485--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu6.html" >next</a>] [<a 
+href="particle_simulationsu4.html" >prev</a>] [<a 
+href="particle_simulationsu4.html#tailparticle_simulationsu4.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu5.html">tail</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu5.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x9-100003.2"></a>Cell-averaged velocity moment</h4>
+<!--l. 487--><p class="noindent" >One of the most important methods of reducing collisions between markers when using very few markers to approximate a
+system with much more physical particles is to solve Maxwell&#x2019;s equation on discrete grids and use the cell-averaged
+moments obtained from markers as the source term in the ﬁeld equation.
+</p><!--l. 493--><p class="indent" >   To be clear, grid points and the corresponding cells are deﬁned as illustrated in Fig. <a 
+href="#x9-100012">2<!--tex4ht:ref: 18-11-2-1 --></a> for the 1D case.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x9-100012"></a>
+
+
+<!--l. 497--><p class="noindent" ><img 
+src="my_figure/home/yj/theory/figures/grids_cells/grids-1.png" alt="pict"  
+ width="239.89624pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 2:  </span><span  
+class="content">Deﬁnition  of  spatial  grid  points  and  cells  in  PIC  simulations.  A  grid  point  is  the  center  of  the
+corresponding cell.</span></div><!--tex4ht:label?: x9-100012 -->
+
+   </div><hr class="endfigure" />
+<!--l. 502--><p class="indent" >   Field solvers in PIC code need the values of <span 
+class="cmmi-10">I </span>at the grid-points. This value at the grid point is deﬁned as the average of
+<span 
+class="cmmi-10">I </span>over the corresponding cells (similar to that in the ﬁnite element method), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x9-10002r37"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation36x.png" alt="                       &int; &alpha;i+1∕2&int; &beta;j+1∕2&int; &gamma;k+1∕2
+Ii,j,k &equiv; I(&alpha;i,&beta;j,&gamma;k) &equiv;-1--                     I(&alpha;, &beta;,&gamma;)𝒥 d&alpha;d&beta;d&gamma;,
+                   &Delta;V   &alpha;i&minus;1∕2  &beta;j&minus;1∕2  &gamma;k&minus;1∕2
+" class="math-display"  /></center></td><td class="equation-label">(37)</td></tr></table>
+<!--l. 510--><p class="nopar" >
+where &Delta;<span 
+class="cmmi-10">V </span>= <span 
+class="cmex-10">&int;</span>
+ <sub><span 
+class="cmmi-7">&alpha;</span><sub><span 
+class="cmmi-5">i</span><span 
+class="cmsy-5">&minus;</span><span 
+class="cmr-5">1</span><span 
+class="cmmi-5">∕</span><span 
+class="cmr-5">2</span></sub></sub><sup><span 
+class="cmmi-7">&alpha;</span><sub><span 
+class="cmmi-5">i</span><span 
+class="cmr-5">+1</span><span 
+class="cmmi-5">∕</span><span 
+class="cmr-5">2</span></sub>
+          </sup> <span 
+class="cmex-10">&int;</span>
+ <sub><span 
+class="cmmi-7">&beta;</span><sub><span 
+class="cmmi-5">j</span><span 
+class="cmsy-5">&minus;</span><span 
+class="cmr-5">1</span><span 
+class="cmmi-5">∕</span><span 
+class="cmr-5">2</span></sub></sub><sup><span 
+class="cmmi-7">&beta;</span><sub><span 
+class="cmmi-5">j</span><span 
+class="cmr-5">+1</span><span 
+class="cmmi-5">∕</span><span 
+class="cmr-5">2</span></sub>
+          </sup> <span 
+class="cmex-10">&int;</span>
+<sub><span 
+class="cmmi-7">&gamma;</span><sub><span 
+class="cmmi-5">k</span><span 
+class="cmsy-5">&minus;</span><span 
+class="cmr-5">1</span><span 
+class="cmmi-5">∕</span><span 
+class="cmr-5">2</span></sub></sub><sup><span 
+class="cmmi-7">&gamma;</span><sub><span 
+class="cmmi-5">k</span><span 
+class="cmr-5">+1</span><span 
+class="cmmi-5">∕</span><span 
+class="cmr-5">2</span></sub>
+           </sup><span 
+class="cmsy-10">𝒥</span><span 
+class="cmmi-10">d&alpha;d&beta;d&gamma; </span>is the cell volume, which can be approximated as
+&Delta;<span 
+class="cmmi-10">V </span><span 
+class="cmsy-10">&asymp;𝒥</span><sub><span 
+class="cmmi-7">i,j,k</span></sub>&Delta;<span 
+class="cmmi-10">&alpha;</span>&Delta;<span 
+class="cmmi-10">&beta;</span>&Delta;<span 
+class="cmmi-10">&gamma;</span>. Using Eqs. (<a 
+href="particle_simulationsu4.html#x8-9003r36">36<!--tex4ht:ref: 3-23-p10 --></a>), the above expression is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x9-10003r38"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation37x.png" alt="           &int; &alpha;    &int; &beta;   &int; &gamma;
+I    = -1--   i+1∕2   j+1∕2   j+1∕2&sum;  w  A(v )S(r&minus; r )𝒥 d&alpha;d&beta;d&gamma;.
+ i,j,k   &Delta;V   &alpha;i&minus;1∕2  &beta;j&minus;1∕2  &gamma;j&minus;1∕2  p   p   p       p
+" class="math-display"  /></center></td><td class="equation-label">(38)</td></tr></table>
+<!--l. 522--><p class="nopar" >
+Using the shape function given in expression (<a 
+href="particle_simulationse3.html#x7-8004r25">25<!--tex4ht:ref: 18-12-19-p1 --></a>), the above expression is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x9-10004r39"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation38x.png" alt="                     &int;      &int;     &int;      [        (      ) ][        (      ) ][       (       )]
+      -1--&sum;            &alpha;i+1∕2  &beta;j+1∕2  &gamma;j+1∕2 --1-      &alpha;&minus;-&alpha;p-   --1-     &beta;-&minus;-&beta;p    -1--     &gamma;-&minus; &gamma;p
+Ii,j,k = &Delta;V    wpA (vp) &alpha;i&minus;1∕2  &beta;j&minus;1∕2  &gamma;j&minus;1∕2  &Delta; &alpha;pS1D    &Delta;&alpha;p     &Delta; &beta;pS1D   &Delta; &beta;p     &Delta; &gamma;pS1D   &Delta; &gamma;p   d&alpha;d &beta;d&gamma;,
+           p
+" class="math-display"  /></center></td><td class="equation-label">(39)</td></tr></table>
+<!--l. 534--><p class="nopar" >
+where the Jacobian in the integrand is cancelled out. The 3D integral in expression (<a 
+href="#x9-10004r39">39<!--tex4ht:ref: 18-12-19-p4 --></a>) consists of three identical 1D
+integrations. Consider one of them:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x9-10005r40"></a>
+
+   <center class="math-display" >
+<img 
+src="particle_simulation39x.png" alt="                    (       )
+     --1-&int; &alpha;i+1∕2      &alpha;&minus;-&alpha;p-
+W  = &Delta; &alpha;p  &alpha;    S1D    &Delta;&alpha;p   d&alpha;,
+            i&minus;1∕2
+" class="math-display"  /></center></td><td class="equation-label">(40)</td></tr></table>
+<!--l. 543--><p class="nopar" >
+Consider the case &Delta;<span 
+class="cmmi-10">&alpha;</span><sub><span 
+class="cmmi-7">p</span></sub> = &Delta;<span 
+class="cmmi-10">&alpha;</span>, and choose <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">D</span></sub> to be the <span 
+class="cmmi-10">l</span> th order b-spline function, <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">l</span></sub>, then the above expression is written
+as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="particle_simulation40x.png" alt="           &int;       (       )
+W   =  -1-   &alpha;i+1∕2 b  &alpha;-&minus; &alpha;p d&alpha;                             (41)
+       &Delta; &alpha;  &alpha;i&minus;1∕2 l   &Delta; &alpha;
+           (&alpha;  &minus; &alpha; )
+    =  bl+1  --i---p  ,                                     (42)
+              &Delta; &alpha;
+" class="math-display"  /><a 
+ id="x9-10006r41"></a><a 
+ id="x9-10006r42"></a></center>
+</div>where <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">l</span><span 
+class="cmr-7">+1</span></sub> is the (<span 
+class="cmmi-10">l </span>+ 1)th order b-spline function. [Proof of Eq. (<a 
+href="#x9-10006r42">42<!--tex4ht:ref: 18-12-19-e1 --></a>): Using the property of the zeroth order b-spline
+function <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">0</span></sub> (a ﬂat top function), the integration (<a 
+href="#x9-10006r41">41<!--tex4ht:ref: 18-12-19-e3 --></a>) can be written as <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="particle_simulation41x.png" alt="        1  &int; &infin;  ( &alpha; &minus; &alpha;p)   (&alpha; &minus; &alpha;i)
+W   =  &Delta;-&alpha;     bl -&Delta;-&alpha;--  b0  --&Delta;&alpha;--  d&alpha;
+            &minus;&infin;
+" class="math-display"  /></center>
+</div>By using the deﬁnition of the b-splines, we ﬁnd the above expression is a b-spline function that is one order higher than the
+corresponding b-spline shape function, i.e.,
+   <center class="math-display" >
+<img 
+src="particle_simulation42x.png" alt="        ( &alpha;i &minus; &alpha;p)
+W = bl+1  -&Delta;-&alpha;--- .
+" class="math-display"  /></center>
+<!--l. 566--><p class="nopar" > ] Therefore expression (<a 
+href="#x9-10004r39">39<!--tex4ht:ref: 18-12-19-p4 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x9-10008r43"></a>
+
+   <center class="math-display" >
+<img 
+src="particle_simulation43x.png" alt="                        (       )    (       )     (       )
+      -1--&sum;              &alpha;i-&minus;-&alpha;p       &beta;j &minus;-&beta;p      &gamma;k-&minus;-&gamma;p-
+Ii,j,k = &Delta;V     wpA (vp)bl+1    &Delta; &alpha;    bl+1    &Delta;&beta;    bl+1    &Delta; &gamma;   .
+           p
+" class="math-display"  /></center></td><td class="equation-label">(43)</td></tr></table>
+<!--l. 573--><p class="nopar" >
+Recall that, in terms of the b-spline functions, the local value <span 
+class="cmmi-10">I</span>(<span 
+class="cmmi-10">&alpha;,&beta;,&gamma;</span>) is given by expression (<a 
+href="particle_simulationsu4.html#x8-9003r36">36<!--tex4ht:ref: 3-23-p10 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x9-10009r44"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation44x.png" alt="           1  &sum;           (&alpha; &minus; &alpha;p)   (&beta; &minus; &beta;p)  ( &gamma; &minus; &gamma;p )
+I(&alpha;,&beta;,&gamma; ) = &Delta;V-   wpA(vp)bl --&Delta;&alpha;--  bl --&Delta;&beta;--  bl  -&Delta;-&gamma;-- .
+               p
+" class="math-display"  /></center></td><td class="equation-label">(44)</td></tr></table>
+<!--l. 581--><p class="nopar" >
+It is instructive to compare expression (<a 
+href="#x9-10008r43">43<!--tex4ht:ref: 18-12-19-e10 --></a>) with (<a 
+href="#x9-10009r44">44<!--tex4ht:ref: 17-6-26-1 --></a>), which indicates that they are similar except that the b-spline
+functions involved in the cell-averaged expression (<a 
+href="#x9-10008r43">43<!--tex4ht:ref: 18-12-19-e10 --></a>) is one order higher than that involved in the local expression
+(<a 
+href="#x9-10009r44">44<!--tex4ht:ref: 17-6-26-1 --></a>).
+
+</p>
+   <!--l. 588--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu6.html" >next</a>] [<a 
+href="particle_simulationsu4.html" >prev</a>] [<a 
+href="particle_simulationsu4.html#tailparticle_simulationsu4.html" >prev-tail</a>] [<a 
+href="particle_simulationsu5.html" >front</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu5.html" >up</a>] </p></div>
+<!--l. 588--><p class="indent" >   <a 
+ id="tailparticle_simulationsu5.html"></a> </p> 
+</body></html> 

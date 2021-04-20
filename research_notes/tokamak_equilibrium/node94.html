@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fixed boundary equilibrium numerical code</TITLE>
+<META NAME="description" CONTENT="Fixed boundary equilibrium numerical code">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node95.html">
+<LINK REL="previous" HREF="node93.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node95.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1167"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1159"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1168"
+  HREF="node95.html">Benchmark of the code</A>
+<B> Up:</B> <A NAME="tex2html1166"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Previous:</B> <A NAME="tex2html1160"
+  HREF="node93.html">Boundary magnetic surface and</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000123000000000000000">
+Fixed boundary equilibrium numerical code</A>
+</H2>
+
+<P>
+The tokamak equilibrium problem where the shape of the LCFS is given is called
+fixed boundary equilibrium problem. I wrote a numerical code that uses the
+iterative metric method[<A
+ HREF="node111.html#delucia1980">7</A>] to solve this kind of equilibrium
+problem. Figure <A HREF="#12-26-1">30</A> describes the steps involved in the iterative
+metric method.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="12-26-1"></A><A NAME="8282"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 30:</STRONG>
+Upper left figure plots the initial coordinate
+  surfaces. After solving the GS equation to obtain the location of the
+  magnetic axis, I shift the origin point of the initial coordinate system to
+  the location of the magnetic axis (upper right figure). Then, reshape the
+  coordinate surface so that the coordinate surfaces <!-- MATH
+ $\psi = \ensuremath{\operatorname{const}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img95.png"
+ ALT="$ \psi = \ensuremath {\operatorname {const}}$"></SPAN>
+  lies on magnetic surfaces (middle left figure). Recalculate the radial
+  coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> that is consistent with the Jacobian constraint and
+  interpolate flux surface to uniform <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> coordinates (middle right
+  figure). Recalculate the poloidal coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> that is consistent
+  with the Jacobian constraint and interpolate poloidal points on every flux
+  surface to uniform <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> coordinates (bottom left figure).</CAPTION>
+<TR><TD><IMG
+ WIDTH="280" HEIGHT="177" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1374.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig3/plt.eps}"><IMG
+ WIDTH="280" HEIGHT="177" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1375.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig4/plt.eps}">
+
+<P>
+<IMG
+ WIDTH="280" HEIGHT="177" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1376.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig3/reshape.eps}"><IMG
+ WIDTH="280" HEIGHT="177" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1377.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig6/plt.eps}">
+
+<P>
+<IMG
+ WIDTH="280" HEIGHT="177" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1378.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig5/plt.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1167"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1159"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1168"
+  HREF="node95.html">Benchmark of the code</A>
+<B> Up:</B> <A NAME="tex2html1166"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Previous:</B> <A NAME="tex2html1160"
+  HREF="node93.html">Boundary magnetic surface and</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

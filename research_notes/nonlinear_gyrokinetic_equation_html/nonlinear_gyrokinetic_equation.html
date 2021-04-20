@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head>
+   <title>Notes on nonlinear gyrokinetic equation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<meta name="date" content="2019-01-28 10:19:00" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+<!--l. 19--><p class="noindent" > 
+</p>
+   <div class="maketitle">
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+
+<h2 class="titleHead">Notes on nonlinear gyrokinetic equation</h2>
+                       <div class="author" > <span 
+class="cmr-12">Youjun Hu</span>
+<br /><span 
+class="cmr-12">Institute of Plasma Physics, Chinese Academy of Sciences</span>
+<br />                 <span 
+class="cmr-12">Email: yjhu@ipp.cas.cn </span></div><br />
+<div class="date" ><span 
+class="cmr-12">January 28, 2019</span></div>
+   </div>
+   <div 
+class="abstract" 
+>
+<div class="center" 
+>
+<!--l. 31--><p class="noindent" >
+</p><!--l. 31--><p class="noindent" ><span 
+class="cmbx-9">Abstract</span></p></div>
+     <!--l. 32--><p class="indent" >    <span 
+class="cmr-9">The nonlinear gyrokinetic equation given in Frieman-Chen&#x2019;s paper</span><span class="cite"><span 
+class="cmr-9">[</span><a 
+href="nonlinear_gyrokinetic_equationli1.html#Xfrieman1982"><span 
+class="cmr-9">3</span></a><span 
+class="cmr-9">]</span></span> <span 
+class="cmr-9">is re-derived in this</span>
+     <span 
+class="cmr-9">note, providing more details on the derivation. The aspects that are relevant to numerical</span>
+     <span 
+class="cmr-9">implementation of the gyrokinetic model are also discussed, which are actually the emphasis</span>
+     <span 
+class="cmr-9">of this note.</span>
+</p>
+</div>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="nonlinear_gyrokinetic_equationse1.html#x2-10001" id="QQ2-2-1">Introduction</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-20002" id="QQ2-3-2">Transform Vlasov equation from particle coordinates to guiding-center coordinates</a></span>
+<br />    <span class="subsectionToc" >2.1 <a 
+href="nonlinear_gyrokinetic_equationsu1.html#x4-30002.1" id="QQ2-4-3">Guiding-center transformation</a></span>
+<br />    <span class="subsectionToc" >2.2 <a 
+href="nonlinear_gyrokinetic_equationsu2.html#x5-40002.2" id="QQ2-5-4">Gyro-angle</a></span>
+<br />    <span class="subsectionToc" >2.3 <a 
+href="nonlinear_gyrokinetic_equationsu3.html#x6-50002.3" id="QQ2-6-5">Distribution functions in terms of guiding-center variables</a></span>
+<br />    <span class="subsectionToc" >2.4 <a 
+href="nonlinear_gyrokinetic_equationsu4.html#x7-60002.4" id="QQ2-7-6">Moments of distribution function expressed as integration over guiding-center
+variables</a></span>
+<br />    <span class="subsectionToc" >2.5 <a 
+href="nonlinear_gyrokinetic_equationsu5.html#x8-70002.5" id="QQ2-8-8">Monte-Carlo sampling of 6D guiding-center phase-space </a></span>
+<br />    <span class="subsectionToc" >2.6 <a 
+href="nonlinear_gyrokinetic_equationsu6.html#x9-80002.6" id="QQ2-9-9">Choosing velocity coordinates</a></span>
+<br />    <span class="subsectionToc" >2.7 <a 
+href="nonlinear_gyrokinetic_equationsu7.html#x10-90002.7" id="QQ2-10-10">Spatial gradient operator in terms of guiding-center variables</a></span>
+<br />    <span class="subsectionToc" >2.8 <a 
+href="nonlinear_gyrokinetic_equationsu8.html#x11-100002.8" id="QQ2-11-11">Velocity gradient operator in terms of guiding-center variables</a></span>
+                                                                                  
+                                                                                  
+<br />    <span class="subsectionToc" >2.9 <a 
+href="nonlinear_gyrokinetic_equationsu9.html#x12-110002.9" id="QQ2-12-12">Time derivatives in terms of guiding-center variables</a></span>
+<br />    <span class="subsectionToc" >2.10 <a 
+href="nonlinear_gyrokinetic_equationsu10.html#x13-120002.10" id="QQ2-13-13">Final form of Vlasov equation in guiding-center coordinates</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="nonlinear_gyrokinetic_equationse3.html#x14-130003" id="QQ2-14-14">Perturbed Vlasov equation in guiding-center variables</a></span>
+<br />    <span class="subsectionToc" >3.1 <a 
+href="nonlinear_gyrokinetic_equationsu11.html#x15-140003.1" id="QQ2-15-15">Scale separation and two-scales expansion</a></span>
+<br />    <span class="subsectionToc" >3.2 <a 
+href="nonlinear_gyrokinetic_equationsu12.html#x16-150003.2" id="QQ2-16-17">Gyrokinetic orderings</a></span>
+<br />    <span class="subsectionToc" >3.3 <a 
+href="nonlinear_gyrokinetic_equationsu13.html#x17-180003.3" id="QQ2-17-20">Equation for macroscopic distribution function <span 
+class="cmmi-10">F</span><sub><span 
+class="cmmi-7">g</span></sub></a></span>
+<br />    <span class="subsectionToc" >3.4 <a 
+href="nonlinear_gyrokinetic_equationsu14.html#x18-190003.4" id="QQ2-18-21">Equation for perturbed distribution function <span 
+class="cmmi-10">&delta;F</span><sub><span 
+class="cmmi-7">g</span></sub></a></span>
+<br />    <span class="subsectionToc" >3.5 <a 
+href="nonlinear_gyrokinetic_equationsu15.html#x19-220003.5" id="QQ2-19-24">Equation for the non-adiabatic part <span 
+class="cmmi-10">&delta;G</span></a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="nonlinear_gyrokinetic_equationse4.html#x20-270004" id="QQ2-20-29">Characteristic curves of Frieman-Chen nonlinear gyrokinetic equation</a></span>
+<br />    <span class="subsectionToc" >4.1 <a 
+href="nonlinear_gyrokinetic_equationsu16.html#x21-280004.1" id="QQ2-21-30">Time evolution equation for <span 
+class="cmbx-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub></a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="nonlinear_gyrokinetic_equationse5.html#x22-290005" id="QQ2-22-31">Gyrokinetic equation in forms amenable to numerical simulation</a></span>
+<br />    <span class="subsectionToc" >5.1 <a 
+href="nonlinear_gyrokinetic_equationsu17.html#x23-300005.1" id="QQ2-23-32">Eliminate <span 
+class="cmmi-10">&part;</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">&delta;ϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">&alpha;</span></sub><span 
+class="cmmi-10">∕&part;t </span>term on the right-hand side of GK equation</a></span>
+<br />    <span class="subsectionToc" >5.2 <a 
+href="nonlinear_gyrokinetic_equationsu18.html#x24-310005.2" id="QQ2-24-33">Eliminate <span 
+class="cmmi-10">&part;</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">&sdot;</span><span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">&alpha;</span></sub><span 
+class="cmmi-10">∕&part;t </span>term on the right-hand side of GK equation</a></span>
+<br />    <span class="subsectionToc" >5.3 <a 
+href="nonlinear_gyrokinetic_equationsu19.html#x25-330005.3" id="QQ2-25-35">Summary of split of the distribution function</a></span>
+<br />    <span class="subsectionToc" >5.4 <a 
+href="nonlinear_gyrokinetic_equationsu20.html#x26-350005.4" id="QQ2-26-37">Generalized split-weight scheme for electrons</a></span>
+<br />    <span class="subsectionToc" >5.5 <a 
+href="nonlinear_gyrokinetic_equationsu21.html#x27-360005.5" id="QQ2-27-38">Comments on how to split the distribution function</a></span>
+<br />    <span class="subsectionToc" >5.6 <a 
+href="nonlinear_gyrokinetic_equationsu22.html#x28-370005.6" id="QQ2-28-39">Poisson&#x2019;s equation and polarization density</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="nonlinear_gyrokinetic_equationse6.html#x29-420006" id="QQ2-29-45">Summary</a></span>
+<br />   <span class="sectionToc" >A <a 
+href="nonlinear_gyrokinetic_equationse7.html#x30-43000A" id="QQ2-30-46">Diamagnetic ﬂow</a></span>
+<br />   <span class="sectionToc" >B <a 
+href="nonlinear_gyrokinetic_equationse8.html#x31-44000B" id="QQ2-31-47">Transform gyrokinetic equation from (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,𝜀,&alpha;</span>) to (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,&alpha;</span>) coordinates</a></span>
+<br />   <span class="sectionToc" >C <a 
+href="nonlinear_gyrokinetic_equationse9.html#x32-45000C" id="QQ2-32-48">Transform gyrokinetic equation from (<span 
+class="cmmi-10">&delta;</span>&Phi;<span 
+class="cmmi-10">,&delta;</span><span 
+class="cmbx-10">A</span>) to (<span 
+class="cmmi-10">&delta;</span><span 
+class="cmbx-10">E</span><span 
+class="cmmi-10">,&delta;</span><span 
+class="cmbx-10">B</span>)</a></span>
+<br />    <span class="subsectionToc" >C.1 <a 
+href="nonlinear_gyrokinetic_equationsu23.html#x33-46000C.1" id="QQ2-33-49">Expression of <span 
+class="cmmi-10">&delta;B</span><sub><span 
+class="cmsy-7">&perp;</span></sub> in terms of <span 
+class="cmmi-10">&delta;A</span></a></span>
+<br />    <span class="subsectionToc" >C.2 <a 
+href="nonlinear_gyrokinetic_equationsu24.html#x34-47000C.2" id="QQ2-34-50">Expression of <span 
+class="cmmi-10">&delta;B</span><sub><span 
+class="cmsy-7">∥</span></sub> in terms of <span 
+class="cmmi-10">&delta;A</span></a></span>
+<br />    <span class="subsectionToc" >C.3 <a 
+href="nonlinear_gyrokinetic_equationsu25.html#x35-48000C.3" id="QQ2-35-51">Expressing the perturbed drift in terms of <span 
+class="cmmi-10">&delta;E </span>and <span 
+class="cmmi-10">&delta;B</span></a></span>
+<br />    <span class="subsectionToc" >C.4 <a 
+href="nonlinear_gyrokinetic_equationsu26.html#x36-49000C.4" id="QQ2-36-52">Expressing the coeﬃcient before <span 
+class="cmmi-10">&part;F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕&part;𝜀 </span>in terms of <span 
+class="cmmi-10">&delta;E </span>and <span 
+class="cmmi-10">&delta;B</span></a></span>
+<br />   <span class="sectionToc" >D <a 
+href="nonlinear_gyrokinetic_equationse10.html#x37-50000D" id="QQ2-37-53">Drift-kinetic limit</a></span>
+<br />    <span class="subsectionToc" >D.1 <a 
+href="nonlinear_gyrokinetic_equationsu27.html#x38-51000D.1" id="QQ2-38-54">Linear case</a></span>
+<br />    <span class="subsectionToc" >D.2 <a 
+href="nonlinear_gyrokinetic_equationsu28.html#x39-52000D.2" id="QQ2-39-55">Transform from (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,𝜀</span>) to (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,&mu;,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) coordinates</a></span>
+<br />    <span class="subsectionToc" >D.3 <a 
+href="nonlinear_gyrokinetic_equationsu29.html#x40-53000D.3" id="QQ2-40-56">Parallel momentum equation</a></span>
+<br />    <span class="subsectionToc" >D.4 <a 
+href="nonlinear_gyrokinetic_equationsu30.html#x41-54000D.4" id="QQ2-41-57">Special case in uniform magnetic ﬁeld</a></span>
+<br />    <span class="subsectionToc" >D.5 <a 
+href="nonlinear_gyrokinetic_equationsu31.html#x42-55000D.5" id="QQ2-42-58">Electron perpendicular ﬂow</a></span>
+<br />   <span class="sectionToc" >E <a 
+href="nonlinear_gyrokinetic_equationse11.html#x43-58000E" id="QQ2-43-61">Modern view of gyrokinetic equation</a></span>
+<br />   <span class="likesectionToc" ><a 
+href="nonlinear_gyrokinetic_equationli1.html#x44-59000E" id="QQ2-44-62">References</a></span>
+   </div>
+
+
+
+
+
+
+
+
+
+
+ 
+</body></html> 
+
+                                                                                  
+
+

@@ -1,0 +1,939 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Grad-Shafranov equation with prescribed safety factor profile (to
+be finished)</TITLE>
+<META NAME="description" CONTENT="Grad-Shafranov equation with prescribed safety factor profile (to
+be finished)">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="previous" HREF="node98.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node100.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1215"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1213"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1209"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1216"
+  HREF="node100.html">Misc contents</A>
+<B> Up:</B> <A NAME="tex2html1214"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Previous:</B> <A NAME="tex2html1210"
+  HREF="node98.html">Toroidal elliptic operator in</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000128000000000000000">
+Grad-Shafranov equation with prescribed safety factor profile (to
+be finished)</A>
+</H2>
+
+<P>
+In the GS equation, <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img273.png"
+ ALT="$ g (\Psi)$"></SPAN> is one of the two free functions which can be
+prescribed by users. In some cases, we want to specify the safety factor
+profile <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1394.png"
+ ALT="$ q (\Psi)$"></SPAN>, instead of <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img273.png"
+ ALT="$ g (\Psi)$"></SPAN>, in solving the GS equation. Next,
+we derive the form of the GS equation that contains <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1394.png"
+ ALT="$ q (\Psi)$"></SPAN>, instead of <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img273.png"
+ ALT="$ g (\Psi)$"></SPAN>, as a free function. The safety factor defined in Eq. (<A HREF="node44.html#7-11-p1">182</A>)
+can be written
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="12-21-p2"></A><!-- MATH
+ \begin{eqnarray}
+q (\psi) & = & - \frac{1}{2 \pi}  \frac{g}{\Psi'} \int_0^{2 \pi}
+  \frac{\mathcal{J}}{R^2} d \theta \\
+  & = & - \frac{1}{2 \pi}  \frac{g}{\Psi'}  \frac{\int_0^{2 \pi} R^{- 2}
+  \mathcal{J}d \theta}{\int_0^{2 \pi} \mathcal{J}d \theta} \int_0^{2 \pi}
+  \mathcal{J}d \theta \nonumber\\
+  & = & - \frac{1}{2 \pi}  \frac{g}{\Psi'} \langle R^{- 2} \rangle \int_0^{2
+  \pi} \mathcal{J}d \theta \\
+  & = & - \ensuremath{\operatorname{sgn}} (\mathcal{J}) \frac{V'}{(2 \pi)^2}  \frac{\langle R^{-
+  2} \rangle}{\Psi'} g.
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img592.png"
+ ALT="$\displaystyle q (\psi)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="134" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1395.png"
+ ALT="$\displaystyle - \frac{1}{2 \pi} \frac{g}{\Psi'} \int_0^{2 \pi}
+\frac{\mathcal{J}}{R^2} d \theta$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">469</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="216" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1396.png"
+ ALT="$\displaystyle - \frac{1}{2 \pi} \frac{g}{\Psi'} \frac{\int_0^{2 \pi} R^{- 2}
+\m...
+... \theta}{\int_0^{2 \pi} \mathcal{J}d \theta} \int_0^{2 \pi}
+\mathcal{J}d \theta$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="166" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1397.png"
+ ALT="$\displaystyle - \frac{1}{2 \pi} \frac{g}{\Psi'} \langle R^{- 2} \rangle \int_0^{2
+\pi} \mathcal{J}d \theta$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">470</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="167" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1398.png"
+ ALT="$\displaystyle - \ensuremath{\operatorname{sgn}} (\mathcal{J}) \frac{V'}{(2 \pi)^2} \frac{\langle R^{-
+2} \rangle}{\Psi'} g.$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">471</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Equation (<A HREF="#12-21-p2">471</A>) gives the relation between the safety factor <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img208.png"
+ ALT="$ q$"></SPAN> and
+the toroidal field function <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ g$"></SPAN>. This relation can be used in the GS equation
+to eliminate <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ g$"></SPAN> in favor of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img208.png"
+ ALT="$ q$"></SPAN>, which gives
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+g = - \ensuremath{\operatorname{sgn}} (\mathcal{J}) \frac{(2 \pi)^2}{V' \langle R^{- 2} \rangle}
+  \Psi' q.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="189" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1399.png"
+ ALT="$\displaystyle g = - \ensuremath{\operatorname{sgn}} (\mathcal{J}) \frac{(2 \pi)^2}{V' \langle R^{- 2} \rangle} \Psi' q.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">472</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-18-p3"></A><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{d g}{d \Psi} g = \frac{(2 \pi)^2}{V'
+  \langle R^{- 2} \rangle} q \left[ \frac{(2 \pi)^2}{V' \langle R^{- 2}
+  \rangle} q \Psi' \right]_{\psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="265" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1400.png"
+ ALT="$\displaystyle \Rightarrow \frac{d g}{d \Psi} g = \frac{(2 \pi)^2}{V' \langle R^...
+...e} q \left[ \frac{(2 \pi)^2}{V' \langle R^{- 2} \rangle} q \Psi' \right]_{\psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">473</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Multiplying Eq. (<A HREF="node98.html#9-28-e1">468</A>) by <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1401.png"
+ ALT="$ R^{- 2}$"></SPAN> gives
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{1}{\mathcal{J}} \left[ \left( \Psi' \frac{\mathcal{J}}{R^2} | \nabla
+  \psi |^2 \right)_{\psi} + \left( \Psi' \frac{\mathcal{J}}{R^2} (\nabla \psi
+  \cdot \nabla \theta) \right)_{\theta} \right] + \mu_0 \frac{d p}{d \Psi} +
+  R^{- 2} \frac{d g}{d \Psi} g = 0.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="491" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1402.png"
+ ALT="$\displaystyle \frac{1}{\mathcal{J}} \left[ \left( \Psi' \frac{\mathcal{J}}{R^2}...
+...{\theta} \right] + \mu_0 \frac{d p}{d \Psi} + R^{- 2} \frac{d g}{d \Psi} g = 0.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">474</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Surface-averaging the above equation, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{2 \pi}{V'} \int d \theta \left[ \left( \Psi' \frac{\mathcal{J}}{R^2} |
+  \nabla \psi |^2 \right)_{\psi} + \left( \Psi' \frac{\mathcal{J}}{R^2}
+  (\nabla \psi \cdot \nabla \theta) \right)_{\theta} \right] + \mu_0 \frac{d
+  p}{d \Psi} + \langle R^{- 2} \rangle \frac{d g}{d \Psi} g = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="545" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1403.png"
+ ALT="$\displaystyle \frac{2 \pi}{V'} \int d \theta \left[ \left( \Psi' \frac{\mathcal...
+... + \mu_0 \frac{d p}{d \Psi} + \langle R^{- 2} \rangle \frac{d g}{d \Psi} g = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">475</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{2 \pi}{V'} \int d \theta \left( \Psi'
+  \frac{\mathcal{J}}{R^2} | \nabla \psi |^2 \right)_{\psi} + \mu_0 \frac{d
+  p}{d \Psi} + \langle R^{- 2} \rangle \frac{d g}{d \Psi} g = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="387" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1404.png"
+ ALT="$\displaystyle \Rightarrow \frac{2 \pi}{V'} \int d \theta \left( \Psi' \frac{\ma...
+... + \mu_0 \frac{d p}{d \Psi} + \langle R^{- 2} \rangle \frac{d g}{d \Psi} g = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">476</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{2 \pi}{V'} \left[ \Psi' \int d \theta \left( \mathcal{J}
+  \frac{| \nabla \psi |^2}{R^2} \right) \right]_{\psi} + \mu_0 \frac{d p}{d
+  \Psi} + \langle R^{- 2} \rangle \frac{d g}{d \Psi} g = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="401" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1405.png"
+ ALT="$\displaystyle \Rightarrow \frac{2 \pi}{V'} \left[ \Psi' \int d \theta \left( \m...
+... + \mu_0 \frac{d p}{d \Psi} + \langle R^{- 2} \rangle \frac{d g}{d \Psi} g = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">477</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{1}{V'} \left[ V' \Psi' \left\langle \frac{| \nabla \psi
+  |^2}{R^2} \right\rangle \right]_{\psi} + \mu_0 \frac{d p}{d \Psi} + \langle
+  R^{- 2} \rangle \frac{d g}{d \Psi} g = 0.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="367" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1406.png"
+ ALT="$\displaystyle \Rightarrow \frac{1}{V'} \left[ V' \Psi' \left\langle \frac{\vert...
+... + \mu_0 \frac{d p}{d \Psi} + \langle R^{- 2} \rangle \frac{d g}{d \Psi} g = 0.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">478</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow \left[ V' \Psi' \left\langle \frac{| \nabla \psi |^2}{R^2}
+  \right\rangle \right]_{\psi} + \mu_0 V' \frac{d p}{d \Psi} + \langle R^{- 2}
+  \rangle V' \frac{d g}{d \Psi} g = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="378" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1407.png"
+ ALT="$\displaystyle \Rightarrow \left[ V' \Psi' \left\langle \frac{\vert \nabla \psi ...
+..._0 V' \frac{d p}{d \Psi} + \langle R^{- 2} \rangle V' \frac{d g}{d \Psi} g = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">479</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Substitute Eq. (<A HREF="#4-18-p3">473</A>) into the above equation to eliminate <!-- MATH
+ $g d g / d
+\Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1408.png"
+ ALT="$ g d g / d
+\Psi$"></SPAN>, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-19-5"></A><!-- MATH
+ \begin{equation}
+\Rightarrow \left[ V' \Psi' \left\langle \frac{| \nabla \psi
+  |^2}{R^2} \right\rangle \right]_{\psi} + \mu_0 V' \frac{d p}{d \Psi} + q (2
+  \pi)^4 \left[ \frac{q \Psi'}{V' \langle R^{- 2} \rangle} \right]_{\psi} = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="423" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1409.png"
+ ALT="$\displaystyle \Rightarrow \left[ V' \Psi' \left\langle \frac{\vert \nabla \psi ...
+...(2 \pi)^4 \left[ \frac{q \Psi'}{V' \langle R^{- 2} \rangle} \right]_{\psi} = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">480</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Eq. (<A HREF="#4-19-5">480</A>) agrees with Eq. (5.55) in Ref. [<A
+ HREF="node111.html#jardin2010">9</A>].
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow V' \left\langle \frac{| \nabla \psi |^2}{R^2} \right\rangle
+  \Psi'' + \left[ V' \left\langle \frac{| \nabla \psi |^2}{R^2} \right\rangle
+  \right]_{\psi} \Psi' + \mu_0 V' \frac{d p}{d \Psi} + q (2 \pi)^4 \left[
+  \frac{q}{V' \langle R^{- 2} \rangle} \right] \Psi'' + q (2 \pi)^4 \left[
+  \frac{q}{V' \langle R^{- 2} \rangle} \right]_{\psi} \Psi' = 0
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="739" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1410.png"
+ ALT="$\displaystyle \Rightarrow V' \left\langle \frac{\vert \nabla \psi \vert^2}{R^2}...
+... (2 \pi)^4 \left[ \frac{q}{V' \langle R^{- 2} \rangle} \right]_{\psi} \Psi' = 0$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">481</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="1-2-4"></A><!-- MATH
+ \begin{equation}
+\Rightarrow \Psi'' = - \frac{1}{V' D} \left\{ \left[ V'
+  \left\langle \frac{| \nabla \psi |^2}{R^2} \right\rangle \right]_{\psi}
+  \Psi' + q (2 \pi)^4 \left[ \frac{q}{V' \langle R^{- 2} \rangle}
+  \right]_{\psi} \Psi' + \mu_0 V' \frac{d p}{d \Psi} \right\}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="529" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1411.png"
+ ALT="$\displaystyle \Rightarrow \Psi'' = - \frac{1}{V' D} \left\{ \left[ V' \left\lan...
+...le R^{- 2} \rangle} \right]_{\psi} \Psi' + \mu_0 V' \frac{d p}{d \Psi} \right\}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">482</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+D = \left\langle \frac{| \nabla \psi |^2}{R^2} \right\rangle + \frac{(2
+  \pi)^4}{\langle R^{- 2} \rangle} \left( \frac{q}{V'} \right)^2
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="222" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1412.png"
+ ALT="$\displaystyle D = \left\langle \frac{\vert \nabla \psi \vert^2}{R^2} \right\rangle + \frac{(2 \pi)^4}{\langle R^{- 2} \rangle} \left( \frac{q}{V'} \right)^2$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">483</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The GS equation is
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\triangle^{\star} \Psi = - \mu_0 R^2 \frac{d p}{d \Psi} - g \frac{d g}{d
+  \Psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="184" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1413.png"
+ ALT="$\displaystyle \triangle^{\star} \Psi = - \mu_0 R^2 \frac{d p}{d \Psi} - g \frac{d g}{d \Psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">484</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow \triangle^{\star} \Psi = - \mu_0 R^2 \frac{d p}{d \Psi} -
+  \frac{q (2 \pi)^4}{V' \langle R^{- 2} \rangle} \left[ \frac{q \Psi'}{V'
+  \langle R^{- 2} \rangle} \right]_{\psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="326" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1414.png"
+ ALT="$\displaystyle \Rightarrow \triangle^{\star} \Psi = - \mu_0 R^2 \frac{d p}{d \Ps...
+...{- 2} \rangle} \left[ \frac{q \Psi'}{V' \langle R^{- 2} \rangle} \right]_{\psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">485</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow \triangle^{\star} \Psi = - \mu_0 R^2 \frac{d p}{d \Psi} -
+  \frac{q (2 \pi)^4}{V' \langle R^{- 2} \rangle} \left\{ \left[ \frac{q}{V'
+  \langle R^{- 2} \rangle} \right]_{\psi} \Psi' + \left[ \frac{q}{V' \langle
+  R^{- 2} \rangle} \right] \Psi'' \right\}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="494" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1415.png"
+ ALT="$\displaystyle \Rightarrow \triangle^{\star} \Psi = - \mu_0 R^2 \frac{d p}{d \Ps...
+...si} \Psi' + \left[ \frac{q}{V' \langle R^{- 2} \rangle} \right] \Psi'' \right\}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">486</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using Eq. (<A HREF="#1-2-4">482</A>) to eliminate <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1416.png"
+ ALT="$ \Psi''$"></SPAN> in the above equation, the
+coefficients before (<!-- MATH
+ $- \mu_0 d p / d \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="78" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1417.png"
+ ALT="$ - \mu_0 d p / d \Psi$"></SPAN>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+B & = & R^2 - \frac{q (2 \pi)^4}{V' \langle R^{- 2} \rangle} \left\{ \left[
+  \frac{q}{V' \langle R^{- 2} \rangle} \right] \frac{1}{V' D} V' \right\}
+  \nonumber\\
+  & = & \frac{1}{D} \left\{ R^2 D - \left( \frac{q}{V'} \right)^2 \frac{(2
+  \pi)^4}{\langle R^{- 2} \rangle^2} \right\} .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1418.png"
+ ALT="$\displaystyle B$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="266" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1419.png"
+ ALT="$\displaystyle R^2 - \frac{q (2 \pi)^4}{V' \langle R^{- 2} \rangle} \left\{ \left[
+\frac{q}{V' \langle R^{- 2} \rangle} \right] \frac{1}{V' D} V' \right\}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="210" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1420.png"
+ ALT="$\displaystyle \frac{1}{D} \left\{ R^2 D - \left( \frac{q}{V'} \right)^2 \frac{(2
+\pi)^4}{\langle R^{- 2} \rangle^2} \right\} .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">487</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Substituting the expression of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img698.png"
+ ALT="$ D$"></SPAN> into the above equation, we obtain
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-19-1"></A><!-- MATH
+ \begin{eqnarray}
+B & = & \frac{1}{D} \left\{ R^2 \left\langle \frac{| \nabla \psi |^2}{R^2}
+  \right\rangle + R^2 \frac{(2 \pi)^4}{\langle R^{- 2} \rangle} \left(
+  \frac{q}{V'} \right)^2 - \left( \frac{q}{V'} \right)^2 \frac{(2
+  \pi)^4}{\langle R^{- 2} \rangle^2} \right\} \nonumber\\
+  & = & \frac{1}{D} \left\{ R^2 \left\langle \frac{| \nabla \psi |^2}{R^2}
+  \right\rangle + \left( \frac{q}{V'} \right)^2 \frac{(2 \pi)^4}{\langle R^{-
+  2} \rangle} \left( R^2 - \frac{1}{\langle R^{- 2} \rangle} \right) \right\},
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1418.png"
+ ALT="$\displaystyle B$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="394" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1421.png"
+ ALT="$\displaystyle \frac{1}{D} \left\{ R^2 \left\langle \frac{\vert \nabla \psi \ver...
+...ft( \frac{q}{V'} \right)^2 \frac{(2
+\pi)^4}{\langle R^{- 2} \rangle^2} \right\}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="370" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1422.png"
+ ALT="$\displaystyle \frac{1}{D} \left\{ R^2 \left\langle \frac{\vert \nabla \psi \ver...
+...{-
+2} \rangle} \left( R^2 - \frac{1}{\langle R^{- 2} \rangle} \right) \right\},$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">488</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+which is equal to the expression (5.58) in Ref. [<A
+ HREF="node111.html#jardin2010">9</A>]. The
+coefficient before <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1423.png"
+ ALT="$ \Psi'$"></SPAN> is written as
+<P><!-- MATH
+ \begin{displaymath}
+A = - \frac{q (2 \pi)^4}{V' \langle R^{- 2} \rangle} \left\{ \left[
+   \frac{q}{V' \langle R^{- 2} \rangle} \right]_{\psi} - \left[ \frac{q}{V'
+   \langle R^{- 2} \rangle} \right] \frac{1}{V' D} \left[ \left( V'
+   \left\langle \frac{| \nabla \psi |^2}{R^2} \right\rangle \right)_{\psi} + q
+   (2 \pi)^4 \left[ \frac{q}{V' \langle R^{- 2} \rangle} \right]_{\psi}
+   \right] \right\}
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="660" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1424.png"
+ ALT="$\displaystyle A = - \frac{q (2 \pi)^4}{V' \langle R^{- 2} \rangle} \left\{ \lef...
+...4 \left[ \frac{q}{V' \langle R^{- 2} \rangle} \right]_{\psi}
+\right] \right\} $">
+</DIV><P></P>
+Define
+<P><!-- MATH
+ \begin{displaymath}
+\alpha = \left\langle \frac{| \nabla \psi |^2}{R^2} \right\rangle,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="110" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1425.png"
+ ALT="$\displaystyle \alpha = \left\langle \frac{\vert \nabla \psi \vert^2}{R^2} \right\rangle, $">
+</DIV><P></P>
+<P><!-- MATH
+ \begin{displaymath}
+\beta = \frac{q}{V' \langle R^{- 2} \rangle} .
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="102" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1426.png"
+ ALT="$\displaystyle \beta = \frac{q}{V' \langle R^{- 2} \rangle} . $">
+</DIV><P></P>
+<P><!-- MATH
+ \begin{displaymath}
+A = - (2 \pi)^4 \beta \left\{ \beta_{\psi} - \beta \frac{1}{V' D} [(V'
+   \alpha)_{\psi} + q (2 \pi)^4 \beta_{\psi}] \right\}
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="347" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1427.png"
+ ALT="$\displaystyle A = - (2 \pi)^4 \beta \left\{ \beta_{\psi} - \beta \frac{1}{V' D} [(V'
+\alpha)_{\psi} + q (2 \pi)^4 \beta_{\psi}] \right\} $">
+</DIV><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{D}{- (2 \pi)^4 \beta} A = D \beta_{\psi} - \beta
+  \frac{1}{V'} [(V' \alpha)_{\psi} + q (2 \pi)^4 \beta_{\psi}]
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="354" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1428.png"
+ ALT="$\displaystyle \Longrightarrow \frac{D}{- (2 \pi)^4 \beta} A = D \beta_{\psi} - \beta \frac{1}{V'} [(V' \alpha)_{\psi} + q (2 \pi)^4 \beta_{\psi}]$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">489</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{D}{- \beta (2 \pi)^4} A = D \beta_{\psi} - \beta
+  \frac{1}{V'} [V'' \alpha + V' \alpha_{\psi} + q (2 \pi)^4 \beta_{\psi}]
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="393" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1429.png"
+ ALT="$\displaystyle \Longrightarrow \frac{D}{- \beta (2 \pi)^4} A = D \beta_{\psi} - \beta \frac{1}{V'} [V'' \alpha + V' \alpha_{\psi} + q (2 \pi)^4 \beta_{\psi}]$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">490</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+D = \alpha + (2 \pi)^4 \langle R^{- 2} \rangle \beta^2
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="165" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1430.png"
+ ALT="$\displaystyle D = \alpha + (2 \pi)^4 \langle R^{- 2} \rangle \beta^2$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">491</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Eq. () is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\left. \Longrightarrow \frac{D}{- \beta (2 \pi)^4} A = \alpha \beta_{\psi} +
+  (2 \pi)^4 \langle R^{- 2} \rangle \beta^2 \beta_{\psi} - \beta \frac{1}{V'}
+  V'' \alpha - \beta \frac{1}{V'} V' \alpha_{\psi} - \beta \frac{1}{V'} q (2
+  \pi)^4 \beta_{\psi} \right]
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="581" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1431.png"
+ ALT="$\displaystyle \left. \Longrightarrow \frac{D}{- \beta (2 \pi)^4} A = \alpha \be...
+...c{1}{V'} V' \alpha_{\psi} - \beta \frac{1}{V'} q (2 \pi)^4 \beta_{\psi} \right]$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">492</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\left. \Longrightarrow \frac{D}{- \beta (2 \pi)^4} A = \alpha \beta_{\psi} +
+  (2 \pi)^4 \langle R^{- 2} \rangle \beta^2 \beta_{\psi} - \beta \frac{1}{V'}
+  V'' \alpha - \beta \alpha_{\psi} - \beta \frac{1}{V'} q (2 \pi)^4
+  \beta_{\psi} \right]
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="548" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1432.png"
+ ALT="$\displaystyle \left. \Longrightarrow \frac{D}{- \beta (2 \pi)^4} A = \alpha \be...
+...pha - \beta \alpha_{\psi} - \beta \frac{1}{V'} q (2 \pi)^4 \beta_{\psi} \right]$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">493</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{A}{- \beta (2 \pi)^4} D = \alpha \beta_{\psi} + (2 \pi)^4 \langle R^{-
+  2} \rangle \beta^2 \beta_{\psi} - \beta \frac{1}{V'} V'' \alpha - \beta
+  \alpha_{\psi} - \beta^2 \langle R^{- 2} \rangle (2 \pi)^4 \beta_{\psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="529" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1433.png"
+ ALT="$\displaystyle \frac{A}{- \beta (2 \pi)^4} D = \alpha \beta_{\psi} + (2 \pi)^4 \...
+... - \beta \alpha_{\psi} - \beta^2 \langle R^{- 2} \rangle (2 \pi)^4 \beta_{\psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">494</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = \alpha \beta_{\psi} - \beta
+  \frac{1}{V'} V'' \alpha - \beta \alpha_{\psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="292" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1434.png"
+ ALT="$\displaystyle \Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = \alpha \beta_{\psi} - \beta \frac{1}{V'} V'' \alpha - \beta \alpha_{\psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">495</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \left(
+  \frac{\alpha}{\beta} \right)_{\psi} - \beta \frac{1}{V'} V'' \alpha
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="293" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1435.png"
+ ALT="$\displaystyle \Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \left( \frac{\alpha}{\beta} \right)_{\psi} - \beta \frac{1}{V'} V'' \alpha$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">496</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \left(
+  \frac{\alpha}{\beta} \right)_{\psi} - \beta^2 \frac{1}{V'} V''
+  \frac{\alpha}{\beta}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="304" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1436.png"
+ ALT="$\displaystyle \Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \left( ...
+...c{\alpha}{\beta} \right)_{\psi} - \beta^2 \frac{1}{V'} V'' \frac{\alpha}{\beta}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">497</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \left[ \left(
+  \frac{\alpha}{\beta} \right)_{\psi} + \frac{1}{V'} V'' \frac{\alpha}{\beta}
+  \right]
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="305" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1437.png"
+ ALT="$\displaystyle \Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \left[ ...
+...c{\alpha}{\beta} \right)_{\psi} + \frac{1}{V'} V'' \frac{\alpha}{\beta} \right]$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">498</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \frac{1}{V'}
+  \left[ \left( \frac{\alpha}{\beta} \right)_{\psi} V' + V''
+  \frac{\alpha}{\beta} \right]
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="325" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1438.png"
+ ALT="$\displaystyle \Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \frac{1...
+...left( \frac{\alpha}{\beta} \right)_{\psi} V' + V'' \frac{\alpha}{\beta} \right]$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">499</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \frac{1}{V'}
+  \left( \frac{\alpha}{\beta} V' \right)_{\psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="250" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1439.png"
+ ALT="$\displaystyle \Longrightarrow \frac{A}{- \beta (2 \pi)^4} D = - \beta^2 \frac{1}{V'} \left( \frac{\alpha}{\beta} V' \right)_{\psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">500</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Longrightarrow A = \frac{(2 \pi)^4}{D} \left( \frac{q}{V' \langle R^{- 2}
+  \rangle} \right)^3 \frac{1}{V'} \left[ \left\langle \frac{| \nabla \psi
+  |^2}{R^2} \right\rangle \frac{\langle R^{- 2} \rangle}{q} V^{\prime 2}
+  \right]_{\psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="397" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1440.png"
+ ALT="$\displaystyle \Longrightarrow A = \frac{(2 \pi)^4}{D} \left( \frac{q}{V' \langl...
+...^2} \right\rangle \frac{\langle R^{- 2} \rangle}{q} V^{\prime 2} \right]_{\psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">501</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+But the expression of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img454.png"
+ ALT="$ A$"></SPAN> is slightly different from that given in Ref.
+[<A
+ HREF="node111.html#jardin2010">9</A>] [Eq. (5.57)]. Using the above coefficients, the GS
+equation with the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img208.png"
+ ALT="$ q$"></SPAN>-profile held fixed is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\left( \Delta^{\star} - A \frac{\partial}{\partial \psi} \right) \Psi = - B
+  \mu_0 \frac{d p}{d \Psi} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="211" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1441.png"
+ ALT="$\displaystyle \left( \Delta^{\star} - A \frac{\partial}{\partial \psi} \right) \Psi = - B \mu_0 \frac{d p}{d \Psi} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">502</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1215"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1213"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1209"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1216"
+  HREF="node100.html">Misc contents</A>
+<B> Up:</B> <A NAME="tex2html1214"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Previous:</B> <A NAME="tex2html1210"
+  HREF="node98.html">Toroidal elliptic operator in</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

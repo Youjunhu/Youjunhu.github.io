@@ -1,0 +1,541 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>One-dimensional Vlasov-Poisson equations</TITLE>
+<META NAME="description" CONTENT="One-dimensional Vlasov-Poisson equations">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html212"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html210"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html204"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html213"
+  HREF="node17.html">Normalization</A>
+<B> Up:</B> <A NAME="tex2html211"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<B> Previous:</B> <A NAME="tex2html205"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00031000000000000000">
+One-dimensional Vlasov-Poisson equations</A>
+</H2>
+
+<P>
+In this section, we consider the self-consistent-field theory of Landau
+damping. The Vlasov equation is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial f}{\partial t} +\mathbf{v} \cdot \nabla f + \frac{q}{m}
+  (\mathbf{E}+\mathbf{v} \times \mathbf{B}) \cdot \nabla_v f = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="290" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img197.png"
+ ALT="$\displaystyle \frac{\partial f}{\partial t} +\mathbf{v} \cdot \nabla f + \frac{q}{m} (\mathbf{E}+\mathbf{v} \times \mathbf{B}) \cdot \nabla_v f = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">58</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img198.png"
+ ALT="$ f$"></SPAN> is the electron distribution function, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img199.png"
+ ALT="$ q$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img200.png"
+ ALT="$ m$"></SPAN> are the charge
+and mass of electrons, respectively. The linearized version of the above
+equation is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-26-1"></A><!-- MATH
+ \begin{equation}
+\frac{\partial f_1}{\partial t} +\mathbf{v} \cdot \nabla f_1
+  + \frac{q}{m} (\mathbf{E}_0 +\mathbf{v} \times \mathbf{B}_0) \cdot \nabla_v
+  f_1 = - \frac{q}{m} (\mathbf{E}_1 +\mathbf{v} \times \mathbf{B}_1) \cdot
+  \nabla_v f_0 .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="490" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img201.png"
+ ALT="$\displaystyle \frac{\partial f_1}{\partial t} +\mathbf{v} \cdot \nabla f_1 + \f...
+...\frac{q}{m} (\mathbf{E}_1 +\mathbf{v} \times \mathbf{B}_1) \cdot \nabla_v f_0 .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">59</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+We consider the case of <!-- MATH
+ $\mathbf{B}_0 = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img202.png"
+ ALT="$ \mathbf{B}_0 = 0$"></SPAN> and <!-- MATH
+ $\mathbf{E}_0 = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img203.png"
+ ALT="$ \mathbf{E}_0 = 0$"></SPAN>. Further
+consider only the electrostatic case, i.e. <!-- MATH
+ $\partial \mathbf{B}_1 / \partial t
+= 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="86" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img204.png"
+ ALT="$ \partial \mathbf{B}_1 / \partial t
+= 0$"></SPAN>, i.e., there is not magnetic fluctuation. Then it follows from Faraday's
+law that the perturbed electric field can be written as <!-- MATH
+ $\mathbf{E}_1 = -
+\nabla \Phi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="82" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img205.png"
+ ALT="$ \mathbf{E}_1 = -
+\nabla \Phi$"></SPAN>. Then the linearized Vlasov equation (<A HREF="#9-26-1">59</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial f_1}{\partial t} +\mathbf{v} \cdot \nabla f_1 = - \frac{q}{m}
+  \mathbf{E}_1 \cdot \nabla_v f_0 .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="224" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img206.png"
+ ALT="$\displaystyle \frac{\partial f_1}{\partial t} +\mathbf{v} \cdot \nabla f_1 = - \frac{q}{m} \mathbf{E}_1 \cdot \nabla_v f_0 .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">60</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Consider the one-dimensional case where <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img207.png"
+ ALT="$ f_1$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img208.png"
+ ALT="$ \Phi$"></SPAN> are both independent
+of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img209.png"
+ ALT="$ x$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.png"
+ ALT="$ y$"></SPAN> coordinates, then the above equation is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-5-p5"></A><!-- MATH
+ \begin{equation}
+\frac{\partial f_1}{\partial t} + v_z \frac{\partial
+  f_1}{\partial z} = - \frac{q}{m} E_1 \frac{\partial f_0}{\partial v_z} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="198" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.png"
+ ALT="$\displaystyle \frac{\partial f_1}{\partial t} + v_z \frac{\partial f_1}{\partial z} = - \frac{q}{m} E_1 \frac{\partial f_0}{\partial v_z} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">61</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Integrating both sides of Eq. (<A HREF="#11-5-p5">61</A>) over <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img212.png"
+ ALT="$ v_x$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img213.png"
+ ALT="$ v_y$"></SPAN>, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-26-8"></A><!-- MATH
+ \begin{equation}
+\frac{\partial F_1}{\partial t} + v_z \frac{\partial
+  F_1}{\partial z} = - \frac{q}{m} E_1 \frac{\partial F_0}{\partial v_z},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="205" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img214.png"
+ ALT="$\displaystyle \frac{\partial F_1}{\partial t} + v_z \frac{\partial F_1}{\partial z} = - \frac{q}{m} E_1 \frac{\partial F_0}{\partial v_z},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">62</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+F_0 = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} f_0 d v_x d v_y,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="180" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img215.png"
+ ALT="$\displaystyle F_0 = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} f_0 d v_x d v_y,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">63</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+F_1 = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} f_1 d v_x d v_y,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="180" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img216.png"
+ ALT="$\displaystyle F_1 = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} f_1 d v_x d v_y,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">64</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which are called the reduced distribution functions. Poisson's equation is
+written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-31-a2"></A><!-- MATH
+ \begin{equation}
+\frac{\partial E}{\partial z} = \frac{1}{\varepsilon_0}
+  \left( n_i q_i + q \int_{- \infty}^{\infty} f d^3 v \right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="228" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img217.png"
+ ALT="$\displaystyle \frac{\partial E}{\partial z} = \frac{1}{\varepsilon_0} \left( n_i q_i + q \int_{- \infty}^{\infty} f d^3 v \right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">65</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img218.png"
+ ALT="$ n_i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img219.png"
+ ALT="$ q_i$"></SPAN> are the number density and charge of ions, respectively.
+In equilibrium the number density of electrons and ions are equal to each
+other. Assuming the number density of the massive ions remain unchanged,
+Poisson's equation for the perturbed quantities is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-5-p6"></A><!-- MATH
+ \begin{equation}
+\frac{\partial E_1}{\partial z} = \frac{1}{\varepsilon_0} q
+  \int_{- \infty}^{\infty} f_1 d^3 v,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="164" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img220.png"
+ ALT="$\displaystyle \frac{\partial E_1}{\partial z} = \frac{1}{\varepsilon_0} q \int_{- \infty}^{\infty} f_1 d^3 v,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">66</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In terms of the reduced distribution function, equation (<A HREF="#11-5-p6">66</A>) is
+written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-26-9"></A><!-- MATH
+ \begin{equation}
+\frac{\partial E_1}{\partial z} = \frac{1}{\varepsilon_0} q
+  \int_{- \infty}^{\infty} F_1 d v_z .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="167" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img221.png"
+ ALT="$\displaystyle \frac{\partial E_1}{\partial z} = \frac{1}{\varepsilon_0} q \int_{- \infty}^{\infty} F_1 d v_z .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">67</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Equations (<A HREF="#9-26-8">62</A>) and (<A HREF="#9-26-9">67</A>) governs the time evolution of
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img222.png"
+ ALT="$ F_1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img223.png"
+ ALT="$ E_1$"></SPAN>. Consider the case that <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img224.png"
+ ALT="$ F_0$"></SPAN> is spatially uniform, then all
+the coefficients of Eqs. (<A HREF="#9-26-8">62</A>) and (<A HREF="#9-26-9">67</A>) are independent of
+the spatial coordinate. In this case, different spatial Fourier harmonics are
+decoupled. Therefore, we can consider the case that there are only one Fourier
+harmonics <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img225.png"
+ ALT="$ e^{i k z}$"></SPAN> in both <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img222.png"
+ ALT="$ F_1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img223.png"
+ ALT="$ E_1$"></SPAN>, i.e., <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img222.png"
+ ALT="$ F_1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img223.png"
+ ALT="$ E_1$"></SPAN> are
+written, respectively, as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-30-e1"></A><!-- MATH
+ \begin{equation}
+F_1 = \hat{F}_1 (t, v_z) e^{i k z},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="131" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.png"
+ ALT="$\displaystyle F_1 = \hat{F}_1 (t, v_z) e^{i k z},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">68</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-30-e2"></A><!-- MATH
+ \begin{equation}
+E_1 = \hat{E}_1 (t) e^{i k z} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="112" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img227.png"
+ ALT="$\displaystyle E_1 = \hat{E}_1 (t) e^{i k z} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">69</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img228.png"
+ ALT="$ \hat{F}_1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img229.png"
+ ALT="$ \hat{E}_1$"></SPAN> in Eqs (<A HREF="#8-30-e1">68</A>) and
+(<A HREF="#8-30-e2">69</A>) are usually complex-valued (to allow arbitrary phases angle in
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ z$"></SPAN>). Then using Eq. (<A HREF="#9-26-9">67</A>) in Eq. (<A HREF="#9-26-8">62</A>) yields
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-5-p7"></A><!-- MATH
+ \begin{equation}
+\frac{\partial \hat{F}_1}{\partial t} = - i k v_z  \hat{F}_1
+  - \frac{q^2}{\varepsilon_0 m}  \frac{\partial F_0}{\partial v_z}  \frac{1}{i
+  k}  \int_{- \infty}^{\infty} \hat{F}_1 d v_z
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="294" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img230.png"
+ ALT="$\displaystyle \frac{\partial \hat{F}_1}{\partial t} = - i k v_z \hat{F}_1 - \fr...
+...rtial F_0}{\partial v_z} \frac{1}{i k} \int_{- \infty}^{\infty} \hat{F}_1 d v_z$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">70</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Given an equilibrium distribution function <SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img231.png"
+ ALT="$ F_0 (v_z)$"></SPAN> and an initial
+perturbation <!-- MATH
+ $\hat{F}_1 (0, v_z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img232.png"
+ ALT="$ \hat{F}_1 (0, v_z)$"></SPAN>, equation (<A HREF="#11-5-p7">70</A>) can be solved
+analytically by using the Laplace transformation. Here, to avoid the fancy
+mathematics involved in the Laplace transformation, I solve Eq.
+(<A HREF="#11-5-p7">70</A>) by a direct numerical method.
+
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+-- -- tmp
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial F_1}{\partial t} + v_z \frac{\partial F_1}{\partial z} = -
+  \frac{q}{m} E_1 \frac{\partial F_0}{\partial v_z}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="201" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img233.png"
+ ALT="$\displaystyle \frac{\partial F_1}{\partial t} + v_z \frac{\partial F_1}{\partial z} = - \frac{q}{m} E_1 \frac{\partial F_0}{\partial v_z}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">71</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P><!-- MATH
+ \begin{displaymath}
+F_1 (t) - F_1 (t_1) = - \frac{q}{m} \int_{t_1}^t \frac{\partial
+   F_0}{\partial v_z} E_1 d t'
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="248" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img234.png"
+ ALT="$\displaystyle F_1 (t) - F_1 (t_1) = - \frac{q}{m} \int_{t_1}^t \frac{\partial
+F_0}{\partial v_z} E_1 d t' $">
+</DIV><P></P>
+Using  <!-- MATH
+ $E_1 = \hat{E}_1 e^{- i \omega t' + i k z'}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="136" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img235.png"
+ ALT="$ E_1 = \hat{E}_1 e^{- i \omega t' + i k z'}$"></SPAN>, the above equation is
+written
+<P><!-- MATH
+ \begin{displaymath}
+F_1 (t) - F_1 (t_1) = - \frac{q}{m} \int_{t_1}^t \frac{\partial
+   F_0}{\partial v_z} \hat{E}_1 e^{- i \omega t' + i k z'} d t'
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="321" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img236.png"
+ ALT="$\displaystyle F_1 (t) - F_1 (t_1) = - \frac{q}{m} \int_{t_1}^t \frac{\partial
+F_0}{\partial v_z} \hat{E}_1 e^{- i \omega t' + i k z'} d t' $">
+</DIV><P></P>
+<P><!-- MATH
+ \begin{displaymath}
+F_1 (t) - F_1 (t_1) = - \frac{q}{m} \int_{t_1}^t \frac{\partial
+   F_0}{\partial v_z} \hat{E}_1 e^{- i \omega t' + i k (z - v (t - t'))} d t'
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="377" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img237.png"
+ ALT="$\displaystyle F_1 (t) - F_1 (t_1) = - \frac{q}{m} \int_{t_1}^t \frac{\partial
+F_0}{\partial v_z} \hat{E}_1 e^{- i \omega t' + i k (z - v (t - t'))} d t'
+$">
+</DIV><P></P>
+<P><!-- MATH
+ \begin{displaymath}
+F_1 (t) - F_1 (t_1) = - \frac{q}{m} e^{i k z - i k v t} \frac{\partial
+   F_0}{\partial v_z} \hat{E}_1 \int_{t_1}^t e^{- i (\omega - k v) t'} d t'
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="381" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img238.png"
+ ALT="$\displaystyle F_1 (t) - F_1 (t_1) = - \frac{q}{m} e^{i k z - i k v t} \frac{\partial
+F_0}{\partial v_z} \hat{E}_1 \int_{t_1}^t e^{- i (\omega - k v) t'} d t' $">
+</DIV><P></P>
+-- -- tmp
+
+<P>
+ 
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html212"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html210"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html204"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html213"
+  HREF="node17.html">Normalization</A>
+<B> Up:</B> <A NAME="tex2html211"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<B> Previous:</B> <A NAME="tex2html205"
+  HREF="node15.html">Self-consistent-field simulation of linear</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

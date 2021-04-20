@@ -1,0 +1,907 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Large aspect ratio expansion</TITLE>
+<META NAME="description" CONTENT="Large aspect ratio expansion">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="previous" HREF="node87.html">
+<LINK REL="up" HREF="node87.html">
+<LINK REL="next" HREF="node89.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1100"
+  HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1098"
+  HREF="node87.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1094"
+  HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1101"
+  HREF="node89.html">Fixed boundary tokamak equilibrium</A>
+<B> Up:</B> <A NAME="tex2html1099"
+  HREF="node87.html">Grad-Shafranov equation in coordinates</A>
+<B> Previous:</B> <A NAME="tex2html1095"
+  HREF="node87.html">Grad-Shafranov equation in coordinates</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000101000000000000000">
+Large aspect ratio expansion</A>
+</H2>
+
+<P>
+Consider the case that the boundary flux surface is circular with radius <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1230.png"
+ ALT="$ r =
+a$"></SPAN> and the center of the cirle at <!-- MATH
+ $(R = R_0, Z = 0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="117" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1231.png"
+ ALT="$ (R = R_0, Z = 0)$"></SPAN>. Consider the case
+<!-- MATH
+ $\varepsilon = a / R_0 \rightarrow 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="101" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1232.png"
+ ALT="$ \varepsilon = a / R_0 \rightarrow 0$"></SPAN>. Expanding <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> in the small parameter
+<!-- MATH
+ $\varepsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \varepsilon $"></SPAN>,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-17-e4"></A><!-- MATH
+ \begin{equation}
+\Psi = \Psi_0 + \Psi_1
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="96" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1233.png"
+ ALT="$\displaystyle \Psi = \Psi_0 + \Psi_1$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">383</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\Psi_0 \sim O (\varepsilon^0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1234.png"
+ ALT="$ \Psi_0 \sim O (\varepsilon^0)$"></SPAN>, <!-- MATH
+ $\Psi_1 \sim O (\varepsilon^1)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1235.png"
+ ALT="$ \Psi_1 \sim O (\varepsilon^1)$"></SPAN>.
+Substituting Eq. (<A HREF="#9-17-e4">383</A>) into Eq. (<A HREF="node87.html#9-17-e5">382</A>), we obtain
+<P><!-- MATH
+ \begin{displaymath}
+\frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial \Psi_0}{\partial
+   r} + \frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial
+   \Psi_1}{\partial r} + \frac{1}{r^2}  \frac{\partial^2 \Psi_0}{\partial
+   \theta^2} + \frac{1}{r^2}  \frac{\partial^2 \Psi_1}{\partial \theta^2} -
+   \frac{1}{R_0 + r \cos \theta} \left( \frac{\partial \Psi_0}{\partial r}
+   \cos \theta - \frac{\partial \Psi_0}{\partial \theta}  \frac{1}{r} \sin
+   \theta \right) - \frac{1}{R_0 + r \cos \theta} \left( \frac{\partial
+   \Psi_1}{\partial r} \cos \theta - \frac{\partial \Psi_1}{\partial \theta}
+   \frac{1}{r} \sin \theta \right) = - \mu_0 (R_0 + r \cos \theta)^2 P'
+   (\Psi_0 + \Psi_1) - g' (\Psi_0 + \Psi_1) g (\Psi_0 + \Psi_1) 
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="1330" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1236.png"
+ ALT="$\displaystyle \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \Psi_0}{...
+...cos \theta)^2 P'
+(\Psi_0 + \Psi_1) - g' (\Psi_0 + \Psi_1) g (\Psi_0 + \Psi_1) $">
+</DIV><P></P>
+Multiplying the above equation by <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1237.png"
+ ALT="$ R_0^2$"></SPAN>, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-11-1"></A><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{\partial}{\partial r} r
+  \frac{\partial \Psi_0}{\partial r} + R_0^2 \frac{1}{r}
+  \frac{\partial}{\partial r} r \frac{\partial \Psi_1}{\partial r} + R_0^2
+  \frac{1}{r^2}  \frac{\partial^2 \Psi_0}{\partial \theta^2} + R_0^2
+  \frac{1}{r^2}  \frac{\partial^2 \Psi_1}{\partial \theta^2} -
+  \frac{R_0^2}{R_0 + r \cos \theta} \left( \frac{\partial \Psi_0}{\partial r}
+  \cos \theta - \frac{\partial \Psi_0}{\partial \theta}  \frac{1}{r} \sin
+  \theta \right) - \frac{R_0^2}{R_0 + r \cos \theta} \left( \frac{\partial
+  \Psi_1}{\partial r} \cos \theta - \frac{\partial \Psi_1}{\partial \theta} 
+  \frac{1}{r} \sin \theta \right) = - \mu_0 R_0^2 (R_0 + r \cos \theta)^2 P'
+  (\Psi_0 + \Psi_1) - R_0^2 g' (\Psi_0 + \Psi_1) g (\Psi_0 + \Psi_1)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="1446" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1238.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \P...
+...\theta)^2 P' (\Psi_0 + \Psi_1) - R_0^2 g' (\Psi_0 + \Psi_1) g (\Psi_0 + \Psi_1)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">384</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Further assume the following ordering
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0 \frac{\partial \Psi}{\partial r} \sim O (\varepsilon^{- 1}) \Psi,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="136" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1239.png"
+ ALT="$\displaystyle R_0 \frac{\partial \Psi}{\partial r} \sim O (\varepsilon^{- 1}) \Psi,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">385</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial \Psi}{\partial \theta} \sim O (\varepsilon^0) \Psi .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1240.png"
+ ALT="$\displaystyle \frac{\partial \Psi}{\partial \theta} \sim O (\varepsilon^0) \Psi .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">386</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using these orderings, the order of the terms in Eq. (<A HREF="#10-11-1">384</A>) can be
+estimated as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial
+  \Psi_0}{\partial r} \sim \frac{\Psi_0}{\varepsilon^2} \sim O (\varepsilon^{-
+  2})
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="212" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1241.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \Psi_0}{\partial r} \sim \frac{\Psi_0}{\varepsilon^2} \sim O (\varepsilon^{- 2})$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">387</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial
+  \Psi_1}{\partial r} \sim \frac{\Psi_1}{\varepsilon^2} \sim O (\varepsilon^{-
+  1})
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="212" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1242.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \Psi_1}{\partial r} \sim \frac{\Psi_1}{\varepsilon^2} \sim O (\varepsilon^{- 1})$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">388</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r^2}  \frac{\partial^2 \Psi_0}{\partial \theta^2} \sim
+  \frac{1}{\varepsilon^2} \Psi_0 \sim O (\varepsilon^{- 2})
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="212" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1243.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r^2} \frac{\partial^2 \Psi_0}{\partial \theta^2} \sim \frac{1}{\varepsilon^2} \Psi_0 \sim O (\varepsilon^{- 2})$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">389</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r^2}  \frac{\partial^2 \Psi_1}{\partial \theta^2} \sim
+  \frac{\Psi_1}{\varepsilon^2} \sim O (\varepsilon^{- 1})
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="197" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1244.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r^2} \frac{\partial^2 \Psi_1}{\partial \theta^2} \sim \frac{\Psi_1}{\varepsilon^2} \sim O (\varepsilon^{- 1})$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">390</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{R_0}{R_0 + r \cos \theta} \approx 1 - \frac{r}{R_0} \cos \theta
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="195" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1245.png"
+ ALT="$\displaystyle \frac{R_0}{R_0 + r \cos \theta} \approx 1 - \frac{r}{R_0} \cos \theta$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">391</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0  \frac{\partial \Psi_0}{\partial r} \cos \theta \sim
+  \frac{\Psi_0}{\varepsilon} \sim O (\varepsilon^{- 1})
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="206" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1246.png"
+ ALT="$\displaystyle R_0 \frac{\partial \Psi_0}{\partial r} \cos \theta \sim \frac{\Psi_0}{\varepsilon} \sim O (\varepsilon^{- 1})$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">392</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0  \frac{\partial \Psi_0}{\partial \theta}  \frac{1}{r} \sin \theta \sim
+  \frac{\Psi_0}{\varepsilon} \sim O (\varepsilon^{- 1})
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="216" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1247.png"
+ ALT="$\displaystyle R_0 \frac{\partial \Psi_0}{\partial \theta} \frac{1}{r} \sin \theta \sim \frac{\Psi_0}{\varepsilon} \sim O (\varepsilon^{- 1})$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">393</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0 \frac{\partial \Psi_1}{\partial r} \cos \theta \sim
+  \frac{\Psi_1}{\varepsilon} = O (\varepsilon^0)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="196" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1248.png"
+ ALT="$\displaystyle R_0 \frac{\partial \Psi_1}{\partial r} \cos \theta \sim \frac{\Psi_1}{\varepsilon} = O (\varepsilon^0)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">394</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0 \frac{\partial \Psi_1}{\partial \theta}  \frac{1}{r} \sin \theta \sim
+  \frac{\Psi_1}{\varepsilon} = O (\varepsilon^0)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="206" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1249.png"
+ ALT="$\displaystyle R_0 \frac{\partial \Psi_1}{\partial \theta} \frac{1}{r} \sin \theta \sim \frac{\Psi_1}{\varepsilon} = O (\varepsilon^0)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">395</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The leading order (<!-- MATH
+ $\varepsilon^{- 2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1250.png"
+ ALT="$ \varepsilon^{- 2}$"></SPAN> order) balance is given by the
+following equation:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-21-1"></A><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{\partial}{\partial r} r
+  \frac{\partial \Psi_0}{\partial r} + R_0^2 \frac{1}{r^2}  \frac{\partial^2
+  \Psi_0}{\partial \theta^2} = - \mu_0 R_0^4 P' (\Psi_0) - R_0^2 g' (\Psi_0) g
+  (\Psi_0),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="440" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1251.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \P...
+...{\partial \theta^2} = - \mu_0 R_0^4 P' (\Psi_0) - R_0^2 g' (\Psi_0) g (\Psi_0),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">396</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+It is reasonable to assume that <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$ \Psi_0$"></SPAN> is independent of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> since
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$ \Psi_0$"></SPAN> corresponds to the limit <!-- MATH
+ $a / R \rightarrow 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1252.png"
+ ALT="$ a / R \rightarrow 0$"></SPAN>. (The limit <!-- MATH
+ $a / R
+\rightarrow 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1252.png"
+ ALT="$ a / R \rightarrow 0$"></SPAN> can have two cases, one is <!-- MATH
+ $r \rightarrow 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1253.png"
+ ALT="$ r \rightarrow 0$"></SPAN>, another is <!-- MATH
+ $R
+\rightarrow \infty$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1254.png"
+ ALT="$ R
+\rightarrow \infty$"></SPAN>. In the former case, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> must be independent of
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> since <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> should be single-valued. The latter case corresponds to
+a cylinder, for which it is reasonable (really?) to assume that <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$ \Psi_0$"></SPAN> is
+independent of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN>.) Then Eq. (<A HREF="#11-21-1">396</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-21-2"></A><!-- MATH
+ \begin{equation}
+\frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial
+  \Psi_0}{\partial r} = - \mu_0 R_0^2 P' (\Psi_0) - g' (\Psi_0) g (\Psi_0) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="304" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1255.png"
+ ALT="$\displaystyle \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \Psi_0}{\partial r} = - \mu_0 R_0^2 P' (\Psi_0) - g' (\Psi_0) g (\Psi_0) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">397</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+(My remarks: The leading order equation (<A HREF="#11-21-2">397</A>) does not correponds
+strictly to a cylinder equilibrium because the magnetic field <!-- MATH
+ $\mathbf{B}=
+\nabla \Psi_0 \times \nabla \phi + g \nabla \phi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="164" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1256.png"
+ ALT="$ \mathbf{B}=
+\nabla \Psi_0 \times \nabla \phi + g \nabla \phi$"></SPAN> depends on <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN>.) The
+next order (<!-- MATH
+ $\varepsilon^{- 1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1257.png"
+ ALT="$ \varepsilon^{- 1}$"></SPAN> order) equation is
+<P><!-- MATH
+ \begin{displaymath}
+R_0^2 \frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial
+   \Psi_1}{\partial r} + R_0^2 \frac{1}{r^2}  \frac{\partial^2
+   \Psi_1}{\partial \theta^2} - R_0  \frac{\partial \Psi_0}{\partial r} \cos
+   \theta = - \mu_0 R_0^2 2 R_0 r \cos \theta P' (\Psi_0) - \mu_0 R_0^4 P''
+   (\Psi_0) \Psi_1 - R_0^2 [g' (\Psi_0) g (\Psi_0)]' \Psi_1
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="768" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1258.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial
+\...
+...0) - \mu_0 R_0^4 P''
+(\Psi_0) \Psi_1 - R_0^2 [g' (\Psi_0) g (\Psi_0)]' \Psi_1 $">
+</DIV><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial
+  \Psi_1}{\partial r} + R_0^2 \frac{1}{r^2}  \frac{\partial^2 \Psi_1}{\partial
+  \theta^2} + \{ \mu_0 R_0^4 P'' (\Psi_0) + R_0^2 [g' (\Psi_0) g (\Psi_0)]' \}
+  \Psi_1 = - \mu_0 R_0^2 2 R_0 r \cos \theta P' (\Psi_0) + R_0  \frac{\partial
+  \Psi_0}{\partial r} \cos \theta
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="765" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1259.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \P...
+... r \cos \theta P' (\Psi_0) + R_0 \frac{\partial \Psi_0}{\partial r} \cos \theta$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">398</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{\partial}{\partial r} r \frac{\partial
+  \Psi_1}{\partial r} + R_0^2 \frac{1}{r^2}  \frac{\partial^2 \Psi_1}{\partial
+  \theta^2} + \frac{d}{d r} \{ \mu_0 R_0^4 P' (\Psi_0) + R_0^2 g' (\Psi_0) g
+  (\Psi_0) \} \frac{d r}{d \Psi_0} \Psi_1 = - \mu_0 R_0^2 2 R_0 r \cos \theta
+  P' (\Psi_0) + R_0  \frac{\partial \Psi_0}{\partial r} \cos \theta
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="765" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1259.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{\partial}{\partial r} r \frac{\partial \P...
+... r \cos \theta P' (\Psi_0) + R_0 \frac{\partial \Psi_0}{\partial r} \cos \theta$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">399</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+It is obvious that the simple poloidal dependence of <!-- MATH
+ $\cos \theta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1260.png"
+ ALT="$ \cos \theta$"></SPAN> will
+satisfy the above equation. Therefore, we consider <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \Psi _1$"></SPAN> of the form
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Psi_1 = \Delta (r) \frac{d \Psi_0 (r)}{d r} \cos \theta,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="169" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1261.png"
+ ALT="$\displaystyle \Psi_1 = \Delta (r) \frac{d \Psi_0 (r)}{d r} \cos \theta,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">400</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\Delta (r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1262.png"
+ ALT="$ \Delta (r)$"></SPAN> is a new function to be determined. Substitute this into
+the Eq. (), we obtain an equation for <!-- MATH
+ $\Delta (r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1262.png"
+ ALT="$ \Delta (r)$"></SPAN>,
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r}  \frac{d
+  \Delta}{d r} + r \Delta \frac{d^2 \Psi_0}{d r^2} \right) - R_0^2
+  \frac{1}{r^2} \Delta \frac{d \Psi_0 (r)}{d r} + \frac{d}{d r} \{ \mu_0 R_0^4
+  P' (\Psi_0) + R_0^2 g' (\Psi_0) g (\Psi_0) \} \frac{d r}{d \Psi_0} \Delta
+  \frac{d \Psi_0 (r)}{d r} = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0  \frac{d
+  \Psi_0}{d r}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="926" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1263.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{d}{d r} \left( r \frac{d \Psi_0}{d r} \fr...
+...\Psi_0 (r)}{d r} = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0 \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">401</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r}  \frac{d
+  \Delta}{d r}  \right) + R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r \Delta
+  \frac{d^2 \Psi_0}{d r^2} \right) - R_0^2 \frac{1}{r^2} \Delta \frac{d \Psi_0
+  (r)}{d r} + \frac{d}{d r} \{ \mu_0 R_0^4 P' (\Psi_0) + R_0^2 g' (\Psi_0) g
+  (\Psi_0) \} \Delta = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0  \frac{d
+  \Psi_0}{d r}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="920" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1264.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{d}{d r} \left( r \frac{d \Psi_0}{d r} \fr...
+...Psi_0) \} \Delta = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0 \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">402</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r}  \frac{d
+  \Delta}{d r}  \right) + \Delta R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r
+  \frac{d^2 \Psi_0}{d r^2} \right) + R_0^2 \frac{d^2 \Psi_0}{d r^2}  \frac{d
+  \Delta}{d r} - R_0^2 \frac{1}{r^2} \Delta \frac{d \Psi_0 (r)}{d r} +
+  \frac{d}{d r} \{ \mu_0 R_0^4 P' (\Psi_0) + R_0^2 g' (\Psi_0) g (\Psi_0) \}
+  \Delta = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0  \frac{d \Psi_0}{d r}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="920" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1264.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{d}{d r} \left( r \frac{d \Psi_0}{d r} \fr...
+...Psi_0) \} \Delta = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0 \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">403</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r}  \frac{d
+  \Delta}{d r}  \right) + \Delta R_0^2 \left[ \frac{1}{r}  \frac{d}{d r}
+  \left( r \frac{d^2 \Psi_0}{d r^2} \right) - \frac{1}{r^2}  \frac{d \Psi_0
+  (r)}{d r} \right] + R_0^2 \frac{d^2 \Psi_0}{d r^2}  \frac{d \Delta}{d r} +
+  \frac{d}{d r} \{ \mu_0 R_0^4 P' (\Psi_0) + R_0^2 g' (\Psi_0) g (\Psi_0) \}
+  \Delta = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0  \frac{d \Psi_0}{d r}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="920" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1264.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{d}{d r} \left( r \frac{d \Psi_0}{d r} \fr...
+...Psi_0) \} \Delta = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0 \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">404</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using the identity
+<P><!-- MATH
+ \begin{displaymath}
+\frac{d}{d r} \left[ \frac{1}{r}  \frac{d}{d r} \left( r \frac{d \Psi_0}{d
+   r} \right) \right] = \frac{1}{r}  \frac{d}{d r} \left( r \frac{d^2
+   \Psi_0}{d r^2} \right) - \frac{1}{r^2}  \frac{d \Psi_0 (r)}{d r},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="359" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1265.png"
+ ALT="$\displaystyle \frac{d}{d r} \left[ \frac{1}{r} \frac{d}{d r} \left( r \frac{d \...
+... r \frac{d^2
+\Psi_0}{d r^2} \right) - \frac{1}{r^2} \frac{d \Psi_0 (r)}{d r}, $">
+</DIV><P></P>
+equation () is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r}  \frac{d
+  \Delta}{d r}  \right) + \Delta R_0^2 \frac{d}{d r} \left[ \frac{1}{r}
+  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r} \right) \right] + R_0^2
+  \frac{d^2 \Psi_0}{d r^2}  \frac{d \Delta}{d r} + \frac{d}{d r} \{ \mu_0
+  R_0^4 P' (\Psi_0) + R_0^2 g' (\Psi_0) g (\Psi_0) \} \Delta = - \mu_0 R_0^2 2
+  R_0 r P' (\Psi_0) + R_0  \frac{d \Psi_0}{d r} 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="920" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1264.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{d}{d r} \left( r \frac{d \Psi_0}{d r} \fr...
+...Psi_0) \} \Delta = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0 \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">405</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using the leading order equation (), we know that the second and fourth term
+on the l.h.s of the above equation cancel each other, giving
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+R_0^2 \frac{1}{r}  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r}  \frac{d
+  \Delta}{d r}  \right) + R_0^2 \frac{d^2 \Psi_0}{d r^2}  \frac{d \Delta}{d r}
+  = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0  \frac{d \Psi_0}{d r}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="472" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1266.png"
+ ALT="$\displaystyle R_0^2 \frac{1}{r} \frac{d}{d r} \left( r \frac{d \Psi_0}{d r} \fr...
+...c{d \Delta}{d r} = - \mu_0 R_0^2 2 R_0 r P' (\Psi_0) + R_0 \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">406</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-17-e8"></A><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{1}{r}  \frac{d}{d r} \left( r \frac{d
+  \Psi_0}{d r}  \frac{d \Delta}{d r}  \right) + \frac{d^2 \Psi_0}{d r^2}
+  \frac{d \Delta}{d r} = - \mu_0 2 R_0 r P' (\Psi_0) + \frac{1}{R_0}  \frac{d
+  \Psi_0}{d r} 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="438" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1267.png"
+ ALT="$\displaystyle \Rightarrow \frac{1}{r} \frac{d}{d r} \left( r \frac{d \Psi_0}{d ...
+...\Delta}{d r} = - \mu_0 2 R_0 r P' (\Psi_0) + \frac{1}{R_0} \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">407</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Using the identity
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{1}{r}  \frac{d r}{d \Psi_0}  \frac{d}{d r} \left[ r \left( \frac{d
+  \Psi_0}{d r} \right)^2 \frac{d \Delta}{d r} \right] = \frac{1}{r}
+  \frac{d}{d r} \left( r \frac{d \Psi_0}{d r}  \frac{d \Delta}{d r}  \right) +
+  \frac{d^2 \Psi_0}{d r^2}  \frac{d \Delta}{d r},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="420" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1268.png"
+ ALT="$\displaystyle \frac{1}{r} \frac{d r}{d \Psi_0} \frac{d}{d r} \left[ r \left( \f...
+...} \frac{d \Delta}{d r} \right) + \frac{d^2 \Psi_0}{d r^2} \frac{d \Delta}{d r},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">408</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+equation (<A HREF="#9-17-e8">407</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{1}{r}  \frac{d r}{d \Psi_0}  \frac{d}{d r} \left[ r \left( \frac{d
+  \Psi_0}{d r} \right)^2 \frac{d \Delta}{d r} \right] = - \mu_0 2 R_0 r P'
+  (\Psi_0) + \frac{1}{R_0}  \frac{d \Psi_0}{d r},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="401" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1269.png"
+ ALT="$\displaystyle \frac{1}{r} \frac{d r}{d \Psi_0} \frac{d}{d r} \left[ r \left( \f...
+... r} \right] = - \mu_0 2 R_0 r P' (\Psi_0) + \frac{1}{R_0} \frac{d \Psi_0}{d r},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">409</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-17-e10"></A><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{1}{r}  \frac{d}{d r} \left[ r \left(
+  \frac{d \Psi_0}{d r} \right)^2 \frac{d \Delta}{d r} \right] = - \mu_0 2 R_0
+  r \frac{d P}{d r} + \frac{1}{R_0} \left(  \frac{d \Psi_0}{d r} \right)^2,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="402" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1270.png"
+ ALT="$\displaystyle \Rightarrow \frac{1}{r} \frac{d}{d r} \left[ r \left( \frac{d \Ps...
+... 2 R_0 r \frac{d P}{d r} + \frac{1}{R_0} \left( \frac{d \Psi_0}{d r} \right)^2,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">410</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+B_{\theta 0} = \frac{1}{R_0}  \frac{d \Psi_0}{d r}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="106" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1271.png"
+ ALT="$\displaystyle B_{\theta 0} = \frac{1}{R_0} \frac{d \Psi_0}{d r}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">411</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+equation (<A HREF="#9-17-e10">410</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{1}{r}  \frac{d}{d r} \left[ r B_{\theta 0}^2 \frac{d \Delta}{d r}
+  \right] = - \mu_0 2 \frac{1}{R_0} r \frac{d P}{d r} + \frac{B_{\theta
+  0}^2}{R_0} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="280" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1272.png"
+ ALT="$\displaystyle \frac{1}{r} \frac{d}{d r} \left[ r B_{\theta 0}^2 \frac{d \Delta}...
+...ght] = - \mu_0 2 \frac{1}{R_0} r \frac{d P}{d r} + \frac{B_{\theta 0}^2}{R_0} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">412</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\Rightarrow \frac{d}{d r} \left[ r B_{\theta 0}^2 \frac{d \Delta}{d r}
+  \right] = \frac{r}{R_0} \left( - 2 \mu_0 r \frac{d P (\Psi_0)}{d r} +
+  B_{\theta 0}^2 \right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="346" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1273.png"
+ ALT="$\displaystyle \Rightarrow \frac{d}{d r} \left[ r B_{\theta 0}^2 \frac{d \Delta}...
+...c{r}{R_0} \left( - 2 \mu_0 r \frac{d P (\Psi_0)}{d r} + B_{\theta 0}^2 \right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">413</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which agrees with equation (3.6.7) in Wessson's book[<A
+ HREF="node111.html#wesson2004">12</A>].
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1100"
+  HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1098"
+  HREF="node87.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1094"
+  HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1101"
+  HREF="node89.html">Fixed boundary tokamak equilibrium</A>
+<B> Up:</B> <A NAME="tex2html1099"
+  HREF="node87.html">Grad-Shafranov equation in coordinates</A>
+<B> Previous:</B> <A NAME="tex2html1095"
+  HREF="node87.html">Grad-Shafranov equation in coordinates</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

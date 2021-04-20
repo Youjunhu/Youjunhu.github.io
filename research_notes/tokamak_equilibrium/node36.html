@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Gradient and directional derivative in general coordinates </TITLE>
+<META NAME="description" CONTENT="Gradient and directional derivative in general coordinates ">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node37.html">
+<LINK REL="previous" HREF="node35.html">
+<LINK REL="up" HREF="node32.html">
+<LINK REL="next" HREF="node37.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html547"
+  HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html545"
+  HREF="node32.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html539"
+  HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html548"
+  HREF="node37.html">Divergence operator in general</A>
+<B> Up:</B> <A NAME="tex2html546"
+  HREF="node32.html">Curvilinear coordinate system</A>
+<B> Previous:</B> <A NAME="tex2html540"
+  HREF="node35.html">Example: () coordinates</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00044000000000000000">
+Gradient and directional derivative in general coordinates <!-- MATH
+ $(\psi,
+\theta, \zeta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="58" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ (\psi , \theta , \zeta )$"></SPAN></A>
+</H2>
+
+<P>
+The gradient of a scalar function <!-- MATH
+ $f (\psi, \theta, \zeta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img497.png"
+ ALT="$ f (\psi, \theta, \zeta)$"></SPAN> is readily
+calculated from the chain rule,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-6-5"></A><!-- MATH
+ \begin{equation}
+\nabla f = \frac{\partial f}{\partial \psi} \nabla \psi +
+  \frac{\partial f}{\partial \theta} \nabla \theta + \frac{\partial
+  f}{\partial \zeta} \nabla \zeta .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="228" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img498.png"
+ ALT="$\displaystyle \nabla f = \frac{\partial f}{\partial \psi} \nabla \psi + \frac{\...
+...artial \theta} \nabla \theta + \frac{\partial f}{\partial \zeta} \nabla \zeta .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">128</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that the gradient of a scalar function is in the covariant
+representation. The inverse form of this expression is obtained by dotting the
+above equation by the three contravariant basis vectors, respectively,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-6-1"></A><!-- MATH
+ \begin{equation}
+\frac{\partial f}{\partial \psi} = (\mathcal{J} \nabla \theta
+  \times \nabla \zeta) \cdot \nabla f,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="175" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img499.png"
+ ALT="$\displaystyle \frac{\partial f}{\partial \psi} = (\mathcal{J} \nabla \theta \times \nabla \zeta) \cdot \nabla f,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">129</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-6-2"></A><!-- MATH
+ \begin{equation}
+\frac{\partial f}{\partial \theta} = (\mathcal{J} \nabla \zeta
+  \times \nabla \psi) \cdot \nabla f,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="177" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img500.png"
+ ALT="$\displaystyle \frac{\partial f}{\partial \theta} = (\mathcal{J} \nabla \zeta \times \nabla \psi) \cdot \nabla f,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">130</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-6-3"></A><!-- MATH
+ \begin{equation}
+\frac{\partial f}{\partial \zeta} = (\mathcal{J} \nabla \psi
+  \times \nabla \theta) \cdot \nabla f.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="177" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img501.png"
+ ALT="$\displaystyle \frac{\partial f}{\partial \zeta} = (\mathcal{J} \nabla \psi \times \nabla \theta) \cdot \nabla f.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">131</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using Eq. (<A HREF="#5-6-5">128</A>), the directional derivative in the direction of
+<!-- MATH
+ $\nabla \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img466.png"
+ ALT="$ \nabla \psi$"></SPAN> is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\nabla \psi \cdot \nabla f = | \nabla \psi |^2 \frac{\partial f}{\partial
+  \psi} + (\nabla \theta \cdot \nabla \psi) \frac{\partial f}{\partial \theta}
+  + (\nabla \zeta \cdot \nabla \psi) \frac{\partial f}{\partial \zeta} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="375" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img502.png"
+ ALT="$\displaystyle \nabla \psi \cdot \nabla f = \vert \nabla \psi \vert^2 \frac{\par...
+... \theta} + (\nabla \zeta \cdot \nabla \psi) \frac{\partial f}{\partial \zeta} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">132</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html547"
+  HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html545"
+  HREF="node32.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html539"
+  HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html548"
+  HREF="node37.html">Divergence operator in general</A>
+<B> Up:</B> <A NAME="tex2html546"
+  HREF="node32.html">Curvilinear coordinate system</A>
+<B> Previous:</B> <A NAME="tex2html540"
+  HREF="node35.html">Example: () coordinates</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

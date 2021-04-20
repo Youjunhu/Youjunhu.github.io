@@ -1,0 +1,587 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Iterative method for solving equation of motion in wave field</TITLE>
+<META NAME="description" CONTENT="Iterative method for solving equation of motion in wave field">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html118"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html116"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html110"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html119"
+  HREF="node8.html">Averaging over initial spatial</A>
+<B> Up:</B> <A NAME="tex2html117"
+  HREF="node6.html">Analytical theory of wave</A>
+<B> Previous:</B> <A NAME="tex2html111"
+  HREF="node6.html">Analytical theory of wave</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00021000000000000000">
+Iterative method for solving equation of motion in wave field</A>
+</H2>
+
+<P>
+Consider the motion of a test particle moving in a longitudinal wave,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="1-9-p1"></A><!-- MATH
+ \begin{equation}
+\mathbf{E}= \hat{\mathbf{z}} E \cos (k z - \omega t),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="152" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$\displaystyle \mathbf{E}= \hat{\mathbf{z}} E \cos (k z - \omega t),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">12</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+then the equation of motion is given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-22-e10"></A><!-- MATH
+ \begin{equation}
+m \frac{d v}{d t} = q E \cos (k z - \omega t),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="174" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$\displaystyle m \frac{d v}{d t} = q E \cos (k z - \omega t),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">13</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-22-e11"></A><!-- MATH
+ \begin{equation}
+\frac{d z}{d t} = v,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$\displaystyle \frac{d z}{d t} = v,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">14</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with initial condition <!-- MATH
+ $v (0) = v_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="69" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.png"
+ ALT="$ v (0) = v_0$"></SPAN> and <!-- MATH
+ $z (0) = z_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="69" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img71.png"
+ ALT="$ z (0) = z_0$"></SPAN>, where <!-- MATH
+ $v \equiv
+\mathbf{v} \cdot \hat{\mathbf{z}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ v \equiv \mathbf{v} \cdot \hat{\mathbf{z}}$"></SPAN> and <!-- MATH
+ $\mathbf{v}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img72.png"
+ ALT="$ \mathbf{v}$"></SPAN> is the velocity of the
+particle. Equations (<A HREF="#9-22-e10">13</A>) and (<A HREF="#9-22-e11">14</A>) are nonlinear
+system, for which exact solutions are hard to be found. Here, we consider the
+amplitude of the electrical field, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="$ E$"></SPAN>, as a small perturbation, and use the
+iterative method[<A
+ HREF="node23.html#hinch1991">2</A>] to solve Eqs. (<A HREF="#9-22-e10">13</A>) and
+(<A HREF="#9-22-e11">14</A>) approximately. The initial guess of the solution is obtained
+by setting <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img74.png"
+ ALT="$ E =
+0$"></SPAN>, which gives
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+v^{(0)} = v_0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$\displaystyle v^{(0)} = v_0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">15</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+z^{(0)} = z_0 + v_0 t.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="110" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.png"
+ ALT="$\displaystyle z^{(0)} = z_0 + v_0 t.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">16</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Substituting this solution back into the right-hand side of Eq.
+(<A HREF="#9-22-e10">13</A>), we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-1"></A><!-- MATH
+ \begin{equation}
+m \frac{d v^{(1)}}{d t} = q E \cos (k z_0 + k v_0 t - \omega
+  t),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="246" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img77.png"
+ ALT="$\displaystyle m \frac{d v^{(1)}}{d t} = q E \cos (k z_0 + k v_0 t - \omega t),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">17</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which can be integrated over time to give
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-3"></A><!-- MATH
+ \begin{equation}
+v^{(1)} = v_0 + \frac{q E}{m}  \frac{\sin (k z_0 + \alpha t)
+  - \sin (k z_0)}{\alpha},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="283" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img78.png"
+ ALT="$\displaystyle v^{(1)} = v_0 + \frac{q E}{m} \frac{\sin (k z_0 + \alpha t) - \sin (k z_0)}{\alpha},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">18</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\alpha = k v_0 - \omega$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="90" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$ \alpha = k v_0 - \omega$"></SPAN> and use has been made of the initial condition
+<!-- MATH
+ $v^{(1)} (0) = v_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="86" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img80.png"
+ ALT="$ v^{(1)} (0) = v_0$"></SPAN>. Substituting this solution for the velocity, Eq.
+(<A HREF="#9-22-e11">14</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-22-e20"></A><!-- MATH
+ \begin{equation}
+\frac{d z^{(1)}}{d t} = v_0 + \frac{q E}{m}  \frac{\sin (k
+  z_0 + \alpha t) - \sin (k z_0)}{\alpha},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="295" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img81.png"
+ ALT="$\displaystyle \frac{d z^{(1)}}{d t} = v_0 + \frac{q E}{m} \frac{\sin (k z_0 + \alpha t) - \sin (k z_0)}{\alpha},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">19</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which can be integrated over time, giving
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-5"></A><!-- MATH
+ \begin{eqnarray}
+z^{(1)} & = & z_0 + v_0 t + \frac{q E}{m} \int_0^t  \frac{\sin (k z_0 +
+  \alpha t) - \sin (k z_0)}{\alpha} d t, \nonumber\\
+  & = & z_0 + v_0 t + \frac{q E}{m} \int_0^t  \frac{\sin (k z_0 + \alpha t) -
+  \sin (k z_0)}{\alpha^2} d (k z_0 + \alpha t), \nonumber\\
+  & = & z_0 + v_0 t + \frac{q E}{m} \left[ \frac{- \cos (k z_0 + \alpha t) +
+  \cos (k z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t \right],
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="30" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img82.png"
+ ALT="$\displaystyle z^{(1)}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="317" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img84.png"
+ ALT="$\displaystyle z_0 + v_0 t + \frac{q E}{m} \int_0^t \frac{\sin (k z_0 +
+\alpha t) - \sin (k z_0)}{\alpha} d t,$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="383" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.png"
+ ALT="$\displaystyle z_0 + v_0 t + \frac{q E}{m} \int_0^t \frac{\sin (k z_0 + \alpha t) -
+\sin (k z_0)}{\alpha^2} d (k z_0 + \alpha t),$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="401" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img86.png"
+ ALT="$\displaystyle z_0 + v_0 t + \frac{q E}{m} \left[ \frac{- \cos (k z_0 + \alpha t) +
+\cos (k z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t \right],$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">20</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+where use has been made of the initial condition <!-- MATH
+ $z^{(1)} (0) = z_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="86" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$ z^{(1)} (0) = z_0$"></SPAN>.
+Substituting the solution in Eq. (<A HREF="#9-23-5">20</A>) back into the right-hand side
+of Eq. (<A HREF="#9-22-e10">13</A>),  we obtain
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+m \frac{d v^{(2)}}{d t} & = & q E \cos (k z^{(1)} - \omega t) \nonumber\\
+  & = & q E \cos \left\{ k z_0 + k v_0 t + k \frac{q E}{m} \left[  \frac{-
+  \cos (k z_0 + \alpha t) + \cos (k z_0)}{\alpha^2} - \frac{t \sin (k
+  z_0)}{\alpha} \right] - \omega t \right\} \nonumber\\
+  & = & q E \cos \left\{ k z_0 + \alpha t + k \frac{q E}{m} \left[  \frac{-
+  \cos (k z_0 + \alpha t) + \cos (k z_0)}{\alpha^2} - \frac{\sin (k
+  z_0)}{\alpha} t \right] \right\} .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="56" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img88.png"
+ ALT="$\displaystyle m \frac{d v^{(2)}}{d t}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="131" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$\displaystyle q E \cos (k z^{(1)} - \omega t)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="530" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img90.png"
+ ALT="$\displaystyle q E \cos \left\{ k z_0 + k v_0 t + k \frac{q E}{m} \left[ \frac{-...
+... (k z_0)}{\alpha^2} - \frac{t \sin (k
+z_0)}{\alpha} \right] - \omega t \right\}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="485" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img91.png"
+ ALT="$\displaystyle q E \cos \left\{ k z_0 + \alpha t + k \frac{q E}{m} \left[ \frac{...
+...t) + \cos (k z_0)}{\alpha^2} - \frac{\sin (k
+z_0)}{\alpha} t \right] \right\} .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">21</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Since <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="$ E$"></SPAN> is considered to be a small parameter, the term proportional to <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="$ E$"></SPAN>
+can be considered to be small when compared with <!-- MATH
+ $k z_0 + \alpha t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img92.png"
+ ALT="$ k z_0 + \alpha t$"></SPAN>.
+Therefore, we expand the first cosine function in the vicinity of <!-- MATH
+ $k z_0 +
+\alpha t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img92.png"
+ ALT="$ k z_0 + \alpha t$"></SPAN>. Thus the above equation is written approximately as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-e20"></A><!-- MATH
+ \begin{equation}
+m \frac{d v^{(2)}}{d t} \approx q E \cos (k z_0 + \alpha t)
+  - \sin (k z_0 + \alpha t) k \frac{(q E)^2}{m} \left[  \frac{- \cos (k z_0 +
+  \alpha t) + \cos (k z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t \right]
+  .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="651" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img93.png"
+ ALT="$\displaystyle m \frac{d v^{(2)}}{d t} \approx q E \cos (k z_0 + \alpha t) - \si...
+...+ \alpha t) + \cos (k z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t \right] .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">22</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Next, calculate the time change rate of the kinetic energy of the particle,
+which is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-24-1"></A><!-- MATH
+ \begin{eqnarray}
+\frac{d}{d t} \left( \frac{1}{2} m v^2 \right) & = & m v \frac{d v}{d t}
+  \nonumber\\
+  & \approx & m v^{(1)}  \frac{d v^{(2)}}{d t}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="90" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img94.png"
+ ALT="$\displaystyle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="47" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img95.png"
+ ALT="$\displaystyle m v \frac{d v}{d t}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.png"
+ ALT="$\displaystyle \approx$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="81" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img97.png"
+ ALT="$\displaystyle m v^{(1)} \frac{d v^{(2)}}{d t}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">23</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using Eq. (<A HREF="#9-23-3">18</A>) for <SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img98.png"
+ ALT="$ v^{(1)}$"></SPAN> and Eq. (<A HREF="#9-23-e20">22</A>) for  <!-- MATH
+ $m d
+v^{(2)} / d t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img99.png"
+ ALT="$ m d
+v^{(2)} / d t$"></SPAN>, Eq. (<A HREF="#9-24-1">23</A>) is written
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-23-p10"></A><!-- MATH
+ \begin{eqnarray}
+\frac{d}{d t} \left( \frac{1}{2} m v^2 \right) & \approx & \left[ v_0 +
+  \frac{q E}{m}  \frac{\sin (k z_0 + \alpha t) - \sin (k z_0)}{\alpha} \right]
+  \nonumber\\
+  & \times & \left\{ q E \cos (k z_0 + \alpha t) - \sin (k z_0 + \alpha t) k
+  \frac{(q E)^2}{m} \left[  \frac{- \cos (k z_0 + \alpha t) + \cos (k
+  z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t \right] \right\} \nonumber\\
+  & \approx & v_0 q E \cos (k z_0 + \alpha t) \nonumber\\
+  & - & v_0 \sin (k z_0 + \alpha t) k \frac{(q E)^2}{m} \left[  \frac{- \cos
+  (k z_0 + \alpha t) + \cos (k z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t
+  \right] \nonumber\\
+  & + & \frac{(q E)^2}{m}  \frac{\sin (k z_0 + \alpha t) - \sin (k
+  z_0)}{\alpha} \cos (k z_0 + \alpha t),
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="90" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img94.png"
+ ALT="$\displaystyle \frac{d}{d t} \left( \frac{1}{2} m v^2 \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.png"
+ ALT="$\displaystyle \approx$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="249" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img100.png"
+ ALT="$\displaystyle \left[ v_0 +
+\frac{q E}{m} \frac{\sin (k z_0 + \alpha t) - \sin (k z_0)}{\alpha} \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img101.png"
+ ALT="$\displaystyle \times$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="594" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img102.png"
+ ALT="$\displaystyle \left\{ q E \cos (k z_0 + \alpha t) - \sin (k z_0 + \alpha t) k
+\...
+...a t) + \cos (k
+z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t \right] \right\}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.png"
+ ALT="$\displaystyle \approx$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="135" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img103.png"
+ ALT="$\displaystyle v_0 q E \cos (k z_0 + \alpha t)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img104.png"
+ ALT="$\displaystyle -$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="457" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$\displaystyle v_0 \sin (k z_0 + \alpha t) k \frac{(q E)^2}{m} \left[ \frac{- \c...
+...0 + \alpha t) + \cos (k z_0)}{\alpha^2} - \frac{\sin (k z_0)}{\alpha} t
+\right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img106.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="317" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img107.png"
+ ALT="$\displaystyle \frac{(q E)^2}{m} \frac{\sin (k z_0 + \alpha t) - \sin (k
+z_0)}{\alpha} \cos (k z_0 + \alpha t),$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">24</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+where the terms of order <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img108.png"
+ ALT="$ E^3$"></SPAN> have been neglected (if terms of order <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img108.png"
+ ALT="$ E^3$"></SPAN>
+and higher are included, then the result will correspond to nonlinear Landau
+damping, is this correct?). Equations (<A HREF="#9-23-p10">24</A>) agrees with Eq. (8) in
+Chapter 8 of Stix's book[<A
+ HREF="node23.html#stix1992">4</A>] (however Stix's formula misses, by
+mistakes, the first term of the above equation).
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html118"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html116"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html110"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html119"
+  HREF="node8.html">Averaging over initial spatial</A>
+<B> Up:</B> <A NAME="tex2html117"
+  HREF="node6.html">Analytical theory of wave</A>
+<B> Previous:</B> <A NAME="tex2html111"
+  HREF="node6.html">Analytical theory of wave</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

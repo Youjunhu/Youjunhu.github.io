@@ -1,0 +1,797 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE> contours on a magnetic surface</TITLE>
+<META NAME="description" CONTENT=" contours on a magnetic surface">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node75.html">
+<LINK REL="previous" HREF="node73.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node75.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html962"
+  HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html960"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html954"
+  HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html963"
+  HREF="node75.html">contours in a toroidal</A>
+<B> Up:</B> <A NAME="tex2html961"
+  HREF="node71.html">Visualization of field-line-following coordinates</A>
+<B> Previous:</B> <A NAME="tex2html955"
+  HREF="node73.html">Numerical implementation of periodic</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00082300000000000000">
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours on a magnetic surface</A>
+</H3>
+
+<P>
+Figure <A HREF="#17-10-29-1">19</A> compares a small number of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> contours and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours on a magnetic surface.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="17-10-29-1"></A><A NAME="7957"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 19:</STRONG>
+Comparison between a series of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> contours
+  (left) and a series of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours (right) on a magnetic surface. Here
+  the values of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> are <!-- MATH
+ $\phi_j = \alpha_j = (j - 1) 2 \pi / 4 / (10 - 1)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="224" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img65.png"
+ ALT="$ \phi _j = \alpha _j = (j - 1) 2 \pi / 4 / (10 - 1)$"></SPAN>
+  with <!-- MATH
+ $j = 1, 2, \ldots, 10$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img66.png"
+ ALT="$ j = 1, 2, \ldots , 10$"></SPAN>, i.e., only <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$ 1 / 4$"></SPAN> of the full torus. The
+  values of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours are <!-- MATH
+ $\alpha_j = (j - 1) 2 \pi / 4 / (10 - 1)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="187" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$ \alpha _j = (j - 1) 2 \pi / 4 / (10 - 1)$"></SPAN>
+  with <!-- MATH
+ $j = 1, 2, \ldots, 10$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img66.png"
+ ALT="$ j = 1, 2, \ldots , 10$"></SPAN>, i.e., only <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$ 1 / 4$"></SPAN> of the full range <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img69.png"
+ ALT="$ 2 \pi $"></SPAN>.
+  Every <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours start from the lower-field-side midplane
+  and go one full poloidal loop.  Magnetic field from EAST discharge
+  #59954@3.03s.</CAPTION>
+<TR><TD><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3e/p.eps}}$
+ -->
+<IMG
+ WIDTH="362" HEIGHT="233" ALIGN="BOTTOM" BORDER="0"
+ SRC="img936.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3e/p.eps}}"><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3d/p.eps}}$
+ -->
+<IMG
+ WIDTH="362" HEIGHT="243" ALIGN="BOTTOM" BORDER="0"
+ SRC="img937.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3d/p.eps}}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+As is shown in the left panel of Fig. <A HREF="#17-10-29-1">19</A>, with <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> fixed, an
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> curve reaches its starting point when <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> changes from zero to
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img69.png"
+ ALT="$ 2 \pi $"></SPAN>. However, as shown in the right panel of Fig. <A HREF="#17-10-29-1">19</A>, with
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> fixed, an <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> curve (i.e. a magnetic field line) does not reach
+its starting point when <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> changes from zero to <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img69.png"
+ ALT="$ 2 \pi $"></SPAN>. There is a
+toroidal shift, <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img929.png"
+ ALT="$ 2 \pi q$"></SPAN>, between the starting point and ending point.
+Therefore there is generally no periodic condition along <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> since <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img208.png"
+ ALT="$ q$"></SPAN> is
+not always an integer. A mixed periodic condition involves both <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> is given in (<A HREF="node72.html#17-11-2-p1">290</A>).
+
+<P>
+In field-line-following coordinates <!-- MATH
+ $(\psi, \theta, \alpha)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ (\psi , \theta , \alpha )$"></SPAN>, a toroidal
+harmonic of a physical perturbation can be written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="17-10-30-e1"></A><!-- MATH
+ \begin{equation}
+\delta A (\psi, \theta, \alpha) = \delta A_0 (\psi) \cos
+  (m' \theta + n \alpha + \alpha_0)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="289" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img938.png"
+ ALT="$\displaystyle \delta A (\psi, \theta, \alpha) = \delta A_0 (\psi) \cos (m' \theta + n \alpha + \alpha_0)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">292</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img227.png"
+ ALT="$ n$"></SPAN> is the toroidal mode number, <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img939.png"
+ ALT="$ m'$"></SPAN>, which may not be an integer, is
+introduced to describle the variation along a field line. The periodic
+condition given by Eq. (<A HREF="node72.html#17-11-2-p1">290</A>) requires that
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\cos (m' \theta + n \alpha + \alpha_0) = \cos [m' (\theta + 2 \pi) + n
+  (\alpha - 2 \pi q) + \alpha_0],
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="405" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img940.png"
+ ALT="$\displaystyle \cos (m' \theta + n \alpha + \alpha_0) = \cos [m' (\theta + 2 \pi) + n (\alpha - 2 \pi q) + \alpha_0],$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">293</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+To satisfy the above condition, we can choose
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+m' 2 \pi - n 2 \pi q = N 2 \pi,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="152" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img941.png"
+ ALT="$\displaystyle m' 2 \pi - n 2 \pi q = N 2 \pi,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">294</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img942.png"
+ ALT="$ N$"></SPAN> is an arbitrary integer, i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="17-12-16-5"></A><!-- MATH
+ \begin{equation}
+m' = N + n q.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="99" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img943.png"
+ ALT="$\displaystyle m' = N + n q.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">295</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+We are interested in perturbation with a slow variation along the field line
+direction (i.e., along <!-- MATH
+ $\partial \mathbf{r}/ \partial \theta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img944.png"
+ ALT="$ \partial \mathbf{r}/ \partial \theta$"></SPAN>) and thus we
+want the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img939.png"
+ ALT="$ m'$"></SPAN> to be small. One of the possible small values given by
+expression (<A HREF="#17-12-16-5">295</A>) is
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+m' = n q - \ensuremath{\operatorname{NINT}} \left( n \frac{q_{\max} + q_{\min}}{2} \right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="248" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img945.png"
+ ALT="$\displaystyle m' = n q - \ensuremath{\operatorname{NINT}} \left( n \frac{q_{\max} + q_{\min}}{2} \right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">296</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where N<!-- MATH
+ $\ensuremath{\operatorname{INT}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img946.png"
+ ALT="$ \ensuremath{\operatorname{INT}}$"></SPAN> is a function that return the nearest integer of its
+argument, <SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img947.png"
+ ALT="$ q_{\max}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img948.png"
+ ALT="$ q_{\min}$"></SPAN> is the maximal and minimal value of the
+safety factor in the radial region in which we are interested. Note that <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img939.png"
+ ALT="$ m'$"></SPAN>
+depends on the radial coordinate <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> through <SPAN CLASS="MATH"><IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img949.png"
+ ALT="$ q (\psi)$"></SPAN>. Also note that
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img939.png"
+ ALT="$ m'$"></SPAN> here is differnt from the poloidal mode number <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img226.png"
+ ALT="$ m$"></SPAN> in <!-- MATH
+ $(\psi, \theta,
+\phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN> coordinate system. It is ready to show that the perturbation given by
+Eq. (<A HREF="#17-10-30-e1">292</A>) with <SPAN CLASS="MATH"><IMG
+ WIDTH="52" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img950.png"
+ ALT="$ m' \sim 1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img951.png"
+ ALT="$ n \gg 1$"></SPAN> has large poloidal mode
+number <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img226.png"
+ ALT="$ m$"></SPAN> when expressed in <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN> coordinates. [Proof:
+Expression (<A HREF="#17-10-30-e1">292</A>) can be written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\delta A = \delta A_0 (\psi) \cos [m' \theta + n (\phi - \overline{\delta}
+  (\psi, \theta)) + \alpha_0]
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="307" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img952.png"
+ ALT="$\displaystyle \delta A = \delta A_0 (\psi) \cos [m' \theta + n (\phi - \overline{\delta} (\psi, \theta)) + \alpha_0]$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">297</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+If <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> is the staight-field-line poloidal angle in <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN>
+coordinate system, then <!-- MATH
+ $\overline{\delta} (\psi, \theta) = q \theta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="87" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img953.png"
+ ALT="$ \overline{\delta} (\psi, \theta) = q \theta$"></SPAN> and the
+above eqaution is written as
+<P><!-- MATH
+ \begin{displaymath}
+\delta A = \delta A_0 (\psi) \cos [(m' - n q) \theta + n \phi + \alpha_0],
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="283" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img954.png"
+ ALT="$\displaystyle \delta A = \delta A_0 (\psi) \cos [(m' - n q) \theta + n \phi + \alpha_0],
+$">
+</DIV><P></P>
+which indicates the poloidal mode number <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img226.png"
+ ALT="$ m$"></SPAN> in <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN>
+coordinates is given by <!-- MATH
+ $m = m' - n q$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="95" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img955.png"
+ ALT="$ m = m' - n q$"></SPAN>. For the case with <SPAN CLASS="MATH"><IMG
+ WIDTH="52" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img950.png"
+ ALT="$ m' \sim 1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img951.png"
+ ALT="$ n \gg 1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img226.png"
+ ALT="$ m$"></SPAN> is much larger than one.]
+
+<P>
+[In the past, I choose <!-- MATH
+ $m' (\psi) = n q - \ensuremath{\operatorname{NINT}} (n q)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="174" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img956.png"
+ ALT="$ m' (\psi) = n q - \ensuremath{\operatorname{NINT}} (n q)$"></SPAN>. However, <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img957.png"
+ ALT="$ m'
+(\psi)$"></SPAN> in this case is not a continuous function of <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> and thus is not
+physical.]
+
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+[In passing, let us introduce the binormal wavenumber, which is frequently
+used in presenting turbulence simulation results. Consider the toroidal phase
+in expression (<A HREF="#17-10-30-e1">292</A>), i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\ensuremath{\operatorname{phase}} = n \alpha
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img958.png"
+ ALT="$\displaystyle \ensuremath{\operatorname{phase}} = n \alpha$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">298</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Define the binormal direction <!-- MATH
+ $\mathbf{s}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img959.png"
+ ALT="$ \mathbf{s}$"></SPAN> by
+<P><!-- MATH
+ \begin{displaymath}
+\mathbf{s}= \frac{\mathbf{B} \times \nabla \Psi}{| \mathbf{B} \times \nabla
+   \Psi |},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="108" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img960.png"
+ ALT="$\displaystyle \mathbf{s}= \frac{\mathbf{B} \times \nabla \Psi}{\vert \mathbf{B} \times \nabla
+\Psi \vert}, $">
+</DIV><P></P>
+which a unit vector lying on a magnetic surface and perpendicular to
+<!-- MATH
+ $\mathbf{B}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img77.png"
+ ALT="$ \mathbf {B}$"></SPAN>. The binormal wavenumber is defined by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+k_{b n} =\mathbf{s} \cdot \nabla \ensuremath{\operatorname{phase}},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="126" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img961.png"
+ ALT="$\displaystyle k_{b n} =\mathbf{s} \cdot \nabla \ensuremath{\operatorname{phase}},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">299</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which can be written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+k_{b n} & = & \frac{\mathbf{B} \times \nabla \Psi}{| \mathbf{B} \times
+  \nabla \Psi |} \cdot \nabla (n \alpha) \nonumber\\
+  & = & n \frac{\nabla \Psi \times \nabla \alpha}{| \mathbf{B} \times \nabla
+  \Psi |} \cdot \mathbf{B} \nonumber\\
+  & = & n \frac{B^2}{| \mathbf{B} \times \nabla \Psi |} \nonumber\\
+  & = & n \frac{B}{| \nabla \Psi |},
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img962.png"
+ ALT="$\displaystyle k_{b n}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="132" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img963.png"
+ ALT="$\displaystyle \frac{\mathbf{B} \times \nabla \Psi}{\vert \mathbf{B} \times
+\nabla \Psi \vert} \cdot \nabla (n \alpha)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="111" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img964.png"
+ ALT="$\displaystyle n \frac{\nabla \Psi \times \nabla \alpha}{\vert \mathbf{B} \times \nabla
+\Psi \vert} \cdot \mathbf{B}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="84" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img965.png"
+ ALT="$\displaystyle n \frac{B^2}{\vert \mathbf{B} \times \nabla \Psi \vert}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="56" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img966.png"
+ ALT="$\displaystyle n \frac{B}{\vert \nabla \Psi \vert},$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">300</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using <!-- MATH
+ $B_p = | \nabla \Psi | / R$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="100" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ B_p = \vert \nabla \Psi \vert / R$"></SPAN>, the above equation is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="17-11-3-1"></A><!-- MATH
+ \begin{equation}
+k_{b n} = n \frac{B}{R B_p}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img967.png"
+ ALT="$\displaystyle k_{b n} = n \frac{B}{R B_p}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">301</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which indicates the binormal wavenumber generally depends on the poloidal
+angle. For large aspect-ratio tokamak, we have <!-- MATH
+ $B_{\phi} \approx B$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img968.png"
+ ALT="$ B_{\phi} \approx B$"></SPAN>, <!-- MATH
+ $q
+\approx B_{\phi} r / (B_p R)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="113" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img969.png"
+ ALT="$ q
+\approx B_{\phi} r / (B_p R)$"></SPAN>. Then Eq. (<A HREF="#17-11-3-1">301</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+k_{b n} \approx \frac{n q}{r},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img970.png"
+ ALT="$\displaystyle k_{b n} \approx \frac{n q}{r},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">302</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which indicates the binormal wavenumber are approximately indepenent of the
+poloidal angle. For modes with field aligned structure (i.e., <!-- MATH
+ $k_{\parallel}
+\ll k_{\perp}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img529.png"
+ ALT="$ k_{\parallel} \ll k_{\perp}$"></SPAN>), we have <!-- MATH
+ $m \approx n q$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img971.png"
+ ALT="$ m \approx n q$"></SPAN>, where <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img226.png"
+ ALT="$ m$"></SPAN> is the poloidal mode numer
+along <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> with <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> hold fixed. In this case, the above equation is
+written <!-- MATH
+ $k_{b n} \approx m / r$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="77" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img972.png"
+ ALT="$ k_{b n} \approx m / r$"></SPAN>, which is the usual poloidal wave number. Due
+to this relation, the binormal wavenumber <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img973.png"
+ ALT="$ k_{b n}$"></SPAN> is often denoted by
+<!-- MATH
+ $k_{\theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img974.png"
+ ALT="$ k_{\theta}$"></SPAN> in papers on tokamak turbulence. In some papers the binormal
+wavenumber is denoted by <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img975.png"
+ ALT="$ k_y$"></SPAN>.]
+
+<P>
+Since <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours are magnetic field lines, they span out the 3D shape
+of the magnetic surface when there are enough numbe of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours on a
+magnetic surface, as is shown by the left-panel of Fig. <A HREF="#17-10-29-e1">20</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="17-10-29-e1"></A><A NAME="7967"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 20:</STRONG>
+Comparison between a series of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN>
+  contours(left) and a series of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours (left) on a magnetic
+  surface. The <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours correspond to magnetic field lines. Here the
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> values of adjacent <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours differ by <!-- MATH
+ $d \alpha = 2 \pi /
+  20$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="85" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.png"
+ ALT="$ d \alpha = 2 \pi / 20$"></SPAN> and each <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contour goes one full poloidal loop. Magnetic field
+  from EAST discharge #59954@3.03s.</CAPTION>
+<TR><TD><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3c/p.eps}}$
+ -->
+<IMG
+ WIDTH="362" HEIGHT="238" ALIGN="BOTTOM" BORDER="0"
+ SRC="img976.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3c/p.eps}}"><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3b/p.eps}}$
+ -->
+<IMG
+ WIDTH="362" HEIGHT="238" ALIGN="BOTTOM" BORDER="0"
+ SRC="img977.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig3b/p.eps}}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html962"
+  HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html960"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html954"
+  HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html963"
+  HREF="node75.html">contours in a toroidal</A>
+<B> Up:</B> <A NAME="tex2html961"
+  HREF="node71.html">Visualization of field-line-following coordinates</A>
+<B> Previous:</B> <A NAME="tex2html955"
+  HREF="node73.html">Numerical implementation of periodic</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

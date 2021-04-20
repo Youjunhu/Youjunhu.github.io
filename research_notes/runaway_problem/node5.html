@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Collision operator</TITLE>
+<META NAME="description" CONTENT="Collision operator">
+<META NAME="keywords" CONTENT="runaway_problem">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="runaway_problem.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="runaway_problem.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html71"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html69"
+  HREF="runaway_problem.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html63"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html72"
+  HREF="node6.html">Effective temperature</A>
+<B> Up:</B> <A NAME="tex2html70"
+  HREF="runaway_problem.html">runaway_problem</A>
+<B> Previous:</B> <A NAME="tex2html64"
+  HREF="node4.html">Boundary condition</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00050000000000000000">
+Collision operator</A>
+</H1>
+
+<P>
+If <!-- MATH
+ $f ( \ensuremath{\boldsymbol{u}}) \approx f_m (u)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="100" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img65.png"
+ ALT="$ f ( \ensuremath{\boldsymbol{u}}) \approx f_m (u)$"></SPAN> for <!-- MATH
+ $u \leqslant u_t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img66.png"
+ ALT="$ u \leqslant u_t$"></SPAN>, the following
+linearized collision operator, <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$ C^l (f)$"></SPAN>, is a good approximation to the full
+collision operator <SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$ C (f, f)$"></SPAN>.
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+C (f, f) \approx C (f, f_m) + C (f_m, f) \equiv C^l (f)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="277" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$\displaystyle C (f, f) \approx C (f, f_m) + C (f_m, f) \equiv C^l (f)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">16</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In the numerical calculation, the second term of the linearized collision
+operator is difficult to deal with because the collision coefficient provided
+by the two-dimension distribution, <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.png"
+ ALT="$ f$"></SPAN>, is difficult to calculate. In crude
+approximation, the second term of the linearized collision term is simply
+ignored, giving a simple collision operator
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-28-1"></A><!-- MATH
+ \begin{equation}
+C (f, f) \approx C (f, f_m) \equiv C_{\max} (f),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="219" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img71.png"
+ ALT="$\displaystyle C (f, f) \approx C (f, f_m) \equiv C_{\max} (f),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">17</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which is easy to be numerically calculated.
+
+<P>
+In order to make the linearized collision operator have the property of
+momentum-conservation, the second term of the linearized collision operator
+must be retained. It can be proved that it is only the first Legendre harmonic
+of this term that is responsible for the parallel
+momentum-conservation[<A
+ HREF="node12.html#karney:116">6</A>]. Therefore, to make momentum
+conserve, and at the same time to make the collision operator simple, we can
+retain only the <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img72.png"
+ ALT="$ l = 0$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="$ l = 1$"></SPAN> Legendre harmonics of this term. In
+practice, the <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img72.png"
+ ALT="$ l = 0$"></SPAN> term is usually discarded. The purpose in doing this is
+to artificially remove the Ohm heating from the system. (This procedure is
+obviously not-physical and unreasonable. I do not like this, so I prefer the
+approximation in Eq. (<A HREF="#4-28-1">17</A>) although it may be inaccurate.)
+
+<P>
+The second term of the linearized collision operator is modified to include
+only the first Legendre harmonic, i.e. the collision operator actually used in
+the numerical calculation is
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="6-23-a1"></A><!-- MATH
+ \begin{equation}
+C_{\ensuremath{\operatorname{num}}} (f) \equiv C (f, f_m) + C (f_m, f_1 (u) P_1
+  (\cos \theta))
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="313" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$\displaystyle C_{\ensuremath{\operatorname{num}}} (f) \equiv C (f, f_m) + C (f_m, f_1 (u) P_1 (\cos \theta))$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">18</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+f_1 (u) = \frac{3}{2} \int_0^{\pi} f (u, \theta) P_1 (\cos \theta) \sin
+  \theta d \theta,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="264" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$\displaystyle f_1 (u) = \frac{3}{2} \int_0^{\pi} f (u, \theta) P_1 (\cos \theta) \sin \theta d \theta,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">19</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+is the first coefficient of the Legendre harmonics decomposition.
+
+<P>
+The collision operator defined in Eq. (<A HREF="#6-23-a1">18</A>) is widely used in
+numerical codes dealing with noninductive current drive by
+waves[<A
+ HREF="node12.html#karney:116">6</A>].
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html71"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html69"
+  HREF="runaway_problem.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html63"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html72"
+  HREF="node6.html">Effective temperature</A>
+<B> Up:</B> <A NAME="tex2html70"
+  HREF="runaway_problem.html">runaway_problem</A>
+<B> Previous:</B> <A NAME="tex2html64"
+  HREF="node4.html">Boundary condition</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+YouJun Hu
+2012-12-08
+</ADDRESS>
+</BODY>
+</HTML>

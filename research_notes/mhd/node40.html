@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Numerical results of MHD continua</TITLE>
+<META NAME="description" CONTENT="Numerical results of MHD continua">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node41.html">
+<LINK REL="previous" HREF="node39.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node41.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html528"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html526"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html520"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html529"
+  HREF="node41.html">Numerical results of global</A>
+<B> Up:</B> <A NAME="tex2html527"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html521"
+  HREF="node39.html">EAST Tokamak equilibrium</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00082000000000000000"></A><A NAME="10-4-1"></A>
+<BR>
+Numerical results of MHD continua
+</H2>
+
+<P>
+The eigenfrequency of Eq. (<A HREF="node30.html#9-13-p5">213</A>), <!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN>, as a
+function of the radial coordinate gives the continua for the equilibrium. It
+can be proved analytically that the eigenfrequency of Eq. (<A HREF="node30.html#9-13-p5">213</A>),
+<!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN>, is a real number (I do not prove this). Making use of
+this fact, we know that a crude method of finding the eigenvalue of Eq.
+(<A HREF="node30.html#9-13-p5">213</A>) is to find the zero points of the real part of the determinant
+of <!-- MATH
+ $\mathbf{E}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="$ \mathbf{E}$"></SPAN>. Since, in this case, both the independent variables and the
+value of the function are real, the zero points can be found by using a simple
+one-dimension root finder. This method was adopted in the older version of
+GTAW (bisection method is used to find roots). In the latest version of GTAW,
+as mentioned above, the generalized eigenvalue problem in Eq. (<A HREF="node30.html#9-13-p5">213</A>)
+is solved numerically by using the <SPAN  CLASS="textbf">zggev</SPAN> subroutine in Lapack
+library. (The eigenvalue problem is solved without the assumption that
+<!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN> is real number. The eigenvalue <!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN>
+obtained from the routine is very close to a real number, which is consistent
+with the analytical conclusion that the eigenvalue <!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN> must
+be a real number.)
+
+<P>
+Figure <A HREF="#10-5-e1">16</A> plots the eigenfrequency of Eq. (<A HREF="node30.html#9-13-p5">213</A>) as a
+function of the radial coordinate <!-- MATH
+ $\overline{\Psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \overline {\Psi }$"></SPAN>. The result is calculated
+in the slow sound approximation, thus giving only the Alfven branch of the
+continua. Also plotted in Fig. <A HREF="#10-5-e1">16</A> are the Alfven continua in the
+cylindrical limit. As shown in Fig. <A HREF="#10-5-e1">16</A>, the Alfven continua in
+toroidal geometry do not intersect each other, thus forming gaps at the
+locations where the cylindrical Alfven continua intersect each other.
+
+<P>
+The first gap, which is formed due to the coupling of sound wave and Alfven
+wave, starts from zero frequency. This gap is called BAE gap since
+beta-induced Alfven eigenmode (BAE) can exist in this gap. The second gap is
+called TAE gap, which is formed mainly due to the coupling of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img554.png"
+ ALT="$ m$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img604.png"
+ ALT="$ m + 1$"></SPAN>
+poloidal harmonics. The third gap is called EAE gap, which is formed mainly
+due to the coupling of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img554.png"
+ ALT="$ m$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img616.png"
+ ALT="$ m + 2$"></SPAN> poloidal harmonics. The fourth gap is
+called NAE gap, which is formed due to the coupling of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img554.png"
+ ALT="$ m$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img663.png"
+ ALT="$ m + 3$"></SPAN>
+poloidal harmonics. A gap can be further divided into sub-gaps according to
+the two dominant poloidal harmonics that are involved in forming the gap. For
+example, a sub-gap of the TAE gap is the one that is formed mainly due to the
+coupling of <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ m = 1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> harmonics. For the ease of discussion, we call
+this sub-gap ``<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img695.png"
+ ALT="$ (1, 2)$"></SPAN> sub-gap'', where the two numbers stand for the
+poloidal mode numbers. The frequency range of a sub-gap is defined by the
+frequency difference of the two extreme points on the continua. The radial
+range of the sub-gap can be defined as the radial region whose center is the
+location of one of the extreme points on the continua, width is the half width
+between the neighbor left and right extreme points.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-5-e1"></A><A NAME="7334"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 16:</STRONG>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> Alfven continua in toroidal geometry (red
+  dots)(calculated in slow sound approximation) and in cylindrical geometry
+  limit for <!-- MATH
+ $m = 0, 1, 2, 3, 4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ m = 0, 1, 2, 3, 4$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ 5$"></SPAN> (calculated by using Eq.
+  (<A HREF="node34.html#9-20-e5">220</A>)). The equilibrium used for this calculation is for EAST shot
+  #38300 at 3.9s (G-eqdsk filename g038300.03900, which was provided by Dr.
+  Guoqiang Li). (main ions are deuterium, impurity ions are assumed to be
+  absent).</CAPTION>
+<TR><TD><IMG
+ WIDTH="357" HEIGHT="186" ALIGN="BOTTOM" BORDER="0"
+ SRC="img696.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig50/kHz.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+Figure <A HREF="#10-4-p1">17</A> compares the continua of the full ideal MHD model with
+those of slow sound and zero <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \beta $"></SPAN> approximations. The results indicate that
+the slow sound approximation eliminates the sound continua while keeps the
+Alfven continua almost unchanged. The zero <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \beta $"></SPAN> approximation eliminates
+the BAE gap.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-4-p1"></A><A NAME="7335"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 17:</STRONG>
+(a) full continua (b) slow sound approximation of
+  the continua (c) zero <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \beta $"></SPAN> approximation of the continua. Other
+  parameters: toroidal mode number <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN>, the range of poloidal harmonics
+  number is truncated within <!-- MATH
+ $[- 10 : 10]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ [- 10 : 10]$"></SPAN>. The equilibrium used for this
+  calculation is for EAST shot 38300 at 3.9s.</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="186" ALIGN="BOTTOM" BORDER="0"
+ SRC="img697.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig51/full_continua.eps}"><IMG
+ WIDTH="261" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img698.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig51/slow_sound.eps}"><IMG
+ WIDTH="261" HEIGHT="186" ALIGN="BOTTOM" BORDER="0"
+ SRC="img699.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig51/zero_beta_continua.eps}">
+
+<P></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+(Numerical results indicate that the eigenvalue <!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN> is
+always grater than or equal to zero. Can this point be proved analytically?)
+
+<P>
+In order to verify the numerical convergence about the number of the poloidal
+harmonics included in the expansion, we compares the results obtained when the
+poloidal harmonic numbers are truncated in the range <!-- MATH
+ $[- 10, 10]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ [- 10, 10]$"></SPAN> and those
+obtained when the truncation region is <!-- MATH
+ $[- 15, 15]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ [- 15, 15]$"></SPAN>. The results are plotted
+in Fig. <A HREF="#5-8-a1">18</A>, which shows that the two results agree with each other
+very well for the low order continua in the core region of the plasma. For
+continua in the edge region or higher order continua, there are some
+discrepancies between the two results. These discrepancies are due to that
+higher order poloidal harmonics are needed in evaluating the continua for
+those cases.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="5-8-a1"></A><A NAME="7336"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 18:</STRONG>
+Comparison of the results obtained when the poloidal
+  harmonic numbers are truncated in the range <!-- MATH
+ $[- 10, 10]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ [- 10, 10]$"></SPAN> (solid circles) and
+  those obtained when the truncation region is <!-- MATH
+ $[- 15, 15]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ [- 15, 15]$"></SPAN> (cross marks). The
+  equilibrium used for this calculation is for EAST shot #38300 at 3.9s.</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img700.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/compare3/p.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+The <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$ n = 4$"></SPAN> Alfven continua are plotted in Fig. <A HREF="#10-14-e1">19</A>, which shows
+that there are more TAE gaps than those of the <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> case. The number of
+gaps is roughly given by <!-- MATH
+ $n (q_{\ensuremath{\operatorname{edge}}} - q_{\ensuremath{\operatorname{axis}}})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img701.png"
+ ALT="$ n (q_{\ensuremath{\operatorname{edge}}} - q_{\ensuremath{\operatorname{axis}}})$"></SPAN> for a
+monotonic <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img613.png"
+ ALT="$ q$"></SPAN> profile[<A
+ HREF="node59.html#fu1996">10</A>].
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-14-e1"></A><A NAME="7340"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 19:</STRONG>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$ n = 4$"></SPAN> Alfven continua (in slow sound
+  approximation). The poloidal harmonic numbers are truncated in the range <!-- MATH
+ $[-
+  15, 20]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ [- 15, 20]$"></SPAN>. The equilibrium used for this calculation is for EAST shot 38300
+  at 3.9s. The corresponding Alfven continua in the cylindrical limit are also
+  plotted.</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="186" ALIGN="BOTTOM" BORDER="0"
+ SRC="img702.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig52/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+Remarks: If, instead of the definition (<A HREF="#5-7-p1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>), we define the <!-- MATH
+ $\langle
+\ldots \rangle_{m' m}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img470.png"
+ ALT="$ \langle \ldots
+\rangle_{m' m}$"></SPAN> operator as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-7-p5"></A><!-- MATH
+ \begin{equation}
+\langle W \rangle_{m' m} = \frac{1}{2 \pi} \int_0^{2 \pi} W
+  e^{i (m + m') \theta} d \theta,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="243" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img703.png"
+ ALT="$\displaystyle \langle W \rangle_{m' m} = \frac{1}{2 \pi} \int_0^{2 \pi} W e^{i (m + m') \theta} d \theta,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">260</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+then, can we still obtain correct results for the continuous spectrum? When I
+began to work on the calculation of the continuous spectrum, I noticed that
+the definition (<A HREF="#5-7-p1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>), instead of (<A HREF="#5-7-p5">260</A>), is adopted in
+Cheng's paper[<A
+ HREF="node59.html#cheng1987">3</A>]. By intuition, I thought the definition
+(<A HREF="#5-7-p5">260</A>) should work as well as (<A HREF="#5-7-p1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>). Since the definition
+(<A HREF="#5-7-p5">260</A>) is simpler than (<A HREF="#5-7-p1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>) (there is no additional minus in
+(<A HREF="#5-7-p5">260</A>)), I prefer using the definition (<A HREF="#5-7-p5">260</A>). This choice
+does not cause me trouble when I use symmetrical truncation of the poloidal
+harmonics. Trouble appears when I try using asymmetrical truncation of the
+poloidal harmonics. For example, when asymmetrical truncation of the poloidal
+harmonics is used (e.g. poloidal harmonics in the range <!-- MATH
+ $[- 10, 15]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img704.png"
+ ALT="$ [- 10, 15]$"></SPAN>), it is
+easy to verify analytically that the determinant of the resulting matrix for
+the case <!-- MATH
+ $\gamma = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img551.png"
+ ALT="$ \gamma = 0$"></SPAN> is zero for any values of <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img163.png"
+ ALT="$ \omega^2$"></SPAN>. It is obvious that
+this will not give correct results for the continuous spectrum. It took me two
+days to find out the definition in (<A HREF="#5-7-p1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>) must be used in order to
+deal with asymmetrical truncation of poloidal harmonics. In summary, the
+advantage of using the definition (<A HREF="#5-7-p1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>) over (<A HREF="#5-7-p5">260</A>), is that
+the former can deal with the asymmetrical truncation of the poloidal
+harmonics, while the latter is limited to the case of symmetrical truncation.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html528"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html526"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html520"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html529"
+  HREF="node41.html">Numerical results of global</A>
+<B> Up:</B> <A NAME="tex2html527"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html521"
+  HREF="node39.html">EAST Tokamak equilibrium</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

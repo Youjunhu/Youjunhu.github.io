@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Time evolution of marker distribution function</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <!--l. 987--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu15.html" >next</a>] [<a 
+href="tmpsu13.html" >prev</a>] [<a 
+href="tmpsu13.html#tailtmpsu13.html" >prev-tail</a>] [<a 
+href="#tailtmpsu14.html">tail</a>] [<a 
+href="tmpse4.html#tmpsu14.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x19-240004.2"></a>Time evolution of marker distribution function</h4>
+<!--l. 989--><p class="noindent" >For Hamiltonian motion in particular and non-diﬀusive motion in general, any particle distribution function <span 
+class="cmmi-10">g</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">,t</span>)
+satisﬁes that <span 
+class="cmmi-10">dg∕dt </span>= 0. In other words, the phase-space particle ﬂow is volume preserving (this is Louisville&#x2019;s theorem),
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-24001r70"></a>
+   <center class="math-display" >
+<img 
+src="tmp71x.png" alt="dVj= 0.
+dt
+" class="math-display"  /></center></td><td class="equation-label">(70)</td></tr></table>
+<!--l. 995--><p class="nopar" >
+i.e, the phase-space volume sampled by a marker does not change along the characteristic curves. This is good news for PIC
+simulation because this means that the marker distribution is known exactly along the characteristic line at every time-step
+and we do not need to numerically evaluate it (numerically evaluating the marker distribution by directly counting markers
+would be noisy due to the small number of markers loaded and should be avoided in practice whenever
+possible).
+</p><!--l. 1004--><p class="indent" >   For diﬀusive motion, the phase space particle ﬂow is usually not volume preserving, i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-24002r71"></a>
+   <center class="math-display" >
+<img 
+src="tmp72x.png" alt="dg(Zj) &frasl;= 0.
+  dt
+" class="math-display"  /></center></td><td class="equation-label">(71)</td></tr></table>
+<!--l. 1008--><p class="nopar" >
+For this case, the values of <span 
+class="cmmi-10">g </span>at markers need to be evaluated numerically every time step, which is usually noisy and
+time-consuming in terms of CPU time. Therefore, this kind of evaluation should be avoided in practice whenever possible.
+The usual way of achieving this is by choosing a suitable initial distribution for the markers, so that <span 
+class="cmmi-10">g </span>remains
+approximately constant along the trajectory of markers<span class="cite">[<a 
+href="tmpli1.html#Xchen1997">3</a>]</span>.
+</p><!--l. 1016--><p class="indent" >   The marker distribution chosen in practice is determined by the desired resolution of phase space of interest, not
+determined by the physical particle distribution, i.e., the initial marker distribution can be diﬀerent from the physical
+particle distribution.
+
+</p>
+   <!--l. 1021--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu15.html" >next</a>] [<a 
+href="tmpsu13.html" >prev</a>] [<a 
+href="tmpsu13.html#tailtmpsu13.html" >prev-tail</a>] [<a 
+href="tmpsu14.html" >front</a>] [<a 
+href="tmpse4.html#tmpsu14.html" >up</a>] </p></div>
+<!--l. 1021--><p class="indent" >   <a 
+ id="tailtmpsu14.html"></a> </p> 
+</body></html> 

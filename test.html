@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <title>Free softwares I use</title>
+
+<!-- <link rel="alternate" type="application/rss+xml" title="RSS" href="http://matt.might.net/articles/feed.rss" />   -->
+
+ <link rel="stylesheet" href="css/raised-paper-2.css" /> 
+ <!--css files are from http://matt.might.net/  -->
+
+ <meta name="viewport" content="width=480, initial-scale=1" />
+ <link rel="stylesheet" media="screen and (max-device-width: 480px)" href="css/raised-paper-2-handheld.css" />
+
+ <script type="text/javascript" src="scripts/matt.might.js"></script>
+ <script type="text/javascript">
+  var ArticleVersion = 2 ;
+ </script>
+ <script>
+ <!--
+  include("article-style.js");
+ //-->
+ </script>
+ <script type="text/javascript" src="scripts/manifest.js"></script>
+ <script type="text/javascript" src="scripts/index-manifest.js"></script>
+
+ <script type="text/javascript">
+ <!--
+//  var Key = "[an error occurred while processing the directive]";
+ var Pathname = location.pathname ;
+ var PathParts = Pathname.split(/\//) ;
+ var Key = PathParts[PathParts.length-1] ;
+ if (Key == "")
+  Key = PathParts[PathParts.length-2] ;
+ //-->
+ </script>
+
+</head>
+
+
+
+<body>
+
+<div id="body">
+
+
+<div id="abstract-container" class="module">
+<div id="abstract-content" class="fat-content">
+
+<h1>Free softwares I use</h1>
+
+ <div>
+ [<a href="index.html">Home</a>]
+ [<script>
+       var emailMatt = '<a href="mai'+'lto:yjhu'+'@'+'ip'+'p.cas.cn">email me</a>'
+document.write(emailMatt);
+ //-->
+</script>] 
+ </div>
+
+
+<p>
+One of the aims of science is to make science transparent rather than secret, making learning science easy rather than hard. Open-source movements are providing us a free and clean world where we can explore and learn new things and enjoy our learning and working when using computers. Open-source resources equipped with a powerful search engine are transforming the way we learn programming. Using free software instead of proprietary one is a trend in computational physics community. By using open-source softwares, we can do whatever we want to do with our computers. It is not only possible but also efficient and fun to use only free softwares in doing research.
+
+</p>
+<p>I have been a GNU/Linux user since 2007. This page lists the free softwares I use frequently. These softwares are all open source softwares, most of which are very popular in open-source communities. 
+"Free software has become the foundation of a learning society where we share our knowledge in a way that others can build upon and enjoy."
+</p>
+
+<hr />
+
+<p>
+<b>Update</b>:
+ddd
+</p>
+  
+</div> <!-- /#content -->
+</div> <!-- /#content-container -->
+
+  
+<div id="content-container" class="module">
+<div id="article-content">
+
+  <script type="text/javascript">
+<!--
+// Might.enableSyntaxHighlighting("Scala") ;
+//-->
+</script>
+
+
+<h2><a href="http://www.gnu.org">GNU operating system</a></h2>
+<p>GNU is a Unix-like operating system. For me, GNU/Linux operating system provides a stable, flexible, and highly customizable working platform. The specific GNU/Linux distributions I use are <a href="https://www.debian.org/">Debian</a> and <a href="https://www.ubuntu.com"> Ubuntu</a></p>
+
+<p>
+Unix users spend a lot of time at the command line.
+</p>
+
+<p>
+The command line (often called the console, the shell or the terminal)
+looks something like this:
+</p>
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+
+
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+<p>
+When you type in a command like <code>ls</code>, it will
+give you feedback:
+</p>
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ ls
+  <span style="color: #8888ff">Documents</span> README.txt
+
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+<p>
+In this case, the <code>ls</code> command listed 
+the files in the current directory.
+</p>
+
+
+
+
+
+
+
+<h2>Getting to the command line</h2>
+
+<p>
+Once you're into Unix, you'll want to get to the command line.
+</p>
+
+<p> On Linux, you can press CTRL+ALT+F1 to get to a raw terminal, and
+CTRL+ALT+F7 to get back to the window system.  
+
+(In fact, CTRL+ALT+F1-F6 will get you different terminal on most systems, and
+of course, you can configure this.) </p>
+
+
+<p> 
+In most popular flavors of Linux, there is a way
+to open a graphical terminal in a window.
+</p>
+
+<p>
+On a Mac, it's Applications &gt; Utilities &gt; Terminal.
+</p>
+
+
+
+
+<h2>The filesystem: <code>ls</code> and <code>cd</code></h2>
+
+<p>
+If you find yourself at a command prompt, run <code>ls</code>
+to list the files in the current directory.
+</p>
+
+<p>
+You might see something like this:
+</p>
+
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ ls
+  <span style="color: #8888ff">Documents</span> README.txt
+
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+
+<p>
+With <code>ls /</code>, you can list the contents of the 
+root directory.
+</p>
+
+<p>
+You'll notice several 
+<a href="http://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard#Directory_structure">directories that are common to almost all Unices</a>:
+</p>
+
+<ul>
+
+ <li><code>/bin</code>, standard executables.</li>
+ <li><code>/sbin</code>, important system executables.</li>
+ <li><code>/etc</code>, system configuration files.</li>
+ <li><code>/var</code>, frequently updated files like logs.</li>
+ <li><code>/root</code>, home directory of the administrator account. </li>
+ <li><code>/home</code>, a user account home directories. 
+     (<code>/Users</code> on a Mac.)</li>
+ <li><code>/opt</code>, package-manager installed files.</li>
+ <li><code>/tmp</code>, temporary files; usually wiped between boots.</li>
+ <li><code>/usr</code>, user applications and utilities.</li>
+
+
+
+</ul>
+
+
+<p>
+To change to a different directory, use the command <code>cd</code>.
+</p>
+
+<p>
+For example:
+</p>
+
+<ul>
+ <li><code>cd Documents</code> to change to the <code>Documents</code> sub-folder.</li>
+ <li><code>cd ..</code> to change to the parent directory.</li>
+ <li><code>cd</code> to change to your home directory.</li>
+</ul>
+
+
+
+<h3>Paths</h3>
+
+<p>
+To print the path of the current working directory, use <code>pwd</code>:
+</p>
+
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ pwd
+  /home/matt
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+<p>
+On Unix, a path is a description of a file's location.
+</p>
+
+<p> For example, <code>/home/matt/README</code> is a path to a file called
+<code>README</code> contained within the home directory for the user
+<code>matt</code>.  </p>
+
+<p>
+Notice that forward slashes (<code>/</code>) separate components
+of a path.
+</p>
+
+<p>
+For example:
+</p>
+
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ pwd
+  /home/matt
+  $ cd ..
+  $ pwd
+  /home
+  $ cd matt
+  $ pwd
+  /home/matt
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+
+<h3>Symbolic links</h3>
+
+<p>
+Unix filesystems make use of aliases for files known as symbolic links
+(symlinks).
+</p>
+
+<p>
+(There are also <em>hard</em> links, 
+in which there are two true, indistingushible
+references to the same file, but these are less commonly used.)
+</p>
+
+<p>
+A symbolic link to a file is ordinarily treated identically
+to that file.
+</p>
+
+<p>
+The command <code>ln -s</code> creates sym links.
+</p>
+
+<p>
+The command <code>ls -l</code> can reveal where a symlink points.
+</p>
+
+<p>
+For example:
+</p>
+
+<div style="width: 500px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ ls
+  bar foo
+
+  $ ln -s bar baz
+
+  $ ls -l
+  total 8
+  -rw-r--r--  1 matt  staff  0 Jan  8 09:57 bar
+  lrwxr-xr-x  1 matt  staff  3 Jan  8 09:58 baz -&gt; bar
+  -rw-r--r--  1 matt  staff  0 Jan  8 09:57 foo
+
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+
+
+
+<h2>Working with text: <code>cat</code>, <code>less</code>, <code>emacs</code>
+and <code>vi</code></h2>
+
+
+<p>
+Suppose you want to look at a text file within the current
+directory.
+</p>
+
+<p>
+A common way to take a glance at a text file is with the
+<code>cat</code> command:
+</p>
+
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ cat README.txt
+  * A README file for my home directory.
+  
+    Documents contains my files.
+
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+<p>
+(The command <code>cat</code> is actually meant to do more
+powerful things than just look at files, but that's what
+it's most commonly used for.)
+</p>
+
+<p>
+If the file is too long to fit on a screen, use <code>less</code>
+instead of <code>cat</code>.  (To quit <code>less</code>, 
+press <code>q</code>.)
+</p>
+
+<p>
+You're going to spend a lot of time editing text, so you'll want 
+to learn one (or both) of the powerful Unix text editors: 
+<code>emacs</code> and <code>vim</code>.
+</p>
+
+<p>
+Both have a tutorial mode for teaching the essentials.
+</p>
+
+
+
+<h2>Help yourself: <code>man</code> up</h2>
+
+<p>
+If you don't know what a command does, 
+use the command <code>man <i>command</i></code>.
+</p>
+
+<p>
+This will bring up the man(ual) page for <i>command</i>,
+which will document how the command operates;
+it frequently provides examples of usage.
+</p>
+
+<p>
+Press <code>q</code> to quit the man page viewer.
+</p>
+
+<p>
+The <code>apropos</code> can help you find the command you're looking for
+if you don't know it's name.
+
+It will search a database of command <em>descriptions</em>.
+</p>
+
+<p>
+Some tools use an alternate documentation 
+system called <code>info</code>
+</p>
+
+<p>
+To look up documentation using <code>info</code>,
+try <code>info <i>topic</i></code>.
+</p>
+
+<p>
+For more info on <code>info</code>, run <code>info info</code>.
+</p>
+
+
+
+<h2>Search for it: <code>grep</code> and <code>find</code></h2>
+
+<p> If you're looking for text within a file or a set of files,
+<code>grep</code> is the right tool.  </p>
+
+<p>
+The command <code>grep <i>pattern</i> <i>file ...</i></code>
+will search the specified files for the pattern.
+<p>
+
+<p> The pattern language used throughout Unix is called <i>regular
+expressions</i>, and there are many good introductions to these, including the
+man page for grep. </p>
+
+<p> To list all files under the working directory (and its subdirectories), try
+the command <code>find</code>.</p>
+
+
+
+
+<h2>Pipes and redirection</h2>
+
+<p> Nearly every command in Unix makes use of a convention to have a "standard
+input" (also called stdin or STDIN) and standard output (also called stdout or
+STDOUT).
+</p>
+
+<p> There is also a "standard error" (stderr or STDERR) output that is, by
+convention, reserved for error messages.  </p>
+
+<p>
+Many techniques in Unix rely on redirecting these channels.
+</p>
+
+<p>
+If you want to dump the standard output into a file, use 
+<code><i>command</i> &gt; <i>file</i></code>.
+<p>
+
+<p>
+For example:
+</p>
+
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ pwd &gt; pwd.txt 
+  $ ls
+  pwd.txt
+  $ cat pwd.txt
+  /home/matt
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+<p>
+One of the most useful capabilities of Unix is 
+the ability to redirect the STDOUT of one command
+into the STDIN of another.
+</p>
+
+<p>
+To do this, you'll want to use a "pipe"; for example:
+</p>
+
+
+<div style="width: 400px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+  $ find . | grep READ
+  ./Desktop/READINGLIST.txt
+  ./README.txt
+  $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+<p>
+This command found a file named 
+<code>READINGLIST.txt</code> in the <code>Desktop</code>
+subdirectory, and a file named <code>README</code>
+in the current one.
+</p>
+
+<p>
+It's customary for Unix programs to read from STDIN when no input
+file is specified, which is what <code>grep</code> is doing here.
+</p>
+
+
+<p>
+It is also possible to send the contents of a file into
+the STDIN of a command using <code><i>command</i> &lt; <i>file</i></code>.
+</p>
+
+
+
+
+
+<h2>Permissions: <code>chmod</code>, <code>chown</code> and <code>chgrp</code></h2>
+
+<p>
+In Unix, every file and directory has an owner and a group.
+</p>
+
+<p>
+Every user on a Unix machine can belong to one or more groups.
+</p>
+
+<p> Every file also has three sets of permissions: what the owner can do, what
+the group can do and what anyone can do.  </p>
+
+<p> To see the owner, group and permissions associated with a file run <code>ls
+-l</code>.  You'll see something like: </p>
+
+
+<div style="width: 500px; background-color: black; color: white ;
+margin-left: auto; margin-right: auto;">
+<pre>
+
+ $ ls -l
+ drwxr-xr-x    4 matt  staff      136 Jun 23  2010 Documents
+ drwxr-xr-x  143 matt  staff     4862 Dec 30  2009 Desktop
+ -rw-r--r--    1 matt  staff        4 Feb  7 11:16 README.txt  
+ $ <blink>_</blink>
+
+</pre>
+</div>
+
+
+
+<p>
+The first column tells you about the permissions on the file.
+</p>
+
+<p>
+The third and fourth tell you the owner and group respectively.
+</p>
+
+<p>
+The very first character in the permissions column tells you what kind of file it is.
+A <code>-</code> means it's a regular file.  A <code>d</code> means it's a directory.
+</p>
+
+<p>
+The next nine characters come in three classes of three characters each.
+The three classes are owner permissions, group permissions and world permissions.
+</p>
+
+<p>
+Inside a permission class, 
+<code>r</code> means that class can read the file;
+<code>w</code> means that class can write the file;
+<code>x</code> means that class can execute the file.
+</p>
+
+<p> If a file is a directory, <code>x</code> grants the permission to access
+inside the directory, while <code>r</code> grants permission to list its
+contents.
+</p>
+
+
+
+
+<h2>Package managers</h2>
+
+<p>
+Modern Unixes have package managers to that download install
+(free) software for you.
+</p>
+
+<p> On a Mac, <a href="http://www.macports.com/">MacPorts</a> is a popular
+package-management system,
+and <a href="http://mxcl.github.com/homebrew/">Homebrew</a>
+is gaining in popularity.
+</p>
+
+<p>
+On Ubuntu, <code>apt</code> is the standard package manager, with
+both a command-line and graphical interface available.
+</p>
+
+
+<p> It's a good idea to familiarize yourself with your package manager.  </p>
+
+
+
+<a name="ssh"></a>
+<h2>Remote access: <code>ssh</code></h2>
+
+<p> If you have more than one machine, or you need remote access to another
+machine, <code>ssh</code> is a powerful "secure shell" utility.  </p>
+
+<p>
+<code>ssh</code> can grant you console access on a remote machine, while safely
+encrypting the session.
+</p>
+
+<p>
+It is worth setting up passwordless key-based authentication
+using <code><a href="http://en.wikipedia.org/wiki/Ssh-keygen">ssh-keygen</a></code>.
+</p>
+
+<p>
+Using <code>~/.ssh/config</code>, many options, including aliases
+and per-host private keys, are available.  (Try <code>man ssh_config</code>).
+</p>
+
+<p>
+To ssh into another computer, use <code>ssh <i>user</i>@<i>address</i></code>
+where <i>user</i> is the user name of your account on the other machine,
+and <i>address</i> is host name or IP address of the other computer.
+</p>
+
+<p>
+Windows users can use 
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>
+to connect to another computer over ssh.
+</p>
+
+
+
+<h2>What's next?</h2>
+
+<p>
+Wikipedia has a 
+<a href="http://en.wikipedia.org/wiki/List_of_Unix_utilities">list
+of Unix utilities</a>
+to peruse.
+</p>
+
+<p>
+You can also move onto my guide to 
+<a href="../settling-into-unix/">settling into Unix</a>.
+</p>
+
+
+
+
+<h2>Related posts</h2>
+
+<ul>
+<script>
+RenderTagLinks("unix") ;
+</script>
+</ul>
+
+
+
+
+<script type="text/javascript">
+<!--
+// SyntaxHighlighter.all() ;
+//-->
+</script>
+  
+
+ <hr />
+
+ <div id="footer-links">
+ [<a href="../">article index</a>]
+ [<script>
+       var emailMatt = '<a href="mai'+'lto:matt-blog'+'@'+'migh'+'t.net">email me</a>'
+document.write(emailMatt);
+ //-->
+</script>] 
+ [<a href="http://twitter.com/mattmight">@mattmight</a>]
+ [<a href="../feed.rss">rss</a>]
+ </div>
+
+
+  
+</div> <!-- /#content -->
+</div> <!-- /#content-container -->
+
+
+<div id="footer-linode" class="module fat-container">
+ <div class="fat-content"> 
+ <center>
+ Youjun Hu  | Institute of Plasma Physics, Chinese Academy of Sciences
+ </center>
+ </div>
+</div>
+
+
+</div> <!-- /#body -->
+
+
+
+
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3661244-1");
+pageTracker._trackPageview();
+</script>
+
+
+
+
+</body>
+
+</html>

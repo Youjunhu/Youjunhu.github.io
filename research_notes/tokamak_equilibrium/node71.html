@@ -1,0 +1,703 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Visualization of field-line-following coordinates</TITLE>
+<META NAME="description" CONTENT="Visualization of field-line-following coordinates">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node77.html">
+<LINK REL="previous" HREF="node70.html">
+<LINK REL="up" HREF="node69.html">
+<LINK REL="next" HREF="node72.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html927"
+  HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html925"
+  HREF="node69.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html919"
+  HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html928"
+  HREF="node72.html">Periodic conditions of physical</A>
+<B> Up:</B> <A NAME="tex2html926"
+  HREF="node69.html">Field-line-following coordinates</A>
+<B> Previous:</B> <A NAME="tex2html920"
+  HREF="node70.html">Definition of the field-line-following</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00082000000000000000">
+Visualization of field-line-following coordinates</A>
+</H2>
+
+<P>
+I am now developing a fully kinetic ions module in electromagnetic turbulence
+code GEM which uses field-line-following coordinates. Having an accurate
+understanding of the field-line-following coordinates is importan for writing
+the code. In this section, I try to visualize some aspects of the coordinates
+which are helpful for writing correct codes. The directions of the covariant
+basis vectors of <!-- MATH
+ $(\psi, \theta, \alpha)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ (\psi , \theta , \alpha )$"></SPAN> coordinates are as follows:
+<P><!-- MATH
+ \begin{displaymath}
+\frac{\partial \mathbf{r}}{\partial \alpha} |_{\psi, \theta}
+   \longrightarrow \ensuremath{\operatorname{usual}} \ensuremath{\operatorname{toroidal}} \ensuremath{\operatorname{direction}}
+   (\hat{\ensuremath{\boldsymbol{\phi}}}), 
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="271" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img888.png"
+ ALT="$\displaystyle \frac{\partial \mathbf{r}}{\partial \alpha} \vert _{\psi, \theta}...
+...\ensuremath{\operatorname{direction}}
+(\hat{\ensuremath{\boldsymbol{\phi}}}), $">
+</DIV><P></P>
+<P><!-- MATH
+ \begin{displaymath}
+\frac{\partial \mathbf{r}}{\partial \theta} |_{\psi, \alpha}
+   \longrightarrow \ensuremath{\operatorname{field}} \ensuremath{\operatorname{line}} \ensuremath{\operatorname{direction}}, \mathbf{B}/ B,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="251" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img889.png"
+ ALT="$\displaystyle \frac{\partial \mathbf{r}}{\partial \theta} \vert _{\psi, \alpha}...
+...ath{\operatorname{line}} \ensuremath{\operatorname{direction}}, \mathbf{B}/ B,
+$">
+</DIV><P></P>
+and the direction of <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> is a combination of the radial and toroidal direction, as is shown
+in Fig. <A HREF="#17-9-16-1">15</A>. A trivial but important thing to note is that the
+usual toroidal angle <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> is changing when changing <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> and/or <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN>
+while keeping the generalized toroidal angle <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> fixed. This is given by
+Eq. (<A HREF="node70.html#17-9-15-1">282</A>), i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="17-10-30-2"></A><!-- MATH
+ \begin{equation}
+\phi = \alpha + \int_0^{\theta} \frac{\mathbf{B} \cdot
+  \nabla \phi}{\mathbf{B} \cdot \nabla \theta} d \theta \approx \alpha + q
+  (\psi) \theta,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="252" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img890.png"
+ ALT="$\displaystyle \phi = \alpha + \int_0^{\theta} \frac{\mathbf{B} \cdot \nabla \phi}{\mathbf{B} \cdot \nabla \theta} d \theta \approx \alpha + q (\psi) \theta,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">284</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the second equality becomes exact when <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> is the
+straight-field-line poloidal angle defined in Sec. <A HREF="node50.html#17-10-30-1">5.3.4</A>. Figure
+<A HREF="#17-9-16-1">15</A> shows how the usual toroidal angle <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> changes when we
+change <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> while keeping <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> fixed.
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="17-9-16-1"></A><A NAME="8407"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 15:</STRONG>
+(a) <!-- MATH
+ $\theta = 9 \times 2 \pi / 63$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="102" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \theta = 9 \times 2 \pi / 63$"></SPAN> contour on
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \phi = 0$"></SPAN> plane. Middle: <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> coordinate lines ( <!-- MATH
+ $\partial \mathbf{r}/
+  \partial \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi $"></SPAN> is tangent to these lines) on the isosurface of <!-- MATH
+ $\theta = 9
+  \times 2 \pi / 63$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="102" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \theta = 9 \times 2 \pi / 63$"></SPAN>. Left: Grids on the isosurface of <!-- MATH
+ $\theta = 9 \times 2
+  \pi / 63$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="102" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \theta = 9 \times 2 \pi / 63$"></SPAN>, where the red lines are <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> coordinate lines (<!-- MATH
+ $\partial
+  \mathbf{r}/ \partial \alpha$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$ \partial \mathbf {r}/ \partial \alpha $"></SPAN> is tangent to these lines), which are along the
+  usual toroidal direction <!-- MATH
+ $\hat{\ensuremath{\boldsymbol{\phi}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.png"
+ ALT="$ \hat{\ensuremath{\boldsymbol{\phi}}}$"></SPAN>; the blue lines are <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN>
+  coordinate lines. Magnetic field from EAST discharge #59954@3.03s.</CAPTION>
+<TR><TD><!-- MATH
+ $\resizebox{4cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2b2/p.eps}}$
+ -->
+<IMG
+ WIDTH="180" HEIGHT="286" ALIGN="BOTTOM" BORDER="0"
+ SRC="img891.png"
+ ALT="\resizebox{4cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2b2/p.eps}}"><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2f/p.eps}}$
+ -->
+<IMG
+ WIDTH="361" HEIGHT="237" ALIGN="BOTTOM" BORDER="0"
+ SRC="img892.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2f/p.eps}}">
+
+<P>
+<!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2r1/p.eps}}$
+ -->
+<IMG
+ WIDTH="361" HEIGHT="238" ALIGN="BOTTOM" BORDER="0"
+ SRC="img893.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2r1/p.eps}}"><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2/p.eps}}$
+ -->
+<IMG
+ WIDTH="361" HEIGHT="237" ALIGN="BOTTOM" BORDER="0"
+ SRC="img894.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2/p.eps}}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The relation <!-- MATH
+ $\phi \approx \alpha + q (\psi) \theta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="103" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img895.png"
+ ALT="$ \phi \approx \alpha + q (\psi) \theta$"></SPAN> given by Eq.
+(<A HREF="#17-10-30-2">284</A>) indicates that the toroidal shift for a radial change form
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img896.png"
+ ALT="$ \psi_1$"></SPAN> to <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img897.png"
+ ALT="$ \psi_2$"></SPAN> is given by <!-- MATH
+ $(q (\psi_2) - q (\psi_2)) \theta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="119" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img898.png"
+ ALT="$ (q (\psi_2) - q (\psi_2)) \theta$"></SPAN>, which is
+larger on <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> isosurface with larger value of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN>. An example for
+this is shown in Fig. <A HREF="#17-10-30-5">16</A>, which has larger toroidal shift than
+that in Fig. <A HREF="#17-9-16-1">15</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="17-10-30-5"></A><A NAME="7943"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 16:</STRONG>
+(a) <!-- MATH
+ $\theta = 19 \times 2 \pi / 63$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="110" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.png"
+ ALT="$ \theta = 19 \times 2 \pi / 63$"></SPAN> contour on
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \phi = 0$"></SPAN> plane, <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi $"></SPAN> lines (upper left)
+  and <!-- MATH
+ $\partial \mathbf{r}/ \partial \alpha$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$ \partial \mathbf {r}/ \partial \alpha $"></SPAN> lines (upper right) on isosurface
+  of <!-- MATH
+ $\theta = 19 \times 2 \pi / 63$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="110" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.png"
+ ALT="$ \theta = 19 \times 2 \pi / 63$"></SPAN>. <!-- MATH
+ $\partial \mathbf{r}/ \partial \alpha$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$ \partial \mathbf {r}/ \partial \alpha $"></SPAN>
+  lines are identical with <!-- MATH
+ $\partial \mathbf{r}/ \partial \phi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.png"
+ ALT="$ \partial \mathbf {r}/ \partial \phi $"></SPAN> lines. Lower
+  left: Grids on the isosurface of <!-- MATH
+ $\theta = 19 \times 2 \pi / 63$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="110" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.png"
+ ALT="$ \theta = 19 \times 2 \pi / 63$"></SPAN>, which are
+  the combinations of <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi $"></SPAN> lines and <!-- MATH
+ $\partial
+  \mathbf{r}/ \partial \alpha$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$ \partial \mathbf {r}/ \partial \alpha $"></SPAN> lines.</CAPTION>
+<TR><TD><!-- MATH
+ $\resizebox{4cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2b3/p.eps}}$
+ -->
+<IMG
+ WIDTH="180" HEIGHT="286" ALIGN="BOTTOM" BORDER="0"
+ SRC="img899.png"
+ ALT="\resizebox{4cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2b3/p.eps}}"><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2d/p.eps}}$
+ -->
+<IMG
+ WIDTH="361" HEIGHT="230" ALIGN="BOTTOM" BORDER="0"
+ SRC="img900.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2d/p.eps}}">
+
+<P>
+<!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2e/p.eps}}$
+ -->
+<IMG
+ WIDTH="361" HEIGHT="230" ALIGN="BOTTOM" BORDER="0"
+ SRC="img901.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2e/p.eps}}"><!-- MATH
+ $\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2c/p.eps}}$
+ -->
+<IMG
+ WIDTH="361" HEIGHT="230" ALIGN="BOTTOM" BORDER="0"
+ SRC="img902.png"
+ ALT="\resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2c/p.eps}}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> lines
+can be understood in another way. Examine a family of magnetic field lines
+that start from the low-field-side midplane (<!-- MATH
+ $\theta = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$ \theta = 0$"></SPAN>) with the same
+toroidal angle <!-- MATH
+ $(\phi = \phi_1)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img903.png"
+ ALT="$ (\phi = \phi_1)$"></SPAN> but different radial coordinates. When these
+field lines travel to an isosurfce of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> with <!-- MATH
+ $\theta \neq 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img904.png"
+ ALT="$ \theta \neq 0$"></SPAN>, the
+intersecting points of these field lines with the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> isosurface will
+trace out a <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN>
+line. Examine another family of magnetic field lines similar to the above but
+with the starting toroidal angle <!-- MATH
+ $\phi = \phi_2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img905.png"
+ ALT="$ \phi = \phi_2$"></SPAN>. They will trace out another
+<!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> line on the
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> isosurface. Similarly choose another family of field lines with <!-- MATH
+ $\phi
+= \phi_3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img906.png"
+ ALT="$ \phi
+= \phi_3$"></SPAN>, we get the third <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta,
+\alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> line. Continue the process, we finally get those lines in
+the upper-right panel of Fig. <A HREF="#17-9-16-1">15</A>.
+
+<P>
+Figure <A HREF="#17-11-10-1">17</A> plots <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |
+_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> lines on the <!-- MATH
+ $\theta = 0, 2 \pi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="66" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img907.png"
+ ALT="$ \theta = 0, 2 \pi$"></SPAN> isosurfaces,
+which are chosen to be on the low-field-side midplane. On <!-- MATH
+ $\theta = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$ \theta = 0$"></SPAN>
+surface, <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN>
+lines are idential to <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta, \phi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="72" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img908.png"
+ ALT="$ \partial \mathbf{r}/ \partial \psi \vert _{\theta, \phi}
+$"></SPAN> lines. On <!-- MATH
+ $\theta = 2 \pi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$ \theta = 2 \pi $"></SPAN> surface, <!-- MATH
+ $\partial \mathbf{r}/ \partial
+\psi |_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> lines have large <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \phi $"></SPAN> shift. In my code,
+<!-- MATH
+ $\theta = 0, 2 \pi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="66" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img907.png"
+ ALT="$ \theta = 0, 2 \pi$"></SPAN> surface is chosen as the cut of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> and thus an inner
+boundary connection condition for the perturbations is needed on this surface.
+This connection condition is discussed in Sec. <A HREF="node72.html#17-11-10-3">8.2.1</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="17-11-10-1"></A><A NAME="7947"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 17:</STRONG>
+(a) <!-- MATH
+ $\theta = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$ \theta = 0$"></SPAN> contour (blue line) in <!-- MATH
+ $\phi =
+  0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \phi = 0$"></SPAN> plane; (b) a series of <!-- MATH
+ $\partial \mathbf{r}/ \partial \psi |_{\theta,
+  \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> curves (with <!-- MATH
+ $\alpha_j = j 2 \pi / 20$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="91" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$ \alpha _j = j 2 \pi / 20$"></SPAN>, <!-- MATH
+ $j = 0, 1, 2,
+  \ldots, 20$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="122" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$ j = 0, 1, 2, \ldots , 20$"></SPAN>) on <!-- MATH
+ $\theta = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$ \theta = 0$"></SPAN> isosurface, (c) a single <!-- MATH
+ $\partial \mathbf{r}/
+  \partial \psi |_{\theta, \alpha}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$ \partial \mathbf {r}/ \partial \psi \vert _{\theta , \alpha } $"></SPAN> curve (with <!-- MATH
+ $\alpha = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img57.png"
+ ALT="$ \alpha = 0$"></SPAN>) on
+  <!-- MATH
+ $\theta = 2 \pi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$ \theta = 2 \pi $"></SPAN> isosurface. This curve finish about 4 torodial loops
+  because <!-- MATH
+ $(q_{\max} - q_{\min}) 2 \pi = (5.56 - 1.79) \times 2 \pi \approx 4
+  \times 2 \pi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="327" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img912.png"
+ ALT="$ (q_{\max} - q_{\min}) 2 \pi = (5.56 - 1.79) \times 2 \pi \approx 4
+\times 2 \pi$"></SPAN>. The radial range is <!-- MATH
+ $\psi = 0.2 \rightarrow 0.9$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="102" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.png"
+ ALT="$ \psi = 0.2 \rightarrow 0.9$"></SPAN>, where
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> is the normalized poloidal magnetic flux. Magnetic field from EAST
+  discharge #59954@3.03s (gfile g059954.003030 provided by Hao BaoLong).</CAPTION>
+<TR><TD><!-- MATH
+ $\resizebox{3cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2jr1/p.eps}}$
+ -->
+<IMG
+ WIDTH="135" HEIGHT="214" ALIGN="BOTTOM" BORDER="0"
+ SRC="img909.png"
+ ALT="\resizebox{3cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2jr1/p.eps}}"><!-- MATH
+ $\resizebox{7cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2fr1/p.eps}}$
+ -->
+<IMG
+ WIDTH="315" HEIGHT="192" ALIGN="BOTTOM" BORDER="0"
+ SRC="img910.png"
+ ALT="\resizebox{7cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2fr1/p.eps}}"><!-- MATH
+ $\resizebox{7cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2fr2/p.eps}}$
+ -->
+<IMG
+ WIDTH="316" HEIGHT="192" ALIGN="BOTTOM" BORDER="0"
+ SRC="img911.png"
+ ALT="\resizebox{7cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig2fr2/p.eps}}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html929"
+  HREF="node72.html">Periodic conditions of physical quantity along <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> in field-line-following coordinates <!-- MATH
+ $(\psi, \theta,
+\alpha)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ (\psi , \theta , \alpha )$"></SPAN></A>
+<LI><A NAME="tex2html930"
+  HREF="node73.html">Numerical implementation of periodic condition
+(290)</A>
+<LI><A NAME="tex2html931"
+  HREF="node74.html"><SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours on a magnetic surface</A>
+<LI><A NAME="tex2html932"
+  HREF="node75.html"><SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> contours in a toroidal annulus</A>
+<LI><A NAME="tex2html933"
+  HREF="node76.html">Some discussions</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html927"
+  HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html925"
+  HREF="node69.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html919"
+  HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html928"
+  HREF="node72.html">Periodic conditions of physical</A>
+<B> Up:</B> <A NAME="tex2html926"
+  HREF="node69.html">Field-line-following coordinates</A>
+<B> Previous:</B> <A NAME="tex2html920"
+  HREF="node70.html">Definition of the field-line-following</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

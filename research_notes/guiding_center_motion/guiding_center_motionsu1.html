@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Deﬁne new units</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="guiding_center_motion.tex" /> 
+<meta name="date" content="2019-01-05 20:39:00" /> 
+<link rel="stylesheet" type="text/css" href="guiding_center_motion.css" /> 
+</head><body 
+>
+   <!--l. 104--><div class="crosslinks"><p class="noindent">[<a 
+href="guiding_center_motionsu2.html" >next</a>] [<a 
+href="#tailguiding_center_motionsu1.html">tail</a>] [<a 
+href="guiding_center_motionse1.html#guiding_center_motionsu1.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x3-20001.1"></a>Deﬁne new units</h4>
+<!--l. 106--><p class="noindent" >The above formulas are in SI units, which are good since SI units are getting widely used, and thus these
+formulas are accessible to most people. However there is a convention in mathematical physics to deﬁne
+new units for every particular problem and write formulas in terms of these new units. This process is
+often called normalization. This has the advantage of possibly reducing the numbe of free parameters in a
+prolem. Another advantage is that, by chosen proper characteristic quantites as units, the magnitude of
+quanties in terms of the new units are easier to be appreciated. A third advantage, which is usually not
+important, is that the magnitude of normalized quantities may be in the vicinity of 1 and thus avoid
+possible numerical overﬂow in a numerical computionation.
+</p><!--l. 118--><p class="indent" >   The disadvantages of the normalization are the additional work associated with performing the
+transformation between the two units systems and possible confusions associated with the exact units used
+in a numerical code and the potential of introducing bugs due to this confusion when writing numerical
+codes.
+</p><!--l. 124--><p class="indent" >   Choose a characteristic magnetic ﬁeld strength <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">n</span></sub> and a characteristic length <span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">n</span></sub>. Using <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">n</span></sub>
+and <span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">n</span></sub>, we deﬁne a characteristic time <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">n</span></sub> <span 
+class="cmsy-10">&equiv; </span>2<span 
+class="cmmi-10">&pi;∕</span>&Omega;<sub><span 
+class="cmmi-7">n</span></sub>, where &Omega;<sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">Ze</span><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">∕m</span>, a characteristic
+velocity <span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmmi-10">∕t</span><sub><span 
+class="cmmi-7">n</span></sub>,  and a characteristic magnetic moment <span 
+class="cmmi-10">&mu;</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmmi-7">n</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">∕B</span><sub><span 
+class="cmmi-7">n</span></sub>. Using these
+characteristic quantities as units, we deﬁne the following normalized quantities in terms of the new
+units:
+</p>
+                                                                                  
+                                                                                  
+   <table 
+class="equation"><tr><td><a 
+ id="x3-2001r8"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion7x.png" alt="--   X  --       -   t -    v  --   &mu; --   B  ---  B ⋆ ---  B ⋆ --   E
+X  = --,&nabla; = Ln &nabla;,t = --,v∥ = -∥,&mu; = --,B =  --,B ⋆ =---,B⋆∥ = --∥,E = -----.
+     Ln              tn      vn     &mu;n      Bn      Bn       Bn      Bnvn
+" class="math-display"  /></center></td><td class="equation-label">(8)</td></tr></table>
+<!--l. 138--><p class="nopar" >
+In terms of the above normalized quantities, Eqs. (<a 
+href="guiding_center_motionse1.html#x2-1001r1">1<!--tex4ht:ref: 5-15-p2 --></a>)-(<a 
+href="guiding_center_motionse1.html#x2-1004r4">4<!--tex4ht:ref: 5-15-p8 --></a>) are written, respectively, as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-2002r9"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion8x.png" alt=" --       --⋆          -- --  ----      --  --
+dX-= vd = B-⋆v∥ +-Z----&mu;-⋆B × &nabla; B + -1-⋆E × B,
+dt        B∥     |Z|2&pi;B B∥          BB ∥
+" class="math-display"  /></center></td><td class="equation-label">(9)</td></tr></table>
+<!--l. 150--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-2003r10"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion9x.png" alt=" -       ---             ⋆
+dv∥ = &minus; &mu;-B⋆-&sdot;&nabla;B-+-Z-2&pi;B-- &sdot;E,
+ dt      B⋆∥       |Z|  B ⋆∥
+" class="math-display"  /></center></td><td class="equation-label">(10)</td></tr></table>
+                                                                                  
+                                                                                  
+<!--l. 157--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-2004r11"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion10x.png" alt="---  --  Z   v--
+B⋆ = B + ----∥&nabla; × b,
+         |Z |2&pi;
+" class="math-display"  /></center></td><td class="equation-label">(11)</td></tr></table>
+<!--l. 162--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-2005r12"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion11x.png" alt="---  --(     Z  v     --   )
+B ⋆∥ = B  1+ -----∥-b &sdot;&nabla; × b .
+            |Z|2&pi;B
+" class="math-display"  /></center></td><td class="equation-label">(12)</td></tr></table>
+<!--l. 168--><p class="nopar" >
+In the normalized form, there is only one parameter for distinguishing particle species, namely the sign of
+particle&#x2019;s charge <span 
+class="cmmi-10">Z∕</span><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">Z</span><span 
+class="cmsy-10">|</span>. The other parameters for particle species enters via &Omega;<sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">Ze</span><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">∕m</span>.
+                                                                                  
+                                                                                  
+</p>
+   <!--l. 173--><div class="crosslinks"><p class="noindent">[<a 
+href="guiding_center_motionsu2.html" >next</a>] [<a 
+href="guiding_center_motionsu1.html" >front</a>] [<a 
+href="guiding_center_motionse1.html#guiding_center_motionsu1.html" >up</a>] </p></div>
+<!--l. 173--><p class="indent" >   <a 
+ id="tailguiding_center_motionsu1.html"></a> </p> 
+</body></html> 

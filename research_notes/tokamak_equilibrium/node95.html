@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Benchmark of the code</TITLE>
+<META NAME="description" CONTENT="Benchmark of the code">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node96.html">
+<LINK REL="previous" HREF="node94.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node96.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1177"
+  HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1175"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1169"
+  HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1178"
+  HREF="node96.html">Low-beta equilibrium vs. high-beta</A>
+<B> Up:</B> <A NAME="tex2html1176"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Previous:</B> <A NAME="tex2html1170"
+  HREF="node94.html">Fixed boundary equilibrium numerical</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000124000000000000000">
+Benchmark of the code</A>
+</H2>
+
+<P>
+To benchmark the numerical code, I set the profile of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img252.png"
+ ALT="$ P$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ g$"></SPAN> according to
+Eqs. (<A HREF="node24.html#11-1-2">69</A>) and (<A HREF="node24.html#3-15-a1">70</A>) with the parameters <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img325.png"
+ ALT="$ c_2 = 0$"></SPAN>, <!-- MATH
+ $c_1 =
+B_0 (\kappa_0^2 + 1) / (R_0^2 \kappa_0 q_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="185" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img324.png"
+ ALT="$ c_1 = B_0 (\kappa_0^2 + 1) / (R_0^2
+\kappa_0 q_0)$"></SPAN>, <!-- MATH
+ $\kappa_0 = 1.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \kappa _0 = 1.5$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ q_0 = 1.5$"></SPAN>. The comparison of the analytic and numerical results are shown in Fig.
+<A HREF="#3-15-a2">31</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="3-15-a2"></A><A NAME="8283"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 31:</STRONG>
+Agreement between the magnetic surfaces (contours of
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN>) given by the Solovev analytic formula and those calculated by the
+  numerical code. The two sets of magnetic surfaces are indistinguishable at
+  this scale. The boundary magnetic surface is selected by the requirement
+  that <!-- MATH
+ $\overline{\Psi} = 0.11022$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="90" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img96.png"
+ ALT="$ \overline {\Psi } = 0.11022$"></SPAN> in the Solovev formula (<A HREF="node24.html#3-12-p1">78</A>).
+  Parameters: <!-- MATH
+ $\kappa_0 = 1.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \kappa _0 = 1.5$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="60" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ q_0 = 1.5$"></SPAN>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="199" HEIGHT="182" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1379.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig13/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Note that the parameter <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img320.png"
+ ALT="$ c_0$"></SPAN> in the Solovev equilibrium seems to be not
+needed in the numerical calculation. In fact this impression is wrong: the
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img320.png"
+ ALT="$ c_0$"></SPAN> parameter is actually needed in determining the boundary magnetic
+surface of the numerical equilibrium (in the case considered here <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img320.png"
+ ALT="$ c_0$"></SPAN> is
+chosen as <!-- MATH
+ $c_0 = B_0 / (R_0^2 \kappa_0 q_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="129" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img323.png"
+ ALT="$ c_0 = B_0 / (R_0^2 \kappa_0 q_0)$"></SPAN>).
+
+<P>
+<BR><HR>
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

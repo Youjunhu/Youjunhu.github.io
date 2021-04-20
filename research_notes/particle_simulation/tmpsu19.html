@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>&delta;f evolution</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <!--l. 1135--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu20.html" >next</a>] [<a 
+href="tmpsu18.html" >prev</a>] [<a 
+href="tmpsu18.html#tailtmpsu18.html" >prev-tail</a>] [<a 
+href="#tailtmpsu19.html">tail</a>] [<a 
+href="tmpse5.html#tmpsu19.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.4   </span> <a 
+ id="x25-300005.4"></a><span 
+class="cmmi-10">&delta;f </span>evolution</h4>
+<!--l. 1137--><p class="noindent" >Write the distribution function <span 
+class="cmmi-10">F </span>as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x25-30001r84"></a>
+   <center class="math-display" >
+<img 
+src="tmp85x.png" alt="F = F0 + &delta;F,
+" class="math-display"  /></center></td><td class="equation-label">(84)</td></tr></table>
+<!--l. 1140--><p class="nopar" >
+where <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> is the equilibrium distribution function. Then Eq. (<a 
+href="tmpsu16.html#x22-27006r78">78<!--tex4ht:ref: 10-10-3 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x25-30002r85"></a>
+   <center class="math-display" >
+<img 
+src="tmp86x.png" alt="d&delta;F- = &minus; dF0-.
+ dt      dt
+" class="math-display"  /></center></td><td class="equation-label">(85)</td></tr></table>
+<!--l. 1145--><p class="nopar" >
+Use the deﬁnition of the orbit propagator,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x25-30003r86"></a>
+   <center class="math-display" >
+<img 
+src="tmp87x.png" alt="d    &part;      &part;    edϕ  &part;
+--&equiv;  --+ vx---+ --------,
+dt   &part;t    &part;x   m dx &part;vx
+" class="math-display"  /></center></td><td class="equation-label">(86)</td></tr></table>
+<!--l. 1151--><p class="nopar" >
+to rewrite the right-hand side of Eq. (<a 
+href="#x25-30002r85">85<!--tex4ht:ref: 16-4-21-1 --></a>), yielding
+</p>
+
+   <table 
+class="equation"><tr><td><a 
+ id="x25-30004r87"></a>
+   <center class="math-display" >
+<img 
+src="tmp88x.png" alt="        (         )
+d&delta;F-= &minus;   e-dϕ-&part;F0- ,
+ dt       m dx &part;vx
+" class="math-display"  /></center></td><td class="equation-label">(87)</td></tr></table>
+<!--l. 1156--><p class="nopar" >
+which can be integrated to obtain the time evolution of <span 
+class="cmmi-10">&delta;F</span>.
+</p><!--l. 1159--><p class="indent" >   The time evolution of <span 
+class="cmmi-10">&delta;F </span>can also be obtained by using
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x25-30005r88"></a>
+   <center class="math-display" >
+<img 
+src="tmp89x.png" alt="&delta;F(Zj(t)) = F(Zj(t = 0))&minus; F0(Zj(t)).
+" class="math-display"  /></center></td><td class="equation-label">(88)</td></tr></table>
+<!--l. 1163--><p class="nopar" >
+In this way, the time integration of <span 
+class="cmmi-10">&delta;F∕dt </span>is avoided, which may reduce the computational work load and improve the
+accuracy of <span 
+class="cmmi-10">&delta;F</span>. This seemingly trivial method was emphasized in a CPC paper<span class="cite">[<a 
+href="tmpli1.html#Xallfrey2003">1</a>]</span>, which introduces an
+adaptive <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> method based on this idea. I have compared the results of Landau damping obtained by the
+two methods (i.e., using Eq. (<a 
+href="#x25-30004r87">87<!--tex4ht:ref: 3-25-a5 --></a>) and Eq. (<a 
+href="#x25-30005r88">88<!--tex4ht:ref: 17-7-21-1 --></a>), respectively), which shows they agree with each other very
+well.
+
+</p>
+   <!--l. 1172--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu20.html" >next</a>] [<a 
+href="tmpsu18.html" >prev</a>] [<a 
+href="tmpsu18.html#tailtmpsu18.html" >prev-tail</a>] [<a 
+href="tmpsu19.html" >front</a>] [<a 
+href="tmpse5.html#tmpsu19.html" >up</a>] </p></div>
+<!--l. 1172--><p class="indent" >   <a 
+ id="tailtmpsu19.html"></a> </p> 
+</body></html> 

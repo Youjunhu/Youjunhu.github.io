@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Verification of Jabobian</TITLE>
+<META NAME="description" CONTENT="Verification of Jabobian">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node53.html">
+<LINK REL="previous" HREF="node51.html">
+<LINK REL="up" HREF="node46.html">
+<LINK REL="next" HREF="node53.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html719"
+  HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html717"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html711"
+  HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html720"
+  HREF="node53.html">Radial coordinate</A>
+<B> Up:</B> <A NAME="tex2html718"
+  HREF="node46.html">Calculating coordinate</A>
+<B> Previous:</B> <A NAME="tex2html712"
+  HREF="node51.html">Comparison between different types</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00053600000000000000">
+Verification of Jabobian</A>
+</H3>
+
+<P>
+After the magnetic coordinates are constructed, we can evaluate the Jacobian
+<!-- MATH
+ $\mathcal{J}_{\ensuremath{\operatorname{new}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img619.png"
+ ALT="$ \mathcal{J}_{\ensuremath{\operatorname{new}}}$"></SPAN> by using directly the definition of the Jacobian,
+i.e.,
+<P><!-- MATH
+ \begin{displaymath}
+\mathcal{J}_{\ensuremath{\operatorname{new}}} = \frac{1}{(\nabla \psi \times \nabla
+   \overline{\theta}) \cdot \nabla \phi},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="179" HEIGHT="49" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.png"
+ ALT="$\displaystyle \mathcal{J}_{\ensuremath{\operatorname{new}}} = \frac{1}{(\nabla \psi \times \nabla
+\overline{\theta}) \cdot \nabla \phi}, $">
+</DIV><P></P>
+which can be further written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\mathcal{J}_{\ensuremath{\operatorname{new}}} = R (R_{\overline{\theta}} Z_{\psi} - R_{\psi}
+  Z_{\overline{\theta}}),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="187" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img647.png"
+ ALT="$\displaystyle \mathcal{J}_{\ensuremath{\operatorname{new}}} = R (R_{\overline{\theta}} Z_{\psi} - R_{\psi} Z_{\overline{\theta}}),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">201</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the partial differential can be evaluated by using numerical
+differential schemes. The results obtained by this way should agree with
+results obtained from the analytical form of the Jacobian. This consistency
+check provide a verification for the correctness of the theory derivation and
+numerical implementation. In evaluating the Jacobian by using the analytical
+form, we may need to evaluate <!-- MATH
+ $\nabla \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img466.png"
+ ALT="$ \nabla \psi$"></SPAN>, which finally reduces to
+evaluating <!-- MATH
+ $\nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img182.png"
+ ALT="$ \nabla \Psi$"></SPAN>. The value of <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> is obtained
+numerically based on the numerical data of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> given in cylindrical
+coordinate grids. Then the cubic spline interpolating formula is used to
+obtain the value of <!-- MATH
+ $| \nabla \Psi |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \vert \nabla \Psi \vert$"></SPAN> at desired points.
+(<!-- MATH
+ $\mathcal{J}_{\ensuremath{\operatorname{new}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img619.png"
+ ALT="$ \mathcal{J}_{\ensuremath{\operatorname{new}}}$"></SPAN> calculated by the second method (i.e. using
+analytic form) is used in the GTAW code; the first methods are also
+implemented in the code for the benchmark purpose.) In the following sections,
+for notation ease, the Jacobiban of the constructed coordinate system will be
+denoted by <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN>, instead of <!-- MATH
+ $\mathcal{J}_{\ensuremath{\operatorname{new}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img619.png"
+ ALT="$ \mathcal{J}_{\ensuremath{\operatorname{new}}}$"></SPAN>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html719"
+  HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html717"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html711"
+  HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html720"
+  HREF="node53.html">Radial coordinate</A>
+<B> Up:</B> <A NAME="tex2html718"
+  HREF="node46.html">Calculating coordinate</A>
+<B> Previous:</B> <A NAME="tex2html712"
+  HREF="node51.html">Comparison between different types</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head>
+   <title>Particle In Cell (PIC) simulation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+
+
+
+<h2 class="titleHead">Particle In Cell (PIC) simulation</h2>
+                       <div class="author" > <span 
+class="cmr-12">Youjun Hu</span>
+<br />                 <span 
+class="cmr-12">Email: yjhu@ipp.cas.cn</span>
+<br /><span 
+class="cmr-12">Institute of Plasma Physics, Chinese Academy of Sciences </span></div><br />
+<div class="date" ><span 
+class="cmr-12">January 24, 2019</span></div>
+   </div>
+   <div 
+class="abstract" 
+>
+<div class="center" 
+>
+<!--l. 32--><p class="noindent" >
+</p><!--l. 32--><p class="noindent" ><span 
+class="cmbx-9">Abstract</span></p></div>
+     <!--l. 33--><p class="indent" >    <span 
+class="cmr-9">This note reviews the basic theory of Particle-In-Cell (PIC) simulation of plasmas.</span>
+</p>
+</div>
+<!--l. 37--><p class="indent" >    
+</p>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="tmpse1.html#x2-10001" id="QQ2-2-1">Particle methods</a></span>
+<br />    <span class="subsectionToc" >1.1 <a 
+href="tmpsu1.html#x3-20001.1" id="QQ2-3-2">Brief history of particle-mesh methods</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="tmpse2.html#x4-30002" id="QQ2-4-3">Phase-space sampling and markers&#x2019; weight</a></span>
+<br />    <span class="subsectionToc" >2.1 <a 
+href="tmpsu2.html#x5-40002.1" id="QQ2-5-4">Phase-space sampling and Phase space volume sampled by a marker</a></span>
+<br />    <span class="subsectionToc" >2.2 <a 
+href="tmpsu3.html#x6-60002.2" id="QQ2-6-6">Weights of markers</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="tmpse3.html#x7-80003" id="QQ2-7-8">Shape function of markers: basis functions used in expanding distribution function</a></span>
+<br />    <span class="subsectionToc" >3.1 <a 
+href="tmpsu4.html#x8-90003.1" id="QQ2-8-10">Integration in velocity space</a></span>
+<br />    <span class="subsectionToc" >3.2 <a 
+href="tmpsu5.html#x9-100003.2" id="QQ2-9-11">Cell-averaged velocity moment</a></span>
+<br />    <span class="subsectionToc" >3.3 <a 
+href="tmpsu6.html#x10-110003.3" id="QQ2-10-13">Eﬀective ﬁeld on a marker</a></span>
+<br />    <span class="subsectionToc" >3.4 <a 
+href="tmpsu7.html#x11-140003.4" id="QQ2-11-16">Eﬀective force on a marker</a></span>
+<br />    <span class="subsectionToc" >3.5 <a 
+href="tmpsu8.html#x12-150003.5" id="QQ2-12-17">Numerical implementation in codes</a></span>
+<br />    <span class="subsectionToc" >3.6 <a 
+href="tmpsu9.html#x13-160003.6" id="QQ2-13-18">Monte-Carlo integration in phase-space</a></span>
+<br />    <span class="subsectionToc" >3.7 <a 
+href="tmpsu10.html#x14-170003.7" id="QQ2-14-19">On accuracy and noise: particle methods vs. Euler-grid-based methods</a></span>
+<br />    <span class="subsectionToc" >3.8 <a 
+href="tmpsu11.html#x15-180003.8" id="QQ2-15-20">Practical comparison between particle methods and Euler-grid-based methods</a></span>
+<br />    <span class="subsectionToc" >3.9 <a 
+href="tmpsu12.html#x16-190003.9" id="QQ2-16-21">Modeling collisions in PIC simulations</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="tmpse4.html#x17-200004" id="QQ2-17-22">Evolution of distribution functions</a></span>
+<br />    <span class="subsectionToc" >4.1 <a 
+href="tmpsu13.html#x18-210004.1" id="QQ2-18-23">Time evolution of the physical distribution function</a></span>
+<br />    <span class="subsectionToc" >4.2 <a 
+href="tmpsu14.html#x19-240004.2" id="QQ2-19-26">Time evolution of marker distribution function</a></span>
+<br />    <span class="subsectionToc" >4.3 <a 
+href="tmpsu15.html#x20-250004.3" id="QQ2-20-27">Time evolution of marker&#x2019;s weight</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="tmpse5.html#x21-260005" id="QQ2-21-28">An example: One-dimensional electrostatic simulation</a></span>
+<br />    <span class="subsectionToc" >5.1 <a 
+href="tmpsu16.html#x22-270005.1" id="QQ2-22-29">Vlasov equation</a></span>
+<br />    <span class="subsectionToc" >5.2 <a 
+href="tmpsu17.html#x23-280005.2" id="QQ2-23-30">Poisson&#x2019;s equation</a></span>
+<br />    <span class="subsectionToc" >5.3 <a 
+href="tmpsu18.html#x24-290005.3" id="QQ2-24-31">Equilibrium state</a></span>
+<br />    <span class="subsectionToc" >5.4 <a 
+href="tmpsu19.html#x25-300005.4" id="QQ2-25-32"><span 
+class="cmmi-10">&delta;f </span>evolution</a></span>
+
+<br />    <span class="subsectionToc" >5.5 <a 
+href="tmpsu20.html#x26-310005.5" id="QQ2-26-33">Normalization</a></span>
+<br />    <span class="subsectionToc" >5.6 <a 
+href="tmpsu21.html#x27-320005.6" id="QQ2-27-34">Boundary condition for ﬁeld</a></span>
+<br />    <span class="subsectionToc" >5.7 <a 
+href="tmpsu22.html#x28-330005.7" id="QQ2-28-35">Boundary condition for particles</a></span>
+<br />    <span class="subsectionToc" >5.8 <a 
+href="tmpsu23.html#x29-340005.8" id="QQ2-29-36">Evaluation of particle number density</a></span>
+<br />    <span class="subsectionToc" >5.9 <a 
+href="tmpsu24.html#x30-350005.9" id="QQ2-30-37">FFT solver for Poisson equation</a></span>
+<br />    <span class="subsectionToc" >5.10 <a 
+href="tmpsu25.html#x31-360005.10" id="QQ2-31-39">Finite diﬀerence solver for Poisson equation</a></span>
+<br />    <span class="subsectionToc" >5.11 <a 
+href="tmpsu26.html#x32-370005.11" id="QQ2-32-40">Interpolate the ﬁeld to particle markers</a></span>
+<br />    <span class="subsectionToc" >5.12 <a 
+href="tmpsu27.html#x33-380005.12" id="QQ2-33-41">Integration of orbit and weight of markers</a></span>
+<br />    <span class="subsectionToc" >5.13 <a 
+href="tmpsu28.html#x34-390005.13" id="QQ2-34-42">Initial perturbations</a></span>
+<br />    <span class="subsectionToc" >5.14 <a 
+href="tmpsu29.html#x35-400005.14" id="QQ2-35-43">Veriﬁcation of the code by using analytic results of Landau damping</a></span>
+<br />    <span class="subsectionToc" >5.15 <a 
+href="tmpsu30.html#x36-410005.15" id="QQ2-36-46">Methods of identifying resonant particles</a></span>
+<br />    <span class="subsectionToc" >5.16 <a 
+href="tmpsu31.html#x37-420005.16" id="QQ2-37-50">Energy conservation (check!)</a></span>
+<br />    <span class="subsectionToc" >5.17 <a 
+href="tmpsu32.html#x38-430005.17" id="QQ2-38-53">Numerical results for two-stream instability</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="tmpse6.html#x39-440006" id="QQ2-39-55">Summary</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="tmpse7.html#x40-450007" id="QQ2-40-56">Random number</a></span>
+<br />    <span class="subsectionToc" >7.1 <a 
+href="tmpsu33.html#x41-460007.1" id="QQ2-41-57">Uniformly distributed random number</a></span>
+<br />    <span class="subsectionToc" >7.2 <a 
+href="tmpsu34.html#x42-470007.2" id="QQ2-42-60">Non-uniformly distributed random number</a></span>
+<br />   <span class="sectionToc" >8 <a 
+href="tmpse8.html#x43-510008" id="QQ2-43-66">On the noise of PIC simulation</a></span>
+<br />    <span class="subsectionToc" >8.1 <a 
+href="tmpsu35.html#x44-520008.1" id="QQ2-44-67">Choices of sampling probability function</a></span>
+<br />   <span class="sectionToc" >9 <a 
+href="tmpse9.html#x45-530009" id="QQ2-45-68">Finite element theory of particle-in-cell method</a></span>
+<br />    <span class="subsectionToc" >9.1 <a 
+href="tmpsu36.html#x46-540009.1" id="QQ2-46-69">Finite element expansion of distribution function</a></span>
+<br />    <span class="subsectionToc" >9.2 <a 
+href="tmpsu37.html#x47-550009.2" id="QQ2-47-70">Basis functions: particle shape </a></span>
+<br />    <span class="subsectionToc" >9.3 <a 
+href="tmpsu38.html#x48-560009.3" id="QQ2-48-71">Moment equations</a></span>
+<br />   <span class="sectionToc" >A <a 
+href="tmpse10.html#x49-57000A" id="QQ2-49-72">From discrete microscopic distribution function to statistic (continuum)
+distribution function</a></span>
+<br />   <span class="likesectionToc" ><a 
+href="tmpli1.html#x50-58000A" id="QQ2-50-73">References</a></span>
+   </div>
+
+
+
+
+
+
+
+
+
+ 
+</body></html> 
+
+
+

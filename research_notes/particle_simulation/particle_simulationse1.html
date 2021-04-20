@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Particle methods</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 40--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationse2.html" >next</a>] [<a 
+href="#tailparticle_simulationse1.html">tail</a>] [<a 
+href="particle_simulation.html#particle_simulationse1.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x2-10001"></a>Particle methods</h3>
+<!--l. 42--><p class="noindent" >There are a class of numerical methods that make use of the characteristic lines of hyperbolic Partial Diﬀerential Equations
+(PDEs). These methods reduce a hyperbolic PDE to a family of ordinary diﬀerential equations that can be
+integrated from initial values to get the the solution of the original partial diﬀerential equation. By using the
+integration along the characteristic lines, all partial derivatives of the unknown distribution function with respect
+to phase-space coordinates are avoided, and thus this method does not need a regular phase-space mesh
+to construct numerical approximation to the phase-space partial diﬀerential operators. This enables us to
+adopt random sampling of the phase-space, which has the advantage of reducing the error in evaluating
+high-dimensional phase-space integration. In this sense, this method can be considered as a kind of “mesh-free”
+method.
+</p><!--l. 55--><p class="indent" >   Since the characteristic lines are usually identical to the orbits of particles/elements in the phase-space, these methods
+can be generally called “particle methods”. In the core of particle methods, are the method of characteristics and
+Monte-Carlo sampling and integration.
+</p><!--l. 60--><p class="indent" >   The computational nodes (often called markers/particles/super-particles) in particle methods follow
+the particle orbits and thus their positions in phase-space evolve with time, which is one of the diﬀerences
+between the particle methods and the usual Euler-grid-based methods that usually uses ﬁxed grid-points.
+The evolving computational nodes in particle method are often called Lagrangian markers while the ﬁxed
+grids are often called Euler grid-points. Therefore, particle method is a kind of <span 
+class="cmbx-10">mesh-free Lagrangian</span>
+method.
+</p><!--l. 69--><p class="indent" >   The so-called Particle-In-Cell (PIC) method, however, is a kind of <span 
+class="cmbx-10">incomplete </span>particle method, in which both evolving
+nodes (mesh-free) and ﬁxed grid-points (mesh) are used. Speciﬁcly, the kinetic equation for the particle distribution
+function in the phase space is solved by using mesh-free particle methods, whereas Maxwell&#x2019;s eqaution for the
+electromagnetic ﬁeld are solved by using spatial mesh. To obtain the source terms in Maxwell&#x2019;s equation at grids, we need
+to calculate moments of the distribution function represented by the mesh-free computational nodes. In PIC simulations,
+the values of a moment at a spatial grid is approximated by the averaged value of the moment in the corresponding spatial
+cell. This averaging procedure, along with the use of ﬁnite spatial shape function of markers (discussed later), has the eﬀect
+of reducing (ideally removing) collisions between particles. Collisions, if to be modeled, should be modeled by other
+means.
+
+</p><!--l. 84--><p class="indent" >   For instance, in solving the Vlasov-Poisson equations by the PIC method, the Vlasov equation for the
+phase-space distribution function is solved by using the evolving nodes while the Poisson equation for the
+spatial electric potential is solved by using the ﬁxed grid-points. The special nomenclature “particle-in-cell”
+refers to the particular way of inferring the value of charge density at the ﬁxed spatial grid-points from the
+evolving coordinates of computational markers. Therefore the PIC method is a kind of <span 
+class="cmbx-10">hybrid particle-mesh</span>
+<span 
+class="cmbx-10">methods</span>.
+</p><!--l. 93--><p class="indent" >    
+</p><!--l. 95--><p class="indent" >   This note discusses the basic theory of the Particle-In-Cell (PIC) simulation, along with practical implementation in
+curvilinear coordinate system. In the process of learning the PIC simulation method, I have developed several toy Fortran
+codes to test what I have learned. The numerical results given in these notes are obtained by using these codes. A copy of
+these codes can be found at http://theory.ipp.ac.cn/˜yj/codes/pic_1D_src.tar
+</p><!--l. 102--><p class="noindent" >
+</p>
+   <div class="subsectionTOCS">
+    <span class="subsectionToc" >1.1 <a 
+href="particle_simulationsu1.html#x3-20001.1">Brief history of particle-mesh methods</a></span>
+   </div>
+
+   <!--l. 110--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationse2.html" >next</a>] [<a 
+href="particle_simulationse1.html" >front</a>] [<a 
+href="particle_simulation.html#particle_simulationse1.html" >up</a>] </p></div>
+<!--l. 110--><p class="indent" >   <a 
+ id="tailparticle_simulationse1.html"></a> </p> 
+</body></html> 

@@ -1,0 +1,495 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Benchmark of GTAW code</TITLE>
+<META NAME="description" CONTENT="Benchmark of GTAW code">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="mhd.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html490"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html488"
+  HREF="mhd.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html482"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html491"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Up:</B> <A NAME="tex2html489"
+  HREF="mhd.html">Notes on linear ideal</A>
+<B> Previous:</B> <A NAME="tex2html483"
+  HREF="node36.html">Shooting method for finding</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00070000000000000000">
+Benchmark of GTAW code</A>
+</H1>
+
+<P>
+To benchmark GTAW code, we use it to calculate the continua and gap modes of
+the Solovev equilibrium and compare the results with those given by NOVA code.
+The Solovev equilibrium used in the benchmark case is given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-4-1"></A><!-- MATH
+ \begin{equation}
+\Psi = \frac{B_0}{2 R_0^2 \kappa_0 q_0} \left[ R^2 Z^2 +
+  \frac{\kappa_0^2}{4} (R^2 - R_0^2)^2 \right],
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="281" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img652.png"
+ ALT="$\displaystyle \Psi = \frac{B_0}{2 R_0^2 \kappa_0 q_0} \left[ R^2 Z^2 + \frac{\kappa_0^2}{4} (R^2 - R_0^2)^2 \right],$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">258</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-4-2"></A><!-- MATH
+ \begin{equation}
+p_0 = p_0 (0) - \frac{B_0 (\kappa_0^2 + 1)}{{\textmu}_0 R_0^2
+  \kappa_0 q_0} \Psi, g = g_0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="242" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img653.png"
+ ALT="$\displaystyle p_0 = p_0 (0) - \frac{B_0 (\kappa_0^2 + 1)}{{\textmu}_0 R_0^2 \kappa_0 q_0} \Psi, g = g_0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">259</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img654.png"
+ ALT="$ B_0 = 1 T$"></SPAN>, <!-- MATH
+ $R_0 = 1 m, g_0 = 1 m T$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="142" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img655.png"
+ ALT="$ R_0 = 1 m, g_0 = 1 m T$"></SPAN>, <!-- MATH
+ $\kappa_0 = 1.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.png"
+ ALT="$ \kappa_0 = 1.5$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img657.png"
+ ALT="$ q_0 = 3$"></SPAN>, and
+<!-- MATH
+ $p_0 (0) = 1.1751 \times 10^4 \ensuremath{\operatorname{Pa}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="168" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img658.png"
+ ALT="$ p_0 (0) = 1.1751 \times 10^4 \ensuremath{\operatorname{Pa}}$"></SPAN>. The flux surface with the minor
+radius being <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img659.png"
+ ALT="$ 0.3 m$"></SPAN> (corresponding to <!-- MATH
+ $\Psi = 2.04 \times 10^{- 2} T m^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="151" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img660.png"
+ ALT="$ \Psi = 2.04 \times 10^{- 2} T m^2$"></SPAN>) is
+chosen as the boundary flux surface. Main plasma is taken to be Deuterium and
+the number density is taken to be uniform with <!-- MATH
+ $n_D = 2 \times 10^{19} m^{-
+3}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="134" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img661.png"
+ ALT="$ n_D = 2 \times 10^{19} m^{-
+3}$"></SPAN>. Figure <A HREF="#11-3-e1">3</A> compares the Alfven continua calculated by NOVA and
+GTAW, which shows good agreement between them.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="11-3-e1"></A><A NAME="7615"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3:</STRONG>
+Comparison of the <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> Alfven continua calculated
+  by NOVA and our code. The continua are calculated in the slow sound
+  approximation[<A
+ HREF="node59.html#chu1992">7</A>] and the equilibrium used is the Solovev
+  equilibrium given in Eqs. (<A HREF="#11-4-1">258</A>) and (<A HREF="#11-4-2">259</A>).</CAPTION>
+<TR><TD><IMG
+ WIDTH="328" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img662.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig59/continua2.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+A gap mode with frequency <!-- MATH
+ $f = 297 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ f = 297 \ensuremath {\operatorname {kHz}}$"></SPAN> is found in the NAE gap by
+both NOVA and GTAW. The poloidal mode numbers of the two dominant harmonics
+are <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ m = 5$"></SPAN>, which is consistent with the fact that a NAE is
+formed due to the coupling between <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img554.png"
+ ALT="$ m$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img663.png"
+ ALT="$ m + 3$"></SPAN> harmonics. Before comparing
+the radial structure of the poloidal harmonics given by the two codes, a
+discussion about the assumption adopted in NOVA is desirable. As is pointed
+out by Dr. Gorelenkov, NOVA at present is restricted to up-down symmetric
+equilibrium and, for this case, it can be shown that the amplitude of all the
+radial displacement can be transformed to real numbers. For this reason, NOVA
+use directly real numbers for the radial displacement in its calculation. In
+GTAW code, the amplitude of the poloidal harmonics of the radial displacement
+are complex numbers. The Solovev equilibrium used here is up-down symmetric
+and the results given by GTAW indicate the poloidal harmonics of the radial
+displacement can be transformed (by multiplying a constant such as <SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img664.png"
+ ALT="$ (1 - i)$"></SPAN>)
+to real numbers. After transforming the radial displacement to real numbers,
+the results can be compared with those of NOVA. Figure <A HREF="#11-22-p1">4</A> compares
+the radial structure of the dominant poloidal harmonics <!-- MATH
+ $(m = 2, 3, 4, 5)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="104" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img665.png"
+ ALT="$ (m = 2, 3, 4, 5)$"></SPAN>
+given by the two codes, which indicates the results given by the two codes
+agree with each other well.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="11-22-p1"></A><A NAME="7319"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4:</STRONG>
+The dominant poloidal harmonics (<!-- MATH
+ $m = 2, 3, 4, 5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="92" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ m = 2, 3, 4, 5$"></SPAN>)
+  of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> NAE as a function of the radial coordinate. The solid lines are
+  the results of GTAW while the dashed lines are those of NOVA. The
+  corresponding poloidal mode numbers are indicated in the figure. The
+  frequency of the mode <!-- MATH
+ $f = 297 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ f = 297 \ensuremath {\operatorname {kHz}}$"></SPAN>. The equilibrium is given by Eqs.
+  (<A HREF="#11-4-1">258</A>) and (<A HREF="#11-4-2">259</A>).</CAPTION>
+<TR><TD><IMG
+ WIDTH="264" HEIGHT="184" ALIGN="BOTTOM" BORDER="0"
+ SRC="img666.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig77/dis_real.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7320"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5:</STRONG>
+Slow sound approximation of the <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> continua of the Solovev
+  equilibrium given by Eqs. (<A HREF="#11-4-1">258</A>) and (<A HREF="#11-4-2">259</A>). Also plotted
+  are the frequency of the NAE (<!-- MATH
+ $f = 297 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ f = 297 \ensuremath {\operatorname {kHz}}$"></SPAN>) and the <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ m = 5$"></SPAN> continua in cylindrical limit.</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="185" ALIGN="BOTTOM" BORDER="0"
+ SRC="img667.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig61/continua2.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+Figure <A HREF="#1-1-p1">6</A> plots the mode structure of the NAE on <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img668.png"
+ ALT="$ \phi = 0$"></SPAN> plane,
+which shows that the mode has an anti-ballooning structure, i.e., the mode is
+stronger at the high-field side than at the low-field side.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="1-1-p1"></A><A NAME="7321"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6:</STRONG>
+Two dimension mode structure of the NAE in Fig.
+  <A HREF="#11-22-p1">4</A>. The dashed line in the figure indicates the boundary
+  magnetic surface and the small circle indicates the inner boundary used in
+  the numerical calculation.</CAPTION>
+<TR><TD><IMG
+ WIDTH="209" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img669.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig85/map.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7322"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7:</STRONG>
+Real part (a), imaginary part (b), and absolute value of the
+  amplitude (c) of the poloidal harmonics of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> TAE as a function of
+  the radial coordinate. The frequency of the mode is <!-- MATH
+ $f = 93 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="80" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ f = 93 \ensuremath {\operatorname {kHz}}$"></SPAN>. The
+  dominant poloidal harmonics are those with <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m = 3$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ m = 4$"></SPAN>. The
+  equilibrium is given by Eqs. (<A HREF="#11-4-1">258</A>) and (<A HREF="#11-4-2">259</A>). </CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img670.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig60/eigendisplacement001_real.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img671.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig60/eigendisplacement001_imag.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img672.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig60/eigendisplacement001_abs.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7323"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8:</STRONG>
+Slow sound approximation of the continua of the Solovev
+  equilibrium. Also plotted are the frequency of the TAE (<!-- MATH
+ $f = 93 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="80" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ f = 93 \ensuremath {\operatorname {kHz}}$"></SPAN>)
+  and the <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m = 3$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ m = 4$"></SPAN> continua in cylindrical limit. Toroidal mode
+  number <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img673.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig61/continua.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+For the case that <!-- MATH
+ $p_0 (0) = 1.5 \times 10^4 \ensuremath{\operatorname{Pa}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="144" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img674.png"
+ ALT="$ p_0 (0) = 1.5 \times 10^4 \ensuremath{\operatorname{Pa}}$"></SPAN>, a TAE with <!-- MATH
+ $f = 102
+\ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ f = 102 \ensuremath {\operatorname {kHz}}$"></SPAN> is found in the TAE gap. The radial dependence of the poloidal
+harmonics of the mode is plotted in Fig. <A HREF="#11-4-3">9</A>. Figure <A HREF="#11-6-1">10</A>
+plots the frequency of the mode on the Alfven continua graphic.
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="11-4-3"></A><A NAME="7324"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 9:</STRONG>
+Real part (a), imaginary part (b), and absolute value
+  of the amplitude (c) of the poloidal harmonics of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> TAE as a
+  function of the radial coordinate. The frequency of the mode is <!-- MATH
+ $f = 102
+  \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ f = 102 \ensuremath {\operatorname {kHz}}$"></SPAN>. The dominant poloidal harmonics are those with <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m = 3$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ m = 4$"></SPAN>. The equilibrium is given by Eqs. (<A HREF="#11-4-1">258</A>) and (<A HREF="#11-4-2">259</A>),
+  (old)</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img675.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig58/dis_real.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img676.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig58/dis_imag.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img677.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig58/dis_abs.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="11-6-1"></A><A NAME="7325"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 10:</STRONG>
+Slow sound approximation of the continua of the
+  Solovev equilibrium. Also plotted are the frequency of the TAE (<!-- MATH
+ $f = 102
+  \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ f = 102 \ensuremath {\operatorname {kHz}}$"></SPAN>) and the <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m = 3$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ m = 4$"></SPAN> continua in cylindrical limit.
+  Toroidal mode number <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN>.(old)</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img678.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig58/continua.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html490"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html488"
+  HREF="mhd.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html482"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html491"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Up:</B> <A NAME="tex2html489"
+  HREF="mhd.html">Notes on linear ideal</A>
+<B> Previous:</B> <A NAME="tex2html483"
+  HREF="node36.html">Shooting method for finding</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

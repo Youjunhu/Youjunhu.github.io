@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Weight functions used in Fourier integration</TITLE>
+<META NAME="description" CONTENT="Weight functions used in Fourier integration">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node30.html">
+<LINK REL="previous" HREF="node28.html">
+<LINK REL="up" HREF="node28.html">
+<LINK REL="next" HREF="node30.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html410"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html408"
+  HREF="node28.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html402"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html411"
+  HREF="node30.html">Numerical methods for finding</A>
+<B> Up:</B> <A NAME="tex2html409"
+  HREF="node28.html">Discrete form of elements</A>
+<B> Previous:</B> <A NAME="tex2html403"
+  HREF="node28.html">Discrete form of elements</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00051000000000000000">
+Weight functions used in Fourier integration</A>
+</H2>
+
+<P>
+In the GTAW code, the weight functions appearing in the Fourier integration
+are numbered as follows:
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-7-a3"></A><!-- MATH
+ \begin{equation}
+W_1 (\psi, \theta) \equiv \frac{\mathcal{J}^{- 2}}{B_0^2},
+  W_2 (\psi, \theta) \equiv \mathcal{J}^{- 1} \frac{\partial}{\partial \theta}
+  \left( \frac{\mathcal{J}^{- 1}}{B_0^2} \right)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="321" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img514.png"
+ ALT="$\displaystyle W_1 (\psi, \theta) \equiv \frac{\mathcal{J}^{- 2}}{B_0^2}, W_2 (\...
+...\frac{\partial}{\partial \theta} \left( \frac{\mathcal{J}^{- 1}}{B_0^2} \right)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">199</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_3 \equiv \frac{| \nabla \Psi |^2 \mathcal{J}^{- 2}}{B_0^2}, W_4 \equiv
+  \mathcal{J}^{- 1} \frac{\partial}{\partial \theta} \left( \frac{| \nabla
+  \Psi |^2 \mathcal{J}^{- 1}}{B_0^2} \right)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="328" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img515.png"
+ ALT="$\displaystyle W_3 \equiv \frac{\vert \nabla \Psi \vert^2 \mathcal{J}^{- 2}}{B_0...
+...theta} \left( \frac{\vert \nabla \Psi \vert^2 \mathcal{J}^{- 1}}{B_0^2} \right)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">200</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_5 \equiv \frac{| \nabla \Psi |^2}{B_0^2}, W_6 \equiv \kappa_s
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="159" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img516.png"
+ ALT="$\displaystyle W_5 \equiv \frac{\vert \nabla \Psi \vert^2}{B_0^2}, W_6 \equiv \kappa_s$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">201</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-7-a4"></A><!-- MATH
+ \begin{equation}
+W_7 \equiv \frac{1}{B_0^2}, W_8 = \frac{\mathcal{J}^{-
+  1}}{B_0^2}, W_9 ={\textmu}_0 \sigma \mathcal{J}^{- 1}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="254" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img517.png"
+ ALT="$\displaystyle W_7 \equiv \frac{1}{B_0^2}, W_8 = \frac{\mathcal{J}^{- 1}}{B_0^2}, W_9 ={\textmu}_0 \sigma \mathcal{J}^{- 1}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">202</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{10} =\mathcal{J}^{- 1} \frac{| \nabla \Psi |^2 S}{B^2_0}, W_{11}
+  =\mathcal{J}^{- 1} \frac{\partial}{\partial \theta} \left( \frac{| \nabla
+  \Psi |^2 S}{B^2_0} \right)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="331" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img518.png"
+ ALT="$\displaystyle W_{10} =\mathcal{J}^{- 1} \frac{\vert \nabla \Psi \vert^2 S}{B^2_...
+...tial}{\partial \theta} \left( \frac{\vert \nabla \Psi \vert^2 S}{B^2_0} \right)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">203</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{12} = \frac{\kappa_{\psi}}{| \nabla \Psi |^2}, W_{13} = | \nabla \Psi |^2
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="197" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img519.png"
+ ALT="$\displaystyle W_{12} = \frac{\kappa_{\psi}}{\vert \nabla \Psi \vert^2}, W_{13} = \vert \nabla \Psi \vert^2$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">204</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{14} = | \nabla \Psi |^2 \mathcal{J}^{- 1} \frac{\partial}{\partial
+  \theta} \left( \frac{\mathcal{J}^{- 1}}{B_0^2} \right), W_{15} =
+  \kappa_{\psi}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="286" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img520.png"
+ ALT="$\displaystyle W_{14} = \vert \nabla \Psi \vert^2 \mathcal{J}^{- 1} \frac{\parti...
+... \theta} \left( \frac{\mathcal{J}^{- 1}}{B_0^2} \right), W_{15} = \kappa_{\psi}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">205</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{16} = \frac{\Psi_R}{R} + \Psi_{R R} + \Psi_{Z Z} - \frac{1}{| \nabla \Psi
+  |^2} (2 \Psi_R \Psi_R \Psi_{R R} + 4 \Psi_R \Psi_Z \Psi_{Z R} + 2 \Psi_Z
+  \Psi_Z \Psi_{Z Z})
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="557" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img521.png"
+ ALT="$\displaystyle W_{16} = \frac{\Psi_R}{R} + \Psi_{R R} + \Psi_{Z Z} - \frac{1}{\v...
+..._R \Psi_R \Psi_{R R} + 4 \Psi_R \Psi_Z \Psi_{Z R} + 2 \Psi_Z \Psi_Z \Psi_{Z Z})$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">206</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{17} = (| \nabla \Psi |^2 S - B_0^2 {\textmu}_0 \sigma) \frac{| \nabla
+  \Psi |^2 S}{B^2_0}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="230" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img522.png"
+ ALT="$\displaystyle W_{17} = (\vert \nabla \Psi \vert^2 S - B_0^2 {\textmu}_0 \sigma) \frac{\vert \nabla \Psi \vert^2 S}{B^2_0}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">207</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{18} = (| \nabla \Psi |^2 S - B_0^2 {\textmu}_0 \sigma) \frac{| \nabla
+  \Psi |^2 \mathcal{J}^{- 1}}{B^2_0}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="251" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img523.png"
+ ALT="$\displaystyle W_{18} = (\vert \nabla \Psi \vert^2 S - B_0^2 {\textmu}_0 \sigma) \frac{\vert \nabla \Psi \vert^2 \mathcal{J}^{- 1}}{B^2_0}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">208</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{19} = \nabla \theta \cdot \nabla \psi, W_{20} = \nabla \zeta \cdot \nabla
+  \psi
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="224" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img524.png"
+ ALT="$\displaystyle W_{19} = \nabla \theta \cdot \nabla \psi, W_{20} = \nabla \zeta \cdot \nabla \psi$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">209</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{21} = | \nabla \Psi |^2 \mathcal{J}^{- 1} \frac{\partial}{\partial
+  \theta} \left( \frac{\mathcal{J}^{- 1}}{| \nabla \Psi |^2} \right), W_{22}
+  =\mathcal{J}^{- 2}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="309" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img525.png"
+ ALT="$\displaystyle W_{21} = \vert \nabla \Psi \vert^2 \mathcal{J}^{- 1} \frac{\parti...
+...mathcal{J}^{- 1}}{\vert \nabla \Psi \vert^2} \right), W_{22} =\mathcal{J}^{- 2}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">210</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+W_{23} = \frac{| \nabla \Psi |^2 \mathcal{J}^{- 1}}{B_0^2}, W_{24} = |
+  \nabla \Psi |^2 \kappa_s
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="244" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img526.png"
+ ALT="$\displaystyle W_{23} = \frac{\vert \nabla \Psi \vert^2 \mathcal{J}^{- 1}}{B_0^2}, W_{24} = \vert \nabla \Psi \vert^2 \kappa_s$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">211</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The formulas for calculating the equilibrium quantities, such as the geodesic
+curvature <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \kappa _s$"></SPAN>, normal curvature <!-- MATH
+ $\kappa_{\psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$ \kappa _{\psi }$"></SPAN>, and the local magnetic
+shear <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ S$"></SPAN>, are given in Sec. <A HREF="node42.html#150901-1">8.4</A>.
+
+<P>
+ 
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html410"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html408"
+  HREF="node28.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html402"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html411"
+  HREF="node30.html">Numerical methods for finding</A>
+<B> Up:</B> <A NAME="tex2html409"
+  HREF="node28.html">Discrete form of elements</A>
+<B> Previous:</B> <A NAME="tex2html403"
+  HREF="node28.html">Discrete form of elements</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

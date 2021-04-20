@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Phase mixing and linear Landau damping</TITLE>
+<META NAME="description" CONTENT="Phase mixing and linear Landau damping">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node17.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html232"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html230"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html224"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html233"
+  HREF="node19.html">Comparison with linear theory</A>
+<B> Up:</B> <A NAME="tex2html231"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<B> Previous:</B> <A NAME="tex2html225"
+  HREF="node17.html">Normalization</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00033000000000000000">
+Phase mixing and linear Landau damping</A>
+</H2>
+
+<P>
+Consider the case that the equilibrium distribution <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img224.png"
+ ALT="$ F_0$"></SPAN> is Maxwellian in
+velocity space:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+F_0 (v_z) = \frac{n_0}{v_t \sqrt{\pi}} \exp \left( - \frac{v^2_z}{v_t^2}
+  \right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="202" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img250.png"
+ ALT="$\displaystyle F_0 (v_z) = \frac{n_0}{v_t \sqrt{\pi}} \exp \left( - \frac{v^2_z}{v_t^2} \right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">76</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which satisfies the normalization condition <!-- MATH
+ $\int_{- \infty}^{\infty} F_0
+(v_z) d v_z = n_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="144" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img239.png"
+ ALT="$ \int_{- \infty}^{\infty} F_0 (v_z) d v_z = n_0$"></SPAN>. The derivative of <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img224.png"
+ ALT="$ F_0$"></SPAN> with respect to <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img251.png"
+ ALT="$ v_z$"></SPAN> is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial F_0}{\partial v_z} = \frac{n_0}{v_t \sqrt{\pi}} \exp \left( -
+  \frac{v^2_z}{v_t^2} \right) \left( - \frac{2 v_z}{v_t^2} \right) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="253" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img252.png"
+ ALT="$\displaystyle \frac{\partial F_0}{\partial v_z} = \frac{n_0}{v_t \sqrt{\pi}} \exp \left( - \frac{v^2_z}{v_t^2} \right) \left( - \frac{2 v_z}{v_t^2} \right) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">77</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using this, Eq. (<A HREF="node17.html#9-27-p5">75</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-5-p1"></A><!-- MATH
+ \begin{equation}
+\frac{\partial \hat{F}_1}{\partial \overline{t}} = - a
+  \overline{v}_z  \hat{F}_1 - \frac{1}{a}  \frac{1}{\sqrt{\pi}} \exp (-
+  \overline{v}^2_z) (- 2 \overline{v}_z) \int_{- \infty}^{\infty} \hat{F}_1 d
+  \overline{v}_z .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="367" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img253.png"
+ ALT="$\displaystyle \frac{\partial \hat{F}_1}{\partial \overline{t}} = - a \overline{...
+...2_z) (- 2 \overline{v}_z) \int_{- \infty}^{\infty} \hat{F}_1 d \overline{v}_z .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">78</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Take the initial condition of <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img228.png"
+ ALT="$ \hat{F}_1$"></SPAN> to be
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-5-e1"></A><!-- MATH
+ \begin{equation}
+\hat{F}_1 (\overline{t} = 0, \overline{v}_z) =
+  \frac{1}{\sqrt{\pi}} \exp (- \overline{v}^2_z) + \frac{i}{\sqrt{\pi}} \exp
+  (- \overline{v}^2_z),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="325" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.png"
+ ALT="$\displaystyle \hat{F}_1 (\overline{t} = 0, \overline{v}_z) = \frac{1}{\sqrt{\pi}} \exp (- \overline{v}^2_z) + \frac{i}{\sqrt{\pi}} \exp (- \overline{v}^2_z),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">79</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which is a Maxwellian distribution that satisfies the normalization <!-- MATH
+ $\int_{-
+\infty}^{\infty} \hat{F}_1 (\overline{v}_z) d \overline{v}_z = 1 + i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="161" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img255.png"
+ ALT="$ \int_{-
+\infty}^{\infty} \hat{F}_1 ( \overline{v}_z) d \overline{v}_z = 1 + i$"></SPAN>.
+Equation (<A HREF="#11-5-p1">78</A>) with the initial condition Eq. (<A HREF="#11-5-e1">79</A>) was
+solved numerically to obtain the time evolution of <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img228.png"
+ ALT="$ \hat{F}_1$"></SPAN> (the code is in
+/home/yj/project/landau_damping/). Figure <A HREF="#11-5-e4">7</A> compares the velocity
+distribution function at <!-- MATH
+ $\overline{t} = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \overline {t} = 0$"></SPAN> with that at <!-- MATH
+ $\overline{t} = 40$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img256.png"
+ ALT="$ \overline{t} = 40$"></SPAN>,
+which shows that the distribution function develops fine structures in
+velocity space.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="11-5-e4"></A><A NAME="1533"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+Comparison of <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img228.png"
+ ALT="$ \hat{F}_1$"></SPAN> at <SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ t = 0$"></SPAN> and <!-- MATH
+ $t \omega_p
+  = 40$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ t \omega _p = 40$"></SPAN>. (a) real part; (b) imaginary part. <!-- MATH
+ $k v_t / \omega_p = 0.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ k v_t / \omega _p = 0.5$"></SPAN>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="247" HEIGHT="179" ALIGN="BOTTOM" BORDER="0"
+ SRC="img257.png"
+ ALT="\includegraphics{/home/yj/project/landau_damping/fig5/p1.eps}"><IMG
+ WIDTH="247" HEIGHT="179" ALIGN="BOTTOM" BORDER="0"
+ SRC="img258.png"
+ ALT="\includegraphics{/home/yj/project/landau_damping/fig5/p2.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+It is ready to realize that the fine velocity space structures are partially
+due to the first term on the right-hand side of Eq. (<A HREF="#11-5-p1">78</A>). When only
+this term is retained, Eq. (<A HREF="#11-5-p1">78</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-1-a1"></A><!-- MATH
+ \begin{equation}
+\frac{\partial \hat{F}_1}{\partial \overline{t}} = - i \left(
+  \frac{k v_t}{\omega_p} \right)  \overline{v}_z  \hat{F}_1,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="166" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img259.png"
+ ALT="$\displaystyle \frac{\partial \hat{F}_1}{\partial \overline{t}} = - i \left( \frac{k v_t}{\omega_p} \right) \overline{v}_z \hat{F}_1,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">80</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which has the dispersion relation
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\omega = \left( \frac{k v_t}{\omega_p} \right) \overline{v}_z,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="108" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img260.png"
+ ALT="$\displaystyle \omega = \left( \frac{k v_t}{\omega_p} \right) \overline{v}_z,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">81</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which indicates that Eq. (<A HREF="#9-1-a1">80</A>) has different eigenfrequencies for
+different points in velocity space. Thus, an initially rather smooth velocity
+distribution function will become not so smooth after some time due to the
+distribution function oscillate with different frequencies at different
+velocity points. This is the so-called ``phase mixing''. It is obvious that,
+after some time, the phase mixing will make the velocity distribution function
+<!-- MATH
+ $\hat{F}_1 (v_z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img261.png"
+ ALT="$ \hat{F}_1 (v_z)$"></SPAN> rather messy, which poses a great challenge to the numerical
+resolution of <!-- MATH
+ $\hat{F}_1 (v_z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img261.png"
+ ALT="$ \hat{F}_1 (v_z)$"></SPAN>. Given a fixed velocity grids, the numerical
+results will become inaccurate when the grids is not fine enough to resolve
+the fine velocity distribution structures.
+
+<P>
+Note that the electric field is related to the integration of <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img222.png"
+ ALT="$ F_1$"></SPAN>, i.e.
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-5-e11"></A><!-- MATH
+ \begin{equation}
+\hat{E}_1 = \frac{1}{i k}  \frac{q}{\varepsilon_0} \int_{-
+  \infty}^{\infty} \hat{F}_1 d v_z
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="159" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img262.png"
+ ALT="$\displaystyle \hat{E}_1 = \frac{1}{i k} \frac{q}{\varepsilon_0} \int_{- \infty}^{\infty} \hat{F}_1 d v_z$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">82</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Then it is fairly obvious that the phase mixing have the possibility of
+reducing the magnitude of the perturbed electric field. Figure <A HREF="#11-5-e10">8</A>
+plot the time evolution of <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img229.png"
+ ALT="$ \hat{E}_1$"></SPAN> (the factor <!-- MATH
+ $q / (k \varepsilon_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img263.png"
+ ALT="$ q / (k \varepsilon_0)$"></SPAN> in
+Eq. (<A HREF="#11-5-e11">82</A>) is removed), which shows that electric field oscillates
+with the amplitude decreasing with time. This confirms that the phase mixing
+reduces the magnitude of the electric field.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="11-5-e10"></A><A NAME="1536"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+(a) time evolution of real and imaginary parts of
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img229.png"
+ ALT="$ \hat{E}_1$"></SPAN>. (b) time evolution of <!-- MATH
+ $| \hat{E}_1 |$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img264.png"
+ ALT="$ \vert \hat{E}_1 \vert$"></SPAN>. <!-- MATH
+ $k v_t / \omega_p =
+  0.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ k v_t / \omega _p = 0.5$"></SPAN>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="250" HEIGHT="181" ALIGN="BOTTOM" BORDER="0"
+ SRC="img265.png"
+ ALT="\includegraphics{/home/yj/project/landau_damping/fig6/tmp1.eps}"><IMG
+ WIDTH="245" HEIGHT="181" ALIGN="BOTTOM" BORDER="0"
+ SRC="img266.png"
+ ALT="\includegraphics{/home/yj/project/landau_damping/fig6/tmp2.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html232"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html230"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html224"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html233"
+  HREF="node19.html">Comparison with linear theory</A>
+<B> Up:</B> <A NAME="tex2html231"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<B> Previous:</B> <A NAME="tex2html225"
+  HREF="node17.html">Normalization</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

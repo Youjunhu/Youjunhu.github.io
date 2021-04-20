@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Practical comparison between particle methods and Euler-grid-based methods</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tmp.tex" /> 
+<meta name="date" content="2019-01-24 14:36:00" /> 
+<link rel="stylesheet" type="text/css" href="tmp.css" /> 
+</head><body 
+>
+   <!--l. 842--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu12.html" >next</a>] [<a 
+href="tmpsu10.html" >prev</a>] [<a 
+href="tmpsu10.html#tailtmpsu10.html" >prev-tail</a>] [<a 
+href="#tailtmpsu11.html">tail</a>] [<a 
+href="tmpse3.html#tmpsu11.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.8   </span> <a 
+ id="x15-180003.8"></a>Practical comparison between particle methods and Euler-grid-based methods</h4>
+<!--l. 844--><p class="noindent" >Kinetic plasma simulations in a 6D phase space is usually diﬃcult for grid-based methods because the six-dimensional
+phase space seems to be too high for Euler-gird-based methods to handle. As a result, I have not seen any 6D grid-based
+kinetic simulation code. With the invention of the gyrokinetic model, the dimenionality of the phase space is reduced to
+ﬁve, which makes it possible for Euler-grid-based method to handle. As a result, there appear several widely used
+gird-based gyrokinetic codes, such as <span 
+class="cmtt-10">GYRO </span>and <span 
+class="cmtt-10">GENE</span>.
+</p><!--l. 853--><p class="indent" >   Another reason why particle methods are (if they are) more popular than the Eulerian-grid-based methods in plasma
+community is the algorithmic compactness and subsequent ease of coding in comparison with the Eulerian-grid-based
+methods. The popularity of PIC methods may also be related to that PIC method seems more intuitive at ﬁrst glance
+(although this ﬁrst impression may be only partially correct and even misleading). This is not about accuracy or
+even science. Historical or psychological reasons can partially account for the popularity of one particular
+method.
+</p><!--l. 862--><p class="indent" >   Parallization of the marker pushing part is usually easy in PIC codes. All the markers used in a simulation can be
+evenly distributed among all the MPI processes used. The loading balance can be good among all the processes in terms of
+marker pushing. The deposition part of a PIC code can be slow because it involves random access to a large grid array
+when looping over all the markers in a MPI process. The parallization of the ﬁeld solving part is the same as Euler based
+codes.
+</p><!--l. 870--><p class="indent" >   For gyrokinetic simulation of tokamak plasmas, it is not easy to judge which method, particle-based method or
+grid-based mthod, is better than the other. When dealing with full Landau collision oprators, some PIC codes, e.g., <span 
+class="cmtt-10">XGC</span>,
+uses velocity space grids. This may indicate that velocity grids are generally needed, suggesting that grids-methods may
+have advantages. On the other hand, hybrid methods that use both velocity grids and markers may be a
+practical way since “hybrid” provides us freedoms to use whatever methods available that can get work
+done.
+
+</p>
+   <!--l. 879--><div class="crosslinks"><p class="noindent">[<a 
+href="tmpsu12.html" >next</a>] [<a 
+href="tmpsu10.html" >prev</a>] [<a 
+href="tmpsu10.html#tailtmpsu10.html" >prev-tail</a>] [<a 
+href="tmpsu11.html" >front</a>] [<a 
+href="tmpse3.html#tmpsu11.html" >up</a>] </p></div>
+<!--l. 879--><p class="indent" >   <a 
+ id="tailtmpsu11.html"></a> </p> 
+</body></html> 

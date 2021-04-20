@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Magnetic surface average</TITLE>
+<META NAME="description" CONTENT="Magnetic surface average">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node57.html">
+<LINK REL="previous" HREF="node55.html">
+<LINK REL="up" HREF="node54.html">
+<LINK REL="next" HREF="node57.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html760"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html758"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html752"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html761"
+  HREF="node57.html">Flux Surface Functions</A>
+<B> Up:</B> <A NAME="tex2html759"
+  HREF="node54.html">Constructing magnetic surface coordinate</A>
+<B> Previous:</B> <A NAME="tex2html753"
+  HREF="node55.html">Finding magnetic surfaces</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00062000000000000000">
+Magnetic surface average</A>
+</H2>
+
+<P>
+Define the magnetic surface average of a physical quantiy <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img677.png"
+ ALT="$ G$"></SPAN> by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="6-14-2"></A><!-- MATH
+ \begin{equation}
+\langle G \rangle \equiv \lim_{\Delta \Psi \rightarrow 0}
+  \left( \frac{\int \int \int_{\Delta \Psi} G d^3 V}{\int \int \int_{\Delta
+  \Psi} d^3 V} \right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="225" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img678.png"
+ ALT="$\displaystyle \langle G \rangle \equiv \lim_{\Delta \Psi \rightarrow 0} \left( ...
+...t \int \int_{\Delta \Psi} G d^3 V}{\int \int \int_{\Delta \Psi} d^3 V} \right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">207</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the volume integration is over the small volume between two adjacent
+flux surfaces with <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> difference being <!-- MATH
+ $\triangle \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img679.png"
+ ALT="$ \triangle \Psi$"></SPAN>. The differential
+volume element is given by <!-- MATH
+ $d^3 V = | \mathcal{J} | d \psi d \theta d \phi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="129" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img680.png"
+ ALT="$ d^3 V = \vert \mathcal{J} \vert d \psi d \theta d \phi$"></SPAN>,
+where <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> is the Jacobian of <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ (\psi , \theta , \phi )$"></SPAN> coordinates.
+Using this, equation (<A HREF="#6-14-2">207</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\langle G \rangle & = & \lim_{\Delta \Psi \rightarrow 0} \left( \frac{\int
+  \int \int_{\Delta \Psi} G | \mathcal{J} | d \psi d \theta d \phi}{\int \int
+  \int_{\Delta \Psi} | \mathcal{J} | d \psi d \theta d \phi} \right)
+  \nonumber\\
+  & = & \frac{\int \int G | \mathcal{J} | d \theta d \phi}{\int \int |
+  \mathcal{J} | d \theta d \phi},
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="29" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img681.png"
+ ALT="$\displaystyle \langle G \rangle$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="219" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img682.png"
+ ALT="$\displaystyle \lim_{\Delta \Psi \rightarrow 0} \left( \frac{\int
+\int \int_{\De...
+...\int
+\int_{\Delta \Psi} \vert \mathcal{J} \vert d \psi d \theta d \phi} \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="108" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img683.png"
+ ALT="$\displaystyle \frac{\int \int G \vert \mathcal{J} \vert d \theta d \phi}{\int \int \vert
+\mathcal{J} \vert d \theta d \phi},$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">208</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+which is an averaging over a magnetic surface and thus is called magnetic
+surface averaging. Sometimes, we do not want the Jacobian explicitly to appear
+in the formula. This can be achived by writing the differential volume element
+as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="6-14-1"></A><!-- MATH
+ \begin{equation}
+d^3 V = R d \phi \frac{d \Psi}{| \nabla \Psi |} d l_p .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="147" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img684.png"
+ ALT="$\displaystyle d^3 V = R d \phi \frac{d \Psi}{\vert \nabla \Psi \vert} d l_p .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">209</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using <!-- MATH
+ $B_p = | \nabla \Psi | / R$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="100" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ B_p = \vert \nabla \Psi \vert / R$"></SPAN>, the volume element is further written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+d^3 V = d \phi \frac{d \Psi}{B_p} d l_p
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="116" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img685.png"
+ ALT="$\displaystyle d^3 V = d \phi \frac{d \Psi}{B_p} d l_p$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">210</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using this, the averaging defined in Eq. (<A HREF="#6-14-2">207</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\langle G \rangle & = & \lim_{\Delta \Psi \rightarrow 0} \frac{\int \int
+  \int_{\Delta \Psi} G d \phi \frac{d \Psi}{B_p} d l_p}{\int \int \int_{\Delta
+  \Psi} d \phi \frac{d \Psi}{B_p} d l_p} \nonumber\\
+  & = & \frac{\int \int G \frac{1}{B_p} d \phi d l_p}{\int \int \frac{1}{B_p}
+  d \phi d l_p} .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="29" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img681.png"
+ ALT="$\displaystyle \langle G \rangle$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="179" HEIGHT="65" ALIGN="MIDDLE" BORDER="0"
+ SRC="img686.png"
+ ALT="$\displaystyle \lim_{\Delta \Psi \rightarrow 0} \frac{\int \int
+\int_{\Delta \Ps...
+...\Psi}{B_p} d l_p}{\int \int \int_{\Delta
+\Psi} d \phi \frac{d \Psi}{B_p} d l_p}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="110" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img687.png"
+ ALT="$\displaystyle \frac{\int \int G \frac{1}{B_p} d \phi d l_p}{\int \int \frac{1}{B_p}
+d \phi d l_p} .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">211</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+If <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img677.png"
+ ALT="$ G$"></SPAN> is axisymmetric, then the above equation is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-16-3"></A><!-- MATH
+ \begin{equation}
+\langle G \rangle = \frac{\oint G \frac{1}{B_p} d l_p}{\oint
+  \frac{1}{B_p} d l_p} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="125" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img688.png"
+ ALT="$\displaystyle \langle G \rangle = \frac{\oint G \frac{1}{B_p} d l_p}{\oint \frac{1}{B_p} d l_p} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">212</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+(Equation (<A HREF="#10-16-3">212</A>) is used in the GTAW code to calculate the magnetic
+surface averaging.) Using Eq. (<A HREF="node45.html#5-30-p1">188</A>) and <!-- MATH
+ $B_p = | \nabla \Psi | / R$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="100" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ B_p = \vert \nabla \Psi \vert / R$"></SPAN>,
+equation (<A HREF="#10-16-3">212</A>) can also be written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="3-18-a1m"></A><!-- MATH
+ \begin{equation}
+\langle G \rangle = \frac{\int_0^{2 \pi} G |\mathcal{J}| d
+  \theta}{\int_0^{2 \pi} |\mathcal{J}| d \theta} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="138" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img689.png"
+ ALT="$\displaystyle \langle G \rangle = \frac{\int_0^{2 \pi} G \vert\mathcal{J}\vert d \theta}{\int_0^{2 \pi} \vert\mathcal{J}\vert d \theta} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">213</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Noting that the Jacobian does not change sign, the above equation is written
+as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\langle G \rangle = \frac{\int_0^{2 \pi} G\mathcal{J}d \theta}{\int_0^{2
+  \pi} \mathcal{J}d \theta} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="129" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img690.png"
+ ALT="$\displaystyle \langle G \rangle = \frac{\int_0^{2 \pi} G\mathcal{J}d \theta}{\int_0^{2 \pi} \mathcal{J}d \theta} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">214</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using the expression of the volume element <!-- MATH
+ $d \tau = |\mathcal{J}| d \theta d
+\phi d \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="118" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img691.png"
+ ALT="$ d \tau = \vert\mathcal{J}\vert d \theta d
+\phi d \psi$"></SPAN>, the volume within a magnetic surface is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-18-3"></A><!-- MATH
+ \begin{equation}
+V (\psi) = \int d \tau = \int |\mathcal{J}| d \theta d \phi d
+  \psi = 2 \pi \int_{\psi_0}^{\psi} \int_0^{2 \pi} |\mathcal{J}| d \theta d
+  \psi .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="378" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img692.png"
+ ALT="$\displaystyle V (\psi) = \int d \tau = \int \vert\mathcal{J}\vert d \theta d \p...
+...\pi \int_{\psi_0}^{\psi} \int_0^{2 \pi} \vert\mathcal{J}\vert d \theta d \psi .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">215</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using this, the differential of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img693.png"
+ ALT="$ V$"></SPAN> with respect to <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-7-p1"></A><!-- MATH
+ \begin{equation}
+V' \equiv \frac{d V}{d \psi} = 2 \pi \int_0^{2 \pi}
+  |\mathcal{J}| d \theta .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="186" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img694.png"
+ ALT="$\displaystyle V' \equiv \frac{d V}{d \psi} = 2 \pi \int_0^{2 \pi} \vert\mathcal{J}\vert d \theta .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">216</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using this, Eq. (<A HREF="#3-18-a1m">213</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\langle G \rangle = \frac{2 \pi}{V'} \int_0^{2 \pi} G |\mathcal{J}| d \theta
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="159" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img695.png"
+ ALT="$\displaystyle \langle G \rangle = \frac{2 \pi}{V'} \int_0^{2 \pi} G \vert\mathcal{J}\vert d \theta$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">217</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html760"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html758"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html752"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html761"
+  HREF="node57.html">Flux Surface Functions</A>
+<B> Up:</B> <A NAME="tex2html759"
+  HREF="node54.html">Constructing magnetic surface coordinate</A>
+<B> Previous:</B> <A NAME="tex2html753"
+  HREF="node55.html">Finding magnetic surfaces</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

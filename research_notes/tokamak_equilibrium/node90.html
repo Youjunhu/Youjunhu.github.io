@@ -1,0 +1,707 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Finite difference form of toroidal elliptic operator in general
+coordinate system</TITLE>
+<META NAME="description" CONTENT="Finite difference form of toroidal elliptic operator in general
+coordinate system">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="previous" HREF="node89.html">
+<LINK REL="up" HREF="node89.html">
+<LINK REL="next" HREF="node91.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1119"
+  HREF="node91.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1117"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1113"
+  HREF="node89.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1120"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Up:</B> <A NAME="tex2html1118"
+  HREF="node89.html">Fixed boundary tokamak equilibrium</A>
+<B> Previous:</B> <A NAME="tex2html1114"
+  HREF="node89.html">Fixed boundary tokamak equilibrium</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000111000000000000000">
+Finite difference form of toroidal elliptic operator in general
+coordinate system</A>
+</H2>
+
+<P>
+The toroidal elliptic operator in Eq. (<A HREF="node89.html#4-23-4">415</A>) can be written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\triangle^{\ast} \Psi = \frac{R^2}{\mathcal{J}} [(h^{\psi \psi}
+  \Psi_{\psi})_{\psi} + (h^{\theta \theta} \Psi_{\theta})_{\theta} + (h^{\psi
+  \theta} \Psi_{\theta})_{\psi} + (h^{\psi \theta} \Psi_{\psi})_{\theta}],
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="421" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1288.png"
+ ALT="$\displaystyle \triangle^{\ast} \Psi = \frac{R^2}{\mathcal{J}} [(h^{\psi \psi} \...
+...^{\psi \theta} \Psi_{\theta})_{\psi} + (h^{\psi \theta} \Psi_{\psi})_{\theta}],$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">422</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $h^{a \beta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1289.png"
+ ALT="$ h^{a \beta}$"></SPAN> is defined by Eq. (<A HREF="node42.html#4-25-e20">174</A>), i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-25-e20b"></A><!-- MATH
+ \begin{equation}
+h^{\alpha \beta} = \frac{\mathcal{J}}{R^2} \nabla \alpha
+  \cdot \nabla \beta .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="137" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1290.png"
+ ALT="$\displaystyle h^{\alpha \beta} = \frac{\mathcal{J}}{R^2} \nabla \alpha \cdot \nabla \beta .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">423</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Next, we derive the finite difference form of the toroidal elliptic operator.
+The finite difference form of the term <!-- MATH
+ $(h^{\psi \psi} \Psi_{\psi})_{\psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="76" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1291.png"
+ ALT="$ (h^{\psi \psi} \Psi_{\psi})_{\psi}$"></SPAN> is
+written
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+(h^{\psi \psi} \Psi_{\psi})_{\psi} |_{i, j} & = & \frac{1}{\delta
+  \psi} \left[ h^{\psi \psi}_{i, j + 1 / 2} \left( \frac{\Psi_{i, j + 1} -
+  \Psi_{i, j}}{\delta \psi} \right) - h_{i, j - 1 / 2}^{\psi \psi} \left(
+  \frac{\Psi_{i, j} - \Psi_{i, j - 1}}{\delta \psi} \right) \right]
+  \nonumber\\
+  & = & H^{\psi \psi}_{i, j + 1 / 2} (\Psi_{i, j + 1} - \Psi_{i, j}) -
+  H^{\psi \psi}_{i, j - 1 / 2} (\Psi_{i, j} - \Psi_{i, j - 1}),
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="95" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1292.png"
+ ALT="$\displaystyle (h^{\psi \psi} \Psi_{\psi})_{\psi} \vert _{i, j}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="413" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1293.png"
+ ALT="$\displaystyle \frac{1}{\delta
+\psi} \left[ h^{\psi \psi}_{i, j + 1 / 2} \left( ...
+... \psi} \left(
+\frac{\Psi_{i, j} - \Psi_{i, j - 1}}{\delta \psi} \right) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="348" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1294.png"
+ ALT="$\displaystyle H^{\psi \psi}_{i, j + 1 / 2} (\Psi_{i, j + 1} - \Psi_{i, j}) -
+H^{\psi \psi}_{i, j - 1 / 2} (\Psi_{i, j} - \Psi_{i, j - 1}),$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">424</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+where
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+H^{\psi \psi} = \frac{h^{\psi \psi}}{(\delta \psi)^2} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="105" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1295.png"
+ ALT="$\displaystyle H^{\psi \psi} = \frac{h^{\psi \psi}}{(\delta \psi)^2} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">425</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The finite difference form of <!-- MATH
+ $(h^{\theta \theta} \Psi_{\theta})_{\theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="66" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1296.png"
+ ALT="$ (h^{\theta \theta} \Psi_{\theta})_{\theta}$"></SPAN> is
+written
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+(h^{\theta \theta} \Psi_{\theta})_{\theta} |_{i, j} & = &
+  \frac{1}{\delta \theta} \left[ h^{\theta \theta}_{i + 1 / 2, j} \left(
+  \frac{\Psi_{i + 1, j} - \Psi_{i, j}}{\delta \theta} \right) - h^{\theta
+  \theta}_{i - 1 / 2, j} \left( \frac{\Psi_{i, j} - \Psi_{i - 1, j}}{\delta
+  \theta} \right) \right] \nonumber\\
+  & = & H^{\theta \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j} - \Psi_{i, j}) -
+  H^{\theta \theta}_{i - 1 / 2, j} (\Psi_{i, j} - \Psi_{i - 1, j}),
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="86" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1297.png"
+ ALT="$\displaystyle (h^{\theta \theta} \Psi_{\theta})_{\theta} \vert _{i, j}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="409" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1298.png"
+ ALT="$\displaystyle \frac{1}{\delta \theta} \left[ h^{\theta \theta}_{i + 1 / 2, j} \...
+..., j} \left( \frac{\Psi_{i, j} - \Psi_{i - 1, j}}{\delta
+\theta} \right) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="348" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1299.png"
+ ALT="$\displaystyle H^{\theta \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j} - \Psi_{i, j}) -
+H^{\theta \theta}_{i - 1 / 2, j} (\Psi_{i, j} - \Psi_{i - 1, j}),$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">426</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+where
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+H^{\theta \theta} = \frac{h^{\theta \theta}}{(\delta \theta)^2} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="97" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1300.png"
+ ALT="$\displaystyle H^{\theta \theta} = \frac{h^{\theta \theta}}{(\delta \theta)^2} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">427</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The finite difference form of <!-- MATH
+ $(h^{\psi \theta} \Psi_{\theta})_{\psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1301.png"
+ ALT="$ (h^{\psi \theta} \Psi_{\theta})_{\psi}$"></SPAN> is
+written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-27-e1"></A><!-- MATH
+ \begin{equation}
+\left.(\Psi_{\theta} h^{\psi \theta})_{\psi} \right|_{i, j}
+  = \frac{1}{\delta \psi} \left[ h^{\psi \theta}_{i, j + 1 / 2} \left(
+  \frac{\Psi_{i + 1, j + 1 / 2} - \Psi_{i - 1, j + 1 / 2}}{2 \delta \theta}
+  \right) - h^{\psi \theta}_{i, j - 1 / 2} \left( \frac{\Psi_{i + 1, j - 1 /
+  2} - \Psi_{i - 1, j - 1 / 2}}{2 \delta \theta} \right) \right] .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="675" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1302.png"
+ ALT="$\displaystyle \left.(\Psi_{\theta} h^{\psi \theta})_{\psi} \right\vert _{i, j} ...
+...i + 1, j - 1 / 2} - \Psi_{i - 1, j - 1 / 2}}{2 \delta \theta} \right) \right] .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">428</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Approximating the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> at the grid centers by the average of the
+value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Psi $"></SPAN> at the neighbor grid points, Eq. (<A HREF="#4-27-e1">428</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+(\Psi_{\theta} h^{\psi \theta})_{\psi} |_{i, j} = H^{\psi
+  \theta}_{i, j + 1 / 2} (\Psi_{i + 1, j} + \Psi_{i + 1, j + 1} - \Psi_{i - 1,
+  j} - \Psi_{i - 1, j + 1}) - H^{\psi \theta}_{i, j - 1 / 2} (\Psi_{i + 1, j -
+  1} + \Psi_{i + 1, j} - \Psi_{i - 1, j - 1} - \Psi_{i - 1, j}) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="801" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1303.png"
+ ALT="$\displaystyle (\Psi_{\theta} h^{\psi \theta})_{\psi} \vert _{i, j} = H^{\psi \t...
+...Psi_{i + 1, j - 1} + \Psi_{i + 1, j} - \Psi_{i - 1, j - 1} - \Psi_{i - 1, j}) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">429</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-27-e3"></A><!-- MATH
+ \begin{equation}
+H^{\psi \theta} = \frac{h^{\psi \theta}}{4 \delta \psi d
+  \theta} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1304.png"
+ ALT="$\displaystyle H^{\psi \theta} = \frac{h^{\psi \theta}}{4 \delta \psi d \theta} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">430</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Similarly, the finite difference form of <!-- MATH
+ $(h^{\psi \theta}
+\Psi_{\psi})_{\theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1305.png"
+ ALT="$ (h^{\psi \theta}
+\Psi_{\psi})_{\theta}$"></SPAN> is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+(\Psi_{\psi} h^{\psi \theta})_{\theta} |_{i, j} & = &
+  \frac{1}{\delta \theta} \left[ h^{\psi \theta}_{i + 1 / 2, j} \left(
+  \frac{\Psi_{i + 1 / 2, j + 1} - \Psi_{i + 1 / 2, j - 1}}{2 \delta \psi}
+  \right) - h^{\psi \theta}_{i - 1 / 2, j} \left( \frac{\Psi_{i - 1 / 2, j +
+  1} - \Psi_{i - 1 / 2, j - 1}}{2 \delta \psi} \right) \right] \nonumber\\
+  & = & H^{\psi \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j + 1} + \Psi_{i, j + 1}
+  - \Psi_{i + 1, j - 1} - \Psi_{i, j - 1}) - H^{\psi \theta}_{i - 1 / 2, j}
+  (\Psi_{i, j + 1} + \Psi_{i - 1, j + 1} - \Psi_{i, j - 1} - \Psi_{i - 1, j -
+  1}) .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="90" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1306.png"
+ ALT="$\displaystyle (\Psi_{\psi} h^{\psi \theta})_{\theta} \vert _{i, j}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="558" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1307.png"
+ ALT="$\displaystyle \frac{1}{\delta \theta} \left[ h^{\psi \theta}_{i + 1 / 2, j} \le...
+...si_{i - 1 / 2, j +
+1} - \Psi_{i - 1 / 2, j - 1}}{2 \delta \psi} \right) \right]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="694" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1308.png"
+ ALT="$\displaystyle H^{\psi \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j + 1} + \Psi_{i, j ...
+...Psi_{i, j + 1} + \Psi_{i - 1, j + 1} - \Psi_{i, j - 1} - \Psi_{i - 1, j -
+1}) .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">431</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using the above results, the finite difference form of the operator
+<!-- MATH
+ $\mathcal{J} \triangle^{\star} \Psi / R^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="79" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1309.png"
+ ALT="$ \mathcal{J} \triangle^{\star} \Psi / R^2$"></SPAN> is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray*}
+\left. \frac{\mathcal{J}}{R^2} \triangle^{\ast} \Psi \right|_{i, j} & = &
+  (h^{\psi \theta} \Psi_{\theta})_{\psi} + (h^{\psi \psi} \Psi_{\psi})_{\psi}
+  + (h^{\theta \theta} \Psi_{\theta})_{\theta} + (h^{\psi \theta}
+  \Psi_{\psi})_{\theta}\\
+  & = & H^{\psi \psi}_{i, j + 1 / 2} (\Psi_{i, j + 1} - \Psi_{i, j}) -
+  H^{\psi \psi}_{i, j - 1 / 2} (\Psi_{i, j} - \Psi_{i, j - 1})\\
+  & + & H^{\theta \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j} - \Psi_{i, j}) -
+  H^{\theta \theta}_{i - 1 / 2, j} (\Psi_{i, j} - \Psi_{i - 1, j})\\
+  & + & H^{\psi \theta}_{i, j + 1 / 2} (\Psi_{i + 1, j} + \Psi_{i + 1, j + 1}
+  - \Psi_{i - 1, j} - \Psi_{i - 1, j + 1}) - H^{\psi \theta}_{i, j - 1 / 2}
+  (\Psi_{i + 1, j - 1} + \Psi_{i + 1, j} - \Psi_{i - 1, j - 1} - \Psi_{i - 1,
+  j})\\
+  & + & H^{\psi \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j + 1} + \Psi_{i, j + 1}
+  - \Psi_{i + 1, j - 1} - \Psi_{i, j - 1}) - H^{\psi \theta}_{i - 1 / 2, j}
+  (\Psi_{i, j + 1} + \Psi_{i - 1, j + 1} - \Psi_{i - 1, j - 1} - \Psi_{i, j -
+  1})\\
+  & = & \Psi_{i, j} (- H^{\psi \psi}_{i, j + 1 / 2} - H^{\psi \psi}_{i, j - 1
+  / 2} - H^{\theta \theta}_{i + 1 / 2, j} - H^{\theta \theta}_{i - 1 / 2,
+  j})\\
+  & + & \Psi_{i - 1, j - 1} (H^{\psi \theta}_{i, j - 1 / 2} + H^{\psi
+  \theta}_{i - 1 / 2, j}) + \Psi_{i, j - 1} (H^{\psi \psi}_{i, j - 1 / 2} -
+  H^{\psi \theta}_{i + 1 / 2, j} + H^{\psi \theta}_{i - 1 / 2, j})\\
+  & + & \Psi_{i + 1, j - 1} (- H^{\psi \theta}_{i, j - 1 / 2} - H^{\psi
+  \theta}_{i + 1 / 2, j}) + \Psi_{i - 1, j} (H^{\theta \theta}_{i - 1 / 2, j}
+  - H^{\psi \theta}_{i, j + 1 / 2} + H^{\psi \theta}_{i, j - 1 / 2})\\
+  & + & \Psi_{i + 1, j} (H^{\theta \theta}_{i + 1 / 2, j} + H^{\psi
+  \theta}_{i, j + 1 / 2} - H^{\psi \theta}_{i, j - 1 / 2}) + \Psi_{i - 1, j +
+  1} (- H^{\psi \theta}_{i, j + 1 / 2} - H^{\psi \theta}_{i - 1 / 2, j})\\
+  & + & \Psi_{i, j + 1} (H^{\psi \psi}_{i, j + 1 / 2} + H^{\psi \theta}_{i +
+  1 / 2, j} - H^{\psi \theta}_{i - 1 / 2, j}) + \Psi_{i + 1, j + 1} (H^{\psi
+  \theta}_{i, j + 1 / 2} + H^{\psi \theta}_{i + 1 / 2, j})
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="83" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1310.png"
+ ALT="$\displaystyle \left. \frac{\mathcal{J}}{R^2} \triangle^{\ast} \Psi \right\vert _{i, j}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="330" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1311.png"
+ ALT="$\displaystyle (h^{\psi \theta} \Psi_{\theta})_{\psi} + (h^{\psi \psi} \Psi_{\ps...
+...\theta \theta} \Psi_{\theta})_{\theta} + (h^{\psi \theta}
+\Psi_{\psi})_{\theta}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="344" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1312.png"
+ ALT="$\displaystyle H^{\psi \psi}_{i, j + 1 / 2} (\Psi_{i, j + 1} - \Psi_{i, j}) -
+H^{\psi \psi}_{i, j - 1 / 2} (\Psi_{i, j} - \Psi_{i, j - 1})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="344" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1313.png"
+ ALT="$\displaystyle H^{\theta \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j} - \Psi_{i, j}) -
+H^{\theta \theta}_{i - 1 / 2, j} (\Psi_{i, j} - \Psi_{i - 1, j})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="690" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1314.png"
+ ALT="$\displaystyle H^{\psi \theta}_{i, j + 1 / 2} (\Psi_{i + 1, j} + \Psi_{i + 1, j ...
+...(\Psi_{i + 1, j - 1} + \Psi_{i + 1, j} - \Psi_{i - 1, j - 1} - \Psi_{i - 1,
+j})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="690" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1315.png"
+ ALT="$\displaystyle H^{\psi \theta}_{i + 1 / 2, j} (\Psi_{i + 1, j + 1} + \Psi_{i, j ...
+...(\Psi_{i, j + 1} + \Psi_{i - 1, j + 1} - \Psi_{i - 1, j - 1} - \Psi_{i, j -
+1})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="344" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1316.png"
+ ALT="$\displaystyle \Psi_{i, j} (- H^{\psi \psi}_{i, j + 1 / 2} - H^{\psi \psi}_{i, j - 1
+/ 2} - H^{\theta \theta}_{i + 1 / 2, j} - H^{\theta \theta}_{i - 1 / 2,
+j})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="497" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1317.png"
+ ALT="$\displaystyle \Psi_{i - 1, j - 1} (H^{\psi \theta}_{i, j - 1 / 2} + H^{\psi
+\th...
+..., j - 1 / 2} -
+H^{\psi \theta}_{i + 1 / 2, j} + H^{\psi \theta}_{i - 1 / 2, j})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="509" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1318.png"
+ ALT="$\displaystyle \Psi_{i + 1, j - 1} (- H^{\psi \theta}_{i, j - 1 / 2} - H^{\psi
+\...
+... - 1 / 2, j}
+- H^{\psi \theta}_{i, j + 1 / 2} + H^{\psi \theta}_{i, j - 1 / 2})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="509" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1319.png"
+ ALT="$\displaystyle \Psi_{i + 1, j} (H^{\theta \theta}_{i + 1 / 2, j} + H^{\psi
+\thet...
+...- 1, j +
+1} (- H^{\psi \theta}_{i, j + 1 / 2} - H^{\psi \theta}_{i - 1 / 2, j})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$\displaystyle +$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="496" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1320.png"
+ ALT="$\displaystyle \Psi_{i, j + 1} (H^{\psi \psi}_{i, j + 1 / 2} + H^{\psi \theta}_{...
+...i + 1, j + 1} (H^{\psi
+\theta}_{i, j + 1 / 2} + H^{\psi \theta}_{i + 1 / 2, j})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+The coefficients are given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="7-5-1"></A><!-- MATH
+ \begin{equation}
+h^{\psi \psi} = \frac{\mathcal{J}}{R^2} | \nabla \psi |^2 =
+  \frac{1}{\mathcal{J}} (R_{\theta}^2 + Z_{\theta}^2),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="230" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1321.png"
+ ALT="$\displaystyle h^{\psi \psi} = \frac{\mathcal{J}}{R^2} \vert \nabla \psi \vert^2 = \frac{1}{\mathcal{J}} (R_{\theta}^2 + Z_{\theta}^2),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">432</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+h^{\theta \theta} = \frac{\mathcal{J}}{R^2} | \nabla \theta |^2 =
+  \frac{1}{\mathcal{J}} (R_{\psi}^2 + Z_{\psi}^2),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="226" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1322.png"
+ ALT="$\displaystyle h^{\theta \theta} = \frac{\mathcal{J}}{R^2} \vert \nabla \theta \vert^2 = \frac{1}{\mathcal{J}} (R_{\psi}^2 + Z_{\psi}^2),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">433</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+h^{\psi \theta} = \frac{\mathcal{J}}{R^2} \nabla \psi \cdot \nabla \theta =
+  - \frac{1}{\mathcal{J}} (R_{\theta} R_{\psi} + Z_{\theta} Z_{\psi}),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="298" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1323.png"
+ ALT="$\displaystyle h^{\psi \theta} = \frac{\mathcal{J}}{R^2} \nabla \psi \cdot \nabla \theta = - \frac{1}{\mathcal{J}} (R_{\theta} R_{\psi} + Z_{\theta} Z_{\psi}),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">434</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the Jacobian
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="7-5-2"></A><!-- MATH
+ \begin{equation}
+\mathcal{J}= R (R_{\theta} Z_{\psi} - R_{\psi} Z_{\theta}) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="167" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1324.png"
+ ALT="$\displaystyle \mathcal{J}= R (R_{\theta} Z_{\psi} - R_{\psi} Z_{\theta}) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">435</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The partial derivatives, <!-- MATH
+ $R_{\theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1040.png"
+ ALT="$ R_{\theta}$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1039.png"
+ ALT="$ R_{\psi}$"></SPAN>, <!-- MATH
+ $Z_{\theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1042.png"
+ ALT="$ Z_{\theta}$"></SPAN>, and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1041.png"
+ ALT="$ Z_{\psi}$"></SPAN>, appearing in Eqs. (<A HREF="#7-5-1">432</A>)-(<A HREF="#7-5-2">435</A>) are calculated by
+using the central difference scheme. The values of <!-- MATH
+ $h^{\psi \psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1325.png"
+ ALT="$ h^{\psi \psi}$"></SPAN>, <!-- MATH
+ $h^{\theta
+\theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1326.png"
+ ALT="$ h^{\theta
+\theta}$"></SPAN>, <!-- MATH
+ $h^{\psi \theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1327.png"
+ ALT="$ h^{\psi \theta}$"></SPAN> and <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> at the middle points are
+approximated by the linear average of their values at the neighbor grid
+points.
+
+<P>
+dd
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1119"
+  HREF="node91.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1117"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1113"
+  HREF="node89.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1120"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Up:</B> <A NAME="tex2html1118"
+  HREF="node89.html">Fixed boundary tokamak equilibrium</A>
+<B> Previous:</B> <A NAME="tex2html1114"
+  HREF="node89.html">Fixed boundary tokamak equilibrium</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

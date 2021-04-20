@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Linux资料</title>
+  <link rel="stylesheet" type="text/css" href="main1.css" />
+  <meta name="generator" content="Bluefish 1.0.7"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<h1>Debian GNU/Linux</h1>
+
+<h2>Remove Beep</h2>
+<pre># modprobe -r pcspkr</pre>
+<p>或在/etc/modprobe.d/blacklist中加入了blacklist pcspkr</p>
+<h2>声卡驱动</h2>
+<pre >
+#apt-get install alsa-base
+#apt-get install alsa-oss
+#apt-get install alsa-utils
+</pre>
+Then, as root, run the following command :
+<pre class="example">
+#alsaconf
+</pre>
+<p>这样声卡应该可以发声了。</p>
+<p>再安装一个调声音的东西：</p>
+<pre class="example">
+apt-get install alasmixer
+</pre>
+<p>To tune the volumes with alsamixer,run the command:</p>
+<pre class="example">
+alsamixer
+</pre>
+
+<p>可用以下命令测试声卡是否被成功驱动：</p>
+<pre class="example">
+$ cat /dev/urandom > /dev/audio
+</pre>
+<p>Can you hear the noise?,if you can, congratulations!
+if not,check whether your group is the member of the audio group.
+</p>
+<h2>Window Manager</h2>
+<p>FVWM</p>
+<p>Q:What is a 'modal window'?</p>
+<p>A:A modal window blocks all other work-flow in the program until the modal window is closed</p>
+<p>Q: How to keep a modal window always on the top of its parent window?</p>
+<p>A: You can add this code to the config files: </p>
+<pre>Style *  RaiseTransient</pre>
+<p>   If you want  FVWM decorate the modal window(i.e, add a title bar to the modal window),
+   you can use:</p>
+<pre>   Style * DecorateTransient, RaiseTransient</pre>
+<h2>程序间传递数据</h2>
+<p>X11提供两种在程序间传递数据的媒介：</p>
+<pre>
+primary selection
+CLIPBOARD
+</pre>
+
+<h2>编码(encoding)转换</h2>
+<ul><li>文件内容的编码检测</li></ul>
+
+<p>如果不知道文件的编码格式，你可以通过 enca 这个工具来检测。例如：</p>
+<pre>
+$ enca foo.txt
+Universal transformation format 8 bits; UTF-8
+</pre>
+<ul><li>文件内容的编码转换</ul>
+<p>
+通过以上检测知道了文件的编码，可以通过 GNU 的 iconv 来进行编码转换。以下是一个例子用来把文件的编码从 GB2312 转换成 UTF-8：</p>
+<pre>
+$ iconv -f gb2312 -t utf-8 foo.txt > foot.txt.utf-8
+</pre>
+<p>
+提醒：iconv 的输出默认是直接输出到标准输出(standard output)，通常就是你的屏幕上。所以，你需要使用”>”的重定向符号来把输出转存到一个”新”的文件里面去。切不可在”>”后面使用你的原始的输入文件名作为输出文件名，因为”>”操作，会首先将其后面的文件清空，然后再运行 “>”前面的操作。也就是说，除了原始的输入文件被清空之外，你什么也得不到。这是很多 Linux 新用户经常会犯的一个”致命”错误。特此提醒。
+</p>
+
+<ul><li>文件名的编码转换</li></ul>
+<p>
+上述的 2 个工具只能对文件的内容进行编码的检测和转换，如果需要对文件名进行编码转换，则需要 convmv 来完成。convmv 的用法大致和 iconv 相似，以下是一个例子用来将”music”这个目录下的所有以 GB2312 编码的文件名的文件和子目录下的文件，转换成以 UTF-8 编码的文件名：</p>
+<pre>
+$ convmv -f gb2312 -t utf-8 -notest -r music
+</pre>
+<p>
+请注意这里的”-notest”选项：如果不提供这个选项，该命令只会做一个转换的测试，并不会真正的转换。因为这个命令有一定的”破坏性”，所以，当你用这个程序的时候，最好是先不用”-notest”这个选项来做一遍测试，根据程序运行输出的信息来确定是否有个别的文件需要手动进行调整。
+</p>
+<h2>File Manager </h2>
+<p>
+rox-filer
+</p>
+
+
+<h2>Shell</h2>
+<p>
+When you are working in a shell 
+ you certainly don’t want to waste your time using arrow keys or home/end keys to 
+navigate around the command line. 
+One of the most popular shells, bash - Bourne Again SHell, 
+uses GNU’s Readline library for reading the command line.
+Both emacs and vi editing modes are available.
+有些命令，是stty命令，优先级比readline高，若二者冲突，可重新定义。
+</p>
+<p>emacs风格的命令行编辑</p>
+<ul><li>光标移动</li></ul>
+<pre>
+C-f  前进一个字符
+C-b  后退一个字符
+M-f  前进一个word
+M-b  后退一个word
+C-a   到行首
+C-e   到行末
+</pre>
+<ul><li>历史记录</li></ul>
+<pre>
+C-p   前一条命令
+C-n   后一条命令
+C－r  向前搜索命令历史
+C－s  向后搜索命令历史（与stty的默认设置冲突，可重新定义stty的stop命令）.
+</pre>
+
+<ul><li>命令编辑</li></ul>
+<pre>
+C-d   删除光标处的字符
+C-h   删除光标前的字符
+C-k  删到行尾
+C-u  删到行首
+</pre>
+
+<ul><li>其他</li></ul>
+<pre> 
+C-l  相当于clear
+ C-d  相当于exit
+ </pre>
+<h2>Compile the gnuplot source </h2>
+<p>Purpose: To replace the buildin readline lib with the GNU readline lib.</p>
+<p>First, intall the GNU readline and history libraries:</p>
+<pre>#apt-get install libreadline5-dev</pre>
+<p>Then configure with the redline  set to gnu readline</p>
+<pre>$ ./configure   --without-readline  --with-readline=gnu    --without-lisp-files</pre>
+<p>(For some unkonwn reason, it seems the makefile can not compile the lisp files, so I choose not to
+use the lisp files.)</p>
+<p>
+some output:
+configure: WARNING: wxWidgets can't be found. You can try --with-wx-config-path to give the right 
+path to wx-config. The wxWidgets terminal will not be compiled.                                  
+  Readline library: GNU readline library with  -lncurses</p>
+<pre>
+$make
+#make install
+</pre>
+<p>Done!</p>
+<h2>emacs</h2>
+<h4>常用绑定</h4>
+<pre>
+C-s ------------- forward search
+C-r ------------- backward search
+M-% -------------- query-replace
+C-M-%------------  query-replace-regexp, 
+! use \(exp1\) to remember a parten and cite this parten using \1, \2, \3   etc.
+C-M-s -----------  regular search
+alt-/  to auto complete a word  
+</pre>
+<pre>
+C-x C-r -------- open a file and make it read-only.
+</pre>
+<h4>在结构间移动光标</h4>
+<pre>
+C-M-a, C-M-e
+C-M-f, C-M-b
+C-M-n, C-M-p
+</pre>
+<h4>察看颜色名字列表:</h4>
+<pre>M-x list-colors-display</pre>
+<h4>Term in Emacs</h4>
+
+<pre class="example">
+M-x ansi-term
+M-x eshell
+M-x shell
+</pre>
+<p>推荐使用前两个</p>
+<h4>让.emacs中的设置立刻生效</h4>
+<p>有四个函数可以做到：eval-last-sexp,eval-region,eval-buffer 和load-file</p>
+<pre>
+M-x  eval-last-sexp 使.emacs中光标前的那一条语句立刻生效。
+M-x  eval-region   使.emacs中选中的region中的语句立刻生效。
+M-x  eval-buffer   使当前的buffer中的设置语句立刻生效。
+M-x  load-file ~/.emacs  载入.emacs文件，从而使其中的设置生效。
+</pre>
+
+<h4>在emacs中指定编码</h4>
+<pre>C-x RET c utf-8 RET </pre>
+
+<h2>aptitude</h2>
+<p>search</p>
+<pre>
+/ -----------forward search
+\ -----------backward search
+n ---------- go on with  the last search
+l --------- only list the package meeting the keyword (hiding the others)
+</pre>
+<p>modify the state of package</p>
+<pre>
++ ---------- mark the package to be installed
+- ---------- mark the package to be removed
+</pre>
+
+<h2>中文字体</h2>
+<p>这两个字体很重要,我安过以后，浏览大部分的网页效果都很好。</p>
+<pre class="example">
+apt-get install ttf-arphic-ukai
+apt-get install ttf-arphic-uming
+</pre>
+<p>不安装 ttf-arphic-bkai00mp ttf-arphic-bsmi00lp ttf-arphic-gbsn00lp ttf-arphic-gkai00mp，
+若安装，效果变坏，中文字体模糊不清晰</p>
+<h2>安装simsun.ttc与mingliu.ttc字体</h2>
+<p>Step1:cp字体到字体目录/usr/share/fonts/truetype</p>
+
+</p>Step2:用工具ttmkfdir生成字体索引文件fonts.scale</p>
+<pre>
+# ttmkfdir
+# cp fonts.scale fonts.dir
+</pre>
+<p>Step3:设置:/etc/X11/xorg.conf文件，使其包含上述字体路径和正确加载X字体模块
+<pre>
+FontPath	"/usr/share/fonts/truetype"
+</pre>
+<p>确保其中freetype被加载</p>
+<pre>
+ Load    "freetype"
+</pre>
+
+<h2>中文输入法</h2>
+<pre class="example">
+apt-get install scim  scim-chinese
+</pre>
+<p>
+It's recomended the startup script for scim be added to
+ /etc/X11/Xsession  .
+Or you can create /etc/X11/Xsession.d/95xinput
+and added the following script to it.</p>
+
+<pre class="example">
+export XMODIFIERS="@im=SCIM"
+export XIM=scim
+export XIM_PROGRAM=scim
+export GTK_IM_MODULE="scim"
+export QT_IM_MODULE="xim"
+/usr/bin/scim -d
+</pre>
+<p>Note:the files in Xsession.d are sourced by Xsession,and Xsession is
+sourced by xinitrc. Keep the source relation between  them unchanged 
+if you wirte your own X startup configure files.</p>
+<p> for me, however, I source 95xinput manulally when I need  chinese input.</p>
+In addition, make sure the LC_CTYPE has been set to chinese, for instance
+<pre>LC_CTYPE="zh_CN.UTF-8"</pre>
+
+
+<h2>安装texlive</h2>
+<pre>apt-get install texlive texlive-XeTeX lmodern </pre>
+<p>安装好以后就可以试试编译一下tex的文件,建立一个a.tex文件，内容如下：</p>
+<pre>
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\setromanfont{AR PL ShanHeiSun Uni}
+\begin{document}
+\XeTeX 可以使用系统自带的字体，而不需要再另外生成。
+\end{document}
+</pre>
+<p>编译这个文件:</p>
+<pre>
+$ xetex a.tex
+</pre>
+<p> 如果成功,生成a.pdf文件，
+在编译前，确保源码文件的
+内容编码是否为utf-8（用enca检测）,这一步很重要！如果是未能识别的或gb2312等编码则不能正确处理中文。可以用iconv转换源码文件的编码。
+fontspec这个包提供了XeteX能使用系统自带字体的功能，具体用法可以参考fontspec手册： /usr/share/doc/texlive-XeTeX/xelatex/fontspec/fontspec.pdf.
+xunicode 这个包在这里可以去掉因为没有用到一些复杂的字符.
+xltxtra这个包提供了LaTeX没有的宏包，比如\XeTeX。
+\setromanfont{AR PL ShanHeiSun Uni}
+正文的字体使用系统自带的Uming字体。如果你安装了其他中文字体的话，可以通过fc-list命令来查看所安装字体的名字</p>
+<h3>Auctex</h3>
+<pre> 
+C-c TAB -----Auctex manual,everything worth reading.
+C-c { ------- 成对输入{}
+</pre>
+<h2>screen</h2>
+<h2>阅读PDF文档</h2>
+<h3>xpdf</h3>
+<pre>
+# apt-get install xpdf
+# apt-get install xpdf-chinese-simplified
+</pre>
+<p>如果不能显示中文, 修改文件/etc/xpdf/xpdfrc-chinese-simplified, 把displayCIDFontTT那一行改成：</p>
+<pre>displayCIDFontTT Adobe-GB1 /usr/share/fonts/truetype/arphic/uming.ttf</pre>
+ 
+<h2>词典:StarDict</h2>
+<p>StarDict is a Cross-Platform and international dictionary written in Gtk2. 
+It has powerful features such as "Glob-style pattern matching," 
+"Scan selected word," "Fuzzy query," etc.</p>
+<pre>apt-get install stardict </pre>
+可安装很多字典,例如安装朗道英汉字典5.0: 下载字典文件 stardict-langdao-ec-gb-2.4.2.tar.bz2
+将解压出的目录移至 /usr/share/stardict/dic/中即可。
+<p>使用词典运行命令：</p>
+<pre>$ stardict</pre> 
+<p>在界面中可调整各词典的使用顺序等。</p>
+
+<h2>解压文件</h2>
+<p>解压 tar.gz 或 tgz 文件:</p>
+<pre> tar -zxvf file.tar.gz (or file.tgz)</pre>
+<p>或者</p>
+<pre>
+ tar xfz foo.tgz
+</pre>
+<p>或者：<p>
+<pre> gunzip file.tar.gz  !解压文件，得到文件file.tar
+tar xf file.tar     !进一步解压
+</pre>
+
+<p>解压 tar.bz 或者 .tbz</p>
+<pre>
+tar jzvf file.tar.bz (or file.tbz)
+</pre>
+
+<p>解压tar.bz2或者tar.gz2文件</p>
+<pre>tar -jxvf file.tar.bz2 (or file.tar.gz2)</pre>
+<p>Do you have difficulties  in  remembering  parameters of tar, then how about writing a scirpt to let the computer do the job?</p>
+<pre>
+#!/bin/sh
+x=$1
+#  ${x##*.} return the text  that following the last period in  $x
+case "${x##*.}" in
+     gz)
+	  tar -zxvf $1
+          ;;
+     tgz) 
+	tar -zxvf $1
+          ;;
+     bz)
+	tar jzvf $1
+	  ;;
+     tbz)
+	tar jzvf $1
+	  ;;
+     bz2)
+	tar -jxvf $1      
+          ;;
+     gz2)
+	tar -jxvf $1
+	  ;;
+     tar)
+	tar xf $1
+	  ;;
+     *)
+           echo "Archive format not recognized."
+           exit
+           ;;
+esac           
+exit 0
+</pre>
+
+
+<h3>打包文件</h3>
+The command:
+<pre> tar -cvf foo.tar file1.txt file2.txt file3.txt </pre>
+<p>would place file1.txt, file2.txt and file3.txt in a new file called foo.tar.</p>
+<p> To list the contents of a tar file, type:</p>
+<pre>tar -tvf foo.tar</pre>
+<h3>打包文件夹</h3>
+<pre>
+ tar cvzf foo.tgz dir_name/
+</pre>
+
+
+
+<h2>ifort编译器</h2>
+<pre>
+tar xf ifort.tar
+cd intfor45
+./install.sh      and provide the absolute path of file intel_TBE.lic
+</pre>
+<p>安装后设置环境变量</p>
+<pre> .  /opt/intel/fc/9.1.045/bin/ifortvars.sh</pre>
+<p>Option</p>
+<pre>
+-L "dir"        instruct linker to search "dir" for libraries
+</pre>
+<h2>Install Lapack</h2>
+<pre>
+tar -zxvf lapack.tgz
+cd lapack-3.1.1/
+cp ./make.inc.example make.inc
+</pre>
+<p>There is no configure script for LAPACK. All options are set in the make.inc file. For ifort,In the make.inc file, set: </p>
+<pre>
+FORTRAN  = ifort
+OPTS     = -O3 -mp -tpp6 -ip -ftz-
+DRVOPTS  = $(OPTS)
+NOOPT    = -O3 -mp -fltconsistency  -fp_port
+LOADER   = ifort
+LOADOPTS = -O3 -Wl,-R/opt/intel/fc/9.1.045/lib 
+</pre>
+<p>For gfortran</p>
+<pre>
+FORTRAN  = gfortran
+OPTS     = -funroll-all-loops -O3
+DRVOPTS  = $(OPTS)
+NOOPT    =
+LOADER   = gfortran
+LOADOPTS =
+</pre>
+<p>Next, choose which function you will use to time in the SECOND and DSECND routines.</p>
+
+#The Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME
+<pre>TIMER    = EXT_ETIME</pre>
+ For gfortran compiler: SECOND and DSECND will use the INTERNAL FUNCTION ETIME
+<pre> TIMER    = INT_ETIME</pre>
+If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)
+SECOND and DSECND will use a call to the INTERNAL FUNCTION CPU_TIME
+<pre> TIMER    = INT_CPU_TIME</pre>
+ If the above option does not  work...you can use the NONE value... 
+ In this case, SECOND and DSECND will always return 0
+<pre> TIMER     = NONE</pre>
+
+<h3>edit the  Makefile</h3>
+If you do not have a system BLAS library, tell LAPACK to build its own, unoptimized library:
+<pre>
+#lib: lapacklib tmglib
+lib: blaslib lapacklib tmglib
+</pre>
+<p>compile the source</p>
+<pre>$make</pre>
+<p>生成的lapack_LINUX.a与blas_LINUX.a tmglib_LINUX.a一般位于当前目录，即: lapack-3.1.1, We can Move the libraries to a standard location:</p>
+<pre>
+cp lapack_LINUX.a /usr/lib/liblapack.a 
+cp  tmglib_LINUX.a /usr/lib/libtmg.a
+</pre>
+
+<p>compiler a lapack program</p>
+<pre>$ ifort myprogram.f90 lapack_path/lapack_LINUX.a  lapack_path/blas_LINUX.a</pre>
+<h2>网页浏览器</h2>
+<p>firefox</p>
+<p>tab浏览常用插件</p>
+<p>Tab Mix Plus</p>
+<p>Super DragAndGo</p>
+<p> FlashBlock    可阻止网页中flash动画的播放,需要播放时再点击播放</p>
+<h2>下载工具</h2>
+<h3>lftp</h3>
+<p>Set the charset to the encoding the ftp server uses. What encoding is the ftp server using? You can guess and try it out </p>
+<pre> >set ftp:charset GBK</pre>
+<p>Some ftp servers adopt the active mode, To connect to this kind of server, you should disable the passive mode(enable active mode)</p)
+<pre>>set ftp:passive-mode off</pre>
+<p> To see all the settings</p>
+<pre>>set -a</pre>
+<p> You can use `grep` to look for the item you are interested in</p>
+<h4>download a directory</h4>
+<pre>lftp> mirror dirname</pre>
+<h4>upload  a directory</h4>
+<pre>lftp> mirror -R dirname</pre>
+
+
+<h3>wget</h3>
+<p>
+wget
+</p>
+
+<pre> $ wget -i filename.txt</pre>
+<p>此命令用于批量下载的情形，把所有需要下载文件的地址放到 filename.txt 中。</p>
+<pre> $ wget -c http://example.com/really-big-file.iso </pre>
+<p>这里所指定的 -c 选项的作用为断点续传。 </p>
+
+
+
+
+<h2>远程访问</h2>
+<p>
+ssh
+</p>
+<pre>
+ssh ip -l username -Y
+</pre>
+<p>-Y选项使得X11 forward enable。这样可以使用服务器上的X程序。</p>
+
+
+<h2>音乐</h2>
+
+<p>用xmms播放音乐</p>
+<pre>
+ Control + n --------No Playlist Advance,这样可以单曲循环。
+</pre>
+
+
+<h2>图片</h2>
+<p>
+gthumb用来看图，GIMP用来处理图片
+</p>
+<h2>engauge-digitizer</h2>
+<p>engauge-digitizer can interactively extracts numbers from bitmap graphs or maps</p>
+<p>
+This digitizing software converts an image file showing a graph or map into xy data (coordinates).
+Some people use it for obtaining the original data from graphs in scientific publications. 
+</p>
+
+
+<h2> <a href="http://www.texmacs.org/tmweb/about/philosophy.en.html" target="_top">Why freedom is important for scientists</a>  </h2>
+<p>The following statement is quoted from  <a href="http://www.texmacs.org/tmweb/about/philosophy.en.html" target="_blank"> "philosophy statement of texmacs"</a>:</p>
+<pre> As a mathematician, I am deeply convinced that only free programs are acceptable from a scientific point of view. 
+I see two main reasons for this:
+  * A result computed by a “mathematical” system, whose source code is not public, 
+    can not be accepted as part of a mathematical proof.
+  * Just as a mathematician should be able to build theorems on top of other theorems, 
+    it should be possible to freely modify and release algorithms of mathematical software.
+</pre>
+
+<h2>matlab</h2>
+<pre>deb ftp://202.38.73.198/debian sid foo</pre>
+
+<div class="navfoot">
+      <hr>
+      <table width="100%" border="0" summary="Footer navigation">
+        <tr>
+          <td width="33%" align="left">
+            <span class="footdate">Updated: 11月  2007</span>
+          </td>
+
+          <td width="34%" align="center">
+            <span class="foothome">
+            <a href="index.html">Index</a> / <a href="index.html">Change</a>
+            </span>
+          </td>
+          <td width="33%" align="right">
+            CopyLeft &copy; 2007 <a href="mailto:yjunhu@gmail.com">Y.J.Hu</a>
+        </tr>
+      </table> 
+</div>
+  </body>
+</html>

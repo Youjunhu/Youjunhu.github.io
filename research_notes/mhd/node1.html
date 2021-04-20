@@ -1,0 +1,476 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>MHD equations</TITLE>
+<META NAME="description" CONTENT="MHD equations">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="mhd.html">
+<LINK REL="up" HREF="mhd.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html108"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html106"
+  HREF="mhd.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html100"
+  HREF="mhd.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html109"
+  HREF="node2.html">Self-consistency check</A>
+<B> Up:</B> <A NAME="tex2html107"
+  HREF="mhd.html">Notes on linear ideal</A>
+<B> Previous:</B> <A NAME="tex2html101"
+  HREF="mhd.html">Notes on linear ideal</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00010000000000000000">
+MHD equations</A>
+</H1>
+
+<P>
+The time evolution of the fluid velocity <!-- MATH
+ $\mathbf{u}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$ \mathbf{u}$"></SPAN> is governed by the
+momentum equation
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-30-p1"></A><!-- MATH
+ \begin{equation}
+\rho \left( \frac{\partial \mathbf{u}}{\partial t}
+  +\mathbf{u} \cdot \nabla \mathbf{u} \right) = \rho_q \mathbf{E}- \nabla p
+  +\mathbf{J} \times \mathbf{B},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="281" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img59.png"
+ ALT="$\displaystyle \rho \left( \frac{\partial \mathbf{u}}{\partial t} +\mathbf{u} \c...
+...\mathbf{u} \right) = \rho_q \mathbf{E}- \nabla p +\mathbf{J} \times \mathbf{B},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">1</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \rho $"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.png"
+ ALT="$ \rho_q$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.png"
+ ALT="$ p$"></SPAN>, <!-- MATH
+ $\mathbf{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$ \mathbf{J}$"></SPAN>, <!-- MATH
+ $\mathbf{E}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="$ \mathbf{E}$"></SPAN>, and <!-- MATH
+ $\mathbf{B}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \mathbf{B}$"></SPAN> are
+mass density, charge density, thermal pressure, current density, electric
+field, and magnetic field, respectively. The time evolution of the mass
+density <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \rho $"></SPAN> is governed by the mass continuity equation
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{u}) = 0.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="134" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img65.png"
+ ALT="$\displaystyle \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{u}) = 0.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">2</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The time evolution equation for pressure <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.png"
+ ALT="$ p$"></SPAN> is given by the equation of state
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-19-1"></A><!-- MATH
+ \begin{equation}
+\frac{d}{d t} (p \rho^{- \gamma}) = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="102" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img66.png"
+ ALT="$\displaystyle \frac{d}{d t} (p \rho^{- \gamma}) = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$ \gamma$"></SPAN> is the ratio of specific heats. The time evolution of
+<!-- MATH
+ $\mathbf{B}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \mathbf{B}$"></SPAN> is given by Faraday's law
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="3-16-1"></A><!-- MATH
+ \begin{equation}
+\frac{\partial \mathbf{B}}{\partial t} = - \nabla \times
+  \mathbf{E}.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="113" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$\displaystyle \frac{\partial \mathbf{B}}{\partial t} = - \nabla \times \mathbf{E}.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">4</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The current density <!-- MATH
+ $\mathbf{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$ \mathbf{J}$"></SPAN> can be considered as a derived quantity,
+which is defined through Ampere's law (the displacement current being ignored)
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="3-16-4"></A><!-- MATH
+ \begin{equation}
+\mathbf{J}= \frac{1}{{\textmu}_0} \nabla \times \mathbf{B}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="92" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$\displaystyle \mathbf{J}= \frac{1}{{\textmu}_0} \nabla \times \mathbf{B}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">5</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The electric field <!-- MATH
+ $\mathbf{E}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="$ \mathbf{E}$"></SPAN> is considered to be a derived quantity, which
+is defined through Ohm's law
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="3-16-2"></A><!-- MATH
+ \begin{equation}
+\mathbf{E}= -\mathbf{u} \times \mathbf{B}+ \eta \mathbf{J}.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="134" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.png"
+ ALT="$\displaystyle \mathbf{E}= -\mathbf{u} \times \mathbf{B}+ \eta \mathbf{J}.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">6</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The charge density <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.png"
+ ALT="$ \rho_q$"></SPAN> can be considered to be a derived quantity, which
+is defined through Poisson's equation,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-22-a1"></A><!-- MATH
+ \begin{equation}
+\rho_q = \varepsilon_0 \nabla \cdot \mathbf{E}.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="96" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img71.png"
+ ALT="$\displaystyle \rho_q = \varepsilon_0 \nabla \cdot \mathbf{E}.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">7</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The above equations constitute a closed set of equations for the time
+evolution of four quantities, namely, <!-- MATH
+ $\mathbf{B}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \mathbf{B}$"></SPAN>, <!-- MATH
+ $\mathbf{u}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$ \mathbf{u}$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \rho $"></SPAN>, and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.png"
+ ALT="$ p$"></SPAN> (the electric field <!-- MATH
+ $\mathbf{E}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="$ \mathbf{E}$"></SPAN>,  current density <!-- MATH
+ $\mathbf{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$ \mathbf{J}$"></SPAN>, and
+charge density <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.png"
+ ALT="$ \rho_q$"></SPAN> are eliminated by using Eqs. (<A HREF="#3-16-4">5</A>),
+(<A HREF="#3-16-2">6</A>), and (<A HREF="#3-16-2">6</A>)). In addition, there is an equation
+governing the spatial structure of the magnetic field, namely
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\nabla \cdot \mathbf{B}= 0.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img72.png"
+ ALT="$\displaystyle \nabla \cdot \mathbf{B}= 0.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">8</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In summary, the MHD equations can be categorized into three groups of
+equations, namely[<A
+ HREF="node59.html#boyd2003">1</A>],
+
+<OL>
+<LI>Evolution equations for base quantities <!-- MATH
+ $\mathbf{B}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img64.png"
+ ALT="$ \mathbf{B}$"></SPAN>, <!-- MATH
+ $\mathbf{u}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$ \mathbf{u}$"></SPAN>,
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \rho $"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.png"
+ ALT="$ p$"></SPAN>:
+
+<P>
+<!-- MATH
+ $\frac{\partial \mathbf{B}}{\partial t} = - \nabla \times (-\mathbf{u}
+  \times \mathbf{B}+ \eta (\nabla \times \mathbf{B}) /{\textmu}_0) = \nabla
+  \times (\mathbf{u} \times \mathbf{B}) + \eta \nabla^2
+  \mathbf{B}/{\textmu}_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="445" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img73.png"
+ ALT="$ \frac{\partial \mathbf{B}}{\partial t} = - \nabla \times (-\mathbf{u}
+\times ...
+...
+\times (\mathbf{u} \times \mathbf{B}) + \eta \nabla^2
+\mathbf{B}/{\textmu}_0$"></SPAN>
+
+<P>
+<!-- MATH
+ $\rho \left( \frac{\partial \mathbf{u}}{\partial t} +\mathbf{u} \cdot \nabla
+  \mathbf{u} \right) = \rho_q \mathbf{E}- \nabla p + (\nabla \times
+  \mathbf{B}) /{\textmu}_0 \times \mathbf{B}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="327" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$ \rho \left( \frac{\partial \mathbf{u}}{\partial t} +\mathbf{u} \cdot \nabla
+\...
+...athbf{E}- \nabla p + (\nabla \times
+\mathbf{B}) /{\textmu}_0 \times \mathbf{B}$"></SPAN>
+
+<P>
+<!-- MATH
+ $\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{u}) = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="126" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$ \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{u}) = 0$"></SPAN>,
+
+<P>
+<!-- MATH
+ $\frac{d}{d t} (p \rho^{- \gamma}) = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="95" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.png"
+ ALT="$ \frac{d}{d t} (p \rho^{- \gamma}) = 0$"></SPAN>,
+
+<P>
+</LI>
+<LI>Equation of constraint: <!-- MATH
+ $\nabla \cdot \mathbf{B}= 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img77.png"
+ ALT="$ \nabla \cdot \mathbf{B}= 0$"></SPAN>.
+
+<P>
+</LI>
+<LI>Definitions: (i.e., they are considered to be derived quantities.)
+
+<P>
+<!-- MATH
+ $\mathbf{E}= \eta (\nabla \times \mathbf{B}) /{\textmu}_0 -\mathbf{u} \times
+  \mathbf{B}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="181" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img78.png"
+ ALT="$ \mathbf{E}= \eta (\nabla \times \mathbf{B}) /{\textmu}_0 -\mathbf{u} \times
+\mathbf{B}$"></SPAN>,
+
+<P>
+<!-- MATH
+ $\mathbf{J}= (\nabla \times \mathbf{B}) /{\textmu}_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="108" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$ \mathbf{J}= (\nabla \times \mathbf{B}) /{\textmu}_0$"></SPAN>,
+
+<P>
+<!-- MATH
+ $\rho_q = \varepsilon_0 \nabla \cdot \mathbf{E}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="91" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img80.png"
+ ALT="$ \rho_q = \varepsilon_0 \nabla \cdot \mathbf{E}$"></SPAN>.
+</LI>
+</OL>
+The electrical field term <!-- MATH
+ $\rho_q \mathbf{E}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img81.png"
+ ALT="$ \rho_q \mathbf{E}$"></SPAN> in the momentum equation
+(<A HREF="#10-30-p1">1</A>) is usually neglected because this term is usually much
+smaller than other terms for low-frequency phenomena in tokamak plasmas.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html110"
+  HREF="node2.html">Self-consistency check</A>
+<LI><A NAME="tex2html111"
+  HREF="node3.html">Generalized Ohm's law</A>
+<LI><A NAME="tex2html112"
+  HREF="node4.html">Eliminating mass density <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \rho $"></SPAN> from equation of state</A>
+<LI><A NAME="tex2html113"
+  HREF="node5.html">Summary of resistive MHD equations</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html108"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html106"
+  HREF="mhd.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html100"
+  HREF="mhd.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html109"
+  HREF="node2.html">Self-consistency check</A>
+<B> Up:</B> <A NAME="tex2html107"
+  HREF="mhd.html">Notes on linear ideal</A>
+<B> Previous:</B> <A NAME="tex2html101"
+  HREF="mhd.html">Notes on linear ideal</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

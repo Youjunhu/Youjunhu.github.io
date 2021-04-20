@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fourier transformation in time</TITLE>
+<META NAME="description" CONTENT="Fourier transformation in time">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html185"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html183"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html177"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html186"
+  HREF="node9.html">Discrete frequency perturbation</A>
+<B> Up:</B> <A NAME="tex2html184"
+  HREF="node6.html">Linearized ideal MHD equation</A>
+<B> Previous:</B> <A NAME="tex2html178"
+  HREF="node7.html">Plasma displacement vector</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00022000000000000000">
+Fourier transformation in time</A>
+</H2>
+
+<P>
+A general perturbation can be written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-11-p6"></A><!-- MATH
+ \begin{equation}
+h (t) = \frac{1}{2 \pi} \int_{- \infty}^{\infty} \hat{h}
+  (\omega) e^{- i \omega t} d \omega,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="202" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img123.png"
+ ALT="$\displaystyle h (t) = \frac{1}{2 \pi} \int_{- \infty}^{\infty} \hat{h} (\omega) e^{- i \omega t} d \omega,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">31</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the coefficient <!-- MATH
+ $\hat{h} (\omega)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="36" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img124.png"
+ ALT="$ \hat{h} (\omega)$"></SPAN> is given by the Fourier
+transformation of <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img125.png"
+ ALT="$ h (t)$"></SPAN>, i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\hat{h} (\omega) = \int_{- \infty}^{\infty} h (t) e^{i \omega t} d t,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="163" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img126.png"
+ ALT="$\displaystyle \hat{h} (\omega) = \int_{- \infty}^{\infty} h (t) e^{i \omega t} d t,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">32</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using the definition of the Fourier transformtion, it is ready to prove that
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-11-p7"></A><!-- MATH
+ \begin{equation}
+\int_{- \infty}^{\infty} \frac{\partial}{\partial t} h (t)
+  e^{i \omega t} d t = - i \omega \hat{h} (\omega),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="211" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img127.png"
+ ALT="$\displaystyle \int_{- \infty}^{\infty} \frac{\partial}{\partial t} h (t) e^{i \omega t} d t = - i \omega \hat{h} (\omega),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">33</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-19-1m"></A><!-- MATH
+ \begin{equation}
+\int_{- \infty}^{\infty} \frac{\partial^2}{\partial t^2} h
+  (t) e^{i \omega t} d t = - \omega^2 \hat{h} (\omega) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="220" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.png"
+ ALT="$\displaystyle \int_{- \infty}^{\infty} \frac{\partial^2}{\partial t^2} h (t) e^{i \omega t} d t = - \omega^2 \hat{h} (\omega) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">34</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Performing Fourier transformation (in time) on both sides of the the
+linearized momentum equation (<A HREF="node7.html#10-18-p1">30</A>) and noting that the equilibrium
+quantities are all independent of time, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-19-p4"></A><!-- MATH
+ \begin{equation}
+- \omega^2 \rho_0 \hat{\ensuremath{\boldsymbol{\xi}}} = - \nabla \hat{p}_1
+  +{\textmu}_0^{- 1} (\nabla \times \hat{\mathbf{B}}_1) \times \mathbf{B}_0
+  +{\textmu}_0^{- 1} (\nabla \times \mathbf{B}_0) \times \hat{\mathbf{B}}_1,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="407" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img129.png"
+ ALT="$\displaystyle - \omega^2 \rho_0 \hat{\ensuremath{\boldsymbol{\xi}}} = - \nabla ...
+...B}_0 +{\textmu}_0^{- 1} (\nabla \times \mathbf{B}_0) \times \hat{\mathbf{B}}_1,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">35</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where use has been made of the property in Eq. (<A HREF="#4-19-1m">34</A>). Similarly, the
+Fourier transformation of the equations of state (<A HREF="node7.html#10-19-1">29</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-19-p3"></A><!-- MATH
+ \begin{equation}
+\hat{p}_1 = - \hat{\ensuremath{\boldsymbol{\xi}}} \cdot \nabla p_0 - \gamma
+  p_0 \nabla \cdot \hat{\ensuremath{\boldsymbol{\xi}}},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="182" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img130.png"
+ ALT="$\displaystyle \hat{p}_1 = - \hat{\ensuremath{\boldsymbol{\xi}}} \cdot \nabla p_0 - \gamma p_0 \nabla \cdot \hat{\ensuremath{\boldsymbol{\xi}}},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">36</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and the Fourier transformation of Faraday's law (<A HREF="node7.html#4-25-p3">28</A>) is written
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-19-p5"></A><!-- MATH
+ \begin{equation}
+\hat{\mathbf{B}}_1 = \nabla \times (\hat{\ensuremath{\boldsymbol{\xi}}}
+  \times \mathbf{B}_0),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="143" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img131.png"
+ ALT="$\displaystyle \hat{\mathbf{B}}_1 = \nabla \times (\hat{\ensuremath{\boldsymbol{\xi}}} \times \mathbf{B}_0),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">37</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Equations (<A HREF="#4-19-p4">35</A>)-(<A HREF="#4-19-p5">37</A>) agree with Eqs. (12)-(14) in Cheng's
+paper[<A
+ HREF="node59.html#cheng1987">3</A>]. They constitute a closed set of equations for
+<!-- MATH
+ $\hat{\ensuremath{\boldsymbol{\xi}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img132.png"
+ ALT="$ \hat{\ensuremath{\boldsymbol{\xi}}}$"></SPAN>, <!-- MATH
+ $\hat{\mathbf{B}}_1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img133.png"
+ ALT="$ \hat{\mathbf{B}}_1$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img134.png"
+ ALT="$ \hat{p}_1$"></SPAN>. In the next
+section, for notation ease, the hat on <!-- MATH
+ $\hat{\ensuremath{\boldsymbol{\xi}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img132.png"
+ ALT="$ \hat{\ensuremath{\boldsymbol{\xi}}}$"></SPAN>,
+<!-- MATH
+ $\hat{\mathbf{B}}_1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img133.png"
+ ALT="$ \hat{\mathbf{B}}_1$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img134.png"
+ ALT="$ \hat{p}_1$"></SPAN> will be omitted, with the understanding
+that they are the Fourier transformations of the corresponding quantities.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html185"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html183"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html177"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html186"
+  HREF="node9.html">Discrete frequency perturbation</A>
+<B> Up:</B> <A NAME="tex2html184"
+  HREF="node6.html">Linearized ideal MHD equation</A>
+<B> Previous:</B> <A NAME="tex2html178"
+  HREF="node7.html">Plasma displacement vector</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

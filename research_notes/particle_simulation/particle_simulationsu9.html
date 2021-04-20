@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Monte-Carlo integration in phase-space</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 715--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu10.html" >next</a>] [<a 
+href="particle_simulationsu8.html" >prev</a>] [<a 
+href="particle_simulationsu8.html#tailparticle_simulationsu8.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu9.html">tail</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu9.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.6   </span> <a 
+ id="x13-160003.6"></a>Monte-Carlo integration in phase-space</h4>
+<!--l. 717--><p class="noindent" >Consider a general integration of the distribution function <span 
+class="cmmi-10">f </span>in the phase-space
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x13-16001r53"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation53x.png" alt="    &int;
+I &equiv;    A(Z )f(Z)dV,
+     &Omega;&prime;
+" class="math-display"  /></center></td><td class="equation-label">(53)</td></tr></table>
+<!--l. 722--><p class="nopar" >
+where &Omega;<span 
+class="cmsy-10">&prime; </span>is a sub-region of the phase space &Omega;, <span 
+class="cmmi-10">A</span>(<span 
+class="cmbx-10">Z</span>) is a general function of the phase-space coordinates <span 
+class="cmbx-10">Z</span>,
+<span 
+class="cmmi-10">dV </span>is the phase space volume element. As is discussed above, in particle methods, <span 
+class="cmmi-10">f</span>(<span 
+class="cmbx-10">Z</span>) is approximated
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x13-16002r54"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation54x.png" alt="       N&sum;
+f(Z) &asymp;    wjSps(Z &minus; Zj),
+       j=1
+" class="math-display"  /></center></td><td class="equation-label">(54)</td></tr></table>
+<!--l. 730--><p class="nopar" >
+where <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">ps</span></sub>(<span 
+class="cmbx-10">Z</span><span 
+class="cmsy-10">&minus;</span><span 
+class="cmbx-10">Z</span><sub><span 
+class="cmmi-7">j</span></sub>) is the phase space shape function of markers, <span 
+class="cmmi-10">N </span>is the total number of marker loaded in the phase space
+&Omega;. Using this, expression (<a 
+href="#x13-16001r53">53<!--tex4ht:ref: 16-3-22-p2 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x13-16003r55"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation55x.png" alt="    N &int;
+I = &sum;    A (Z)wjSps(Z &minus; Zj)dV,
+   j=1 &Omega; &prime;
+
+" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
+<!--l. 737--><p class="nopar" >
+If the shape function <span 
+class="cmmi-10">S</span><sub><span 
+class="cmr-7">ps</span></sub> is chosen to be the Dirac delta function, then the above equation is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x13-16004r56"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation56x.png" alt="     &prime;
+    N&sum;
+I =    A(Zj)wj,
+    j=1
+" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 744--><p class="nopar" >
+where <span 
+class="cmmi-10">N</span><span 
+class="cmsy-10">&prime; </span>is the number of markers that are within the sub-region &Omega;<span 
+class="cmsy-10">&prime;</span>. Equation (<a 
+href="#x13-16004r56">56<!--tex4ht:ref: 17-6-13-3 --></a>) is the Monte-Carlo approximation to
+the integration in Eq. (<a 
+href="#x13-16001r53">53<!--tex4ht:ref: 16-3-22-p2 --></a>)<span class="cite">[<a 
+href="particle_simulationli1.html#XFitzpatrickcp">4</a>, <a 
+href="particle_simulationli1.html#Xaydemir1994">2</a>]</span>.
+</p><!--l. 749--><p class="indent" >   In PIC simulations, we are usually interested in velocity moments of <span 
+class="cmmi-10">f </span>averaged in a cell, i.e., <span 
+class="cmbx-10">A </span>in Eq. (<a 
+href="#x13-16003r55">55<!--tex4ht:ref: 17-7-17-p5 --></a>) is only a
+function of only <span 
+class="cmbx-10">v </span>and the velocity integration is over the whole velocity space, whereas the spatial integration is over a
+small spatial cell. Furthermore, in PIC simulations, the markers are assumed to have a ﬁnite shape in the
+real space (the shape in velocity space is still the Dirac delta function). In this case, Eq. (<a 
+href="#x13-16003r55">55<!--tex4ht:ref: 17-7-17-p5 --></a>) is written as
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="particle_simulation57x.png" alt="      &sum;N &int;                (&int;              )
+I  =       A (v)wj&delta;(v &minus; vj)      Sr(r &minus; rj)dr  dv,
+      j=1 v                 &Delta;Vr
+      &sum;N        ( &int;             )
+   =     A(vj)wj      Sr(r&minus; rj)dr ,                                (57)
+      j=1          &Delta;Vr
+" class="math-display"  /></center>
+</div>where <span 
+class="cmmi-10">S</span><sub><span 
+class="cmmi-7">r</span></sub> is the shape function. Then the cell-averaged value is written as
+   <table 
+class="equation"><tr><td><a 
+ id="x13-16006r58"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation58x.png" alt="-I--  &sum;N        ( -1--&int;              )
+&Delta;Vr =    A(vj)wj  &Delta;Vr  &Delta;V Sr(r &minus; rj)dr .
+      j=1                r
+" class="math-display"  /></center></td><td class="equation-label">(58)</td></tr></table>
+
+<!--l. 768--><p class="nopar" >
+
+</p>
+   <!--l. 771--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu10.html" >next</a>] [<a 
+href="particle_simulationsu8.html" >prev</a>] [<a 
+href="particle_simulationsu8.html#tailparticle_simulationsu8.html" >prev-tail</a>] [<a 
+href="particle_simulationsu9.html" >front</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu9.html" >up</a>] </p></div>
+<!--l. 771--><p class="indent" >   <a 
+ id="tailparticle_simulationsu9.html"></a> </p> 
+</body></html> 

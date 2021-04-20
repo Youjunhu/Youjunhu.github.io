@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Coordinates transformation and Jacobian</TITLE>
+<META NAME="description" CONTENT="Coordinates transformation and Jacobian">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node34.html">
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="up" HREF="node32.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html517"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html515"
+  HREF="node32.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html509"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html518"
+  HREF="node34.html">Orthogonality relation</A>
+<B> Up:</B> <A NAME="tex2html516"
+  HREF="node32.html">Curvilinear coordinate system</A>
+<B> Previous:</B> <A NAME="tex2html510"
+  HREF="node32.html">Curvilinear coordinate system</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00041000000000000000">
+Coordinates transformation and Jacobian</A>
+</H2>
+
+<P>
+In the Cartesian coordinates, a point is described by its coordinates <SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img421.png"
+ ALT="$ (x, y,
+z)$"></SPAN>, which, in vector form, is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\mathbf{r}= x \hat{\mathbf{x}} + y \hat{\mathbf{y}} + z \hat{\mathbf{z}},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="129" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img422.png"
+ ALT="$\displaystyle \mathbf{r}= x \hat{\mathbf{x}} + y \hat{\mathbf{y}} + z \hat{\mathbf{z}},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">100</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\mathbf{r}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img423.png"
+ ALT="$ \mathbf{r}$"></SPAN> is the location vector of the point. The transformation
+between the Cartesian coordinates system, <SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img421.png"
+ ALT="$ (x, y,
+z)$"></SPAN>, and a general
+coordinates system, <!-- MATH
+ $(x^1, x^2, x^3)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="79" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img424.png"
+ ALT="$ (x^1, x^2, x^3)$"></SPAN>, can be written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-8-10dd"></A><!-- MATH
+ \begin{equation}
+\mathbf{r}= x (x^1, x^2, x^3) \hat{\mathbf{x}} + y (x^1,
+  x^2, x^3) \hat{\mathbf{y}} + z (x^1, x^2, x^3) \hat{\mathbf{z}} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="355" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img425.png"
+ ALT="$\displaystyle \mathbf{r}= x (x^1, x^2, x^3) \hat{\mathbf{x}} + y (x^1, x^2, x^3) \hat{\mathbf{y}} + z (x^1, x^2, x^3) \hat{\mathbf{z}} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">101</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+(For example, cylindrical coordinates <!-- MATH
+ $(R, \phi, Z)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img122.png"
+ ALT="$ (R, \phi, Z)$"></SPAN> can be considered as a
+general coordinate systems, which are defined by  <!-- MATH
+ $\mathbf{r}= R \cos \phi
+\hat{\mathbf{x}} + R \sin \phi \hat{\mathbf{y}} + Z \hat{\mathbf{z}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="206" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img426.png"
+ ALT="$ \mathbf{r}= R \cos \phi
+\hat{\mathbf{x}} + R \sin \phi \hat{\mathbf{y}} + Z \hat{\mathbf{z}}$"></SPAN>.) The
+transformation function in Eq. (<A HREF="#11-8-10dd">101</A>) can be written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="11-8-10"></A><!-- MATH
+ \begin{equation}
+\begin{array}{l}
+    x = x (x^1, x^2, x^3)\\
+    y = y (x^1, x^2, x^3)\\
+    z = z (x^1, x^2, x^3)
+  \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="114" HEIGHT="74" BORDER="0"
+ SRC="img427.png"
+ ALT="\begin{displaymath}\begin{array}{l} x = x (x^1, x^2, x^3)\\ y = y (x^1, x^2, x^3)\\ z = z (x^1, x^2, x^3) \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">102</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The Jacobian determinant (or simply called Jacobian) of the transformation in
+Eq. (<A HREF="#11-8-10">102</A>) is defined by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\mathcal{J}= \left|\begin{array}{ccc}
+    \frac{\partial x}{\partial x_1} & \frac{\partial x}{\partial x_2} &
+    \frac{\partial x}{\partial x_3}\\
+    \frac{\partial y}{\partial x_1} & \frac{\partial y}{\partial x_2} &
+    \frac{\partial y}{\partial x_3}\\
+    \frac{\partial z}{\partial x_1} & \frac{\partial z}{\partial x_2} &
+    \frac{\partial z}{\partial x_3}
+  \end{array}\right|,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="179" HEIGHT="82" ALIGN="MIDDLE" BORDER="0"
+ SRC="img428.png"
+ ALT="$\displaystyle \mathcal{J}= \left\vert\begin{array}{ccc} \frac{\partial x}{\part...
+...tial z}{\partial x_2} &amp; \frac{\partial z}{\partial x_3} \end{array}\right\vert,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">103</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which can be written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-21-p3"></A><!-- MATH
+ \begin{equation}
+\mathcal{J}= \frac{\partial \mathbf{r}}{\partial x_1}
+  \times \frac{\partial \mathbf{r}}{\partial x_2} \cdot \frac{\partial
+  \mathbf{r}}{\partial x_3} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="163" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img429.png"
+ ALT="$\displaystyle \mathcal{J}= \frac{\partial \mathbf{r}}{\partial x_1} \times \fra...
+...tial \mathbf{r}}{\partial x_2} \cdot \frac{\partial \mathbf{r}}{\partial x_3} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">104</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+It is easy to prove that the Jacobian <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> in Eq. (<A HREF="#10-21-p3">104</A>)
+can also be written (refer to another notes)
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-21-p4"></A><!-- MATH
+ \begin{equation}
+\mathcal{J}= (\nabla x_1 \times \nabla x_2 \cdot \nabla
+  x_3)^{- 1} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="192" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img431.png"
+ ALT="$\displaystyle \mathcal{J}= (\nabla x_1 \times \nabla x_2 \cdot \nabla x_3)^{- 1} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">105</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In most cases, the Jacobian of the transformation from the Cartesian
+coordinates to a particular coordinate system are simply called the Jacobian
+of that particular coordinate system without mentioning that this
+transformation is with respect to the Cartesian coordinates. Using this
+nomenclature, the Jacobian <!-- MATH
+ $\mathcal{J}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img430.png"
+ ALT="$ \mathcal{J}$"></SPAN> of the Cartesian coordinates is
+obviously equal to one since the transformation is defined with respect to the
+Cartesian coordinates. If the Jacobian of a coordinate system is greater than
+zero, it is called a right-hand coordinate system. Otherwise it is called a
+left-hand system.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html517"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html515"
+  HREF="node32.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html509"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html518"
+  HREF="node34.html">Orthogonality relation</A>
+<B> Up:</B> <A NAME="tex2html516"
+  HREF="node32.html">Curvilinear coordinate system</A>
+<B> Previous:</B> <A NAME="tex2html510"
+  HREF="node32.html">Curvilinear coordinate system</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

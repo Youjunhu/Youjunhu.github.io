@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Debian GNU/Linux</title>
+    <meta name="generator" content="emacs-wiki.el" />
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <link rel="made" href="mailto:xuebaili@gmail.com" />
+    <link rel="home" href="../GNU/WelcomePage.html.html" />
+    <link rel="index" href="WikiIndex.html" />
+    <link rel="stylesheet" type="text/css" href="core.css" />
+  </head>
+  <body>
+
+    <!-- If you want a menu, uncomment the following lines and
+    put (require 'emacs-wiki-menu) in your Emacs setup somewhere.
+     -->
+<div class="menu">
+
+  <div class="menuitem">
+  <a href="index.html" onmouseout="hide()"
+onmouseover="showToolTip('')">Index</a>
+  </div>
+
+  <div class="menuitem">
+  <a href="../GNU/WelcomePage.html" onmouseout="hide()"
+onmouseover="showToolTip('')">GNU/Linux</a>
+  </div>
+
+  <div class="menuitem">
+  <a href="../History/WelcomePage.html" onmouseout="hide()"
+onmouseover="showToolTip('')">History</a>
+  </div>
+
+</div><!-- menu ends here -->
+
+<!--<div id="tooltipbox">
+<div id="tooltip"></div>
+</div>
+    -->
+
+    <h1 id="top">Debian GNU/Linux</h1>
+
+    <!-- Page published by Emacs Wiki begins here -->
+<p>
+copyLeft(c) 2007年
+</p>
+
+<hr />
+
+<h2>安装常用软件</h2>
+
+<p>
+编辑/etc/apt/sources.list 
+<pre class="example">vim /etc/apt/sources.list
+</pre>
+
+<h3>aptitude的使用</h3>
+
+<pre class="example">$ su
+# aptitude
+</pre>
+
+
+
+<blockquote>
+<p>
+ /键向下搜索搜索，\键向上搜索，选中要安装+，取消选中则按-，按g查看所有被
+选中以及依赖的包，再按g开始安装.
+</p>
+</blockquote>
+
+<h2>3. 安装桌面系统</h2>
+
+<h3>3.1安装x-window</h3>
+
+<p>
+进入aptitude界面,选择x-window-system,
+xfonts-intl-chinese,还有ttf-arph开头的几个包.
+x-window-system自动关联着xserver-xorg,xbase-clients,
+xfonts-base,xutils等包的,会自动一起安装的.
+
+</p>
+
+
+<pre class="example">
+# dpkg-reconfigure xserver-xorg
+</pre>
+
+<p>
+重新配置
+</p>
+
+<h3>3.2 locales</h3>
+
+<pre class="example"># dpkg-reconfigure locales
+</pre>
+<p>
+字符编码，看个人喜好了，一般从MS windows初转过来的人，
+习惯用gbk,可以选择zh_cn.gbk作为默认编码
+
+</p>
+
+<p>
+不过发展趋势是utf-8，所以建议使用默认的zh_cn.utf8
+
+</p>
+
+<p>
+介绍两个编码转换工具：
+
+</p>
+
+<p>
+convmv是文件名编码转换工具，详细说明可以$man convmv ，
+这里举一个例子，把用户目录下包括各级子目录在内所有文件名从
+gbk编码转换成utf8编码
+
+</p>
+
+<pre class="example">convmv -f GBK -t UTF-8 --notest -r /home/user/
+</pre>
+
+<p>
+iconv是文件内容编码转换工具，详细也看man
+举一个简单的例子，把gbk编码的a.html文件转换成utf8编码的b.html
+
+</p>
+
+<pre class="example">iconv -f GBK -t UTF-8 a.html -o b.html
+</pre>
+
+<p>
+若批量转换可以用shell脚本，比如把一个文件夹内的文件都转换
+
+</p>
+
+<pre class="example">#!/bin/bash
+
+for i in *
+do
+iconv -f gbk -t utf8 $i &gt;tmp
+cp tmp $i
+done
+rm tmp
+</pre>
+
+<h3> 安装窗口管理器FVWM</h3>
+<pre class="example">
+$ aptitude
+</pre>
+
+<p>
+安装 fvwm,libstroke0,menu
+</p>
+
+<p>
+如果嫌自己配置麻烦，可以去<a href="http://sourceforge.net/projects/fvwm-themes">http://sourceforge.net/projects/fvwm-themes</a>
+下载fvwm主题的deb包来安装，有好多个主题可以选择，都蛮pp的。
+修改~/.xsession
+</p>
+
+<pre class="example">exec fvwm-themes-start
+</pre>
+
+
+
+<h3>3.6 mount的用法</h3>
+
+<p>
+不可避免的需要把usb闪存或者cd等mount上来,需要命令行手动输入。
+
+</p>
+
+<pre class="example">fat32的分区 
+mount -t vfat -o iocharset=utf8 /dev/hda5 /mnt/x
+ntfs的分区 
+mount -t ntfs -o iocharset=utf8 /dev/hda5 /mnt/x    
+iso文件 
+mount -o loop /abc.iso /media/cdrom    
+软盘 
+mount -t vfat -o iocharset=utf8 /dev/fd0 /media/floppy
+USB闪存 
+mount -t vfat -o iocharset=utf8 /dev/sda1 /mnt/usb
+</pre>
+
+<p>
+可以指定文件格式"-t 格式", 格式可以为vfat, ext2, ext3等.
+而iocharset表示字符编码，我用utf8编码所以这里iocharset=utf8,
+若是用MS的GBK，则iocharset=cp936
+
+</p>
+
+<p>
+cd
+<pre class="example">mount -t iso9600 -o loop /dev/cdrom /media/cdrom
+</pre>
+
+<p>
+DVD 
+<pre class="example">mount -t iso9660 -o iocharset=utf8 /dev/dvd /media/cdrom
+或
+mount -t udf -o iocharset=utf8 /dev/dvd /media/cdrom   
+</pre>
+
+<p>
+不过在mount光驱之前，最好先查看一下光驱设备，可以查看/etc/fstab,也可以
+用ls -lh /dev/来看，经常能看到/dev/hdc表示光驱设备；也能看看/dev/cdrom
+或者/dev/dvd指向哪里。
+
+</p>
+
+<p>
+卸载用umount
+
+</p>
+
+<p>
+比如卸载usb flash
+<pre class="example">umount /dev/sda1
+</pre>
+
+<p>
+若出现the service is busy这样的提示而无法卸载，那么lsof看看那个进程在使用
+这个设备，kill掉就是了，然后再执行umount
+
+</p>
+
+<h3>3.5自动动挂载windows分区</h3>
+
+<p>
+如果你的电脑中还有windows，那么可以实现在linux中自动挂载
+windows分区，
+</p>
+
+<p>
+在/mnt中建立相应文件夹，比如c代表windows的c盘
+
+</p>
+
+<pre class="example">$ vim /etc/fstab
+</pre>
+
+<p>
+修改或者加入类似如下：
+
+</p>
+
+<pre class="example">/dev/hda1   /mnt/c    vfat    ro,auto,iocharset=utf8  0 0
+/dev/hda5   /mnt/d    vfat    rw,auto,umask=000,nls=utf8  0 0
+/dev/hda6   /mnt/e    vfat    rw,auto,umask=000,nls=utf8  0 0
+</pre>
+
+
+<h3>5.2 terminal推荐用rxvt-unicode</h3>
+
+
+<h3>5.3 编程工具</h3>
+<p>
+ make
+</p>
+
+
+<h3>5.5 字处理</h3>
+
+<p>
+openoffice.org, openoffice.org-l10n-zh, openoffice.org-help-zh
+
+</p>
+
+<h3>5.6 pdf文档</h3>
+
+<p>
+看pdf文档用xpdf，需要安装 xpdf xpdf-chinese-simplified
+
+</p>
+
+<p>
+pdfedit 可以修改 pdf
+</p>
+
+<p>
+xournal 可以用来标记
+</p>
+
+<h3>5.9 网页浏览器</h3>
+
+<p>
+用w3m或者lynx,或者图形化的工具firefox（在debian中叫做iceweasel）。
+</p>
+
+<p>
+当然也可以用opera（去官方站点下载debian版本），虽然它不是自由软件。
+</p>
+
+<p>
+firefox用插件:
+</p>
+<p>
+adblock_plus
+</p>
+<p>
+顾名思义，广告拦截插件。我感觉这个是Firefox使用中最重要的插件了，
+因为我们在浏览网站时候最痛恨的就是那些乱七八糟的广告了。定义好
+正则表达式（更好地精简过滤名单，运行起来更快），基本上可以实现页面无
+广告了。最新版本的可以订阅过滤规则了。
+
+</p>
+
+<p>
+all-in-one_gestures
+
+</p>
+
+<p>
+手势功能，通过鼠标右键在标签页画出手势来进行网页的常用操作，比如新开窗口，
+比如关闭页面，切换页面…… 非常迅速和方便。
+
+</p>
+
+<p>
+download_manager_tweak
+
+</p>
+
+<p>
+增强Firefox下载管理器
+
+</p>
+
+<p>
+forecastfox
+
+</p>
+
+<p>tab浏览插件:
+tab-mix-plus </p>
+super_dragandgo
+<p>
+
+<h3>ftp</h3>
+<p>
+lftp
+</p>
+<p>
+lftp 缺省不会显示 ftp 服务器的欢迎信息和错误信息，这在很多时候不方便，因为
+你有可能想知道这个服务器到底是因为没开机连不上，还是连接数已满。如果是这样，
+你可以在 /etc/lftp.conf 里写入一行
+</p>
+<pre class="example">
+debug 3
+</pre>
+
+<h3>下载工具</h3>
+<p>
+wget
+</p>
+
+<h3>5.16 音乐</h3>
+<p>
+用xmms
+</p>
+
+<h3>5.18 图片</h3>
+<p>
+gthumb用来看图，GIMP用来处理图片
+</p>
+
+<h3>5.28 文件管理器 </h3>
+<p>
+rox-filer
+</p>
+
+<h3>5.31 远程访问</h3>
+<p>
+安装ssh
+</p>
+
+    <!-- Page published by Emacs Wiki ends here -->
+
+    <div class="navfoot">
+      <hr />
+      <table width="100%" border="0" summary="Footer navigation">
+        <col width="33%" /><col width="34%" /><col width="33%" />
+        <tr>
+          <td align="left">
+            
+          </td>
+          <td align="center">
+            <span class="foothome">
+              <a href="index.html">Index</a>
+            </span>
+          </td>
+          <td align="right">
+            
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Non-uniformly distributed random number</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1873--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu33.html" >prev</a>] [<a 
+href="particle_simulationsu33.html#tailparticle_simulationsu33.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu34.html">tail</a>] [<a 
+href="particle_simulationse7.html#particle_simulationsu34.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">7.2   </span> <a 
+ id="x42-470007.2"></a>Non-uniformly distributed random number</h4>
+<!--l. 1875--><p class="noindent" >Consider the problem of generating random numbers that are distributed according to some kind of non-uniform
+distribution function. There are two methods of generating non-uniformly distributed random numbers satisfying a given
+distribution function, namely, the transformation method and the rejection method<span class="cite">[<a 
+href="particle_simulationli1.html#XFitzpatrickcp">4</a>]</span>. Let us examine these two methods
+in turn.
+</p><!--l. 1882--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">7.2.1   </span> <a 
+ id="x42-480007.2.1"></a>Transformation method</h5>
+<!--l. 1884--><p class="noindent" >Suppose there are two random variables <span 
+class="cmmi-10">y </span>and <span 
+class="cmmi-10">x </span>that are related to each other by <span 
+class="cmmi-10">y </span>= <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">x</span>). If the probability density of <span 
+class="cmmi-10">x</span>,
+<span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">x</span></sub>(<span 
+class="cmmi-10">x</span>), is known, how do we calculate the probability of the random variable <span 
+class="cmmi-10">y</span>? Using the probability conservation,
+i.e,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x42-48001r135"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation160x.png" alt="Py(y)|dy| = Px(x)|dx|,
+" class="math-display"  /></center></td><td class="equation-label">(135)</td></tr></table>
+<!--l. 1890--><p class="nopar" >
+we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x42-48002r136"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation161x.png" alt="Py (y) = Px(x),
+        |f &prime;(x)|
+" class="math-display"  /></center></td><td class="equation-label">(136)</td></tr></table>
+<!--l. 1894--><p class="nopar" >
+which gives the relation between <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">y</span>) and <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">x</span>). Next, consider the inverse problem of the above, i.e., if we want to
+generate non-uniform distribute random numbers <span 
+class="cmmi-10">y </span>with probability density being <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">y</span>) from a uniformly
+distributed random variables <span 
+class="cmmi-10">x</span>, how do we choose the function <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">x</span>)? In this case, <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">x</span>) = 1 and Eq. (<a 
+href="#x42-48002r136">136<!--tex4ht:ref: 11-5-1 --></a>) is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x42-48003r137"></a>
+
+   <center class="math-display" >
+<img 
+src="particle_simulation162x.png" alt="          --1---
+Py(f(x)) = |f&prime;(x)|,
+" class="math-display"  /></center></td><td class="equation-label">(137)</td></tr></table>
+<!--l. 1902--><p class="nopar" >
+which can be solved to give <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">x</span>). For a general function <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">y</span>), Eq. (<a 
+href="#x42-48003r137">137<!--tex4ht:ref: 11-5-2 --></a>) can not be solved analytically. For the special
+case <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">y</span>) = <span 
+class="cmmi-10">e</span><sup><span 
+class="cmsy-7">&minus;</span><span 
+class="cmmi-7">y</span></sup> (Poisson distribution), we ﬁnd that <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">x</span>) = <span 
+class="cmsy-10">&minus;</span>ln<span 
+class="cmmi-10">x </span>solves Eq. (<a 
+href="#x42-48003r137">137<!--tex4ht:ref: 11-5-2 --></a>). Therefore, we can generate Poisson
+distribution by the following Fortran codes: </p><div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">call</span><span 
+class="cmtt-10"> random_number(x)</span><span 
+class="cmtt-10"> !generate</span><span 
+class="cmtt-10"> uniformly</span><span 
+class="cmtt-10"> distributed</span><span 
+class="cmtt-10"> random</span><span 
+class="cmtt-10"> numbers</span><span 
+class="cmtt-10"> in</span><span 
+class="cmtt-10"> [0:1]</span>
+<br /><span 
+class="cmtt-10">y=-log(x)</span>
+</div>
+</div>
+The transformation method requires diﬀerential function <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">x</span>) be known, which is not always practical for a general
+probability density <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">y</span></sub>(<span 
+class="cmmi-10">y</span>). In such cases, we can use the rejection method discussed next.
+<!--l. 1916--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">7.2.2   </span> <a 
+ id="x42-490007.2.2"></a>Rejection method</h5>
+<!--l. 1918--><p class="noindent" >Suppose that we want to generate non-uniformly distributed random numbers between <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">min</span></sub> and <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">max</span></sub> that satisfy a given
+probability density <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">x</span>). To achieve this, we ﬁrst generate a uniform random number <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">t</span></sub> between <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">min</span></sub> and <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">max</span></sub>. Then we
+generate another uniform random number <span 
+class="cmmi-10">y </span>between 0 and <span 
+class="cmmi-10">P</span><sub><span 
+class="cmr-7">max</span></sub>, where <span 
+class="cmmi-10">P</span><sub><span 
+class="cmr-7">max</span></sub> are the maximal values of <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">x</span>) for
+<span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&isin; </span>[<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">min</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">max</span></sub>]. If <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">t</span></sub>) <span 
+class="cmmi-10">&#x003E; y </span>then, <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">t</span></sub> is kept as a desired random number, otherwise <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">t</span></sub> is discarded. Repeat this process,
+then all the random numbers kept will satisfy the probability density <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">x</span>) (need thinking why, to be proved). This method
+is called the rejection method. It is obvious how the rejection method generalizes to multiple-dimensional
+cases.
+</p><!--l. 1929--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">7.2.3   </span> <a 
+ id="x42-500007.2.3"></a>Numerical examples</h5>
+<!--l. 1931--><p class="noindent" >The one-dimensional Gaussian distribution is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x42-50001r138"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation163x.png" alt="                (      --2)
+P (y) = &radic;-1- exp  &minus; (y&minus;-y)- .
+         2&pi;&sigma;         2&sigma;2
+" class="math-display"  /></center></td><td class="equation-label">(138)</td></tr></table>
+<!--l. 1935--><p class="nopar" >
+Figure <a 
+href="#x42-5000214">14<!--tex4ht:ref: 1-22-3 --></a> compares the possibility density of the 10<sup><span 
+class="cmr-7">6</span></sup> numbers generated by the numerical code with that
+of the analytic form in Eq. (<a 
+href="#x42-50001r138">138<!--tex4ht:ref: 2-19-p1 --></a>), which indicates that the numerical result agrees well with the analytic
+one.
+
+</p><!--l. 1941--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x42-5000214"></a>
+
+
+<!--l. 1944--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/pic_code/fig1/tmp.png" alt="pict"  
+ width="180.67499pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 14: </span><span  
+class="content">The distribution of the 10<sup><span 
+class="cmr-7">6</span></sup>  values returned by the the Gaussian distribution generator (using the
+rejection method) with the parameters <span class="overline"><span 
+class="cmmi-10">y</span></span> = 5<span 
+class="cmmi-10">.</span>0 and <span 
+class="cmmi-10">&sigma; </span>= 1<span 
+class="cmmi-10">.</span>25. The possibility density (value of the distribution
+function) is obtained as follows: (1) divide the range [0<span 
+class="cmmi-10">,</span>10] into 100 sub-regions (2) then counts respectively the
+number of the returned value whose values are in the sub-regions (3) the numbers of value in each sub-region
+obtained this way is further divided by the total number of values (10<sup><span 
+class="cmr-7">6</span></sup>) to give the relativistic possibilities. (4) scale
+the relativistic possibilities by 10 times, which gives the exact possibility density (this scaling is needed because the
+sub-region is of length 1<span 
+class="cmmi-10">∕</span>10, instead of unit length). The solid line in the ﬁgure is the value obtained by evaluating
+Eq. (<a 
+href="#x42-50001r138">138<!--tex4ht:ref: 2-19-p1 --></a>). The results indicates that the distribution returned by the Gaussian generator agrees well with the
+desired theoretic one.</span></div><!--tex4ht:label?: x42-5000214 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1961--><p class="indent" >    
+</p><!--l. 1963--><p class="indent" >   Figure <a 
+href="#x42-5000315">15<!--tex4ht:ref: 1-22-4 --></a> is a plot of <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> verse <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">+1</span></sub> for <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,</span>10<sup><span 
+class="cmr-7">4</span></sup>, which shows how the points (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">+1</span></sub>) are distributed in the
+two-dimension plane.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x42-5000315"></a>
+
+
+<!--l. 1968--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/pic_code/fig4/tmp.png" alt="pict"  
+ width="180.67499pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 15: </span><span  
+class="content">Plot of <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> verse <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">+1</span></sub>  for <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,</span>10<sup><span 
+class="cmr-7">4</span></sup>. Here <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> are random numbers generated by the Gaussian
+distribution generator.</span></div><!--tex4ht:label?: x42-5000315 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1974--><p class="indent" >    
+</p><!--l. 1976--><p class="indent" >    
+</p><!--l. 1978--><p class="indent" >    
+
+</p>
+   <!--l. 1980--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu33.html" >prev</a>] [<a 
+href="particle_simulationsu33.html#tailparticle_simulationsu33.html" >prev-tail</a>] [<a 
+href="particle_simulationsu34.html" >front</a>] [<a 
+href="particle_simulationse7.html#particle_simulationsu34.html" >up</a>] </p></div>
+<!--l. 1980--><p class="indent" >   <a 
+ id="tailparticle_simulationsu34.html"></a>  </p> 
+</body></html> 

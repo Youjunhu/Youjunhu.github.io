@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Relation of plasma current density to pressure gradient</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tokamak_equilibrium.tex" /> 
+<link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
+</head><body 
+>
+   <!--l. 6381--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu83.html" >next</a>] [<a 
+href="tokamak_equilibriumsu81.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu81.html#tailtokamak_equilibriumsu81.html" >prev-tail</a>] [<a 
+href="#tailtokamak_equilibriumsu82.html">tail</a>] [<a 
+href="tokamak_equilibriumse14.html#tokamak_equilibriumsu82.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">A.8   </span> <a 
+ id="x97-126000A.8"></a>Relation of plasma current density to pressure gradient</h4>
+<!--l. 6383--><p class="noindent" >Due to the force balance condition, the plasma current is related to the plasma pressure. Using the
+equilibrium constraint in the <span 
+class="cmbx-10">R </span>direction, the toroidal current density <span 
+class="cmmi-10">J</span><sub><span 
+class="cmmi-7">ϕ</span></sub> given by Eq. (<a 
+href="tokamak_equilibriumsu10.html#x13-17003r53">53<!--tex4ht:ref: 6-9-a1 --></a>) can be
+written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium682x.png" alt="         dP-   -1--dg-
+Jϕ  =   RdΨ  + μ0R dΨg.                        (542)
+" class="math-display"  /><a 
+ id="x97-126001r542"></a></center>
+</div>The parallel (to the magnetic ﬁeld) current density is written as <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium683x.png" alt="J   ≡  J-⋅B-
+ ∥       B
+    =  JϕB-ϕ +-Jp-⋅Bp
+       (     B       )
+        R dP + -1-dgg  g-+ 1-dg (∇Ψ)2
+    =  ---dΨ---μ0RdΨ---R---μ0dΨ--R---
+                  [( B)2  (   )2]
+       g dPdΨ-+ μ10ddgΨ   gR- +  ∇RΨ
+    =  ------------B------------
+         dP-  -1-dg  2
+    =  g-dΨ-+-μ0dΨ-B-.
+             B
+    =  gdP--1+  1-dg-B.                               (543)
+        dΨ B    μ0dΨ
+                                                                                
+
+                                                                                
+" class="math-display"  /></center>
+</div>For later use, deﬁne <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium684x.png" alt="σ  ≡   J∥
+       B
+   =  g dP-1- + 1-dg-.                        (544)
+        dΨB2    μ0dΨ
+" class="math-display"  /><a 
+ id="x97-126003r544"></a></center>
+</div>Equation (<a 
+href="#x97-126003r544">544<!--tex4ht:ref: 7-25-p5 --></a>) is used in GTAW code to calculate <span 
+class="cmmi-10">J</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕B </span>(actually calculated is <span 
+class="cmmi-10">μ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">J</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕B</span>)<span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xhu2014">14</a>]</span>. Note
+that the expression for <span 
+class="cmmi-10">J</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕B </span>in Eq. (<a 
+href="#x97-126003r544">544<!--tex4ht:ref: 7-25-p5 --></a>) is not a magnetic surface function. Deﬁne <span 
+class="cmmi-10">σ</span><sub><span 
+class="cmr-7">ps</span></sub> as
+<div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium685x.png" alt="σps ≡   σ− ⟨σ⟩
+         dP-[-1-  ⟨ -1-⟩]
+    =   gdΨ  B2 −   B2                          (545)
+        Jps
+    ≡   -∥-,                                    (546)
+         B
+" class="math-display"  /></center>
+</div>where <span 
+class="cmmi-10">J</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">ps</span></sup> is called Pﬁrsch-Schluter (PS) current. In cylindrical geometry, due to the poloidal
+symmetry, the Pﬁersch-Schluter current is obviously zero. In toroidal geometry, due to the poloidal
+asymmetry, the PS current is generally nonzero. Thus, this quantity characterizes a toroidal
+eﬀect.
+<!--l. 6429--><p class="indent" >   Another useful quantity is <span 
+class="cmmi-10">μ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmsy-10">⟨</span><span 
+class="cmbx-10">J </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⟩</span>, which is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium686x.png" alt="μ0⟨J ⋅B⟩  =  μ0gdP- + dg⟨B2 ⟩,                     (547)
+                dΨ    dΨ
+" class="math-display"  /></center>
+</div>where <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">…</span><span 
+class="cmsy-10">⟩ </span>is ﬂux surface averaging operator.
+                                                                                
+
+                                                                                
+   <!--l. 6437--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu83.html" >next</a>] [<a 
+href="tokamak_equilibriumsu81.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu81.html#tailtokamak_equilibriumsu81.html" >prev-tail</a>] [<a 
+href="tokamak_equilibriumsu82.html" >front</a>] [<a 
+href="tokamak_equilibriumse14.html#tokamak_equilibriumsu82.html" >up</a>] </p></div>
+<!--l. 6437--><p class="indent" >   <a 
+ id="tailtokamak_equilibriumsu82.html"></a> </p> 
+</body></html> 

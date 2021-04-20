@@ -1,0 +1,1999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="http://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>No title</title>
+    <meta content="TeXmacs 1.99.4" name="generator"></meta>
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } .subsup {
+      display: inline; vertical-align: -0.2em } .subsup td { padding: 0px;
+      text-align: left} .fraction { display: inline; vertical-align: -0.8em }
+      .fraction td { padding: 0px; text-align: center } .wide { position:
+      relative; margin-left: -0.4em } .accent { position: relative;
+      margin-left: -0.4em; top: -0.1em } .title-block { width: 100%;
+      text-align: center } .title-block p { margin: 0px } .compact-block p {
+      margin-top: 0px; margin-bottom: 0px } .left-tab { text-align: left }
+      .center-tab { text-align: center } .balloon-anchor { border-bottom: 1px
+      dotted #000000; outline:none;                  cursor: help; position:
+      relative; }.balloon-anchor [hidden] { margin-left: -999em; position:
+      absolute; display: none; }.balloon-anchor:hover [hidden] { position:
+      absolute; left: 1em; top: 2em; z-index: 99; margin-left: 0; width:
+      500px; display: inline-block; }.balloon-body { }.ornament  {
+      border-width: 1px; border-style: solid; border-color:  black; display:
+      inline-block; padding: 0.2em; } .right-tab { float: right; position:
+      relative; top: -1em } 
+    </style>
+  </head>
+  <body>
+    <p>
+      
+    </p>
+    <table class="title-block">
+      <tr>
+        <td><table class="title-block">
+          <tr>
+            <td><font size="+3"><b>Fourier analysis</b></font></td>
+          </tr>
+        </table><p style="margin-top: 1em; margin-bottom: 1em">
+          <div class="compact-block">
+            <table class="title-block">
+              <tr>
+                <td><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <span style="margin-left: 0pt"></span>
+                  <table style="display: inline; vertical-align: -0.55em">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          <class style="font-variant: small-caps">by Youjun Hu</class>
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <span style="margin-left: 0pt"></span>
+                  <table style="display: inline; vertical-align: -0.55em">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          Institute of Plasma Physics, Chinese Academy of
+                          Sciences
+                        </p>
+                        <p>
+                          Email: yjhu@ipp.cas.cn
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p></td>
+              </tr>
+            </table>
+          </div>
+        </p></td>
+      </tr>
+    </table>
+    <p>
+      <p style="margin-top: 2em; margin-bottom: 0.5em">
+        <div style="margin-left: 60px">
+          <div style="margin-right: 60px">
+            <p>
+              <font size="-1"><strong>Abstract</strong></font>
+            </p>
+          </div>
+        </div>
+      </p>
+      <div style="margin-left: 60px">
+        <div style="margin-right: 60px">
+          <p>
+            <font size="-1"></font>
+          </p>
+        </div>
+      </div>
+      <div style="margin-left: 60px">
+        <div style="margin-right: 60px">
+          <p>
+            <font size="-1">These notes review the basic theory of Fourier
+            analysis. The emphasis is on the content that are necessary for
+            one to correctly interpret and use the output of FFT computer
+            libraries (e.g. FFTW).</font>
+          </p>
+        </div>
+      </div>
+    </p>
+    <h2 id="auto-1">1<span style="margin-left: 1em"></span>Introduction</h2>
+    <p>
+      These notes were written when I was developing numerical codes that need
+      to use FFT libraries. Like all students majoring in physics, I learned
+      the Fourier series and Fourier transform in calculus courses when I was
+      a undergraduate student. To apply this important mathematical method in
+      practice, one additional necessary step is to know the Discrete Fourier
+      Transform (DFT) and its fast numerical implementation, i.e., Fast
+      Fourier Transform algorithm (FFT). There are many online material
+      discussing these topics and I read some of them. But finally I found
+      that I need to derive all the relevant formulas step by step by myself
+      to convince myself that I fully understand the DFT and its many
+      variations, such as discrete sine transform and cosine transform, and I
+      am correctly using the output of FFT libraries.
+    </p>
+    <p>
+      Although the Fast Fourier Transform algorithm (FFT) is among the top ten
+      algorithms that have changed the world, we do not need to know the
+      details about this algorithm itself, which is simply an efficient way of
+      computing the summation involved in the DFT. What we need to know is how
+      the DFT is defined (so that we know how it can be used) and how it is
+      related to the output of the various subroutines in various FFT computer
+      libraries (e.g. FFTW). This is the emphasis of these notes, which give
+      step by step derivation of the definition of DFT and its variation, the
+      discrete sine transform.
+    </p>
+    <h2 id="auto-2">2<span style="margin-left: 1em"></span>Fourier series</h2>
+    <h3 id="auto-3">2.1<span style="margin-left: 1em"></span>Fourier series in terms of trigonometric
+    functions cosine and sine</h3>
+    <p>
+      If <img src="fourier_analysis-1.png" style="vertical-align: -4.48px"></img> is a function of period <img src="fourier_analysis-2.png" style="vertical-align: -0.256px"></img>,
+      then it can be proved that <img src="fourier_analysis-1.png" style="vertical-align: -4.48px"></img> can be expressed as
+      the following series
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-3.png" style="vertical-align: -18.145px" id="2-25-1"></img></td>
+        <td align="right">(1)</td>
+      </tr>
+    </table>
+    <p>
+      which is called the Fourier series. It is not trivial to prove the above
+      statement (what is needed in the proof is to prove that the set of
+      functions <img src="fourier_analysis-4.png" style="vertical-align: -4.48px"></img> and <img src="fourier_analysis-5.png" style="vertical-align: -4.48px"></img> with <img
+      src="fourier_analysis-6.png" style="vertical-align: -3.456px"></img> is a &ldquo;complete set&rdquo;). We will not concern
+      us here with this proof and simply start working with the Fourier series
+      in Eq. (<a href="#2-25-1">1</a>). At this point it is not clear yet what the
+      coefficients <img src="fourier_analysis-7.png" style="vertical-align: -2.8325px"></img> and <img src="fourier_analysis-8.png" style="vertical-align: -2.8325px"></img> are.
+      Taking product of Eq. (<a href="#2-25-1">1</a>) with <img src="fourier_analysis-9.png" style="vertical-align: -4.48px"></img> and
+      <img src="fourier_analysis-10.png" style="vertical-align: -4.48px"></img>, respectively, and then integrating form <img
+      src="fourier_analysis-11.png" style="vertical-align: -0.256px"></img> to <img src="fourier_analysis-12.png" style="vertical-align: -0.256px"></img>, we obtain
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-13.png" style="vertical-align: -15.375px"></img></td>
+        <td align="right">(2)</td>
+      </tr>
+    </table>
+    <p>
+      and for <img src="fourier_analysis-14.png" style="vertical-align: -3.712px"></img>,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-15.png" style="vertical-align: -16.5125px" id="2-25-p1"></img></td>
+        <td align="right">(3)</td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-16.png" style="vertical-align: -16.5125px"></img></td>
+        <td align="right">(4)</td>
+      </tr>
+    </table>
+    <p>
+      In order to make the coefficients <img src="fourier_analysis-7.png" style="vertical-align: -2.8325px"></img> be uniformly
+      expressed by Eq. (<a href="#2-25-p1">3</a>), we modify the Fourier series to the
+      following form
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-17.png" style="vertical-align: -18.017px" id="2-25-p3"></img></td>
+        <td align="right">(5)</td>
+      </tr>
+    </table>
+    <p>
+      Then it is obvious that the coefficients <img src="fourier_analysis-18.png" style="vertical-align: -2.9605px"></img> can be
+      evaluated by using Eq. (<a href="#2-25-p1">3</a>). Note that <img src="fourier_analysis-1.png" style="vertical-align: -4.48px"></img>
+      can be a complex-valued function (the independent variable <img src="fourier_analysis-19.png"
+      style="vertical-align: -0.384px"></img> is still a real number). In this case, the coefficients
+      <img src="fourier_analysis-7.png" style="vertical-align: -2.8325px"></img> and <img src="fourier_analysis-8.png" style="vertical-align: -2.8325px"></img> are complex numbers.
+    </p>
+    <h3 id="auto-4">2.2<span style="margin-left: 1em"></span>Fourier series in terms of complex-valued
+    basis functions <img src="fourier_analysis-20.png" style="vertical-align: -0.384px"></img></h3>
+    <p>
+      The Fourier series can also be expressed in terms of the complex-valued
+      basis functions <img src="fourier_analysis-20.png" style="vertical-align: -0.384px"></img>. Next, we derive this form of
+      the Fourier series. Using Euler's formula
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-21.png" style="vertical-align: -11.392px"></img></td>
+        <td align="right">(6)</td>
+      </tr>
+    </table>
+    <p>
+      and
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-22.png" style="vertical-align: -11.4745px"></img></td>
+        <td align="right">(7)</td>
+      </tr>
+    </table>
+    <p>
+      in Eq. (<a href="#2-25-p3">5</a>), we obtain
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-23.png" style="vertical-align: -18.017px"></img></td>
+        <td align="right">(8)</td>
+      </tr>
+    </table>
+    <p>
+      which can be further written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-24.png" style="vertical-align: -18.017px" id="10-24-e1"></img></td>
+        <td align="right">(9)</td>
+      </tr>
+    </table>
+    <p>
+      Define
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-25.png" style="vertical-align: -11.3465px" id="2-25-p4"></img></td>
+        <td align="right">(10)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-26.png" style="vertical-align: -3.456px"></img>, and note <img src="fourier_analysis-27.png" style="vertical-align: -2.9605px"></img>, then
+      Eq. (<a href="#10-24-e1">9</a>) is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-28.png" style="vertical-align: -17.7135px" id="2-25-p6"></img></td>
+        <td align="right">(11)</td>
+      </tr>
+    </table>
+    <p>
+      Furthermore, using the expression of <img src="fourier_analysis-7.png" style="vertical-align: -2.8325px"></img> and <img
+      src="fourier_analysis-8.png" style="vertical-align: -2.8325px"></img>, we find that <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img> and <img src="fourier_analysis-30.png"
+      style="vertical-align: -2.8325px"></img> in Eq. (<a href="#2-25-p4">10</a>) can be uniformly expressed as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-31.png" style="vertical-align: -15.375px" id="2-25-p7"></img></td>
+        <td align="right">(12)</td>
+      </tr>
+    </table>
+    <p>
+      Equations (<a href="#2-25-p6">11</a>) along with Eq. (<a href="#2-25-p7">12</a>) gives a
+      compact form of the Fourier series[<a href="#bib-snieder1994">1</a>]. On the other hand,
+      using Eq. (<a href="#2-25-p4">10</a>), the coefficients <img src="fourier_analysis-7.png" style="vertical-align: -2.8325px"></img>
+      and <img src="fourier_analysis-8.png" style="vertical-align: -2.8325px"></img> can be recovered from <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img>
+      by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-32.png" style="vertical-align: -3.456px" id="11-8-e1"></img></td>
+        <td align="right">(13)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-33.png" style="vertical-align: -4.48px" id="4-18-e1"></img></td>
+        <td align="right">(14)</td>
+      </tr>
+    </table>
+    <p>
+      Note that if <img src="fourier_analysis-1.png" style="vertical-align: -4.48px"></img> is real, then the coefficients <img
+      src="fourier_analysis-7.png" style="vertical-align: -2.8325px"></img> and <img src="fourier_analysis-8.png" style="vertical-align: -2.8325px"></img> are real while the
+      coefficient <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img> are complex-valued. In this case,
+      Eqs. (<a href="#11-8-e1">13</a>) and (<a href="#4-18-e1">14</a>) imply that <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img>
+      and <img src="fourier_analysis-30.png" style="vertical-align: -2.8325px"></img> must be complex conjugates.
+    </p>
+    <p>
+      [In the above, we use the basis functions <img src="fourier_analysis-20.png" style="vertical-align: -0.384px"></img> to
+      expand <img src="fourier_analysis-1.png" style="vertical-align: -4.48px"></img>. If we choose the basis functions to be
+      <img src="fourier_analysis-34.png" style="vertical-align: -0.384px"></img>, then it is ready to verify that the Fourier
+      series are written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-35.png" style="vertical-align: -17.7135px"></img></td>
+        <td align="right">(15)</td>
+      </tr>
+    </table>
+    <p>
+      with <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img> given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-36.png" style="vertical-align: -15.375px"></img></td>
+        <td align="right">(16)</td>
+      </tr>
+    </table>
+    <p>
+      In this case, the coefficients <img src="fourier_analysis-7.png" style="vertical-align: -2.8325px"></img> and <img src="fourier_analysis-8.png"
+      style="vertical-align: -2.8325px"></img> can be recovered from <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img> by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-37.png" style="vertical-align: -2.8325px"></img></td>
+        <td align="right">(17)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-38.png" style="vertical-align: -4.48px"></img></td>
+        <td align="right">(18)</td>
+      </tr>
+    </table>
+    <p>
+      In using the Fourier series, we should be aware of which basis functions
+      are used.]
+    </p>
+    <h2 id="auto-5">3<span style="margin-left: 1em"></span>From discrete spectrum to continuous
+    spectrum: Fourier series<img src="fourier_analysis-39.png" style="vertical-align: -0.256px"></img>Fourier transformation</h2>
+    <p>
+      The Fourier series discussed above is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-40.png" style="vertical-align: -17.7135px" id="9-27-e14"></img></td>
+        <td align="right">(19)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> is a function of period <img src="fourier_analysis-42.png" style="vertical-align: -0.256px"></img>,
+      the coefficient <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img> is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-43.png" style="vertical-align: -18.319px" id="9-28-2"></img></td>
+        <td align="right">(20)</td>
+      </tr>
+    </table>
+    <p>
+      The <img src="fourier_analysis-44.png" style="vertical-align: -0.384px"></img>th term of the Fourier series corresponds to
+      a harmonic with frequency
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-45.png" style="vertical-align: -11.2185px" id="9-27-e10"></img></td>
+        <td align="right">(21)</td>
+      </tr>
+    </table>
+    <p>
+      In terms of <img src="fourier_analysis-46.png" style="vertical-align: -3.712px"></img>, the coefficient in Eq. (<a href="#9-28-2">20</a>)
+      is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-47.png" style="vertical-align: -18.319px" id="9-27-e11"></img></td>
+        <td align="right">(22)</td>
+      </tr>
+    </table>
+    <p>
+      In terms of <img src="fourier_analysis-46.png" style="vertical-align: -3.712px"></img>, the Fourier series in Eq. (<a href="#9-27-e14">19</a>)
+      is written
+    </p>
+    <center>
+      <img src="fourier_analysis-48.png" style="vertical-align: -42.772px" id="9-28-5"></img>
+    </center>
+    <p>
+      Note that <img src="fourier_analysis-49.png" style="vertical-align: -4.48px"></img> is the value of function <img src="fourier_analysis-50.png"
+      style="vertical-align: -4.48px"></img> at <img src="fourier_analysis-51.png" style="vertical-align: -3.712px"></img>. Further note that the interval
+      between <img src="fourier_analysis-46.png" style="vertical-align: -3.712px"></img> and <img src="fourier_analysis-52.png" style="vertical-align: -4.1125px"></img> is <img src="fourier_analysis-53.png"
+      style="vertical-align: -4.48px"></img>. Thus the above summation is the rectangular formula for
+      numerically calculating the integration <img src="fourier_analysis-54.png" style="vertical-align: -7.2455px"></img>.
+      Therefore, Eq. (<a href="#9-28-5">23</a>) can be approximately written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-55.png" style="vertical-align: -15.503px"></img></td>
+        <td align="right">(24)</td>
+      </tr>
+    </table>
+    <p>
+      which will become exact when the interval <img src="fourier_analysis-56.png" style="vertical-align: -4.48px"></img>, i.e.,
+      <img src="fourier_analysis-57.png" style="vertical-align: -0.384px"></img>. Therefore, for the case <img src="fourier_analysis-57.png" style="vertical-align: -0.384px"></img>,
+      the Fourier series exactly becomes
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-58.png" style="vertical-align: -15.503px" id="9-28-6"></img></td>
+        <td align="right">(25)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-59.png" style="vertical-align: -4.48px"></img> is given by Eq. (<a href="#9-27-e11">22</a>), i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-60.png" style="vertical-align: -15.503px" id="9-28-7"></img></td>
+        <td align="right">(26)</td>
+      </tr>
+    </table>
+    <p>
+      Note that the function <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> given in Eqs. (<a href="#9-28-6">25</a>)
+      is proportional to <img src="fourier_analysis-61.png" style="vertical-align: -4.48px"></img> while the function <img src="fourier_analysis-59.png"
+      style="vertical-align: -4.48px"></img> given in Eq. (<a href="#9-28-7">26</a>) is proportional to <img
+      src="fourier_analysis-53.png" style="vertical-align: -4.48px"></img>. Since <img src="fourier_analysis-57.png" style="vertical-align: -0.384px"></img>, it is desired to
+      eliminate the <img src="fourier_analysis-42.png" style="vertical-align: -0.256px"></img> and <img src="fourier_analysis-53.png" style="vertical-align: -4.48px"></img>
+      factors in Eqs. (<a href="#9-28-6">25</a>) and (<a href="#9-28-7">26</a>), which can be
+      easily achieved by defining a new function
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-62.png" style="vertical-align: -4.48px"></img></td>
+        <td align="right">(27)</td>
+      </tr>
+    </table>
+    <p>
+      Then the Fourier series is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-63.png" style="vertical-align: -15.503px" id="9-28-10"></img></td>
+        <td align="right">(28)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-64.png" style="vertical-align: -15.503px" id="9-28-11"></img></td>
+        <td align="right">(29)</td>
+      </tr>
+    </table>
+    <p>
+      Equations (<a href="#9-28-10">28</a>) and (<a href="#9-28-11">29</a>) are the Fourier
+      transformation pairs discussed in the next section. [Note that the signs
+      in the exponential of Eq. (<a href="#9-28-10">28</a>) and (<a href="#9-28-11">29</a>) are
+      opposite. Which one should be minus or positive is actually a matter of
+      convention because a trivial variable substitution <img src="fourier_analysis-65.png" style="vertical-align: -3.712px"></img>
+      can change the sign between minus and positive. Proof. In terms of <img
+      src="fourier_analysis-66.png" style="vertical-align: -3.712px"></img>, Eq. (<a href="#9-28-10">28</a>) is written
+    </p>
+    <center>
+      <img src="fourier_analysis-67.png" style="vertical-align: -34.8825px" id="9-28-23"></img>
+    </center>
+    <p>
+      Define
+    </p>
+    <center>
+      <img src="fourier_analysis-68.png" style="vertical-align: -23.6105px" id="9-28-20"></img>
+    </center>
+    <p>
+      Then Eq. (<a href="#9-28-23">30</a>) is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-69.png" style="vertical-align: -15.503px" id="9-28-21"></img></td>
+        <td align="right">(32)</td>
+      </tr>
+    </table>
+    <p>
+      The signs in the exponential of Eqs. (<a href="#9-28-20">31</a>) and (<a href="#9-28-21">32</a>)
+      are opposite to Eqs. (<a href="#9-28-11">29</a>) and (<a href="#9-28-10">28</a>),
+      respectively.]
+    </p>
+    <p>
+      In the following, I use (<a href="#9-28-20">31</a>) as the forward Fourier
+      transformation and Eq. (<a href="#9-28-21">32</a>) as the backward one (this is
+      the convention used in the book &ldquo;Numerical recipe&rdquo;[<a href="#bib-press1992">2</a>]).
+      However, it seems that the form in Eqs. (<a href="#9-28-10">28</a>) and (<a href="#9-28-11">29</a>)
+      are often used in practice, i.e., <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> is expanded in
+      terms of the basis function <img src="fourier_analysis-70.png" style="vertical-align: -0.384px"></img> instead of <img src="fourier_analysis-71.png"
+      style="vertical-align: -0.384px"></img>. The extensively used free software FFTW uses Eqs. (<a
+      href="#9-28-11">29</a>) as the forward transformation and Eq. (<a href="#9-28-10">28</a>) as
+      the backward one. When using a Fourier transformation library, it is
+      necessary to know which convention is used in order to correctly use the
+      output of the library.
+    </p>
+    <h2 id="auto-6">4<span style="margin-left: 1em"></span>Fourier transformation</h2>
+    <p>
+      As discussed above, the Fourier transformation of a function <img src="fourier_analysis-41.png"
+      style="vertical-align: -4.48px"></img> is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-72.png" style="vertical-align: -15.503px" id="10-3-e1"></img></td>
+        <td align="right">(33)</td>
+      </tr>
+    </table>
+    <p>
+      Once the Fourier transformation <img src="fourier_analysis-73.png" style="vertical-align: -4.48px"></img> is known, the
+      original function <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> can be reconstructed via
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-74.png" style="vertical-align: -15.503px" id="10-11-3"></img></td>
+        <td align="right">(34)</td>
+      </tr>
+    </table>
+    <p>
+      [Physicists usually prefer to use the angular frequency <img src="fourier_analysis-75.png" style="vertical-align: -3.712px"></img>
+      instead of the frequency <img src="fourier_analysis-76.png" style="vertical-align: -3.712px"></img> to represent the
+      Fourier transformation. Using <img src="fourier_analysis-77.png" style="vertical-align: -0.384px"></img>, equations. (<a
+      href="#10-3-e1">33</a>) and (<a href="#10-11-3">34</a>) are written, respectively, as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-78.png" style="vertical-align: -15.503px"></img></td>
+        <td align="right">(35)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-79.png" style="vertical-align: -15.503px"></img></td>
+        <td align="right">(36)</td>
+      </tr>
+    </table>
+    <p>
+      where we see that the asymmetry between the Fourier transformation and
+      its inverse is more severe in this representation: besides the
+      opposite-sign in the exponents, there is also a <img src="fourier_analysis-80.png" style="vertical-align: -4.48px"></img>
+      factor difference between the Fourier transformation and its inverse.
+      Whether the <img src="fourier_analysis-80.png" style="vertical-align: -4.48px"></img> factor appears at the forward
+      transformation or inverse one is actually a matter of convention. The
+      only requirement is that the product of the two factors in the forward
+      and inverse transformation is equal to <img src="fourier_analysis-80.png" style="vertical-align: -4.48px"></img>. To
+      obtain a more symmetric pair, one can adopt a factor <img src="fourier_analysis-81.png" style="vertical-align: -4.48px"></img>
+      at both the forward and inverse transformation. The representation in
+      Eqs. (<a href="#10-3-e1">33</a>) and (<a href="#10-11-3">34</a>) is adopted in this article.
+      But we should know how to change to the <img src="fourier_analysis-77.png" style="vertical-align: -0.384px"></img>
+      representation when needed.]
+    </p>
+    <p>
+      Next, consider how to numerically compute the Fourier transformation of
+      a function <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>. A simple way is to use the rectangle
+      formula to approximate the integration in Eq. (<a href="#10-3-e1">33</a>), i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-82.png" style="vertical-align: -20.5275px" id="10-3-e2"></img></td>
+        <td align="right">(37)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-83.png" style="vertical-align: -5.1365px"></img> and <img src="fourier_analysis-84.png" style="vertical-align: -5.1365px"></img> with <img src="fourier_analysis-85.png"
+      style="vertical-align: -3.712px"></img>. Note Eq. (<a href="#10-3-e2">37</a>) is an approximation, which
+      will become exact if <img src="fourier_analysis-86.png" style="vertical-align: -0.64px"></img>. In practice, we can sample
+      <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> only with a nonzero <img src="fourier_analysis-87.png" style="vertical-align: -0.256px"></img>.
+      Therefore Eq. (<a href="#10-3-e2">37</a>) is usually an approximation. Do we have
+      some rules to choose a suitable <img src="fourier_analysis-87.png" style="vertical-align: -0.256px"></img> so that Eq. (<a
+      href="#10-3-e2">37</a>) can become a good approximation or even an exact relation?
+      This important question is answered by the well-known sampling theorem,
+      which sates that a suitable <img src="fourier_analysis-88.png" style="vertical-align: -0.256px"></img> to make Eq. (<a
+      href="#10-3-e2">37</a>) exact is given by <img src="fourier_analysis-89.png" style="vertical-align: -4.48px"></img>, where <img src="fourier_analysis-90.png"
+      style="vertical-align: -3.712px"></img> is the largest frequency contained in <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>
+      (i.e., <img src="fourier_analysis-91.png" style="vertical-align: -4.48px"></img> for <img src="fourier_analysis-92.png" style="vertical-align: -4.48px"></img>).
+    </p>
+    <h3 id="auto-7">4.1<span style="margin-left: 1em"></span>Sampling theorem</h3>
+    <p>
+      In computational and experimental work, we know only a list of values
+      <img src="fourier_analysis-93.png" style="vertical-align: -5.1365px"></img> sampled at discrete values of <img src="fourier_analysis-94.png" style="vertical-align: -5.1365px"></img>.
+      Let us suppose that <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> is sampled with uniform
+      interval between consecutive points:
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-95.png" style="vertical-align: -5.1365px"></img></td>
+        <td align="right">(38)</td>
+      </tr>
+    </table>
+    <p>
+      The sampling rate is defined by <img src="fourier_analysis-96.png" style="vertical-align: -4.48px"></img>. The sampling
+      theorem states that: If the Fourier transformation of function <img src="fourier_analysis-41.png"
+      style="vertical-align: -4.48px"></img>, <img src="fourier_analysis-73.png" style="vertical-align: -4.48px"></img>, has the following property
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-97.png" style="vertical-align: -4.48px" id="8-28-3"></img></td>
+        <td align="right">(39)</td>
+      </tr>
+    </table>
+    <p>
+      then sampling <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> with the sampling rate <img src="fourier_analysis-98.png"
+      style="vertical-align: -3.712px"></img> (i.e., <img src="fourier_analysis-89.png" style="vertical-align: -4.48px"></img>) will completely determine
+      <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>, which is given explicitly by the formula
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-99.png" style="vertical-align: -20.5275px" id="8-28-4"></img></td>
+        <td align="right">(40)</td>
+      </tr>
+    </table>
+    <p>
+      We will not concern us here with the proof of the sampling theorem and
+      simply start working with Eq. (<a href="#8-28-4">40</a>) to derive the concrete
+      expression for the Fourier transformation of <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>.
+      Substituting the expression (<a href="#8-28-4">40</a>) for <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>
+      into the Fourier transformation (<a href="#10-3-e1">33</a>), we obtain the
+      explicit form of the Fourier transformation of <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>:
+    </p>
+    <center>
+      <img src="fourier_analysis-100.png" style="vertical-align: -89.0275px" id="8-28-1"></img>
+    </center>
+    <p>
+      With the help of Wolfram Mathematica, the integration in Eq. (<a href="#8-28-1">41</a>)
+      is evaluated analytically, giving
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-101.png" style="vertical-align: -17.211px"></img></td>
+        <td align="right">(42)</td>
+      </tr>
+    </table>
+    <p>
+      Using this,  Eq. (<a href="#8-28-1">41</a>) is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-102.png" style="vertical-align: -39.8985px" id="8-28-5"></img></td>
+        <td align="right">(43)</td>
+      </tr>
+    </table>
+    <p>
+      which shows that <img src="fourier_analysis-91.png" style="vertical-align: -4.48px"></img> for <img src="fourier_analysis-92.png" style="vertical-align: -4.48px"></img>,
+      which is consistent with the assumption of sampling theorem, i.e., <img
+      src="fourier_analysis-73.png" style="vertical-align: -4.48px"></img> has the property given in Eq. (<a href="#8-28-3">39</a>). The
+      second line of Eq. (<a href="#8-28-5">43</a>) is identical to Eq. (<a href="#10-3-e2">37</a>)
+      except that Eq. (<a href="#8-28-5">43</a>) in this case is exact while Eq. (<a
+      href="#10-3-e2">37</a>) is only approximate. In other words, if <img src="fourier_analysis-89.png" style="vertical-align: -4.48px"></img>,
+      then the Fourier transformation is exactly given by Eq. (<a href="#8-28-5">43</a>),
+      where <img src="fourier_analysis-90.png" style="vertical-align: -3.712px"></img> is the largest frequency contained in <img
+      src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> (i.e., <img src="fourier_analysis-91.png" style="vertical-align: -4.48px"></img> for <img src="fourier_analysis-92.png" style="vertical-align: -4.48px"></img>).
+    </p>
+    <h3 id="auto-8">4.2<span style="margin-left: 1em"></span><a id="9-29-8"></a>Discrete Fourier
+    transformation</h3>
+    <p>
+      Suppose that a function <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> is sampled with a
+      sampling frequency <img src="fourier_analysis-96.png" style="vertical-align: -4.48px"></img>, and we know (by some other
+      means) that the largest frequency contained in <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>
+      is less than <img src="fourier_analysis-103.png" style="vertical-align: -4.48px"></img>, then the sampling theorem
+      indicates that the Fourier transformation <img src="fourier_analysis-73.png" style="vertical-align: -4.48px"></img> for
+      <img src="fourier_analysis-104.png" style="vertical-align: -4.48px"></img> can be written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-105.png" style="vertical-align: -20.5275px" id="2-26-p1"></img></td>
+        <td align="right">(44)</td>
+      </tr>
+    </table>
+    <p>
+      Assume that the function <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> is periodic with period
+      <img src="fourier_analysis-42.png" style="vertical-align: -0.256px"></img> and is sampled in one period with <img src="fourier_analysis-106.png"
+      style="vertical-align: -5.1365px"></img> with <img src="fourier_analysis-107.png" style="vertical-align: -3.712px"></img>, in which <img src="fourier_analysis-108.png" style="vertical-align: -2.9605px"></img>,
+      as shown in Fig. <a href="#16-2-25">1</a>.
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><p>
+          <img src="fourier_analysis-109.png" width="320"></img>
+        </p></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 1. </b><a id="auto-9"></a><a id="16-2-25"></a>Sampling points in one
+            period of the signal, where <img src="fourier_analysis-110.png" style="vertical-align: -0.256px"></img> is the period
+            of the signal.
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      Then the infinite summation in Eq. (<a href="#2-26-p1">44</a>) reduces to the
+      following partial summation:
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-111.png" style="vertical-align: -20.5275px" id="2-26-4"></img></td>
+        <td align="right">(45)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-112.png" style="vertical-align: -0.64px"></img> is the number of periods during the
+      infinite time. Note that, the partial summation in Eq. (<a href="#2-26-4">45</a>)
+      includes <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img> values of <img src="fourier_analysis-114.png" style="vertical-align: -4.48px"></img> (<img
+      src="fourier_analysis-115.png" style="vertical-align: -2.7045px"></img> is excluded since it is identical to <img src="fourier_analysis-116.png" style="vertical-align: -2.9605px"></img>).
+      With <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img> inputs, we can expect at most <img src="fourier_analysis-113.png"
+      style="vertical-align: -0.256px"></img> independent outputs. Further note that the frequency is
+      limited in the range <img src="fourier_analysis-117.png" style="vertical-align: -4.48px"></img> by the sampling theorem.
+      Therefore, a simple way to select the <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img> outputs
+      from Eq. (<a href="#2-26-4">45</a>) is to evaluate <img src="fourier_analysis-73.png" style="vertical-align: -4.48px"></img> at
+      uniformly distributed frequencies <img src="fourier_analysis-46.png" style="vertical-align: -3.712px"></img> given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-118.png" style="vertical-align: -11.3465px" id="10-26-1"></img></td>
+        <td align="right">(46)</td>
+      </tr>
+    </table>
+    <p>
+      with <img src="fourier_analysis-119.png" style="vertical-align: -7.5065px"></img>. (we consider only the case that <img src="fourier_analysis-113.png"
+      style="vertical-align: -0.256px"></img> is an even number; the above expression actually contains
+      <img src="fourier_analysis-120.png" style="vertical-align: -1.664px"></img> outputs). Evaluate Eq. (<a href="#2-26-4">45</a>) at <img
+      src="fourier_analysis-51.png" style="vertical-align: -3.712px"></img>, then <img src="fourier_analysis-121.png" style="vertical-align: -4.48px"></img> is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-122.png" style="vertical-align: -20.5275px" id="2-26-1"></img></td>
+        <td align="right">(47)</td>
+      </tr>
+    </table>
+    <p>
+      The partial summation in Eq. (<a href="#2-26-1">47</a>),
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-123.png" style="vertical-align: -20.5275px" id="2-26-2"></img></td>
+        <td align="right">(48)</td>
+      </tr>
+    </table>
+    <p>
+      is called the <strong>Discrete Fourier transformation (DFT)</strong>.
+      Using Eqs. (<a href="#2-26-1">47</a>) and (<a href="#2-26-2">48</a>), we have
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-124.png" style="vertical-align: -4.48px"></img></td>
+        <td align="right">(49)</td>
+      </tr>
+    </table>
+    <h3 id="auto-10">4.3<span style="margin-left: 1em"></span>Periodic property of Discrete Fourier
+    transformation</h3>
+    <p>
+      The DFT of time-domain array <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img> with <img src="fourier_analysis-125.png"
+      style="vertical-align: -3.712px"></img> is given by Eq. (<a href="#2-26-2">48</a>), i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-126.png" style="vertical-align: -20.5275px" id="3-25-e3"></img></td>
+        <td align="right">(50)</td>
+      </tr>
+    </table>
+    <p>
+      with <img src="fourier_analysis-127.png" style="vertical-align: -4.48px"></img>, where <img src="fourier_analysis-128.png" style="vertical-align: -11.392px"></img>. Note that
+      the subscript of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> is in the range <img src="fourier_analysis-127.png"
+      style="vertical-align: -4.48px"></img> while the subscript of <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img> is in the
+      range <img src="fourier_analysis-125.png" style="vertical-align: -3.712px"></img>. Further note that <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img>
+      contains <img src="fourier_analysis-120.png" style="vertical-align: -1.664px"></img> elements while <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>
+      contains only <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img> elements. It is ready to find that
+      the array defined in Eq. (<a href="#3-25-e3">50</a>) has the following periodic
+      property
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-130.png" style="vertical-align: -4.1125px" id="3-25-e1"></img></td>
+        <td align="right">(51)</td>
+      </tr>
+    </table>
+    <p>
+      Using this general property, we obtain <img src="fourier_analysis-131.png" style="vertical-align: -6.038px"></img>, i.e.,
+      the two ending elements of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img>, namely <img src="fourier_analysis-132.png"
+      style="vertical-align: -6.038px"></img> and <img src="fourier_analysis-133.png" style="vertical-align: -6.038px"></img>, are equal to each other. Thus
+      only one value is needed to be stored. This can be used to reduce the
+      number of elements of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> needing to be stored by
+      one. Then <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> contains only <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img>
+      elements, instead of <img src="fourier_analysis-120.png" style="vertical-align: -1.664px"></img>. Furthermore, we prefer to
+      make the index of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> and <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>
+      array have the same range, i.e., we prefer to make the index <img src="fourier_analysis-44.png"
+      style="vertical-align: -0.384px"></img> of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> array also in the range <img
+      src="fourier_analysis-134.png" style="vertical-align: -4.48px"></img>. This can be done by storing the negative frequency
+      part (i.e., <img src="fourier_analysis-135.png" style="vertical-align: -4.48px"></img>) of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> in the
+      location where the subscripts are respectively <img src="fourier_analysis-136.png" style="vertical-align: -4.48px"></img>,
+      as is shown in Fig <a href="#4-16-1">2</a>. A native method of implementing this
+      in a code is to first calculate the values of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> in
+      the range <img src="fourier_analysis-127.png" style="vertical-align: -4.48px"></img>, then shift the array to achieve the
+      desired storage arrangement, as is shown in Fig <a href="#4-16-1">2</a>. It turns
+      out that we have a better way to achieve the same goal: using again the
+      periodic property Eq. (<a href="#3-25-e1">51</a>), we know that the value of the
+      <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> array elements with negative subscripts, <img
+      src="fourier_analysis-135.png" style="vertical-align: -4.48px"></img>, happens to be equal to the value of the <img src="fourier_analysis-129.png"
+      style="vertical-align: -2.8325px"></img> elements with subscripts <img src="fourier_analysis-136.png" style="vertical-align: -4.48px"></img>,
+      respectively. Using this, we can simply use Eq. (<a href="#3-25-e3">50</a>) to
+      calculate values of <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> in the  range <img src="fourier_analysis-137.png"
+      style="vertical-align: -3.456px"></img> and the array obtained is exactly in the desired storage
+      arrangement.
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><p>
+          <img src="fourier_analysis-138.png"></img>
+        </p></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 2. </b><a id="auto-11"></a><a id="4-16-1"></a>The negative frequency
+            parts of the discrete Fourier transformation are stored at the
+            locations with the array index <img src="fourier_analysis-139.png" style="vertical-align: -6.637px"></img>. Since <img
+            src="fourier_analysis-140.png" style="vertical-align: -5.599px"></img>, the location <img src="fourier_analysis-141.png" style="vertical-align: -3.712px"></img> of the
+            new array can be considered to be storing both of them.
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      Of course, in practice, we do not use Eq. (<a href="#3-25-e3">50</a>) directly to
+      calculate <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img>. Instead, the famous Fast Fourier
+      Transformation (FFT) algorithm is used to calculate <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img>
+      with <img src="fourier_analysis-142.png" style="vertical-align: -3.456px"></img>. Remember the storage arrangement discussed
+      above is important for one to correctly interpret and use the output of
+      FFT. For example, what frequency does the element <img src="fourier_analysis-143.png" style="vertical-align: -5.1365px"></img>
+      with <img src="fourier_analysis-144.png" style="vertical-align: -4.48px"></img> correspond to? The answer is obvious if we
+      know the storage arrangement of FFT output: the corresponding frequency
+      of No. <img src="fourier_analysis-145.png" style="vertical-align: -3.712px"></img>th element is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-146.png" style="vertical-align: -39.9615px" id="17-10-14-1"></img></td>
+        <td align="right">(52)</td>
+      </tr>
+    </table>
+    <p>
+      Therefore the frequency of <img src="fourier_analysis-143.png" style="vertical-align: -5.1365px"></img> with <img src="fourier_analysis-144.png" style="vertical-align: -4.48px"></img>
+      is <img src="fourier_analysis-147.png" style="vertical-align: -4.48px"></img>. Define <img src="fourier_analysis-148.png" style="vertical-align: -4.48px"></img>, which is the
+      fundamental frequency of the signal, then Eq. (<a href="#17-10-14-1">52</a>) can also
+      be written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-149.png" style="vertical-align: -39.914px"></img></td>
+        <td align="right">(53)</td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <p>
+      Q: What is the negative frequency counterpart of the element <img src="fourier_analysis-143.png"
+      style="vertical-align: -5.1365px"></img> for <img src="fourier_analysis-150.png" style="vertical-align: -4.48px"></img> ? A: Examining the storage
+      arrangement shown in Fig. <a href="#4-16-1">2</a>, we know it is the element <img
+      src="fourier_analysis-151.png" style="vertical-align: -5.1365px"></img>.
+    </p>
+    <h3 id="auto-12">4.4<span style="margin-left: 1em"></span>Aliasing errors</h3>
+    <p>
+      Signals that are not band-limited usually contains all frequencies and
+      thus do not satisfy the condition that the sampling theorem requires
+      (i.e., <img src="fourier_analysis-91.png" style="vertical-align: -4.48px"></img> for <img src="fourier_analysis-152.png" style="vertical-align: -4.48px"></img>). In this
+      case, for any given <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img> data, we can still calculate
+      its DFT by using Eq. (<a href="#2-26-2">48</a>). However the results obtained are
+      meaningful only when <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> approaches zero as the
+      frequency approaches <img src="fourier_analysis-153.png" style="vertical-align: -4.48px"></img> from above and approaches
+      <img src="fourier_analysis-154.png" style="vertical-align: -4.48px"></img> from below, i.e., only when the results obtained
+      are consistent with the assumption used to obtain the results (the
+      assumption is that <img src="fourier_analysis-91.png" style="vertical-align: -4.48px"></img> for <img src="fourier_analysis-152.png" style="vertical-align: -4.48px"></img>).
+      When the results obtained do not satisfy the above condition, then it
+      indicates that the &ldquo;aliasing errors&rdquo; have contributed to the
+      results. We can reduce the aliasing errors by increasing the sampling
+      frequency. The aliasing errors can be reduced but can not be completely
+      removed for a non-band-limited signal. More details on the aliasing
+      errors are needed here, to be continued.
+    </p>
+    <h3 id="auto-13">4.5<span style="margin-left: 1em"></span>Relation between Fourier series
+    coefficients and DFTs</h3>
+    <p>
+      In the above, we go through the process &ldquo;Fourier series<img src="fourier_analysis-39.png"
+      style="vertical-align: -0.256px"></img>Fourier transformation <img src="fourier_analysis-39.png" style="vertical-align: -0.256px"></img>DFT&rdquo;.
+      This corresponds to going from the discrete case (Fourier series) to the
+      continuous case (Fourier transformation), and then back to the discrete
+      case (DFT). Since both Fourier series and DFT are discrete, it is
+      instructive to examine the relation between the Fourier coefficient <img
+      src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img> and the DFT <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img>.
+    </p>
+    <p>
+      The Fourier coefficient is given by Eq. (<a href="#9-28-2">20</a>), i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-155.png" style="vertical-align: -18.319px"></img></td>
+        <td align="right">(54)</td>
+      </tr>
+    </table>
+    <p>
+      which can be equivalently written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-156.png" style="vertical-align: -18.319px" id="9-29-3"></img></td>
+        <td align="right">(55)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-157.png" style="vertical-align: -4.48px"></img>. If <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> is sampled
+      with sampling rate <img src="fourier_analysis-96.png" style="vertical-align: -4.48px"></img>, then the number of sampling
+      points per period is <img src="fourier_analysis-158.png" style="vertical-align: -4.48px"></img>. Then the frequency used to
+      evaluate the DFT [Eq. (<a href="#10-26-1">46</a>)] is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-159.png" style="vertical-align: -11.3465px"></img></td>
+        <td align="right">(56)</td>
+      </tr>
+    </table>
+    <p>
+      which turns out to be identical to the frequency to which the Fourier
+      coefficient <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img> corresponds. Using <img src="fourier_analysis-160.png" style="vertical-align: -4.48px"></img>
+      in Eq. (<a href="#9-29-3">55</a>), we obtain
+    </p>
+    <center>
+      <img src="fourier_analysis-161.png" style="vertical-align: -76.8945px" id="10-6-e1"></img>
+    </center>
+    <p>
+      i.e., the relation between the Fourier coefficient <img src="fourier_analysis-29.png" style="vertical-align: -2.8325px"></img>
+      and the DFT <img src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> is <img src="fourier_analysis-162.png" style="vertical-align: -2.8325px"></img>. Note
+      that the approximation in Eq. (<a href="#10-6-e1">57</a>) becomes an exact
+      relation if the largest frequency contained in <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img>
+      is less than <img src="fourier_analysis-154.png" style="vertical-align: -4.48px"></img>.
+    </p>
+    <h3 id="auto-14">4.6<span style="margin-left: 1em"></span>Reconstruct the original function using
+    DFT</h3>
+    <p>
+      The Fourier series of <img src="fourier_analysis-114.png" style="vertical-align: -4.48px"></img>
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-163.png" style="vertical-align: -17.7135px"></img></td>
+        <td align="right">(59)</td>
+      </tr>
+    </table>
+    <p>
+      can be approximated as
+    </p>
+    <center>
+      <img src="fourier_analysis-164.png" style="vertical-align: -49.405px"></img>
+    </center>
+    <p>
+      Using the periodic property of DFT, i.e., <img src="fourier_analysis-165.png" style="vertical-align: -4.1125px"></img>, the
+      above expression is written as
+    </p>
+    <center>
+      <img src="fourier_analysis-166.png" style="vertical-align: -27.943px" id="11-9-1"></img>
+    </center>
+    <p>
+      Equation (<a href="#11-9-1">61</a>) provide the formula of constructing an
+      approximate function using the DFT of the discrete samplings of the
+      original function.
+    </p>
+    <h3 id="auto-15">4.7<span style="margin-left: 1em"></span>Evaluate the reconstructed function at
+    discrete points</h3>
+    <p>
+      Evaluate <img src="fourier_analysis-41.png" style="vertical-align: -4.48px"></img> given by Eq. (<a href="#11-9-1">61</a>) at the
+      discrete point <img src="fourier_analysis-167.png" style="vertical-align: -3.712px"></img>, yielding
+    </p>
+    <center>
+      <img src="fourier_analysis-168.png" style="vertical-align: -108.333px" id="11-9-3"></img>
+    </center>
+    <p>
+      Equation (<a href="#11-9-3">62</a>) is actually the inverse DFT discussed in Sec.
+      <a href="#11-9-2">4.8</a>.
+    </p>
+    <h3 id="auto-16">4.8<span style="margin-left: 1em"></span><a id="11-9-2"></a>Inverse Discrete Fourier
+    transformation</h3>
+    <p>
+      The DFT in Eq. (<a href="#2-26-2">48</a>),
+    </p>
+    <center>
+      <img src="fourier_analysis-169.png" style="vertical-align: -20.5275px"></img>
+    </center>
+    <p>
+      with <img src="fourier_analysis-170.png" style="vertical-align: -3.712px"></img> and <img src="fourier_analysis-171.png" style="vertical-align: -3.456px"></img> can also be
+      considered as a set of linear algebraic equations for <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>
+      and can be solved in terms of <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>, which gives
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-172.png" style="vertical-align: -18.145px" id="10-7-1"></img></td>
+        <td align="right">(63)</td>
+      </tr>
+    </table>
+    <p>
+      (The details on how to solve Eq. (<a href="#2-26-2">48</a>) to obtain the
+      solution (<a href="#10-7-1">63</a>) is provided in Appendix <a href="#10-7-p5">4.10</a>.)
+      Equation (<a href="#10-7-1">63</a>) recovers <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img> from <img
+      src="fourier_analysis-129.png" style="vertical-align: -2.8325px"></img> (i.e., the DFT of <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>), and thus
+      is called the inverse DFT.
+    </p>
+    <p>
+      The normalization factor multiplying the DFT and inverse DFT (here <img
+      src="fourier_analysis-173.png" style="vertical-align: -0.256px"></img> and <img src="fourier_analysis-174.png" style="vertical-align: -4.48px"></img>) and the signs of the
+      exponents are merely conventions, and differ in some treatments. The
+      only requirements of these conventions are that the DFT and inverse DFT
+      have opposite-sign exponents and that the product of their normalization
+      factors be <img src="fourier_analysis-174.png" style="vertical-align: -4.48px"></img>.
+    </p>
+    <h3 id="auto-17">4.9<span style="margin-left: 1em"></span>About using the FFTW library</h3>
+    <p>
+      I use the Fortran interface of the FFTW library. To have access to FFTW
+      library, use the following codes:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+use, intrinsic :: iso_c_binding
+implicit none
+include 'fftw3.f03'</pre>
+    <p>
+      To use the FFT subroutines in FFTW, we need to define some variables of
+      the desired types, such as
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+type(C_PTR) :: plan
+complex(C_DOUBLE_COMPLEX) :: in(0:n-1), out(0:n-1)</pre>
+    <p>
+      Store input data in the &ldquo;in&rdquo; arrays, then, we can perform a
+      DFT by the following codes:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+plan = fftw_plan_dft_1d(n, in,out, FFTW_FORWARD,FFTW_ESTIMATE)
+call fftw_execute_dft(plan, in, out)
+call fftw_destroy_plan(plan)</pre>
+    <p>
+      Similarly, we can perform a inverse DFT by the following codes:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+plan = fftw_plan_dft_1d(ngrids, in,out,FFTW_BACKWARD,FFTW_ESTIMATE)
+call fftw_execute_dft(plan, in, out)
+call fftw_destroy_plan(plan)</pre>
+    <p>
+      Note that the forward DFT in FFTW is defined by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-175.png" style="vertical-align: -20.5275px"></img></td>
+        <td align="right">(64)</td>
+      </tr>
+    </table>
+    <p>
+      and the inverse DFT is defined by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-176.png" style="vertical-align: -18.145px"></img></td>
+        <td align="right">(65)</td>
+      </tr>
+    </table>
+    <p>
+      where there is no <img src="fourier_analysis-174.png" style="vertical-align: -4.48px"></img> factor in the inverse DFT, and
+      thus this factor should be included by hand if we want to recover the
+      original data from the inverse DFT.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <h3 id="auto-18">4.10<span style="margin-left: 1em"></span><a id="10-7-p5"></a>Proof of the inverse DFT</h3>
+    <p>
+      In order to solve the linear algebraic equations (<a href="#2-26-2">48</a>) for
+      <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>, multiply both sides of each equation by <img
+      src="fourier_analysis-177.png" style="vertical-align: -11.392px"></img> and then add all the equations together, which yields
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-178.png" style="vertical-align: -20.5275px" id="10-7-p2"></img></td>
+        <td align="right">(66)</td>
+      </tr>
+    </table>
+    <p>
+      Interchanging the sequence of the two summation on the right-hand side,
+      equation (<a href="#10-7-p2">66</a>) is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-179.png" style="vertical-align: -20.5275px" id="10-7-p3"></img></td>
+        <td align="right">(67)</td>
+      </tr>
+    </table>
+    <p>
+      Using the fact that (verified by Wolfram Mathematica)
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-180.png" style="vertical-align: -18.145px"></img></td>
+        <td align="right">(68)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-181.png" style="vertical-align: -5.1365px"></img> is the Kroneker Delta, equation (<a href="#10-7-p3">67</a>)
+      is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-182.png" style="vertical-align: -20.5275px"></img></td>
+        <td align="right">(69)</td>
+      </tr>
+    </table>
+    <p>
+      i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-183.png" style="vertical-align: -18.145px"></img></td>
+        <td align="right">(70)</td>
+      </tr>
+    </table>
+    <p>
+      which can be solved to give
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-184.png" style="vertical-align: -18.145px" id="10-7-p1"></img></td>
+        <td align="right">(71)</td>
+      </tr>
+    </table>
+    <p>
+      Equation (<a href="#10-7-p1">71</a>) is the inverse DFT.
+    </p>
+    <h2 id="auto-19">5<span style="margin-left: 1em"></span>Sine transform and Cosine transform</h2>
+    <p>
+      We mentioned (without giving proof) that the set of functions <img src="fourier_analysis-185.png"
+      style="vertical-align: -4.48px"></img> and <img src="fourier_analysis-186.png" style="vertical-align: -4.48px"></img> with <img src="fourier_analysis-187.png" style="vertical-align: -3.456px"></img>
+      is a &ldquo;complete set&rdquo; in expanding any function in the
+      interval <img src="fourier_analysis-188.png" style="vertical-align: -4.48px"></img>, where <img src="fourier_analysis-189.png" style="vertical-align: -2.9605px"></img> is an
+      arbitrary point. Therefore Fourier series use both cosine and sine as
+      basis functions to expand a function. Let us introduce another
+      conclusion (again without giving proof) that the set of sine functions
+      <img src="fourier_analysis-190.png" style="vertical-align: -4.48px"></img> with <img src="fourier_analysis-191.png" style="vertical-align: -3.456px"></img> is a
+      &ldquo;complete set&rdquo; in expanding any function <img src="fourier_analysis-192.png" style="vertical-align: -0.384px"></img>
+      in the interval <img src="fourier_analysis-188.png" style="vertical-align: -4.48px"></img>. A similar conclusion is that
+      the set of cosine functions <img src="fourier_analysis-193.png" style="vertical-align: -4.48px"></img> with <img src="fourier_analysis-194.png"
+      style="vertical-align: -3.456px"></img> is a &ldquo;complete set&rdquo; in expanding any function
+      <img src="fourier_analysis-192.png" style="vertical-align: -0.384px"></img> in the interval <img src="fourier_analysis-188.png" style="vertical-align: -4.48px"></img>. Note
+      that the argument of the basis functions used in the Fourier expansion
+      and the sine (or cosine) expansion differs by a factor of two, namely
+      <img src="fourier_analysis-195.png" style="vertical-align: -4.48px"></img> and <img src="fourier_analysis-196.png" style="vertical-align: -4.48px"></img>.
+    </p>
+    <p>
+      The first five basis functions used in Fourier expansion, sine
+      expansion, and cosine expansion are plotted in Fig. <a href="#18-1-10-e1">3</a>.
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-197.png"></img></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 3. </b><a id="auto-20"></a> <a id="18-1-10-e1"></a>The first five basis
+            functions used in Fourier expansion (upper), sine expansion
+            (middle), and cosine expansion (lower) in the interval <img src="fourier_analysis-198.png"
+            style="vertical-align: -3.712px"></img> with <img src="fourier_analysis-199.png" style="vertical-align: -2.4705px"></img> and <img src="fourier_analysis-200.png" style="vertical-align: -0.256px"></img>.
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The basis function <img src="fourier_analysis-201.png" style="vertical-align: -4.48px"></img> used in the Fourier expansion
+      have the properties <img src="fourier_analysis-202.png" style="vertical-align: -4.48px"></img>. Therefore Fourier expansion
+      works best for function that satisfy <img src="fourier_analysis-203.png" style="vertical-align: -4.48px"></img>. For
+      functions that do not satisfies this condition, there will be Gibbs
+      oscillations near the interval boundary when approximated by using the
+      Fourier expansion. A function with <img src="fourier_analysis-204.png" style="vertical-align: -4.48px"></img> can be
+      considered as a periodic function with period <img src="fourier_analysis-2.png" style="vertical-align: -0.256px"></img>
+      but having discontinuity points at the interval boundary. Gibbs
+      oscillation appear near discontinuity points, which can be inner points
+      in the interval or at the interval boundaries.
+    </p>
+    <p>
+      The basis functions <img src="fourier_analysis-201.png" style="vertical-align: -4.48px"></img> used in sine expansion have
+      the properties <img src="fourier_analysis-205.png" style="vertical-align: -4.48px"></img>. Therefore since expansion works
+      best for functions that satisfy <img src="fourier_analysis-206.png" style="vertical-align: -4.48px"></img>. For functions
+      that do not satisfies this condition, there will be Gibbs oscillations
+      near the interval boundary when approximated by using the sine
+      expansion. Examples are shown in Fig. <a href="#18-1-11-a1">4</a>.
+    </p>
+    <p>
+      The basis functions <img src="fourier_analysis-201.png" style="vertical-align: -4.48px"></img> used in cosine expansion
+      have the properties <img src="fourier_analysis-207.png" style="vertical-align: -4.48px"></img>. Therefore cosine expansion
+      works best for functions that satisfy <img src="fourier_analysis-208.png" style="vertical-align: -4.48px"></img>. For
+      functions that do not satisfies this condition, there will be Gibbs
+      oscillations near the interval boundary when approximated by using the
+      cosine expansion (to be verified numerically by me).
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-209.png"></img><img src="fourier_analysis-210.png"></img></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 4. </b><a id="auto-21"></a><a id="18-1-11-a1"></a>Left: constant function
+            <img src="fourier_analysis-211.png" style="vertical-align: -3.712px"></img> approximated by using the sine expansion.
+            Right: linear function <img src="fourier_analysis-212.png" style="vertical-align: -3.712px"></img> approximated by
+            using the sine expansion. Gibbs oscillation appears near the
+            boundaries, where <img src="fourier_analysis-213.png" style="vertical-align: -3.712px"></img> does not satisfy the
+            condition <img src="fourier_analysis-214.png" style="vertical-align: -3.712px"></img> (<img src="fourier_analysis-199.png" style="vertical-align: -2.4705px"></img> and
+            <img src="fourier_analysis-200.png" style="vertical-align: -0.256px"></img> for this case). The expansion coefficients
+            <img src="fourier_analysis-215.png" style="vertical-align: -2.598px"></img> are obtained via the discrete sine
+            transform (<a href="#18-1-11-a2">72</a>) with number of sampling point <img
+            src="fourier_analysis-216.png" style="vertical-align: -0.896px"></img>. The reconstruction formula is given by <img
+            src="fourier_analysis-217.png" style="vertical-align: -9.1055px"></img>.
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Next, let us discuss the sine and cosine transformation.
+    </p>
+    <h3 id="auto-22">5.1<span style="margin-left: 1em"></span>Definition of the Discrete Sine Transform
+    (DST)</h3>
+    <p>
+      There are many slightly different types of Discrete Sine Transforms
+      (DST). One form I saw in W. Press's numerical recipe book is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-218.png" style="vertical-align: -20.5275px" id="18-1-11-a2"></img></td>
+        <td align="right">(72)</td>
+      </tr>
+    </table>
+    <p>
+      (which can be obtained formally by replacing DFT's exponential function
+      by sine and the <img src="fourier_analysis-219.png" style="vertical-align: -0.512px"></img> by <img src="fourier_analysis-220.png" style="vertical-align: -0.512px"></img>.) The
+      inverse sine transformation is given by (I did not derive this, but has
+      numerically verified that this transform recover the original data if
+      applied after the sine transform (<a href="#18-1-11-a2">72</a>))
+    </p>
+    <p>
+      
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-221.png" style="vertical-align: -18.6145px"></img></td>
+        <td align="right">(73)</td>
+      </tr>
+    </table>
+    <p>
+      which is identical with the original transformation except for the
+      normalization factor <img src="fourier_analysis-222.png" style="vertical-align: -4.48px"></img>.
+    </p>
+    <p>
+      Of course we need a fast method of computing the above DST. All fast
+      methods for this finally need to make use of the fast method used in the
+      computation of DFT. To conveniently use the fast method of DFT, we need
+      carefully define the DST so that the DST can make easy connection to the
+      DFT so that the DFT fast method can be easily applied to compute the
+      DST. A standard way of making this easy is to define the DST via the DFT
+      of a odd extension of the original data. Next, let us discuss this.
+    </p>
+    <h3 id="auto-23">5.2<span style="margin-left: 1em"></span>Define DST via DFT</h3>
+    <p>
+      Let us introduce the Discrete Sine Transform (DST) by odd extending a
+      given real number sequence and then using the DFT of the extended data
+      to define the DST. There are several slightly different way of odd
+      extending a given sequence and thus different types of DST. Given a <img
+      src="fourier_analysis-223.png" style="vertical-align: -0.64px"></img> real number sequence <img src="fourier_analysis-224.png" style="vertical-align: -4.48px"></img>, one
+      frequently adopted odd extension is <img src="fourier_analysis-225.png" style="vertical-align: -4.48px"></img>. This odd
+      extension is illustrated in Fig. <a href="#18-1-11-e1">5</a>.
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-226.png" width="320"></img></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 5. </b><a id="auto-24"></a><a id="18-1-11-e1"></a>Frequently used odd
+            extension of real number sequence. The black points are original
+            data (with index <img src="fourier_analysis-227.png" style="vertical-align: -2.944px"></img>). The blue points are
+            introduced to generate an odd periodic sequence of numbers with
+            index <img src="fourier_analysis-228.png" style="vertical-align: -2.944px"></img>, where <img src="fourier_analysis-229.png" style="vertical-align: -3.712px"></img>. The
+            point used in the DFT is <img src="fourier_analysis-230.png" style="vertical-align: -2.944px"></img>.
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      After the extension, the total number of points is <img src="fourier_analysis-120.png" style="vertical-align: -1.664px"></img>
+      with <img src="fourier_analysis-231.png" style="vertical-align: -4.48px"></img>. Then DFT use the <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img>
+      points with index <img src="fourier_analysis-125.png" style="vertical-align: -3.712px"></img> as input. The output of this
+      DFT is an odd symmetric sequence of purely imaginary numbers. Next, let
+      us examine the output and try to simplify it. The DFT in this case is
+      given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-232.png" style="vertical-align: -20.5275px" id="18-1-12-a1"></img></td>
+        <td align="right">(74)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-233.png" style="vertical-align: -5.337px"></img> is the odd extension of the original data
+      <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>. For <img src="fourier_analysis-234.png" style="vertical-align: -3.712px"></img>, the relation
+      between <img src="fourier_analysis-233.png" style="vertical-align: -5.337px"></img> and <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img> is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-235.png" style="vertical-align: -5.337px" id="18-1-12-a2"></img></td>
+        <td align="right">(75)</td>
+      </tr>
+    </table>
+    <p>
+      For <img src="fourier_analysis-236.png" style="vertical-align: -3.712px"></img>, the relation between <img src="fourier_analysis-233.png" style="vertical-align: -5.337px"></img>
+      and <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img> is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-237.png" style="vertical-align: -5.337px" id="18-1-12-a3"></img></td>
+        <td align="right">(76)</td>
+      </tr>
+    </table>
+    <p>
+      Note that <img src="fourier_analysis-238.png" style="vertical-align: -3.058px"></img> and <img src="fourier_analysis-239.png" style="vertical-align: -4.21px"></img>, then
+      expression (<a href="#18-1-12-a1">74</a>) is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-240.png" style="vertical-align: -20.5275px"></img></td>
+        <td align="right">(77)</td>
+      </tr>
+    </table>
+    <p>
+      Using <img src="fourier_analysis-231.png" style="vertical-align: -4.48px"></img>, the above expression is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-241.png" style="vertical-align: -20.5275px"></img></td>
+        <td align="right">(78)</td>
+      </tr>
+    </table>
+    <p>
+      Using the relations (<a href="#18-1-12-a2">75</a>) and (<a href="#18-1-12-a3">76</a>) to replace
+      <img src="fourier_analysis-233.png" style="vertical-align: -5.337px"></img> by <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>, the above expression
+      is written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-242.png" style="vertical-align: -20.5275px"></img></td>
+        <td align="right">(79)</td>
+      </tr>
+    </table>
+    <p>
+      Change the definition of the dump index <img src="fourier_analysis-145.png" style="vertical-align: -3.712px"></img> in the
+      above summation to make it in the conventional range <img src="fourier_analysis-243.png" style="vertical-align: -4.48px"></img>,
+      the above expression is written as
+    </p>
+    <center>
+      <img src="fourier_analysis-244.png" style="vertical-align: -20.5275px"></img>
+    </center>
+    <p>
+      Defining <img src="fourier_analysis-245.png" style="vertical-align: -3.712px"></img> to replace the dump index in the second
+      summation, the above expression is written as
+    </p>
+    <center>
+      <img src="fourier_analysis-246.png" style="vertical-align: -98.74px" id="18-1-12-a6"></img>
+    </center>
+    <p>
+      which is a purely imaginary number. Expression (<a href="#18-1-12-a6">80</a>) has the
+      symmetry
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-247.png" style="vertical-align: -3.456px" id="18-1-12-a8"></img></td>
+        <td align="right">(81)</td>
+      </tr>
+    </table>
+    <p>
+      which is called odd symmetry. Therefore only half of the data for <img
+      src="fourier_analysis-248.png" style="vertical-align: -2.8325px"></img> with <img src="fourier_analysis-249.png" style="vertical-align: -3.456px"></img> need to be stored,
+      namely <img src="fourier_analysis-248.png" style="vertical-align: -2.8325px"></img> with <img src="fourier_analysis-250.png" style="vertical-align: -4.48px"></img>. Equations
+      (<a href="#18-1-12-a8">81</a>) indicates that <img src="fourier_analysis-251.png" style="vertical-align: -2.9605px"></img> and <img src="fourier_analysis-133.png"
+      style="vertical-align: -6.038px"></img> are definitely zero and thus do not need to be stored.
+      Then the remaining data to be stored are <img src="fourier_analysis-248.png" style="vertical-align: -2.8325px"></img> with
+      <img src="fourier_analysis-252.png" style="vertical-align: -4.48px"></img>, i.e., <img src="fourier_analysis-248.png" style="vertical-align: -2.8325px"></img> with <img src="fourier_analysis-253.png"
+      style="vertical-align: -3.456px"></img>. Following the convention of making the index of <img src="fourier_analysis-248.png"
+      style="vertical-align: -2.8325px"></img> in the range <img src="fourier_analysis-243.png" style="vertical-align: -4.48px"></img>, we define <img src="fourier_analysis-254.png"
+      style="vertical-align: -4.1125px"></img>. Then
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-255.png" style="vertical-align: -20.5275px" id="18-1-12-a10"></img></td>
+        <td align="right">(82)</td>
+      </tr>
+    </table>
+    <p>
+      with <img src="fourier_analysis-256.png" style="vertical-align: -3.456px"></img>, which is the index that we prefer.
+      Finally, the so-called type-I Discrete Sine Transform (DST-I) is defined
+      based on Eq. (<a href="#18-1-12-a10">82</a>) via
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-257.png" style="vertical-align: -20.5275px"></img></td>
+        <td align="right">(83)</td>
+      </tr>
+    </table>
+    <p>
+      with <img src="fourier_analysis-258.png" style="vertical-align: -3.456px"></img>.
+    </p>
+    <h3 id="auto-25">5.3<span style="margin-left: 1em"></span>The meaning of DST</h3>
+    <p>
+      From the above derivation, we know that the DST, <img src="fourier_analysis-259.png" style="vertical-align: -2.8325px"></img>,
+      is related to the DFT, <img src="fourier_analysis-248.png" style="vertical-align: -2.8325px"></img>, by <img src="fourier_analysis-260.png" style="vertical-align: -4.48px"></img>,
+      and thus the meaning of <img src="fourier_analysis-259.png" style="vertical-align: -2.8325px"></img> is in principle clear.
+    </p>
+    <p>
+      Next, let us examine the meaning of the DST in more details so that we
+      can easily use it in practice. Let us try to use the DST to reconstruct
+      a function that approximates the original data. Since DST is only a
+      special case of DFT, reconstruct the function using DST follows the same
+      procedure used in DFT. In DFT, the function that approximates the
+      original data is reconstructed via Eq. (<a href="#11-9-1">61</a>) (changing to
+      the positive exponent convention), i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-261.png" style="vertical-align: -22.094px" id="18-1-12-e1"></img></td>
+        <td align="right">(84)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-2.png" style="vertical-align: -0.256px"></img> is the length of the interval in which the
+      samplings <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img> with <img src="fourier_analysis-125.png" style="vertical-align: -3.712px"></img> are made.
+      For our present case, i.e., an odd extension of the original <img src="fourier_analysis-44.png"
+      style="vertical-align: -0.384px"></img> data, we have <img src="fourier_analysis-231.png" style="vertical-align: -4.48px"></img> and <img src="fourier_analysis-262.png" style="vertical-align: -2.9605px"></img>
+      and <img src="fourier_analysis-263.png" style="vertical-align: -6.038px"></img>. Then Eq. (<a href="#18-1-12-e1">84</a>) is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-264.png" style="vertical-align: -21.632px"></img></td>
+        <td align="right">(85)</td>
+      </tr>
+    </table>
+    <p>
+      Using the odd symmetry of <img src="fourier_analysis-248.png" style="vertical-align: -2.8325px"></img>, i.e., <img src="fourier_analysis-265.png"
+      style="vertical-align: -2.8325px"></img>, the above expansion is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-266.png" style="vertical-align: -21.632px"></img></td>
+        <td align="right">(86)</td>
+      </tr>
+    </table>
+    <p>
+      Define <img src="fourier_analysis-267.png" style="vertical-align: -1.664px"></img>, and note that <img src="fourier_analysis-231.png" style="vertical-align: -4.48px"></img>,
+      then the above expression is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-268.png" style="vertical-align: -21.632px"></img></td>
+        <td align="right">(87)</td>
+      </tr>
+    </table>
+    <p>
+      i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-269.png" style="vertical-align: -18.6145px"></img></td>
+        <td align="right">(88)</td>
+      </tr>
+    </table>
+    <p>
+      which is simplified as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-270.png" style="vertical-align: -18.6145px" id="18-1-12-e3"></img></td>
+        <td align="right">(89)</td>
+      </tr>
+    </table>
+    <p>
+      As a convention, we prefer that the summation index begins from 0 and
+      ends at <img src="fourier_analysis-271.png" style="vertical-align: -0.384px"></img>. Then expression (<a href="#18-1-12-e3">89</a>) is
+      re-written as
+    </p>
+    <center>
+      <img src="fourier_analysis-272.png" style="vertical-align: -18.7425px"></img>
+    </center>
+    <p>
+      Using the relation between DST and DFT, i.e., <img src="fourier_analysis-273.png" style="vertical-align: -4.1125px"></img>,
+      the above equation is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-274.png" style="vertical-align: -18.7425px"></img></td>
+        <td align="right">(90)</td>
+      </tr>
+    </table>
+    <p>
+      This is the formula for constructing a function approximating the
+      original function using the DST data. This formula is a expansion over
+      the basis functions <img src="fourier_analysis-275.png" style="vertical-align: -4.48px"></img> with the DST <img src="fourier_analysis-259.png"
+      style="vertical-align: -2.8325px"></img> acting as the expansion coefficients. Therefore the direct
+      meaning of the DST, <img src="fourier_analysis-259.png" style="vertical-align: -2.8325px"></img>, is that they are the
+      expansion coefficients when using the sine functions <img src="fourier_analysis-275.png" style="vertical-align: -4.48px"></img>
+      as the basis functions to approximate a function in the interval of
+      length <img src="fourier_analysis-12.png" style="vertical-align: -0.256px"></img>. From Fig. <a href="#18-1-11-e1">5</a>, we know that
+      the interval length <img src="fourier_analysis-12.png" style="vertical-align: -0.256px"></img> is given by <img src="fourier_analysis-276.png" style="vertical-align: -4.48px"></img>,
+      where <img src="fourier_analysis-87.png" style="vertical-align: -0.256px"></img> is the uniform interval of the original
+      <img src="fourier_analysis-44.png" style="vertical-align: -0.384px"></img> sampling points.
+    </p>
+    <h3 id="auto-26">5.4<span style="margin-left: 1em"></span>Discrete Cosine transform</h3>
+    <p>
+      to be written
+    </p>
+    <h2 id="auto-27">6<span style="margin-left: 1em"></span>Misc content</h2>
+    <h3 id="auto-28">6.1<span style="margin-left: 1em"></span>Multi-dimensional Fourier series</h3>
+    <p>
+      Compared with Eq. (<a href="#2-25-1">1</a>) that uses the trigonometric
+      functions, Fourier series (<a href="#2-25-p6">11</a>) and (<a href="#2-25-p7">12</a>), which
+      is expressed in terms of the complex exponential function <img src="fourier_analysis-277.png"
+      style="vertical-align: -0.384px"></img>, is more compact. The convenience introduced by the
+      complex exponential function can be more easily appreciated when we deal
+      with multiple-dimensional Fourier series. For example, a two-dimensional
+      function <img src="fourier_analysis-278.png" style="vertical-align: -4.48px"></img> can be expanded as Fourier series about
+      <img src="fourier_analysis-19.png" style="vertical-align: -0.384px"></img>,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-279.png" style="vertical-align: -17.7135px" id="10-22-p2"></img></td>
+        <td align="right">(91)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-280.png" style="vertical-align: -2.8325px"></img> is the period of <img src="fourier_analysis-281.png" style="vertical-align: -0.64px"></img>
+      in <img src="fourier_analysis-19.png" style="vertical-align: -0.384px"></img> direction. The expansion coefficients <img
+      src="fourier_analysis-282.png" style="vertical-align: -4.48px"></img> can be further expanded as Fourier series about <img
+      src="fourier_analysis-283.png" style="vertical-align: -3.712px"></img>,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-284.png" style="vertical-align: -17.7135px" id="10-22-p1"></img></td>
+        <td align="right">(92)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="fourier_analysis-285.png" style="vertical-align: -5.1365px"></img> is the period of <img src="fourier_analysis-281.png" style="vertical-align: -0.64px"></img>
+      in <img src="fourier_analysis-283.png" style="vertical-align: -3.712px"></img> direction. Using Eq. (<a href="#10-22-p1">92</a>) in Eq.
+      (<a href="#10-22-p2">91</a>), we obtain
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-286.png" style="vertical-align: -17.7135px" id="10-22-e1"></img></td>
+        <td align="right">(93)</td>
+      </tr>
+    </table>
+    <p>
+      where the coefficients <img src="fourier_analysis-287.png" style="vertical-align: -2.8325px"></img> can be written
+    </p>
+    <center>
+      <img src="fourier_analysis-288.png" style="vertical-align: -40.737px" id="2-4-1"></img>
+    </center>
+    <p>
+      Equations (<a href="#10-22-e1">93</a>) and (<a href="#2-4-1">94</a>) give the
+      two-dimensional Fourier series of <img src="fourier_analysis-278.png" style="vertical-align: -4.48px"></img>. We see that
+      the extension of Fourier series from one-dimension case to two-dimension
+      case is straightforward when expressed in terms of the complex
+      exponential function <img src="fourier_analysis-277.png" style="vertical-align: -0.384px"></img>. However, if we use <img
+      src="fourier_analysis-289.png" style="vertical-align: -4.48px"></img>, <img src="fourier_analysis-290.png" style="vertical-align: -4.48px"></img>, <img src="fourier_analysis-291.png" style="vertical-align: -5.1365px"></img>,
+      and <img src="fourier_analysis-292.png" style="vertical-align: -5.1365px"></img> as basis functions, the two-dimensional
+      Fourier series of <img src="fourier_analysis-278.png" style="vertical-align: -4.48px"></img> is a little complicated (refer
+      to Sec. <a href="#10-23-8">6.2</a>). The final result is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-293.png" style="vertical-align: -18.145px" id="2-13-e10"></img></td>
+        <td align="right">(95)</td>
+      </tr>
+    </table>
+    <p>
+      where the coefficient <img src="fourier_analysis-294.png" style="vertical-align: -2.948px"></img> is given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-295.png" style="vertical-align: -18.753px"></img></td>
+        <td align="right">(96)</td>
+      </tr>
+    </table>
+    <p>
+      and other coefficients are given by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-296.png" style="vertical-align: -18.753px"></img></td>
+        <td align="right">(97)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-297.png" style="vertical-align: -18.753px" id="2-13-e11"></img></td>
+        <td align="right">(98)</td>
+      </tr>
+    </table>
+    <h3 id="auto-29">6.2<span style="margin-left: 1em"></span><a id="10-23-8"></a>Multidimensional Fourier series
+    using trigonometric functions cosine and sine</h3>
+    <p>
+      This section is to demonstrate that multiple-dimensional Fourier series
+      will become complicated if we use the cosine and sine as basis
+      functions. A two-dimensional function <img src="fourier_analysis-278.png" style="vertical-align: -4.48px"></img> can be
+      first expanded as Fourier series about <img src="fourier_analysis-19.png" style="vertical-align: -0.384px"></img>,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-298.png" style="vertical-align: -18.145px" id="10-23-3"></img></td>
+        <td align="right">(99)</td>
+      </tr>
+    </table>
+    <p>
+      and then the two coefficients <img src="fourier_analysis-299.png" style="vertical-align: -4.48px"></img> and <img src="fourier_analysis-300.png"
+      style="vertical-align: -4.48px"></img> can be further expanded as Fourier series about <img src="fourier_analysis-283.png"
+      style="vertical-align: -3.712px"></img>,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-301.png" style="vertical-align: -18.145px" id="10-23-1"></img></td>
+        <td align="right">(100)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-302.png" style="vertical-align: -18.145px" id="10-23-2"></img></td>
+        <td align="right">(101)</td>
+      </tr>
+    </table>
+    <p>
+      Substituting Eq. (<a href="#10-23-1">100</a>) and (<a href="#10-23-2">101</a>) into Eq. (<a
+      href="#10-23-3">99</a>), we obtain
+    </p>
+    <center>
+      <img src="fourier_analysis-303.png" style="vertical-align: -47.655px" id="10-23-4"></img>
+    </center>
+    <p>
+      Next, we consider the special case that <img src="fourier_analysis-304.png" style="vertical-align: -5.1365px"></img> and use
+      <img src="fourier_analysis-305.png" style="vertical-align: -0.384px"></img> and <img src="fourier_analysis-306.png" style="vertical-align: -3.712px"></img> to denote <img src="fourier_analysis-19.png"
+      style="vertical-align: -0.384px"></img> and <img src="fourier_analysis-283.png" style="vertical-align: -3.712px"></img>, respectively. Then Eq. (<a
+      href="#10-23-4">102</a>) is written
+    </p>
+    <center>
+      <img src="fourier_analysis-307.png" style="vertical-align: -42.9px" id="10-23-5"></img>
+    </center>
+    <p>
+      Using the product-to-sum trigonometric identities, equation (<a href="#10-23-5">103</a>)
+      is written
+    </p>
+    <center>
+      <img src="fourier_analysis-308.png" style="vertical-align: -97.665px" id="11-9-4"></img>
+    </center>
+    <p>
+      Equation (<a href="#11-9-4">104</a>) is obviously more complicated than Eq. (<a
+      href="#10-22-e1">93</a>) that uses complex exponential functions. (It is ready to
+      realize that the Fourier series will become even complicated for the
+      three-dimensional case.) The coefficients appearing in Eq. () are
+      written
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-309.png" style="vertical-align: -17.089px"></img></td>
+        <td align="right">(105)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-310.png" style="vertical-align: -17.089px"></img></td>
+        <td align="right">(106)</td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-311.png" style="vertical-align: -18.753px"></img></td>
+        <td align="right">(107)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-312.png" style="vertical-align: -18.753px"></img></td>
+        <td align="right">(108)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-313.png" style="vertical-align: -18.753px"></img></td>
+        <td align="right">(109)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-314.png" style="vertical-align: -18.753px"></img></td>
+        <td align="right">(110)</td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <h3 id="auto-30">6.3<span style="margin-left: 1em"></span>Details on FFT codes provided by the
+    Numerical recipes book[<a href="#bib-press1992">2</a>]</h3>
+    <p>
+      The following is about a specific FFT subroutine provided by the
+      Numerical recipes book[<a href="#bib-press1992">2</a>]. This is not a general case.
+    </p>
+    <p>
+      The input and output of the DFT are usually complex numbers. In the
+      implementation of FFT algorithm provided by Numerical recipes book[<a
+      href="#bib-press1992">2</a>], to avoid using complex numbers, the algorithm adopts the
+      real number representation of the complex numbers. In this scheme, two
+      elements of a real number array are used to store one complex number. To
+      store a complex array &ldquo;cdata&rdquo; of length <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img>,
+      we will need a real number array &ldquo;rdata&rdquo; of length <img src="fourier_analysis-315.png"
+      style="vertical-align: -0.256px"></img>. The first elements of array &ldquo;rdata&rdquo; will
+      contain the real part of &ldquo;cdata(1)&rdquo;, the second elements of
+      &ldquo;rdata&rdquo; will contain the imaginary part of 
+      &ldquo;cdata(1)&rdquo;, and so on.
+    </p>
+    <p>
+      To test the correctness of the above statement, I generated a real
+      number array with length <img src="fourier_analysis-316.png" style="vertical-align: -0.256px"></img> by using a random
+      generating routine and calculate the DFT of the array with two methods.
+      The real array generated by the random generator are considered to be a
+      real number representation of a complex array with length <img src="fourier_analysis-317.png"
+      style="vertical-align: -4.48px"></img>. Using the real array as the input of the FFT routine (the
+      code in ~/project_new/fft). To check the correctness of my understanding
+      of the input and output of the FFT, I manually convert the real number
+      of length <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img> to a complex array with length <img
+      src="fourier_analysis-317.png" style="vertical-align: -4.48px"></img>, and use directly the summation in Eq. (<a href="#3-25-e3">50</a>)
+      to calculate the DFT. The output I got is obviously a complex array with
+      length <img src="fourier_analysis-317.png" style="vertical-align: -4.48px"></img>. Then I manually convert the complex
+      array to a real number array of length <img src="fourier_analysis-113.png" style="vertical-align: -0.256px"></img> and plot
+      the output in Fig. <a href="#3-25-e8">6</a> with dashed line. The results in Fig.
+      <a href="#3-25-e8">6</a> indicates the results given by the FFT and the naive
+      method used by me agree with each other well. This proves that my
+      understanding of the input and output of FFT (especially the storage
+      arrangement) is correct.
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-318.png" width="320"></img></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 6. </b><a id="auto-31"></a><a id="3-25-e8"></a>The output of a FFT routine
+            (solid line) agrees well with those (dashed line) calculated by
+            directly evaluate the summation in Eq. (<a href="#3-25-e3">50</a>) (the
+            latter is coded by me). The agreement indicates my understanding
+            of the output of FFT (especially the storage arrangement) is
+            correct. Here the time domain data is generated by a random
+            generating routine. 
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      To clearly show the output of FFT, we recover the real and imaginary
+      part of DFT from the output of FFT and plots the data as a function of
+      their corresponding frequency. The results are given in Fig. <a href="#8-27-p1">7</a>.
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-319.png" width="320"></img><img src="fourier_analysis-320.png" width="320"></img></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 7. </b><a id="auto-32"></a><a id="8-27-p1"></a>The real (left) and
+            imaginary (right) part of the discrete Fourier transformation as a
+            function of the frequency. The point <img src="fourier_analysis-321.png" style="vertical-align: -0.512px"></img>
+            corresponds to frequency <img src="fourier_analysis-322.png" style="vertical-align: -3.712px"></img> while the point
+            <img src="fourier_analysis-323.png" style="vertical-align: -0.512px"></img> corresponds to frequency <img src="fourier_analysis-324.png" style="vertical-align: -3.712px"></img>,
+            where <img src="fourier_analysis-325.png" style="vertical-align: -3.712px"></img> with <img src="fourier_analysis-326.png" style="vertical-align: -0.256px"></img> is the
+            sample interval in time domain. The time domain data is the same
+            as used in Fig. <a href="#3-25-e8">6</a>. Why is there a spike at zero
+            frequency?
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <h3 id="auto-33">6.4<span style="margin-left: 1em"></span>Computing Fourier integrals using FFT (not
+    finished, to be deleted)</h3>
+    <p>
+      Consider the calculation of the following integral:
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-327.png" style="vertical-align: -15.503px" id="8-26-1"></img></td>
+        <td align="right">(111)</td>
+      </tr>
+    </table>
+    <p>
+      Divide the interval <img src="fourier_analysis-328.png" style="vertical-align: -4.48px"></img> into <img src="fourier_analysis-329.png" style="vertical-align: -0.256px"></img>
+      uniform sub-intervals and define
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-330.png" style="vertical-align: -11.3465px"></img></td>
+        <td align="right">(112)</td>
+      </tr>
+    </table>
+    <p>
+      Then the integration in Eq. (<a href="#8-26-1">111</a>) can be approximated as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-331.png" style="vertical-align: -20.5275px" id="8-26-e1"></img></td>
+        <td align="right">(113)</td>
+      </tr>
+    </table>
+    <p>
+      Define <img src="fourier_analysis-332.png" style="vertical-align: -4.48px"></img> with integer <img src="fourier_analysis-333.png" style="vertical-align: -0.384px"></img> and
+      <img src="fourier_analysis-334.png" style="vertical-align: -4.48px"></img>. Consider the calculation of <img src="fourier_analysis-335.png" style="vertical-align: -4.48px"></img>.
+      Using Eq. (<a href="#8-26-e1">113</a>), we obtain
+    </p>
+    <center>
+      <img src="fourier_analysis-336.png" style="vertical-align: -92.023px" id="8-26-e2"></img>
+    </center>
+    <p>
+      Equation (<a href="#8-26-e2">115</a>) indicates the value of the integration <img
+      src="fourier_analysis-335.png" style="vertical-align: -4.48px"></img> can be obtained by calculating the discrete Fourier
+      transformation of <img src="fourier_analysis-106.png" style="vertical-align: -5.1365px"></img>. However, as discussed in Ref.
+      [<a href="#bib-press1992">2</a>], equation (<a href="#8-26-e2">115</a>) is not recommended for
+      practical use because the oscillatory nature of the integral will make
+      Eq. (<a href="#8-26-e2">115</a>) become systematically inaccurate as <img src="fourier_analysis-77.png"
+      style="vertical-align: -0.384px"></img> increases. Next, consider a new method, in which <img src="fourier_analysis-41.png"
+      style="vertical-align: -4.48px"></img> is expanded as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-337.png" style="vertical-align: -20.85px" id="8-27-1"></img></td>
+        <td align="right">(116)</td>
+      </tr>
+    </table>
+    <p>
+      Apply the integral operator<img src="fourier_analysis-338.png" style="vertical-align: -7.2455px"></img> to both sides of Eq.
+      (<a href="#8-27-1">116</a>), we obtain
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-339.png" style="vertical-align: -20.85px"></img></td>
+        <td align="right">(117)</td>
+      </tr>
+    </table>
+    <p>
+      Make the change of variables <img src="fourier_analysis-340.png" style="vertical-align: -5.1365px"></img> in the first
+      integral and <img src="fourier_analysis-341.png" style="vertical-align: -4.48px"></img> in the second integral, the above
+      equation is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-342.png" style="vertical-align: -20.85px"></img></td>
+        <td align="right">(118)</td>
+      </tr>
+    </table>
+    <p>
+      Define <img src="fourier_analysis-343.png" style="vertical-align: -0.384px"></img> and make use of <img src="fourier_analysis-344.png" style="vertical-align: -5.1365px"></img>,
+      the above equation is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-345.png" style="vertical-align: -20.85px" id="8-27-5"></img></td>
+        <td align="right">(119)</td>
+      </tr>
+    </table>
+    <p>
+      Define
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-346.png" style="vertical-align: -15.503px"></img></td>
+        <td align="right">(120)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-347.png" style="vertical-align: -15.503px"></img></td>
+        <td align="right">(121)</td>
+      </tr>
+    </table>
+    <p>
+      Then Eq. (<a href="#8-27-5">119</a>) is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="fourier_analysis-348.png" style="vertical-align: -21.6325px"></img></td>
+        <td align="right">(122)</td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <table style="width: 100%">
+      <tbody><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em"><p>
+          <img src="fourier_analysis-349.png"></img>
+        </p></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+      </tr><tr>
+        <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><p>
+          <font size="-1"><p>
+            <b>Figure 8. </b><a id="auto-34"></a>Older version of Fig. <a href="#4-16-1">2</a>,
+            created by Metapost, the new version is created by the vector
+            graphic editor in TeXmacs.
+          </p></font>
+        </p></td>
+      </tr></tbody>
+    </table>
+    <p>
+      
+    </p>
+    <h2 id="auto-35">Bibliography</h2>
+    <div style="text-indent: 0em">
+      <div class="compact-block">
+        <font size="-1"><dl>
+          <p>
+            <p>
+              <strong>[1]  </strong><a id="bib-snieder1994"></a><i>A Guided Tour of
+              Mathematical Physics</i>. Samizdat Press, 1994.
+            </p>
+            <p>
+              <strong>[2]  </strong><a id="bib-press1992"></a>W. H. Press, S. A. Teukolsky,
+              W. T. Vetterling, and B. P. Flannery. <i>Numerical Recipes in
+              Fortran 77</i>. Cambridge University Press, Cambridge, UK, 1992.
+            </p>
+          </p>
+        </dl></font>
+      </div>
+    </div>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+  </body>
+</html>

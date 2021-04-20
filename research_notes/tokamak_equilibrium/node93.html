@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Boundary magnetic surface and initial coordinates</TITLE>
+<META NAME="description" CONTENT="Boundary magnetic surface and initial coordinates">
+<META NAME="keywords" CONTENT="tokamak_equilibrium">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tokamak_equilibrium.css">
+
+<LINK REL="next" HREF="node94.html">
+<LINK REL="previous" HREF="node92.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node94.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1157"
+  HREF="node94.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1155"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1149"
+  HREF="node92.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1158"
+  HREF="node94.html">Fixed boundary equilibrium numerical</A>
+<B> Up:</B> <A NAME="tex2html1156"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Previous:</B> <A NAME="tex2html1150"
+  HREF="node92.html">Pressure and toroidal field</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000122000000000000000">
+Boundary magnetic surface and initial coordinates</A>
+</H2>
+
+<P>
+In the fixed boundary equilibrium problem, the shape of the boundary magnetic
+surface (it is also the boundary of the computational region, which is usually
+the last-closed-flux-surface) is given while the shape of the inner flux
+surface is to be solved. A simple analytical expression for a D-shaped
+magnetic surface takes the form
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-20-1"></A><!-- MATH
+ \begin{equation}
+R = R_0 + a \cos (\theta + \Delta \sin \theta),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="199" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1361.png"
+ ALT="$\displaystyle R = R_0 + a \cos (\theta + \Delta \sin \theta),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">454</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-20-2"></A><!-- MATH
+ \begin{equation}
+Z = \kappa a \sin \theta,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="92" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1362.png"
+ ALT="$\displaystyle Z = \kappa a \sin \theta,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">455</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \theta $"></SPAN> changing from <SPAN CLASS="MATH">0</SPAN> to <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img69.png"
+ ALT="$ 2 \pi $"></SPAN>. According to the definition in
+Eqs. (<A HREF="node7.html#4-25-p1">21</A>), (<A HREF="node7.html#4-25-p2">22</A>), and (<A HREF="node7.html#4-25-p4">24</A>) we can readily
+verify that the parameters <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img198.png"
+ ALT="$ a$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img197.png"
+ ALT="$ R_0$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img195.png"
+ ALT="$ \kappa$"></SPAN> appearing in Eqs.
+(<A HREF="#4-20-1">454</A>) and (<A HREF="#4-20-2">455</A>) are indeed the minor radius, major radius,
+and ellipticity, respectively. According to the definition of triangularity
+Eq. (<A HREF="node7.html#4-25-p3">23</A>), the triangularity <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img199.png"
+ ALT="$ \delta$"></SPAN> for the magnetic surface
+defined by Eqs. (<A HREF="#4-20-1">454</A>) and (<A HREF="#4-20-2">455</A>) is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-10-1"></A><!-- MATH
+ \begin{equation}
+\delta = \sin \Delta .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1363.png"
+ ALT="$\displaystyle \delta = \sin \Delta .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">456</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Another common expression for the shape of a magnetic surface was given by
+Miller[<A
+ HREF="node111.html#chen2010">5</A>,<A
+ HREF="node111.html#miller1998">10</A>], which is written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-31-e1"></A><!-- MATH
+ \begin{equation}
+R = R_0 + a \cos [\theta + \arcsin (\Delta \sin \theta)],
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="248" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1364.png"
+ ALT="$\displaystyle R = R_0 + a \cos [\theta + \arcsin (\Delta \sin \theta)],$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">457</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-31-e2"></A><!-- MATH
+ \begin{equation}
+Z = \kappa a \sin \theta .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="92" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1365.png"
+ ALT="$\displaystyle Z = \kappa a \sin \theta .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">458</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that Miller's formula is only slightly different from the formula given
+in Eqs. (<A HREF="#4-20-1">454</A>) and (<A HREF="#4-20-2">455</A>). For Miller's formula, it is easy to
+prove that the triangularity <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img199.png"
+ ALT="$ \delta$"></SPAN> is equal to <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img86.png"
+ ALT="$ \Delta $"></SPAN> (instead of <!-- MATH
+ $\delta
+= \sin \Delta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1366.png"
+ ALT="$ \delta
+= \sin \Delta$"></SPAN> as given in Eq. (<A HREF="#8-10-1">456</A>)).
+
+<P>
+In the iterative metric method[<A
+ HREF="node111.html#delucia1980">7</A>] for solving the fixed
+boundary equilibrium problem, we need to provide an initial guess of the shape
+of the inner flux surface (this initial guess is used to construct a initial
+generalized coordinates system). A common guess of the inner flux surfaces is
+given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-25-p5"></A><!-- MATH
+ \begin{equation}
+R = \psi^{\alpha} (R_{\ensuremath{\operatorname{LCFS}}} - R_0) + R_0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="197" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1367.png"
+ ALT="$\displaystyle R = \psi^{\alpha} (R_{\ensuremath{\operatorname{LCFS}}} - R_0) + R_0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">459</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-25-p6"></A><!-- MATH
+ \begin{equation}
+Z = \psi^{\alpha} Z_{\ensuremath{\operatorname{LCFS}}},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="106" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1368.png"
+ ALT="$\displaystyle Z = \psi^{\alpha} Z_{\ensuremath{\operatorname{LCFS}}},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">460</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \alpha $"></SPAN> is a parameter, <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> is a label parameter of flux surface. If
+the shape of the LCFS is given by Eqs. (<A HREF="#4-20-1">454</A>) and (<A HREF="#4-20-2">455</A>), then
+Eqs. (<A HREF="#4-25-p5">459</A>) and (<A HREF="#4-25-p6">460</A>) are written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-25-p8"></A><!-- MATH
+ \begin{equation}
+R = R_0 + \psi^{\alpha} a \cos (\theta + \Delta \sin
+  \theta),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="219" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1369.png"
+ ALT="$\displaystyle R = R_0 + \psi^{\alpha} a \cos (\theta + \Delta \sin \theta),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">461</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="4-25-p9"></A><!-- MATH
+ \begin{equation}
+Z = \psi^a \kappa a \sin \theta .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="111" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1370.png"
+ ALT="$\displaystyle Z = \psi^a \kappa a \sin \theta .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">462</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Fig. <A HREF="#4-25-p10">29</A> plots the shape given by Eqs. (<A HREF="#4-25-p8">461</A>) and
+(<A HREF="#4-25-p9">462</A>) for <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$ a =$"></SPAN>0.4, <SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$ R_0 = 1.7$"></SPAN>, <!-- MATH
+ $\kappa = 1.7$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img91.png"
+ ALT="$ \kappa = 1.7$"></SPAN>, <!-- MATH
+ $\Delta = \arcsin
+(0.6)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="112" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1371.png"
+ ALT="$ \Delta = \arcsin
+(0.6)$"></SPAN>, and <!-- MATH
+ $\alpha = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img93.png"
+ ALT="$ \alpha = 1$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> varying from zero to one.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="4-25-p10"></A><A NAME="8280"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 29:</STRONG>
+Shape of flux surface given by Eqs.
+  (<A HREF="#4-25-p8">461</A>) and (<A HREF="#4-25-p9">462</A>). Left figure: points with the same value
+  of <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> are connected to show <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> coordinate surface; Right figure: dot
+  plot. Parameters are <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$ a =$"></SPAN>0.4m, <!-- MATH
+ $R_0 = 1.7 m$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="79" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img90.png"
+ ALT="$ R_0 = 1.7 m$"></SPAN>, <!-- MATH
+ $\kappa = 1.7$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img91.png"
+ ALT="$ \kappa = 1.7$"></SPAN>, <!-- MATH
+ $\Delta =
+  \arcsin (0.6)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="112" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1371.png"
+ ALT="$ \Delta = \arcsin
+(0.6)$"></SPAN>, <!-- MATH
+ $\alpha = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img93.png"
+ ALT="$ \alpha = 1$"></SPAN> with <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ \psi $"></SPAN> varying from zero (center) to one
+  (boundary). The shape parameters of <!-- MATH
+ $\ensuremath{\operatorname{LCFS}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img94.png"
+ ALT="$ \ensuremath {\operatorname {LCFS}}$"></SPAN> are chosen according to
+  the parameters of EAST tokamak.</CAPTION>
+<TR><TD><IMG
+ WIDTH="231" HEIGHT="184" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1372.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig1/plt.eps}"><IMG
+ WIDTH="231" HEIGHT="184" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1373.png"
+ ALT="\includegraphics{/home/yj/project_new/inverse_metric_method/fig2/plt.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1157"
+  HREF="node94.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1155"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1149"
+  HREF="node92.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html1158"
+  HREF="node94.html">Fixed boundary equilibrium numerical</A>
+<B> Up:</B> <A NAME="tex2html1156"
+  HREF="node91.html">Special treatment at coordinate</A>
+<B> Previous:</B> <A NAME="tex2html1150"
+  HREF="node92.html">Pressure and toroidal field</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2018-03-09
+</ADDRESS>
+</BODY>
+</HTML>

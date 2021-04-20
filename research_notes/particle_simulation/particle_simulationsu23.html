@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Evaluation of particle number density</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1248--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu24.html" >next</a>] [<a 
+href="particle_simulationsu22.html" >prev</a>] [<a 
+href="particle_simulationsu22.html#tailparticle_simulationsu22.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu23.html">tail</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu23.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.8   </span> <a 
+ id="x29-340005.8"></a>Evaluation of particle number density</h4>
+<!--l. 1250--><p class="noindent" >Set up uniform grid-points in <span 
+class="cmmi-10">x</span>-direction: <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">j</span>&Delta; for <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N</span>, as is shown in Fig. <a 
+href="particle_simulationsu24.html#x30-350063">3<!--tex4ht:ref: 16-2-25-p3 --></a>. Use the ﬁrst b-spline (ﬂat-top
+function) with a support &Delta;<sub><span 
+class="cmmi-7">p</span></sub> = &Delta; as the shape function of markers. It is obvious that we can use the following procedures
+to obtain the number of physical particles in each cell. For a particle marker labeled by <span 
+class="cmmi-10">k </span>whose position is <span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">r</span>, we can
+ﬁnd which two grids the particle lies between. Suppose that <span 
+class="cmmi-10">r </span>is between <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> and <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">+1</span></sub>, then the particle number <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">j</span></sub> and
+<span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">+1</span></sub> is evaluated as follows
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-34001r99"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation100x.png" alt="nj &rarr; nj + wk &sdot; xj+1-&minus; r-,nj+1 &rarr; nj+1 +wk &sdot; r-&minus;-xj,
+                &Delta;                       &Delta;
+" class="math-display"  /></center></td><td class="equation-label">(99)</td></tr></table>
+<!--l. 1262--><p class="nopar" >
+where <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">k</span></sub> is the weight of the marker. Performing the same procedures for each marker in turn allows us to build up <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">j</span></sub> at
+all the grid points (all <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">j</span></sub> are set to zero before these procedures).
+</p><!--l. 1267--><p class="indent" >   The particle number at the boundary grid-points <span 
+class="cmmi-10">j </span>= 0 and <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">N </span>needs special treatment. The above
+treatment do not include the contribution to <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub> from the left cell of the <span 
+class="cmmi-10">j </span>= 0. Since we use periodic boundary
+condition, the contribution to <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub> from the left cell of the <span 
+class="cmmi-10">j </span>= 0 grid is identical to the contribution to <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">N</span></sub> from
+the left cell of the <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">N </span>grid. The latter has already been calculated in the above, which can be added to
+<span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub> obtained above to get the ﬁnal <span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub>. The same situation applies for <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">N</span></sub>. After these treatment, we have
+<span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">N</span></sub>.
+</p><!--l. 1276--><p class="indent" >   Dividing the particle number <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">j</span></sub> by the cell size &Delta; gives the number density.
+
+</p>
+   <!--l. 1279--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu24.html" >next</a>] [<a 
+href="particle_simulationsu22.html" >prev</a>] [<a 
+href="particle_simulationsu22.html#tailparticle_simulationsu22.html" >prev-tail</a>] [<a 
+href="particle_simulationsu23.html" >front</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu23.html" >up</a>] </p></div>
+<!--l. 1279--><p class="indent" >   <a 
+ id="tailparticle_simulationsu23.html"></a> </p> 
+</body></html> 

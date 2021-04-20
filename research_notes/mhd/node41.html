@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Numerical results of global modes</TITLE>
+<META NAME="description" CONTENT="Numerical results of global modes">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node42.html">
+<LINK REL="previous" HREF="node40.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node42.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html538"
+  HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html536"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html530"
+  HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html539"
+  HREF="node42.html">Magnetic curvature</A>
+<B> Up:</B> <A NAME="tex2html537"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html531"
+  HREF="node40.html">Numerical results of MHD</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00083000000000000000">
+Numerical results of global modes</A>
+</H2>
+
+<P>
+When analyzing the modes calculated numerically, we need to distinguish two
+kinds of modes: the continuum modes and the gap modes. In principle, the
+continuum mode is defined as the mode whose frequency is within the Alfven
+continua while the gap mode is defined as the mode whose frequency is within
+the frequency gap of the Alfven continua. However, for realistic equilibria,
+any given frequency will touch the continua at one of the radial locations.
+
+<P>
+ 
+<P>
+However, for realistic structure of continua, both the range and the center
+of the frequency of a gap change with the radial coordinate, as is shown in
+Fig. <A HREF="node40.html#10-5-e1">16</A>. As a result, a given frequency usually can not be within a
+gap for all radial locations, i.e., the frequency usually intersects the
+Alfven continua at some radial locations. These locations are the Alfven
+resonant surfaces. As is pointed out in Ref. [], the mode structure
+have singularity given by <!-- MATH
+ $[c_1 \ln | \psi - \psi_s | + c_2]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="135" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img705.png"
+ ALT="$ [c_1 \ln \vert \psi - \psi_s \vert + c_2]$"></SPAN> at the resonant
+surface, where <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img706.png"
+ ALT="$ \psi_s$"></SPAN> is the radial coordinate of the resonant surface and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img707.png"
+ ALT="$ c_2$"></SPAN> can have finite discontinuity.
+
+<P>
+In practice, continuum modes can be easily distinguished from gap modes by
+examining the radial structure of the poloidal harmonics of the mode. If the
+radial mode structure has dominant singularities at the Alfven resonant
+surfaces, then the modes are continua modes. If the dominant peaks of the mode
+are not at the Alfven resonant surfaces, then the mode is probably a gap mode
+(further confirmation can be obtained by examining poloidal mode number of the
+dominant harmonics, discussed later). The mode structure of gap modes can also
+have singular peak at the resonant surface, but the peak is usually smaller
+than the dominant peak.
+
+<P>
+Mode structure of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> TAE mode is plotted in Fig. <A HREF="#10-28-p2">20</A>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-28-p2"></A><A NAME="7343"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 20:</STRONG>
+Real part (a), imaginary part (b), and amplitude
+  (c) of the poloidal harmonics of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> TAE mode as a function of the
+  radial coordinate. The frequency of the mode is <!-- MATH
+ $f = 101 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$ f = 101 \ensuremath {\operatorname {kHz}}$"></SPAN>. The
+  poloidal harmonics with <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ m = 1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> are dominant. The equilibrium
+  used for this calculation is for EAST shot 38300 at 3.9s (G-file name:
+  g038300.03900). (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img708.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig53/dis_real.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img709.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig53/dis_imag.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img710.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig53/dis_abs.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7344"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 21:</STRONG>
+Slow sound approximation of the continua. Also plotted are the
+  frequency of the TAE mode (<!-- MATH
+ $f = 101 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$ f = 101 \ensuremath {\operatorname {kHz}}$"></SPAN>) and the <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ m = 1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN>
+  continua in cylindrical limit. Toroidal mode number <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN>. The equilibrium
+  is the same as Fig  (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img711.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig53/continua.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+Fig. <A HREF="#10-30-e1">22</A>. plots the radial mode structure of another TAE with
+frequency <!-- MATH
+ $f = 61.91 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="101" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ f = 61.91 \ensuremath {\operatorname {kHz}}$"></SPAN>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-30-e1"></A><A NAME="7345"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 22:</STRONG>
+Real part (a), imaginary part (b), and amplitude
+  (c) of the poloidal harmonics of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> TAE mode as a function of the
+  radial coordinate. The frequency of the mode is <!-- MATH
+ $f = 61.91 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="101" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ f = 61.91 \ensuremath {\operatorname {kHz}}$"></SPAN>. The
+  poloidal harmonics with <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m = 3$"></SPAN> are dominant. The equilibrium
+  used for this calculation is for EAST shot 38300 at 3.9s (G-file name:
+  g038300.03900). (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img712.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig57/dis_real.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img713.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig57/dis_imag.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img714.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig57/dis_abs.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7346"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 23:</STRONG>
+Slow sound approximation of the continua. Also plotted are the
+  frequency of the TAE mode (<!-- MATH
+ $f = 61.91 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="101" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ f = 61.91 \ensuremath {\operatorname {kHz}}$"></SPAN>) and the <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m = 3$"></SPAN> continua in cylindrical limit. Toroidal mode number <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN>. The
+  equilibrium is the same as Fig  (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img715.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig57/continua.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+An example of ellipticity-induced Alfven Eigenmode (EAE) is plotted in Fig.
+<A HREF="#10-29-p1">24</A>. The mode is identified as an EAE mode because it satisfies the
+following three requirements: (1) the mode has two dominant harmonics with
+poloidal mode number differing by two (<SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ m = 4$"></SPAN> for this case); (2)
+the frequency of the mode <!-- MATH
+ $f = 130 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ f = 130 \ensuremath {\operatorname {kHz}}$"></SPAN> is within in the continuum gap
+formed due to the coupling of these two poloidal harmonics; (3) the location
+of the peak of the radial mode structure is within the continuum gap.
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-29-p1"></A><A NAME="7347"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 24:</STRONG>
+Real part (a), imaginary part (b), and amplitude
+  (c) of the poloidal harmonics of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> EAE mode as a function of the
+  radial coordinate. The poloidal harmonics with <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m = 2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ m = 4$"></SPAN> are
+  dominant. <!-- MATH
+ $f = 130 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ f = 130 \ensuremath {\operatorname {kHz}}$"></SPAN>. The equilibrium is for EAST shot 38300 at
+  3.9s (G-file name: g038300.03900). (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img716.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig55/dis_real.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img717.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig55/dis_imag.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img718.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig55/dis_abs.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7348"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 25:</STRONG>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> Alfv&#233;n continua (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img719.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig55/continua.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+An example of non-circularity-induced Alfven Eigenmode (NAE) is plotted in
+Fig. <A HREF="#10-29-p2">26</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-29-p2"></A><A NAME="7349"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 26:</STRONG>
+Real part (a), imaginary part (b), and amplitude
+  (c) of the poloidal harmonics of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> NAE mode as a function of the
+  radial coordinate. The poloidal harmonics with <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ m = 1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ m = 4$"></SPAN> are
+  dominant. The frequency of the mode is <!-- MATH
+ $f = 216 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$ f = 216 \ensuremath {\operatorname {kHz}}$"></SPAN>. The equilibrium
+  is for EAST shot 38300 at 3.9s (G-file name: g038300.03900). (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img720.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig54/dis_real.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img721.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig54/dis_imag.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img722.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig54/dis_abs.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7350"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 27:</STRONG>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n = 1$"></SPAN> Alfv&#233;n continua (D)</CAPTION>
+<TR><TD><IMG
+ WIDTH="327" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img723.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig54/continua.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+ 
+<P>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$ n = 4$"></SPAN>
+
+<P>
+ 
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="10-14-e3"></A><A NAME="7351"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 28:</STRONG>
+Real part (a), imaginary part (b), and amplitude
+  (c) of the poloidal harmonics of a <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$ n = 4$"></SPAN> EAE mode as a function of the
+  radial coordinate. The frequency of the mode is <!-- MATH
+ $f = 330 \ensuremath{\operatorname{kHz}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$ f = 330 \ensuremath {\operatorname {kHz}}$"></SPAN>. The
+  poloidal harmonics with <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ m = 5$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$ m = 7$"></SPAN> are dominant. The poloidal
+  harmonics are truncated into the range <!-- MATH
+ $m = [- 10, 10]$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="99" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.png"
+ ALT="$ m = [- 10, 10]$"></SPAN> in the numerical
+  calculation. The equilibrium is for EAST shot 38300 at 3.9s (G-file name:
+  g038300.03900). (H)</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img724.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig48/dis_real.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img725.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig48/dis_imag.eps}"><IMG
+ WIDTH="261" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img726.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig48/dis_abs.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="7352"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 29:</STRONG>
+The frequency of the EAE mode given in Fig. <A HREF="#10-14-e3">28</A>. (H)</CAPTION>
+<TR><TD><IMG
+ WIDTH="261" HEIGHT="188" ALIGN="BOTTOM" BORDER="0"
+ SRC="img727.png"
+ ALT="\includegraphics{/home/yj/project_new/read_gfile/fig48/tmp.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html538"
+  HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html536"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html530"
+  HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html539"
+  HREF="node42.html">Magnetic curvature</A>
+<B> Up:</B> <A NAME="tex2html537"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html531"
+  HREF="node40.html">Numerical results of MHD</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

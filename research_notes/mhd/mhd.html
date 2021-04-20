@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Notes on linear ideal MHD theory of tokamak plasmas</TITLE>
+<META NAME="description" CONTENT="Notes on linear ideal MHD theory of tokamak plasmas">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html38"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html39"
+  HREF="node1.html">MHD equations</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+
+<P>
+<H1 ALIGN=CENTER>Notes on linear ideal MHD theory of tokamak plasmas</H1>
+<P ALIGN=CENTER><STRONG>Youjun Hu
+  <A NAME="tex2html1"
+  HREF="footnode.html#foot7616"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>
+</STRONG>
+</P>
+<HR>
+
+<P>
+
+<H3>Abstract:</H3>
+<DIV CLASS="ABSTRACT">
+  This note discusses the linear ideal magnetohydrodynamic (MHD) theory of
+  tokamak plasmas. This note also serves as a document for the GTAW code
+  (General Tokamak Alfv&#233;n Waves code), which is a Fortran code calculating
+  Alfven eigenmodes in realistic tokamak geometry. 
+</DIV>
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html40"
+  HREF="node1.html">MHD equations</A>
+<UL>
+<LI><A NAME="tex2html41"
+  HREF="node2.html">Self-consistency check</A>
+<LI><A NAME="tex2html42"
+  HREF="node3.html">Generalized Ohm's law</A>
+<LI><A NAME="tex2html43"
+  HREF="node4.html">Eliminating mass density <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \rho $"></SPAN> from equation of state</A>
+<LI><A NAME="tex2html44"
+  HREF="node5.html">Summary of resistive MHD equations</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html45"
+  HREF="node6.html">Linearized ideal MHD equation</A>
+<UL>
+<LI><A NAME="tex2html46"
+  HREF="node7.html">Plasma displacement vector <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \xi $"></SPAN></A>
+<LI><A NAME="tex2html47"
+  HREF="node8.html">Fourier transformation in time</A>
+<LI><A NAME="tex2html48"
+  HREF="node9.html">Discrete frequency perturbation</A>
+<LI><A NAME="tex2html49"
+  HREF="node10.html">Eigenmodes</A>
+<LI><A NAME="tex2html50"
+  HREF="node11.html">Linear force operator</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html51"
+  HREF="node12.html">Components of MHD equations in toroidal geometry</A>
+<UL>
+<LI><A NAME="tex2html52"
+  HREF="node13.html"><!-- MATH
+ $\nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \nabla \Psi $"></SPAN> component of induction equation</A>
+<LI><A NAME="tex2html53"
+  HREF="node14.html"><!-- MATH
+ $B_0 \times \nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ B_0 \times \nabla \Psi $"></SPAN> component of induction equation</A>
+<LI><A NAME="tex2html54"
+  HREF="node15.html"><SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ B_0$"></SPAN> component of induction equation</A>
+<LI><A NAME="tex2html55"
+  HREF="node16.html">Component of the momentum equation parallel to <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ B_0$"></SPAN></A>
+<LI><A NAME="tex2html56"
+  HREF="node17.html"><!-- MATH
+ $\nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \nabla \Psi $"></SPAN> component of momentum equation</A>
+<LI><A NAME="tex2html57"
+  HREF="node18.html"><!-- MATH
+ $B_0 \times \nabla \Psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ B_0 \times \nabla \Psi $"></SPAN> component of momentum equation</A>
+<LI><A NAME="tex2html58"
+  HREF="node19.html">Summary of component equations</A>
+<LI><A NAME="tex2html59"
+  HREF="node20.html">Eigenmode equations using <!-- MATH
+ $(P_1, \xi_{\psi}, \xi_s, \nabla \cdot
+\xi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="117" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ (P_1, \xi _{\psi }, \xi _s, \nabla \cdot \xi )$"></SPAN> as variables</A>
+<LI><A NAME="tex2html60"
+  HREF="node21.html">Normalized form of eigenmodes equations</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html61"
+  HREF="node22.html">Flux coordinate system</A>
+<UL>
+<LI><A NAME="tex2html62"
+  HREF="node23.html">Magnetic field expression in flux coordinate system</A>
+<LI><A NAME="tex2html63"
+  HREF="node24.html">Radial differential operator</A>
+<LI><A NAME="tex2html64"
+  HREF="node25.html">Surface differential operators</A>
+<LI><A NAME="tex2html65"
+  HREF="node26.html">Fourier expansion over <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \theta $"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \zeta $"></SPAN></A>
+<LI><A NAME="tex2html66"
+  HREF="node27.html">Surface operator acting on perturbation</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html67"
+  HREF="node28.html">Discrete form of elements of matrix <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ C$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ D$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ E$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ F$"></SPAN></A>
+<UL>
+<LI><A NAME="tex2html68"
+  HREF="node29.html">Weight functions used in Fourier integration</A>
+<LI><A NAME="tex2html69"
+  HREF="node30.html">Numerical methods for finding continua</A>
+<LI><A NAME="tex2html70"
+  HREF="node31.html">Analytical approximations to continuous spectrum</A>
+<UL>
+<LI><A NAME="tex2html71"
+  HREF="node32.html">Slow sound approximation</A>
+<LI><A NAME="tex2html72"
+  HREF="node33.html">Zero beta limit</A>
+<LI><A NAME="tex2html73"
+  HREF="node34.html">Cylindrical geometry limit</A>
+<LI><A NAME="tex2html74"
+  HREF="node35.html">Approximate central frequency and radial location of continua
+gap</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html75"
+  HREF="node36.html">Shooting method for finding global eigenmodes</A>
+<LI><A NAME="tex2html76"
+  HREF="node37.html">Benchmark of GTAW code</A>
+<LI><A NAME="tex2html77"
+  HREF="node38.html">Numerical results for EAST tokamak</A>
+<UL>
+<LI><A NAME="tex2html78"
+  HREF="node39.html">EAST Tokamak equilibrium</A>
+<LI><A NAME="tex2html79"
+  HREF="node40.html">Numerical results of MHD continua</A>
+<LI><A NAME="tex2html80"
+  HREF="node41.html">Numerical results of global modes</A>
+<LI><A NAME="tex2html81"
+  HREF="node42.html">Magnetic curvature</A>
+<UL>
+<LI><A NAME="tex2html82"
+  HREF="node43.html">Expression of normal curvature <!-- MATH
+ $\kappa_{\psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$ \kappa _{\psi }$"></SPAN></A>
+<LI><A NAME="tex2html83"
+  HREF="node44.html">Expression of geodesic curvature <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \kappa _s$"></SPAN></A>
+</UL>
+<LI><A NAME="tex2html84"
+  HREF="node45.html">Local magnetic shear</A>
+<LI><A NAME="tex2html85"
+  HREF="node46.html">Formula for matrix elements <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ C_{22}$"></SPAN></A>
+</UL>
+<BR>
+<LI><A NAME="tex2html86"
+  HREF="node47.html">misc contents</A>
+<UL>
+<LI><A NAME="tex2html87"
+  HREF="node48.html">Relation of plasma displacement with experimental measurements</A>
+<LI><A NAME="tex2html88"
+  HREF="node49.html">Expression of <!-- MATH
+ $k_{\parallel}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ k_{\parallel }$"></SPAN> and <!-- MATH
+ $k_{\theta}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$ k_{\theta }$"></SPAN></A>
+<LI><A NAME="tex2html89"
+  HREF="node50.html">Two-dimensional mode structures on poloidal plane</A>
+<LI><A NAME="tex2html90"
+  HREF="node51.html">Magnetic islands</A>
+<LI><A NAME="tex2html91"
+  HREF="node52.html">proof: The derivation of Eq. (107)</A>
+<LI><A NAME="tex2html92"
+  HREF="node53.html">proof</A>
+<LI><A NAME="tex2html93"
+  HREF="node54.html">proof 2</A>
+<LI><A NAME="tex2html94"
+  HREF="node55.html">proof</A>
+<LI><A NAME="tex2html95"
+  HREF="node56.html">proof of <!-- MATH
+ $(B \times \nabla \psi) \cdot \nabla
+\left( \frac{1}{B^2} \right) = - 2 \kappa \cdot (B \times \nabla \psi) / B^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="294" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img57.png"
+ ALT="$ (B \times \nabla \psi ) \cdot \nabla \left ( \frac {1}{B^2} \right ) = - 2 \kappa \cdot (B \times \nabla \psi ) / B^2$"></SPAN></A>
+<LI><A NAME="tex2html96"
+  HREF="node57.html">proof</A>
+<LI><A NAME="tex2html97"
+  HREF="node58.html">Incompressible condition</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html98"
+  HREF="node59.html">Bibliography</A>
+<LI><A NAME="tex2html99"
+  HREF="node60.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

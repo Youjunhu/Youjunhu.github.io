@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Magnetic curvature</TITLE>
+<META NAME="description" CONTENT="Magnetic curvature">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node45.html">
+<LINK REL="previous" HREF="node41.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node43.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html548"
+  HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html546"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html540"
+  HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html549"
+  HREF="node43.html">Expression of normal curvature</A>
+<B> Up:</B> <A NAME="tex2html547"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html541"
+  HREF="node41.html">Numerical results of global</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00084000000000000000"></A><A NAME="150901-1"></A>
+<BR>
+Magnetic curvature
+</H2>
+
+<P>
+In this section, we derive formulas for calculating the geodesic curvature and
+normal curvature in magnetic surface coordinate system <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img728.png"
+ ALT="$ (\psi, \theta, \phi)$"></SPAN>.
+The derivation looks tedious but the final results are compact (especially for
+the geodesic curvature <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \kappa _s$"></SPAN>). The magnetic curvature is defined by
+<!-- MATH
+ $\ensuremath{\boldsymbol{\kappa}}=\mathbf{b} \cdot \nabla \mathbf{b}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img729.png"
+ ALT="$ \ensuremath{\boldsymbol{\kappa}}=\mathbf{b} \cdot \nabla \mathbf{b}$"></SPAN>, which can be further
+written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-15-p10"></A><!-- MATH
+ \begin{eqnarray}
+\ensuremath{\boldsymbol{\kappa}} & = & \frac{1}{B_0} \mathbf{B}_0 \cdot \nabla
+  \frac{\mathbf{B}_0}{B_0} \nonumber\\
+  & = & \frac{1}{B_0} (\nabla \Psi \times \nabla \phi + g \nabla \phi) \cdot
+  \nabla \frac{\mathbf{B}_0}{B_0}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img730.png"
+ ALT="$\displaystyle \ensuremath{\boldsymbol{\kappa}}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="96" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img731.png"
+ ALT="$\displaystyle \frac{1}{B_0} \mathbf{B}_0 \cdot \nabla
+\frac{\mathbf{B}_0}{B_0}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="206" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img732.png"
+ ALT="$\displaystyle \frac{1}{B_0} (\nabla \Psi \times \nabla \phi + g \nabla \phi) \cdot
+\nabla \frac{\mathbf{B}_0}{B_0}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">261</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+In magnetic surface coordinate system <!-- MATH
+ $(\psi, \theta, \phi)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img728.png"
+ ALT="$ (\psi, \theta, \phi)$"></SPAN>, equation
+(<A HREF="#5-15-p10">261</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="5-16-a1"></A><!-- MATH
+ \begin{eqnarray}
+\ensuremath{\boldsymbol{\kappa}} & = & \frac{1}{B_0} (\Psi' \triangledown \psi \times
+  \triangledown \phi + g \triangledown \phi) \cdot \nabla
+  \frac{\mathbf{B}_0}{B_0} \nonumber\\
+  & = & \frac{\Psi'}{B_0} (\triangledown \psi \times \triangledown \phi)
+  \cdot \nabla \frac{\mathbf{B}_0}{B_0} + \frac{g}{B_0} \triangledown \phi
+  \cdot \nabla \frac{\mathbf{B}_0}{B_0} \nonumber\\
+  & = & - \frac{\Psi'}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+  \theta} \left( \frac{\mathbf{B}_0}{B_0} \right) + \frac{g}{B_0}
+  \frac{1}{R^2}  \frac{\partial}{\partial \phi} \left(
+  \frac{\mathbf{B}_0}{B_0} \right) \nonumber\\
+  & = & - \frac{\Psi'}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+  \theta} \left( \frac{\Psi' \triangledown \psi \times \triangledown \phi + g
+  \triangledown \phi}{B_0} \right) + \frac{g}{B_0}  \frac{1}{R^2}
+  \frac{\partial}{\partial \phi} \left( \frac{\Psi' \triangledown \psi \times
+  \triangledown \phi + g \triangledown \phi}{B_0} \right) \nonumber\\
+  & = & - \frac{\Psi'^2}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+  \theta} \left( \frac{\triangledown \psi \times \triangledown \phi}{B_0}
+  \right) - \frac{g \Psi'}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+  \theta} \left( \frac{\triangledown \phi}{B_0} \right) + \frac{g \Psi'}{B_0^2
+  R^2}  \frac{\partial}{\partial \phi} (\triangledown \psi \times
+  \triangledown \phi) - \frac{g^2}{B_0^2}  \frac{1}{R^3}  \hat{\mathbf{R}} 
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img730.png"
+ ALT="$\displaystyle \ensuremath{\boldsymbol{\kappa}}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="216" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img733.png"
+ ALT="$\displaystyle \frac{1}{B_0} (\Psi' \triangledown \psi \times
+\triangledown \phi + g \triangledown \phi) \cdot \nabla
+\frac{\mathbf{B}_0}{B_0}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="263" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img734.png"
+ ALT="$\displaystyle \frac{\Psi'}{B_0} (\triangledown \psi \times \triangledown \phi)
+...
+...}{B_0} + \frac{g}{B_0} \triangledown \phi
+\cdot \nabla \frac{\mathbf{B}_0}{B_0}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="279" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img735.png"
+ ALT="$\displaystyle - \frac{\Psi'}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+\t...
+...{1}{R^2} \frac{\partial}{\partial \phi} \left(
+\frac{\mathbf{B}_0}{B_0} \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="496" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img736.png"
+ ALT="$\displaystyle - \frac{\Psi'}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+\t...
+...riangledown \psi \times
+\triangledown \phi + g \triangledown \phi}{B_0} \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="578" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img737.png"
+ ALT="$\displaystyle - \frac{\Psi'^2}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+...
+...i \times
+\triangledown \phi) - \frac{g^2}{B_0^2} \frac{1}{R^3} \hat{\mathbf{R}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">262</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using <!-- MATH
+ $\nabla \psi = - \frac{R}{\mathcal{J}} (Z_{\theta} \hat{\mathbf{R}} -
+R_{\theta} \hat{\mathbf{Z}})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="170" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img738.png"
+ ALT="$ \nabla \psi = - \frac{R}{\mathcal{J}} (Z_{\theta} \hat{\mathbf{R}} -
+R_{\theta} \hat{\mathbf{Z}})$"></SPAN>, we obtain <!-- MATH
+ $\nabla \psi \times \triangledown
+\phi = - \frac{1}{\mathcal{J}} (Z_{\theta} \hat{\mathbf{Z}} + R_{\theta}
+\hat{\mathbf{R}})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="211" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img739.png"
+ ALT="$ \nabla \psi \times \triangledown
+\phi = - \frac{1}{\mathcal{J}} (Z_{\theta} \hat{\mathbf{Z}} + R_{\theta}
+\hat{\mathbf{R}})$"></SPAN>. Using this, the three partial derivatives in the above
+equation are written respectively as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-11-p1"></A><!-- MATH
+ \begin{eqnarray}
+\frac{\partial}{\partial \theta} \left( \frac{\triangledown \psi \times
+  \triangledown \phi}{B_0} \right) & = & - (Z_{\theta} \hat{\mathbf{Z}} +
+  R_{\theta} \hat{\mathbf{R}}) \frac{\partial}{\partial \theta} \left(
+  \frac{\mathcal{J}^{- 1}}{B_0} \right) - \frac{\mathcal{J}^{- 1}}{B_0}
+  (Z_{\theta \theta} \hat{\mathbf{Z}} + R_{\theta \theta} \hat{\mathbf{R}})
+  \nonumber\\
+  & = & - \left[ \frac{\partial}{\partial \theta} \left( \frac{\mathcal{J}^{-
+  1}}{B_0} \right) R_{\theta} + \frac{\mathcal{J}^{- 1}}{B_0} R_{\theta
+  \theta} \right] \hat{\mathbf{R}} - \left[ \frac{\partial}{\partial \theta}
+  \left( \frac{\mathcal{J}^{- 1}}{B_0} \right) Z_{\theta} +
+  \frac{\mathcal{J}^{- 1}}{B_0} Z_{\theta \theta} \right] \hat{\mathbf{Z}},
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="117" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img740.png"
+ ALT="$\displaystyle \frac{\partial}{\partial \theta} \left( \frac{\triangledown \psi \times
+\triangledown \phi}{B_0} \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="353" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img741.png"
+ ALT="$\displaystyle - (Z_{\theta} \hat{\mathbf{Z}} +
+R_{\theta} \hat{\mathbf{R}}) \fr...
+...{B_0}
+(Z_{\theta \theta} \hat{\mathbf{Z}} + R_{\theta \theta} \hat{\mathbf{R}})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="471" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img742.png"
+ ALT="$\displaystyle - \left[ \frac{\partial}{\partial \theta} \left( \frac{\mathcal{J...
+...ta} +
+\frac{\mathcal{J}^{- 1}}{B_0} Z_{\theta \theta} \right] \hat{\mathbf{Z}},$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">263</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial}{\partial \theta} \left( \frac{\triangledown \phi}{B_0}
+  \right) = \frac{\partial}{\partial \theta} \left( \frac{1}{R B_0} \right)
+  \hat{\ensuremath{\boldsymbol{\phi}}},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="198" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img743.png"
+ ALT="$\displaystyle \frac{\partial}{\partial \theta} \left( \frac{\triangledown \phi}...
+...al \theta} \left( \frac{1}{R B_0} \right) \hat{\ensuremath{\boldsymbol{\phi}}},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">264</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{\partial}{\partial \phi} (\triangledown \psi \times \triangledown
+  \phi) = - \frac{1}{\mathcal{J}} R_{\theta} \hat{\ensuremath{\boldsymbol{\phi}}} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="188" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img744.png"
+ ALT="$\displaystyle \frac{\partial}{\partial \phi} (\triangledown \psi \times \triang...
+...hi) = - \frac{1}{\mathcal{J}} R_{\theta} \hat{\ensuremath{\boldsymbol{\phi}}} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">265</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using these, <!-- MATH
+ $\ensuremath{\boldsymbol{\kappa}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img745.png"
+ ALT="$ \ensuremath{\boldsymbol{\kappa}}$"></SPAN> is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray*}
+\ensuremath{\boldsymbol{\kappa}} & = & \frac{\Psi'^2}{B_0} \mathcal{J}^{- 1} \left\{ \left[
+  \frac{\partial}{\partial \theta} \left( \frac{\mathcal{J}^{- 1}}{B_0}
+  \right) R_{\theta} + \frac{\mathcal{J}^{- 1}}{B_0} R_{\theta \theta} \right]
+  \hat{\mathbf{R}} + \left[ \frac{\partial}{\partial \theta} \left(
+  \frac{\mathcal{J}^{- 1}}{B_0} \right) Z_{\theta} + \frac{\mathcal{J}^{-
+  1}}{B_0} Z_{\theta \theta} \right] \hat{\mathbf{Z}} \right\}\\
+  &  & - \frac{g \Psi'}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+  \theta} \left( \frac{1}{R B_0} \right) \hat{\ensuremath{\boldsymbol{\phi}}} - \frac{g
+  \Psi'}{B_0^2 R^2}  \frac{1}{\mathcal{J}} R_{\theta} \hat{\ensuremath{\boldsymbol{\phi}}} -
+  \frac{g^2}{B_0^2}  \frac{1}{R^3}  \hat{\mathbf{R}}
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img730.png"
+ ALT="$\displaystyle \ensuremath{\boldsymbol{\kappa}}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="536" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img746.png"
+ ALT="$\displaystyle \frac{\Psi'^2}{B_0} \mathcal{J}^{- 1} \left\{ \left[
+\frac{\parti...
+...rac{\mathcal{J}^{-
+1}}{B_0} Z_{\theta \theta} \right] \hat{\mathbf{Z}} \right\}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="363" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img747.png"
+ ALT="$\displaystyle - \frac{g \Psi'}{B_0} \mathcal{J}^{- 1} \frac{\partial}{\partial
+...
+...suremath{\boldsymbol{\phi}}} -
+\frac{g^2}{B_0^2} \frac{1}{R^3} \hat{\mathbf{R}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html550"
+  HREF="node43.html">Expression of normal curvature <!-- MATH
+ $\kappa_{\psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$ \kappa _{\psi }$"></SPAN></A>
+<LI><A NAME="tex2html551"
+  HREF="node44.html">Expression of geodesic curvature <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \kappa _s$"></SPAN></A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html548"
+  HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html546"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html540"
+  HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html549"
+  HREF="node43.html">Expression of normal curvature</A>
+<B> Up:</B> <A NAME="tex2html547"
+  HREF="node38.html">Numerical results for EAST</A>
+<B> Previous:</B> <A NAME="tex2html541"
+  HREF="node41.html">Numerical results of global</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

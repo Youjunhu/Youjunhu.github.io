@@ -1,0 +1,2020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="http://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>No title</title>
+    <meta content="TeXmacs 1.99.9" name="generator"></meta>
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } .subsup {
+      display: inline; vertical-align: -0.2em } .subsup td { padding: 0px;
+      text-align: left} .fraction { display: inline; vertical-align: -0.8em }
+      .fraction td { padding: 0px; text-align: center } .wide { position:
+      relative; margin-left: -0.4em } .accent { position: relative;
+      margin-left: -0.4em; top: -0.1em } .title-block { width: 100%;
+      text-align: center } .title-block p { margin: 0px } .compact-block p {
+      margin-top: 0px; margin-bottom: 0px } .left-tab { text-align: left }
+      .center-tab { text-align: center } .balloon-anchor { border-bottom: 1px
+      dotted #000000; outline:none;                  cursor: help; position:
+      relative; }.balloon-anchor [hidden] { margin-left: -999em; position:
+      absolute; display: none; }.balloon-anchor:hover [hidden] { position:
+      absolute; left: 1em; top: 2em; z-index: 99; margin-left: 0; width:
+      500px; display: inline-block; }.balloon-body { }.ornament  {
+      border-width: 1px; border-style: solid; border-color:  black; display:
+      inline-block; padding: 0.2em; } .right-tab { float: right; position:
+      relative; top: -1em } 
+    </style>
+  </head>
+  <body>
+    <table class="title-block">
+      <tr>
+        <td><table class="title-block">
+          <tr>
+            <td><font size="+3"><b>Programming in Lisp/Scheme</b></font></td>
+          </tr>
+        </table><p style="margin-top: 1em; margin-bottom: 1em">
+          <div class="compact-block">
+            <table class="title-block">
+              <tr>
+                <td><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <span style="margin-left: 0pt"></span>
+                  <table style="display: inline; vertical-align: -0.55em">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          <class style="font-variant: small-caps">by Youjun Hu</class>
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <span style="margin-left: 0pt"></span>
+                  <table style="display: inline; vertical-align: -0.55em">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          Institute of Plasma Physics, Chinese Academy of
+                          Sciences, China
+                        </p>
+                        <p>
+                          Email: yjhu@ipp.cas.cn
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p></td>
+              </tr>
+            </table>
+          </div>
+        </p></td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <h2 id="auto-1">1<span style="margin-left: 1em"></span>Introduction</h2>
+    <p>
+      <code>Lisp</code> is the second-oldest high-level programming language
+      (after <code>Fortran</code>). Richard Stallman said in one of his
+      articles: &ldquo;The most powerful programming language is
+      <code>Lisp</code>. If you don't know <code>Lisp</code> (or its variant,
+      <code>Scheme</code>), you don't know what it means for a programming
+      language to be powerful and elegant. Once you learn <code>Lisp</code>,
+      you will see what is lacking in most other languages.&rdquo; This made
+      me curious and motivated me to learn <code>Lisp</code> begining from
+      September of 2015. &ldquo;Powerful&rdquo; in the world of
+      Turing-complete programming languages means that you can do more with
+      the language in a finite amount of time.
+    </p>
+    <p>
+      (Another big name in Lisp community is Paul Graham, who wrote many
+      inspiring essays on Lisp[<a href="#bib-graham2002diff">5</a>]. I read most of his essays and
+      found they provide new insights on many issues, not just programming.)
+    </p>
+    <p>
+      I primarily use <code>Guile</code>, a GNU implementation of the
+      <code>Scheme</code>. I also use <code>Racket</code> (previously known as
+      PLT scheme), another famous implementation. <code>Scheme</code> is
+      mostly functional (but not purely functional).  A program being
+      functional means that the program accomplishes its task by evaluating 
+      various expressions. Being functional also means that a function itself
+      is a type of value, which can be, for example, stored in a variable,
+      passed as an argument to a function, returned from a function
+      invocation, just like a traditional value such as an integer.
+    </p>
+    <p>
+      All function invocations (including basic arithmetic operations) in Lisp
+      are based on the parenthezed-prefix-notation, i.e., <code>(operator
+      operands1 operands2)</code>. For example <code>(+ 1 2)</code> is a
+      function call. This notation is also used for other syntax structures
+      (called special forms) in Lisp such as the <code>if</code> conditional
+      structure:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(if my_test exp1 exp2)</pre>
+    <p>
+      A subexpression in the above can also be another function call (or
+      special form), which will introduce another pair of round-brackets. This
+      kind of nest can be of arbitary levels. As a result, Lisp programs are
+      full of round-brackets, which makes Lisp source codes look messy and not
+      so readable if without strong support from a text editor (e.g. automatic
+      indenting).
+    </p>
+    <p>
+      The parentheses (round-brackets) are also used as the external
+      representation of the list data structure in Lisp. Therefore, people
+      often say that souce codes of Lisp take the same form as the list data
+      structure.
+    </p>
+    <p>
+      Multiple whitespaces (including line-breaks) are equivalent to a single
+      whithespace in Lisp.
+    </p>
+    <h2 id="auto-2">2<span style="margin-left: 1em"></span>Lisp/Scheme interpreter</h2>
+    <p>
+      On my Ubuntu desktop computer, I used <code>aptitude</code> to install
+      Common-Lisp, <code>clisp</code>. Later I switched to <code>guile</code>
+      and Racket. I will primarily use <code>guile</code> in this note.
+    </p>
+    <h3 id="auto-3">2.1<span style="margin-left: 1em"></span>Run Lisp code interactively</h3>
+    <p>
+      In a terminal, type <code>guile</code> to invoke the <code>scheme</code>
+      interpreter:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+yj@pic:~$ guile
+guile&gt; (display &quot;Hello World! \n&quot;)
+<code>Hello World!</code></pre>
+    <p>
+      Users interact with a Scheme interpreter though a
+      <em>read-evaluate-print loop</em> (<em>REPL</em>). Scheme waits for the
+      user to type an expression, reads it, evaluates it, and prints the
+      return value. 
+    </p>
+    <p>
+      The readline support for <code>guile</code> command line is not loaded
+      by default and can be loaded and activated by adding the following two
+      lines of code in the init file <code>~/.guile</code>:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(use-modules (ice-9 readline))
+(activate-readline)</pre>
+    <h3 id="auto-4">2.2<span style="margin-left: 1em"></span>Run Lisp scripts</h3>
+    <h4 id="auto-5">2.2.1<span style="margin-left: 1em"></span>Method 1</h4>
+    <p>
+      Create a file called <code>h.scm</code> with the following content:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve">;This line is a comment
+(display &quot;Hello, World! \n&quot;)</pre></pre>
+    <p>
+      Then run the above script at command line:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+$ guile -s h.scm</pre>
+    <h4 id="auto-6">2.2.2<span style="margin-left: 1em"></span>Method 2</h4>
+    <p>
+      Like Perl, Python, or any shell, Guile can interpret script files. A
+      Guile script is simply a file of Scheme code with some extra information
+      at the beginning which tells the operating system how to invoke Guile,
+      and then tells Guile how to handle the Scheme code. Add the interpreter
+      at the beginning of <code>h.scm</code>:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+#!/usr/bin/guile -s
+!#</pre>
+    <p>
+      and then make the file executable 
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+<kbd>chmod u+x h.scm</kbd></pre>
+    <p>
+      Then we can run it directly by <code>./h.scm</code> (assuming
+      <code>h.scm</code> is in the current directory).
+    </p>
+    <p>
+      Note that there is an additional line starting with <code>!#</code>. 
+      This is because <code>#!..!#</code> indicates multiline comments (block
+      comments) in <code>guile</code>. When bash sees <code>#!</code> at the
+      first line of a file, it considers the name following <code>#!</code> as
+      an interpreter and invoke the interpreter with the name of the present
+      file as an argument. After <code>guile</code> gets control, it reads the
+      file again from the begining. In this case, <code>guile</code> see
+      <code>#!..!#</code>, which is block comment and so is ignored by
+      <code>guile</code>. That is the reason why another line with
+      <code>!#</code> is needed in the script.
+    </p>
+    <h2 id="auto-7">3<span style="margin-left: 1em"></span>Type of values</h2>
+    <p>
+      In dynamically typed languages such as Scheme, types are used to
+      categorize values, rather than variables. The term &ldquo;value&rdquo;
+      can be used exchangeably with &ldquo;data&rdquo;, which is often used
+      when making a comparison with &ldquo;program&rdquo;. Scheme provides the
+      following value types:
+    </p>
+    <ul>
+      <li>
+        <p>
+          Simple value types: boolean, number, char, symbol.
+        </p>
+      </li>
+      <li>
+        <p>
+          Compound value types: string, vector, pair, procedure, port
+        </p>
+      </li>
+    </ul>
+    <p>
+      Type of a value can be tested by the corresponding predicates:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+boolean? number? char? symbol? string? 
+vector?  pair?  procedure? port?</pre>
+    <p>
+      Boolean:  <code>#f</code> is logical false, <code>#t</code> is logical
+      true. Although there is a separate boolean type, any Scheme value can be
+      used as a boolean value for the purpose of a conditional test: all
+      values count as true in such a test except for <code>#f</code>.
+    </p>
+    <p>
+      number&ndash;&gt;complex&ndash;&gt;real&ndash;&gt;rational&ndash;&gt;integer.
+      Scheme numbers can be integers (eg, <code>42</code>), rationals
+      (<code>22/7</code>), reals (<code>3.1416</code>), or complex
+      (<code>2+3i</code>). In scheme, an integer is a rational, is a real, is
+      a complex number, is a number. Predicates exist for testing the various
+      kinds of numberness:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(number? 42)       <tt><strong>=&gt;</strong></tt>  #t
+(number? #t)       <tt><strong>=&gt;</strong></tt>  #f
+(complex? 2+3i)    <tt><strong>=&gt;</strong></tt>  #t
+(real? 2+3i)       <tt><strong>=&gt;</strong></tt>  #f
+(real? 3.1416)     <tt><strong>=&gt;</strong></tt>  #t
+(real? 22/7)       <tt><strong>=&gt;</strong></tt>  #t
+(real? 42)         <tt><strong>=&gt;</strong></tt>  #t
+(rational? 2+3i)   <tt><strong>=&gt;</strong></tt>  #f
+(rational? 3.1416) <tt><strong>=&gt;</strong></tt>  #t
+(rational? 22/7)   <tt><strong>=&gt;</strong></tt>  #t
+(integer? 22/7)    <tt><strong>=&gt;</strong></tt>  #f
+(integer? 42)      <tt><strong>=&gt;</strong></tt>  #t</pre>
+    <p>
+      Integers need not be specified in decimal (base 10) format. They can be
+      specified in binary by prefixing the numeral with <code>#b</code>. Thus
+      <code>#b1100</code> is the number twelve. The octal prefix is
+      <code>#o</code> and the hex prefix is <code>#x</code>. (The optional
+      decimal prefix is <code>#d</code>.)
+    </p>
+    <p>
+      Character data are represented by prefixing the character with
+      <code>#\</code>. Thus, <code>#\c</code> is the character <code>c</code>.
+      Some non-graphic characters have more descriptive names, e.g.,
+      <code>#\newline</code>, <code>#\tab</code>. The character for space can
+      be written <code>#\</code> , or more readably, <code>#\space</code>. The
+      character predicate is <code>char?</code>
+    </p>
+    <p>
+      Symbol is a sequence of characters that can not be confused with other
+      values, namely, characters, booleans, numbers, compound data. Thus,
+      <code>this&#x2011;is&#x2011;a&#x2011;symbol</code>, <code>i8n</code>,
+      <code>&lt;=&gt;</code>, and <code>$!#*</code> are all symbols; whereas
+      <code>6</code>, <code>&#x2011;i</code> (a complex number),
+      <code>#t</code>,
+      <code>&quot;this&#x2011;is&#x2011;a&#x2011;string&quot;</code>, and
+      <code>(barf)</code> (a list) are not. Symbols and strings are separate
+      data types. 
+    </p>
+    <p>
+      Symbols are also atomic, we cannot split them apart. The primary
+      operation we perform on symbols is comparison (determining whether two
+      symbols are the same). 
+    </p>
+    <p>
+      A symbol denotes only itself. Unlike other simple values (booleans,
+      characters, numbers), symbols are not self-evaluating. This design is
+      because of the practice that a sequence of characters that is a symbol
+      is reserved by Scheme as an identifier (rather than a value), and is
+      evaluated to the value the identifier is bound (if it is bound,
+      otherwise raises an error), rather than the symbol literal itself.
+    </p>
+    <p>
+      When we want to refer to something as a value (data) involved in a
+      computation, rather than as a program (specifically, the name of some
+      other value, an expression to be evaluated), we put an apostrophe
+      (usually pronounced &ldquo;quote&rdquo;) in front of it. In effect, by
+      quoting something, we're telling Scheme to take it literally and without
+      further interpretation or evaluation. You can quote many different data,
+      not only limitted to symbols. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(symbol? '(1 2 3)) ;=&gt;#f
+(symbol? 'sample)  ;=&gt;#t
+(symbol? '2)       ;=&gt;#f
+(integer? '2)      ;=&gt;#t</pre>
+    <p>
+      In effect, an apostrophe introduces data i.e., values, which can be of
+      any types. What follows the apostrophe and ends at a proper location
+      (determined by Lisp syntax) is the data itself; apostrophe itself is not
+      a part of the data. For the practical purpose of distinguishing between
+      data and program for programmers, the apostrophe can be considered as a
+      part of external representation of the data, as an indicator of data.
+      For values of boolean, number, char and string, they are
+      self-evaluating, and thus it is not necessary to quote them, but in
+      order to have a sharp distinguishment between data and program, it is
+      instructive to quote them.
+    </p>
+    <p>
+      To be unified with Lisp's parentheses prefix syntax, Lisp also
+      introduces the quote special form:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(symbol? (quote sample))  ;=&gt;#t</pre>
+    <h2 id="auto-8">4<span style="margin-left: 1em"></span>Compound data structure: string, vector,
+    pair/list, procedure, port</h2>
+    <h3 id="auto-9">4.1<span style="margin-left: 1em"></span>String</h3>
+    <p>
+      string: a sequence of characters enclosed by double quotation markers is
+      a string. Strings evaluates to themselves:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+&quot;hello&quot;
+=&gt; &quot;hello&quot;</pre>
+    <p>
+      The characters in a given string can be individually accessed and
+      modified. The procedure <code>string&#x2011;ref</code> takes a string
+      and a (0-based) index, and returns the character at that index:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(string-ref &quot;Hello&quot; 0)
+=&gt;  #\H</pre>
+    <p>
+      Other useful string methods include <code>string-append</code>,
+      <code>make-string</code>, <code>string-set!</code>.
+    </p>
+    <h3 id="auto-10">4.2<span style="margin-left: 1em"></span>Vectors</h3>
+    <p>
+      Vectors are sequences like strings, but their elements can be anything,
+      not just characters. Indeed, the elements can be vectors themselves,
+      which is a good way to generate multidimensional vectors.
+    </p>
+    <p>
+      Scheme's representation of a vector value: a sharper sign <code>#</code>
+      followed by the vector's contents enclosed in parentheses. eg.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+#(0 1 2)</pre>
+    <p>
+      Here's a way to create a vector of the first five integers:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(vector 0 1 2 3 4)
+<tt><strong>=&gt;</strong></tt>  #(0 1 2 3 4)</pre>
+    <p>
+      In analogy with <code>make&#x2011;string</code>, the procedure
+      <code>make&#x2011;vector</code> makes a vector of a specific length:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(make-vector 5)</pre>
+    <p>
+      The procedures <code>vector&#x2011;ref</code> and
+      <code>vector&#x2011;set!</code> access and modify vector elements. The
+      predicate for checking if something is a vector is <code>vector?</code>.
+    </p>
+    <h3 id="auto-11">4.3<span style="margin-left: 1em"></span>Pair and list</h3>
+    <p>
+      The following pair:
+    </p>
+    <p>
+      <code>(a . (b . (c . d)))</code>
+    </p>
+    <p>
+      is equivalent to the following list:
+    </p>
+    <p>
+      <code>(a b c d)</code>
+    </p>
+    <p>
+      List predicat is <code>list?</code>
+    </p>
+    <h3 id="auto-12">4.4<span style="margin-left: 1em"></span>Procedure</h3>
+    <p>
+      This value is returned by a lambda expression (discussed later).
+      Procedure values do not have external representations for readin syntax.
+    </p>
+    <h3 id="auto-13">4.5<span style="margin-left: 1em"></span>Port</h3>
+    <p>
+      Port value do not have external representations for readin syntax.
+    </p>
+    <h2 id="auto-14">5<span style="margin-left: 1em"></span>Expressions</h2>
+    <p>
+      Like other functional programming languages, basic elements of Scheme
+      code are expressions. Expressions can be evaluated, producing a value.
+      The most fundamental expressions are <strong>literal
+      expressions</strong>:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+#t  ;=&gt;#t
+23  ;=&gt;23</pre>
+    <p>
+      This notation means that the expression <code>#t</code> evaluates to
+      <code>#t</code>, that is, the value for &ldquo;true&rdquo;, and that the
+      expression <code>23</code> evaluates to a number object representing the
+      number <code>23</code>.
+    </p>
+    <p>
+      Variable reference is another simple expression, e.g.,
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define a 10)
+a    ;an expression evaluates to 10</pre>
+    <p>
+      <strong>Compound expressions</strong> are formed by placing parentheses
+      around their subexpressions (multiple subexpressions are separated by
+      white-spaces). The first subexpression identifies an operation; the
+      remaining subexpressions are operands to the operation:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(+ 23 42)       ;=&gt;65
+(+ 14 (* 23 42)) ;=&gt;980
+(remainder 5 2) ; =&gt; 1</pre>
+    <p>
+      Compound expressions can be nested, as the second example shows. As
+      these examples indicate, compound expressions in Scheme are always
+      written using the same prefix notation: operator first then operands
+      follow. As a consequence, the parentheses are needed to indicate
+      structure. Another consequence is that, &ldquo;superfluous&rdquo;
+      parentheses, which are often permissible in mathematical notation and
+      also in many programming languages, are not allowed in Scheme. This is
+      because adding a pair of superfluous parentheses to an expression
+      corresponds to forming a new compound expression and letting Lisp treat
+      the original expression as a sub-expression and use the value of this
+      sub-expression as an operator and evaluate the compound expression
+      (function invocation with no argument), the value of which is usually
+      different from the original expression (if we are lucky to get a value
+      at all).
+    </p>
+    <p>
+      Multiple sub-expressions of a compound expression are separated by
+      white-space. In Scheme, line-ending is equivalent to whithe spaces, and
+      multiple whitespaces or line-endings are equivalent to a single
+      whitespace.
+    </p>
+    <p>
+      Not all expressions are valid programs. If you typed <code>(1 2)</code>
+      at the Scheme listener, you will get an error because <code>(1,2</code>)
+      is a list, which is valid data but is not an expression that can be
+      evaluated to give an value.
+    </p>
+    <p>
+      Compound expressions are a subcategory of combinations (in Guile) or
+      forms (in R5RS). This ditinguishment is necessary becasue, in scheme,
+      some combinations are not considered to be expressions. One example is
+      the variable binding and initialization structure:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define x 23)</pre>
+    <p>
+      which is not expression. While definitions are not expressions,
+      definitions and compound expressions exhibit similar syntactic
+      structure:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define x 23)
+(* x 2)</pre>
+    <p>
+      While the first line contains a definition, and the second an
+      expression, this distinction depends on the bindings for
+      <code>define</code> and <code>*</code>. At the purely syntactical level,
+      both are forms, and form is the general name for a syntactic part of a
+      Scheme program. In particular, <code>23</code> is a subform of the form
+      <code>(define x 23)</code>.
+    </p>
+    <p>
+      Scheme evaluates a list form by examining the first element, or head, of
+      the form. If the head evaluates to a procedure, the rest of the form is
+      evaluated to get the procedure's arguments, and the procedure is applied
+      to the arguments. If the head of the form is a special form, how the
+      remaing sub-form are evalued are determined by that special form. Some
+      special forms are <code>begin</code>, <code>define</code>, and
+      <code>set!</code>.  <code>define</code> introduces and initializes a
+      variable. <code>set!</code> assigns a new value to a variable.
+      <code>begin</code> causes its subforms to be evaluated in order, the
+      result of the entire form being the result of the last subform.
+    </p>
+    <p>
+      Empty combination () is considered  to be an invalid program in Guile
+      and Racket (it is still a valid data, i.e., empty list) because it is
+      missing the procedure expression. In GNU clisp, empty list is a valid
+      program, which evaluates to <code>NIL</code> (boolean value false).
+    </p>
+    <p>
+      All function calls (including basic arithmetic operations) in Lips are
+      based on the parenthezed-prefix-notation, i.e., <code>(operator
+      operands1 operands2)</code>. Many predefined operations of Scheme are
+      provided not by syntax, but by variables whose values are procedures.
+      The + operation, for example, which receives special syntactic treatment
+      in many other languages, is just a regular identifier in Scheme, bound
+      to a procedure that adds number objects. The following are some
+      arithmetic operations:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(+ 2 3)  ;=&gt; 5
+(- 2 3)  ;=&gt; -1
+(* 2 3)  ;=&gt; 6
+(/ 2 3)  ;=&gt; 2/3
+(expt 2 3) ;=&gt; 8
+(quotient 5 2) ; =&gt; 2
+(remainder 5 2) ; =&gt; 1
+(/ 35 5) ; =&gt; 7
+(/ 1 3) ; =&gt; 1/3
+(exact-&gt;inexact 1/3) ; =&gt; 0.3333333333333333
+(+ 1+2i  2-3i) ; =&gt; 3-1i</pre>
+    <p>
+      A list in lisp can be treated as program or data. If a list is given to
+      a lisp interpreter, by default, the list is treated as program and lisp
+      evaluates each elements of the list. To prevent a list from being
+      evaluated (i.e, to treat them literally), we can use the
+      <code>quote</code> special form. For example
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+guile&gt;(quote (1 2 3))
+(1 2 3)
+guile&gt; (quote foo)
+foo</pre>
+    <p>
+      <tt>quote</tt> is called a &ldquo;special form&rdquo; because, unlike
+      most other lisp operations, it doesn't evaluate its argument.
+    </p>
+    <p>
+      There is a shortcut (syntax sugar) which provides an alternative form of
+      calling the <code>quote</code> procedure: instead of using the standard
+      list form: a single quotation marker before an expression have the
+      effect of preventing evaluation. For example
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+guile&gt; '(f 2 3)
+(f 2 3)
+guile&gt; 'foo
+foo</pre>
+    <h2 id="auto-15">6<span style="margin-left: 1em"></span>Variables (pointers), values (objects), data
+    type</h2>
+    <h3 id="auto-16">6.1<span style="margin-left: 1em"></span>Variable names</h3>
+    <p>
+      In Scheme, there are very few restrictions on what kind of sequence of
+      characters can be used as a variable name. Any character sequence that
+      can not be confused with Scheme's value types can be used a variable
+      name.
+    </p>
+    <p>
+      The restriction on variable names in Lisp can be put in the following
+      way: All literals that are symbols (i.e., the predicate
+      <code>symbol?</code> return true) can be used as identifiers (variable
+      names, names of locations, names of values).
+    </p>
+    <h3 id="auto-17">6.2<span style="margin-left: 1em"></span>Define variables and assignments</h3>
+    <p>
+      Scheme has latent as opposed to manifest types. Types are associated
+      with objects(also called values) rather than with variables. (Some
+      authors refer to languages with latent types as untyped, weakly typed or
+      dynamically typed languages.) Other languages with latent types are
+      Python, Ruby, Smalltalk, and other dialects of Lisp. Languages with
+      manifest types (sometimes referred to as strongly typed or statically
+      typed languages) include Fortran, C/C++, C#, Java, Haskell, and ML.
+    </p>
+    <p>
+      <code>Lisp</code> is a language with dynamically typed variables, which
+      means the type of a variable can change during runtime and hence there
+      is no type declaration for variables. More accurately, typing is
+      associated with the value that a variable assumes rather than the
+      variable itself. A variable (name) is a pointer pointing to a location
+      where a data object (value) is stored.
+    </p>
+    <p>
+      In <code>guile</code>, a variable (a name) is bound to a value (data
+      object) by using <code>define</code>
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define a 123)    
+(define a &quot;hello&quot;)</pre>
+    <p>
+      More accurately speeaking, <code>define</code> bind a name with a
+      location (if the name is not yet bound) and assign a value to that
+      location. When a variable is bound to a location, its value can also be
+      modified by using <code>set!</code>, e.g.,
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(set! a  456)</pre>
+    <p>
+      For a bound variable, using <code>define</code> and <code>set!</code>
+      are equivalent to each other. If we use <code>set!</code> on a unbound
+      variable, the lisp will raise error message, reminding us that a
+      variable must be first bound to a location (using <code>define</code>)
+      before we can set its value.
+    </p>
+    <h3 id="auto-18">6.3<span style="margin-left: 1em"></span>Variable scope</h3>
+    <p>
+      <code>Scheme</code> uses lexical (static) scope. (Originally Lisp used
+      dynamic scoping, Emacs lisp can swich between lexical and dynamic
+      scoping by seting an option.) In lexical scope, each use of a variable
+      is associated with a lexically apparent binding of that variable.
+    </p>
+    <p>
+      Scheme is a statically scoped language with block structure. To each
+      place in a top-level program or library body where an identifier is
+      bound, there corresponds a region of code within which the binding is
+      visible. The region is determined by the particular binding construct
+      that establishes the binding; if the binding is established by a lambda
+      expression, for example, then its region is the entire lambda
+      expression. Every mention of an identifier refers to the binding of the
+      identifier that establishes the innermost of the regions containing the
+      use. If a use of an identifier appears in a place where none of the
+      surrounding expressions contains a binding for the identifier, the use
+      may refer to a binding established by a definition or import at the top
+      of the enclosing library or top-level program (see chapter 7). If there
+      is no binding for the identifier, it is said to be unbound.
+    </p>
+    <p>
+      In dynamic scoping, a function may reference local variables defined in
+      the lexical scope of the calling unit, which means,  if a programmer
+      declares a variable within the lexical scope of a function, it is
+      available to subroutines called from within that function. Originally,
+      this was intended as an optimization; lexical scoping was still uncommon
+      and of uncertain performance. Somebody asked RMS (Richard Stallman) why
+      it was dynamically scoped when he was implementing emacs lisp and his
+      exact reply was that lexical scope was too inefficient. Dynamic scoping
+      was also meant to provide greater flexibility for user customizations.
+      However, dynamic scoping has several disadvantages. It can easily lead
+      to bugs in large programs, due to unintended interactions between
+      variables in different functions.
+    </p>
+    <p>
+      With the constructs for local binding (let, let*, letrec, and letrec*),
+      the Scheme language has a block structure like most other programming
+      languages since the days of ALGOL 60. Readers familiar to languages like
+      C or Java should already be used to this concept.
+    </p>
+    <p>
+      The most basic local binding construct is <code>let</code>. syntax: let
+      bindings body
+    </p>
+    <p>
+      bindings has the form
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+( (variable1 init1) <span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>)</pre>
+    <p>
+      that is zero or more two-element lists of a variable and an arbitrary
+      expression each. All variable names must be distinct. A <code>let</code>
+      expression is evaluated as follows. All init expressions are evaluated.
+      New storage is allocated for the variables. The values of the init
+      expressions are stored into the variables.
+    </p>
+    <p>
+      The expressions in body are evaluated in order, and the value of the
+      last expression is returned as the value of the let expression.
+    </p>
+    <p>
+      Local binding: &lsquo;me' is bound to &quot;Bob&quot; only within the
+      (let &hellip;)
+    </p>
+    <p>
+      <code><p>
+        (let ((me &quot;Bob&quot;)<span style="margin-left: 1em"></span>(you &quot;Tom&quot;)
+        )<span style="margin-left: 1em"></span>me)<span style="margin-left: 1em"></span>;; =&gt; &quot;Bob&quot;
+      </p></code>
+    </p>
+    <p>
+      The other binding constructs are variations on the same theme: making
+      new values, binding them to variables, and executing a body in that in
+      the newly extended lexical context.
+    </p>
+    <p>
+      All objects created in the course of a Scheme computation, including
+      procedures and continuations, have unlimited extent. No Scheme object is
+      ever destroyed. The reason that implementations of Scheme do not
+      (usually!) run out of storage is that they are permitted to reclaim the
+      storage occupied by an object if they can prove that the object cannot
+      possibly matter to any future computation. Other languages in which most
+      objects have unlimited extent include C#, Java, Haskell, most Lisp
+      dialects, ML, Python, Ruby, and Smalltalk
+    </p>
+    <h2 id="auto-19">7<span style="margin-left: 1em"></span>Conditionals</h2>
+    <p>
+      &ldquo;A conditional is an if-then-else construct. We take these for
+      granted now. They were invented in the course of developing Lisp.
+      (Fortran at that time only had a conditional goto, closely based on the
+      branch instruction in the underlying hardware.)[<a href="#bib-graham2002diff">5</a>].
+    </p>
+    <p>
+      The conditionals in Scheme take the following forms:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(if test consequent alternate)
+(if test consequent)</pre>
+    <p>
+      where <code>test</code>, <code>consequent</code>, and
+      <code>alternate</code> are expressions. An <code>if</code> expression is
+      evaluated as follows: first, <code>test</code> is evaluated. If it
+      yields a true value, then <code>consequent</code> is evaluated and its
+      values are returned. Otherwise <code>alternate</code> is evaluated and
+      its values are returned. If <code>test</code> yields a false value and
+      no <code>alternate</code> is specified, then the result of the
+      <code>if</code> expression is unspecified.
+    </p>
+    <p>
+      Example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(if (= 5 (+ 2 3)) &quot;equal&quot; &quot;inequal&quot;)   ;==&gt;&quot;equal&quot;</pre>
+    <p>
+      <code>if</code> is a special form because it does not automatically
+      evaluate <strong>all</strong> of its arguments:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(if (= 0 1)  (/ 1 0)  (+ 2 3))          ;==&gt; 5</pre>
+    <p>
+      Note that the <code>(/ 1 0)</code> is not evaluated. Another interesting
+      example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+((if #f + *) 3 4)                 ;===&gt;  12</pre>
+    <p>
+      In scheme standard[<a href="#bib-schemers">2</a>], <code>if</code> construct is the
+      primitive construct. There is a derived conditional, the
+      <code>cond</code> construct:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(cond (test1 expr1)
+      (test2 expr2)
+        &hellip;
+      (testN  exprN))</pre>
+    <p>
+      As soon as <code>cond</code> find a test that evaluates to true, then it
+      evaluates the corresponding expression and return its value. The
+      remaining tests and expressions are not evaluated. If none of the tests
+      evaluate to ture, then the return value of <code>cond</code> is not
+      defined. To get an &ldquo;else&rdquo; part , we provide a test that is
+      gurrantee to be true as the last clause of the <code>cond</code>
+      structure.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(cond (test1 expr1)
+      (test2 expr2)
+        &hellip;
+      (#t  exprN))</pre>
+    <p>
+      Consider the fact &ldquo;else&rdquo; part is often used,
+      <code>guile</code> provide a syntax sugar which uses <code>else</code>
+      as a keyword:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(cond (test1 expr1)
+      (test2 expr2)
+        &hellip;
+      (else  exprN))</pre>
+    <p>
+      If none of the tests evaluate to ture then <code>cond</code> evaluate
+      the <code>else</code> part and return its value (the <code>else</code>
+      part can be left off, but it's not good style, since this may make
+      return value undefined).
+    </p>
+    <p>
+      Logical operators: <code>and</code>/<code>or</code>. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(and #f #t)   ;=&gt; flase
+(or  #f #t)   ;=&gt; true</pre>
+    <p>
+      
+    </p>
+    <h2 id="auto-20">8<span style="margin-left: 1em"></span>Lambda expression</h2>
+    <p>
+      The lambda expression define a (anonymous) function and, when it is
+      evaluated, return that function object as the returned value. Let us
+      examine an example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(lambda (x y) (+ x y))</pre>
+    <p>
+      which will return a function object that takes two arguments and what
+      the function does is to sum the two arguments.
+    </p>
+    <p>
+      Note that function/procedure is just another type of value and the
+      importance of <code>lambda</code> is that it can return this type of
+      value. Using the word &ldquo;lambda&rdquo; instead of
+      &ldquo;funtion&rdquo; or &ldquo;procedure&rdquo; is due to Lisp's
+      history. In practice, when we see the word <code>lambda</code> in source
+      codes, we can safely translate (in our mind) the word to
+      &ldquo;function&rdquo;.
+    </p>
+    <p>
+      The returned function by the above <code>lambda</code> call is unnamed.
+      How do we use the returned function? We can use it wherever a function
+      name can appear. For example
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+((lambda (x y) (+ x y)) 2 3)</pre>
+    <p>
+      or, equivalently, binding the function objet to a variable:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define foo (lambda (x y) (+ x y)))</pre>
+    <p>
+      and then calling the function using the variable name:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(foo 2 3)</pre>
+    <p>
+      In the latter case, we define a unnamed function by using
+      <code>lambda</code> and then bind it to the name <code>foo</code>. This
+      amounts to that we are defining a named function. Since defining named
+      functions is a very common task, <code>scheme</code> provides this
+      special version of <code>define</code> that doesn't use
+      <code>lambda</code> explicitly:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (foo x y) (+ x y))</pre>
+    <p>
+      which can be considered as an abbreviation for <code>(define foo (lambda
+      (x y) (+ x y)))</code>, i.e., defining a unnamed function and then
+      binding it to the variable <code>foo</code>.
+    </p>
+    <h3 id="auto-21">8.1<span style="margin-left: 1em"></span>Pass by value or reference?</h3>
+    <p>
+      Similar to C, <code>Scheme</code> function call uses pass by value
+      (rather than by reference) with pointer semantics. Let us examine an
+      example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (func x)
+        (define x 4)
+        (* x 2))
+(define a 3)
+(func a)
+(display a)     ;=&gt; 3</pre>
+    <p>
+      <font color="blue"><h3 id="auto-22">8.2<span style="margin-left: 1em"></span>General syntax of lambda
+      expression:</h3><pre class="verbatim" xml:space="preserve">
+(lambda &lt;formals&gt; &lt;body&gt;)</pre><p>
+        where <code>&lt;formals&gt;</code> have one of the following forms:
+      </p><ul>
+        <li>
+          <p>
+            <code>(variable_1 variable_2 <span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span
+            style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span> variable_n)</code><span style="margin-left: 1em"></span>The
+            procedure takes a fixed number of arguments; when the procedure is
+            called, the values of actual arguments will be stored in newly
+            allocated locations to which the formal arguments are bound.
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>variable</code><span style="margin-left: 5em"></span>The procedure takes any
+            number of arguments; when the procedure is called, the sequence of
+            actual arguments is converted into a newly allocated list, and the
+            list is stroed in a fresh location to which <code>variable</code>
+            is bound.
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>(variable_1 &hellip; variable_n<span style="margin-left: 1em"></span>.
+            variable_n+1)</code> If a space-delimited period precedes the last
+            variable, then the procedure takes <var>n</var> or more arguments,
+            where <var>n</var> is the number of formal arguments before the
+            period. The value stored in the binding of the last variable will
+            be a newly allocated list of the actual arguments left over after
+            all the other actual arguments have been matched up against the
+            other fromal arguments.
+          </p>
+        </li>
+      </ul></font>
+    </p>
+    <p>
+      
+    </p>
+    <h3 id="auto-23">8.3<span style="margin-left: 1em"></span>Closure</h3>
+    <p>
+      What is important about <code>lambda</code> expression is that it
+      returns an enviroment (e.g., values of the free variables in the lambda
+      expression) to perform calculations and this environment can be changed
+      and is remembered (persitent variables) by the closure. Let us see an
+      example of a serial number generator:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define make-serial-number-generator
+  (lambda ()
+    (let ((current-serial-number 0))
+      (lambda ()
+        (set! current-serial-number (+ current-serial-number 1))
+        current-serial-number))))
+
+(define entry-sn-generator (make-serial-number-generator))
+(define entry-sn-generator2 (make-serial-number-generator))
+
+(display (entry-sn-generator)) ;==&gt;1
+(newline)
+(display (entry-sn-generator))  ;==&gt;2
+(newline)
+(display (entry-sn-generator2)) ;==&gt;1
+(newline)
+(display (entry-sn-generator2))  ;==&gt;2
+(newline)</pre>
+    <p>
+      This example create a procedure with a variable binding that is private
+      to the procedure, like a local variable, but whose value persists
+      between procedure calls.
+    </p>
+    <p>
+      When make-serial-number-generator is called, it creates a local
+      environment with a binding for current-serial-number whose initial value
+      is 0, then, within this environment, creates a procedure. The local
+      environment is stored within the created procedure object and so
+      persists for the lifetime of the created procedure.
+    </p>
+    <p>
+      Note that make-serial-number-generator can be called again to create a
+      second serial number generator that is independent of the first. Every
+      new invocation of make-serial-number-generator creates a new local let
+      environment and returns a new procedure object with an association to
+      this environment.
+    </p>
+    <p>
+      In summary, closure is the capture of an environment, containing
+      persistent variable bindings, within the definition of a procedure. This
+      is rather similar to the idea in some object oriented languages of
+      encapsulating a set of related data variables inside an
+      &ldquo;object&rdquo;, together with a set of &ldquo;methods&rdquo; that
+      operate on the encapsulated data. The following example shows how
+      closure can be used to emulate the ideas of objects, methods and
+      encapsulation in Scheme.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (make-account)
+  (let ((balance 0))
+    (define (get-balance)
+      balance)
+    (define (deposit amount)
+      (set! balance (+ balance amount))
+      balance)
+    (define (withdraw amount)
+      (deposit (- amount)))
+
+    (lambda args
+      (apply
+        (case (car args)
+          ((get-balance) get-balance)
+          ((deposit) deposit)
+          ((withdraw) withdraw)
+          (else (error &quot;Invalid method!&quot;)))
+        (cdr args)))))</pre>
+    <p>
+      
+    </p>
+    <p>
+      Scheme was one of the first languages to support procedures as objects
+      in their own right. Procedures can be created dynamically, stored in
+      data structures, returned as results of procedures, and so on. Other
+      languages with these properties include Common Lisp, Haskell, ML, Ruby,
+      and Smalltalk.
+    </p>
+    <p>
+      One distinguishing feature of Scheme is that continuations, which in
+      most other languages only operate behind the scenes, also have
+      &ldquo;first-class&rdquo; status. First-class continuations are useful
+      for implementing a wide variety of advanced control constructs,
+      including non-local exits, backtracking, and coroutines.
+    </p>
+    <p>
+      In Scheme, the argument expressions of a procedure call are evaluated
+      before the procedure gains control, whether the procedure needs the
+      result of the evaluation or not. C, C#, Common Lisp, Python, Ruby, and
+      Smalltalk are other languages that always evaluate argument expressions
+      before invoking a procedure. This is distinct from the lazy-evaluation
+      semantics of Haskell, or the call-by-name semantics of Algol 60, where
+      an argument expression is not evaluated unless its value is needed by
+      the procedure.
+    </p>
+    <p>
+      The power of lambda expression is better shown when they are used as an
+      anonymous function inside another function.
+    </p>
+    <h2 id="auto-24">9<span style="margin-left: 1em"></span>Recursion</h2>
+    <p>
+      Let us see some simple examples of recursion.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve">(define (factorial n)
+  (if (= 0 n) 
+      1 
+      (* n (factorial (- n 1)))))</pre></pre>
+    <p>
+      which is the classic factorial function.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve">;;  (double-each '(1 3 4))  =&gt; (2 6 8)
+(define (double-each s)
+  (if (null? s)
+      '()
+      (cons (* 2 (car s))
+            (double-each (cdr s)))))</pre></pre>
+    <p>
+      which doubles each number in a list.
+    </p>
+    <p>
+      Rules for writing recursive functions:
+    </p>
+    <p>
+      1. Know when to stop (the base case)
+    </p>
+    <p>
+      2. Decide how to take one step towards the base case
+    </p>
+    <p>
+      3. Phrase the solution in terms of one step, and a smaller version of
+      the original problem.
+    </p>
+    <p>
+      For numbers, the base case is usually a small integer constant, and a
+      smaller version of the problem is something like <code>n-1</code>.
+    </p>
+    <p>
+      For lists, the base case is usually the empty list, and a smaller
+      version of the problem is usually the rest (i.e., <code>cdr</code>) of
+      the list. Here is a template for most recursive functions:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (fn args)
+  (if base-case
+      base-value
+    (compute-result (fn (smaller args)))))</pre>
+    <p>
+      Implementations of Scheme must be properly tail-recursive, which means
+      that the execution of an iterative computation in constant space, even
+      if the iterative computation is described by a syntactically recursive
+      procedure. Thus with a properly tail-recursive implementation, iteration
+      can be expressed using the ordinary procedure-call mechanics without
+      runtime penality, so that special iteration constructs are useful only
+      as syntactic sugar.
+    </p>
+    <h3 id="auto-25">9.1<span style="margin-left: 1em"></span>Loop</h3>
+    <p>
+      Scheme has no expressions designed for looping at a general level. The
+      only easy way to do this is recursion, which forces a particular mindset
+      but is actually a natural way for iteratation. The following example
+      illustrates a Scheme script that iterates from 0 to 9, then prints done.
+      This example uses what in Scheme is called tail recursion. Note that the
+      function being defined is invoked at the end of the block. This
+      recursion is called tail recursion. In traditional languages, this
+      recursion eats away at the stack to maintain a history of the calls; in
+      Scheme, it's different. The last call (the tail) simply invokes the
+      function without any procedure call or stack maintenance overhead. This
+      is often stated in the following words: Implementations of Scheme must
+      be properly tail-recursive
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(let countup ((i 0))
+  (if (= i 10) (begin (display &quot;done&quot;) (newline))
+               (begin  (display i)   (newline)   (countup (+ i 1)))))</pre>
+    <p>
+      
+    </p>
+    <p>
+      Scheme is &ldquo;properly tail recursive&rdquo;, meaning that tail calls
+      or recursions from certain contexts do not consume stack space or other
+      resources and can therefore be used on arbitrarily large data or for an
+      arbitrarily long calculation.
+    </p>
+    <h2 id="auto-26">10<span style="margin-left: 1em"></span>Higher order function</h2>
+    <p>
+      <code>Scheme</code> supports functions as <em>first class citizens</em>,
+      which means <code>Scheme</code> supports passing functions as arguments
+      to other functions, returning them as the values from other functions,
+      and assigning them to variables or storing them in data structures. A
+      programming language is said to have first-class functions if it treats
+      functions as first-class citizens.
+    </p>
+    <p>
+      Scheme gets much of its expressiveness and capacity for abstraction by
+      supporting an <strong>applicative</strong> programming style using
+      <em>higher order functions</em> &ndash; functions that take other
+      functions as arguments, or that return functions as the result. All
+      other functions are <strong>first-order</strong> functions. In
+      mathematics <strong>higher-order</strong> functions are called
+      <strong>operators</strong> or <strong>functionals</strong>. The
+      differential operator in calculus is a common example, since it maps a
+      function to its derivative, also a function.
+    </p>
+    <p>
+      First-class functions are a necessity for the functional programming
+      style, in which the use of higher-order functions is a standard
+      practice. A simple example of a higher-ordered function is the map
+      function, which takes, as its arguments, a function and a list, and
+      returns the list formed by applying the function to each member of the
+      list. For a language to support map, it must support passing a function
+      as an argument. Let us see an example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(map (lambda (x) (* x 2)) '(1 2 3))</pre>
+    <p>
+      which doubles all elements in a numerical list. Let us define our own
+      version of <code>map</code>, <code>my-map</code>, which is a higher
+      order function:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (my-map fun alist)
+(if (null? alist)
+      '()
+      (cons (fun (car alist)) (my-map fun (cdr alist))))
+)</pre>
+    <p>
+      There are certain implementation difficulties in passing functions as
+      arguments or returning them as results, especially in the presence of
+      non-local variables introduced in nested and anonymous functions.
+      Historically, these were termed the funarg problems, the name coming
+      from &quot;function argument&quot;. In early imperative languages these
+      problems were avoided by either not supporting functions as result types
+      (e.g. ALGOL 60, Pascal) or omitting nested functions and thus non-local
+      variables (e.g. C). The early functional language Lisp took the approach
+      of dynamic scoping, where non-local variables refer to the closest
+      definition of that variable at the point where the function is executed,
+      instead of where it was defined. Proper support for lexically scoped
+      first-class functions was introduced in Scheme and requires handling
+      references to functions as closures instead of bare function pointers,
+      which in turn makes garbage collection a necessity.
+    </p>
+    <p>
+      A function object is also known as a closure.
+    </p>
+    <p>
+      Memory management is one of Scheme's strong points. Unlike languages
+      like C, programmers of scheme do not have to deal with complicated
+      memory management. Scheme uses garbage collection, so you do not have to
+      worry about. This means that the Scheme environment frees memory for you
+      when the last reference to an object is destroyed. Simply stop referring
+      to an object (e.g. re-assigning a variable) and the value is marked as
+      free and garbage collected. Languages like Java also do this. Garbage
+      collection is a very powerful feature. The source of many bugs (in
+      languages that you must manually manage memory in) is memory management.
+      Why have every program deal with memory management manually when you can
+      do it all in one place? Of course, many people will disagree, but
+      whether garbage collection is the answer is usually something that is
+      true for some apps but false for others.
+    </p>
+    <p>
+      1.7  Procedure calls and syntactic keywords
+    </p>
+    <p>
+      Whereas <code>(+ 23 42)</code> and <code>((lambda (x) (+ x 42))
+      23)</code> are all examples of procedure calls, <code>lambda</code> and
+      <code>let</code> forms are not. This is because <code>let</code>, even
+      though it is an identifier, is not a variable, but is instead a
+      syntactic keyword. A form that has a syntactic keyword as its first
+      subform obeys special rules determined by the keyword. The
+      <code>define</code> identifier in a definition is also a syntactic
+      keyword. Hence, definitions are also not procedure calls.
+    </p>
+    <p>
+      The rules for the <code>lambda</code> keyword specify that the first
+      subform is a list of parameters, and the remaining subforms are the body
+      of the procedure. The rules for the <code>let</code> keyword specify
+      that the first subform is a list of binding specifications, and the
+      remaining subforms constitute a body of expressions.
+    </p>
+    <p>
+      Procedure calls can generally be distinguished from these special forms
+      by looking for a syntactic keyword in the first position of an form: if
+      the first position does not contain a syntactic keyword, the expression
+      is a procedure call. (So-called identifier macros allow creating other
+      kinds of special forms, but are comparatively rare.) The set of
+      syntactic keywords of Scheme is fairly small, which usually makes this
+      task fairly simple. However, it is possible to create new bindings for
+      syntactic keywords
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      5.8.7 The R5RS syntax-rules System
+    </p>
+    <p>
+      R5RS defines an alternative system for macro and syntax transformations
+      using the keywords <code>define-syntax</code>, <code>let-syntax</code>,
+      <code>letrec-syntax</code> and <code>syntax-rules</code>. The main
+      difference between the R5RS system and the traditional macros is how the
+      transformation is specified. In R5RS, rather than permitting a macro
+      definition to return an arbitrary expression, the transformation is
+      specified in a pattern language that (1) does not require complicated
+      quoting and extraction of components of the source expression using
+      caddr etc. (2) is designed such that the bindings associated with
+      identifiers in the transformed expression are well defined, and such
+      that it is impossible for the transformed expression to construct new
+      identifiers. The last point is commonly referred to as being hygienic,
+      i.e., the R5RS syntax-case system provides hygienic macros.
+    </p>
+    <p>
+      In Guile, the syntax-rules system is provided by the <code>(ice-9
+      syncase)</code> module. To make these facilities available in your code,
+      include the expression <code>(use-syntax (ice-9 syncase))</code>. For
+      example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+#!/usr/bin/guile -s
+!#
+(use-syntax (ice-9 syncase))
+(define-syntax def
+  (syntax-rules ()
+    ( (def    f (p &hellip;)  body)
+      (define (f p &hellip;)  body) )
+    )  )
+
+(def f(x) (+ x 1))
+     (display (f 3))
+     (newline)</pre>
+    <p>
+      
+    </p>
+    <p>
+      Pattern Language: The syntax-rules pattern language.
+    </p>
+    <p>
+      Define-Syntax: Top level syntax definitions.
+    </p>
+    <p>
+      Let-Syntax: Local syntax definitions.
+    </p>
+    <p>
+      
+    </p>
+    <h2 id="auto-27">11<span style="margin-left: 1em"></span>I/O</h2>
+    <p>
+      Reading
+    </p>
+    <p>
+      Writing
+    </p>
+    <p>
+      File ports
+    </p>
+    <p>
+      Automatic opening and closing of file ports
+    </p>
+    <p>
+      String ports
+    </p>
+    <h2 id="auto-28">12<span style="margin-left: 1em"></span>System interface</h2>
+    <p>
+      Useful Scheme programs often need to interact with the underlying
+      operating system.
+    </p>
+    <h3 id="auto-29">12.1<span style="margin-left: 1em"></span>Checking for and deleting files</h3>
+    <p>
+      <code>file&#x2011;exists?</code> checks if its argument string names a
+      file. <code>delete&#x2011;file</code> deletes its argument file. These
+      procedures are not part of the Scheme standard, but are available in
+      most implementations (e.g. <code>gule</code>). These procedures work
+      reliably only for files that are not directories. (Their behavior on
+      directories is dialect-specific.)
+    </p>
+    <h3 id="auto-30">12.2<span style="margin-left: 1em"></span>Calling operating-system commands</h3>
+    <p>
+      The system procedure executes its argument string as an operating-system
+      command.1 It returns true if the command executed successfully with an
+      exit status 0, and false if it failed to execute or exited with a
+      non-zero status. Any output generated by the command goes to standard
+      output.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(system &quot;ls&quot;) 
+;lists current directory
+
+(define fname &quot;spot&quot;)
+
+(system (string-append &quot;test -f &quot; fname)) 
+;tests if file &lsquo;spot' exists
+
+(system (string-append &quot;rm -f &quot; fname)) 
+;removes &lsquo;spot'
+</pre>
+    <p>
+      The last two forms are equivalent to
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(file-exists? fname)
+(delete-file fname)</pre>
+    <h3 id="auto-31">12.3<span style="margin-left: 1em"></span>Getting environment variables</h3>
+    <p>
+      The <code>getenv</code> procedure returns the setting of an
+      operating-system environment variable. Eg,
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(getenv &quot;HOME&quot;)
+=&gt;  &quot;/home/yj&quot;</pre>
+    <p>
+      
+    </p>
+    <p>
+      reference: https://ds26gte.github.io/tyscheme/
+    </p>
+    <h2 id="auto-32">13<span style="margin-left: 1em"></span>A complete Example of using scheme in
+    numerical simulation</h2>
+    <p>
+      Let us consider using Runge-Kuta method to integrate a system of
+      ordinary differential equations (ODEs). First let us construct some
+      basic facilities (some data structures and operations on them) which
+      will be used in our simulation. We use a Scheme vector to store a state
+      of the system. If we have a system of 3 ODEs, then the vector will be of
+      size 3, with one element of the vector standing for the value of one
+      variable of the 3 ODEs.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (generate-vector size proc)
+  (let ((ans (make-vector size)))
+    (letrec ((loop
+              (lambda (i)
+                (cond ((= i size) ans)
+                      (else
+                       (vector-set! ans i (proc i))
+                       (loop (+ i 1)))))))
+      (loop 0))))
+
+(define (elementwise f)
+  (lambda vectors
+    (generate-vector
+     (vector-length (car vectors))
+     (lambda (i)
+       (apply f
+              (map (lambda (v) (vector-ref v i)) vectors))))))
+
+(define add-vectors (elementwise +))
+
+(define (scale-vector s)
+  (elementwise (lambda (x) (* x s))))</pre>
+    <p>
+      Here <code>vectors</code> is a list of vectors.
+    </p>
+    <p>
+      Next, define the core procedure which uses runge-Kutta method to push a
+      given system one step forward:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (runge-kutta-4 f h)
+  (let ((*h (scale-vector h))
+        (*2 (scale-vector 2))
+        (*1/2 (scale-vector (/ 1 2)))
+        (*1/6 (scale-vector (/ 1 6))))
+    (lambda (y) ;; y is a system state
+      (let* ((k0 (*h (f y)))
+             (k1 (*h (f (add-vectors y (*1/2 k0)))))
+             (k2 (*h (f (add-vectors y (*1/2 k1)))))
+             (k3 (*h (f (add-vectors y k2)))))
+        (add-vectors y
+                     (*1/6 (add-vectors k0
+                                        (*2 k1)
+                                        (*2 k2)
+                                        k3)))))))</pre>
+    <p>
+      Here <code>h</code> is time-step size,  <code>f</code> is a function
+      that calculates the time derivates for a given system state.
+      Specifically, function invocation <code>(f y)</code>, with the
+      <code>y</code> being a vector standing for the system state, returns the
+      time derivates.
+    </p>
+    <p>
+      Next, let us consider a specific system, a damped oscillator:
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><table class="fraction">
+          <tr>
+            <td style="border-bottom: solid 1px"><var>d</var> <var>v</var><sub><var>C</var></sub></td>
+          </tr>
+          <tr>
+            <td><var>d</var> <var>t</var></td>
+          </tr>
+        </table> =  - <table class="fraction">
+          <tr>
+            <td style="border-bottom: solid 1px"><var>i</var><sub><var>L</var></sub></td>
+          </tr>
+          <tr>
+            <td><var>C</var></td>
+          </tr>
+        </table> - <table class="fraction">
+          <tr>
+            <td style="border-bottom: solid 1px"><var>v</var><sub><var>C</var></sub></td>
+          </tr>
+          <tr>
+            <td><var>R</var> <var>C</var></td>
+          </tr>
+        </table>,</td>
+        <td align="right">(1)</td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><table class="fraction">
+          <tr>
+            <td style="border-bottom: solid 1px"><var>d</var> <var>i</var><sub><var>L</var></sub></td>
+          </tr>
+          <tr>
+            <td><var>d</var> <var>t</var></td>
+          </tr>
+        </table> = <table class="fraction">
+          <tr>
+            <td style="border-bottom: solid 1px"><var>v</var><sub><var>C</var></sub></td>
+          </tr>
+          <tr>
+            <td><var>L</var></td>
+          </tr>
+        </table>.</td>
+        <td align="right">(2)</td>
+      </tr>
+    </table>
+    <p>
+      The above time derivatives are implemented as:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (damped-oscillator R L C)
+  (lambda (state)
+    (let ((Vc (vector-ref state 0))
+          (Il (vector-ref state 1)))
+      (vector (- 0 (+ (/ Vc (* R C)) (/ Il C)))
+              (/ Vc L)))))</pre>
+    <p>
+      Finally, let us implement the time iteration:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(define (integrate-system system-derivative initial-state h nsteps)
+  (let ((next (runge-kutta-4 system-derivative h))
+        (old_state  initial-state)
+        (new_state  initial-state))
+    (letrec ((countdown (lambda (i)
+                          (if (= i 0) 'liftoff
+                              (begin
+                                (set! new_state (next old_state))
+                                (display (vector-ref new_state 0))  (newline)
+                                (set! old_state new_state)
+                                (countdown (- i 1)))))))
+      (countdown nsteps))))</pre>
+    <p>
+      And invoke the above procedure for a specific damped oscillator with
+      <var>R</var> = 10000, <var>L</var> = 1000, <var>C</var> = 0.01, initial
+      state vector <code>#(1 0)</code>, time-step size <var>h</var> = 0.01,
+      number of time-steps <var>n</var><sub>step</sub> = 5000:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(integrate-system (damped-oscillator 10000 1000 .001) '#(1 0) 0.01 5000)
+(display &quot;finish&quot;)
+(newline)</pre>
+    <p>
+      The above example is a revised version of the example given in R7RS[<a
+      href="#bib-r7rs">3</a>]. Store the above codes in a file and run it in a linux
+      shell:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+$ guile -s rk_yj.scm &gt; t.txt</pre>
+    <p>
+      Then plot the result stored in <code>t.txt</code> by using
+      <code>GNUplot</code>:
+    </p>
+    <p>
+      <p style="margin-top: 0.5em; margin-bottom: 0.5em">
+        <div style="text-indent: 0em">
+          <div class="compact-block">
+            <p style="margin-top: 0.5em; margin-bottom: 0.5em">
+              <tt class="verbatim"><div style="margin-left: 38.660688007188px">
+                <div align="justify">
+                  This is a TeXmacs interface for GNUplot.
+                </div>
+              </div></tt>
+            </p>
+          </div>
+        </div>
+      </p>
+      <div style="text-indent: 0em">
+        <div class="compact-block">
+          <p>
+            <tt class="verbatim"><table style="width: 100%">
+              <tbody><tr>
+                <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><u><p>
+                  GNUplot] 
+                </p></u></font></td>
+                <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+                  <font color="#000080"><p>
+                    plot '/home/yj/project_new/test_space/lisp/t.txt' using 1
+                    w l
+                  </p></font>
+                </p></td>
+              </tr></tbody>
+            </table></tt>
+          </p>
+          <p style="margin-top: 0.5em; margin-bottom: 0.5em">
+            <tt class="verbatim"><div style="margin-left: 38.660688007188px">
+              <div align="justify">
+                <img src="Lisp-1.png" style="vertical-align: -0.232727272727273px"></img>
+              </div>
+            </div></tt>
+          </p>
+        </div>
+      </div>
+      <div style="text-indent: 0em">
+        <div class="compact-block">
+          <p>
+            <tt class="verbatim"><table style="width: 100%">
+              <tbody><tr>
+                <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><p>
+                  GNUplot] 
+                </p></font></td>
+                <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+                  <font color="#000080"><p>
+                    
+                  </p></font>
+                </p></td>
+              </tr></tbody>
+            </table></tt>
+          </p>
+        </div>
+      </div>
+    </p>
+    <p>
+      
+    </p>
+    <h2 id="auto-33">14<span style="margin-left: 1em"></span>Readability of <code>LISP</code> source
+    code</h2>
+    <p>
+      Each function call in <code>LISP</code> source code is organized as a
+      (nested) list. Since each list is delimited by a pair of parentheses
+      <code>()</code>, for a nested list with several depth, the number of
+      parenthesis will increase to a level that makes many people consider
+      <code>LISP</code> as weird/unreadable at first glance. The reason is
+      obvious: by intuition, people do not distinguish a nested structure by
+      parentheses. People's intuition tends to distinguish logical structure
+      through the spatial structure, e.g. line break and indent. This is the
+      reason why Python uses indent to delimit structure, which increase the
+      readability of the source code.
+    </p>
+    <p>
+      There is no difficulty for a computer to recognize the structure
+      whatever delimiting marks a language chooses to use. Source code editors
+      of <code>LISP</code> can transform the structure defined by the
+      parenthesis to the appropriate indent loved by human's eyes and brain
+      (the messy parentheses are still there, just do not bother with them and
+      occasionally use them to get useful information for the structures.)
+    </p>
+    <p>
+      As mentioned above, <code>Lisp</code> source code is a list, which is a
+      one-dimensional structure, and line-breaks are equivalent to white
+      spaces. We can add new lines appropriately to provide vertical spacial
+      structure in order to enhance readability.
+    </p>
+    <p>
+      two things will vastly improve your experience with Emacs and Guile:
+    </p>
+    <p>
+      The first is Taylor Campbell's Paredit. You should not code in any
+      dialect of Lisp without Paredit. (They say that unopinionated writing is
+      boring&mdash;hence this tone&mdash;but it's the truth, regardless.)
+      Paredit is the bee's knees.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      When developing these notes, I read the following materials: [<a href="#bib-guile">4</a>][<a
+      href="#bib-Borning2013">1</a>]
+    </p>
+    <p>
+      https://people.eecs.berkeley.edu/~bh/ssch0/preface.html
+    </p>
+    <p>
+      
+    </p>
+    <h2 id="auto-34">A<span style="margin-left: 1em"></span>misc</h2>
+    <p>
+      , (2) program and data are equivalent, which makes it easy to write
+      Scheme programs that process/produce other programs, e.g. compilers,
+      structure editors, debuggers, etc.
+    </p>
+    <p>
+      Lisp code is easy to write, but hard to read by pepole other than the
+      code author (due to using macoros) 
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Metaprogramming is a programming technique in which computer programs
+      have the ability to treat other programs as their data. It means that a
+      program can be designed to read, generate, analyze or transform other
+      programs, and even modify itself while running
+    </p>
+    <p>
+      Metaprogramming can be used to move computations from run-time to
+      compile-time, to generate code using compile time computations, and to
+      enable self-modifying code. The language in which the metaprogram is
+      written is called the metalanguage. The language of the programs that
+      are manipulated is called the attribute-oriented programming language.
+      The ability of a programming language to be its own metalanguage is
+      called reflection or &ldquo;reflexivity&rdquo;. Reflection is a valuable
+      language feature to facilitate metaprogramming.
+    </p>
+    <p>
+      Metaprogramming was popular in the 1970s and 1980s using LISP languages.
+      LISP hardware machines were popular in the 1980s and enabled
+      applications that could process code.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      A large number of programmers would have a tendency to learn a new
+      programming language whenever they get a chance. Typically, decent
+      programmers can pick up a new Language and write nontrivial programs in
+      that language within a few days. This high efficiency of learning a new
+      language is achieved by explicitly asking ourselves several questions
+      about general language features: 
+    </p>
+    <p>
+      static type or dynamic type or mixed? 
+    </p>
+    <p>
+      what is the primitive type (e.g., real and integer numbers) and compound
+      type (e.g., arrays and lists),  
+    </p>
+    <p>
+      what is the syntax for name binding (i.e., variable/function
+      definition)? 
+    </p>
+    <p>
+      what is the syntax of calling functions? 
+    </p>
+    <p>
+      lexical scope or dynamic scope? (most languages adopts lexical scope),
+    </p>
+    <p>
+      the flow control: what is the syntax for conditional structures and loop
+      structures? 
+    </p>
+    <p>
+      With these questions in mind, we can quickly find the answers by
+      searching online or a handbook of that language. Then we can write codes
+      and test the syntax with a compiler/interpreter.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      https://schemers.org/Documents/Standards/R5RS/HTML
+    </p>
+    <p>
+      Scheme has latent (as opposed to manifest) types. Types are associated
+      with values (also called objects) rather than with variables. (Some
+      authors refer to languages with latent types as weakly typed or
+      dynamically typed languages.) Other languages with latent types include
+      python and javascript. Languages with manifest types (sometimes referred
+      to as strongly typed or statically typed languages) include Fortran, and
+      C.
+    </p>
+    <p>
+      Arguments to Scheme procedures are always passed by value, which means
+      that the actual argument expressions are evaluated before the procedure
+      gains control, whether the procedure needs the evaluation result or not.
+      ML, C, and APL are three other languages that always pass arguments by
+      value. This is distinct from the lazy-evaluation semantics of Haskell,
+      or the call-by-name semantics of Algol 60, where an argument expression
+      is not evaluated unless its value is needed by the procedure.
+    </p>
+    <p>
+      Scheme's model of arithmetic is designed to remain as independent as
+      possible of the particular ways in which numbers are represented within
+      a computer. In Scheme, every integer is a rational number, every
+      rational is a real, and every real is a complex number. Thus the
+      distinction between integer and real arithmetic, which is important to
+      many programming languages, does not appear in Scheme. In its place is a
+      distinction between exact arithmetic, which corresponds to the
+      mathematical ideal, and inexact arithmetic on approximations. As in
+      Common Lisp, exact arithmetic is not limited to integers.
+    </p>
+    <p>
+      Note that the sequence of characters <code>(+ 2 6)</code> is not an
+      external representation of the integer 8, even though it is an
+      expression evaluating to the integer 8; rather, it is an external
+      representation of a three-element list, the elements of which are the
+      symbol + and the integers 2 and 6. Scheme's syntax has the property that
+      <strong>any sequence of characters that is an expression is also the
+      external representation of some object.</strong> This can lead to
+      confusion, since it may not be obvious out of context whether a given
+      sequence of characters is intended to denote data or program, but it is
+      also a source of power, since it facilitates writing programs such as
+      interpreters and compilers that treat programs as data (or vice versa).
+    </p>
+    <p>
+      An identifier may name a type of syntax, or it may name a location where
+      a value can be stored. An identifier that names a type of syntax is
+      called a syntactic keyword and is said to be bound to that syntax. An
+      identifier that names a location is called a variable and is said to be
+      bound to that location. The value stored in the location to which a
+      variable is bound is called the variable's value. By abuse of
+      terminology, the variable is sometimes said to name the value or to be
+      bound to the value. This is not quite accurate, but confusion rarely
+      results from this practice.
+    </p>
+    <p>
+      Certain expression types are used to create new kinds of syntax and bind
+      syntactic keywords to those new syntaxes (these expression types are
+      called keyword binding constructs.), while other expression types create
+      new locations and bind variables to those locations (these expression
+      types are called binding constructs).
+    </p>
+    <p>
+      The most fundamental of the variable binding constructs is the lambda
+      expression, because all other variable binding constructs can be
+      explained in terms of lambda expressions. The other variable binding
+      constructs are let, let*, letrec, and do expressions.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      In Lisp, list delimiter is chosen to be parentheses, i.e., round
+      brackets (for comparison, square brackets are chosen in python). The
+      whitespace is chosen as the saperator between different elements of a
+      list (cf., commas are chosen by python and whitespace is ignored by the
+      interpreter). In lisp, a newline is equivalant to a whitespace. The
+      following is a lisp list:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(1 2 3 a b c)</pre>
+    <p>
+      <font color="blue"><p>
+        For comparison, the following is a python list:
+      </p><pre class="verbatim" xml:space="preserve">
+[1, 2, 3, a, b, c]</pre><p>
+        Fortran's new array constructor (introduced in Fortran 2003) can also
+        adopt the python style, e.g.
+      </p><pre class="verbatim" xml:space="preserve">
+integer :: a(3), i
+a=[1, 2, 3]
+a=[(i, i=1,3)] !implied do-loop</pre><p>
+        The standard form of fortran array constructor is <code>(/ <span
+        style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>
+        /)</code>, which is hard to remember and read.
+      </p></font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The so-called &ldquo;lambda calculus&rdquo; is a formal system for
+      expressing computation based on function abstraction and application
+      using variable binding and substitution. Althouth the name contains
+      &ldquo;calculus&rdquo;, the lambda calculus has nothing to do with the
+      calculus in mathematics (i.e., integration and differential). Then why
+      the name &ldquo;calculus&rdquo;? Is the name here to frighten newbies?
+      Maybe paritally yes. The remaining part, I guess, is related to the
+      applicative programming style using <em>higher order functions</em>
+      &ndash; functions that take other functions as arguments. In mathematics
+      <strong>higher-order</strong> functions are called
+      <strong>operators</strong> or <strong>functionals</strong>. The
+      differential operator in calculus is a common example, since it maps a
+      function to its derivative, which is also a function. Due to this
+      similarity with the differential operators in calculus, this formal
+      computational system is called &ldquo;lambda calculus&rdquo;, where
+      lambda can be understood as &ldquo;function&rdquo;.
+    </p>
+    <p>
+      The lambda calculus can be called as the smallest programming language
+      of the world. It gives the definition of what is computable. Anything
+      that can be computed by lambda calculus is computable. It provides a
+      theoretical framework for describing functions and their evaluation.
+    </p>
+    <p>
+      Do not get frightened by the fancy/mysterious nonmenclatures. Calm down
+      and assume that they probably refer to a very simple thing that you
+      already understand. The author use them maybe because he/she want to
+      impress readers. They are simple concepts in disguise.
+    </p>
+    <p>
+      <code>Scheme</code> would still be useful as a notation for expressing
+      computational methods even in the absence of a mechanical
+      implementation.
+    </p>
+    <p>
+      One of the great simplifications of <code>Scheme </code>is that a
+      procedure is just another type of value, and that procedure values can
+      be passed around and stored in variables in exactly the same way as, for
+      example, strings and lists.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      a function that, when invoked, return a function. 
+    </p>
+    <p>
+      a function that return a function upon invocation. 
+    </p>
+    <p>
+      History
+    </p>
+    <p>
+      Alonzo Church formalized lambda calculus, a language based on pure
+      abstraction, in the 1930s. Lambda functions are also referred to as
+      lambda abstractions, a direct reference to the abstraction model of
+      Alonzo Church's original creation.
+    </p>
+    <p>
+      Lambda calculus can encode any computation. It is Turing complete, but
+      contrary to the concept of a Turing machine, it is pure and does not
+      keep any state.
+    </p>
+    <p>
+      Functional languages get their origin in mathematical logic and lambda
+      calculus, while imperative programming languages embrace the state-based
+      model of computation invented by Alan Turing. The two models of
+      computation, lambda calculus and Turing machines, can be translated into
+      each another. This equivalence is known as the Church-Turing hypothesis.
+    </p>
+    <p>
+      Functional languages directly inherit the lambda calculus philosophy,
+      adopting a declarative approach of programming that emphasizes
+      abstraction, data transformation, composition, and purity (no state and
+      no side effects). Examples of functional languages include Haskell,
+      Lisp, or Erlang.
+    </p>
+    <p>
+      By contrast, the Turing Machine led to imperative programming found in
+      languages like Fortran, C, or Python.
+    </p>
+    <p>
+      The imperative style consists of programming with statements, driving
+      the flow of the program step by step with detailed instructions. This
+      approach promotes mutation and requires managing state.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The separation in both families presents some nuances, as some
+      functional languages incorporate imperative features, like OCaml, while
+      functional features have been permeating the imperative family of
+      languages in particular with the introduction of lambda functions in
+      Java, or Python.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Python is not inherently a functional language, but it adopted some
+      functional concepts early on. In January 1994, map(), filter(),
+      reduce(), and the lambda operator were added to the language.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Operation on List Data structure.
+    </p>
+    <p>
+      List is one the built in data type in <code>Scheme</code>. Lists in
+      <code>Scheme</code> can contain items of different types:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(1 1.5 x (a) &ldquo;hello&rdquo;)</pre>
+    <p>
+      The intrinsic functions that create or operate on a list:
+      <code>list</code>, <code>car</code>, <code>cdr</code>,
+      <code>cons</code>, and <code>append</code>.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+(list 1 2 3)        ==&gt;create a list</pre>
+    <pre class="verbatim" xml:space="preserve">
+(car (list 1 2 3))  ==&gt; choose the first element of a list</pre>
+    <pre class="verbatim" xml:space="preserve">
+(car '(1 2 3))      ==&gt; the same as the above</pre>
+    <pre class="verbatim" xml:space="preserve">
+(cdr '(1 2 3))      ==&gt; create a list by excluding the first element
+(cons 'foo '(1 2 3))  ==&gt; add a new cell to a list:
+(append '(1 2) '(3)) ===&gt;concatenate two or more lists==&gt;(1 2 3)</pre>
+    <p>
+      
+    </p>
+    <p>
+      The process that led to the R6RS standard brought a split in the Scheme
+      community to the surface. The implementors that wrote R6RS considered
+      that it was impossible to write useful, portable programs in R5RS, and
+      that only an ambitious standard could solve this problem. However, part
+      of the Scheme world saw the R6RS effort as too broad, and as having
+      included some components that would never be adopted by more
+      minimalistic Scheme implementations. This second group succeeded in
+      taking control of the official Scheme standardization track and in 2013
+      released a more limited R7RS, essentially consisting of R5RS, plus a
+      module system. Guile supports R7RS also.
+    </p>
+    <p>
+      As a Scheme program runs, values of all types pop in and out of
+      existence. Sometimes values are stored in variables, but more commonly
+      they pass seamlessly from being the result of one computation to being
+      one of the parameters for the next.
+    </p>
+    <p>
+      Scheme programmers prefer to avoid assignment statements because
+      assignment is a mutating operation, which is not prefered in (pure)
+      functional programming pardigam. In most cases,   values pass seamlessly
+      from being the result of one computation to being one of the parameters
+      for the next, rather than being stroed in an temporary variable.
+    </p>
+    <p>
+      Part of what we mean when we talk about &ldquo;creating a
+      variable&rdquo; is in fact establishing an association between a name,
+      or identifier, that is used by the Scheme program code, and the variable
+      location to which that name refers. Although the value that is stored in
+      that location may change, the location to which a given name refers is
+      always the same.
+    </p>
+    <p>
+      Why is not Lisp booming now that there is an AI boom in 2010s?
+    </p>
+    <p>
+      The reason is very simple, Lisp was created for the school of Symbolic
+      AI, and the AI that is growing in popularity right now, is a totally
+      different school, the school of Machine Learning, which is a highly
+      numerical domain (numerical statistics). You could say that Symbolic AI
+      looks for a deductive approach while Machine Learning an Inductive
+      approach.
+    </p>
+    <p>
+      Lisp is definitely no longer the language for AI, because AI itself has
+      moved into a highly numerical domain which has traditionally been more
+      of stronghold of C/C++. With current emphasis on GPU computing for
+      maximizing compute power, C/C++ is the right vehicle to build AI systems
+      because GPU computing is still a very low-level exercise.
+    </p>
+    <p>
+      Additionally, for programmers seeking a higher level of abstraction (by
+      using libraries), Python has become the language of choice, because of
+      its accessibility and widespread support, and the necessary packages and
+      bindings becoming available for compute intensive numeric operations.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      DrScheme automatically indents according to the standard style when you
+      type Enter in a program or REPL expression. For example, if you hit
+      Enter after typing (define (greet name), then DrScheme automatically
+      inserts two spaces for the next line. If you change a region of code,
+      you can select it in DrScheme and hit Tab, and DrScheme will re-indent
+      the code (without inserting any line breaks). Editors like Emacs offer a
+      Scheme mode with similar indentation support.
+    </p>
+    <p>
+      Line breaks and indentation are not significant for parsing Scheme
+      programs, but most Scheme programmers use a standard set of conventions
+      to make code more readable. For example, the body of a definition is
+      typically indented under the first line of the definition. Identifiers
+      are written immediately after an open parenthesis with no extra space,
+      and closing parentheses never go on their own line.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <h2 id="auto-35">Bibliography</h2>
+    <div style="text-indent: 0em">
+      <div class="compact-block">
+        <font size="-1"><dl>
+          <p>
+            <p>
+              <strong>[1]  </strong><a id="bib-Borning2013"></a>Alan Borning. Programming
+              Languages . <a href="https://courses.cs.washington.edu/courses/cse341/03wi/scheme/"><tt>https://courses.cs.washington.edu/courses/cse341/03wi/scheme/</tt></a>,
+              2013. [Online; accessed 16-Feb-2019].
+            </p>
+            <p>
+              <strong>[2]  </strong><a id="bib-schemers"></a>Richard Kelsey et al. Revised5
+              Report on the Algorithmic Language Scheme. <a href="https://schemers.org/Documents/Standards/R5RS/HTML/r5rs.html"><tt>https://schemers.org/Documents/Standards/R5RS/HTML/r5rs.html</tt></a>,
+              1998. [Online].
+            </p>
+            <p>
+              <strong>[3]  </strong><a id="bib-r7rs"></a>Steven Ganz et al. Revised7
+              Report on the Algorithmic Language Scheme. <a href="https://small.r7rs.org/attachment/r7rs.pdf"><tt>https://small.r7rs.org/attachment/r7rs.pdf</tt></a>,
+              2013. [Online].
+            </p>
+            <p>
+              <strong>[4]  </strong><a id="bib-guile"></a>Free Software Foundation. GNU
+              guile manual. <a href="https://www.gnu.org/software/guile/manual/"><tt>https://www.gnu.org/software/guile/manual/</tt></a>,
+              2019. [Online].
+            </p>
+            <p>
+              <strong>[5]  </strong><a id="bib-graham2002diff"></a>Paul Graham. What made lisp
+              different. <a href="http://www.paulgraham.com/diff.html"><tt>http://www.paulgraham.com/diff.html</tt></a>.
+            </p>
+          </p>
+        </dl></font>
+      </div>
+    </div>
+  </body>
+</html>

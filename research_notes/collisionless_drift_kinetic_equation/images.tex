@@ -1,0 +1,986 @@
+\batchmode
+\documentclass{article}
+\RequirePackage{ifthen}
+
+
+\usepackage{amsmath}
+
+%
+\providecommand{\emdash}{---}%
+\providecommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}%
+\providecommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}%
+\providecommand{\tmtextit}[1]{{\itshape{#1}}} 
+
+
+
+
+\usepackage[dvips]{color}
+
+
+\pagecolor[gray]{.7}
+
+\usepackage[]{inputenc}
+
+
+
+\makeatletter
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{}%
+\catcode`\<=12\catcode`\_=\count@
+\newcommand{\providedcommand}[1]{\expandafter\providecommand\csname #1\endcsname}%
+\newcommand{\renewedcommand}[1]{\expandafter\providecommand\csname #1\endcsname{}%
+  \expandafter\renewcommand\csname #1\endcsname}%
+\newcommand{\newedenvironment}[1]{\newenvironment{#1}{}{}\renewenvironment{#1}}%
+\let\newedcommand\renewedcommand
+\let\renewedenvironment\newedenvironment
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\liih@math{\ifmmode$\else\bad@math\fi}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\let\if@boxedmulticols=\iftrue
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}%
+ \def\phantompar{\csname par\endcsname}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string \immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup\kern.05em }%
+\newcommand\lthtmlhboxmathB{\adjustnormalsize\setbox\sizebox=\hbox to\hsize\bgroup\hfill }%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup %
+ \let\ifinner=\iffalse \let\)\liih@math }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\gdef\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\dimen0\ht\sizebox \advance\dimen0\dp\sizebox
+  \ifdim\dimen0>.95\vsize
+   \lthtmltypeout{%
+*** image for \lthtmlmathenv\space is too tall at \the\dimen0, reducing to .95 vsize ***}%
+   \ht\sizebox.95\vsize \dp\sizebox\z@ \fi
+  \lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlpictureA{\bgroup\catcode`\_=8 \lthtmlpictureB}%
+\newcommand\lthtmlpictureB[1]{\lthtmlmathtype{#1}\egroup
+       \let\@savefreelist\@freelist \lthtmlhboxmathB}%
+\newcommand\lthtmlpictureZ[1]{\hfill\lthtmlfigureZ}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA{\bgroup\catcode`\_=8 \lthtmldisplayAi}%
+\newcommand\lthtmldisplayAi[1]{\lthtmlmathtype{#1}\egroup\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA{\bgroup\catcode`\_=8 \lthtmlinlinemathB}
+\newcommand\lthtmlinlinemathB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA
+  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA{\bgroup\catcode`\_=8 \lthtmlinlineB}%
+\newcommand\lthtmlinlineB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\newcommand\lthtmlindisplaymathZ{\egroup %
+  \centerinlinemath\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em \vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\kern-.05em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize 
+  \ifdim\wd\sizebox<\hsize\expandafter\hfill\fi \expandafter\vfill
+  \else\expandafter\vss\fi}%
+\providecommand{\selectlanguage}[1]{}%
+\makeatletter \tracingstats = 1 
+\providecommand{\Beta}{\textrm{B}}
+\providecommand{\Mu}{\textrm{M}}
+\providecommand{\Kappa}{\textrm{K}}
+\providecommand{\Rho}{\textrm{R}}
+\providecommand{\Epsilon}{\textrm{E}}
+\providecommand{\Chi}{\textrm{X}}
+\providecommand{\Iota}{\textrm{J}}
+\providecommand{\omicron}{\textrm{o}}
+\providecommand{\Zeta}{\textrm{Z}}
+\providecommand{\Eta}{\textrm{H}}
+\providecommand{\Nu}{\textrm{N}}
+\providecommand{\Omicron}{\textrm{O}}
+\providecommand{\Tau}{\textrm{T}}
+\providecommand{\Alpha}{\textrm{A}}
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}\lthtmltypeout{}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\lthtmltypeout{}%
+\makeatother
+\setcounter{page}{1}
+\onecolumn
+
+% !!! IMAGES START HERE !!!
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline9923}%
+$ y \equiv m v_{\perp}^2 / 2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline9925}%
+$ v_{\perp}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline9931}%
+$ Z$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline9933}%
+$ e$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay9963}%
+$\displaystyle \dot{\alpha} = \Omega,$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay9981}%
+$\displaystyle v_{\parallel} = \ensuremath{\boldsymbol{b}} \cdot \dot{\ensuremath{\boldsymbol{X}}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10015}%
+$\displaystyle \frac{Z e}{c}  \frac{\partial \ensuremath{\boldsymbol{A}}}{\partial t} + m   v_{\parallel} \frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + m   \dot{v}_{\parallel} \ensuremath{\boldsymbol{b}} = \dot{\ensuremath{\boldsymbol{X}}} \times \left( \frac{Z   e}{c} \ensuremath{\boldsymbol{B}} + m v_{\parallel} \nabla \times \ensuremath{\boldsymbol{b}} \right) -   \mu \nabla B - Z e \nabla \phi .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10017}%
+$\displaystyle \ensuremath{\boldsymbol{A}}^{\star} = \ensuremath{\boldsymbol{A}} + \frac{m c}{Z e} v_{\parallel}   \ensuremath{\boldsymbol{b}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10021}%
+$\displaystyle \frac{\partial \ensuremath{\boldsymbol{A}}^{\star}}{\partial t} = \frac{\partial   \ensuremath{\boldsymbol{A}}}{\partial t} + \frac{m c}{Z e} v_{\parallel} \frac{\partial   \ensuremath{\boldsymbol{b}}}{\partial t}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10023}%
+$\displaystyle \ensuremath{\boldsymbol{B}}^{\star} = \ensuremath{\boldsymbol{B}} + \frac{m c}{Z e}   v_{\parallel} \nabla \times \ensuremath{\boldsymbol{b}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10042}%
+$\displaystyle \frac{Z e}{c}  \frac{\partial \ensuremath{\boldsymbol{A}}}{\partial t}   \cdot \ensuremath{\boldsymbol{b}} + m v_{\parallel} \frac{\partial \ensuremath{\boldsymbol{b}}}{\partial   t} \cdot \ensuremath{\boldsymbol{b}} + m \dot{v}_{\parallel} = \ensuremath{\boldsymbol{b}} \cdot   \dot{\ensuremath{\boldsymbol{X}}} \times \left( m v_{\parallel} \nabla \times \ensuremath{\boldsymbol{b}}   \right) - \mu \ensuremath{\boldsymbol{b}} \cdot \nabla B - Z e \ensuremath{\boldsymbol{b}} \cdot \nabla   \phi .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10048}%
+$\displaystyle \ensuremath{\boldsymbol{E}} = - \nabla \phi - \frac{1}{c}  \frac{\partial   \ensuremath{\boldsymbol{A}}}{\partial t},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10050}%
+$\displaystyle m \dot{v}_{\parallel} = - \dot{\ensuremath{\boldsymbol{X}}} \cdot \ensuremath{\boldsymbol{b}} \times   \left( m v_{\parallel} \nabla \times \ensuremath{\boldsymbol{b}} \right) - \mu \ensuremath{\boldsymbol{b}}   \cdot \nabla B + Z e \ensuremath{\boldsymbol{b}} \cdot \ensuremath{\boldsymbol{E}}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10054}%
+$\displaystyle m \dot{v}_{\parallel} = m v_{\parallel} \dot{\ensuremath{\boldsymbol{X}}}   \cdot \ensuremath{\boldsymbol{\kappa}} - \mu \ensuremath{\boldsymbol{b}} \cdot \nabla B + Z e \ensuremath{\boldsymbol{b}}   \cdot \ensuremath{\boldsymbol{E}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10063}%
+$\displaystyle \ensuremath{\boldsymbol{E}}^{\star} = - \nabla \phi - \frac{1}{c}   \frac{\partial \ensuremath{\boldsymbol{A}}}{\partial t} - \frac{m v_{\parallel}}{Z e}    \frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10069}%
+$\displaystyle m v_{\parallel} \dot{v}_{\parallel} = - \left( Z e \nabla   \phi + \frac{Z e}{c}  \frac{\partial \ensuremath{\boldsymbol{A}}}{\partial t} + m   v_{\parallel} \frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + \mu \nabla B   \right) \cdot \dot{\ensuremath{\boldsymbol{X}}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10078}%
+$\displaystyle \dot{y}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10082}%
+$\displaystyle \mu \frac{d B}{d t}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10086}%
+$\displaystyle \mu \left( \frac{\partial B}{\partial t} + \dot{\ensuremath{\boldsymbol{X}}} \cdot
+\nabla B \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10088}%
+$ \varepsilon$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10106}%
+$ (R, \varphi, Z)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10131}%
+$\displaystyle \ensuremath{\boldsymbol{X}} (R, Z, \varphi) = R \widehat{\ensuremath{\boldsymbol{e}}}_R   (\varphi) + Z \widehat{\ensuremath{\boldsymbol{e}}}_Z \Longrightarrow \frac{\partial   \ensuremath{\boldsymbol{X}}}{\partial \varphi} = R \widehat{\ensuremath{\boldsymbol{e}}}_{\varphi},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10164}%
+$\displaystyle \ensuremath{\boldsymbol{X}} = R \widehat{\ensuremath{\boldsymbol{e}}}_R (\varphi) + Z   \widehat{\ensuremath{\boldsymbol{e}}}_Z,$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10183}%
+$\displaystyle \frac{\partial ( \ensuremath{\boldsymbol{b}} \cdot \dot{\ensuremath{\boldsymbol{X}}})}{\partial \varphi} =   \left( \frac{\partial b_R}{\partial \varphi} \widehat{\ensuremath{\boldsymbol{e}}}_R +   \frac{\partial b_{\varphi}}{\partial \varphi}   \widehat{\ensuremath{\boldsymbol{e}}}_{\varphi} + \frac{\partial b_z}{\partial \varphi}   \widehat{\ensuremath{\boldsymbol{e}}}_Z \right) \cdot \dot{\ensuremath{\boldsymbol{X}}}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10227}%
+$\displaystyle \dot{\varepsilon} = - \left( \frac{Z e}{c}  \frac{\partial   \ensuremath{\boldsymbol{A}}}{\partial t} + m v_{\parallel} \frac{\partial   \ensuremath{\boldsymbol{b}}}{\partial t} \right) \cdot \dot{\ensuremath{\boldsymbol{X}}} + \mu   \frac{\partial B}{\partial t} + Z e \frac{\partial \phi}{\partial t},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10229}%
+$\displaystyle \dot{P}_{\varphi} = \left[ \frac{Z e}{c} \left(   \frac{\partial A_R}{\partial \varphi} \widehat{\ensuremath{\boldsymbol{e}}}_R +   \frac{\partial A_{\varphi}}{\partial \varphi}   \widehat{\ensuremath{\boldsymbol{e}}}_{\varphi} + \frac{\partial A_z}{\partial \varphi}   \widehat{\ensuremath{\boldsymbol{e}}}_Z \right) + m v_{\parallel} \left( \frac{\partial   b_R}{\partial \varphi} \widehat{\ensuremath{\boldsymbol{e}}}_R + \frac{\partial   b_{\varphi}}{\partial \varphi} \widehat{\ensuremath{\boldsymbol{e}}}_{\varphi} +   \frac{\partial b_z}{\partial \varphi} \widehat{\ensuremath{\boldsymbol{e}}}_Z \right)   \right] \cdot \dot{\ensuremath{\boldsymbol{X}}} - \mu \frac{\partial B}{\partial \varphi} -   Z e \frac{\partial \phi}{\partial \varphi} .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10235}%
+$ h_1 (R, Z) e^{i (- n \varphi - \omega t)}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10237}%
+$ n \neq 0,
+\omega \neq 0$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10247}%
+$\displaystyle \varepsilon' \equiv \varepsilon + \frac{\omega}{n} P_{\varphi},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10249}%
+$ d \varepsilon' / d t = 0$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10251}%
+$ O (h_1 / h_0)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10254}%
+$\displaystyle - Z e \ensuremath{\boldsymbol{E}} + \mu \nabla B + m v_{\parallel} \frac{\partial   \ensuremath{\boldsymbol{b}}}{\partial t} + m \dot{v}_{\parallel} \ensuremath{\boldsymbol{b}} =   \dot{\ensuremath{\boldsymbol{X}}} \times \left( \frac{Z e}{c} \ensuremath{\boldsymbol{B}} + m   v_{\parallel} \nabla \times \ensuremath{\boldsymbol{b}} \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10278}%
+$\displaystyle \frac{1}{m \Omega} \left[ \ensuremath{\boldsymbol{b}} \times m v_{\parallel}
+\frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + m v_{\parallel}^2 \nabla \times
+\ensuremath{\boldsymbol{b}} - \left( m v_{\parallel} \ensuremath{\boldsymbol{b}} \cdot \nabla \times
+\ensuremath{\boldsymbol{b}} \right) \dot{\ensuremath{\boldsymbol{X}}} \right]$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10280}%
+$\displaystyle = \frac{1}{m \Omega} \left\{ \ensuremath{\boldsymbol{b}} \times m v_{\parallel}
+\frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + m v_{\parallel} \left[ (
+\ensuremath{\boldsymbol{b}} \cdot \dot{\ensuremath{\boldsymbol{X}}}) \nabla \times \ensuremath{\boldsymbol{b}} - \left(
+\ensuremath{\boldsymbol{b}} \cdot \nabla \times \ensuremath{\boldsymbol{b}} \right) \dot{\ensuremath{\boldsymbol{X}}}
+\right] \right\}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10282}%
+$\displaystyle = \frac{1}{m \Omega} \left\{ \ensuremath{\boldsymbol{b}} \times m v_{\parallel}
+\frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + m v_{\parallel} \ensuremath{\boldsymbol{b}}
+\times \left[ \left( \nabla \times \ensuremath{\boldsymbol{b}} \right) \times
+\dot{\ensuremath{\boldsymbol{X}}} \right] \right\}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10284}%
+$\displaystyle = \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}} \times \left\{ m v_{\parallel}
+\frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + m v_{\parallel} \left( \nabla
+\times \ensuremath{\boldsymbol{b}} \right) \times \dot{\ensuremath{\boldsymbol{X}}} \right\}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10286}%
+$\displaystyle = \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}} \times \left\{ m v_{\parallel}
+\frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + m v_{\parallel} \left( \nabla
+\times \ensuremath{\boldsymbol{b}} \right) \times \left( v_{\parallel} \ensuremath{\boldsymbol{b}} +
+\dot{\ensuremath{\boldsymbol{X}}}_{\perp} \right) \right\}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10288}%
+$\displaystyle = \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}} \times \left\{ m v_{\parallel}^2
+\ensuremath{\boldsymbol{\kappa}} + m v_{\parallel} \left[ \frac{\partial
+\ensuremath{\boldsymbol{b}}}{\partial t} + \left( \nabla \times \ensuremath{\boldsymbol{b}} \right) \times
+\dot{\ensuremath{\boldsymbol{X}}}_{\perp} \right] \right\}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10298}%
+$\displaystyle - \frac{v_{\parallel}}{\Omega} \left( \ensuremath{\boldsymbol{b}} \cdot   \nabla \times \ensuremath{\boldsymbol{b}} \right) \dot{\ensuremath{\boldsymbol{X}}}_{\perp} .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10300}%
+$\displaystyle \nabla \times \ensuremath{\boldsymbol{b}} \approx - \ensuremath{\boldsymbol{b}} \times ( \ensuremath{\boldsymbol{b}}   \times \nabla \times \ensuremath{\boldsymbol{b}}) = \ensuremath{\boldsymbol{b}} \times \ensuremath{\boldsymbol{\kappa}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10302}%
+$ \ensuremath{\boldsymbol{b}} \cdot \nabla \times \ensuremath{\boldsymbol{b}} \approx 0$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10304}%
+$\displaystyle \dot{\ensuremath{\boldsymbol{X}}} = v_{\parallel} \ensuremath{\boldsymbol{b}} + \frac{1}{m   \Omega} \ensuremath{\boldsymbol{b}} \times \left( - Z e \ensuremath{\boldsymbol{E}} + \mu \nabla B + m   v_{\parallel}^2 \ensuremath{\boldsymbol{\kappa}} \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10307}%
+$\displaystyle \left( 1 + \frac{v_{\parallel}}{\Omega} \ensuremath{\boldsymbol{b}} \cdot \nabla \times   \ensuremath{\boldsymbol{b}} \right) \dot{\ensuremath{\boldsymbol{X}}} = v_{\parallel} \ensuremath{\boldsymbol{b}} +   \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}} \times \left( - Z e \ensuremath{\boldsymbol{E}} + \mu   \nabla B \right) + \frac{v_{\parallel}}{\Omega} \ensuremath{\boldsymbol{b}} \times   \frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t} + \frac{v_{\parallel}^2}{\Omega}   \nabla \times \ensuremath{\boldsymbol{b}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10309}%
+$\displaystyle \left( 1 + \frac{v_{\parallel}}{\Omega} \ensuremath{\boldsymbol{b}} \cdot \nabla \times   \ensuremath{\boldsymbol{b}} \right) \dot{\ensuremath{\boldsymbol{X}}} = v_{\parallel} \left( \ensuremath{\boldsymbol{b}}   + \frac{v_{\parallel}}{\Omega} \nabla \times \ensuremath{\boldsymbol{b}} \right) +   \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}} \times \left( - Z e \ensuremath{\boldsymbol{E}} + \mu   \nabla B \right) + \frac{v_{\parallel}}{\Omega} \ensuremath{\boldsymbol{b}} \times   \frac{\partial \ensuremath{\boldsymbol{b}}}{\partial t}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10311}%
+$ v_{\parallel} / \Omega \ensuremath{\boldsymbol{b}} \times
+\partial \ensuremath{\boldsymbol{b}} / \partial t$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10313}%
+$\displaystyle \left( 1 + \frac{v_{\parallel}}{\Omega} \ensuremath{\boldsymbol{b}} \cdot   \nabla \times \ensuremath{\boldsymbol{b}} \right) \dot{\ensuremath{\boldsymbol{X}}} = v_{\parallel} \left(   \ensuremath{\boldsymbol{b}} + \frac{v_{\parallel}}{\Omega} \nabla \times \ensuremath{\boldsymbol{b}}   \right) + \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}} \times \left( - Z e \ensuremath{\boldsymbol{E}} +   \mu \nabla B \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10315}%
+$\displaystyle B^{\star} = B \left( 1 + \frac{v_{\parallel}}{\Omega} \ensuremath{\boldsymbol{b}} \cdot   \nabla \times \ensuremath{\boldsymbol{b}} \right),$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10319}%
+$ B^{\star} = \ensuremath{\boldsymbol{b}} \cdot \ensuremath{\boldsymbol{B}}^{\star}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10321}%
+$\displaystyle \dot{\ensuremath{\boldsymbol{X}}} = \frac{v_{\parallel}}{B^{\star}} \left(   \ensuremath{\boldsymbol{B}} + B \frac{v_{\parallel}}{\Omega} \nabla \times \ensuremath{\boldsymbol{b}}   \right) - \frac{Z e}{m \Omega B^{\star}} \ensuremath{\boldsymbol{B}} \times \ensuremath{\boldsymbol{E}} +   \frac{1}{m \Omega B^{\star}} \ensuremath{\boldsymbol{B}} \times \mu \nabla B,$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10323}%
+$\displaystyle \ensuremath{\boldsymbol{v}}_{\parallel}^{\star} \equiv   \frac{v_{\parallel}}{B^{\star}} \left( \ensuremath{\boldsymbol{B}} + B   \frac{v_{\parallel}}{\Omega} \nabla \times \ensuremath{\boldsymbol{b}} \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10325}%
+$\displaystyle \dot{\ensuremath{\boldsymbol{X}}} = \ensuremath{\boldsymbol{v}}_{\parallel}^{\star} -   \frac{Z e}{m \Omega B^{\star}} \ensuremath{\boldsymbol{B}} \times \ensuremath{\boldsymbol{E}} + \frac{1}{m   \Omega B^{\star}} \ensuremath{\boldsymbol{B}} \times \mu \nabla B$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10327}%
+$ \ensuremath{\boldsymbol{v}}_{\parallel}^{\star}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10336}%
+$\displaystyle m v_{\parallel} \dot{v}_{\parallel} = m v_{\parallel}^2   \dot{\ensuremath{\boldsymbol{X}}} \cdot \ensuremath{\boldsymbol{\kappa}} - v_{\parallel} \mu \ensuremath{\boldsymbol{b}}   \cdot \nabla B + v_{\parallel} Z e \ensuremath{\boldsymbol{b}} \cdot \ensuremath{\boldsymbol{E}},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10338}%
+$ \dot{\ensuremath{\boldsymbol{X}}} \cdot \ensuremath{\boldsymbol{\kappa}}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10341}%
+$\displaystyle m v_{\parallel}^2 \dot{\ensuremath{\boldsymbol{X}}} \cdot \ensuremath{\boldsymbol{\kappa}}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10345}%
+$\displaystyle - \frac{m
+v_{\parallel}^2 Z e}{m \Omega B^{\star}} \left( \ensuremath{\boldsymbol{B}} \times
+\ensuremath{\boldsymbol{E}} \right) \cdot \ensuremath{\boldsymbol{\kappa}} + \frac{m v_{\parallel}^2}{m
+\Omega B^{\star}} \left( \ensuremath{\boldsymbol{B}} \times \mu \nabla B \right) \cdot
+\ensuremath{\boldsymbol{\kappa}}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10349}%
+$\displaystyle \frac{Z e v_{\parallel}^2}{\Omega B^{\star}} \left( \ensuremath{\boldsymbol{B}}
+\times \ensuremath{\boldsymbol{E}} \right) \cdot ( \ensuremath{\boldsymbol{b}} \times \nabla \times
+\ensuremath{\boldsymbol{b}}) - \frac{v_{\parallel}^2}{\Omega B^{\star}} \left( \ensuremath{\boldsymbol{B}}
+\times \mu \nabla B \right) \cdot ( \ensuremath{\boldsymbol{b}} \times \nabla \times
+\ensuremath{\boldsymbol{b}})$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10353}%
+$\displaystyle \frac{Z e v_{\parallel}^2}{\Omega B^{\star}} \left( B \ensuremath{\boldsymbol{E}}
+\cdot \nabla \times \ensuremath{\boldsymbol{b}} - \ensuremath{\boldsymbol{B}} \cdot \nabla \times
+\ensuremath{\boldsymbol{b}}  \ensuremath{\boldsymbol{E}} \cdot \ensuremath{\boldsymbol{b}} \right) -
+\frac{v_{\parallel}^2}{\Omega B^{\star}} \left( B \mu \nabla B \cdot \nabla
+\times \ensuremath{\boldsymbol{b}} - \ensuremath{\boldsymbol{B}} \cdot \nabla \times \ensuremath{\boldsymbol{b}} \mu
+\nabla B \cdot \ensuremath{\boldsymbol{b}} \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10355}%
+$\displaystyle m v_{\parallel} \dot{v}_{\parallel} = \frac{Z e v_{\parallel}^2}{\Omega
+   B^{\star}} \left( B \ensuremath{\boldsymbol{E}} \cdot \nabla \times \ensuremath{\boldsymbol{b}} -
+   \ensuremath{\boldsymbol{B}} \cdot \nabla \times \ensuremath{\boldsymbol{b}}  \ensuremath{\boldsymbol{E}} \cdot
+   \ensuremath{\boldsymbol{b}} \right) - \frac{v_{\parallel}^2}{\Omega B^{\star}} \left( B
+   \mu \nabla B \cdot \nabla \times \ensuremath{\boldsymbol{b}} - \ensuremath{\boldsymbol{B}} \cdot \nabla
+   \times \ensuremath{\boldsymbol{b}} \mu \nabla B \cdot \ensuremath{\boldsymbol{b}} \right) - v_{\parallel}
+   \mu \ensuremath{\boldsymbol{b}} \cdot \nabla B + v_{\parallel} Z e \ensuremath{\boldsymbol{b}} \cdot
+   \ensuremath{\boldsymbol{E}}, $%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10357}%
+$\displaystyle m v_{\parallel} \dot{v}_{\parallel} = \left[ \frac{v_{\parallel}^2}{\Omega
+   B^{\star}} \left( B \nabla \times \ensuremath{\boldsymbol{b}} - \ensuremath{\boldsymbol{B}} \cdot \nabla
+   \times \ensuremath{\boldsymbol{b}}  \ensuremath{\boldsymbol{b}} \right) + v_{\parallel} \ensuremath{\boldsymbol{b}}
+   \right] \cdot Z e \ensuremath{\boldsymbol{E}}, - \left[ \frac{v_{\parallel}^2}{\Omega
+   B^{\star}} B \nabla \times \ensuremath{\boldsymbol{b}} - \frac{v_{\parallel}^2}{\Omega
+   B^{\star}} ( \ensuremath{\boldsymbol{B}} \cdot \nabla \times \ensuremath{\boldsymbol{b}}) \ensuremath{\boldsymbol{b}} +
+   v_{\parallel} \ensuremath{\boldsymbol{b}} \right] \cdot \mu \nabla B, $%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10359}%
+$\displaystyle m v_{\parallel} \dot{v}_{\parallel} =   \ensuremath{\boldsymbol{v}}_{\parallel}^{\star} \cdot \left( Z e \ensuremath{\boldsymbol{E}} - \mu \nabla   B \right),$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10362}%
+$\displaystyle \frac{d f}{d t} = 0.$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10368}%
+$\displaystyle \frac{\partial f}{\partial t} + \dot{\ensuremath{\boldsymbol{X}}} \cdot   \nabla f + \dot{v_{\parallel}} \frac{\partial f}{\partial v_{\parallel}} +   \dot{y} \frac{\partial f}{\partial y} = 0,$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10405}%
+$\displaystyle \frac{D}{D t} = \frac{\partial}{\partial t} + \dot{\ensuremath{\boldsymbol{X}}}^{(0)} \cdot   \nabla + \dot{v_{\parallel}}^{(0)} \frac{\partial}{\partial v_{\parallel}} +   \dot{y}^{(0)} \frac{\partial}{\partial y},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10560}%
+$\displaystyle \frac{D f_1}{D t} = - \left\{ \left[ \left( \frac{\partial   \mathcal{L}}{\partial \varphi} \right)^{(1)} - \frac{D P_{\varphi}^{(1)}}{D   t} \right] \frac{\partial F}{\partial P_{\varphi 0}} + \left( - L_t^{(1)} -   Z e \frac{D \phi^{(1)}}{D t} \right) \frac{\partial F}{\partial   \varepsilon_0} + \mu_0 \frac{D}{D t} \left( \frac{B_1}{B_0} \right)   \frac{\partial F}{\partial \mu_0} \right\},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10597}%
+$\displaystyle \omega_{\star} \equiv \frac{\partial F}{\partial P_{\varphi 0}} /   \frac{\partial F}{\partial \varepsilon_0},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10618}%
+$ m v_{\parallel} \ensuremath{\boldsymbol{b}}^{(1)}
+\cdot \dot{\ensuremath{\boldsymbol{X}}}^{(0)}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10620}%
+$ O (\delta^2)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10622}%
+$\displaystyle \mathcal{L}^{(1)} = \frac{Z e}{c} \ensuremath{\boldsymbol{A}}^{(1)} \cdot   \dot{\ensuremath{\boldsymbol{X}}}^{(0)} - \mu_0 B^{(1)} - Z e \phi^{(1)} .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10629}%
+$\displaystyle \dot{\ensuremath{\boldsymbol{X}}}^{(0)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10633}%
+$\displaystyle v_{\parallel} \ensuremath{\boldsymbol{b}} + \frac{1}{m
+\Omega} \ensuremath{\boldsymbol{b}}^{(0)} \times \left( \frac{y}{B_0} \nabla B_0 + m
+v_{\parallel}^2 \ensuremath{\boldsymbol{\kappa}}^{(0)} \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10637}%
+$\displaystyle v_{\parallel} \ensuremath{\boldsymbol{b}} + \ensuremath{\boldsymbol{v}}_d$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10639}%
+$ v_{\parallel} \sim O (\delta^0)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10641}%
+$ v_d \sim O (\delta)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10646}%
+$\displaystyle \frac{1}{B}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10650}%
+$\displaystyle \frac{1}{\sqrt{B_0^2 + \left( B^{(1)} \right)^2 + 2
+\ensuremath{\boldsymbol{B}}_0 \cdot \ensuremath{\boldsymbol{B}}^{(1)}}}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10654}%
+$\displaystyle \frac{1}{B_0} - \frac{1}{2 B_0^3} \left[ \left( B^{(1)}
+\right)^2 + 2 \ensuremath{\boldsymbol{B}}_0 \cdot \ensuremath{\boldsymbol{B}}^{(1)} \right]$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10657}%
+$\displaystyle \ensuremath{\boldsymbol{b}}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10661}%
+$\displaystyle \frac{\ensuremath{\boldsymbol{B}}_0 + \ensuremath{\boldsymbol{B}}^{(1)}}{B}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10665}%
+$\displaystyle \left( \ensuremath{\boldsymbol{B}}_0 + \ensuremath{\boldsymbol{B}}^{(1)} \right) \left\{
+\frac{1}{B_0} - \frac{1}{2 B_0^3} \left[ \left( B^{(1)} \right)^2 + 2
+\ensuremath{\boldsymbol{B}}_0 \cdot \ensuremath{\boldsymbol{B}}^{(1)} \right] \right\}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10669}%
+$\displaystyle \ensuremath{\boldsymbol{b}}^{(0)} - \frac{\ensuremath{\boldsymbol{B}}_0}{2 B_0^3} \left( 2
+\ensuremath{\boldsymbol{B}}_0 \cdot \ensuremath{\boldsymbol{B}}^{(1)} \right) +
+\frac{\ensuremath{\boldsymbol{B}}^{(1)}}{B_0}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10673}%
+$\displaystyle \ensuremath{\boldsymbol{b}}^{(0)} - \ensuremath{\boldsymbol{b}}^{(0)} \left( \ensuremath{\boldsymbol{b}}^{(0)}
+\cdot \frac{\ensuremath{\boldsymbol{B}}^{(1)}}{B_0} \right) +
+\frac{\ensuremath{\boldsymbol{B}}^{(1)}}{B_0} .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10676}%
+$\displaystyle \ensuremath{\boldsymbol{b}}^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10680}%
+$\displaystyle - \ensuremath{\boldsymbol{b}}^{(0)} \left( \ensuremath{\boldsymbol{b}}^{(0)}
+\cdot \frac{\ensuremath{\boldsymbol{B}}^{(1)}}{B_0} \right) +
+\frac{\ensuremath{\boldsymbol{B}}^{(1)}}{B_0}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10685}%
+$\displaystyle m v_{\parallel} \ensuremath{\boldsymbol{b}}^{(1)} \cdot \dot{\ensuremath{\boldsymbol{X}}}^{(0)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10689}%
+$\displaystyle - m
+v_{\parallel}^2 \ensuremath{\boldsymbol{b}}^{(0)} \cdot \frac{\ensuremath{\boldsymbol{B}}^{(1)}}{B_0} + m
+v_{\parallel}^2 \ensuremath{\boldsymbol{b}}^{(0)} \cdot \frac{\ensuremath{\boldsymbol{B}}^{(1)}}{B_0} + m
+v_{\parallel} \ensuremath{\boldsymbol{b}}^{(1)} \cdot \ensuremath{\boldsymbol{v}}_d$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10693}%
+$\displaystyle 0 + m v_{\parallel} \ensuremath{\boldsymbol{b}}^{(1)} \cdot \ensuremath{\boldsymbol{v}}_d,$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10695}%
+$ O (\delta)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10697}%
+$ \ensuremath{\boldsymbol{b}}^{(1)} \sim O (\delta)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10699}%
+$ \ensuremath{\boldsymbol{v}}_d \sim O (\delta)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10707}%
+$ B^{(1)}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10711}%
+$ B_{\parallel}^{(1)} \equiv \ensuremath{\boldsymbol{b}}^{(0)} \cdot
+\ensuremath{\boldsymbol{B}}^{(1)}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10735}%
+$\displaystyle \sqrt{B_0^2} + \frac{1}{2 \sqrt{B_0^2}} \left[ \left( B^{(1)}
+\right)^2 + 2 \ensuremath{\boldsymbol{B}}_0 \cdot \ensuremath{\boldsymbol{B}}^{(1)} \right] + \ldots$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10742}%
+$\displaystyle B_0 + \frac{\ensuremath{\boldsymbol{B}}_0 \cdot \ensuremath{\boldsymbol{B}}^{(1)}}{B_0}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10746}%
+$\displaystyle B_0 + \ensuremath{\boldsymbol{b}}^{(0)} \cdot \ensuremath{\boldsymbol{B}}^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10750}%
+$\displaystyle B_0 + B_{\parallel}^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10754}%
+$\displaystyle \mathcal{L}^{(1)} = \frac{Z e}{c} \ensuremath{\boldsymbol{A}}^{(1)} \cdot   \dot{\ensuremath{\boldsymbol{X}}}^{(0)} - \mu_0 B_{\parallel}^{(1)} - Z e \phi^{(1)} .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10765}%
+$\displaystyle v_{\parallel}' (\tau = 0) = v_{\parallel},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10767}%
+$ \mu = y / B (
+\ensuremath{\boldsymbol{X}})$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10776}%
+$\displaystyle \int_{- \infty}^0 \left[ \frac{Z e}{c} \ensuremath{\boldsymbol{A}}^{(1)}
+\cdot \dot{\ensuremath{\boldsymbol{X}}}' - \mu_0 B_{\parallel}^{(1)} - Z e \phi^{(1)}
+\right] d \tau$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10809}%
+$\displaystyle \ensuremath{\boldsymbol{b}}^{(0)} \cdot \ensuremath{\boldsymbol{B}}^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10813}%
+$\displaystyle - B_0 \left( \nabla \cdot \ensuremath{\boldsymbol{\xi}}_{\perp} \right) + \left[
+\ensuremath{\boldsymbol{B}}_0 \cdot \nabla \ensuremath{\boldsymbol{\xi}}_{\perp} \right] \cdot
+\ensuremath{\boldsymbol{b}}^{(0)} - \left[ \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \nabla
+\ensuremath{\boldsymbol{B}}_0 \right] \cdot \ensuremath{\boldsymbol{b}}^{(0)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10815}%
+$\displaystyle B_{\parallel}^{(1)} = - B_0 \left( \nabla \cdot   \ensuremath{\boldsymbol{\xi}}_{\perp} \right) + \ensuremath{\boldsymbol{B}}_0 \cdot \left( \nabla   \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \ensuremath{\boldsymbol{b}}^{(0)} \right) -   \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \left( \nabla \ensuremath{\boldsymbol{B}}_0 \cdot   \ensuremath{\boldsymbol{b}}^{(0)} \right) .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10868}%
+$\displaystyle \mathcal{L}^{(1)} = \frac{Z e}{c} \ensuremath{\boldsymbol{A}}^{(1)} \cdot   \dot{\ensuremath{\boldsymbol{X}}}^{(0)} - \mu_0 B_{\parallel}^{(1)} - Z e \phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10870}%
+$\displaystyle \mathcal{L}^{(1)} = \frac{Z e}{c} \left(   \ensuremath{\boldsymbol{\xi}}_{\perp} \times \ensuremath{\boldsymbol{B}}_0 \right) \cdot   \dot{\ensuremath{\boldsymbol{X}}}^{(0)} - \mu_0 B_{\parallel}^{(1)} - Z e \phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10872}%
+$ \dot{\ensuremath{\boldsymbol{X}}}^{(0)}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10879}%
+$\displaystyle \frac{Z e}{c} \left( \ensuremath{\boldsymbol{\xi}}_{\perp} \times
+\ensuremath{\boldsymbol{B}}^{(0)} \right) \cdot \left[ v_{\parallel} \ensuremath{\boldsymbol{b}}^{(0)} +
+\frac{1}{m \Omega} \ensuremath{\boldsymbol{b}}^{(0)} \times \left( \frac{y}{B^{(0)}} \nabla
+B^{(0)} + m v_{\parallel}^2 \ensuremath{\boldsymbol{\kappa}}^{(0)} - Z e \ensuremath{\boldsymbol{E}}^{(0)}
+\right) \right] - \mu_0 B_{\parallel}^{(1)} - Z e \phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10883}%
+$\displaystyle \frac{Z e}{c} \left( \ensuremath{\boldsymbol{\xi}}_{\perp} \times \ensuremath{\boldsymbol{B}}^{(0)}
+\right) \cdot \left[ \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}}^{(0)} \times \left(
+\frac{y}{B^{(0)}} \nabla B^{(0)} + m v_{\parallel}^2 \ensuremath{\boldsymbol{\kappa}}^{(0)}
++ Z e \nabla \varphi^{(0)} \right) \right] - \mu_0 B_{\parallel}^{(1)} - Z e
+\phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10887}%
+$\displaystyle \frac{Z e}{c} \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \left\{ \ensuremath{\boldsymbol{B}}^{(0)}
+\times \left[ \frac{1}{m \Omega} \ensuremath{\boldsymbol{b}}^{(0)} \times \left(
+\frac{y}{B^{(0)}} \nabla B^{(0)} + m v_{\parallel}^2 \ensuremath{\boldsymbol{\kappa}}^{(0)}
++ Z e \nabla \varphi^{(0)} \right) \right] \right\} - \mu_0
+B_{\parallel}^{(1)} - Z e \phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10891}%
+$\displaystyle \frac{Z e}{c} \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \left\{ - \frac{1}{m
+\Omega} B^{(0)} \left( \frac{y}{B^{(0)}} \nabla B^{(0)} + m v_{\parallel}^2
+\ensuremath{\boldsymbol{\kappa}}^{(0)} + Z e \nabla \varphi^{(0)} \right) + \frac{1}{m
+\Omega} \ensuremath{\boldsymbol{b}}^{(0)} \left( \ldots . \right) \right\} - \mu_0
+B_{\parallel}^{(1)} - Z e \phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10895}%
+$\displaystyle \frac{Z e}{c} \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \left\{ - \frac{1}{m
+\Omega} B^{(0)} \left( \frac{y}{B^{(0)}} \nabla B^{(0)} + m v_{\parallel}^2
+\ensuremath{\boldsymbol{\kappa}}^{(0)} + Z e \nabla \varphi^{(0)} \right) \right\} - \mu_0
+B_{\parallel}^{(1)} - Z e \phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10899}%
+$\displaystyle \frac{Z e}{c} \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \left\{ - \frac{c}{Z e}
+\left( \mu_0 \nabla B^{(0)} + m v_{\parallel}^2 \ensuremath{\boldsymbol{\kappa}}^{(0)} + Z
+e \nabla \varphi^{(0)} \right) \right\} - \mu_0 B_{\parallel}^{(1)} - Z e
+\phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay10903}%
+$\displaystyle - \ensuremath{\boldsymbol{\xi}}_{\perp} \cdot \left( \mu_0 \nabla B^{(0)} + m
+v_{\parallel}^2 \ensuremath{\boldsymbol{\kappa}}^{(0)} + Z e \nabla \varphi^{(0)} \right) -
+\mu_0 B_{\parallel}^{(1)} - Z e \phi^{(1)}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay11055}%
+$\displaystyle \frac{d}{d t} \left( \frac{\partial
+\mathcal{L}}{\partial \dot{R}} \right) \widehat{\ensuremath{\boldsymbol{e}}}_R + \frac{d}{d
+t} \left( \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} \right)
+\frac{1}{R} \widehat{\ensuremath{\boldsymbol{e}}}_{\varphi} + \frac{d}{d t} \left(
+\frac{\partial \mathcal{L}}{\partial \dot{Z}} \right)
+\widehat{\ensuremath{\boldsymbol{e}}}_z + \frac{\partial \mathcal{L}}{\partial \dot{R}}
+\frac{d \widehat{\ensuremath{\boldsymbol{e}}}_R}{d t} + \frac{\partial
+\mathcal{L}}{\partial \dot{\varphi}} \frac{d}{d t} \left( \frac{1}{R}
+\widehat{\ensuremath{\boldsymbol{e}}}_{\varphi} \right)$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay11180}%
+$\displaystyle \frac{d}{d t} \left( \frac{\partial \mathcal{L}}{\partial \dot{R}} \right) =   \frac{\partial \mathcal{L}}{\partial R},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay11182}%
+$\displaystyle \frac{d}{d t} \left( \frac{\partial \mathcal{L}}{\partial \dot{\varphi}}   \right) = \frac{\partial \mathcal{L}}{\partial \varphi},$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay11184}%
+$\displaystyle \frac{d}{d t} \left( \frac{\partial \mathcal{L}}{\partial \dot{Z}} \right) =   \frac{\partial \mathcal{L}}{\partial Z} .$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline11239}%
+$ \partial \ensuremath{\boldsymbol{X}} / \partial \psi$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+
+\end{document}

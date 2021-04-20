@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head>
+   <title>Notes on tokamak equilibrium</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tokamak_equilibrium.tex" /> 
+<link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                
+
+                                                                                
+                                                                                
+
+                                                                                
+
+<h2 class="titleHead">Notes on tokamak equilibrium</h2>
+                       <div class="author" > <span 
+class="cmr-12">Youjun Hu</span>
+<br /><span 
+class="cmr-12">Institute of Plasma Physics, Chinese Academy of Sciences</span>
+<br />                 <span 
+class="cmr-12">Email: yjhu@ipp.cas.cn </span></div><br />
+<div class="date" ><span 
+class="cmr-12">April 20, 2021</span></div>
+   </div>
+   <div 
+class="abstract" 
+>
+<div class="center" 
+>
+<!--l. 28--><p class="noindent" >
+</p><!--l. 28--><p class="noindent" ><span 
+class="cmbx-9">Abstract</span></p></div>
+     <!--l. 29--><p class="indent" >    <span 
+class="cmr-9">Axisymmetric equilibrium of tokamak plasma is the basis for plasma control, stability,</span>
+     <span 
+class="cmr-9">and transport analysis. These are my notes when learning tokamak equilibrium theory. To</span>
+     <span 
+class="cmr-9">test what I have learned, I have developed two numerical codes, one of which constructs a ﬂux</span>
+     <span 
+class="cmr-9">coordinate system with a desired form of Jacobian by using discrete numerical equilibrium</span>
+     <span 
+class="cmr-9">data output by the EFIT code, another of which solves the ﬁxed boundary Grad-Shafranov</span>
+     <span 
+class="cmr-9">equation in a general coordinate system. These notes serve as a document for the codes.</span>
+     <span 
+class="cmr-9">These notes are evolving and are written for my own record (which means that something</span>
+     <span 
+class="cmr-9">might be very wrong). Email me if you have any comments.</span>
+</p>
+</div>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="tokamak_equilibriumse1.html#x2-10001" id="QQ2-2-1"> Axisymmetric magnetic ﬁeld</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="tokamak_equilibriumse2.html#x11-150002" id="QQ2-11-20">Plasma current density in terms of Ψ and <span 
+class="cmmi-10">g</span></a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="tokamak_equilibriumse3.html#x14-180003" id="QQ2-14-23">Constraint of force-balance on axisymmetric magnetic ﬁeld</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="tokamak_equilibriumse4.html#x23-300004" id="QQ2-23-35">Curvilinear coordinate system</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="tokamak_equilibriumse5.html#x33-410005" id="QQ2-33-46">Magnetic coordinates (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>)</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="tokamak_equilibriumse6.html#x37-530006" id="QQ2-37-59">Constructing magnetic surface coordinate system from discrete Ψ(<span 
+class="cmmi-10">R,Z</span>) data</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="tokamak_equilibriumse7.html#x40-560007" id="QQ2-40-69">Constructing model tokamak magnetic ﬁeld</a></span>
+<br />   <span class="sectionToc" >8 <a 
+href="tokamak_equilibriumse8.html#x41-570008" id="QQ2-41-70">Magnetic surface averaging</a></span>
+<br />   <span class="sectionToc" >9 <a 
+href="tokamak_equilibriumse9.html#x44-600009" id="QQ2-44-73">Magnetic coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)withgeneral toroidal angle <span 
+class="cmmi-10">ζ</span></a></span>
+<br />   <span class="sectionToc" >10 <a 
+href="tokamak_equilibriumse10.html#x56-7200010" id="QQ2-56-85">Field-line-following coordinates</a></span>
+<br />   <span class="sectionToc" >11 <a 
+href="tokamak_equilibriumse11.html#x64-9000011" id="QQ2-64-115">Concentric-circular magnetic conﬁguration with given safety factor proﬁle</a></span>
+                                                                                
+
+                                                                                
+<br />   <span class="sectionToc" >12 <a 
+href="tokamak_equilibriumse12.html#x70-9600012" id="QQ2-70-123">Fixed boundary tokamak equilibrium problem</a></span>
+<br />   <span class="sectionToc" >13 <a 
+href="tokamak_equilibriumse13.html#x81-10700013" id="QQ2-81-138">Misc contents</a></span>
+<br />   <span class="sectionToc" >A <a 
+href="tokamak_equilibriumse14.html#x89-118000A" id="QQ2-89-157"></a></span>
+<br />   <span class="sectionToc" >B <a 
+href="tokamak_equilibriumse15.html#x104-133000B" id="QQ2-104-175">About this document</a></span>
+<br />   <span class="likesectionToc" ><a 
+href="tokamak_equilibriumli1.html#x105-134000B" id="QQ2-105-176">References</a></span>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+</body></html> 
+
+                                                                                
+
+

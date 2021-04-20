@@ -1,0 +1,426 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Comparison with linear theory</TITLE>
+<META NAME="description" CONTENT="Comparison with linear theory">
+<META NAME="keywords" CONTENT="landau_damping">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="landau_damping.css">
+
+<LINK REL="next" HREF="node20.html">
+<LINK REL="previous" HREF="node18.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node20.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html242"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html240"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html234"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html243"
+  HREF="node20.html">On particle number conservation</A>
+<B> Up:</B> <A NAME="tex2html241"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<B> Previous:</B> <A NAME="tex2html235"
+  HREF="node18.html">Phase mixing and linear</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00034000000000000000">
+Comparison with linear theory</A>
+</H2>
+
+<P>
+Next, we compare the numerical results with the electron plasma wave
+dispersion relation, which is given by[<A
+ HREF="node23.html#gurnett2004">1</A>]
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-4-1"></A><!-- MATH
+ \begin{equation}
+1 + 2 \left( \frac{\omega_p}{k v_t} \right)^2 [1 + \zeta Z
+  (\zeta)] = 0,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="212" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img267.png"
+ ALT="$\displaystyle 1 + 2 \left( \frac{\omega_p}{k v_t} \right)^2 [1 + \zeta Z (\zeta)] = 0,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">83</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\zeta = \omega / k v_t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="74" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img268.png"
+ ALT="$ \zeta = \omega / k v_t$"></SPAN>, and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+Z (\zeta) = \frac{1}{\sqrt{\pi}} \int_C \frac{e^{- z^2}}{z - \zeta} d z,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="170" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img269.png"
+ ALT="$\displaystyle Z (\zeta) = \frac{1}{\sqrt{\pi}} \int_C \frac{e^{- z^2}}{z - \zeta} d z,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">84</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+is the plasma dispersion function. The plasma dispersion function is related
+to the error function of imaginary argument by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+Z (\zeta) = i \sqrt{\pi} \exp (- \zeta^2) \ensuremath{\operatorname{erfc}} (- i \zeta) .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="224" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img270.png"
+ ALT="$\displaystyle Z (\zeta) = i \sqrt{\pi} \exp (- \zeta^2) \ensuremath{\operatorname{erfc}} (- i \zeta) .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">85</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The <!-- MATH
+ $\ensuremath{\operatorname{erfc}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img271.png"
+ ALT="$ \ensuremath{\operatorname{erfc}}$"></SPAN> function is implemented in Wolfram Mathematica. By using
+<!-- MATH
+ $\ensuremath{\operatorname{FindRoot}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img272.png"
+ ALT="$ \ensuremath{\operatorname{FindRoot}}$"></SPAN> function of Wolfram Mathematica, the equation (<A HREF="#9-4-1">83</A>)
+can be easily solved numerically to find the root. For the parameter used in
+the simulation <!-- MATH
+ $k v_t / \omega_p = 0.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ k v_t / \omega _p = 0.5$"></SPAN>, <!-- MATH
+ $\ensuremath{\operatorname{Findroot}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="66" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img273.png"
+ ALT="$ \ensuremath{\operatorname{Findroot}}$"></SPAN> gives <!-- MATH
+ $\zeta =
+2.4508 - i 0.0725$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="147" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img274.png"
+ ALT="$ \zeta =
+2.4508 - i 0.0725$"></SPAN>. From this, we obtain <!-- MATH
+ $\omega / \omega_p = \zeta k v_t /
+\omega_p = 1.2254 - i 0.0362$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="251" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img275.png"
+ ALT="$ \omega / \omega_p = \zeta k v_t /
+\omega_p = 1.2254 - i 0.0362$"></SPAN>.
+
+<P>
+The oscillation frequency of the electric field can be estimated by counting
+the peaks in Fig. <A HREF="node18.html#11-5-e10">8</A>, from which we obtain <!-- MATH
+ $\omega_r / \omega_p =
+1.226$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="104" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img276.png"
+ ALT="$ \omega_r / \omega_p =
+1.226$"></SPAN>, which agrees the theoretic value <SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img277.png"
+ ALT="$ 1.2254$"></SPAN> given above. Figure
+<A HREF="node18.html#11-5-e10">8</A> shows that the amplitude of the electric filed decreases
+exponentially with time. Figure <A HREF="#9-4-5">9</A> compares the theoretic growth rate
+with the simulation results, which also shows good agreement with each other.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="9-4-5"></A><A NAME="1540"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 9:</STRONG>
+Comparison of the damping rate given by Eq.
+  (<A HREF="#9-4-1">83</A>) <!-- MATH
+ $(\gamma / \omega_p = - 0.0362)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="129" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ (\gamma / \omega_p = - 0.0362)$"></SPAN> with the simulation results.
+  <!-- MATH
+ $k v_t / \omega_p = 0.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ k v_t / \omega _p = 0.5$"></SPAN>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="254" HEIGHT="181" ALIGN="BOTTOM" BORDER="0"
+ SRC="img278.png"
+ ALT="\includegraphics{/home/yj/project/landau_damping/fig6/tmp3.eps}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+ 
+<P>
+In the weak growth rate approximation, the real frequency of electron plasma
+wave is given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-2-a1"></A><!-- MATH
+ \begin{equation}
+\omega^2_r = \omega_p^2 + \frac{3}{2} k^2 v_t^2,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="128" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img279.png"
+ ALT="$\displaystyle \omega^2_r = \omega_p^2 + \frac{3}{2} k^2 v_t^2,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">86</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+for a Maxwellian plasma. For the numerical case given here, <!-- MATH
+ $k v_t / \omega_p
+= 0.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ k v_t / \omega _p = 0.5$"></SPAN>. Using this in Eq. (<A HREF="#9-2-a1">86</A>), we obtain <!-- MATH
+ $\omega_r / \omega_p =
+1.173$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="104" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img280.png"
+ ALT="$ \omega_r / \omega_p =
+1.173$"></SPAN>, which roughly agrees with the exact value <!-- MATH
+ $\omega_r / \omega_p =
+1.2254$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="112" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img281.png"
+ ALT="$ \omega_r / \omega_p =
+1.2254$"></SPAN>.
+
+<P>
+In the weak growth rate approximation, the growth rate is given by Eq.
+(<A HREF="node10.html#9-2-4">45</A>), i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\gamma = \frac{\pi \omega \omega_p^2}{2 |k| k}  \frac{1}{n_0} \left[ \frac{d
+  f_0 (v)}{d v} \right]_{v = \omega / k},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="208" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img282.png"
+ ALT="$\displaystyle \gamma = \frac{\pi \omega \omega_p^2}{2\vert k\vert k} \frac{1}{n_0} \left[ \frac{d f_0 (v)}{d v} \right]_{v = \omega / k},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">87</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using this, we obtain
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-3-p10"></A><!-- MATH
+ \begin{eqnarray}
+\gamma & = & \frac{\pi \omega \omega_p^2}{2 k |k|}  \frac{1}{n_0} \left[
+  \frac{n_0}{v_t \sqrt{\pi}} \exp \left( - \frac{v^2}{v_t^2} \right) \left( -
+  \frac{2 v}{v_t^2} \right) \right]_{v = \omega / k} \nonumber\\
+  & = & \frac{\pi \omega \omega_p^2}{2 k^2}  \left[  \frac{1}{v_t \sqrt{\pi}}
+  \exp \left( - \frac{\omega^2}{k^2 v_t^2} \right) \left( - \frac{2 \omega}{k
+  v_t^2} \right) \right] .
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img283.png"
+ ALT="$\displaystyle \gamma$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="309" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img284.png"
+ ALT="$\displaystyle \frac{\pi \omega \omega_p^2}{2 k\vert k\vert} \frac{1}{n_0} \left...
+...v^2}{v_t^2} \right) \left( -
+\frac{2 v}{v_t^2} \right) \right]_{v = \omega / k}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="280" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img285.png"
+ ALT="$\displaystyle \frac{\pi \omega \omega_p^2}{2 k^2} \left[ \frac{1}{v_t \sqrt{\pi...
+...omega^2}{k^2 v_t^2} \right) \left( - \frac{2 \omega}{k
+v_t^2} \right) \right] .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">88</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+From this, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="9-4-p1"></A><!-- MATH
+ \begin{equation}
+\frac{\gamma}{\omega_p} = \sqrt{\pi} \frac{\omega_p}{k v_t}
+  \left[ \exp \left( - \frac{\omega^2 / \omega_p^2}{k^2 v_t^2 / \omega_p^2}
+  \right) \left( - \frac{\omega^2 / \omega_p^2}{k^2 v_t^2 / \omega_p^2}
+  \right) \right] .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="350" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img286.png"
+ ALT="$\displaystyle \frac{\gamma}{\omega_p} = \sqrt{\pi} \frac{\omega_p}{k v_t} \left...
+...\left( - \frac{\omega^2 / \omega_p^2}{k^2 v_t^2 / \omega_p^2} \right) \right] .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">89</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using <!-- MATH
+ $\omega / \omega_p = 1.225$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img287.png"
+ ALT="$ \omega / \omega_p = 1.225$"></SPAN> in Eq. (<A HREF="#9-4-p1">89</A>), we obtain <!-- MATH
+ $\gamma /
+\omega_p = - 0.0524$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="117" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img288.png"
+ ALT="$ \gamma /
+\omega_p = - 0.0524$"></SPAN>, which roughly agrees with the exact value <!-- MATH
+ $\gamma /
+\omega_p = - 0.0362$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="117" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img289.png"
+ ALT="$ \gamma /
+\omega_p = - 0.0362$"></SPAN> obtained above. Note that if we used <!-- MATH
+ $\omega \approx
+\omega_p$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img290.png"
+ ALT="$ \omega \approx
+\omega_p$"></SPAN>, instead of the exact frequency <!-- MATH
+ $\omega = 1.225 \omega_p$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="90" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img291.png"
+ ALT="$ \omega = 1.225 \omega_p$"></SPAN>, then Eq.
+(<A HREF="#9-4-p1">89</A>) would give <!-- MATH
+ $\gamma / \omega_p = - 0.259$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="109" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img292.png"
+ ALT="$ \gamma / \omega_p = - 0.259$"></SPAN>, which is almost one
+order larger than the exact value <!-- MATH
+ $\gamma / \omega_p = - 0.036$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="109" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img293.png"
+ ALT="$ \gamma / \omega_p = - 0.036$"></SPAN>. This
+highlights the inaccuracy of the approximate formula we encounter in
+textbooks[<A
+ HREF="node23.html#gurnett2004">1</A>], where <!-- MATH
+ $\omega = \omega_p$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img294.png"
+ ALT="$ \omega = \omega_p$"></SPAN> is used to estimate
+the damping rate.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html242"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html240"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html234"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html243"
+  HREF="node20.html">On particle number conservation</A>
+<B> Up:</B> <A NAME="tex2html241"
+  HREF="node15.html">Self-consistent-field simulation of linear</A>
+<B> Previous:</B> <A NAME="tex2html235"
+  HREF="node18.html">Phase mixing and linear</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2016-01-26
+</ADDRESS>
+</BODY>
+</HTML>

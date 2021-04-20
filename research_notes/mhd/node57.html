@@ -1,0 +1,473 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>proof</TITLE>
+<META NAME="description" CONTENT="proof">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node58.html">
+<LINK REL="previous" HREF="node56.html">
+<LINK REL="up" HREF="node47.html">
+<LINK REL="next" HREF="node58.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html707"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html705"
+  HREF="node47.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html699"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html708"
+  HREF="node58.html">Incompressible condition</A>
+<B> Up:</B> <A NAME="tex2html706"
+  HREF="node47.html">misc contents</A>
+<B> Previous:</B> <A NAME="tex2html700"
+  HREF="node56.html">proof of</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000910000000000000000"></A><A NAME="8-22-p9"></A>
+<BR>
+proof
+</H2>
+
+<P>
+Try to prove that
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-22-p4"></A><!-- MATH
+ \begin{equation}
+\mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla
+  \frac{\nabla \Psi}{| \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla \Psi
+  |^2} \cdot \nabla \mathbf{B}_0 \right) = - 2\ensuremath{\boldsymbol{\kappa}} \cdot \nabla
+  \Psi \frac{B^2}{| \nabla \Psi |^2} +{\textmu}_0 \frac{d p_0}{d \Psi} .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="436" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img253.png"
+ ALT="$\displaystyle \mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla \frac{\nabla ...
+... \Psi \frac{B^2}{\vert \nabla \Psi \vert^2} +{\textmu}_0 \frac{d p_0}{d \Psi} .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">363</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Proof: We have
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\nabla p_0 = \frac{d p_0}{d \Psi} \nabla \Psi
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="106" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1044.png"
+ ALT="$\displaystyle \nabla p_0 = \frac{d p_0}{d \Psi} \nabla \Psi$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">364</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Thus
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-28-e1"></A><!-- MATH
+ \begin{eqnarray}
+{\textmu}_0 \frac{d p_0}{d \Psi} & = & {\textmu}_0 \frac{\nabla \Psi \cdot
+  \nabla p_0}{| \nabla \Psi |^2} \nonumber\\
+  & = & {\textmu}_0 \frac{\nabla \Psi \cdot (\mathbf{J}_0 \times
+  \mathbf{B}_0)}{| \nabla \Psi |^2} \nonumber\\
+  & = & \frac{\nabla \Psi \cdot ((\nabla \times \mathbf{B}_0) \times
+  \mathbf{B}_0))}{| \nabla \Psi |^2} \nonumber\\
+  & = & - (\nabla \times \mathbf{B}_0) \cdot \left( \frac{\nabla \Psi}{|
+  \nabla \Psi |^2} \times \mathbf{B}_0 \right) \nonumber\\
+  & = & \nabla \cdot \left[ \left( \frac{\nabla \Psi}{| \nabla \Psi |^2}
+  \times \mathbf{B}_0 \right) \times \mathbf{B}_0 \right] -\mathbf{B}_0 \cdot
+  \nabla \times \left( \frac{\nabla \Psi}{| \nabla \Psi |^2} \times
+  \mathbf{B}_0 \right) \nonumber\\
+  & = & - \nabla \cdot \left( B_0^2 \frac{\nabla \Psi}{| \nabla \Psi |^2}
+  \right) -\mathbf{B}_0 \cdot \nabla \times \left( \frac{\nabla \Psi}{| \nabla
+  \Psi |^2} \times \mathbf{B}_0 \right) \nonumber\\
+  & = & - \nabla \cdot \left( B_0^2 \frac{\nabla \Psi}{| \nabla \Psi |^2}
+  \right) -\mathbf{B}_0 \cdot \left( -\mathbf{B}_0 \nabla \cdot \frac{\nabla
+  \Psi}{| \nabla \Psi |^2} +\mathbf{B}_0 \cdot \nabla \frac{\nabla \Psi}{|
+  \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla
+  \mathbf{B}_0 \right) \nonumber\\
+  & = & - \nabla \cdot \left( B_0^2 \frac{\nabla \Psi}{| \nabla \Psi |^2}
+  \right) + B_0^2 \nabla \cdot \frac{\nabla \Psi}{| \nabla \Psi |^2}
+  -\mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla \frac{\nabla \Psi}{|
+  \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla
+  \mathbf{B}_0 \right) \nonumber\\
+  & = & - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla B_0^2
+  -\mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla \frac{\nabla \Psi}{|
+  \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla
+  \mathbf{B}_0 \right) \nonumber\\
+  & = & - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla \mathbf{B}_0
+  \cdot \mathbf{B}_0 -\mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla
+  \frac{\nabla \Psi}{| \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla \Psi
+  |^2} \cdot \nabla \mathbf{B}_0 \right) \nonumber\\
+  & = & - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot (2\mathbf{B}_0 \times
+  \nabla \times \mathbf{B}_0 + 2\mathbf{B}_0 \cdot \nabla \mathbf{B}_0)
+  -\mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla \frac{\nabla \Psi}{|
+  \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla
+  \mathbf{B}_0 \right) \nonumber\\
+  & = & - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot (2\mathbf{B}_0 \times
+  \nabla \times \mathbf{B}_0) -\mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot
+  \nabla \frac{\nabla \Psi}{| \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla
+  \Psi |^2} \cdot \nabla \mathbf{B}_0 \right) - \frac{2 \nabla \Psi}{| \nabla
+  \Psi |^2} \cdot (\mathbf{B}_0 \cdot \nabla B_0 \mathbf{b})
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="38" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1045.png"
+ ALT="$\displaystyle {\textmu}_0 \frac{d p_0}{d \Psi}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="80" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1046.png"
+ ALT="$\displaystyle {\textmu}_0 \frac{\nabla \Psi \cdot
+\nabla p_0}{\vert \nabla \Psi \vert^2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="120" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1047.png"
+ ALT="$\displaystyle {\textmu}_0 \frac{\nabla \Psi \cdot (\mathbf{J}_0 \times
+\mathbf{B}_0)}{\vert \nabla \Psi \vert^2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="168" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1048.png"
+ ALT="$\displaystyle \frac{\nabla \Psi \cdot ((\nabla \times \mathbf{B}_0) \times
+\mathbf{B}_0))}{\vert \nabla \Psi \vert^2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="201" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1049.png"
+ ALT="$\displaystyle - (\nabla \times \mathbf{B}_0) \cdot \left( \frac{\nabla \Psi}{\vert
+\nabla \Psi \vert^2} \times \mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="386" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1050.png"
+ ALT="$\displaystyle \nabla \cdot \left[ \left( \frac{\nabla \Psi}{\vert \nabla \Psi \...
+...left( \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \times
+\mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="322" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1051.png"
+ ALT="$\displaystyle - \nabla \cdot \left( B_0^2 \frac{\nabla \Psi}{\vert \nabla \Psi ...
+...left( \frac{\nabla \Psi}{\vert \nabla
+\Psi \vert^2} \times \mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="526" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1052.png"
+ ALT="$\displaystyle - \nabla \cdot \left( B_0^2 \frac{\nabla \Psi}{\vert \nabla \Psi ...
+...\frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \nabla
+\mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="514" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1053.png"
+ ALT="$\displaystyle - \nabla \cdot \left( B_0^2 \frac{\nabla \Psi}{\vert \nabla \Psi ...
+...\frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \nabla
+\mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="381" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1054.png"
+ ALT="$\displaystyle - \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \nabla B_0^...
+...\frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \nabla
+\mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="413" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1055.png"
+ ALT="$\displaystyle - \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \nabla \mat...
+...\frac{\nabla \Psi}{\vert \nabla \Psi
+\vert^2} \cdot \nabla \mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="553" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1056.png"
+ ALT="$\displaystyle - \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot (2\mathbf{B...
+...\frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \nabla
+\mathbf{B}_0 \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="621" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1057.png"
+ ALT="$\displaystyle - \frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot (2\mathbf{B...
+...si}{\vert \nabla
+\Psi \vert^2} \cdot (\mathbf{B}_0 \cdot \nabla B_0 \mathbf{b})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">365</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+The last term on the right-hand side of Eq. (<A HREF="#10-28-e1">365</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray*}
+- \frac{2 \nabla \Psi}{| \nabla \Psi |^2} \cdot (\mathbf{B}_0 \cdot \nabla
+  B_0 \mathbf{b}) & = & - \frac{2 \nabla \Psi}{| \nabla \Psi |^2} \cdot (B_0
+  \mathbf{B}_0 \cdot \nabla \mathbf{b}+ (\mathbf{B}_0 \cdot \nabla
+  B)\mathbf{b})\\
+  & = & - \frac{2 \nabla \Psi}{| \nabla \Psi |^2} \cdot (B_0 \mathbf{B}_0
+  \cdot \nabla \mathbf{b})\\
+  & = & - \frac{2 B^2 \nabla \Psi}{| \nabla \Psi |^2} \cdot
+  \ensuremath{\boldsymbol{\kappa}}.
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="160" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1058.png"
+ ALT="$\displaystyle - \frac{2 \nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot (\mathbf{B}_0 \cdot \nabla
+B_0 \mathbf{b})$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="259" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1059.png"
+ ALT="$\displaystyle - \frac{2 \nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot (B_0
+\mathbf{B}_0 \cdot \nabla \mathbf{b}+ (\mathbf{B}_0 \cdot \nabla
+B)\mathbf{b})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="160" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1060.png"
+ ALT="$\displaystyle - \frac{2 \nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot (B_0 \mathbf{B}_0
+\cdot \nabla \mathbf{b})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="100" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1061.png"
+ ALT="$\displaystyle - \frac{2 B^2 \nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot
+\ensuremath{\boldsymbol{\kappa}}.$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Using this, Eq. (<A HREF="#10-28-e1">365</A>) is written as
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="8-22-p3"></A><!-- MATH
+ \begin{eqnarray}
+{\textmu}_0 \frac{d p_0}{d \Psi} & = & \frac{2 \nabla \Psi}{| \nabla \Psi
+  |^2} \cdot ((\nabla \times \mathbf{B}_0) \times \mathbf{B}_0) -\mathbf{B}_0
+  \cdot \left( \mathbf{B}_0 \cdot \nabla \frac{\nabla \Psi}{| \nabla \Psi |^2}
+  - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla \mathbf{B}_0 \right) -
+  \frac{2 B^2 \nabla \Psi}{| \nabla \Psi |^2} \cdot \ensuremath{\boldsymbol{\kappa}}
+  \nonumber\\
+  & = & 2{\textmu}_0 \frac{d p_0}{d \Psi} -\mathbf{B}_0 \cdot \left(
+  \mathbf{B}_0 \cdot \nabla \frac{\nabla \Psi}{| \nabla \Psi |^2} -
+  \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla \mathbf{B}_0 \right) -
+  \frac{2 B^2 \nabla \Psi}{| \nabla \Psi |^2} \cdot \ensuremath{\boldsymbol{\kappa}},
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="38" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1045.png"
+ ALT="$\displaystyle {\textmu}_0 \frac{d p_0}{d \Psi}$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="551" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1062.png"
+ ALT="$\displaystyle \frac{2 \nabla \Psi}{\vert \nabla \Psi
+\vert^2} \cdot ((\nabla \t...
+... \nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \ensuremath{\boldsymbol{\kappa}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="424" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1063.png"
+ ALT="$\displaystyle 2{\textmu}_0 \frac{d p_0}{d \Psi} -\mathbf{B}_0 \cdot \left(
+\mat...
+...\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \ensuremath{\boldsymbol{\kappa}},$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">366</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+i.e.,
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla \frac{\nabla \Psi}{|
+  \nabla \Psi |^2} - \frac{\nabla \Psi}{| \nabla \Psi |^2} \cdot \nabla
+  \mathbf{B}_0 \right) & = & {\textmu}_0 \frac{d p_0}{d \Psi} - \frac{2 B^2
+  \nabla \Psi}{| \nabla \Psi |^2} \cdot \ensuremath{\boldsymbol{\kappa}},
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="259" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1064.png"
+ ALT="$\displaystyle \mathbf{B}_0 \cdot \left( \mathbf{B}_0 \cdot \nabla \frac{\nabla ...
+...\frac{\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \nabla
+\mathbf{B}_0 \right)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="141" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1065.png"
+ ALT="$\displaystyle {\textmu}_0 \frac{d p_0}{d \Psi} - \frac{2 B^2
+\nabla \Psi}{\vert \nabla \Psi \vert^2} \cdot \ensuremath{\boldsymbol{\kappa}},$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">367</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+thus Eq. (<A HREF="#8-22-p4">363</A>) is proved.
+
+<P>
+ 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html707"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html705"
+  HREF="node47.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html699"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html708"
+  HREF="node58.html">Incompressible condition</A>
+<B> Up:</B> <A NAME="tex2html706"
+  HREF="node47.html">misc contents</A>
+<B> Previous:</B> <A NAME="tex2html700"
+  HREF="node56.html">proof of</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>

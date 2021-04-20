@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Guiding-center transformation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<meta name="date" content="2019-01-28 10:19:00" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 74--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu2.html" >next</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationsu1.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu1.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x4-30002.1"></a>Guiding-center transformation</h4>
+<!--l. 76--><p class="noindent" >The transformation from the particle variables (<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) to the guiding-center variables <span 
+class="cmbx-10">X </span>is deﬁned
+by<span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#XCatto1978">1</a>]</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3001r2"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation1x.png" alt="                e (x)
+X (x,v ) = x+ v ×-∥---,
+                &Omega; (x)
+" class="math-display"  /></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 81--><p class="nopar" >
+where <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">v </span>are particle position and velocity, <span 
+class="cmmib-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub> = <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕B</span><sub><span 
+class="cmr-7">0</span></sub>, &Omega; = <span 
+class="cmmi-10">qB</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕m</span>, <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">x</span>) is the equilibrium
+(macroscopic) magnetic ﬁeld at the particle position. It is obvious that <span 
+class="cmmib-10">&rho;</span> <span 
+class="cmsy-10">&equiv;&minus;</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">× </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕</span>&Omega; is the vector
+gyro-radius pointing from the the guiding-center to the particle position. This transformation involves
+both position and velocity of particles.
+</p><!--l. 90--><p class="indent" >   Given (<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>), it is straightforward to obtain <span 
+class="cmbx-10">X </span>by using Eq. (<a 
+href="#x4-3001r2">2<!--tex4ht:ref: 16-9-21-1 --></a>). On the other hand, the inverse
+transformation, i.e., given (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>), to ﬁnd <span 
+class="cmbx-10">x</span>. This is in principle not easy because &Omega; and <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub> depend on
+<span 
+class="cmbx-10">x</span>, which usually requires solving for the root of a nonlinear equation. Numerically, one can
+use
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3002r3"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation2x.png" alt="xn+1 = X &minus; v × e∥(xn-).
+               &Omega;(xn)
+" class="math-display"  /></center></td><td class="equation-label">(3)</td></tr></table>
+                                                                                  
+                                                                                  
+<!--l. 99--><p class="nopar" >
+as an iteration scheme to compute <span 
+class="cmbx-10">x</span>. The initial guess can be chosen as <span 
+class="cmbx-10">x</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmbx-10">X</span>. The equilibrium
+magnetic ﬁeld we will consider has spatial scale length much larger than the thermal gyro
+radius <span 
+class="cmmib-10">&rho;</span>. In this case the diﬀerence between the values of <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">∕</span>&Omega;(<span 
+class="cmbx-10">x</span>) and <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">X</span>)<span 
+class="cmmi-10">∕</span>&Omega;(<span 
+class="cmbx-10">X</span>) is
+small and thus can be neglected. Then the inverse guiding-center transform can be written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3003r4"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation3x.png" alt="            e(X )
+x &asymp; X &minus; v×  -∥---,
+            &Omega;(X )
+" class="math-display"  /></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 110--><p class="nopar" >
+which can also be considered as we using the iterative scheme (<a 
+href="#x4-3002r3">3<!--tex4ht:ref: 18-9-13-p1 --></a>) to computer <span 
+class="cmbx-10">x </span>and stopping at the ﬁrst
+iteration. The diﬀerence between equilibrium ﬁeld values evaluated at <span 
+class="cmbx-10">X </span>and <span 
+class="cmbx-10">x </span>is always neglected in
+gyrokinetic theory. Therefore it does not matter whether the above <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕</span>&Omega; is evaluated at <span 
+class="cmbx-10">x </span>or <span 
+class="cmbx-10">X</span>. What
+matters is where the perturbed ﬁelds are evaluated: at <span 
+class="cmbx-10">x </span>or at <span 
+class="cmbx-10">X</span>. The values of perturbed ﬁelds at <span 
+class="cmbx-10">x </span>or at
+<span 
+class="cmbx-10">X </span>are diﬀerent and this is called the ﬁnite Larmor radius (FLR) eﬀect, which is almost all that the
+gyrokinetic theory is about.
+                                                                                  
+                                                                                  
+</p>
+   <!--l. 122--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu2.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu1.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu1.html" >up</a>] </p></div>
+<!--l. 122--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationsu1.html"></a> </p> 
+</body></html> 

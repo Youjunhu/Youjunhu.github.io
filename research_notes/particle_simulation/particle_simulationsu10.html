@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>On accuracy and noise: particle methods vs. Euler-grid-based methods</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 772--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu11.html" >next</a>] [<a 
+href="particle_simulationsu9.html" >prev</a>] [<a 
+href="particle_simulationsu9.html#tailparticle_simulationsu9.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu10.html">tail</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu10.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.7   </span> <a 
+ id="x14-170003.7"></a>On accuracy and noise: particle methods vs. Euler-grid-based methods</h4>
+<!--l. 774--><p class="noindent" >The overall error of the Monte-Carlo approximation given in Eq. (<a 
+href="particle_simulationsu9.html#x13-16004r56">56<!--tex4ht:ref: 17-6-13-3 --></a>) always scales like 1<span 
+class="cmmi-10">∕</span><img 
+src="particle_simulation59x.png" alt="&radic; ---
+  N &prime;"  class="sqrt"  />, which is
+independent of the dimensionality of the phase-space. It is easy to demonstrate that the overall error of the usual
+regular-grids approximation to the integration scales like 1<span 
+class="cmmi-10">∕N</span><sup><span 
+class="cmsy-7">&prime;</span><span 
+class="cmr-7">1</span><span 
+class="cmmi-7">∕d</span></sup>, where <span 
+class="cmmi-10">d </span>is the dimension of the phase
+space<span class="cite">[<a 
+href="particle_simulationli1.html#XFitzpatrickcp">4</a>]</span>. This fact implies that Monte-Carlo approximation is more accurate than the regular-grids methods for
+high-dimension (<span 
+class="cmmi-10">d </span><span 
+class="msam-10">&ge; </span>3) integration. Due to this reason, particle methods can be considered more accurate than
+the Euler-grid-based methods for the same number of sampling points in a high-dimensional (<span 
+class="msam-10">&ge; </span>3) phase
+space.
+</p><!--l. 785--><p class="indent" >   On the other hand, PIC simulations obviously contain unphysical noise. The noise is due to the discrete marker eﬀects,
+which can be further categorized into two types: sampling noise (ﬂuctuation of the sampling error) and remaining
+unwanted collisions in a collisionless simulation.
+</p><!--l. 790--><p class="indent" >   Due to the limited small number of markers used in PIC code, there are considerable time and spatial ﬂuctuation over
+the the number of markers in a spatial-cell. This ﬂuctuation in the number of sampling points (i.e., ﬂuctuation of the
+sampling error) gives rise to the sampling noise.
+</p><!--l. 795--><p class="indent" >   Inaccuracy in a PIC simulation is also related to the fact that the phase-space volume sampled by a marker is assumed
+to be constant in a PIC code but this assumption is not strictly satisﬁed in practice due to (1) the number of markers being
+not large enough and (2) the resulting self-consistent ﬁeld being not smooth enough, which introduce eﬀective collisional
+eﬀects, making the conservation of the phase-space volume less accurate. How well the phase-space volume is conserved
+depends on the smoothness of the ﬁeld: smooth ﬁeld means less collisions and thus phase-space volume are better
+conserved. PIC simulation codes seek to reduce the collision through using ﬁnite-size particles (discussed in Sec. <a 
+href="particle_simulationse3.html#x7-80003">3<!--tex4ht:ref: 16-3-29-a5 --></a>) and
+averaging in a spatial cell in solving for the electromagnetic ﬁelds, which eﬀectively smooth the ﬁelds. This
+kind of PIC simulations are thus designed for collisionless plasmas. And the remaining collisional eﬀect
+should be small enough to not aﬀect the process of interest. And this remaining collisional eﬀects should be
+viewed as numerical artifacts rather than a modeling of any real collisional eﬀect in plasmas. If we want to
+model the real collisional eﬀect in PIC simulation, we need to use other techniques rather than relying on the
+remaining collisions mentioned above because the latter is not easy to control and ideally should be completely
+removed.
+</p><!--l. 815--><p class="indent" >   Various noise reduction techniques in PIC codes (e.g., ﬁnite-size particles, grids, and perturbative <span 
+class="cmmi-10">&delta;f </span>method) can be
+used when the marker number is ﬁxed. When exhausting all these methods, the ﬁnal brute-force method of reducing noise
+(reducing collisions) is to increase the marker number. Therefore the noise issue is ﬁnally a convergence issue about the
+marker number.
+</p><!--l. 822--><p class="indent" >   From the view of particle simulations, the gyrokinetic model can also be considered as a noise reduction technique,
+where the gyro-averaging process makes the ﬁeld on a marker more smooth.
+</p><!--l. 826--><p class="indent" >   (Noise in PIC code is equivalent to the remaining artiﬁcial collision eﬀect? We can test this by doing a test particle
+simulation, in which we loaded a group of markers to sample a distribution function in the phase space and then compute
+the density evolution of the sampled distribution under a given smooth electromagnetic ﬁeld (i.e., eliminating the
+collisional eﬀect). If there is still signiﬁcant noise in the time evolution, then this indicates there are factors other
+than collisions that contribute to the noise. I did this when I studied Landau damping, the results indicate
+there is still signiﬁcant noise in the solution, indicating the discrete phase space sampling is the root of the
+noise.)
+</p><!--l. 837--><p class="indent" >   One thing to note is that the noisy results obtained in particle method are not necessarily less accurate than the smooth
+results obtained in Euler-grid-based methods because bigger errors may be hidden in smooth results when one uses coarse
+grids.
+
+</p>
+   <!--l. 842--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu11.html" >next</a>] [<a 
+href="particle_simulationsu9.html" >prev</a>] [<a 
+href="particle_simulationsu9.html#tailparticle_simulationsu9.html" >prev-tail</a>] [<a 
+href="particle_simulationsu10.html" >front</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu10.html" >up</a>] </p></div>
+<!--l. 842--><p class="indent" >   <a 
+ id="tailparticle_simulationsu10.html"></a> </p> 
+</body></html> 

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Laplacian operator in general coordinates (ψ,𝜃,ζ)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="tokamak_equilibrium.tex" /> 
+<link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
+</head><body 
+>
+   <!--l. 1282--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu25.html" >next</a>] [<a 
+href="tokamak_equilibriumsu23.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu23.html#tailtokamak_equilibriumsu23.html" >prev-tail</a>] [<a 
+href="#tailtokamak_equilibriumsu24.html">tail</a>] [<a 
+href="tokamak_equilibriumse4.html#tokamak_equilibriumsu24.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">4.6   </span> <a 
+ id="x29-360004.6"></a>Laplacian operator in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</h4>
+<!--l. 1284--><p class="noindent" >The Laplacian operator is deﬁned by <span 
+class="cmsy-10">∇</span><sup><span 
+class="cmr-7">2</span></sup> <span 
+class="cmsy-10">≡∇⋅∇</span>. Then <span 
+class="cmsy-10">∇</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">f </span>is written as (<span 
+class="cmmi-10">f </span>is an arbitrary function)
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium157x.png" alt="∇2f   =  ∇ ⋅∇f
+            (                      )
+      =  ∇ ⋅  ∂f-∇ψ + ∂f∇ 𝜃+  ∂f∇ ζ .                 (109)
+              ∂ψ      ∂𝜃      ∂ζ
+" class="math-display"  /><a 
+ id="x29-36001r109"></a></center>
+</div>To proceed, we can use the divergence formula (<a 
+href="tokamak_equilibriumsu23.html#x28-35003r108">108<!--tex4ht:ref: 6-8-e5 --></a>) to express the divergence in the above expression.
+However, the vector in the above (blue term) is not in the covariant form desired by the divergence
+formula (<a 
+href="tokamak_equilibriumsu23.html#x28-35003r108">108<!--tex4ht:ref: 6-8-e5 --></a>). If we want to directly use the formula (<a 
+href="tokamak_equilibriumsu23.html#x28-35003r108">108<!--tex4ht:ref: 6-8-e5 --></a>), we need to transform the vector (blue term
+in expression (<a 
+href="#x29-36001r109">109<!--tex4ht:ref: 19-1-15-1 --></a>)) to the covariant form. This process seems to be a little complicated. Therefore, I
+choose not to use this method. Instead, I try to simplify expression (<a 
+href="#x29-36001r109">109<!--tex4ht:ref: 19-1-15-1 --></a>) by using basic vector
+identities: <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium158x.png" alt="          ( ∂f )         (∂f )        ( ∂f)
+∇2f  =  ∇   --- ⋅∇ ψ + ∇  --- ⋅∇ 𝜃+ ∇   --- ⋅∇ ζ
+            ∂ψ            ∂𝜃            ∂ζ
+        + ∂f-∇2ψ + ∂f-∇2𝜃+  ∂f∇2ζ.                         (110)
+          ∂ψ       ∂𝜃       ∂ζ
+" class="math-display"  /></center>
+</div>Using the gradient formula, the above expression is further written as <div class="eqnarray">
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium159x.png" alt="         ∂2f        ∂2f           ∂2f
+∇2f  =   ∂ψ2|∇ψ |2 + ∂ψ∂𝜃∇ ψ ⋅∇𝜃 + ∂ψ∂ζ∇ ψ ⋅∇ζ
+            2            2          2
+         +-∂-f-∇ 𝜃⋅∇ψ + ∂-f-|∇ 𝜃|2 + ∂-f-∇ 𝜃⋅∇ ζ
+          ∂𝜃∂ψ          ∂ 𝜃2        ∂𝜃∂ζ
+          -∂2f-         -∂2f-         ∂2f-   2
+         +∂ζ∂ψ ∇ ζ ⋅∇ψ + ∂ζ∂ 𝜃∇ζ ⋅∇𝜃 + ∂ζ2|∇ζ|
+          ∂f  2    ∂f  2    ∂f  2
+         +∂ψ-∇ ψ + ∂𝜃-∇ 𝜃+  ∂ζ∇  ζ,                       (111)
+" class="math-display"  /></center>
+</div>and can be simpliﬁed as <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium160x.png" alt=" 2       ∂2f-   2    ∂2f--          -∂2f--
+∇ f  =   ∂ψ2|∇ ψ| + 2∂ψ∂𝜃∇ ψ ⋅∇𝜃 + 2∂ψ∂ζ ∇ψ ⋅∇ζ
+          ∂2f         ∂2f
+         +-∂𝜃2|∇ 𝜃|2 + 2∂𝜃∂ζ∇ 𝜃⋅∇ ζ
+            2
+         +∂-f-|∇ ζ|2
+           ∂ζ2
+         +-∂f∇2 ψ+ ∂f-∇2𝜃 + ∂f∇2 ζ.                        (112)
+          ∂ ψ      ∂ 𝜃      ∂ζ
+" class="math-display"  /></center>
+</div>Assume (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) are ﬁeld-line following coordinates with <span 
+class="cmmi-10">∂</span><span 
+class="cmbx-10">r</span><span 
+class="cmmi-10">∕∂𝜃 </span>along the ﬁeld line direction, then
+neglect all the parallel derivatives, i.e., derivative over <span 
+class="cmmi-10">𝜃</span>, then the above expression is reduced to
+<div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium161x.png" alt="∇2f   =  ∂2f-|∇ ψ|2 + 2-∂2f-∇ψ ⋅∇ ζ + ∂2f-|∇ ζ|2
+         ∂ψ2         ∂ψ ∂ζ         ∂ζ2
+           ∂f- 2    ∂f- 2
+         + ∂ψ∇  ψ + ∂ζ∇  ζ.                              (113)
+" class="math-display"  /></center>
+</div>This approximation reduces the Laplacian operator from being three-dimensional to being
+two-dimensional. This approximation is often called the high-<span 
+class="cmmi-10">n </span>approximation, where <span 
+class="cmmi-10">n </span>is the toroidal
+mode number (mode number along <span 
+class="cmmi-10">ζ </span>direction).
+                                                                                
+
+                                                                                
+   <!--l. 1357--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu25.html" >next</a>] [<a 
+href="tokamak_equilibriumsu23.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu23.html#tailtokamak_equilibriumsu23.html" >prev-tail</a>] [<a 
+href="tokamak_equilibriumsu24.html" >front</a>] [<a 
+href="tokamak_equilibriumse4.html#tokamak_equilibriumsu24.html" >up</a>] </p></div>
+<!--l. 1357--><p class="indent" >   <a 
+ id="tailtokamak_equilibriumsu24.html"></a> </p> 
+</body></html> 

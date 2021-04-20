@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Numerical implementation in codes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 679--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu9.html" >next</a>] [<a 
+href="particle_simulationsu7.html" >prev</a>] [<a 
+href="particle_simulationsu7.html#tailparticle_simulationsu7.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu8.html">tail</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu8.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.5   </span> <a 
+ id="x12-150003.5"></a>Numerical implementation in codes</h4>
+<!--l. 681--><p class="noindent" >Most PIC codes use the <span 
+class="cmmi-10">l </span>= 0 b-spline function (i.e., <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">0</span></sub>, the ﬂat-top function) as the shape function of markers. This model
+is often called Could in Cell (CIC) since a particle looks like a ﬁnite-sized cloud rather than a point. In this case, the cell
+average of <span 
+class="cmmi-10">I </span>given in Eq. (<a 
+href="particle_simulationsu5.html#x9-10008r43">43<!--tex4ht:ref: 18-12-19-e10 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x12-15001r51"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation51x.png" alt="                       (       )   (       )   (       )
+I    = -1--&sum;  w A(v )b   &alpha;i &minus;-&alpha;p b  &beta;j-&minus;-&beta;p  b  &gamma;k-&minus; &gamma;p
+ i,j,k   &Delta;V   p  p   p  1   &Delta; &alpha;     1   &Delta; &beta;    1    &Delta; &gamma;
+" class="math-display"  /></center></td><td class="equation-label">(51)</td></tr></table>
+<!--l. 691--><p class="nopar" >
+and the electric ﬁeld on the marker given in Eq. (<a 
+href="particle_simulationsu6.html#x10-12005r49">49<!--tex4ht:ref: 18-12-20-1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x12-15002r52"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation52x.png" alt="     &sum;         (&alpha;i &minus;-&alpha;p-) ( &beta;j &minus;-&beta;p)  ( &gamma;k &minus;-&gamma;p)
+Ep =    Ei,j,kb1    &Delta;&alpha;    b1    &Delta;&beta;    b1   &Delta; &gamma;    ,
+     i,j,k
+" class="math-display"  /></center></td><td class="equation-label">(52)</td></tr></table>
+<!--l. 698--><p class="nopar" >
+Because the function <span 
+class="cmmi-10">b</span><sub><span 
+class="cmr-7">1</span></sub> has a narrow support, as shown in Fig. <a 
+href="particle_simulationse3.html#x7-80111">1<!--tex4ht:ref: 17-6-25-p1 --></a>, in practice of calculating <span 
+class="cmmi-10">I</span><sub><span 
+class="cmmi-7">i,j,k</span></sub> in expression (<a 
+href="#x12-15001r51">51<!--tex4ht:ref: 3-24-a3 --></a>), we
+loop over each particle for only once and assign the contribution of each one to their neighbouring cells (rather than
+looping over all particle for each cell as the straightforward reading of expression (<a 
+href="#x12-15001r51">51<!--tex4ht:ref: 3-24-a3 --></a>) would suggest). The operation of the
+latter would be <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">N </span><span 
+class="cmsy-10">× </span><span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub>), where <span 
+class="cmmi-10">N </span>is number of grids and <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub> is the number of markers, while the former is only
+<span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">nN</span><sub><span 
+class="cmmi-7">p</span></sub>), where <span 
+class="cmmi-10">n </span>is the number of operation involved in assigning each particle to its neighbouring cells, which is usually
+much smaller than the grid number <span 
+class="cmmi-10">N</span>.
+</p><!--l. 710--><p class="indent" >   Similarly, in calculating the force on a marker, the summation over all the grids (as the straightforward reading of
+expression (<a 
+href="#x12-15002r52">52<!--tex4ht:ref: 3-24-a4 --></a>) would suggest) is not needed. We only need to ﬁnd which cell a marker is in and then sum the contribution
+from the nearby grids (rather than all the grids).
+
+</p>
+   <!--l. 715--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu9.html" >next</a>] [<a 
+href="particle_simulationsu7.html" >prev</a>] [<a 
+href="particle_simulationsu7.html#tailparticle_simulationsu7.html" >prev-tail</a>] [<a 
+href="particle_simulationsu8.html" >front</a>] [<a 
+href="particle_simulationse3.html#particle_simulationsu8.html" >up</a>] </p></div>
+<!--l. 715--><p class="indent" >   <a 
+ id="tailparticle_simulationsu8.html"></a> </p> 
+</body></html> 

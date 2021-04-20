@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>An example: One-dimensional electrostatic simulation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1052--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationse6.html" >next</a>] [<a 
+href="particle_simulationse4.html" >prev</a>] [<a 
+href="particle_simulationse4.html#tailparticle_simulationse4.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationse5.html">tail</a>] [<a 
+href="particle_simulation.html#particle_simulationse5.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x21-260005"></a>An example: One-dimensional electrostatic simulation</h3>
+<!--l. 1054--><p class="noindent" >
+</p>
+   <div class="subsectionTOCS">
+    <span class="subsectionToc" >5.1 <a 
+href="particle_simulationsu16.html#x22-270005.1">Vlasov equation</a></span>
+<br />    <span class="subsectionToc" >5.2 <a 
+href="particle_simulationsu17.html#x23-280005.2">Poisson&#x2019;s equation</a></span>
+<br />    <span class="subsectionToc" >5.3 <a 
+href="particle_simulationsu18.html#x24-290005.3">Equilibrium state</a></span>
+<br />    <span class="subsectionToc" >5.4 <a 
+href="particle_simulationsu19.html#x25-300005.4"><span 
+class="cmmi-10">&delta;f </span>evolution</a></span>
+<br />    <span class="subsectionToc" >5.5 <a 
+href="particle_simulationsu20.html#x26-310005.5">Normalization</a></span>
+<br />    <span class="subsectionToc" >5.6 <a 
+href="particle_simulationsu21.html#x27-320005.6">Boundary condition for ﬁeld</a></span>
+<br />    <span class="subsectionToc" >5.7 <a 
+href="particle_simulationsu22.html#x28-330005.7">Boundary condition for particles</a></span>
+<br />    <span class="subsectionToc" >5.8 <a 
+href="particle_simulationsu23.html#x29-340005.8">Evaluation of particle number density</a></span>
+<br />    <span class="subsectionToc" >5.9 <a 
+href="particle_simulationsu24.html#x30-350005.9">FFT solver for Poisson equation</a></span>
+<br />    <span class="subsectionToc" >5.10 <a 
+href="particle_simulationsu25.html#x31-360005.10">Finite diﬀerence solver for Poisson equation</a></span>
+<br />    <span class="subsectionToc" >5.11 <a 
+href="particle_simulationsu26.html#x32-370005.11">Interpolate the ﬁeld to particle markers</a></span>
+<br />    <span class="subsectionToc" >5.12 <a 
+href="particle_simulationsu27.html#x33-380005.12">Integration of orbit and weight of markers</a></span>
+<br />    <span class="subsectionToc" >5.13 <a 
+href="particle_simulationsu28.html#x34-390005.13">Initial perturbations</a></span>
+<br />    <span class="subsectionToc" >5.14 <a 
+href="particle_simulationsu29.html#x35-400005.14">Veriﬁcation of the code by using analytic results of Landau damping</a></span>
+<br />    <span class="subsectionToc" >5.15 <a 
+href="particle_simulationsu30.html#x36-410005.15">Methods of identifying resonant particles</a></span>
+<br />    <span class="subsectionToc" >5.16 <a 
+href="particle_simulationsu31.html#x37-420005.16">Energy conservation (check!)</a></span>
+<br />    <span class="subsectionToc" >5.17 <a 
+href="particle_simulationsu32.html#x38-430005.17">Numerical results for two-stream instability</a></span>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!--l. 1810--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationse6.html" >next</a>] [<a 
+href="particle_simulationse4.html" >prev</a>] [<a 
+href="particle_simulationse4.html#tailparticle_simulationse4.html" >prev-tail</a>] [<a 
+href="particle_simulationse5.html" >front</a>] [<a 
+href="particle_simulation.html#particle_simulationse5.html" >up</a>] </p></div>
+<!--l. 1810--><p class="indent" >   <a 
+ id="tailparticle_simulationse5.html"></a> </p> 
+</body></html> 

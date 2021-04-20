@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>FFT solver for Poisson equation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="particle_simulation.tex" /> 
+<meta name="date" content="2019-01-24 14:02:00" /> 
+<link rel="stylesheet" type="text/css" href="particle_simulation.css" /> 
+</head><body 
+>
+   <!--l. 1279--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu25.html" >next</a>] [<a 
+href="particle_simulationsu23.html" >prev</a>] [<a 
+href="particle_simulationsu23.html#tailparticle_simulationsu23.html" >prev-tail</a>] [<a 
+href="#tailparticle_simulationsu24.html">tail</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu24.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.9   </span> <a 
+ id="x30-350005.9"></a>FFT solver for Poisson equation</h4>
+<!--l. 1281--><p class="noindent" >The normalized one-dimensional Poisson equation is given by Eq. (<a 
+href="particle_simulationsu20.html#x26-31005r93">93<!--tex4ht:ref: 11-4-p1 --></a>). For notation simplicity, omit the over-bar on <span 
+class="cmmi-10">ϕ </span>and
+<span 
+class="cmmi-10">x</span>, then Eq. (<a 
+href="particle_simulationsu20.html#x26-31005r93">93<!--tex4ht:ref: 11-4-p1 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35001r100"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation101x.png" alt="d2ϕ
+dx2 = &minus; &rho;.
+" class="math-display"  /></center></td><td class="equation-label">(100)</td></tr></table>
+<!--l. 1286--><p class="nopar" >
+This is a two-points boundary value problem. Two boundary conditions are needed to determine the solution. Assume
+the periodic boundary condition <span 
+class="cmmi-10">ϕ</span>(0) = <span 
+class="cmmi-10">ϕ</span>(<span 
+class="cmmi-10">L</span>) and note that <span 
+class="cmmi-10">ϕ </span>can contain an arbitrary constant. Thus the
+periodic boundary condition alone is suﬃcient to specify the electrical ﬁeld. We use Fourier transformation
+method to solve Eq. (<a 
+href="#x30-35001r100">100<!--tex4ht:ref: 10-11-1 --></a>). The Fourier transformation of the left-hand side of the above equation is written
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="particle_simulation102x.png" alt="&int; &infin;                   &int; &infin;
+    d2ϕ eikxdx  =  &minus; k2    ϕeikxdx
+ &minus;&infin; dx2                &minus;&infin;
+               =  &minus; k2ˆϕ(k),                                 (101)
+" class="math-display"  /></center>
+</div>where <img 
+src="particle_simulation103x.png" alt="ˆϕ"  class="circ"  /> is the Fourier transformation of <span 
+class="cmmi-10">ϕ</span>. Using this, the Fourier transformation of Eq. (<a 
+href="#x30-35001r100">100<!--tex4ht:ref: 10-11-1 --></a>) is written
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35003r102"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation104x.png" alt="      ˆ&rho;(k)
+ˆϕ(k) =-k2-,
+" class="math-display"  /></center></td><td class="equation-label">(102)</td></tr></table>
+
+<!--l. 1302--><p class="nopar" >
+where
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35004r103"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation105x.png" alt="   &int; &infin;
+ˆ&rho; =     &rho;(x)eikxdx
+     &minus;&infin;
+" class="math-display"  /></center></td><td class="equation-label">(103)</td></tr></table>
+<!--l. 1307--><p class="nopar" >
+is the Fourier transformation of <span 
+class="cmmi-10">&rho;</span>. After <img 
+src="particle_simulation106x.png" alt="ϕˆ"  class="circ"  /> is obtained, the electric potential <span 
+class="cmmi-10">ϕ </span>is ﬁnally reconstructed via the inverse
+Fourier transformation
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35005r104"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation107x.png" alt="      &int; &infin;
+ϕ =-1-    ˆϕ(k)e&minus;ikxdk.
+   2&pi;  &minus;&infin;
+" class="math-display"  /></center></td><td class="equation-label">(104)</td></tr></table>
+<!--l. 1314--><p class="nopar" >
+In the numerical implementation, the Fourier transformation in Eq. (<a 
+href="#x30-35004r103">103<!--tex4ht:ref: 10-11-p1 --></a>) and the inverse transformation in Eq. (<a 
+href="#x30-35005r104">104<!--tex4ht:ref: 10-11-p2 --></a>) are
+discretized by the Discrete Fourier Transformation (DFT), which is further evaluated by using the FFT algorithm (I use
+the FFTW library). Set up uniform grid-points in <span 
+class="cmmi-10">x</span>-direction: <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">j</span>&Delta; for <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N</span>, as is shown in Fig.
+(<a 
+href="#x30-350063">3<!--tex4ht:ref: 16-2-25-p3 --></a>).
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x30-350063"></a>
+
+
+<!--l. 1323--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/fft/fig2d/MyFigure.png" alt="pict"  
+ width="180.675pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 3: </span><span  
+class="content">One-dimensional spatial computational box and grids.</span></div><!--tex4ht:label?: x30-350063 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1328--><p class="indent" >   Let <span 
+class="cmmi-10">&rho;</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">&rho;</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub>) and <span 
+class="cmmi-10">ϕ</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">ϕ</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub>). Let <img 
+src="particle_simulation108x.png" alt="ˆ&rho;"  class="circ"  /> <sub><span 
+class="cmmi-7">j</span></sub> and <img 
+src="particle_simulation109x.png" alt="ˆϕ"  class="circ"  /> <sub><span 
+class="cmmi-7">j</span></sub> denote the corresponding DFT. Using the sampled points <span 
+class="cmmi-10">&rho;</span><sub><span 
+class="cmmi-7">j</span></sub> with
+<span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1, we can obtain the DFT <img 
+src="particle_simulation110x.png" alt="ˆ&rho;"  class="circ"  /> <sub><span 
+class="cmmi-7">j</span></sub>. Note that the corresponding wave-number <span 
+class="cmmi-10">k </span>of <img 
+src="particle_simulation111x.png" alt="ˆ&rho;"  class="circ"  /> <sub><span 
+class="cmmi-7">j</span></sub> (also for <img 
+src="particle_simulation112x.png" alt="ϕˆ"  class="circ"  /> <sub><span 
+class="cmmi-7">j</span></sub>) is given by
+<span 
+class="cmmi-10">k </span>= <span 
+class="cmmi-10">j</span>2<span 
+class="cmmi-10">&pi;∕</span>(<span 
+class="cmmi-10">N</span>&Delta;) for <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N∕</span>2 and <span 
+class="cmmi-10">k </span>= (<span 
+class="cmmi-10">j </span><span 
+class="cmsy-10">&minus; </span><span 
+class="cmmi-10">N</span>)2<span 
+class="cmmi-10">&pi;∕</span>(<span 
+class="cmmi-10">N</span>&Delta;) for <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">N∕</span>2 + 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1 (this corresponds to the negative
+wave-number part). Use Eq. (<a 
+href="#x30-35003r102">102<!--tex4ht:ref: 10-11-p5 --></a>) and the corresponding expression of the wave-number, the discrete form of Eq. (<a 
+href="#x30-35003r102">102<!--tex4ht:ref: 10-11-p5 --></a>) is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35007r105"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation113x.png" alt="ˆϕj = ----ˆ&rho;j-----.
+     [j2&pi;∕(N &Delta;)]2
+" class="math-display"  /></center></td><td class="equation-label">(105)</td></tr></table>
+<!--l. 1340--><p class="nopar" >
+for <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N∕</span>2, and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35008r106"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation114x.png" alt="ˆϕj =--------ˆ&rho;j------2
+    [(j &minus; N )2&pi;∕(N &Delta;)]
+" class="math-display"  /></center></td><td class="equation-label">(106)</td></tr></table>
+<!--l. 1345--><p class="nopar" >
+for <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">N∕</span>2 + 1<span 
+class="cmmi-10">,N∕</span>2 + 2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1. The <span 
+class="cmmi-10">j </span>= 0 case is a special one because in this case <span 
+class="cmmi-10">k </span>= 0 and <span 
+class="cmmi-10">k </span>appears in the
+denominator of (<a 
+href="#x30-35003r102">102<!--tex4ht:ref: 10-11-p5 --></a>). Since the overall charge neutrality<span 
+class="cmex-10">&int;</span>
+ <sub><span 
+class="cmsy-7">&minus;&infin;</span></sub><sup><span 
+class="cmsy-7">&infin;</span></sup><span 
+class="cmmi-10">&rho;dx </span>= 0 implies <img 
+src="particle_simulation115x.png" alt="ˆ&rho;"  class="circ"  /> <sub><span 
+class="cmr-7">0</span></sub> = 0. we usually set <img 
+src="particle_simulation116x.png" alt="ˆϕ"  class="circ"  /> <sub><span 
+class="cmr-7">0</span></sub> = 0. After
+obtaining <img 
+src="particle_simulation117x.png" alt="ˆϕ"  class="circ"  /> <sub><span 
+class="cmmi-7">j</span></sub> with <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1, we can obtain <span 
+class="cmmi-10">ϕ</span><sub><span 
+class="cmmi-7">j</span></sub> through the inverse DFT.
+</p><!--l. 1353--><p class="indent" >   Knowing the electron potential <span 
+class="cmmi-10">ϕ</span><sub><span 
+class="cmmi-7">j</span></sub>, the electric ﬁeld is obtained through the following central diﬀerence
+scheme
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35009r107"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation118x.png" alt="         |
+Ej = &minus; dϕ||    = &minus; ϕj+1-&minus;-ϕj&minus;1.
+       dx|x=xj       2&Delta;
+" class="math-display"  /></center></td><td class="equation-label">(107)</td></tr></table>
+<!--l. 1358--><p class="nopar" >
+The electric ﬁeld at the boundary points are obtained by using the periodic boundary conditions of <span 
+class="cmmi-10">ϕ</span>.
+
+</p><!--l. 1362--><p class="indent" >   In the above we use Fourier transformation method to get the electric potential and then use ﬁnite diﬀerence scheme
+to calculate the electric ﬁeld. This is a mixed way to calculate the electric ﬁeld. We can use only Fourier
+transformation method to solve for the electric ﬁeld. In terms of the electric ﬁeld, Poisson equation (<a 
+href="particle_simulationsu20.html#x26-31005r93">93<!--tex4ht:ref: 11-4-p1 --></a>) is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35010r108"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation119x.png" alt=" --
+dE-= &rho;.
+dx
+" class="math-display"  /></center></td><td class="equation-label">(108)</td></tr></table>
+<!--l. 1369--><p class="nopar" >
+For notation simplicity, omit the over-bar on variables, the above equation is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35011r109"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation120x.png" alt="dE-= &rho;.
+dx
+" class="math-display"  /></center></td><td class="equation-label">(109)</td></tr></table>
+<!--l. 1374--><p class="nopar" >
+The Fourier transformation of the left-hand side of the above equation is written </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="particle_simulation121x.png" alt="&int; &infin; dE           &int; &infin;
+    ---eikxdx  =       eikxdE
+ &minus;&infin; dx            &minus; &infin;         &int; &infin;
+              =  Eeikx|+&infin; &minus; ik     Eeikxdx
+                       &minus;&infin;      &minus;&infin;
+                     &int; &infin;   ikx
+              =  &minus; ik  &minus;&infin; Ee   dx                               (110)
+                     ˆ
+              =  &minus; ik E,
+" class="math-display"  /></center>
+</div>where <span 
+class="cmmi-10">Ê</span> is the Fourier transformation of <span 
+class="cmmi-10">E</span>. Using this, the Fourier transformation of Eq. (<a 
+href="#x30-35011r109">109<!--tex4ht:ref: 2-26-e1 --></a>) is written
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35013r111"></a>
+
+   <center class="math-display" >
+<img 
+src="particle_simulation122x.png" alt=" ˆ  -&rho;ˆ-
+E = &minus; ik,
+" class="math-display"  /></center></td><td class="equation-label">(111)</td></tr></table>
+<!--l. 1389--><p class="nopar" >
+The discrete form of Eq. (<a 
+href="#x30-35013r111">111<!--tex4ht:ref: 3-25-a7 --></a>) is similar to the form given in Eqs. (<a 
+href="#x30-35007r105">105<!--tex4ht:ref: 16-3-25-a8 --></a>) and (<a 
+href="#x30-35008r106">106<!--tex4ht:ref: 16-3-25-a9 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35014r112"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation123x.png" alt=" ˆ   -----&rho;ˆj-----
+Ej = &minus; i[j2&pi;∕(N&Delta; )].
+" class="math-display"  /></center></td><td class="equation-label">(112)</td></tr></table>
+<!--l. 1395--><p class="nopar" >
+for <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N∕</span>2, and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-35015r113"></a>
+   <center class="math-display" >
+<img 
+src="particle_simulation124x.png" alt="ˆE  = --------ˆ&rho;j--------
+ j   &minus; i[(j &minus; N )2&pi;∕(N&Delta; )]
+" class="math-display"  /></center></td><td class="equation-label">(113)</td></tr></table>
+<!--l. 1400--><p class="nopar" >
+for <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">N∕</span>2 + 1<span 
+class="cmmi-10">,N∕</span>2 + 2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">&hellip;</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">&minus; </span>1.
+
+</p>
+   <!--l. 1403--><div class="crosslinks"><p class="noindent">[<a 
+href="particle_simulationsu25.html" >next</a>] [<a 
+href="particle_simulationsu23.html" >prev</a>] [<a 
+href="particle_simulationsu23.html#tailparticle_simulationsu23.html" >prev-tail</a>] [<a 
+href="particle_simulationsu24.html" >front</a>] [<a 
+href="particle_simulationse5.html#particle_simulationsu24.html" >up</a>] </p></div>
+<!--l. 1403--><p class="indent" >   <a 
+ id="tailparticle_simulationsu24.html"></a> </p> 
+</body></html> 

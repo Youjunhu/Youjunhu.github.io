@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Relation between Fourier series coeﬃcients and DFTs</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="fourier_analysis.tex" /> 
+<meta name="date" content="2019-01-05 20:48:00" /> 
+<link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
+</head><body 
+>
+   <!--l. 582--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu8.html" >next</a>] [<a 
+href="#tailfourier_analysissu7.html">tail</a>] [<a 
+href="fourier_analysisse5.html#fourier_analysissu7.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x13-120005.1"></a>Relation between Fourier series coeﬃcients and DFTs</h4>
+<!--l. 584--><p class="noindent" >In the above, we go through the process “Fourier series<span 
+class="cmsy-10">&rarr;</span>Fourier transformation
+<span 
+class="cmsy-10">&rarr;</span>DFT”. This corresponds to going from the discrete case (Fourier series) to the
+continuous case (Fourier transformation), and then back to the discrete case (DFT).
+Since both Fourier series and DFT are discrete in frequency, it is instructive
+to examine the relation between the Fourier coeﬃcient <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">n</span></sub> and the DFT
+<span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">n</span></sub>.
+</p><!--l. 591--><p class="indent" >   The Fourier coeﬃcient of <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) is given by Eq. (<a 
+href="fourier_analysisse3.html#x6-5003r21">21<!--tex4ht:ref: 9-28-2 --></a>), i.e.,
+</p>
+
+   <table 
+class="equation"><tr><td><a 
+ id="x13-12001r55"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis57x.png" alt="    -1&int; T∕2     in2&pi;t∕T
+cn = T &minus;T ∕2h (t)e     dt,
+" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
+<!--l. 594--><p class="nopar" >
+which can be equivalently written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x13-12002r56"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis58x.png" alt="       1 &int; T∕2
+c(fn) = T     h(t)ei2&pi;tfndt,
+          &minus;T∕2
+" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 599--><p class="nopar" >
+where <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">n∕T</span>. On the other hand, if <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) is sampled with sampling rate <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">s</span></sub> = 1<span 
+class="cmmi-10">∕</span>&Delta;,
+then the number of sampling points per period is <span 
+class="cmmi-10">N </span>= <span 
+class="cmmi-10">T∕</span>&Delta;. Then the frequency at
+which the Fouier transform <span 
+class="cmmi-10">H</span>(<span 
+class="cmmi-10">f</span>) is evaluated in getting the DFT [Eq. (<a 
+href="fourier_analysissu4.html#x9-8004r47">47<!--tex4ht:ref: 10-26-1 --></a>)] is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x13-12003r57"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis59x.png" alt="fn = -n--= n-,
+     &Delta;N    T
+" class="math-display"  /></center></td><td class="equation-label">(57)</td></tr></table>
+<!--l. 606--><p class="nopar" >
+which is identical to the frequency to which the Fourier coeﬃcient <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">n</span></sub> corresponds.
+Using <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">n∕</span>(&Delta;<span 
+class="cmmi-10">N</span>) in Eq. (<a 
+href="#x13-12002r56">56<!--tex4ht:ref: 9-29-3 --></a>), we obtain </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis60x.png" alt="           &int; T∕2       (      )
+c(fn)  =  -1      h(t)exp  i2&pi;tn-  dt.
+         T  &minus; T∕2          &Delta;N
+          1  N&sum;&minus;1      ( 2&pi;i   )
+      &asymp;  --&Delta;    hj exp  ---nj                 (58)
+         T   j=0        N
+         -1
+      =  T &Delta;Hn
+         -1
+      =  N Hn                                 (59)
+" class="math-display"  /><a 
+ id="x13-12004r58"></a></center>
+</div>i.e., dividing the DFT <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">n</span></sub> by <span 
+class="cmmi-10">N </span>gives the corresponding Fourer expansion coeﬃcient
+<span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">n</span></sub>. We can further use Eqs. (<a 
+href="fourier_analysissu2.html#x5-4012r17">17<!--tex4ht:ref: 18-2-2p1 --></a>) and (<a 
+href="fourier_analysissu2.html#x5-4013r18">18<!--tex4ht:ref: 18-2-2p2 --></a>) to recover the Fourier coeﬃcients in terms
+of trigonometric functions cosine and sine,
+<!--l. 622--><p class="indent" >   Note that the approximation in Eq. (<a 
+href="#x13-12004r58">58<!--tex4ht:ref: 10-6-e1 --></a>) becomes an exact relation if the largest
+frequency contained in <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) is less than 1<span 
+class="cmmi-10">∕</span>(2&Delta;).
+
+</p>
+   <!--l. 625--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu8.html" >next</a>] [<a 
+href="fourier_analysissu7.html" >front</a>] [<a 
+href="fourier_analysisse5.html#fourier_analysissu7.html" >up</a>] </p></div>
+<!--l. 625--><p class="indent" >   <a 
+ id="tailfourier_analysissu7.html"></a> </p> 
+</body></html> 

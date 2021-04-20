@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Computing Fourier integrals using FFT (not ﬁnished, to be deleted)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="fourier_analysis.tex" /> 
+<meta name="date" content="2019-01-05 20:48:00" /> 
+<link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
+</head><body 
+>
+   <!--l. 1412--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="fourier_analysissu20.html" ><span 
+class="ecrm-1000">prev</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="fourier_analysissu20.html#tailfourier_analysissu20.html" ><span 
+class="ecrm-1000">prev-tail</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="#tailfourier_analysissu21.html"><span 
+class="ecrm-1000">tail</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="fourier_analysisse7.html#fourier_analysissu21.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+   <h4 class="subsectionHead"><span class="titlemark"><span 
+class="ecrm-1000">7.4   </span></span> <a 
+ id="x29-280007.4"></a><span 
+class="ecrm-1000">Computing Fourier integrals using FFT (not ﬁnished, to be deleted)</span></h4>
+<!--l. 1414--><p class="noindent" ><span 
+class="ecrm-1000">Consider the calculation of the following integral:</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28001r118"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis126x.png" alt="      &int; b
+I(&omega; ) =   ei&omega;th(t)dt.
+       a
+" class="math-display"  /></center></td><td class="equation-label">(118)</td></tr></table>
+<!--l. 1417--><p class="nopar" >
+<span 
+class="ecrm-1000">Divide the interval </span>[<span 
+class="cmmi-10">a,b</span>] <span 
+class="ecrm-1000">into </span><span 
+class="cmmi-10">M </span><span 
+class="ecrm-1000">uniform sub-intervals and deﬁne</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28002r119"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis127x.png" alt="    b&minus; a
+&Delta; = ----,tj = a + &Delta;j,hj = h(tj),j = 0,1,2,...,M
+     M
+" class="math-display"  /></center></td><td class="equation-label">(119)</td></tr></table>
+<!--l. 1422--><p class="nopar" >
+<span 
+class="ecrm-1000">Then the integration in Eq. (</span><a 
+href="#x29-28001r118"><span 
+class="ecrm-1000">118</span><!--tex4ht:ref: 8-26-1 --></a><span 
+class="ecrm-1000">) can be approximated as</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28003r120"></a>
+
+   <center class="math-display" >
+<img 
+src="fourier_analysis128x.png" alt="         M&minus;1
+I(&omega;) &asymp; &Delta; &sum;  hj exp (i&omega;tj).
+         j=0
+" class="math-display"  /></center></td><td class="equation-label">(120)</td></tr></table>
+<!--l. 1427--><p class="nopar" >
+<span 
+class="ecrm-1000">Deﬁne </span><span 
+class="cmmi-10">&omega;</span><sub><span 
+class="cmmi-7">m</span></sub> = 2<span 
+class="cmmi-10">&pi;m∕</span>(<span 
+class="cmmi-10">M</span>&Delta;) <span 
+class="ecrm-1000">with integer </span><span 
+class="cmmi-10">m </span><span 
+class="ecrm-1000">and </span><span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">M∕</span>2 <span 
+class="cmmi-10">&#x003C; m &#x003C; M∕</span>2<span 
+class="ecrm-1000">. Consider the</span>
+<span 
+class="ecrm-1000">calculation of </span><span 
+class="cmmi-10">I</span>(<span 
+class="cmmi-10">&omega;</span><sub><span 
+class="cmmi-7">m</span></sub>)<span 
+class="ecrm-1000">. Using Eq. (</span><a 
+href="#x29-28003r120"><span 
+class="ecrm-1000">120</span><!--tex4ht:ref: 8-26-e1 --></a><span 
+class="ecrm-1000">), we obtain</span> </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis129x.png" alt="            M&sum; &minus;1
+I(&omega;m)  =  &Delta;     hjexp[i&omega;m (a+ &Delta;j)]
+             j=0
+             i&omega; a M&sum;&minus;1
+       =  &Delta;e  m      hjexp(i&omega;m &Delta;j)
+                 j=0
+             i&omega; a M&sum;&minus;1      ( 2&pi;m  )
+       =  &Delta;e  m      hjexp i-M--j
+                 j=0
+       =  &Delta;ei&omega;maHm                               (121)
+       =  &Delta;ei&omega;ma[DFT (h0,h1,h2,...,hM &minus;1)]m.        (122)
+" class="math-display"  /><a 
+ id="x29-28004r122"></a></center>
+</div><span 
+class="ecrm-1000">Equation (</span><a 
+href="#x29-28004r122"><span 
+class="ecrm-1000">122</span><!--tex4ht:ref: 8-26-e2 --></a><span 
+class="ecrm-1000">) indicates the value of the integration </span><span 
+class="cmmi-10">I</span>(<span 
+class="cmmi-10">&omega;</span><sub><span 
+class="cmmi-7">m</span></sub>) <span 
+class="ecrm-1000">can be obtained by</span>
+<span 
+class="ecrm-1000">calculating the discrete Fourier transformation of </span><span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="ecrm-1000">. However, as discussed in Ref.</span>
+<span class="cite"><span 
+class="ecrm-1000">[</span><a 
+href="fourier_analysisli1.html#Xpress1992"><span 
+class="ecrm-1000">2</span></a><span 
+class="ecrm-1000">]</span></span><span 
+class="ecrm-1000">, equation (</span><a 
+href="#x29-28004r122"><span 
+class="ecrm-1000">122</span><!--tex4ht:ref: 8-26-e2 --></a><span 
+class="ecrm-1000">) is not recommended for practical use because the oscillatory</span>
+<span 
+class="ecrm-1000">nature of the integral will make Eq. (</span><a 
+href="#x29-28004r122"><span 
+class="ecrm-1000">122</span><!--tex4ht:ref: 8-26-e2 --></a><span 
+class="ecrm-1000">) become systematically inaccurate</span>
+<span 
+class="ecrm-1000">as </span><span 
+class="cmmi-10">&omega; </span><span 
+class="ecrm-1000">increases. Next, consider a new method, in which </span><span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) <span 
+class="ecrm-1000">is expanded</span>
+<span 
+class="ecrm-1000">as</span>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28005r123"></a>
+
+   <center class="math-display" >
+<img 
+src="fourier_analysis130x.png" alt="      M     (      )               (      )
+h(t) &asymp; &sum; hj&psi;  t&minus;-tj  +   &sum;     hj&phi;j  t&minus;-tj
+      j=0       &Delta;      j=endpoints        &Delta;
+" class="math-display"  /></center></td><td class="equation-label">(123)</td></tr></table>
+<!--l. 1453--><p class="nopar" >
+<span 
+class="ecrm-1000">Apply the integral operator</span><span 
+class="cmex-10">&int;</span>
+ <sub><span 
+class="cmmi-7">a</span></sub><sup><span 
+class="cmmi-7">b</span></sup><span 
+class="cmmi-10">dt</span>exp(<span 
+class="cmmi-10">i&omega;t</span>) <span 
+class="ecrm-1000">to both sides of Eq. (</span><a 
+href="#x29-28005r123"><span 
+class="ecrm-1000">123</span><!--tex4ht:ref: 8-27-1 --></a><span 
+class="ecrm-1000">), we</span>
+<span 
+class="ecrm-1000">obtain</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28006r124"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis131x.png" alt="&int; b    i&omega;t    &sum;M    &int; b ( t&minus; tj) i&omega;t     &sum;       &int; b   (t &minus; tj) i&omega;t
+   h(t)e  dt &asymp;   hj    &psi;  -&Delta;--- e  dt+         hj   &phi;j  --&Delta;--  e  dt.
+ a           j=0    a                 j=endpoints    a
+" class="math-display"  /></center></td><td class="equation-label">(124)</td></tr></table>
+<!--l. 1461--><p class="nopar" >
+<span 
+class="ecrm-1000">Make the change of variables </span><span 
+class="cmmi-10">s </span>= (<span 
+class="cmmi-10">t</span><span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">j</span></sub>)<span 
+class="cmmi-10">∕</span>&Delta; <span 
+class="ecrm-1000">in the ﬁrst integral and </span><span 
+class="cmmi-10">s </span>= (<span 
+class="cmmi-10">t</span><span 
+class="cmsy-10">&minus;</span><span 
+class="cmmi-10">a</span>)<span 
+class="cmmi-10">∕</span>&Delta; <span 
+class="ecrm-1000">in</span>
+<span 
+class="ecrm-1000">the second integral, the above equation is written as</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28007r125"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis132x.png" alt="&int; b            &sum;M    &int; b                   &sum;       &int; b
+   h(t)ei&omega;tdt &asymp; &Delta;   hj    &psi;(s)ei&omega;(&Delta;s+tj)ds+ &Delta;         hj   &phi;j (s&minus; j)ei&omega;(&Delta;s+a)ds
+ a             j=0    a                  j=endpoints    a
+
+" class="math-display"  /></center></td><td class="equation-label">(125)</td></tr></table>
+<!--l. 1470--><p class="nopar" >
+<span 
+class="ecrm-1000">Deﬁne </span><span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmmi-10">&omega;</span>&Delta; <span 
+class="ecrm-1000">and make use of </span><span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">a </span>+ <span 
+class="cmmi-10">j</span>&Delta;<span 
+class="ecrm-1000">, the above equation is written</span>
+<span 
+class="ecrm-1000">as</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28008r126"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis133x.png" alt="&int; b    i&omega;t       i&omega;a M&sum;    i𝜃j&int; b    i𝜃s     i&omega;a   &sum;       &int; b        i𝜃s
+ a h(t)e  dt &asymp; &Delta;e      hje   a &psi;(s)e  ds+ &Delta;e            hj a &phi;j(s&minus; j)e ds
+                   j=0                        j=endpoints
+" class="math-display"  /></center></td><td class="equation-label">(126)</td></tr></table>
+<!--l. 1478--><p class="nopar" >
+<span 
+class="ecrm-1000">Deﬁne</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28009r127"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis134x.png" alt="       &int; b
+W (𝜃) =   &psi; (s)ei𝜃sds
+        a
+" class="math-display"  /></center></td><td class="equation-label">(127)</td></tr></table>
+<!--l. 1482--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28010r128"></a>
+
+   <center class="math-display" >
+<img 
+src="fourier_analysis135x.png" alt="       &int; b
+&alpha;j(𝜃) =   &phi;j(s&minus; j)ei𝜃sds
+        a
+" class="math-display"  /></center></td><td class="equation-label">(128)</td></tr></table>
+<!--l. 1485--><p class="nopar" >
+<span 
+class="ecrm-1000">Then Eq. (</span><a 
+href="#x29-28008r126"><span 
+class="ecrm-1000">126</span><!--tex4ht:ref: 8-27-5 --></a><span 
+class="ecrm-1000">) is written as</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x29-28011r129"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis136x.png" alt="                   &lfloor;                               &rfloor;
+&int; b     i&omega;t       i&omega;a&lceil;     &sum;M    i𝜃j    &sum;            &rceil;
+  a h (t)e dt &asymp; &Delta;e    W (𝜃)   hje   +         hj&alpha;j(𝜃) .
+                         j=0        j=endpoints
+" class="math-display"  /></center></td><td class="equation-label">(129)</td></tr></table>
+<!--l. 1491--><p class="nopar" >
+</p><!--l. 1494--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 1496--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 1498--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 1500--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 1502--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x29-280129"></a>
+
+
+<!--l. 1505--><p class="noindent" ><img 
+src="my_figure/home/yj/project_new/fft/fig2b/MyFigure.png" alt="pict"  
+ width="400.49625pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 9: </span><span  
+class="content">Older version of Fig. <a 
+href="fourier_analysissu5.html#x10-90032">2<!--tex4ht:ref: 4-16-1 --></a>, created by Metapost, the new version is
+created by the vector graphic editor in TeXmacs.</span></div><!--tex4ht:label?: x29-280129 -->
+
+   </div><hr class="endfigure" />
+<!--l. 1510--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+
+</p>
+   <!--l. 1512--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="fourier_analysissu20.html" ><span 
+class="ecrm-1000">prev</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="fourier_analysissu20.html#tailfourier_analysissu20.html" ><span 
+class="ecrm-1000">prev-tail</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="fourier_analysissu21.html" ><span 
+class="ecrm-1000">front</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="fourier_analysisse7.html#fourier_analysissu21.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+<!--l. 1512--><p class="indent" >   <a 
+ id="tailfourier_analysissu21.html"></a> </p> 
+</body></html> 

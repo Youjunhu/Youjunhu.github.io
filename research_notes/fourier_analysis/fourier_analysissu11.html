@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Proof of the inverse DFT</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="fourier_analysis.tex" /> 
+<meta name="date" content="2019-01-05 20:48:00" /> 
+<link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
+</head><body 
+>
+   <!--l. 690--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu12.html" >next</a>] [<a 
+href="fourier_analysissu10.html" >prev</a>] [<a 
+href="fourier_analysissu10.html#tailfourier_analysissu10.html" >prev-tail</a>] [<a 
+href="#tailfourier_analysissu11.html">tail</a>] [<a 
+href="fourier_analysisse5.html#fourier_analysissu11.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.5   </span> <a 
+ id="x17-160005.5"></a>Proof of the inverse DFT</h4>
+<!--l. 692--><p class="noindent" >In order to solve the linear algebraic equations (<a 
+href="fourier_analysissu4.html#x9-8006r49">49<!--tex4ht:ref: 2-26-2 --></a>) for <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>, multiply both sides of
+each equation by exp<img 
+src="fourier_analysis68x.png" alt="(  2&pi;i  )
+ &minus;  N nJ"  class="left" align="middle" /> and then add all the equations together, which
+yields
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x17-16001r66"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis69x.png" alt="N&sum; &minus;1   (        )     N&sum;&minus;1N&sum;&minus; 1     (           )
+    exp &minus; 2&pi;inJ  Hn =         hjexp  2&pi;in(j &minus; J) .
+n=0        N           n=0j=0        N
+" class="math-display"  /></center></td><td class="equation-label">(66)</td></tr></table>
+<!--l. 699--><p class="nopar" >
+Interchanging the sequence of the two summation on the right-hand side, equation
+(<a 
+href="#x17-16001r66">66<!--tex4ht:ref: 10-7-p2 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x17-16002r67"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis70x.png" alt="N&sum; &minus;1   (  2&pi;i   )     N&sum;&minus;1  N&sum;&minus;1   ( 2&pi;i       )
+    exp &minus; -N-nJ  Hn =     hj    exp  N--n(j &minus; J) .
+n=0                    j=0   n=0
+" class="math-display"  /></center></td><td class="equation-label">(67)</td></tr></table>
+<!--l. 706--><p class="nopar" >
+Using the fact that (veriﬁed by Wolfram Mathematica)
+
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x17-16003r68"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis71x.png" alt="N&sum;&minus;1   [ i2&pi;        ]
+   exp  N--n(j &minus; J) = N &delta;jJ,
+n=0
+" class="math-display"  /></center></td><td class="equation-label">(68)</td></tr></table>
+<!--l. 711--><p class="nopar" >
+where <span 
+class="cmmi-10">&delta;</span><sub><span 
+class="cmr-7">jJ</span></sub> is the Kroneker Delta, equation (<a 
+href="#x17-16002r67">67<!--tex4ht:ref: 10-7-p3 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x17-16004r69"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis72x.png" alt="N &minus;1   (        )      N&minus;1
+ &sum;  exp  &minus; 2&pi;inJ Hn  = &sum;  hjN &delta;jJ,
+ n=0        N           j=0
+" class="math-display"  /></center></td><td class="equation-label">(69)</td></tr></table>
+<!--l. 717--><p class="nopar" >
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x17-16005r70"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis73x.png" alt="N&sum;&minus;1   (  2&pi;i   )
+    exp  &minus;-N-nJ  Hn  = NhJ,
+ n=0
+" class="math-display"  /></center></td><td class="equation-label">(70)</td></tr></table>
+<!--l. 722--><p class="nopar" >
+which can be solved to give
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x17-16006r71"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis74x.png" alt="       N&minus; 1   (       )
+hJ = 1-&sum;   exp &minus; 2&pi;inJ  Hn.
+     N n=0        N
+" class="math-display"  /></center></td><td class="equation-label">(71)</td></tr></table>
+<!--l. 727--><p class="nopar" >
+Equation (<a 
+href="#x17-16006r71">71<!--tex4ht:ref: 10-7-p1 --></a>) is the inverse DFT.
+
+</p>
+   <!--l. 730--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu12.html" >next</a>] [<a 
+href="fourier_analysissu10.html" >prev</a>] [<a 
+href="fourier_analysissu10.html#tailfourier_analysissu10.html" >prev-tail</a>] [<a 
+href="fourier_analysissu11.html" >front</a>] [<a 
+href="fourier_analysisse5.html#fourier_analysissu11.html" >up</a>] </p></div>
+<!--l. 730--><p class="indent" >   <a 
+ id="tailfourier_analysissu11.html"></a> </p> 
+</body></html> 

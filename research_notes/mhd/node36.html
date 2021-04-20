@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Shooting method for finding global eigenmodes</TITLE>
+<META NAME="description" CONTENT="Shooting method for finding global eigenmodes">
+<META NAME="keywords" CONTENT="mhd">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mhd.css">
+
+<LINK REL="next" HREF="node37.html">
+<LINK REL="previous" HREF="node28.html">
+<LINK REL="up" HREF="mhd.html">
+<LINK REL="next" HREF="node37.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html480"
+  HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html478"
+  HREF="mhd.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html472"
+  HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html481"
+  HREF="node37.html">Benchmark of GTAW code</A>
+<B> Up:</B> <A NAME="tex2html479"
+  HREF="mhd.html">Notes on linear ideal</A>
+<B> Previous:</B> <A NAME="tex2html473"
+  HREF="node35.html">Approximate central frequency and</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00060000000000000000">
+Shooting method for finding global eigenmodes</A>
+</H1>
+
+<P>
+After using Fourier spectrum expansion and taking the inner product over
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \theta $"></SPAN>, Eq. (<A HREF="node28.html#10-10-5">190</A>) can be written as the following system of
+ordinary differential equations:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-10-1"></A><!-- MATH
+ \begin{equation}
+\frac{d}{d \psi} \left(\begin{array}{c}
+    \overline{P}_1^{(1)} (\psi)\\
+    \vdots\\
+    \overline{P}_1^{(L)} (\psi)\\
+    \xi_{\psi}^{(1)} (\psi)\\
+    \vdots\\
+    \xi_{\psi}^{(L)} (\psi)
+  \end{array}\right) = \left(\begin{array}{cccccc}
+    A_{11}^{(11)} & \ldots & A_{11}^{(1 L)} & A_{12}^{(11)} & \ldots &
+    A_{12}^{(1 L)}\\
+    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+    A_{11}^{(L 1)} & \ldots & A_{11}^{(L L)} & A_{12}^{(L 1)} & \ldots &
+    A_{12}^{(L L)}\\
+    A_{21}^{(11)} & \ldots & A_{21}^{(1 L)} & A_{22}^{(11)} & \ldots &
+    A_{22}^{(1 L)}\\
+    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+    A_{21}^{(L 1)} & \ldots & A_{21}^{(L L)} & A_{22}^{(L 1)} & \ldots &
+    A_{22}^{(L L)}
+  \end{array}\right) \left(\begin{array}{c}
+    \overline{P}_1^{(1)} (\psi)\\
+    \vdots\\
+    \overline{P}_1^{(L)} (\psi)\\
+    \xi_{\psi}^{(1)} (\psi)\\
+    \vdots\\
+    \xi_{\psi}^{(L)} (\psi)
+  \end{array}\right),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="572" HEIGHT="171" ALIGN="MIDDLE" BORDER="0"
+ SRC="img626.png"
+ ALT="$\displaystyle \frac{d}{d \psi} \left(\begin{array}{c} \overline{P}_1^{(1)} (\ps...
+... \xi_{\psi}^{(1)} (\psi)\\ \vdots\\ \xi_{\psi}^{(L)} (\psi) \end{array}\right),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">251</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img454.png"
+ ALT="$ L$"></SPAN> is the total number of the poloidal harmonics included in the
+Fourier expansion, the matrix elements <!-- MATH
+ $A_{\alpha \beta}^{(i j)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img627.png"
+ ALT="$ A_{\alpha \beta}^{(i j)}$"></SPAN> are
+functions of <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img628.png"
+ ALT="$ \psi$"></SPAN> and <!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN>. Next, we specify the boundary
+condition for the system. Note that equations system (<A HREF="#10-10-1">251</A>) has <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img629.png"
+ ALT="$ 2 L$"></SPAN>
+first-order differential equations, for which we need to specify <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img629.png"
+ ALT="$ 2 L$"></SPAN>
+boundary conditions to make the solution unique. The geometry determines that
+the radial displacement at the magnetic axis must be zero, i.e.,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-10-4"></A><!-- MATH
+ \begin{equation}
+\xi_{\psi}^{(l)} (\psi = \psi_0) = 0, \ensuremath{\operatorname{For}} l = 1, 2,
+  \ldots, L.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="250" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img630.png"
+ ALT="$\displaystyle \xi_{\psi}^{(l)} (\psi = \psi_0) = 0, \ensuremath{\operatorname{For}} l = 1, 2, \ldots, L.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">252</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+We consider only the modes that vanish at the plasma boundary, for which we
+have the following boundary conditions:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-10-2"></A><!-- MATH
+ \begin{equation}
+\xi_{\psi}^{(l)} (\psi = \psi_{\ensuremath{\operatorname{LCFS}}}) = 0, \ensuremath{\operatorname{For}}
+  l = 1, 2, \ldots, L
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="272" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img631.png"
+ ALT="$\displaystyle \xi_{\psi}^{(l)} (\psi = \psi_{\ensuremath{\operatorname{LCFS}}}) = 0, \ensuremath{\operatorname{For}} l = 1, 2, \ldots, L$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">253</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Now Eqs. (<A HREF="#10-10-4">252</A>) and (<A HREF="#10-10-2">253</A>) provide <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img629.png"
+ ALT="$ 2 L$"></SPAN> boundary
+conditions, half of which are at the boundary <!-- MATH
+ $\psi = \psi_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img632.png"
+ ALT="$ \psi = \psi_0$"></SPAN> and half are at
+the boundary <!-- MATH
+ $\psi = \psi_{\ensuremath{\operatorname{LCFS}}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="79" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img633.png"
+ ALT="$ \psi = \psi_{\ensuremath{\operatorname{LCFS}}}$"></SPAN>. Therefore equations system
+(<A HREF="#10-10-1">251</A>) along with the boundary conditions Eqs. (<A HREF="#10-10-4">252</A>) and
+(<A HREF="#10-10-2">253</A>) constitutes a standard two-points boundary
+problem[<A
+ HREF="node59.html#press1992">5</A>]. Note, however, that we are solving a eigenvalue
+problem, for which there is an additional equation for <!-- MATH
+ $\overline{\omega}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img529.png"
+ ALT="$ \overline{\omega}^2$"></SPAN>:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\frac{d \overline{\omega}^2}{d \psi} = 0.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img634.png"
+ ALT="$\displaystyle \frac{d \overline{\omega}^2}{d \psi} = 0.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">254</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This increases the number of equations by one and so we need one additional
+boundary condition. Note that, by eliminating all <!-- MATH
+ $\overline{P}_1^{(l)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img635.png"
+ ALT="$ \overline{P}_1^{(l)}$"></SPAN>,
+equations system (<A HREF="#10-10-1">251</A>) can be written as a system of second-order
+differential equations for <!-- MATH
+ $\xi_{\psi}^{(l)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img636.png"
+ ALT="$ \xi_{\psi}^{(l)}$"></SPAN>. Further note that the unknown
+functions <!-- MATH
+ $\xi_{\psi}^{(l)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img636.png"
+ ALT="$ \xi_{\psi}^{(l)}$"></SPAN> satisfy homogeneous equations and homogeneous
+boundary conditions, which indicates that if <!-- MATH
+ $\xi_{\psi}^{(l)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img636.png"
+ ALT="$ \xi_{\psi}^{(l)}$"></SPAN> with <!-- MATH
+ $l = 1,
+2, \ldots L$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="92" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img637.png"
+ ALT="$ l = 1,
+2, \ldots L$"></SPAN> are solutions, then <!-- MATH
+ $c \xi_{\psi}^{(l)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img638.png"
+ ALT="$ c \xi_{\psi}^{(l)}$"></SPAN> are also solutions to
+the original equations, where <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img639.png"
+ ALT="$ c$"></SPAN> is a constant. Therefore the value of the
+derivative of <!-- MATH
+ $d \xi_{\psi}^{(l)} / d \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="62" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img640.png"
+ ALT="$ d \xi_{\psi}^{(l)} / d \psi$"></SPAN> at the boundary have one degree of
+freedom. Due to this fact, one of the derivatives <!-- MATH
+ $d \xi_{\psi}^{(1)} / d
+\psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img641.png"
+ ALT="$ d \xi_{\psi}^{(1)} / d
+\psi$"></SPAN>, <!-- MATH
+ $d \xi_{\psi}^{(2)} / d \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img642.png"
+ ALT="$ d \xi_{\psi}^{(2)} / d \psi$"></SPAN>,..., <!-- MATH
+ $d \xi_{\psi}^{(L)} / d \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="66" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img643.png"
+ ALT="$ d \xi_{\psi}^{(L)} / d \psi$"></SPAN>  at
+<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img644.png"
+ ALT="$ \psi_0$"></SPAN> can be set to be a nonzero value. For example, setting the value of
+<!-- MATH
+ $d \xi_{\psi}^{(1)} / d \psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img641.png"
+ ALT="$ d \xi_{\psi}^{(1)} / d
+\psi$"></SPAN> at <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img644.png"
+ ALT="$ \psi_0$"></SPAN> to be <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img645.png"
+ ALT="$ 0.5$"></SPAN> and making use of
+<!-- MATH
+ $\xi_{\psi}^{(l)} = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.png"
+ ALT="$ \xi_{\psi}^{(l)} = 0$"></SPAN> at <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img644.png"
+ ALT="$ \psi_0$"></SPAN>, we obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+A_{21}^{(11)} (\psi_0) \overline{P}_1^{(1)} (\psi_0) + A_{21}^{(12)}
+  (\psi_0) \overline{P}_1^{(2)} (\psi_0) + \ldots + A_{21}^{(1 L)} (\psi_0)
+  \overline{P}_1^{(L)} (\psi_0) = 0.5,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="505" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img647.png"
+ ALT="$\displaystyle A_{21}^{(11)} (\psi_0) \overline{P}_1^{(1)} (\psi_0) + A_{21}^{(1...
+...\psi_0) + \ldots + A_{21}^{(1 L)} (\psi_0) \overline{P}_1^{(L)} (\psi_0) = 0.5,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">255</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which can be solved to give
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="10-12-1"></A><!-- MATH
+ \begin{equation}
+\overline{P}_1^{(L)} (\psi_0) = \frac{1}{A_{21}^{(1 L)}
+  (\psi_0)} [0.5 - A_{21}^{(11)} (\psi_0) \overline{P}_1^{(1)} (\psi_0) -
+  A_{21}^{(12)} (\psi_0) \overline{P}_1^{(2)} (\psi_0) - \ldots],
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="518" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img648.png"
+ ALT="$\displaystyle \overline{P}_1^{(L)} (\psi_0) = \frac{1}{A_{21}^{(1 L)} (\psi_0)}...
+...(1)} (\psi_0) - A_{21}^{(12)} (\psi_0) \overline{P}_1^{(2)} (\psi_0) - \ldots],$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">256</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which provides the additional boundary condition we need. In the present
+version of my code, for convenience, I directly set the value of
+<!-- MATH
+ $\overline{P}_1^{(L)} (\psi_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img649.png"
+ ALT="$ \overline{P}_1^{(L)} (\psi_0)$"></SPAN> to a small value, instead of using Eq.
+(<A HREF="#10-12-1">256</A>). The following sketch map describes the function <!-- MATH
+ $\mathbf{F}
+(\mathbf{X})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img650.png"
+ ALT="$ \mathbf{F}
+(\mathbf{X})$"></SPAN> for which we need to find roots in the shooting process.
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\mathbf{X}= \left(\begin{array}{c}
+    \overline{P}_1^{(1)} (\psi_0)\\
+    \overline{P}_1^{(2)} (\psi_0)\\
+    \dot{:}\\
+    \overline{P}_1^{(L - 1)} (\psi_0)\\
+    \overline{\omega}^2
+  \end{array}\right) \longrightarrow \mathbf{F} (\mathbf{X}) =
+  \left(\begin{array}{c}
+    \xi_{\psi}^{(1)} (\psi_{\ensuremath{\operatorname{LCFS}}})\\
+    \xi_{\psi}^{(2)} (\psi_{\ensuremath{\operatorname{LCFS}}})\\
+    \dot{:}\\
+    \xi_{\psi}^{(L - 1)} (\psi_{\ensuremath{\operatorname{LCFS}}})\\
+    \xi_{\psi}^{(L)} (\psi_{\ensuremath{\operatorname{LCFS}}})
+  \end{array}\right)
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="397" HEIGHT="132" ALIGN="MIDDLE" BORDER="0"
+ SRC="img651.png"
+ ALT="$\displaystyle \mathbf{X}= \left(\begin{array}{c} \overline{P}_1^{(1)} (\psi_0)\...
+...\ \xi_{\psi}^{(L)} (\psi_{\ensuremath{\operatorname{LCFS}}}) \end{array}\right)$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">257</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html480"
+  HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html478"
+  HREF="mhd.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html472"
+  HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html481"
+  HREF="node37.html">Benchmark of GTAW code</A>
+<B> Up:</B> <A NAME="tex2html479"
+  HREF="mhd.html">Notes on linear ideal</A>
+<B> Previous:</B> <A NAME="tex2html473"
+  HREF="node35.html">Approximate central frequency and</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+yj
+2015-09-04
+</ADDRESS>
+</BODY>
+</HTML>
