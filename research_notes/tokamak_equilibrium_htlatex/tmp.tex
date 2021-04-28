@@ -25,16 +25,16 @@
 \maketitle
 
 \begin{abstract}
-  Axisymmetric equilibrium of tokamak plasma is the basis for plasma control,
-  stability, and transport analysis. These are my notes when learning tokamak
-  equilibrium theory. To test what I have learned, I have developed two
-  numerical codes, one of which constructs a flux coordinate system with a
-  desired form of Jacobian by using discrete numerical equilibrium data output
-  by the EFIT code, another of which solves the fixed boundary Grad-Shafranov
-  equation in a general coordinate system. These notes serve as a document for
-  the codes. These notes are evolving and are written for my own record (which
-  means that something might be very wrong). Email me if you have any
-  comments.
+  Axisymmetric equilibrium magnetic field of a tokamak is the basis for
+  real-time plasma control and analysis of stability and transport. These are
+  my notes when learning tokamak equilibrium theory. To test what I have
+  learned, I have developed two numerical codes, one of which constructs a
+  flux coordinate system with a desired form of Jacobian by using discrete
+  numerical equilibrium data output by the EFIT code, another of which solves
+  the fixed boundary Grad-Shafranov equation in a general coordinate system.
+  These notes serve as a document for the codes. These notes are evolving and
+  are written for my own record (which means that something might be very
+  wrong). Email me if you have any comments.
 \end{abstract}
 
 \section{ \label{5-13-1s}Axisymmetric magnetic field}
@@ -117,9 +117,9 @@ $\mathbf{B}_p$ is written as
 \end{eqnarray}
 Next, let's examine the toroidal component $B_{\phi}$. Equation
 (\ref{4-16-p1}) indicates that using the potential form does not enable useful
-simplification for $B_{\phi}$. Therfore we return to directly using
-$B_{\phi}$, rather than $A_R$ and $A_Z$. For later use, define $g \equiv R
-B_{\phi} (R, Z)$, then the toroidal magnetic field is written
+simplification for $B_{\phi}$. Therfore we will directly use $B_{\phi}$,
+rather than $A_R$ and $A_Z$. Define $g \equiv R B_{\phi} (R, Z)$, then the
+toroidal magnetic field is written
 \begin{equation}
   \label{7-28-1} \mathbf{B}_{\phi} = B_{\phi} \hat{\tmmathbf{\phi}} =
   \frac{g}{R} \hat{\tmmathbf{\phi}} = g \nabla \phi .
@@ -560,7 +560,7 @@ In the above, the magnetic field is assumed to be axisymmetric. With this
 assumption, the poloidal magnetic field (having two components) can be
 expressed in terms of a single function $\Psi$. This kind of simplification
 can not be achieved if the axisymmetricity assumption is dropped, i.e.,
-introducing $\Psi$ in the non-axisymmetric case is usually not useful because
+introducing $\Psi$ in the non-axisymmetric case is not very useful because
 other components of the vector potential (namely $A_R$ and $A_Z$) will appear
 in the expression of the poloidal magnetic field.
 
@@ -3110,16 +3110,16 @@ wavenumber $k_{\parallel}$ is zero on a resonant surface.
 
 \subsection{Poloidal angle used in tearing mode theory}
 
-Next, we discuss a special poloidal angle, which is often used in the tearing
-mode theory and is defined by
+Next, we discuss a special poloidal angle, which is useful in describling a
+perturnbation with single $(m, n)$. It is defined by
 \begin{equation}
   \chi = \theta - \frac{n}{m} \zeta,
 \end{equation}
-where $(m, n)$ are the mode numbers of the tearing mode. The poloidal angle
-$\chi$ is special in that its definition is associated with a perturbation
-(the mode numbers of the perturbation appear in the definition) while the
-definition of the poloidal angles discussed previously only involve the
-equilibrium quantities.
+where $(m, n)$ are the mode numbers of the perturbation. The poloidal angle
+$\chi$ is often called helical angle and is special in that its definition is
+associated with a perturbation (the mode numbers of the perturbation appear in
+the definition) while the definition of the poloidal angles discussed
+previously only involve the equilibrium quantities.
 
 The poloidal angle $\chi$ is designed to make 3D perturbations of the form
 $\sim f (\psi, m \theta + n \zeta)$ reduce to 2D perturbations, i.e.,
