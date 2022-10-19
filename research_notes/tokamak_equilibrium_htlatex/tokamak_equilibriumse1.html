@@ -13,18 +13,15 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 41--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 46--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse2.html" >next</a>] [<a 
 href="#tailtokamak_equilibriumse1.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse1.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
  id="x2-10001"></a> Axisymmetric magnetic ﬁeld</h3>
-                                                                                
-
-                                                                                
-<!--l. 43--><p class="noindent" >Due to the divergence-free nature of magnetic ﬁeld, i.e., <span 
-class="cmsy-10">∇⋅ </span><span 
-class="cmbx-10">B </span>= 0, magnetic ﬁeld can be expressed as
+<!--l. 48--><p class="noindent" >Due to the divergence-free nature of magnetic ﬁeld, i.e., <span 
+class="cmsy-10">∇⋅</span> <span 
+class="cmbx-10">B</span> = 0, magnetic ﬁeld can be expressed as
 the curl of a vector ﬁeld,
 </p>
    <table 
@@ -34,12 +31,19 @@ class="equation"><tr><td><a
 <img 
 src="tokamak_equilibrium0x.png" alt="B = ∇ × A,
 " class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
-<!--l. 47--><p class="nopar" >
-where the vector ﬁeld <span 
+                                                                                
+
+                                                                                
+<!--l. 52--><p class="nopar" >
+where <span 
 class="cmbx-10">A </span>is called the vector potential of <span 
-class="cmbx-10">B</span>. In terms of cylindrical coordinates (<span 
-class="cmmi-10">R,ϕ,Z</span>)
- the above expression is written
+class="cmbx-10">B</span>. (Using a vector potential representation is helpful in that
+we do not need to worry about the condition <span 
+class="cmsy-10">∇⋅</span><span 
+class="cmbx-10">B </span>= 0 once the magnetic ﬁeld is in the vector potential
+form.)
+</p><!--l. 58--><p class="indent" >   In cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>), the above expression is written
 </p>
    <table 
 class="equation"><tr><td><a 
@@ -47,10 +51,10 @@ class="equation"><tr><td><a
    <center class="math-display" >
 <img 
 src="tokamak_equilibrium1x.png" alt="    (             )    (                  )     (           )
-B =   1∂AZ- − ∂A-ϕ Rˆ +  1-∂(RA-ϕ)− -1∂AR-  ˆZ +  ∂AR- − ∂AZ-  ˆϕ.
-      R ∂ϕ    ∂Z         R   ∂R     R  ∂ϕ         ∂Z    ∂R
+      1∂AZ-   ∂A-ϕ  ˆ    1-∂(RA-ϕ)  -1∂AR-  ˆ    ∂AR-   ∂AZ-  ˆ
+B =   R ∂ϕ  − ∂Z   R  +  R   ∂R   − R  ∂ϕ   Z +   ∂Z  − ∂R    ϕ.
 " class="math-display"  /></center></td><td class="equation-label">(2)</td></tr></table>
-<!--l. 58--><p class="nopar" >
+<!--l. 66--><p class="nopar" >
 We consider axisymmetric magnetic ﬁeld. The axial symmetry means that, when expressed in the
 cylindrical coordinate system (<span 
 class="cmmi-10">R,ϕ,Z</span>), the components of <span 
@@ -79,176 +83,53 @@ src="tokamak_equilibrium2x.png" alt="                          (           )
      ∂A-ϕ ˆ  -1∂(RA-ϕ)ˆ    ∂AR-   ∂AZ-  ˆ
 B = − ∂Z R + R   ∂R   Z +   ∂Z  −  ∂R   ϕ.
 " class="math-display"  /></center></td><td class="equation-label">(3)</td></tr></table>
-<!--l. 71--><p class="nopar" >
+<!--l. 79--><p class="nopar" >
 In tokamak literature, <img 
-src="tokamak_equilibrium3x.png" alt="ˆϕ"  class="circ"  /> direction is called the toroidal direction and (<span 
+src="tokamak_equilibrium3x.png" alt="ˆϕ"  class="circ"  /> direction is called the toroidal direction, and (<span 
 class="cmmi-10">R,Z</span>) planes (i.e., <span 
 class="cmmi-10">ϕ </span>= const
-planes) are called the poloidal planes. Equation (<a 
-href="#x2-1003r3">3<!--tex4ht:ref: 9-6-p1 --></a>) indicates that two poloidal components of <span 
-class="cmbx-10">B</span>,
-namely <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">R</span></sub> and <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">Z</span></sub>, are determined by a single component of <span 
-class="cmbx-10">A</span>, namely <span 
-class="cmmi-10">A</span><sub><span 
-class="cmmi-7">ϕ</span></sub>. This motivates us to
-deﬁne a function Ψ(<span 
-class="cmmi-10">R,Z</span>) by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x2-1004r4"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium4x.png" alt="Ψ (R, Z) ≡ RA ϕ(R,Z ).
-" class="math-display"  /></center></td><td class="equation-label">(4)</td></tr></table>
-<!--l. 80--><p class="nopar" >
-Then Eq. (<a 
-href="#x2-1003r3">3<!--tex4ht:ref: 9-6-p1 --></a>) implies the poloidal components, <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">R</span></sub> and <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">Z</span></sub>, can be written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x2-1005r5"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium5x.png" alt="BR = − 1-∂Ψ-
-       R ∂Z
-" class="math-display"  /></center></td><td class="equation-label">(5)</td></tr></table>
-<!--l. 85--><p class="nopar" >
-and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x2-1006r6"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium6x.png" alt="      1 ∂Ψ
-BZ =  ----.
-      R ∂R
-" class="math-display"  /></center></td><td class="equation-label">(6)</td></tr></table>
-<!--l. 89--><p class="nopar" >
-Note that it is the property of being axisymmetric and divergence-free that enables us to
-express the two components of <span 
-class="cmbx-10">B</span>, namely <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">R</span></sub> and <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">Z</span></sub>, in terms of a single function Ψ(<span 
-class="cmmi-10">R,Z</span>).
-Furthermore, it is ready to verify Ψ is constant along a magnetic ﬁeld line, i.e. <span 
-class="cmbx-10">B </span><span 
-class="cmsy-10">⋅∇</span>Ψ = 0. [Proof:
-</p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium7x.png" alt="              ( ∂Ψ     ∂Ψ  )
-B ⋅∇ Ψ  =  B ⋅  ∂R-ˆR + ∂Z-ˆZ
-
-        =  − 1-∂Ψ-∂Ψ-+ -1∂Ψ-∂Ψ-
-             R ∂Z ∂R   R ∂R ∂Z
-        =  0.                                        (7)
-" class="math-display"  /></center>
-</div>]
-<!--l. 106--><p class="indent" >   The function Ψ is usually called the “poloidal ﬂux function” in tokamak literature. The reason for
-this nomenclature will become clear when we discuss the physical meaning of Ψ in Sec.
-<a 
-href="tokamak_equilibriumsu4.html#x6-50001.4">1.4<!--tex4ht:ref: 9-5-5 --></a>.
-</p><!--l. 110--><p class="indent" >   Using eqns (<a 
-href="#x2-1005r5">5<!--tex4ht:ref: 7-14-p1 --></a>) and (<a 
-href="#x2-1006r6">6<!--tex4ht:ref: 6-9-a4 --></a>), the poloidal magnetic ﬁeld <span 
-class="cmbx-10">B</span><sub><span 
-class="cmmi-7">p</span></sub> is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium8x.png" alt="Bp   =  BR ˆR + BZZˆ
-          1 ∂Ψ     1 ∂Ψ
-     =  − R-∂Z-ˆR + R-∂R-ˆZ
-         1
-     =  R-∇ Ψ ×ϕˆ
-     =  ∇ Ψ × ∇ϕ                                  (8)
-" class="math-display"  /><a 
- id="x2-1008r8"></a></center>
-</div>Next, let’s examine the toroidal component <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">ϕ</span></sub>. Equation (<a 
-href="#x2-1002r2">2<!--tex4ht:ref: 4-16-p1 --></a>) indicates that using the potential form
-does not enable useful simpliﬁcation for <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">ϕ</span></sub>. Therfore we will directly use <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">ϕ</span></sub>, rather than <span 
-class="cmmi-10">A</span><sub><span 
-class="cmmi-7">R</span></sub> and <span 
-class="cmmi-10">A</span><sub><span 
-class="cmmi-7">Z</span></sub>.
-Deﬁne <span 
-class="cmmi-10">g </span><span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">RB</span><sub><span 
-class="cmmi-7">ϕ</span></sub>(<span 
-class="cmmi-10">R,Z</span>), then the toroidal magnetic ﬁeld is written
-   <table 
-class="equation"><tr><td><a 
- id="x2-1009r9"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium9x.png" alt="B  = B ϕˆ=  gˆϕ = g∇ ϕ.
- ϕ    ϕ     R
-" class="math-display"  /></center></td><td class="equation-label">(9)</td></tr></table>
-<!--l. 127--><p class="nopar" >
-Using Eqs. (<a 
-href="#x2-1008r8">8<!--tex4ht:ref: 20-5-9-p10 --></a>) and (<a 
-href="#x2-1009r9">9<!--tex4ht:ref: 7-28-1 --></a>), a general axisymmetric magnetic ﬁeld can be written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium10x.png" alt="B  =   Bp +B ϕ
-   =   ∇Ψ × ∇ ϕ+ g∇ ϕ.                         (10)
-" class="math-display"  /><a 
- id="x2-1010r10"></a></center>
-</div>Expression (<a 
-href="#x2-1010r10">10<!--tex4ht:ref: 7-28-6 --></a>) is a formula that we frequently encounter when reading tokamak literature.
-<!--l. 137--><p class="noindent" >
+planes) are called the poloidal planes.
+</p><!--l. 84--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
-    <span class="subsectionToc" >1.1 <a 
-href="tokamak_equilibriumsu1.html#x3-20001.1">Gauge transformation of Ψ</a></span>
-<br />    <span class="subsectionToc" >1.2 <a 
-href="tokamak_equilibriumsu2.html#x4-30001.2">Contours of Ψ in the poloidal plane</a></span>
-<br />    <span class="subsectionToc" >1.3 <a 
-href="tokamak_equilibriumsu3.html#x5-40001.3">Magnetic surfaces</a></span>
+     <span class="subsectionToc" >1.1 <a 
+href="tokamak_equilibriumsu1.html#x3-20001.1">Poloidal magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >1.2 <a 
+href="tokamak_equilibriumsu2.html#x4-30001.2">Toroidal magnetic ﬁeld</a></span>
                                                                                 
 
                                                                                 
-<br />    <span class="subsectionToc" >1.4 <a 
-href="tokamak_equilibriumsu4.html#x6-50001.4">Relation of Ψ with the poloidal magnetic ﬂux</a></span>
-<br />    <span class="subsectionToc" >1.5 <a 
-href="tokamak_equilibriumsu5.html#x7-60001.5">Measurement of poloidal magnetic ﬂux</a></span>
-<br />    <span class="subsectionToc" >1.6 <a 
-href="tokamak_equilibriumsu6.html#x8-70001.6">Closed magnetic surfaces in tokamak</a></span>
-<br />     <span class="subsubsectionToc" >1.6.1 <a 
-href="tokamak_equilibriumsu6.html#x8-80001.6.1" id="QQ2-8-11">Shape parameters of a closed magnetic surface</a></span>
-<br />    <span class="subsectionToc" >1.7 <a 
-href="tokamak_equilibriumsu7.html#x9-90001.7">Safety factor</a></span>
-<br />     <span class="subsubsectionToc" >1.7.1 <a 
-href="tokamak_equilibriumsu7.html#x9-100001.7.1" id="QQ2-9-14">Deﬁnition of safety factor</a></span>
-<br />     <span class="subsubsectionToc" >1.7.2 <a 
-href="tokamak_equilibriumsu7.html#x9-110001.7.2" id="QQ2-9-15">Expression of safety factor in terms of magnetic ﬁeld</a></span>
-<br />     <span class="subsubsectionToc" >1.7.3 <a 
-href="tokamak_equilibriumsu7.html#x9-120001.7.3" id="QQ2-9-16">Expression of safety factor in terms of magnetic ﬂux</a></span>
-<br />     <span class="subsubsectionToc" >1.7.4 <a 
-href="tokamak_equilibriumsu7.html#x9-130001.7.4" id="QQ2-9-17">Rational surfaces vs. irrational surfaces</a></span>
-<br />    <span class="subsectionToc" >1.8 <a 
-href="tokamak_equilibriumsu8.html#x10-140001.8">Non-axisymmetric magnetic perturbations</a></span>
+<br />     <span class="subsectionToc" >1.3 <a 
+href="tokamak_equilibriumsu3.html#x5-40001.3">General form of axisymmetric magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >1.4 <a 
+href="tokamak_equilibriumsu4.html#x6-50001.4">Gauge transformation of <span 
+class="cmmi-10">Ψ</span></a></span>
+<br />     <span class="subsectionToc" >1.5 <a 
+href="tokamak_equilibriumsu5.html#x7-60001.5">Contours of <span 
+class="cmmi-10">Ψ </span>in the poloidal plane</a></span>
+<br />     <span class="subsectionToc" >1.6 <a 
+href="tokamak_equilibriumsu6.html#x8-70001.6">Magnetic surfaces</a></span>
+<br />     <span class="subsectionToc" >1.7 <a 
+href="tokamak_equilibriumsu7.html#x9-80001.7">Relation of <span 
+class="cmmi-10">Ψ </span>with the poloidal magnetic ﬂux</a></span>
+<br />     <span class="subsectionToc" >1.8 <a 
+href="tokamak_equilibriumsu8.html#x10-90001.8">Measurement of poloidal magnetic ﬂux</a></span>
+<br />     <span class="subsectionToc" >1.9 <a 
+href="tokamak_equilibriumsu9.html#x11-100001.9">Closed magnetic surfaces in tokamak</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu9.html#x11-110001.9" id="QQ2-11-16">Shape parameters of a closed magnetic surface</a></span>
+<br />     <span class="subsectionToc" >1.10 <a 
+href="tokamak_equilibriumsu10.html#x12-120001.10">Safety factor</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu10.html#x12-130001.10" id="QQ2-12-19">Deﬁnition of safety factor</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu10.html#x12-140001.10" id="QQ2-12-20">Expression of safety factor in terms of magnetic ﬁeld</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu10.html#x12-150001.10" id="QQ2-12-21">Expression of safety factor in terms of magnetic ﬂux</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu10.html#x12-160001.10" id="QQ2-12-22">Rational surfaces vs. irrational surfaces</a></span>
+<br />     <span class="subsectionToc" >1.11 <a 
+href="tokamak_equilibriumsu11.html#x13-170001.11">Non-axisymmetric magnetic perturbations</a></span>
    </div>
 
 
@@ -257,13 +138,16 @@ href="tokamak_equilibriumsu8.html#x10-140001.8">Non-axisymmetric magnetic pertur
 
 
 
+
+
+
                                                                                 
 
                                                                                 
-   <!--l. 598--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 642--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse2.html" >next</a>] [<a 
 href="tokamak_equilibriumse1.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse1.html" >up</a>] </p></div>
-<!--l. 598--><p class="indent" >   <a 
+<!--l. 642--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse1.html"></a> </p> 
 </body></html> 

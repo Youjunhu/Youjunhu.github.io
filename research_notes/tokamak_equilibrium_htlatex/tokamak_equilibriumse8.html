@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Magnetic surface averaging</title> 
+<head><title>Constructing model tokamak magnetic ﬁeld</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,32 +13,128 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 2464--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2519--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse9.html" >next</a>] [<a 
 href="tokamak_equilibriumse7.html" >prev</a>] [<a 
 href="tokamak_equilibriumse7.html#tailtokamak_equilibriumse7.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumse8.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse8.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">8   </span> <a 
- id="x41-570008"></a>Magnetic surface averaging</h3>
-<!--l. 2466--><p class="noindent" >
+ id="x44-600008"></a>Constructing model tokamak magnetic ﬁeld</h3>
+<!--l. 2521--><p class="noindent" >In some cases (e.g., turbulence simulation), model tokamak magnetic ﬁeld, which is not an exact
+solution to the GS equation, is often used. In the model, the safety factor proﬁle <span 
+class="cmmi-10">q</span>(<span 
+class="cmmi-10">ψ</span>),
+toroidal ﬁeld function <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">ψ</span>) and the magnetic surface shape (<span 
+class="cmmi-10">R</span>(<span 
+class="cmmi-10">ψ,𝜃</span>)<span 
+class="cmmi-10">,Z</span>(<span 
+class="cmmi-10">ψ,𝜃</span>)) are given. To
+use this model in a simulation, we need to calculate its poloidal magnetic ﬁeld, which is
+determined by the poloidal magnetic ﬂux function <span 
+class="cmmi-10">Ψ</span>. To determine <span 
+class="cmmi-10">Ψ</span>, we need to use Eq. (<a 
+href="tokamak_equilibriumsu31.html#x38-46005r160">160<!--tex4ht:ref: 7-11-p1 --></a>),
+i.e.,
 </p>
-   <div class="subsectionTOCS">
-    <span class="subsectionToc" >8.1 <a 
-href="tokamak_equilibriumsu33.html#x42-580008.1">Deﬁnition</a></span>
-<br />    <span class="subsectionToc" >8.2 <a 
-href="tokamak_equilibriumsu34.html#x43-590008.2">Flux Surface Functions</a></span>
-   </div>
-
+   <table 
+class="equation"><tr><td><a 
+ id="x44-60001r218"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium292x.png" alt="         1 g ∫ 2π 𝒥
+q(ψ) = −2π-Ψ′     R2d𝜃,
+               0
+" class="math-display"  /></center></td><td class="equation-label">(218)</td></tr></table>
+<!--l. 2532--><p class="nopar" >
+and re-organize the formula as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x44-60002r219"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium293x.png" alt="dΨ      1 g(ψ )∫ 2π 𝒥
+---= − -------    --2d𝜃,
+dψ     2π q(ψ ) 0  R
+" class="math-display"  /></center></td><td class="equation-label">(219)</td></tr></table>
+<!--l. 2537--><p class="nopar" >
+which can be integrated to obtain <span 
+class="cmmi-10">Ψ </span>and thus the poloidal magnetic ﬁeld <span 
+class="cmbx-10">B</span><sub><span 
+class="cmmi-7">p</span></sub> = <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">Ψ </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ϕ</span>, where
+<span 
+class="cmsy-10">𝒥 </span>= [(<span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">𝜃</span>) <span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">ϕ</span>]<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup>.
                                                                                 
 
                                                                                 
-   <!--l. 2777--><div class="crosslinks"><p class="noindent">[<a 
+</p><!--l. 2542--><p class="indent" >   In most papers that use the model tokamak magnetic ﬁeld, the toroidal ﬁeld function
+<span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">ψ</span>) is always chosen to be a constant. The <span 
+class="cmmi-10">q </span>proﬁle can be chosen to be any form that we
+prefer.
+</p><!--l. 2546--><p class="indent" >   A typical magnetic surface shape used in simulations is the Miller shape, which is given
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x44-60003r220"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium294x.png" alt="R (r,𝜃) = R0 (r)+ r cos[𝜃+ (sin−1δ(r))sin𝜃]
+Z (r,𝜃) = κ(r)rsin 𝜃
+" class="math-display"  /></center></td><td class="equation-label">(220)</td></tr></table>
+<!--l. 2554--><p class="nopar" >
+where <span 
+class="cmmi-10">r </span>= <span 
+class="cmmi-10">ψ </span>is the radial coordinate, <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmmi-10">r</span>), <span 
+class="cmmi-10">δ</span>(<span 
+class="cmmi-10">r</span>), and <span 
+class="cmmi-10">κ</span><sub><span 
+class="cmmi-7">r</span></sub>(<span 
+class="cmmi-10">r</span>) are the Shafronov shift, triangularity, and
+elongation proﬁles, which can be arbitrarily speciﬁed. For the special case of <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub> being a constant,
+<span 
+class="cmmi-10">δ</span>(<span 
+class="cmmi-10">r</span>) = 0, and <span 
+class="cmmi-10">κ</span>(<span 
+class="cmmi-10">r</span>) = 1, this shape reduces to a concentric-circular magnetic ﬁeld. An example of
+calculating the poloidal ﬁeld of the model ﬁeld is given in Sec. <span 
+class="cmbx-10">??</span>. This kind of model ﬁeld can be
+called theoretical physicists’ tokamak. Computational physicists often use this model for
+code benchmarking purpose. The famous DIII-D cyclone base case is an example, which
+was extensively used for benchmarking gyrokinetic simulation of ion temperature driven
+turbulence.
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 2566--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse9.html" >next</a>] [<a 
 href="tokamak_equilibriumse7.html" >prev</a>] [<a 
 href="tokamak_equilibriumse7.html#tailtokamak_equilibriumse7.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumse8.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse8.html" >up</a>] </p></div>
-<!--l. 2777--><p class="indent" >   <a 
+<!--l. 2566--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse8.html"></a> </p> 
 </body></html> 

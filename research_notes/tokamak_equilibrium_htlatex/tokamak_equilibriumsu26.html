@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Metric tensor for general coordinate system</title> 
+<head><title>Gradient and directional derivative in general coordinates (ψ,𝜃,ζ)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,496 +13,89 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1384--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1317--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu27.html" >next</a>] [<a 
 href="tokamak_equilibriumsu25.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu25.html#tailtokamak_equilibriumsu25.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu26.html">tail</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu26.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.8   </span> <a 
- id="x31-380004.8"></a>Metric tensor for general coordinate system</h4>
-<!--l. 1386--><p class="noindent" >Consider a general coordinate system (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>). I deﬁne the metric tensor as the transformation matrix
-between the covariant basis vectors and the contravariant ones. Equations (<a 
-href="tokamak_equilibriumsu20.html#x25-32009r87">87<!--tex4ht:ref: 11-18-1 --></a>) and (<a 
-href="tokamak_equilibriumsu20.html#x25-32010r88">88<!--tex4ht:ref: 20-10-15-a1 --></a>) express the
-relation between the two sets of basis vectors using cross product. Next, let us express the relation in
-matrix from. To obtain the metric matrix, we write the contrariant basis vectors in terms of the
-covariant ones, such as
+   <h4 class="subsectionHead"><span class="titlemark">4.5   </span> <a 
+ id="x31-380004.5"></a>Gradient and directional derivative in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</h4>
+<!--l. 1319--><p class="noindent" >The gradient of a scalar function <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) is readily calculated from the chain rule,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x31-38001r115"></a>
+ id="x31-38001r102"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium163x.png" alt="      1            2             3
-∇ψ = a 𝒥 ∇𝜃× ∇ ζ + a 𝒥 ∇ζ × ∇ψ + a 𝒥∇ ψ × ∇𝜃.
-" class="math-display"  /></center></td><td class="equation-label">(115)</td></tr></table>
-<!--l. 1397--><p class="nopar" >
-Taking the scalar product respectively with <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ</span>, <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃</span>, and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ</span>, Eq. (<a 
-href="#x31-38001r115">115<!--tex4ht:ref: 3-18-a1 --></a>) is written as
+src="tokamak_equilibrium152x.png" alt="∇f =  ∂f∇ ψ + ∂f∇ 𝜃+ ∂f-∇ζ.
+      ∂ψ      ∂𝜃     ∂ ζ
+" class="math-display"  /></center></td><td class="equation-label">(102)</td></tr></table>
+<!--l. 1325--><p class="nopar" >
+Note that the gradient of a scalar function is in the covariant representation. The inverse form of this
+expression is obtained by dotting the above equation respectively by the three contravariant basis
+vectors, yielding
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x31-38002r116"></a>
+ id="x31-38002r103"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium164x.png" alt="a1 = |∇ψ |2,
-" class="math-display"  /></center></td><td class="equation-label">(116)</td></tr></table>
-<!--l. 1402--><p class="nopar" >
+src="tokamak_equilibrium153x.png" alt="∂f                     ∂r
+∂ψ-= (𝒥 ∇𝜃 ×∇ ζ)⋅∇f =  ∂ψ-⋅∇f
+" class="math-display"  /></center></td><td class="equation-label">(103)</td></tr></table>
+<!--l. 1333--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x31-38003r117"></a>
+ id="x31-38003r104"></a>
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium165x.png" alt=" 2
-a = ∇ ψ⋅∇ 𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(117)</td></tr></table>
-<!--l. 1405--><p class="nopar" >
+src="tokamak_equilibrium154x.png" alt="∂f                     ∂r
+---= (𝒥 ∇ζ ×∇ ψ)⋅∇f  = ---⋅∇f
+∂𝜃                     ∂𝜃
+" class="math-display"  /></center></td><td class="equation-label">(104)</td></tr></table>
+<!--l. 1338--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x31-38004r118"></a>
+ id="x31-38004r105"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium166x.png" alt="a3 = ∇ ψ⋅∇ ζ.
-" class="math-display"  /></center></td><td class="equation-label">(118)</td></tr></table>
-<!--l. 1408--><p class="nopar" >
-Similarly, we write
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38005r119"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium167x.png" alt="∇ 𝜃 = b1𝒥∇ 𝜃× ∇ ζ + b2𝒥∇ ζ × ∇ ψ + b3𝒥 ∇ψ × ∇ 𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(119)</td></tr></table>
-<!--l. 1414--><p class="nopar" >
-Taking the scalar product with <span 
+src="tokamak_equilibrium155x.png" alt="∂f                     ∂r
+∂ζ-= (𝒥 ∇ψ × ∇𝜃)⋅∇f  = ∂ζ-⋅∇f
+" class="math-display"  /></center></td><td class="equation-label">(105)</td></tr></table>
+<!--l. 1343--><p class="nopar" >
+Using Eq. (<a 
+href="#x31-38001r102">102<!--tex4ht:ref: 5-6-5 --></a>), the directional derivative in the direction of <span 
 class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ</span>, <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃</span>, and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ</span>, respectively, the above becomes
+class="cmmi-10">ψ </span>is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x31-38006r120"></a>
-                                                                                
-
-                                                                                
+ id="x31-38005r106"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium168x.png" alt=" 1
-b = ∇ 𝜃⋅∇ ψ
-" class="math-display"  /></center></td><td class="equation-label">(120)</td></tr></table>
-<!--l. 1419--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38007r121"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium169x.png" alt="b2 = |∇𝜃|2,
-" class="math-display"  /></center></td><td class="equation-label">(121)</td></tr></table>
-<!--l. 1422--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38008r122"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium170x.png" alt="b3 = ∇ 𝜃⋅∇ ζ.
-" class="math-display"  /></center></td><td class="equation-label">(122)</td></tr></table>
-<!--l. 1425--><p class="nopar" >
-The same situation applies for the <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ </span>basis vector,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38009r123"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium171x.png" alt="      1            2            3
-∇ ζ = c ∇𝜃 × ∇ζ𝒥 + c ∇ζ × ∇ψ 𝒥 + c∇ ψ × ∇𝜃𝒥 ,
-" class="math-display"  /></center></td><td class="equation-label">(123)</td></tr></table>
-<!--l. 1431--><p class="nopar" >
-Taking the scalar product with <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ</span>, <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃</span>, and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ</span>, respectively, the above equation becomes
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38010r124"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium172x.png" alt="c1 = ∇ ζ ⋅∇ ψ
-" class="math-display"  /></center></td><td class="equation-label">(124)</td></tr></table>
-<!--l. 1436--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38011r125"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium173x.png" alt="c2 = ∇ ζ ⋅∇ 𝜃
-" class="math-display"  /></center></td><td class="equation-label">(125)</td></tr></table>
-<!--l. 1439--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38012r126"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium174x.png" alt=" 3      2
-c = |∇ ζ|
-" class="math-display"  /></center></td><td class="equation-label">(126)</td></tr></table>
-<!--l. 1442--><p class="nopar" >
-Summarizing the above results in matrix form, we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38013r127"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium175x.png" alt="(  ∇ψ )    (  |∇ψ |2   ∇ ψ⋅∇ 𝜃  ∇ψ ⋅∇ ζ ) ( ∇ 𝜃× ∇ ζ𝒥  )
-(  ∇𝜃 )  = ( ∇ 𝜃⋅∇ ψ   |∇𝜃|2   ∇ 𝜃⋅∇ζ  ) ( ∇ ζ × ∇ ψ𝒥 )
-   ∇ζ        ∇ ζ ⋅∇ ψ ∇ ζ ⋅∇ 𝜃  |∇ ζ|2      ∇ ψ× ∇ 𝜃𝒥
-" class="math-display"  /></center></td><td class="equation-label">(127)</td></tr></table>
-<!--l. 1461--><p class="nopar" >
-Similarly, to convert contravariant basis vector to covariant one, we write
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38014r128"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium176x.png" alt="∇𝜃 × ∇ζ𝒥 = d1∇ ψ+ d2∇ 𝜃+ d3∇ ζ
-" class="math-display"  /></center></td><td class="equation-label">(128)</td></tr></table>
-<!--l. 1466--><p class="nopar" >
-Taking the scalar product respectively with <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃 </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">ζ</span><span 
-class="cmsy-10">𝒥 </span>, <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">ψ</span><span 
-class="cmsy-10">𝒥 </span>, and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">𝜃</span><span 
-class="cmsy-10">𝒥 </span>, the above
-equation becomes
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38015r129"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium177x.png" alt="            2  2
-d1 = |∇ 𝜃× ∇ ζ|𝒥
-" class="math-display"  /></center></td><td class="equation-label">(129)</td></tr></table>
-<!--l. 1472--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38016r130"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium178x.png" alt="d = (∇ 𝜃× ∇ ζ𝒥)⋅(∇ ζ × ∇ ψ𝒥)
- 2
-" class="math-display"  /></center></td><td class="equation-label">(130)</td></tr></table>
-<!--l. 1476--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38017r131"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium179x.png" alt="d3 = (∇ 𝜃× ∇ ζ𝒥)⋅(∇ ψ× ∇ 𝜃𝒥)
-" class="math-display"  /></center></td><td class="equation-label">(131)</td></tr></table>
-<!--l. 1480--><p class="nopar" >
-For the second contravariant basis vector
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38018r132"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium180x.png" alt="∇ϕ × ∇ψ 𝒥 = e1∇ ψ + e2∇ 𝜃+ e3∇ ζ
-" class="math-display"  /></center></td><td class="equation-label">(132)</td></tr></table>
-<!--l. 1485--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38019r133"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium181x.png" alt="e  = (∇ ζ × ∇ ψ)⋅(∇ 𝜃× ∇ ζ)𝒥 2
- 1
-" class="math-display"  /></center></td><td class="equation-label">(133)</td></tr></table>
-<!--l. 1489--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38020r134"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium182x.png" alt="e2 = (∇ ζ × ∇ ψ)⋅(∇ ζ × ∇ψ )𝒥 2
-" class="math-display"  /></center></td><td class="equation-label">(134)</td></tr></table>
-<!--l. 1493--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38021r135"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium183x.png" alt="                          2
-e3 = (∇ ζ × ∇ ψ)⋅(∇ ψ× ∇ 𝜃)𝒥
-" class="math-display"  /></center></td><td class="equation-label">(135)</td></tr></table>
-<!--l. 1497--><p class="nopar" >
-For the third contravariant basis vector
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38022r136"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium184x.png" alt="∇ψ × ∇𝜃𝒥  = f∇ ψ + f∇ 𝜃+ f ∇ ζ
-             1      2     3
-" class="math-display"  /></center></td><td class="equation-label">(136)</td></tr></table>
-<!--l. 1502--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38023r137"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium185x.png" alt="f1 = (∇ψ × ∇𝜃)⋅(∇ 𝜃× ∇ ζ)𝒥 2
-" class="math-display"  /></center></td><td class="equation-label">(137)</td></tr></table>
-<!--l. 1506--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38024r138"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium186x.png" alt="                          2
-f2 = (∇ ψ × ∇𝜃)⋅(∇ ζ × ∇ψ )𝒥
-" class="math-display"  /></center></td><td class="equation-label">(138)</td></tr></table>
-<!--l. 1510--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38025r139"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium187x.png" alt="f  = (∇ ψ × ∇𝜃)⋅(∇ ψ× ∇ 𝜃)𝒥 2
- 3
-" class="math-display"  /></center></td><td class="equation-label">(139)</td></tr></table>
-<!--l. 1514--><p class="nopar" >
-Summarizing these results, we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-38026r140"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium188x.png" alt="(            )      (     )
-   ∇ 𝜃× ∇ ζ𝒥           ∇ψ
-(  ∇ ζ × ∇ψ 𝒥 ) = M (  ∇𝜃 ) ,
-   ∇ ψ× ∇ 𝜃𝒥           ∇ζ
-" class="math-display"  /></center></td><td class="equation-label">(140)</td></tr></table>
-<!--l. 1526--><p class="nopar" >
-where
-</p>
-   <table 
-class="equation-star"><tr><td>
-                                                                                
-
-                                                                                
-<span 
-class="cmmi-10">M </span>= <img 
-src="tokamak_equilibrium189x.png" alt="(                                                                         )
-        |∇ 𝜃× ∇ ζ|2𝒥 2       (∇𝜃 × ∇ζ)⋅(∇ ζ × ∇ψ )𝒥 2 (∇ 𝜃× ∇ζ) ⋅(∇ ψ ×∇ 𝜃)𝒥2
-(  (∇ζ ×∇ ψ)⋅(∇ 𝜃× ∇ ζ)𝒥 2  (∇ ζ × ∇ ψ)⋅(∇ ζ × ∇ ψ)𝒥2 (∇ζ × ∇ψ )⋅(∇ ψ × ∇𝜃)𝒥 2)
-   (∇ψ × ∇𝜃)⋅(∇ 𝜃× ∇ ζ)𝒥 2  (∇ ψ × ∇𝜃)⋅(∇ ζ × ∇ ψ)𝒥2 (∇ψ × ∇ 𝜃)⋅(∇ ψ × ∇𝜃)𝒥 2"  class="left" align="middle" /><span 
-class="cmmi-10">,</span>
-</td></tr></table>
-<!--l. 1541--><p class="nopar" >
-This matrix and the matrix in Eqs. (<a 
-href="#x31-38013r127">127<!--tex4ht:ref: 7-10-1 --></a>) should be the inverse of each other. It is ready to prove this
-by directly calculating the product of the two matrix.
-</p><!--l. 1547--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">4.8.1   </span> <a 
- id="x31-390004.8.1"></a>Special case: metric tensor for (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system</h5>
-<!--l. 1549--><p class="noindent" >Suppose that (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) are arbitrary general coordinates except that <span 
-class="cmmi-10">ϕ </span>is the usual toroidal angle in
-cylindrical coordinates. Then <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ϕ </span>= 1<span 
-class="cmmi-10">∕R</span><img 
-src="tokamak_equilibrium190x.png" alt="ˆϕ"  class="circ"  /> is perpendicular to both <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span>and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃</span>. Using this, Eq. (<a 
-href="#x31-38013r127">127<!--tex4ht:ref: 7-10-1 --></a>) is
-simpliﬁed to
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-39001r141"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium191x.png" alt="(      )   (                        ) (            )
-   ∇ψ          |∇ ψ|2  ∇ ψ ⋅∇𝜃    0       ∇ 𝜃× ∇ϕ 𝒥
-(  ∇ 𝜃 ) = (  ∇ψ ⋅∇𝜃   |∇ 𝜃|2     0  ) (  ∇ϕ × ∇ψ 𝒥 )
-   ∇ ϕ          0        0     1∕R2      ∇ψ × ∇ 𝜃𝒥
-" class="math-display"  /></center></td><td class="equation-label">(141)</td></tr></table>
-<!--l. 1567--><p class="nopar" >
-Similarly, Eq. (<a 
-href="#x31-38026r140">140<!--tex4ht:ref: 9-5-e1m --></a>) is simpliﬁed to
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-39002r142"></a>
-   <center class="math-display" >
-                                                                                
-
-                                                                                
-<img 
-src="tokamak_equilibrium192x.png" alt="(            )   (                                     ) (      )
-   ∇𝜃 × ∇ϕ𝒥           |∇ 𝜃|2𝒥 2∕R2    − ∇ 𝜃⋅∇ ψ𝒥 2∕R2  0      ∇ψ
-(  ∇ϕ × ∇ψ 𝒥 ) = (  − ∇ ψ ⋅∇𝜃𝒥 2∕R2   |∇ ψ|2𝒥 2∕R2     0 ) (  ∇ 𝜃 )
-   ∇ψ × ∇𝜃𝒥                0              0         R2      ∇ϕ
-" class="math-display"  /></center></td><td class="equation-label">(142)</td></tr></table>
-<!--l. 1585--><p class="nopar" >
-[Note that the matrix in Eqs. (<a 
-href="#x31-39001r141">141<!--tex4ht:ref: 4-13-p3 --></a>) and (<a 
-href="#x31-39002r142">142<!--tex4ht:ref: 4-13-p4 --></a>) should be the inverse of each other. The product of the
-two matrix,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-39003r143"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium193x.png" alt="(       2 2   2             2   2     ) (                        )
-    |∇ 𝜃| 𝒥 ∕R     − ∇ 𝜃⋅2∇ψ 𝒥 ∕R    0       |∇ψ |2   ∇ ψ⋅∇ 𝜃   0
-( − ∇ ψ⋅∇ 𝜃𝒥2∕R2      𝒥R2|∇ψ |2      0  ) ( ∇ ψ ⋅∇𝜃   |∇𝜃|2    0   ) ,
-         0               0        R2         0        0     1∕R2
-" class="math-display"  /></center></td><td class="equation-label">(143)</td></tr></table>
-<!--l. 1600--><p class="nopar" >
-can be calculated to give
-</p>
-   <table 
-class="equation-star"><tr><td>
-                                 <img 
-src="tokamak_equilibrium194x.png" alt="(  A   0  0 )
-(  0  A   0 )
-   0   0  1"  class="left" align="middle" /><span 
-class="cmmi-10">,</span>
-</td></tr></table>
-<!--l. 1606--><p class="nopar" >
-where
-</p>
-   <table 
-class="equation-star"><tr><td>
-                                                                                
-
-                                                                                
-                       <span 
-class="cmmi-10">A </span>= <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">𝜃</span><span 
-class="cmsy-10">|</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">ψ</span><span 
-class="cmsy-10">|</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmsy-10">𝒥</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">∕R</span><sup><span 
-class="cmr-7">2</span></sup> <span 
-class="cmsy-10">− </span>(<span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃 </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">ψ</span>)<sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmsy-10">𝒥</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">.</span>
-</td></tr></table>
-<!--l. 1609--><p class="nopar" >
-By using the deﬁnition of the Jacobian in Eq. (<a 
-href="tokamak_equilibriumsu19.html#x24-31006r77">77<!--tex4ht:ref: 10-21-p4 --></a>), it is easy to verify that <span 
-class="cmmi-10">A </span>= 1, i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-39004r144"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium195x.png" alt="                         2
-|∇𝜃|2|∇ ψ|2 − (∇𝜃 ⋅∇ ψ)2 = R2,
-                        𝒥
-" class="math-display"  /></center></td><td class="equation-label">(144)</td></tr></table>
-<!--l. 1615--><p class="nopar" >
-]
+src="tokamak_equilibrium156x.png" alt="               ∂f           ∂f            ∂f
+∇ ψ ⋅∇f = |∇ ψ|2∂ψ-+ (∇𝜃 ⋅∇ψ)-∂𝜃 + (∇ ζ ⋅∇ ψ)∂ζ.
+" class="math-display"  /></center></td><td class="equation-label">(106)</td></tr></table>
+<!--l. 1350--><p class="nopar" >
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1618--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1352--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu27.html" >next</a>] [<a 
 href="tokamak_equilibriumsu25.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu25.html#tailtokamak_equilibriumsu25.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu26.html" >front</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu26.html" >up</a>] </p></div>
-<!--l. 1618--><p class="indent" >   <a 
- id="tailtokamak_equilibriumsu26.html"></a>  </p> 
+<!--l. 1352--><p class="indent" >   <a 
+ id="tailtokamak_equilibriumsu26.html"></a> </p> 
 </body></html> 

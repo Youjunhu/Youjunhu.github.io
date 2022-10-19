@@ -18,292 +18,177 @@
                                                                                 
 
                                                                                 
+   <a 
+ id="likesection.1"></a><a 
+ id="x1-2r1"></a>
+                                                                                
+
+                                                                                
                                                                                 
 
                                                                                 
 
 <h2 class="titleHead">Notes on tokamak equilibrium</h2>
-                       <div class="author" > <span 
-class="cmr-12">Youjun Hu</span>
-<br /><span 
-class="cmr-12">Institute of Plasma Physics, Chinese Academy of Sciences</span>
-<br />                 <span 
-class="cmr-12">Email: yjhu@ipp.cas.cn </span></div><br />
-<div class="date" ><span 
-class="cmr-12">April 28, 2021</span></div>
-   </div>
+<div class="author" >Youjun Hu<span 
+class="cmr-7">1</span></div>
+<div class="institute"> <span 
+class="cmr-9">Institute of Plasma Physics, Chinese Academy of Sciences</span><br />
+<span 
+class="cmr-9">Email: yjhu@ipp.cas.cn </span></div>
+<div class="thanks" ><br /><a 
+ id="tk-1"></a><span class="thank-mark"><span 
+class="cmmi-10">⋆</span></span><span 
+class="cmti-10">Note: </span>This document has been written using GNU TE X<span 
+class="cmcsc-10"><span 
+class="small-caps">m</span><span 
+class="small-caps">a</span><span 
+class="small-caps">c</span><span 
+class="small-caps">s</span></span> <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>.</div><a 
+ id="Q1-1-1"></a><a 
+ id="Q1-1-2"></a></div>
    <div 
 class="abstract" 
 >
-<div class="center" 
->
-<!--l. 28--><p class="noindent" >
-</p><!--l. 28--><p class="noindent" ><span 
-class="cmbx-9">Abstract</span></p></div>
-     <!--l. 29--><p class="indent" >    <span 
-class="cmr-9">Axisymmetric equilibrium magnetic ﬁeld of a tokamak is the basis for real-time plasma</span>
      <span 
-class="cmr-9">control and analysis of stability and transport. These are my notes when learning tokamak</span>
+class="cmbx-9">Abstract.</span> <span 
+class="cmr-9">A routine in operating a tokamake is to reconstruct axisymmetirc poloidal</span>
      <span 
-class="cmr-9">equilibrium theory. To test what I have learned, I have developed two numerical codes,</span>
+class="cmr-9">magnetic  ﬁeld  under  the  constraints  of  MHD  force  balance  and  various  magnetic</span>
      <span 
-class="cmr-9">one of which constructs a ﬂux coordinate system with a desired form of Jacobian by using</span>
+class="cmr-9">measurements. This kind of task can be done by various codes, e.g., EFIT. Another routine</span>
      <span 
-class="cmr-9">discrete numerical equilibrium data output by the EFIT code, another of which solves the</span>
+class="cmr-9">in analsing the tokamak discharge is to constructs a coordinate system, based on the 2D</span>
      <span 
-class="cmr-9">ﬁxed boundary Grad-Shafranov equation in a general coordinate system. These notes serve</span>
+class="cmr-9">equilibrium magnetic ﬁeld, with a desired form of Jacobian by using discrete numerical</span>
      <span 
-class="cmr-9">as a document for the codes. These notes are evolving and are written for my own record</span>
+class="cmr-9">equilibrium data output by the equilibrium reconstructing codes. These are my notes when</span>
      <span 
-class="cmr-9">(which means that something might be very wrong). Email me if you have any comments.</span>
-</p>
+class="cmr-9">learning tokamak equilibrium theory. </span><span 
+class="cmr-9"> These notes are evolving and are written for my</span>
+     <span 
+class="cmr-9">own record. I have been keeping revising these notes for more than 10 years, which I enjoy,</span>
+     <span 
+class="cmr-9">and these notes are still unﬁnished.</span>
 </div>
    <div class="tableofcontents">
-   <span class="sectionToc" >1 <a 
-href="tokamak_equilibriumse1.html#x2-10001" id="QQ2-2-1"> Axisymmetric magnetic ﬁeld</a></span>
-<br />    <span class="subsectionToc" >1.1 <a 
-href="tokamak_equilibriumsu1.html#x3-20001.1" id="QQ2-3-2">Gauge transformation of Ψ</a></span>
-<br />    <span class="subsectionToc" >1.2 <a 
-href="tokamak_equilibriumsu2.html#x4-30001.2" id="QQ2-4-3">Contours of Ψ in the poloidal plane</a></span>
-<br />    <span class="subsectionToc" >1.3 <a 
-href="tokamak_equilibriumsu3.html#x5-40001.3" id="QQ2-5-4">Magnetic surfaces</a></span>
-<br />    <span class="subsectionToc" >1.4 <a 
-href="tokamak_equilibriumsu4.html#x6-50001.4" id="QQ2-6-6">Relation of Ψ with the poloidal magnetic ﬂux</a></span>
-<br />    <span class="subsectionToc" >1.5 <a 
-href="tokamak_equilibriumsu5.html#x7-60001.5" id="QQ2-7-8">Measurement of poloidal magnetic ﬂux</a></span>
-<br />    <span class="subsectionToc" >1.6 <a 
-href="tokamak_equilibriumsu6.html#x8-70001.6" id="QQ2-8-9">Closed magnetic surfaces in tokamak</a></span>
-<br />    <span class="subsectionToc" >1.7 <a 
-href="tokamak_equilibriumsu7.html#x9-90001.7" id="QQ2-9-13">Safety factor</a></span>
-<br />    <span class="subsectionToc" >1.8 <a 
-href="tokamak_equilibriumsu8.html#x10-140001.8" id="QQ2-10-19">Non-axisymmetric magnetic perturbations</a></span>
-<br />   <span class="sectionToc" >2 <a 
-href="tokamak_equilibriumse2.html#x11-150002" id="QQ2-11-20">Plasma current density in terms of Ψ and <span 
+    <span class="sectionToc" >1 <a 
+href="tokamak_equilibriumse1.html#x2-10001" id="QQ2-2-3"> Axisymmetric magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >1.1 <a 
+href="tokamak_equilibriumsu1.html#x3-20001.1" id="QQ2-3-4">Poloidal magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >1.2 <a 
+href="tokamak_equilibriumsu2.html#x4-30001.2" id="QQ2-4-5">Toroidal magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >1.3 <a 
+href="tokamak_equilibriumsu3.html#x5-40001.3" id="QQ2-5-6">General form of axisymmetric magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >1.4 <a 
+href="tokamak_equilibriumsu4.html#x6-50001.4" id="QQ2-6-7">Gauge transformation of <span 
+class="cmmi-10">Ψ</span></a></span>
+<br />     <span class="subsectionToc" >1.5 <a 
+href="tokamak_equilibriumsu5.html#x7-60001.5" id="QQ2-7-8">Contours of <span 
+class="cmmi-10">Ψ </span>in the poloidal plane</a></span>
+<br />     <span class="subsectionToc" >1.6 <a 
+href="tokamak_equilibriumsu6.html#x8-70001.6" id="QQ2-8-9">Magnetic surfaces</a></span>
+<br />     <span class="subsectionToc" >1.7 <a 
+href="tokamak_equilibriumsu7.html#x9-80001.7" id="QQ2-9-11">Relation of <span 
+class="cmmi-10">Ψ </span>with the poloidal magnetic ﬂux</a></span>
+<br />     <span class="subsectionToc" >1.8 <a 
+href="tokamak_equilibriumsu8.html#x10-90001.8" id="QQ2-10-13">Measurement of poloidal magnetic ﬂux</a></span>
+<br />     <span class="subsectionToc" >1.9 <a 
+href="tokamak_equilibriumsu9.html#x11-100001.9" id="QQ2-11-14">Closed magnetic surfaces in tokamak</a></span>
+<br />     <span class="subsectionToc" >1.10 <a 
+href="tokamak_equilibriumsu10.html#x12-120001.10" id="QQ2-12-18">Safety factor</a></span>
+<br />     <span class="subsectionToc" >1.11 <a 
+href="tokamak_equilibriumsu11.html#x13-170001.11" id="QQ2-13-24">Non-axisymmetric magnetic perturbations</a></span>
+<br />    <span class="sectionToc" >2 <a 
+href="tokamak_equilibriumse2.html#x14-180002" id="QQ2-14-25">Plasma current density in terms of <span 
+class="cmmi-10">Ψ </span>and <span 
 class="cmmi-10">g</span></a></span>
-<br />    <span class="subsectionToc" >2.1 <a 
-href="tokamak_equilibriumsu9.html#x12-160002.1" id="QQ2-12-21">Poloidal current density</a></span>
+<br />     <span class="subsectionToc" >2.1 <a 
+href="tokamak_equilibriumsu12.html#x15-190002.1" id="QQ2-15-26">Poloidal current density</a></span>
+<br />     <span class="subsectionToc" >2.2 <a 
+href="tokamak_equilibriumsu13.html#x16-200002.2" id="QQ2-16-27">Toroidal current density</a></span>
+<br />    <span class="sectionToc" >3 <a 
+href="tokamak_equilibriumse3.html#x17-210003" id="QQ2-17-28">Constraint of force-balance on magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >3.1 <a 
+href="tokamak_equilibriumsu14.html#x18-220003.1" id="QQ2-18-29">MHD momentum equation</a></span>
+<br />     <span class="subsectionToc" >3.2 <a 
+href="tokamak_equilibriumsu15.html#x19-230003.2" id="QQ2-19-30">Force balance equation in tokamak plasmas: Grad-Shafranov equation</a></span>
+<br />     <span class="subsectionToc" >3.3 <a 
+href="tokamak_equilibriumsu16.html#x20-270003.3" id="QQ2-20-34">Axisymmetric equilibrium magnetic ﬁeld</a></span>
+<br />     <span class="subsectionToc" >3.4 <a 
+href="tokamak_equilibriumsu17.html#x21-280003.4" id="QQ2-21-35">Axisymmetric equilibrium current density</a></span>
                                                                                 
 
                                                                                 
-<br />    <span class="subsectionToc" >2.2 <a 
-href="tokamak_equilibriumsu10.html#x13-170002.2" id="QQ2-13-22">Toroidal current density</a></span>
-<br />   <span class="sectionToc" >3 <a 
-href="tokamak_equilibriumse3.html#x14-180003" id="QQ2-14-23">Constraint of force-balance on axisymmetric magnetic ﬁeld</a></span>
-<br />    <span class="subsectionToc" >3.1 <a 
-href="tokamak_equilibriumsu11.html#x15-190003.1" id="QQ2-15-24">MHD momentum equation</a></span>
-<br />    <span class="subsectionToc" >3.2 <a 
-href="tokamak_equilibriumsu12.html#x16-200003.2" id="QQ2-16-25">Force balance equation in tokamak plasmas: Grad-Shafranov equation</a></span>
-<br />    <span class="subsectionToc" >3.3 <a 
-href="tokamak_equilibriumsu13.html#x17-240003.3" id="QQ2-17-29">Axisymmetric equilibrium magnetic ﬁeld</a></span>
-<br />    <span class="subsectionToc" >3.4 <a 
-href="tokamak_equilibriumsu14.html#x18-250003.4" id="QQ2-18-30">Axisymmetric equilibrium current density</a></span>
-<br />    <span class="subsectionToc" >3.5 <a 
-href="tokamak_equilibriumsu15.html#x19-260003.5" id="QQ2-19-31">Vacuum solution of the GS equation</a></span>
-<br />    <span class="subsectionToc" >3.6 <a 
-href="tokamak_equilibriumsu16.html#x20-270003.6" id="QQ2-20-32">Equilibrium scaling</a></span>
-<br />    <span class="subsectionToc" >3.7 <a 
-href="tokamak_equilibriumsu17.html#x21-280003.7" id="QQ2-21-33">Free boundary equilibrium problem</a></span>
-<br />    <span class="subsectionToc" >3.8 <a 
-href="tokamak_equilibriumsu18.html#x22-290003.8" id="QQ2-22-34">Fixed boundary equilibrium problem</a></span>
-<br />   <span class="sectionToc" >4 <a 
-href="tokamak_equilibriumse4.html#x23-300004" id="QQ2-23-35">Curvilinear coordinate system</a></span>
-<br />    <span class="subsectionToc" >4.1 <a 
-href="tokamak_equilibriumsu19.html#x24-310004.1" id="QQ2-24-36">Coordinates transformation and Jacobian</a></span>
-<br />    <span class="subsectionToc" >4.2 <a 
-href="tokamak_equilibriumsu20.html#x25-320004.2" id="QQ2-25-37">Orthogonality relation between two sets of basis vectors</a></span>
-<br />    <span class="subsectionToc" >4.3 <a 
-href="tokamak_equilibriumsu21.html#x26-330004.3" id="QQ2-26-38">An example: (<span 
+<br />     <span class="subsectionToc" >3.5 <a 
+href="tokamak_equilibriumsu18.html#x22-290003.5" id="QQ2-22-36">Vacuum magnetic ﬁeld (not ﬁnished)</a></span>
+<br />     <span class="subsectionToc" >3.6 <a 
+href="tokamak_equilibriumsu19.html#x23-300003.6" id="QQ2-23-37">Equilibrium scaling</a></span>
+<br />     <span class="subsectionToc" >3.7 <a 
+href="tokamak_equilibriumsu20.html#x24-310003.7" id="QQ2-24-38">Free boundary equilibrium problem</a></span>
+<br />     <span class="subsectionToc" >3.8 <a 
+href="tokamak_equilibriumsu21.html#x25-320003.8" id="QQ2-25-39">Fixed boundary equilibrium problem</a></span>
+<br />    <span class="sectionToc" >4 <a 
+href="tokamak_equilibriumse4.html#x26-330004" id="QQ2-26-40">Curvilinear coordinate system</a></span>
+<br />     <span class="subsectionToc" >4.1 <a 
+href="tokamak_equilibriumsu22.html#x27-340004.1" id="QQ2-27-41">Coordinates transformation</a></span>
+<br />     <span class="subsectionToc" >4.2 <a 
+href="tokamak_equilibriumsu23.html#x28-350004.2" id="QQ2-28-42">Jacobian</a></span>
+<br />     <span class="subsectionToc" >4.3 <a 
+href="tokamak_equilibriumsu24.html#x29-360004.3" id="QQ2-29-43">Orthogonality relation between two sets of basis vectors</a></span>
+<br />     <span class="subsectionToc" >4.4 <a 
+href="tokamak_equilibriumsu25.html#x30-370004.4" id="QQ2-30-44">An example: (<span 
 class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</a></span>
-<br />    <span class="subsectionToc" >4.4 <a 
-href="tokamak_equilibriumsu22.html#x27-340004.4" id="QQ2-27-39">Gradient and directional derivative in general coordinates (<span 
+<br />     <span class="subsectionToc" >4.5 <a 
+href="tokamak_equilibriumsu26.html#x31-380004.5" id="QQ2-31-45">Gradient and directional derivative in general coordinates (<span 
 class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
-<br />    <span class="subsectionToc" >4.5 <a 
-href="tokamak_equilibriumsu23.html#x28-350004.5" id="QQ2-28-40">Divergence operator in general coordinates (<span 
+<br />     <span class="subsectionToc" >4.6 <a 
+href="tokamak_equilibriumsu27.html#x32-390004.6" id="QQ2-32-46">Divergence operator in general coordinates (<span 
 class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
-<br />    <span class="subsectionToc" >4.6 <a 
-href="tokamak_equilibriumsu24.html#x29-360004.6" id="QQ2-29-41">Laplacian operator in general coordinates (<span 
+<br />     <span class="subsectionToc" >4.7 <a 
+href="tokamak_equilibriumsu28.html#x33-400004.7" id="QQ2-33-47">Laplacian operator in general coordinates (<span 
 class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
-<br />    <span class="subsectionToc" >4.7 <a 
-href="tokamak_equilibriumsu25.html#x30-370004.7" id="QQ2-30-42">Curl operator in general coordinates (<span 
+<br />     <span class="subsectionToc" >4.8 <a 
+href="tokamak_equilibriumsu29.html#x34-410004.8" id="QQ2-34-48">Curl operator in general coordinates (<span 
 class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
-<br />    <span class="subsectionToc" >4.8 <a 
-href="tokamak_equilibriumsu26.html#x31-380004.8" id="QQ2-31-43">Metric tensor for general coordinate system</a></span>
-<br />    <span class="subsectionToc" >4.9 <a 
-href="tokamak_equilibriumsu27.html#x32-400004.9" id="QQ2-32-45">Covariant/contravariant representation of equilibrium magnetic ﬁeld</a></span>
-<br />   <span class="sectionToc" >5 <a 
-href="tokamak_equilibriumse5.html#x33-410005" id="QQ2-33-46">Magnetic coordinates (<span 
+<br />     <span class="subsectionToc" >4.9 <a 
+href="tokamak_equilibriumsu30.html#x35-420004.9" id="QQ2-35-49">Metric tensor for general coordinate system</a></span>
+<br />    <span class="sectionToc" >5 <a 
+href="tokamak_equilibriumse5.html#x36-440005" id="QQ2-36-51">Covariant/contravariant representation of equilibrium magnetic ﬁeld</a></span>
+<br />    <span class="sectionToc" >6 <a 
+href="tokamak_equilibriumse6.html#x37-450006" id="QQ2-37-52">Magnetic surface coordinates (<span 
 class="cmmi-10">ψ,𝜃,ϕ</span>)</a></span>
-<br />    <span class="subsectionToc" >5.1 <a 
-href="tokamak_equilibriumsu28.html#x34-420005.1" id="QQ2-34-47">Local and global safety factors</a></span>
-<br />    <span class="subsectionToc" >5.2 <a 
-href="tokamak_equilibriumsu29.html#x35-430005.2" id="QQ2-35-48">Relation between Jacobian and poloidal angle <span 
+<br />     <span class="subsectionToc" >6.1 <a 
+href="tokamak_equilibriumsu31.html#x38-460006.1" id="QQ2-38-53">Local and global safety factors</a></span>
+<br />     <span class="subsectionToc" >6.2 <a 
+href="tokamak_equilibriumsu32.html#x39-470006.2" id="QQ2-39-54">Relation between Jacobian and poloidal angle <span 
 class="cmmi-10">𝜃</span></a></span>
-<br />    <span class="subsectionToc" >5.3 <a 
-href="tokamak_equilibriumsu30.html#x36-440005.3" id="QQ2-36-49">Calculating poloidal angle</a></span>
-<br />   <span class="sectionToc" >6 <a 
-href="tokamak_equilibriumse6.html#x37-530006" id="QQ2-37-59">Constructing magnetic surface coordinate system from discrete Ψ(<span 
+<br />     <span class="subsectionToc" >6.3 <a 
+href="tokamak_equilibriumsu33.html#x40-480006.3" id="QQ2-40-55">Calculating poloidal angle</a></span>
+<br />    <span class="sectionToc" >7 <a 
+href="tokamak_equilibriumse7.html#x41-570007" id="QQ2-41-65">Constructing magnetic surface coordinate system from discrete <span 
+class="cmmi-10">Ψ</span>(<span 
 class="cmmi-10">R,Z</span>) data</a></span>
-<br />    <span class="subsectionToc" >6.1 <a 
-href="tokamak_equilibriumsu31.html#x38-540006.1" id="QQ2-38-60">Finding magnetic surfaces</a></span>
-<br />    <span class="subsectionToc" >6.2 <a 
-href="tokamak_equilibriumsu32.html#x39-550006.2" id="QQ2-39-68">Expression of metric elements of magnetic coordinates (<span 
+<br />     <span class="subsectionToc" >7.1 <a 
+href="tokamak_equilibriumsu34.html#x42-580007.1" id="QQ2-42-66">Finding magnetic surfaces</a></span>
+<br />     <span class="subsectionToc" >7.2 <a 
+href="tokamak_equilibriumsu35.html#x43-590007.2" id="QQ2-43-74">Expression of metric elements of magnetic coordinates (<span 
 class="cmmi-10">ψ,𝜃,ϕ</span>)</a></span>
-<br />   <span class="sectionToc" >7 <a 
-href="tokamak_equilibriumse7.html#x40-560007" id="QQ2-40-69">Constructing model tokamak magnetic ﬁeld</a></span>
-<br />   <span class="sectionToc" >8 <a 
-href="tokamak_equilibriumse8.html#x41-570008" id="QQ2-41-70">Magnetic surface averaging</a></span>
-<br />    <span class="subsectionToc" >8.1 <a 
-href="tokamak_equilibriumsu33.html#x42-580008.1" id="QQ2-42-71">Deﬁnition</a></span>
-<br />    <span class="subsectionToc" >8.2 <a 
-href="tokamak_equilibriumsu34.html#x43-590008.2" id="QQ2-43-72">Flux Surface Functions</a></span>
-<br />   <span class="sectionToc" >9 <a 
-href="tokamak_equilibriumse9.html#x44-600009" id="QQ2-44-73">Magnetic coordinates (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>)withgeneral toroidal angle <span 
+<br />    <span class="sectionToc" >8 <a 
+href="tokamak_equilibriumse8.html#x44-600008" id="QQ2-44-75">Constructing model tokamak magnetic ﬁeld</a></span>
+<br />    <span class="sectionToc" >9 <a 
+href="tokamak_equilibriumse9.html#x45-610009" id="QQ2-45-76">Magnetic surface averaging</a></span>
+<br />     <span class="subsectionToc" >9.1 <a 
+href="tokamak_equilibriumsu36.html#x46-620009.1" id="QQ2-46-77">Deﬁnition</a></span>
+<br />     <span class="subsectionToc" >9.2 <a 
+href="tokamak_equilibriumsu37.html#x47-630009.2" id="QQ2-47-78">Flux Surface Functions</a></span>
+<br />    <span class="sectionToc" >10 <a 
+href="tokamak_equilibriumse10.html#x48-6400010" id="QQ2-48-79">Magnetic coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) with general toroidal angle <span 
 class="cmmi-10">ζ</span></a></span>
-<br />    <span class="subsectionToc" >9.1 <a 
-href="tokamak_equilibriumsu35.html#x45-610009.1" id="QQ2-45-74">Deﬁnition of general toroidal angle <span 
+<br />     <span class="subsectionToc" >10.1 <a 
+href="tokamak_equilibriumsu38.html#x49-6500010.1" id="QQ2-49-80">Deﬁnition of general toroidal angle <span 
 class="cmmi-10">ζ</span></a></span>
-<br />    <span class="subsectionToc" >9.2 <a 
-href="tokamak_equilibriumsu36.html#x46-620009.2" id="QQ2-46-75"> Contravariant form of magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</a></span>
-<br />    <span class="subsectionToc" >9.3 <a 
-href="tokamak_equilibriumsu37.html#x47-630009.3" id="QQ2-47-76">Other expressions for magnetic ﬁeld</a></span>
-<br />    <span class="subsectionToc" >9.4 <a 
-href="tokamak_equilibriumsu38.html#x48-640009.4" id="QQ2-48-77">Relation between the partial derivatives in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) and (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</a></span>
-<br />    <span class="subsectionToc" >9.5 <a 
-href="tokamak_equilibriumsu39.html#x49-650009.5" id="QQ2-49-78">Steps to construct a straight-line magnetic coordinate system</a></span>
-<br />    <span class="subsectionToc" >9.6 <a 
-href="tokamak_equilibriumsu40.html#x50-660009.6" id="QQ2-50-79">Form of operator <span 
-class="cmmi-10">B </span><span 
-class="cmsy-10">⋅∇ </span>in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</a></span>
-<br />    <span class="subsectionToc" >9.7 <a 
-href="tokamak_equilibriumsu41.html#x51-670009.7" id="QQ2-51-80">Resonant surface of a perturbation</a></span>
-<br />    <span class="subsectionToc" >9.8 <a 
-href="tokamak_equilibriumsu42.html#x52-680009.8" id="QQ2-52-81">Poloidal angle used in tearing mode theory</a></span>
-<br />    <span class="subsectionToc" >9.9 <a 
-href="tokamak_equilibriumsu43.html#x53-690009.9" id="QQ2-53-82">Covariant form of magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinate system</a></span>
-<br />    <span class="subsectionToc" >9.10 <a 
-href="tokamak_equilibriumsu44.html#x54-700009.10" id="QQ2-54-83">Form of operator (<span 
-class="cmmi-10">B </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">ψ∕B</span><sup><span 
-class="cmr-7">2</span></sup>) <span 
-class="cmsy-10">⋅∇ </span>in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</a></span>
-<br />    <span class="subsectionToc" >9.11 <a 
-href="tokamak_equilibriumsu45.html#x55-710009.11" id="QQ2-55-84">Radial diﬀerential operator</a></span>
-<br />   <span class="sectionToc" >10 <a 
-href="tokamak_equilibriumse10.html#x56-7200010" id="QQ2-56-85">Field-line-following coordinates</a></span>
-<br />    <span class="subsectionToc" >10.1 <a 
-href="tokamak_equilibriumsu46.html#x57-7300010.1" id="QQ2-57-86">Deﬁnition of the ﬁeld-line-following coordinates (<span 
-class="cmmi-10">ψ,𝜃,α</span>)</a></span>
-<br />    <span class="subsectionToc" >10.2 <a 
-href="tokamak_equilibriumsu47.html#x58-7400010.2" id="QQ2-58-87">Field-aligned coordinates in GEM[7] and GENE[13] codes</a></span>
-<br />    <span class="subsectionToc" >10.3 <a 
-href="tokamak_equilibriumsu48.html#x59-7500010.3" id="QQ2-59-88">Visualization of grids in ﬁeld aligned coordinates</a></span>
-<br />    <span class="subsectionToc" >10.4 <a 
-href="tokamak_equilibriumsu49.html#x60-8100010.4" id="QQ2-60-103">Field-line-following mesh in gyrokinetic turbulence simulation codes</a></span>
-<br />    <span class="subsectionToc" >10.5 <a 
-href="tokamak_equilibriumsu50.html#x61-8500010.5" id="QQ2-61-107">Numerical veriﬁcation of the ﬁeld-aligned coordinates</a></span>
-                                                                                
-
-                                                                                
-<br />    <span class="subsectionToc" >10.6 <a 
-href="tokamak_equilibriumsu51.html#x62-8600010.6" id="QQ2-62-109">Some discussions</a></span>
-<br />    <span class="subsectionToc" >10.7 <a 
-href="tokamak_equilibriumsu52.html#x63-8900010.7" id="QQ2-63-114">Expression of current density</a></span>
-<br />   <span class="sectionToc" >11 <a 
-href="tokamak_equilibriumse11.html#x64-9000011" id="QQ2-64-115">Concentric-circular magnetic conﬁguration with given safety factor proﬁle</a></span>
-<br />    <span class="subsectionToc" >11.1 <a 
-href="tokamak_equilibriumsu53.html#x65-9100011.1" id="QQ2-65-116">Is the above <span 
-class="cmbx-10">B</span> divergence-free?</a></span>
-<br />    <span class="subsectionToc" >11.2 <a 
-href="tokamak_equilibriumsu54.html#x66-9200011.2" id="QQ2-66-117">Is the above <span 
-class="cmbx-10">B </span>a solution to the GS equation?</a></span>
-<br />    <span class="subsectionToc" >11.3 <a 
-href="tokamak_equilibriumsu55.html#x67-9300011.3" id="QQ2-67-118">Explicit expression for the generalized toroidal angle</a></span>
-<br />    <span class="subsectionToc" >11.4 <a 
-href="tokamak_equilibriumsu56.html#x68-9400011.4" id="QQ2-68-120">Metric elements</a></span>
-<br />    <span class="subsectionToc" >11.5 <a 
-href="tokamak_equilibriumsu57.html#x69-9500011.5" id="QQ2-69-122">Safety factor proﬁle</a></span>
-<br />   <span class="sectionToc" >12 <a 
-href="tokamak_equilibriumse12.html#x70-9600012" id="QQ2-70-123">Fixed boundary tokamak equilibrium problem</a></span>
-<br />    <span class="subsectionToc" >12.1 <a 
-href="tokamak_equilibriumsu58.html#x71-9700012.1" id="QQ2-71-124">Toroidal elliptic operator in general coordinates</a></span>
-<br />    <span class="subsectionToc" >12.2 <a 
-href="tokamak_equilibriumsu59.html#x72-9800012.2" id="QQ2-72-125">Finite diﬀerence form of toroidal elliptic operator in general coordinate system</a></span>
-<br />    <span class="subsectionToc" >12.3 <a 
-href="tokamak_equilibriumsu60.html#x73-9900012.3" id="QQ2-73-126">Special treatment at coordinate origin, wrong! to be deleted</a></span>
-<br />    <span class="subsectionToc" >12.4 <a 
-href="tokamak_equilibriumsu61.html#x74-10000012.4" id="QQ2-74-127">Pressure and toroidal ﬁeld function proﬁle</a></span>
-<br />    <span class="subsectionToc" >12.5 <a 
-href="tokamak_equilibriumsu62.html#x75-10100012.5" id="QQ2-75-128">Boundary magnetic surface and initial coordinates</a></span>
-<br />    <span class="subsectionToc" >12.6 <a 
-href="tokamak_equilibriumsu63.html#x76-10200012.6" id="QQ2-76-130">Fixed boundary equilibrium numerical code</a></span>
-<br />    <span class="subsectionToc" >12.7 <a 
-href="tokamak_equilibriumsu64.html#x77-10300012.7" id="QQ2-77-132">Benchmark of the code</a></span>
-<br />    <span class="subsectionToc" >12.8 <a 
-href="tokamak_equilibriumsu65.html#x78-10400012.8" id="QQ2-78-134">Low-beta equilibrium vs. high-beta equilibrium</a></span>
-<br />    <span class="subsectionToc" >12.9 <a 
-href="tokamak_equilibriumsu66.html#x79-10500012.9" id="QQ2-79-136">Analytical form of Jacobian (need cleaning up)</a></span>
-<br />    <span class="subsectionToc" >12.10 <a 
-href="tokamak_equilibriumsu67.html#x80-10600012.10" id="QQ2-80-137">Grad-Shafranov equation with prescribed safety factor proﬁle (to be ﬁnished)</a></span>
-<br />   <span class="sectionToc" >13 <a 
-href="tokamak_equilibriumse13.html#x81-10700013" id="QQ2-81-138">Misc contents</a></span>
-<br />    <span class="subsectionToc" >13.1 <a 
-href="tokamak_equilibriumsu68.html#x82-10800013.1" id="QQ2-82-139">Cylindrical tokamak</a></span>
-<br />    <span class="subsectionToc" >13.2 <a 
-href="tokamak_equilibriumsu69.html#x83-10900013.2" id="QQ2-83-140">(<span 
-class="cmmi-10">s,α</span>) parameters</a></span>
-<br />    <span class="subsectionToc" >13.3 <a 
-href="tokamak_equilibriumsu70.html#x84-11000013.3" id="QQ2-84-141">Coils system of EAST tokamak</a></span>
-<br />    <span class="subsectionToc" >13.4 <a 
-href="tokamak_equilibriumsu71.html#x85-11400013.4" id="QQ2-85-147">Comparison of EAST and other tokamaks in the world</a></span>
-<br />    <span class="subsectionToc" >13.5 <a 
-href="tokamak_equilibriumsu72.html#x86-11500013.5" id="QQ2-86-151">Miller’s formula for shaped ﬂux surfaces</a></span>
-<br />    <span class="subsectionToc" >13.6 <a 
-href="tokamak_equilibriumsu73.html#x87-11600013.6" id="QQ2-87-153">Double transport barriers pressure proﬁle</a></span>
-<br />    <span class="subsectionToc" >13.7 <a 
-href="tokamak_equilibriumsu74.html#x88-11700013.7" id="QQ2-88-156">Ballooning transformation</a></span>
-<br />   <span class="sectionToc" >A <a 
-href="tokamak_equilibriumse14.html#x89-118000A" id="QQ2-89-157"></a></span>
-<br />    <span class="subsectionToc" >A.1 <a 
-href="tokamak_equilibriumsu75.html#x90-119000A.1" id="QQ2-90-158">Solovév equilibrium</a></span>
-<br />    <span class="subsectionToc" >A.2 <a 
-href="tokamak_equilibriumsu76.html#x91-120000A.2" id="QQ2-91-160">Plasma rotation</a></span>
-<br />    <span class="subsectionToc" >A.3 <a 
-href="tokamak_equilibriumsu77.html#x92-121000A.3" id="QQ2-92-161">Poloidal plasma current</a></span>
-<br />    <span class="subsectionToc" >A.4 <a 
-href="tokamak_equilibriumsu78.html#x93-122000A.4" id="QQ2-93-162">Eﬃciency of tokamak magnetic ﬁeld in conﬁning plasma: Plasma beta</a></span>
-<br />    <span class="subsectionToc" >A.5 <a 
-href="tokamak_equilibriumsu79.html#x94-123000A.5" id="QQ2-94-163">Beta limit</a></span>
-<br />    <span class="subsectionToc" >A.6 <a 
-href="tokamak_equilibriumsu80.html#x95-124000A.6" id="QQ2-95-164">Why bigger tokamaks with larger plasma current are desired</a></span>
-<br />    <span class="subsectionToc" >A.7 <a 
-href="tokamak_equilibriumsu81.html#x96-125000A.7" id="QQ2-96-165">Density limit</a></span>
-<br />    <span class="subsectionToc" >A.8 <a 
-href="tokamak_equilibriumsu82.html#x97-126000A.8" id="QQ2-97-166">Relation of plasma current density to pressure gradient</a></span>
-<br />    <span class="subsectionToc" >A.9 <a 
-href="tokamak_equilibriumsu83.html#x98-127000A.9" id="QQ2-98-167">Discussion about the poloidal current function, check!</a></span>
-<br />    <span class="subsectionToc" >A.10 <a 
-href="tokamak_equilibriumsu84.html#x99-128000A.10" id="QQ2-99-168">tmp check!</a></span>
-<br />    <span class="subsectionToc" >A.11 <a 
-href="tokamak_equilibriumsu85.html#x100-129000A.11" id="QQ2-100-169">Radial coordinate to be deleted</a></span>
-<br />    <span class="subsectionToc" >A.12 <a 
-href="tokamak_equilibriumsu86.html#x101-130000A.12" id="QQ2-101-171">Toroidal elliptic operator in magnetic surface coordinate system</a></span>
-<br />    <span class="subsectionToc" >A.13 <a 
-href="tokamak_equilibriumsu87.html#x102-131000A.13" id="QQ2-102-172">Grad-Shafranov equation in (<span 
-class="cmmi-10">r,𝜃</span>) coordinates</a></span>
-<br />    <span class="subsectionToc" >A.14 <a 
-href="tokamak_equilibriumsu88.html#x103-132000A.14" id="QQ2-103-174">Large aspect ratio expansion</a></span>
-<br />   <span class="sectionToc" >B <a 
-href="tokamak_equilibriumse15.html#x104-133000B" id="QQ2-104-175">About this document</a></span>
-<br />   <span class="likesectionToc" ><a 
-href="tokamak_equilibriumli1.html#x105-134000B" id="QQ2-105-176">References</a></span>
    </div>
 
 
@@ -311,17 +196,5 @@ href="tokamak_equilibriumli1.html#x105-134000B" id="QQ2-105-176">References</a><
 
 
 
-
-
-
-
-
-
-
-
- 
-</body></html> 
-
-                                                                                
 
 

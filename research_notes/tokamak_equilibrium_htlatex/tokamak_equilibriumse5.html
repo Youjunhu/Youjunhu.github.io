@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Magnetic coordinates (ψ,𝜃,ϕ)</title> 
+<head><title>Covariant/contravariant representation of equilibrium magnetic ﬁeld</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,95 +13,104 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1664--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1719--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse6.html" >next</a>] [<a 
 href="tokamak_equilibriumse4.html" >prev</a>] [<a 
 href="tokamak_equilibriumse4.html#tailtokamak_equilibriumse4.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumse5.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse5.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
- id="x33-410005"></a>Magnetic coordinates (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>)</h3>
-<!--l. 1666--><p class="noindent" >A coordinate system (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>), where <span 
-class="cmmi-10">ϕ </span>is the usual cylindrical toroidal angle, is called a magnetic
-surface coordinate system if Ψ is a function of only <span 
-class="cmmi-10">ψ</span>, i.e., <span 
-class="cmmi-10">∂</span>Ψ<span 
-class="cmmi-10">∕∂𝜃 </span>= 0 (we also have <span 
-class="cmmi-10">∂</span>Ψ<span 
-class="cmmi-10">∕∂ϕ </span>= 0 since
-we are considering axially symmetrical case). In terms of (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates, the contravariant form of
-the magnetic ﬁeld, Eq. (<a 
-href="tokamak_equilibriumsu27.html#x32-40003r147">147<!--tex4ht:ref: 3-13-p10 --></a>), is written as
+ id="x36-440005"></a>Covariant/contravariant representation of equilibrium magnetic ﬁeld</h3>
+<!--l. 1721--><p class="noindent" >The axisymmetric equilibrium magnetic ﬁeld is given by Eq. (<a 
+href="tokamak_equilibriumsu16.html#x20-27001r67">67<!--tex4ht:ref: 4-15-p3 --></a>), i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x33-41001r151"></a>
+ id="x36-44001r147"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium202x.png" alt="B = − Ψ ′∇ ϕ× ∇ ψ + g 𝒥-∇ ψ × ∇𝜃,
-                   R2
+src="tokamak_equilibrium199x.png" alt="B = ∇ Ψ × ∇ϕ + g∇ϕ.
+" class="math-display"  /></center></td><td class="equation-label">(147)</td></tr></table>
+<!--l. 1725--><p class="nopar" >
+In a general coordinate system (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) (not necessarily magnetic surface coordinates), the above
+expression can be written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x36-44002r148"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium200x.png" alt="B  = − Ψψ∇ ϕ× ∇ ψ − Ψ𝜃∇ϕ × ∇𝜃 + g∇ϕ,
+" class="math-display"  /></center></td><td class="equation-label">(148)</td></tr></table>
+<!--l. 1731--><p class="nopar" >
+where the subscripts denote the partial derivatives with the corresponding subscripts. Note that Eq.
+(<a 
+href="#x36-44002r148">148<!--tex4ht:ref: 4-25-2 --></a>) is a mixed representation, which involves both covariant and contravariant basis vectors.
+Equation (<a 
+href="#x36-44002r148">148<!--tex4ht:ref: 4-25-2 --></a>) can be converted to the contravariant form by using the metric tensor,
+giving
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x36-44003r149"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium201x.png" alt="                               𝒥--
+B = − Ψψ∇ ϕ ×∇ ψ − Ψ𝜃∇ϕ × ∇𝜃 + gR2∇ ψ × ∇𝜃.
+" class="math-display"  /></center></td><td class="equation-label">(149)</td></tr></table>
+<!--l. 1741--><p class="nopar" >
+Similarly, Eq. (<a 
+href="#x36-44002r148">148<!--tex4ht:ref: 4-25-2 --></a>) can also be transformed to the covariant form, giving
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x36-44004r150"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium202x.png" alt="    (   𝒥--           𝒥--   2)      (    -𝒥-    2    -𝒥-       )
+B =  Ψ ψR2∇ ψ ⋅∇𝜃 + Ψ𝜃R2|∇ 𝜃|   ∇ψ +  − ΨψR2 |∇ ψ| − Ψ𝜃R2 ∇𝜃 ⋅∇ψ  ∇ 𝜃+ g∇ ϕ.
+" class="math-display"  /></center></td><td class="equation-label">(150)</td></tr></table>
+<!--l. 1751--><p class="nopar" >
+For the convenience of notation, deﬁne
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x36-44005r151"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium203x.png" alt="      𝒥
+hαβ = R2∇ α⋅∇ β,
 " class="math-display"  /></center></td><td class="equation-label">(151)</td></tr></table>
-<!--l. 1675--><p class="nopar" >
-where Ψ<span 
-class="cmsy-10">′≡ </span><span 
-class="cmmi-10">d</span>Ψ<span 
-class="cmmi-10">∕dψ</span>. The covariant form of the magnetic ﬁeld, Eq. (<a 
-href="tokamak_equilibriumsu27.html#x32-40004r148">148<!--tex4ht:ref: 7-26-1 --></a>), is written as
+<!--l. 1756--><p class="nopar" >
+then Eq. (<a 
+href="#x36-44004r150">150<!--tex4ht:ref: 7-26-1 --></a>) is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x33-41002r152"></a>
+ id="x36-44006r152"></a>
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium203x.png" alt="    (            )      (           )
-B =  Ψ ′ 𝒥-∇ ψ ⋅∇𝜃 ∇ψ +  − Ψ′ 𝒥-|∇ ψ|2 ∇ 𝜃+ g∇ ϕ.
-        R2                   R2
+src="tokamak_equilibrium204x.png" alt="         ψ𝜃     𝜃𝜃           ψψ      ψ𝜃
+B  = (Ψψh   + Ψ𝜃h  )∇ ψ + (− Ψψh   − Ψ𝜃h  )∇𝜃 + g∇ ϕ.
 " class="math-display"  /></center></td><td class="equation-label">(152)</td></tr></table>
-<!--l. 1683--><p class="nopar" >
+<!--l. 1762--><p class="nopar" >
                                                                                 
 
                                                                                 
-</p><!--l. 1685--><p class="noindent" >
 </p>
-   <div class="subsectionTOCS">
-    <span class="subsectionToc" >5.1 <a 
-href="tokamak_equilibriumsu28.html#x34-420005.1">Local and global safety factors</a></span>
-<br />    <span class="subsectionToc" >5.2 <a 
-href="tokamak_equilibriumsu29.html#x35-430005.2">Relation between Jacobian and poloidal angle <span 
-class="cmmi-10">𝜃</span></a></span>
-<br />    <span class="subsectionToc" >5.3 <a 
-href="tokamak_equilibriumsu30.html#x36-440005.3">Calculating poloidal angle</a></span>
-<br />     <span class="subsubsectionToc" >5.3.1 <a 
-href="tokamak_equilibriumsu30.html#x36-450005.3.1" id="QQ2-36-50">Normalized poloidal angle</a></span>
-<br />     <span class="subsubsectionToc" >5.3.2 <a 
-href="tokamak_equilibriumsu30.html#x36-460005.3.2" id="QQ2-36-51">Jacobian for equal-arc-length poloidal angle</a></span>
-<br />     <span class="subsubsectionToc" >5.3.3 <a 
-href="tokamak_equilibriumsu30.html#x36-470005.3.3" id="QQ2-36-52">Jacobian for equal-volume poloidal angle</a></span>
-<br />     <span class="subsubsectionToc" >5.3.4 <a 
-href="tokamak_equilibriumsu30.html#x36-480005.3.4" id="QQ2-36-53">Jacobian of Boozer’s poloidal angle</a></span>
-<br />     <span class="subsubsectionToc" >5.3.5 <a 
-href="tokamak_equilibriumsu30.html#x36-490005.3.5" id="QQ2-36-54">Jacobian for PEST poloidal angle</a></span>
-<br />     <span class="subsubsectionToc" >5.3.6 <a 
-href="tokamak_equilibriumsu30.html#x36-500005.3.6" id="QQ2-36-55">Comparison between diﬀerent types of poloidal angle</a></span>
-<br />     <span class="subsubsectionToc" >5.3.7 <a 
-href="tokamak_equilibriumsu30.html#x36-510005.3.7" id="QQ2-36-57">Veriﬁcation of Jabobian</a></span>
-<br />     <span class="subsubsectionToc" >5.3.8 <a 
-href="tokamak_equilibriumsu30.html#x36-520005.3.8" id="QQ2-36-58">Radial coordinate</a></span>
-   </div>
-
-
-                                                                                
-
-                                                                                
-   <!--l. 2153--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1764--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse6.html" >next</a>] [<a 
 href="tokamak_equilibriumse4.html" >prev</a>] [<a 
 href="tokamak_equilibriumse4.html#tailtokamak_equilibriumse4.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumse5.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse5.html" >up</a>] </p></div>
-<!--l. 2153--><p class="indent" >   <a 
+<!--l. 1764--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse5.html"></a> </p> 
 </body></html> 

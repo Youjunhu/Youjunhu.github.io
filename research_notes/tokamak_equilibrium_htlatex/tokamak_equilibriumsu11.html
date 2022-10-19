@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>MHD momentum equation</title> 
+<head><title>Non-axisymmetric magnetic perturbations</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,91 +13,135 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 652--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu12.html" >next</a>] [<a 
+   <!--l. 585--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu10.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu10.html#tailtokamak_equilibriumsu10.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu11.html">tail</a>] [<a 
-href="tokamak_equilibriumse3.html#tokamak_equilibriumsu11.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
- id="x15-190003.1"></a>MHD momentum equation</h4>
-<!--l. 654--><p class="noindent" >The MHD momentum equation of plasmas is given by
+href="tokamak_equilibriumse1.html#tokamak_equilibriumsu11.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">1.11   </span> <a 
+ id="x13-170001.11"></a>Non-axisymmetric magnetic perturbations</h4>
+<!--l. 587--><p class="noindent" >In the above, the magnetic ﬁeld is assumed to be axisymmetric. With this assumption,
+the poloidal magnetic ﬁeld (having two components) can be expressed in terms of a single
+component of the vector potential <span 
+class="cmbx-10">A</span>, <span 
+class="cmmi-10">A</span><sub><span 
+class="cmmi-7">ϕ</span></sub> (speciﬁcally the poloid ﬂux function <span 
+class="cmmi-10">Ψ </span><span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">A</span><sub><span 
+class="cmmi-7">ϕ</span></sub><span 
+class="cmmi-10">R</span>). This
+kind of simpliﬁcation can not be achieved if the axisymmetricity assumption is dropped,
+because other components of the vector potential (namely <span 
+class="cmmi-10">A</span><sub><span 
+class="cmmi-7">R</span></sub> and <span 
+class="cmmi-10">A</span><sub><span 
+class="cmmi-7">Z</span></sub>) will appear in the
+expression of the poloidal magnetic ﬁeld. Let us re-examine Eq. (<a 
+href="tokamak_equilibriumse1.html#x2-1002r2">2<!--tex4ht:ref: 4-16-p1 --></a>) for a magnetic perturbation:
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium45x.png" alt="     (1 ∂δAZ    ∂δAϕ)     ( 1 ∂(R δAϕ)   1 ∂δAR )
+δB  =  R--∂ϕ--−  -∂Z-- ˆR +   R---∂R----− R--∂ϕ-- Zˆ
+     (             )
+   +  ∂δAR- − ∂δAZ- ϕˆ.                                       (43)
+       ∂Z      ∂R
+" class="math-display"  /><a 
+ id="x13-17001r43"></a></center>
+</div>In the study of tokamak tearing modes and turbulence, most authors narrow the possible perturbed
+magnetic ﬁeld by setting <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmmi-7">R</span></sub> = <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmmi-7">Z</span></sub> = 0, i.e.,
+   <table 
+class="equation"><tr><td><a 
+ id="x13-17002r44"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium46x.png" alt="        1∂ δΨ
+δBR = − -----,
+        R ∂Z
+" class="math-display"  /></center></td><td class="equation-label">(44)</td></tr></table>
+<!--l. 610--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x15-19001r54"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium56x.png" alt="  (           )
-   ∂u-
-ρ   ∂t + u ⋅∇u  = ρqE + J × B − ∇ ⋅ℙ
-" class="math-display"  /></center></td><td class="equation-label">(54)</td></tr></table>
+ id="x13-17003r45"></a>
                                                                                 
 
                                                                                 
-<!--l. 659--><p class="nopar" >
-where <span 
-class="cmmi-10">ρ</span>, <span 
-class="cmmi-10">ρ</span><sub><span 
-class="cmmi-7">q</span></sub>, <span 
-class="msbm-10">ℙ</span>, <span 
-class="cmbx-10">J</span>, <span 
-class="cmbx-10">E</span>, and <span 
-class="cmbx-10">B </span>are mass density, charge density, thermal pressure tensor, current density,
-electric ﬁeld, and magnetic ﬁeld, respectively. The electric ﬁeld force <span 
-class="cmmi-10">ρ</span><sub><span 
-class="cmmi-7">q</span></sub><span 
-class="cmbx-10">E </span>is usually ignored due to
-either <span 
-class="cmmi-10">ρ</span><sub><span 
-class="cmmi-7">q</span></sub> = 0 or <span 
-class="cmbx-10">E </span>= 0. Further assume that there is no plasma ﬂow (<span 
-class="cmbx-10">u </span>= 0, the ﬂow eﬀect is discussed
-in <a 
-href="tokamak_equilibriumsu76.html#x91-120000A.2">A.2<!--tex4ht:ref: 20-4-7-p2 --></a>) and the plasma pressure is isotropic, then the steady state momentum equation (force balance
-equation) is written
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium47x.png" alt="δBZ  = 1-∂δΨ,
+       R ∂R
+" class="math-display"  /></center></td><td class="equation-label">(45)</td></tr></table>
+<!--l. 613--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x15-19002r55"></a>
+ id="x13-17004r46"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium57x.png" alt="J × B = ∇P,
-" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
-<!--l. 670--><p class="nopar" >
+src="tokamak_equilibrium48x.png" alt="δBϕ = 0.
+" class="math-display"  /></center></td><td class="equation-label">(46)</td></tr></table>
+<!--l. 616--><p class="nopar" >
 where <span 
-class="cmmi-10">P </span>is the scalar plasma pressure.
-</p><!--l. 673--><p class="indent" >   Is the force balance (<a 
-href="#x15-19002r55">55<!--tex4ht:ref: 7-7-force --></a>) always satisﬁed in a real toakamak discharge? To answer this question, we
-need to go back to the original momentum equation (<a 
-href="#x15-19001r54">54<!--tex4ht:ref: 19-5-5-1 --></a>). The imbalance between <span 
-class="cmbx-10">J </span><span 
-class="cmsy-10">× </span><span 
-class="cmbx-10">B </span>and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">P </span>will
-give rise to the compressional Alfven waves, the time-scale of which, <span 
-class="cmmi-10">τ</span><sub><span 
-class="cmmi-7">A</span></sub>, is much shorter than the
-time-scale <span 
-class="cmmi-10">τ </span>we are interested in. Therefore, on the time scale <span 
-class="cmmi-10">τ </span>and for slow ﬂow with <span 
-class="cmbx-10">u </span><span 
-class="cmmi-10">&#x003C; C</span><sub><span 
-class="cmmi-7">s</span></sub>,
-where <span 
-class="cmmi-10">C</span><sub><span 
-class="cmmi-7">s</span></sub> is the the sound speed, the leading order of the momentum equation is the force
-balance (<a 
-href="#x15-19002r55">55<!--tex4ht:ref: 7-7-force --></a>). (to be sure, I need to think about this again). This reasoning is from Youwen
-Sun<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xysun2012">23</a>]</span>.
+class="cmmi-10">δΨ </span>= <span 
+class="cmmi-10">RδA</span><sub><span 
+class="cmmi-7">ϕ</span></sub>. Therefore this kind of magnetic perturbation can be written in the same form of the
+equilibrium poloidal magnetic ﬁeld:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x13-17005r47"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium49x.png" alt="δB = ∇ δΨ × ∇ϕ.
+" class="math-display"  /></center></td><td class="equation-label">(47)</td></tr></table>
+<!--l. 622--><p class="nopar" >
+The above approximation is widely used in tokmaka plasma theory and simulation (e.g., tearing mode
+theory; turbulence simulation, where <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmmi-7">ϕ</span></sub> is replaced by <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub>.) Do we miss some magnetic
+perturbations that is important for plasma transport by using the above speciﬁc form of magnetic
+ﬁeld?
+</p><!--l. 629--><p class="indent" >   The total magnetic ﬁeld is then written as
+</p>
+                                                                                
+
+                                                                                
+   <table 
+class="equation"><tr><td><a 
+ id="x13-17006r48"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium50x.png" alt="B = ∇ (Ψ + δΨ )× ∇ϕ + g∇ϕ.
+" class="math-display"  /></center></td><td class="equation-label">(48)</td></tr></table>
+<!--l. 632--><p class="nopar" >
+**wrong**Following the same reasoning in Sec. <a 
+href="tokamak_equilibriumsu5.html#x7-60001.5">1.5<!--tex4ht:ref: 20-5-8-p1 --></a>, we know that the projection of the total magnetic
+ﬁeld line in the poloidal plane can be traced by tracing the contour of <span 
+class="cmmi-10">Ψ </span>+ <span 
+class="cmmi-10">δΨ</span>. However, the contours of
+<span 
+class="cmmi-10">Ψ </span>+ <span 
+class="cmmi-10">δΨ </span>will not show island structures in the poloidal plane. To show the expected island structures, we
+need to subtract non-reconnecting poloidal magnetic ﬁeld from the total poloidal ﬁeld. I will discuss
+this in Sec. (), where I show that contours of the so-called helical ﬂux will give the expected island
+structures near the resonant surfaces.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 684--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu12.html" >next</a>] [<a 
+   <!--l. 642--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu10.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu10.html#tailtokamak_equilibriumsu10.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu11.html" >front</a>] [<a 
-href="tokamak_equilibriumse3.html#tokamak_equilibriumsu11.html" >up</a>] </p></div>
-<!--l. 684--><p class="indent" >   <a 
+href="tokamak_equilibriumse1.html#tokamak_equilibriumsu11.html" >up</a>] </p></div>
+<!--l. 642--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu11.html"></a> </p> 
 </body></html> 

@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Covariant/contravariant representation of equilibrium magnetic ﬁeld</title> 
+<head><title>Divergence operator in general coordinates (ψ,𝜃,ζ)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,103 +13,87 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1619--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1353--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu28.html" >next</a>] [<a 
 href="tokamak_equilibriumsu26.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu26.html#tailtokamak_equilibriumsu26.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu27.html">tail</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu27.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.9   </span> <a 
- id="x32-400004.9"></a>Covariant/contravariant representation of equilibrium magnetic ﬁeld</h4>
-<!--l. 1621--><p class="noindent" >The axisymmetric equilibrium magnetic ﬁeld is given by Eq. (<a 
-href="tokamak_equilibriumsu13.html#x17-24001r66">66<!--tex4ht:ref: 4-15-p3 --></a>), i.e.,
+   <h4 class="subsectionHead"><span class="titlemark">4.6   </span> <a 
+ id="x32-390004.6"></a>Divergence operator in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</h4>
+<!--l. 1355--><p class="noindent" >To calculate the divergence of a vector, it is desired that the vector should be in the contravariant form
+because we can make use of the fact:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x32-40001r145"></a>
+ id="x32-39001r107"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium196x.png" alt="B = ∇ Ψ × ∇ϕ + g∇ϕ.
-" class="math-display"  /></center></td><td class="equation-label">(145)</td></tr></table>
-<!--l. 1625--><p class="nopar" >
-In (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates (not necessarily magnetic surface coordinates), the above expression can be
-written as
+src="tokamak_equilibrium157x.png" alt="∇ ⋅(∇ α× ∇ β) = 0,
+" class="math-display"  /></center></td><td class="equation-label">(107)</td></tr></table>
+<!--l. 1359--><p class="nopar" >
+for any scalar quantities <span 
+class="cmmi-10">α </span>and <span 
+class="cmmi-10">β</span>. Therefore we write vector <span 
+class="cmbx-10">A </span>as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x32-40002r146"></a>
+ id="x32-39002r108"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium197x.png" alt="B = − Ψψ∇ ϕ× ∇ ψ − Ψ𝜃∇ ϕ× ∇ 𝜃+ g∇ϕ,
-" class="math-display"  /></center></td><td class="equation-label">(146)</td></tr></table>
-<!--l. 1631--><p class="nopar" >
-where the subscripts denote the partial derivatives with the corresponding subscripts. Note that Eq.
-(<a 
-href="#x32-40002r146">146<!--tex4ht:ref: 4-25-2 --></a>) is a mixed representation, which involves both covariant and contravariant basis vectors.
-Equation (<a 
-href="#x32-40002r146">146<!--tex4ht:ref: 4-25-2 --></a>) can be converted to the contravariant form by using the metric tensor,
-giving
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-40003r147"></a>
+src="tokamak_equilibrium158x.png" alt="A = A(ψ)𝒥∇ 𝜃× ∇ ζ + A(𝜃)𝒥 ∇ ζ × ∇ ψ+ A (ζ)𝒥∇ ψ × ∇𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(108)</td></tr></table>
+<!--l. 1366--><p class="nopar" >
+where <span 
+class="cmmi-10">A</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">ψ</span><span 
+class="cmr-7">)</span></sup> = <span 
+class="cmbx-10">A </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">ψ</span>, <span 
+class="cmmi-10">A</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">𝜃</span><span 
+class="cmr-7">)</span></sup> = <span 
+class="cmbx-10">A </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃</span>, <span 
+class="cmmi-10">A</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">ζ</span><span 
+class="cmr-7">)</span></sup> = <span 
+class="cmbx-10">A </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">ζ</span>.   Then the divergence of <span 
+class="cmbx-10">A </span>is readily calculated
+as </p><div class="eqnarray">
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium198x.png" alt="                                    1
-B = − Ψ ψ∇ ϕ× ∇ ψ − Ψ 𝜃∇ϕ × ∇𝜃 + g(Ψ )-2𝒥 ∇ ψ× ∇ 𝜃.
-                                   R
-" class="math-display"  /></center></td><td class="equation-label">(147)</td></tr></table>
-<!--l. 1641--><p class="nopar" >
-Similarly, Eq. (<a 
-href="#x32-40002r146">146<!--tex4ht:ref: 4-25-2 --></a>) can also be transformed to the covariant form, giving
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-40004r148"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium199x.png" alt="    (   𝒥              𝒥     2)      (     𝒥      2     𝒥        )
-B =  Ψ ψR2-∇ψ ⋅∇ 𝜃+ Ψ𝜃R2-|∇ 𝜃|  ∇ ψ+   − Ψ ψR2-|∇ ψ| − Ψ𝜃R2-∇𝜃 ⋅∇ψ ∇ 𝜃+ g(Ψ)∇ ϕ.
-" class="math-display"  /></center></td><td class="equation-label">(148)</td></tr></table>
-<!--l. 1651--><p class="nopar" >
-For the convenience of notation, deﬁne
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-40005r149"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium200x.png" alt=" αβ   𝒥--
-h  =  R2∇ α⋅∇ β,
-" class="math-display"  /></center></td><td class="equation-label">(149)</td></tr></table>
-<!--l. 1656--><p class="nopar" >
-then Eq. (<a 
-href="#x32-40004r148">148<!--tex4ht:ref: 7-26-1 --></a>) is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-40006r150"></a>
+src="tokamak_equilibrium159x.png" alt="                      (ψ)                   (𝜃)                  (ζ)
+∇  ⋅A  = (∇ 𝜃(× ∇ ζ)⋅∇ (A   𝒥 )+ (∇ ζ × ∇ ψ))⋅∇ (A 𝒥 )+ (∇ψ × ∇𝜃) ⋅∇(A  𝒥 ) (109)
+      = 1-  ∂A(ψ)𝒥-+ ∂A-(𝜃)𝒥-+ ∂A-(ζ)𝒥- ,                               (110)
+        𝒥     ∂ψ       ∂𝜃       ∂ζ
+" class="math-display"  /><a 
+ id="x32-39003r110"></a></center>
+</div>where the second equality is obtained by using Eqs. (<a 
+href="tokamak_equilibriumsu26.html#x31-38002r103">103<!--tex4ht:ref: 4-6-1 --></a>), (<a 
+href="tokamak_equilibriumsu26.html#x31-38003r104">104<!--tex4ht:ref: 4-6-2 --></a>), and (<a 
+href="tokamak_equilibriumsu26.html#x31-38004r105">105<!--tex4ht:ref: 4-6-3 --></a>).
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium201x.png" alt="         ψ𝜃      𝜃𝜃            ψψ      ψ𝜃
-B = (Ψ ψh  + Ψ 𝜃h )∇ ψ+ (− Ψ ψh  − Ψ𝜃h  )∇𝜃 + g(Ψ )∇ϕ.
-" class="math-display"  /></center></td><td class="equation-label">(150)</td></tr></table>
-<!--l. 1662--><p class="nopar" >
-                                                                                
-
-                                                                                
-</p>
-   <!--l. 1664--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1383--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu28.html" >next</a>] [<a 
 href="tokamak_equilibriumsu26.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu26.html#tailtokamak_equilibriumsu26.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu27.html" >front</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu27.html" >up</a>] </p></div>
-<!--l. 1664--><p class="indent" >   <a 
+<!--l. 1383--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu27.html"></a> </p> 
 </body></html> 

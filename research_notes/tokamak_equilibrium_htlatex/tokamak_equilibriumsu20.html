@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Orthogonality relation between two sets of basis vectors</title> 
+<head><title>Free boundary equilibrium problem</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,291 +13,80 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1041--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 974--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu21.html" >next</a>] [<a 
 href="tokamak_equilibriumsu19.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu19.html#tailtokamak_equilibriumsu19.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu20.html">tail</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
- id="x25-320004.2"></a>Orthogonality relation between two sets of basis vectors</h4>
-<!--l. 1043--><p class="noindent" >In a curvilinear coordinate system (<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">2</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">3</span></sub>), we will encounter two kinds of basis vectors: <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmmi-7">i</span></sub> and
+href="tokamak_equilibriumse3.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.7   </span> <a 
+ id="x24-310003.7"></a>Free boundary equilibrium problem</h4>
+<!--l. 976--><p class="noindent" >Free boundary equilibrium problem refers to the case where the value of <span 
+class="cmmi-10">Ψ </span>on the boundary of the
+computational box is unknown and must be determined from the current from both the plasma and
+external coils. Suppose the computational box is a rectangle in (<span 
+class="cmmi-10">R,Z</span>) plane. If all the current
+perpendicular to (<span 
+class="cmmi-10">R,Z</span>) plane is known, the value of <span 
+class="cmmi-10">Ψ </span>at any point can be uniquely determined by
+using the Green function method, which gives
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x24-31001r73"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium108x.png" alt="          ∫                        Nc
+Ψ(R′,Z′) =   G(R,Z;R ′,Z ′)J dRdZ + ∑  G (Rc ,Zc;R′,Z ′)I .
+           P              ϕ       i=1    i  i       ϕ
+" class="math-display"  /></center></td><td class="equation-label">(73)</td></tr></table>
+<!--l. 985--><p class="nopar" >
+In solving the equilibrium problem, the current in external coils is given and known while the current
+carried by the plasma is unknown, which need to be determined by foce balance constraint and
+external/internal measurements. Therefore, solving the equilibrium problem actually corresponds to
+determining the toroidal current density.
+</p><!--l. 992--><p class="indent" >    
+</p><!--l. 994--><p class="indent" >    
+</p><!--l. 996--><p class="indent" >   To numerically solve GS equation within the computational box, we need the value of <span 
+class="cmmi-10">Ψ </span>on the
+boundary of the box as a boundary condition. Thus we need to adopt some initial guess of the value of
 <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂x</span><sub><span 
-class="cmmi-7">i</span></sub>, with <span 
-class="cmmi-10">i </span>= 1<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">,</span>3<span 
-class="cmmi-10">. </span>These two kinds of basis vectors satisfy the following orthogonality
-relation:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x25-32001r78"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium119x.png" alt="     ∂r
-∇xi ⋅∂x--= δij,
-       j
-" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
-<!--l. 1050--><p class="nopar" >
-where <span 
-class="cmmi-10">δ</span><sub><span 
-class="cmmi-7">ij</span></sub> is the Kronical delta function. [Proof: Working in a Cartesian coordinate system (<span 
-class="cmmi-10">x,y,z</span>) with
-the corresponding basis vectors denoted by (<img 
-src="tokamak_equilibrium120x.png" alt="ˆx"  class="circ"  /><span 
-class="cmmi-10">,</span><img 
-src="tokamak_equilibrium121x.png" alt="ˆy"  class="circ"  /><span 
-class="cmmi-10">,</span><img 
-src="tokamak_equilibrium122x.png" alt="ˆz"  class="circ"  />), then the left-hand side of Eq. (<a 
-href="#x25-32001r78">78<!--tex4ht:ref: 4-6-e1 --></a>) can be written
-as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium123x.png" alt="             [(    )    (    )    (    ) ]  [                                       ]
-∇x  ⋅ ∂r- =     ∂xi  ˆx+   ∂xi  ˆy+   ∂xi ˆz  ⋅ ∂x-ˆx + x ∂-ˆx-+ ∂y-ˆy + y ∂ˆy-+ ∂z-ˆz+ z-∂ˆz-
-  i  ∂xj        ∂x        ∂y        ∂z       ∂xj     ∂xj   ∂xj     ∂xj   ∂xj    ∂xj
-             [( ∂xi)    ( ∂xi)    ( ∂xi) ]  [ ∂x        ∂y        ∂z     ]
-          =     ∂x-  ˆx+   ∂y-  ˆy+   ∂z- ˆz  ⋅ ∂xj ˆx + 0+ ∂xj-ˆy+ 0+ ∂xjˆz+ 0         (79)
-             ∂x  ∂x    ∂x ∂y    ∂x ∂z
-          =  ---i---+  --i---+  --i----
-              ∂x ∂xj   ∂y ∂xj   ∂z ∂xj
-          =  -∂xi                                                                 (80)
-             ∂xj
-          =  δij,
-" class="math-display"  /><a 
- id="x25-32002r80"></a></center>
-</div>where the second equality is due to <span 
-class="cmmi-10">∂</span><img 
-src="tokamak_equilibrium124x.png" alt="ˆx"  class="circ"  /><span 
-class="cmmi-10">∕∂x</span><sup><span 
-class="cmmi-7">j</span></sup> = 0<span 
-class="cmmi-10">,∂</span><img 
-src="tokamak_equilibrium125x.png" alt="ˆy"  class="circ"  /><span 
-class="cmmi-10">∕∂x</span><sup><span 
-class="cmmi-7">j</span></sup> = 0<span 
-class="cmmi-10">,∂</span><img 
-src="tokamak_equilibrium126x.png" alt="ˆz"  class="circ"  /><span 
-class="cmmi-10">∕∂x</span><sup><span 
-class="cmmi-7">j</span></sup> = 0 since <img 
-src="tokamak_equilibrium127x.png" alt="ˆx"  class="circ"  /><span 
-class="cmmi-10">,</span><img 
-src="tokamak_equilibrium128x.png" alt="ˆy"  class="circ"  /><span 
-class="cmmi-10">,</span><img 
-src="tokamak_equilibrium129x.png" alt="ˆz"  class="circ"  /> are
-constant vectors independent of spatial location; the chain rule has been used in obtaining Eq.
+class="cmmi-10">Ψ </span>on the boundary, then solve the GS equation to get the value of <span 
+class="cmmi-10">Ψ </span>within the computational box.
+Using the computed <span 
+class="cmmi-10">Ψ</span>, we can calculate the value of the plasma current perpendicular to
+the (<span 
+class="cmmi-10">R,Z</span>) plane through Eq. (<span 
+class="cmbx-10">??</span>). After this, all the current (current in the plasma and
+in the external coils) perpendicular to the poloidal plane is known, we can calculate the
+value of <span 
+class="cmmi-10">Ψ </span>on the boundary of the box, <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub>, by using the Green function formulation Eq.
 (<a 
-href="#x25-32002r80">80<!--tex4ht:ref: 18-10-10-p1 --></a>)]
-<!--l. 1083--><p class="indent" >   (The cylindrical coordinate system (<span 
-class="cmmi-10">R,ϕ,Z</span>) is an example of general coordinates. As an exercise, we
-can verify that the cylindrical coordinates have the property given in Eq. (<a 
-href="#x25-32001r78">78<!--tex4ht:ref: 4-6-e1 --></a>). In this case,
-<span 
-class="cmmi-10">x </span>= <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub> cos<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">2</span></sub>, <span 
-class="cmmi-10">y </span>= <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub> sin<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">2</span></sub>, <span 
-class="cmmi-10">z </span>= <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">3</span></sub>, where <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub> <span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">R</span>, <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">2</span></sub> <span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">ϕ</span>, <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">3</span></sub> <span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">Z</span>.)
-</p><!--l. 1089--><p class="indent" >   It can be proved that <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sup><span 
-class="cmmi-7">i</span></sup> is a contravariant vector while <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂x</span><sup><span 
-class="cmmi-7">i</span></sup> is a covariant vector (I do not
-prove this and do not bother with the meaning of these names, just using this as a naming scheme for
-easy reference).
-</p><!--l. 1094--><p class="indent" >   The orthogonality relation in Eq. (<a 
-href="#x25-32001r78">78<!--tex4ht:ref: 4-6-e1 --></a>) is fundamental to the theory of general coordinates. The
-orthogonality relation allows one to write the covariant basis vectors in terms of contravariant basis
-vectors and vice versa. For example, the orthogonality relation tells that <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂x</span><sub><span 
-class="cmr-7">1</span></sub> is orthogonal to <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">2</span></sub>
-and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">3</span></sub>, thus, <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂x</span><sub><span 
-class="cmr-7">1</span></sub> can be written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x25-32003r81"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium130x.png" alt="-∂r-= A∇x  × ∇x  ,
-∂x1       2     3
-" class="math-display"  /></center></td><td class="equation-label">(81)</td></tr></table>
-<!--l. 1103--><p class="nopar" >
-where <span 
-class="cmmi-10">A </span>is a unknown variable to be determined. To determine <span 
-class="cmmi-10">A</span>, dotting Eq. (<a 
-href="#x25-32003r81">81<!--tex4ht:ref: 9-7-4 --></a>) by <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub>, and using
-the orthogonality relation again, we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x25-32004r82"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium131x.png" alt="1 = A (∇x2 × ∇x3)⋅∇x1,
-" class="math-display"  /></center></td><td class="equation-label">(82)</td></tr></table>
-<!--l. 1109--><p class="nopar" >
-which gives </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium132x.png" alt="A  =   -------1--------
-       (∇x2 × ∇x3)⋅∇x1
-   =   𝒥                                        (83)
-" class="math-display"  /></center>
-</div>Thus <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂x</span><sub><span 
-class="cmr-7">1</span></sub> is written, in terms of <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub>, <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">2</span></sub>, and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">3</span></sub>, as
-   <table 
-class="equation"><tr><td><a 
- id="x25-32006r84"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium133x.png" alt="-∂r-
-∂x1 = 𝒥 ∇x2 × ∇x3.
-" class="math-display"  /></center></td><td class="equation-label">(84)</td></tr></table>
-<!--l. 1121--><p class="nopar" >
-Similarly, we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x25-32007r85"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium134x.png" alt=" ∂r
-----= 𝒥 ∇x3 × ∇x1
-∂x2
-" class="math-display"  /></center></td><td class="equation-label">(85)</td></tr></table>
-<!--l. 1126--><p class="nopar" >
-and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x25-32008r86"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium135x.png" alt=" ∂r
-∂x--= 𝒥 ∇x1 × ∇x2.
-  3
-" class="math-display"  /></center></td><td class="equation-label">(86)</td></tr></table>
-<!--l. 1131--><p class="nopar" >
-Equations (<a 
-href="#x25-32006r84">84<!--tex4ht:ref: 9-8-1 --></a>)-(<a 
-href="#x25-32008r86">86<!--tex4ht:ref: 9-8-3 --></a>) can be generally written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x25-32009r87"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium136x.png" alt=" ∂r
-∂x- = 𝒥∇xj × ∇xk,
-  i
-" class="math-display"  /></center></td><td class="equation-label">(87)</td></tr></table>
-<!--l. 1136--><p class="nopar" >
-where (<span 
-class="cmmi-10">i,j,k</span>) represents the cyclic order in the variables (<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">2</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">3</span></sub>). Equation (<a 
-href="#x25-32009r87">87<!--tex4ht:ref: 11-18-1 --></a>) expresses the
-covariant basis vectors in terms of the contravariant basis vectors. On the other hand, from Eq.
-(<a 
-href="#x25-32006r84">84<!--tex4ht:ref: 9-8-1 --></a>)-(<a 
-href="#x25-32008r86">86<!--tex4ht:ref: 9-8-3 --></a>), we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x25-32010r88"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium137x.png" alt="          ∂r    ∂r
-∇xi = 𝒥− 1---× ----,
-          ∂xj  ∂xk
-" class="math-display"  /></center></td><td class="equation-label">(88)</td></tr></table>
-<!--l. 1144--><p class="nopar" >
-which expresses the contravariant basis vectors in terms of the covariant basis vectors.
+href="#x24-31001r73">73<!--tex4ht:ref: 10-31-1 --></a>). Note that <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub> calculated this way usually diﬀers from the initial guess of the value
+of <span 
+class="cmmi-10">Ψ </span>on the boundary. Thus, we need to use the <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub> calculated this way as a new guess
+value of <span 
+class="cmmi-10">Ψ </span>on the computational boundary and repeat the above procedures. The process is
+repeated until <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub> obtained in two successive iterations agrees with each other to a prescribed
+tolerance.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1148--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1012--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu21.html" >next</a>] [<a 
 href="tokamak_equilibriumsu19.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu19.html#tailtokamak_equilibriumsu19.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu20.html" >front</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
-<!--l. 1148--><p class="indent" >   <a 
+href="tokamak_equilibriumse3.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
+<!--l. 1012--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu20.html"></a> </p> 
 </body></html> 

@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Gradient and directional derivative in general coordinates (ψ,𝜃,ζ)</title> 
+<head><title>Coordinates transformation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,89 +13,84 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1216--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1052--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu23.html" >next</a>] [<a 
-href="tokamak_equilibriumsu21.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu21.html#tailtokamak_equilibriumsu21.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu22.html">tail</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu22.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
- id="x27-340004.4"></a>Gradient and directional derivative in general coordinates (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>)</h4>
-<!--l. 1218--><p class="noindent" >The gradient of a scalar function <span 
-class="cmmi-10">f</span>(<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) is readily calculated from the chain rule,
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x27-340004.1"></a>Coordinates transformation</h4>
+<!--l. 1054--><p class="noindent" >In the Cartesian coordinates, a point is described by its coordinates (<span 
+class="cmmi-10">x,y,z</span>), which, in the vector form,
+is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x27-34001r100"></a>
+ id="x27-34001r74"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium149x.png" alt="      ∂f      ∂f     ∂f
-∇f =  ∂ψ∇ ψ + ∂𝜃∇ 𝜃+ ∂-ζ∇ζ.
-" class="math-display"  /></center></td><td class="equation-label">(100)</td></tr></table>
-<!--l. 1224--><p class="nopar" >
-Note that the gradient of a scalar function is in the covariant representation. The inverse form of this
-expression is obtained by dotting the above equation respectively by the three contravariant basis
-vectors, yielding
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x27-34002r101"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium150x.png" alt="∂f                     ∂r
-∂ψ-= (𝒥 ∇𝜃 ×∇ ζ)⋅∇f =  ∂ψ-⋅∇f
-" class="math-display"  /></center></td><td class="equation-label">(101)</td></tr></table>
-<!--l. 1232--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x27-34003r102"></a>
+src="tokamak_equilibrium109x.png" alt="r = xˆx+ yˆy + zˆz,
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium151x.png" alt="∂f                     ∂r
----= (𝒥 ∇ζ ×∇ ψ)⋅∇f  = ---⋅∇f
-∂𝜃                     ∂𝜃
-" class="math-display"  /></center></td><td class="equation-label">(102)</td></tr></table>
-<!--l. 1237--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(74)</td></tr></table>
+<!--l. 1058--><p class="nopar" >
+where <span 
+class="cmbx-10">r </span>is the location vector of the point; <img 
+src="tokamak_equilibrium110x.png" alt="ˆx"  class="circ"  />, <img 
+src="tokamak_equilibrium111x.png" alt="ˆy"  class="circ"  />, and <img 
+src="tokamak_equilibrium112x.png" alt="ˆz"  class="circ"  /> are the basis vectors of the Cartesian
+coordinates, which are constant, independent of spactial location. The transformation between the
+Cartesian coordinates system, (<span 
+class="cmmi-10">x,y,z</span>), and a general coordinates system, (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">3</span></sub>), can be expressed
+as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x27-34004r103"></a>
+ id="x27-34002r75"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium152x.png" alt="∂f                     ∂r
-∂ζ-= (𝒥 ∇ψ × ∇𝜃)⋅∇f  = ∂ζ-⋅∇f
-" class="math-display"  /></center></td><td class="equation-label">(103)</td></tr></table>
-<!--l. 1242--><p class="nopar" >
-Using Eq. (<a 
-href="#x27-34001r100">100<!--tex4ht:ref: 5-6-5 --></a>), the directional derivative in the direction of <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span>is written as
+src="tokamak_equilibrium113x.png" alt="r = x(x1,x2,x3)ˆx + y(x1,x2,x3)ˆy+ z(x1,x2,x3)ˆz.
+" class="math-display"  /></center></td><td class="equation-label">(75)</td></tr></table>
+<!--l. 1067--><p class="nopar" >
+For example, cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>) can be considered as a general coordinate systems, which
+are deﬁned by  <span 
+class="cmbx-10">r </span>= <span 
+class="cmmi-10">R</span> cos<span 
+class="cmmi-10">ϕ</span><img 
+src="tokamak_equilibrium114x.png" alt="ˆx"  class="circ"  /> + <span 
+class="cmmi-10">R</span> sin<span 
+class="cmmi-10">ϕ</span><img 
+src="tokamak_equilibrium115x.png" alt="ˆy"  class="circ"  /> + <span 
+class="cmmi-10">Z</span><img 
+src="tokamak_equilibrium116x.png" alt="ˆz"  class="circ"  />.
+</p><!--l. 1072--><p class="indent" >   The transformation function in Eq. (<a 
+href="#x27-34002r75">75<!--tex4ht:ref: 11-8-10dd --></a>) can be written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x27-34005r104"></a>
+ id="x27-34003r76"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium153x.png" alt="               ∂f           ∂f            ∂f
-∇ ψ ⋅∇f = |∇ ψ|2∂ψ-+ (∇𝜃 ⋅∇ψ)-∂𝜃 + (∇ ζ ⋅∇ ψ)∂ζ.
-" class="math-display"  /></center></td><td class="equation-label">(104)</td></tr></table>
-<!--l. 1249--><p class="nopar" >
+src="tokamak_equilibrium117x.png" alt="x = x(x1,x2,x3)
+y = y(x1,x2,x3)
+z = z(x1,x2,x3)
+" class="math-display"  /></center></td><td class="equation-label">(76)</td></tr></table>
+<!--l. 1079--><p class="nopar" >
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1251--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1081--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu23.html" >next</a>] [<a 
-href="tokamak_equilibriumsu21.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu21.html#tailtokamak_equilibriumsu21.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu22.html" >front</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu22.html" >up</a>] </p></div>
-<!--l. 1251--><p class="indent" >   <a 
+<!--l. 1081--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu22.html"></a> </p> 
 </body></html> 

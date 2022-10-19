@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Finding magnetic surfaces</title> 
+<head><title>Local and global safety factors</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,316 +13,184 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 2169--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1785--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu32.html" >next</a>] [<a 
 href="#tailtokamak_equilibriumsu31.html">tail</a>] [<a 
 href="tokamak_equilibriumse6.html#tokamak_equilibriumsu31.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">6.1   </span> <a 
- id="x38-540006.1"></a>Finding magnetic surfaces</h4>
-<!--l. 2171--><p class="noindent" >Two-dimensional data Ψ(<span 
-class="cmmi-10">R,Z</span>) on a rectangular grids (<span 
-class="cmmi-10">R,Z</span>) is read from the G_EQDSK ﬁle (G-ﬁle) of
-EFIT code. Based on the 2D array data, I use 2D cubic spline interpolation to construct a interpolating
-function Ψ = Ψ(<span 
-class="cmmi-10">R,Z</span>). To construct a magnetic surface coordinate system, I need to ﬁnd the contours
-of Ψ, i.e., magnetic surfaces. The values of Ψ on the magnetic axis, Ψ<sub><span 
-class="cmr-7">0</span></sub>, and the value of Ψ on the last
-closed ﬂux surface (LCFS), Ψ<sub><span 
-class="cmmi-7">b</span></sub>, are given in G-ﬁle. Using these two values, I construct a
-1D array “psival” with value of elements changing uniform from Ψ<sub><span 
-class="cmr-7">0</span></sub> to Ψ<sub><span 
-class="cmmi-7">b</span></sub>. Then I try to
-ﬁnd the contours of Ψ with contour level value ranging from Ψ<sub><span 
-class="cmr-7">0</span></sub> to Ψ<sub><span 
-class="cmmi-7">b</span></sub>. This is done in the
-following way: construct a series of straight line (in the poloidal plane) that starts from the
-location of the magnetic axis and ends at one of the points on the LCFS. Combine the
-straight line equation, <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>), with the interpolating function Ψ(<span 
-class="cmmi-10">R,Z</span>), we obtain a
-one variable function <span 
-class="cmmi-10">h </span>= Ψ(<span 
-class="cmmi-10">R,Z</span>(<span 
-class="cmmi-10">R</span>)). Then ﬁnding the location where Ψ is equal to a
-speciﬁed value Ψ<sub><span 
-class="cmmi-7">i</span></sub>, is reduced to ﬁnding the root of the equation Ψ(<span 
-class="cmmi-10">R,Z</span>(<span 
-class="cmmi-10">R</span>)) <span 
-class="cmsy-10">− </span>Ψ<sub><span 
-class="cmmi-7">i</span></sub> = 0.
-Since this is a one variable equation, the root can be easily found by using simple root
-ﬁnding scheme, such as bisection method (bisection method is used in GTAW code). After
-ﬁnding the roots for each value in the array “psival” on each straight lines, the process of
-ﬁnding the contours of Ψ is ﬁnished. The contours of Ψ found this way are plotted in Fig.
-<a 
-href="#x38-540017">7<!--tex4ht:ref: 4-3-p2 --></a>.
-</p><!--l. 2194--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x38-540017"></a>
-                                                                                
-
-                                                                                
-<!--l. 2197--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig1/contour.png" alt="pict"  
- width="180.67499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 7: </span><span  
-class="content">Veriﬁcation of the numerical code that calculates the contours of the poloidal ﬂux
-Ψ. The bold line in the ﬁgure indicates the LCFS. The contour lines (solid lines) given by the
-gnuplot program agrees well with the results I calculate by using interpolation and root-ﬁnding
-method (the two sets of contours are indistinguishable in this scale). My code only calculate the
-contour lines within the LCFS, while those given by gnuplot contains additional contour lines
-below the X point and on the left top in the ﬁgure. Eqdisk ﬁle of the equilibrium was provided
-by Dr. Guoqiang Li (ﬁlename: g013606.07104).</span></div><!--tex4ht:label?: x38-540017 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2209--><p class="indent" >    
-</p><!--l. 2211--><p class="indent" >   In the above, we mentioned that the point of magnetic axis and points on the LCFS are needed to
-construct the straight lines. In G-ﬁle, points on LCFS are given explicitly in an array. The location of
-magnetic axis is also explicitly given in G-ﬁle. It is obvious that some of the straight lines <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>)
-that pass through the location of magnetic axis and points on the LCFS will have very large or even
-inﬁnite slope. On these lines, ﬁnding the accurate root of the equation Ψ(<span 
-class="cmmi-10">R,Z</span>(<span 
-class="cmmi-10">R</span>)) <span 
-class="cmsy-10">− </span>Ψ<sub><span 
-class="cmmi-7">i</span></sub> = 0 is diﬃcult
-or even impossible. The way to avoid this situation is obvious: switch to use function <span 
-class="cmmi-10">R </span>= <span 
-class="cmmi-10">R</span>(<span 
-class="cmmi-10">Z</span>)
-instead of <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>) when the slope of <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>) is large (the switch condition I used is
-<span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">dZ∕dR</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; </span>1).
-</p><!--l. 2222--><p class="indent" >   In constructing the ﬂux surface coordinate with desired Jacobian, we will need the absolute value of
-the gradient of Ψ, <span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">|</span>, on some speciﬁed spatial points. To achieve this, we need to construct a
-interpolating function for <span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">|</span>. The <span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">| </span>can be written as
+ id="x38-460006.1"></a>Local and global safety factors</h4>
+<!--l. 1787--><p class="noindent" >The local safety factor <img 
+src="tokamak_equilibrium207x.png" alt="ˆq"  class="circ"  /> is deﬁned by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x38-54002r196"></a>
+ id="x38-46001r155"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium268x.png" alt="       ∘ ----------------
-         (∂ Ψ)2   (∂ Ψ)2
-|∇Ψ | =   ---   +  ---   ,
-          ∂R       ∂Z
-" class="math-display"  /></center></td><td class="equation-label">(196)</td></tr></table>
-<!--l. 2230--><p class="nopar" >
-By using the center diﬀerence scheme to evaluate the partial derivatives with respect to <span 
-class="cmmi-10">R </span>and <span 
-class="cmmi-10">Z </span>in the
-above equation (using one side diﬀerence scheme for the points on the rectangular boundary), we can
-obtain an 2D array for the value of <span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">| </span>on the rectangular (<span 
-class="cmmi-10">R,Z</span>) grids. Using this 2D array,
-we can construct an interpolating function for <span 
-class="cmsy-10">∇</span>Ψ by using the cubic spline interpolation
-scheme.
+src="tokamak_equilibrium208x.png" alt="ˆq = B-⋅∇-ϕ,
+   B ⋅∇ 𝜃
+" class="math-display"  /></center></td><td class="equation-label">(155)</td></tr></table>
+<!--l. 1791--><p class="nopar" >
+which characterizes the local pitch angle of a magnetic ﬁeld line on a magnetic surface (i.e. in (<span 
+class="cmmi-10">𝜃,ϕ</span>)
+plane). Substituting the contravariant representation of the magnetic ﬁeld, Eq. (<a 
+href="tokamak_equilibriumse6.html#x37-45001r153">153<!--tex4ht:ref: 12-21-p1 --></a>), into the above
+equation, the local safety factor is written
 </p>
-   <hr class="figure" /><div class="figure" 
->
+   <table 
+class="equation"><tr><td><a 
+ id="x38-46002r156"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium209x.png" alt="ˆq(ψ,𝜃) = − g-𝒥-.
+          R2 Ψ′
+" class="math-display"  /></center></td><td class="equation-label">(156)</td></tr></table>
+<!--l. 1799--><p class="nopar" >
+Note that the expression <img 
+src="tokamak_equilibrium210x.png" alt="ˆq"  class="circ"  /> in Eq. (<a 
+href="#x38-46002r156">156<!--tex4ht:ref: 12-25-1 --></a>) depends on the Jacobian <span 
+class="cmsy-10">𝒥 </span>. This is because the
+deﬁnition of <img 
+src="tokamak_equilibrium211x.png" alt="ˆq"  class="circ"  /> depends on the deﬁnition of <span 
+class="cmmi-10">𝜃</span>, which in turn depends on the the Jacobian <span 
+class="cmsy-10">𝒥 </span>. [In
+passing, note that in terms of <img 
+src="tokamak_equilibrium212x.png" alt="ˆq"  class="circ"  /> , the contravariant form of the magnetic ﬁeld, Eq. (<a 
+href="tokamak_equilibriumse6.html#x37-45001r153">153<!--tex4ht:ref: 12-21-p1 --></a>), is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x38-46003r157"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium213x.png" alt="B = − Ψ′(∇ϕ × ∇ψ + ˆq∇ψ × ∇ 𝜃).
+" class="math-display"  /></center></td><td class="equation-label">(157)</td></tr></table>
+<!--l. 1808--><p class="nopar" >
+and the parallel diﬀerential operator <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub> <span 
+class="cmsy-10">⋅∇ </span>is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x38-46004r158"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium214x.png" alt="           ′                            ′  −1( ∂     ∂ )
+B0 ⋅∇ = − Ψ (∇ ϕ× ∇ ψ + ˆq∇ ψ × ∇𝜃)⋅∇ = − Ψ 𝒥    ∂-𝜃 + ˆq∂ϕ .
+" class="math-display"  /></center></td><td class="equation-label">(158)</td></tr></table>
+<!--l. 1816--><p class="nopar" >
+]
+</p><!--l. 1819--><p class="indent" >   The global safety factor deﬁned in Eq. (<a 
+href="tokamak_equilibriumsu10.html#x12-14004r37">37<!--tex4ht:ref: 9-5-e1 --></a>) is actually the poloidal average of the local safety factor,
+i.e., </p><div class="eqnarray">
                                                                                 
 
                                                                                 
-<a 
- id="x38-540038"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium215x.png" alt="          ∫ 2π
+q(ψ) ≡ -1-    ˆqd𝜃                              (159)
+       2π  0 ∫
+        -1-g-  2π 𝒥--
+     = −2π Ψ′  0  R2d𝜃.                        (160)
+" class="math-display"  /><a 
+ id="x38-46005r159"></a><a 
+ id="x38-46005r160"></a></center>
+</div>The physical meaning of <span 
+class="cmmi-10">q </span>is obvious: it represents the number of toroidal circles a magnetic ﬁeld line
+travels when the line travels a complete poloidal loop. Note that <span 
+class="cmmi-10">q </span>and <img 
+src="tokamak_equilibrium216x.png" alt="ˆq"  class="circ"  /> deﬁned this way can be
+negative, which depends on the choice of the positive direction of <span 
+class="cmmi-10">ϕ </span>and <span 
+class="cmmi-10">𝜃 </span>coordinates (note that the
+safety factor given in G-eqdsk ﬁle is always positive, i.e. it is the absolute value of the safety factor
+deﬁned here).
+<!--l. 1834--><p class="indent" >   Next, let us transform the <span 
+class="cmmi-10">𝜃 </span>integration in expression (<a 
+href="#x38-46005r160">160<!--tex4ht:ref: 7-11-p1 --></a>) to a curve integral in the
+poloidal plane. Using the relation <span 
+class="cmmi-10">dℓ</span><sub><span 
+class="cmmi-7">p</span></sub> and <span 
+class="cmmi-10">d𝜃 </span>[Eq. (<a 
+href="tokamak_equilibriumsu32.html#x39-47004r168">168<!--tex4ht:ref: 5-30-p1 --></a>)], expression (<a 
+href="#x38-46005r160">160<!--tex4ht:ref: 7-11-p1 --></a>) is further written
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium217x.png" alt="             ∮
+q(ψ) = − 1-g   sign(𝒥 )-dℓp--
+        2πΨ ′         R|∇ψ |
+        1   sign(𝒥) ∮  dℓp
+    = − 2πgsign(Ψ-′)   R-|∇-Ψ|.                     (161)
+" class="math-display"  /><a 
+ id="x38-46006r161"></a></center>
+</div>Expression (<a 
+href="#x38-46006r161">161<!--tex4ht:ref: 7-12-a1 --></a>) is used in the GTAW code to numerically calculate the value of <span 
+class="cmmi-10">q </span>on magnetic surfaces
+(as a benchmarking of the <span 
+class="cmmi-10">q </span>proﬁle speciﬁed in the G-eqdsk ﬁle). Expression (<a 
+href="#x38-46006r161">161<!--tex4ht:ref: 7-12-a1 --></a>) can also be
+considered as a relation between <span 
+class="cmmi-10">q </span>and <span 
+class="cmmi-10">g</span>. In the equilibrium problem where <span 
+class="cmmi-10">q </span>is given (ﬁxed-q
+equilibrium), we can use expression (<a 
+href="#x38-46006r161">161<!--tex4ht:ref: 7-12-a1 --></a>) to obtain the corresponding <span 
+class="cmmi-10">g </span>(which explicitly appears in the
+GS equation):
+   <table 
+class="equation"><tr><td><a 
+ id="x38-46007r162"></a>
+   <center class="math-display" >
                                                                                 
 
                                                                                 
-<!--l. 2239--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig2/plt.png" alt="pict"  
- width="180.67499pt" /> <img 
-src="my_figure/home/yj/project_new/read_gfile/fig40/plt.png" alt="pict"  
- width="180.67499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 8: </span><span  
-class="content">Grid points (the intersecting points of two curves in the ﬁgure) corresponding to
-uniform poloidal ﬂux and uniform poloidal arc length for EAST equilibrium shot 13606 at 7.1s
-(left) (G-ﬁle name: g013606.07104) and shot 38300 at 3.9s (right) (G-ﬁle name: g038300.03900).</span></div><!--tex4ht:label?: x38-540038 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x38-540049"></a>
-                                                                                
-
-                                                                                
-<!--l. 2247--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/p2.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 9: </span><span  
-class="content"><span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">| </span>as a function of the poloidal angle. The diﬀerent lines corresponds to the values
-of <span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">| </span>on diﬀerent magnetic surfaces. The stars correspond to the values on the boundary
-magnetic surface while the plus signs correspond to the value on the innermost magnetic surface
-(the magnetic surface adjacent to the magnetic axis). The equilibrium is for EAST shot 38300
-at 3.9s.</span></div><!--tex4ht:label?: x38-540049 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x38-5400510"></a>
-                                                                                
-
-                                                                                
-<!--l. 2257--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/p3.png" alt="pict"  
- width="251.94124pt" /> <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/p4.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 10: </span><span  
-class="content">The Poloidal magnetic ﬁeld <span 
+<img 
+src="tokamak_equilibrium218x.png" alt="        ( ∮ --dℓp--)−1 sign(Ψ′)
+g = − 2πq   R |∇ Ψ|    sign(𝒥 ).
+" class="math-display"  /></center></td><td class="equation-label">(162)</td></tr></table>
+<!--l. 1853--><p class="nopar" >
+We note that expression (<a 
+href="#x38-46007r162">162<!--tex4ht:ref: 20-4-7-p1 --></a>) involves magnetic surface averaging, which is unknown before we know
+<span 
+class="cmmi-10">Ψ</span>. Therefore iteration is usually needed in solving the ﬁxed-q equilibrium (i.e., we guess the unknown
+<span 
+class="cmmi-10">Ψ</span>, so that the magnetic surface averaging in expression (<a 
+href="#x38-46007r162">162<!--tex4ht:ref: 20-4-7-p1 --></a>) can be performed, yielding the values of
+<span 
+class="cmmi-10">g</span>.)
+</p><!--l. 1860--><p class="indent" >   Using <span 
 class="cmmi-10">B</span><sub><span 
 class="cmmi-7">p</span></sub> = <span 
-class="cmsy-10">|∇</span>Ψ<span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
 class="cmsy-10">|</span><span 
-class="cmmi-10">∕R </span>(left) and toroidal magnetic ﬁeld <span 
+class="cmmi-10">∕R </span>and <span 
 class="cmmi-10">B</span><sub><span 
 class="cmmi-7">ϕ</span></sub> = <span 
-class="cmmi-10">g∕R</span>
-(right) as a function of the poloidal angle. The diﬀerent lines corresponds to the values on diﬀerent
-magnetic surfaces. The stars correspond to the values on the boundary magnetic surface while
-the plus signs correspond to the value on the innermost magnetic surface (the magnetic surface
-adjacent to the magnetic axis). The equilibrium is for EAST shot 38300 at 3.9s.</span></div><!--tex4ht:label?: x38-5400510 -->
+class="cmmi-10">g∕R</span>,  the absolute value of <span 
+class="cmmi-10">q </span>in expression (<a 
+href="#x38-46006r161">161<!--tex4ht:ref: 7-12-a1 --></a>) is written
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium219x.png" alt="        ∮
+|q| =-1-g  --dℓp-.                           (163)
+    2π    R |∇ Ψ|
+     1 ∮  1|Bϕ|
+  = 2π-  R--Bp-dℓp                          (164)
+" class="math-display"  /></center>
+</div>which is the familiar formula we see in textbooks.
                                                                                 
 
                                                                                 
-   </div><hr class="endfigure" />
-<!--l. 2267--><p class="indent" >    
-</p><!--l. 2269--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x38-5400611"></a>
-                                                                                
-
-                                                                                
-<!--l. 2272--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/tmp.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 11: </span><span  
-class="content">Equal-arc Jacobian as a function of the poloidal angle on diﬀerent magnetic surfaces.
-The dotted line corresponds to the values of Jacobian on the boundary magnetic surface. The
-equilibrium is for EAST shot 38300 at 3.9s.</span></div><!--tex4ht:label?: x38-5400611 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x38-5400712"></a>
-                                                                                
-
-                                                                                
-<!--l. 2280--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig32/tmp.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 12: </span><span  
-class="content"><span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">| </span>as a function of the poloidal angle. The diﬀerent lines corresponds to values of
-<span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">| </span>on diﬀerent magnetic surfaces. The stars correspond to the values of <span 
-class="cmsy-10">|∇</span>Ψ<span 
-class="cmsy-10">| </span>on the boundary
-magnetic surface while the plus signs correspond to the value on the innermost magnetic surface
-(the magnetic surface adjacent to the magnetic axis). The equilibrium is a Solovev equilibrium.</span></div><!--tex4ht:label?: x38-5400712 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2289--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x38-5400813"></a>
-                                                                                
-
-                                                                                
-<!--l. 2292--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig29/tmp.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 13: </span><span  
-class="content">Jacobian on diﬀerent magnetic surfaces as a function of the poloidal angle. The
-equilibrium  is  a  Solovev  equilibrium  and  the  Jacobian  is  an  equal-arc  Jacobian.  The  stars
-correspond to the values of Jacobian on the boundary magnetic surface while the plus signs
-correspond to the value on the innermost magnetic surface (the magnetic surface adjacent to the
-magnetic axis).</span></div><!--tex4ht:label?: x38-5400813 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2301--><p class="indent" >    
-                                                                                
-
-                                                                                
-</p>
-   <!--l. 2303--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1868--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu32.html" >next</a>] [<a 
 href="tokamak_equilibriumsu31.html" >front</a>] [<a 
 href="tokamak_equilibriumse6.html#tokamak_equilibriumsu31.html" >up</a>] </p></div>
-<!--l. 2303--><p class="indent" >   <a 
+<!--l. 1868--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu31.html"></a> </p> 
 </body></html> 

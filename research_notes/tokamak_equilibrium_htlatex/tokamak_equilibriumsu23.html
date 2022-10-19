@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Divergence operator in general coordinates (ψ,𝜃,ζ)</title> 
+<head><title>Jacobian</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,87 +13,92 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1252--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1081--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu24.html" >next</a>] [<a 
 href="tokamak_equilibriumsu22.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu22.html#tailtokamak_equilibriumsu22.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu23.html">tail</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu23.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.5   </span> <a 
- id="x28-350004.5"></a>Divergence operator in general coordinates (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>)</h4>
-<!--l. 1254--><p class="noindent" >To calculate the divergence of a vector, it is desired that the vector should be in the contravariant form
-because we can make use of the fact:
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x28-350004.2"></a>Jacobian</h4>
+<!--l. 1083--><p class="noindent" >A useful quality characterizing a coordinate transformation is the Jacobian determinant (or simply
+called Jacobian), which, for the transformation in Eq. (<a 
+href="tokamak_equilibriumsu22.html#x27-34003r76">76<!--tex4ht:ref: 11-8-10 --></a>), is deﬁned by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x28-35001r105"></a>
+ id="x28-35001r77"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium154x.png" alt="∇ ⋅(∇ α× ∇ β) = 0,
-" class="math-display"  /></center></td><td class="equation-label">(105)</td></tr></table>
-<!--l. 1258--><p class="nopar" >
-for any scalar quantities <span 
-class="cmmi-10">α </span>and <span 
-class="cmmi-10">β</span>. Therefore we write vector <span 
-class="cmbx-10">A </span>as
+src="tokamak_equilibrium118x.png" alt="    |           |
+    || ∂∂xx-∂∂xx- ∂∂xx-||
+𝒥 = || ∂1y-∂y2 ∂3y-||,
+    || ∂x∂1z-∂∂xz2 ∂x∂3z-||
+      ∂x1 ∂x2 ∂x3
+" class="math-display"  /></center></td><td class="equation-label">(77)</td></tr></table>
+<!--l. 1095--><p class="nopar" >
+which can also be written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x28-35002r106"></a>
+ id="x28-35002r78"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium155x.png" alt="A = A(ψ)𝒥∇ 𝜃× ∇ ζ + A(𝜃)𝒥 ∇ ζ × ∇ ψ+ A (ζ)𝒥∇ ψ × ∇𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(106)</td></tr></table>
-<!--l. 1265--><p class="nopar" >
-where <span 
-class="cmmi-10">A</span><sup><span 
-class="cmr-7">(</span><span 
-class="cmmi-7">ψ</span><span 
-class="cmr-7">)</span></sup> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">ψ</span>, <span 
-class="cmmi-10">A</span><sup><span 
-class="cmr-7">(</span><span 
-class="cmmi-7">𝜃</span><span 
-class="cmr-7">)</span></sup> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">𝜃</span>, <span 
-class="cmmi-10">A</span><sup><span 
-class="cmr-7">(</span><span 
-class="cmmi-7">ζ</span><span 
-class="cmr-7">)</span></sup> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">ζ</span>.   Then the divergence of <span 
-class="cmbx-10">A </span>is readily calculated
-as </p><div class="eqnarray">
+src="tokamak_equilibrium119x.png" alt="     ∂r    ∂r   ∂r
+𝒥 =  ∂x-× ∂x--⋅∂x--.
+       1     2   3
+" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
+<!--l. 1101--><p class="nopar" >
+It is easy to prove that the Jacobian <span 
+class="cmsy-10">𝒥 </span>in Eq. (<a 
+href="#x28-35002r78">78<!--tex4ht:ref: 10-21-p3 --></a>) can also be written (the derivation is given in my
+notes on Jacobian)
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x28-35003r79"></a>
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium156x.png" alt="                        (ψ)                   (𝜃)                   (ζ)
-∇ ⋅A   =  (∇𝜃( × ∇ζ)⋅∇ (A  𝒥 )+ (∇ζ × ∇ψ))⋅∇(A   𝒥)+ (∇ ψ× ∇ 𝜃)⋅∇(A   𝒥)(107)
-       =  -1  ∂A-(ψ)𝒥-+ ∂A-(𝜃)𝒥-+ ∂A-(ζ)𝒥-  ,                             (108)
-          𝒥     ∂ψ       ∂ 𝜃       ∂ζ
-" class="math-display"  /><a 
- id="x28-35003r108"></a></center>
-</div>where the second equality is obtained by using Eqs. (<a 
-href="tokamak_equilibriumsu22.html#x27-34002r101">101<!--tex4ht:ref: 4-6-1 --></a>), (<a 
-href="tokamak_equilibriumsu22.html#x27-34003r102">102<!--tex4ht:ref: 4-6-2 --></a>), and (<a 
-href="tokamak_equilibriumsu22.html#x27-34004r103">103<!--tex4ht:ref: 4-6-3 --></a>).
+src="tokamak_equilibrium120x.png" alt="                    −1
+𝒥  = (∇x1 × ∇x2 ⋅∇x3 ) .
+" class="math-display"  /></center></td><td class="equation-label">(79)</td></tr></table>
+<!--l. 1107--><p class="nopar" >
+Conventionally, the Jacobian of the transformation from the Cartesian coordinates to a particular
+coordinate system <span 
+class="cmmi-10">σ </span>is called the Jacobian of <span 
+class="cmmi-10">σ</span>, without explitly mentioning that this transformation is
+with respect to the Cartesian coordinates.
+</p><!--l. 1113--><p class="indent" >   Using the deﬁntion in Eq. (<a 
+href="#x28-35001r77">77<!--tex4ht:ref: 21-11-29-1 --></a>), the Jacobian <span 
+class="cmsy-10">𝒥 </span>of the Cartesian coordinates can be calculated,
+yielding 1. Likewise, the Jacobian of the cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>) can be calculated as follows:
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium121x.png" alt="    |        |  |                    |
+    ||∂∂xR-∂∂xϕ ∂∂xZ||  || ∂R∂cRosϕ-∂Rc∂oϕsϕ ∂R∂cZosϕ-||
+𝒥 = ||∂y-∂y ∂y||= || ∂Rsinϕ-∂R-sinϕ ∂Rsinϕ-||
+    ||∂∂Rz-∂∂ϕz ∂∂Zz||  ||  ∂∂RZ-    ∂∂ϕZ-   ∂∂ZZ-  ||
+    |∂R ∂ϕ ∂Z     |∂R     ∂ϕ    ∂Z
+    ||cosϕ − R sinϕ 0||
+  = ||sinϕ  R cos ϕ 0||= R
+    | 0     0    1|
+" class="math-display"  /></center>
+</div>If the Jacobian of a coordinate system is greater than zero, it is called a right-hand coordinate system.
+Otherwise it is called a left-hand system.
                                                                                 
 
                                                                                 
-   <!--l. 1282--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1142--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu24.html" >next</a>] [<a 
 href="tokamak_equilibriumsu22.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu22.html#tailtokamak_equilibriumsu22.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu23.html" >front</a>] [<a 
 href="tokamak_equilibriumse4.html#tokamak_equilibriumsu23.html" >up</a>] </p></div>
-<!--l. 1282--><p class="indent" >   <a 
+<!--l. 1142--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu23.html"></a> </p> 
 </body></html> 

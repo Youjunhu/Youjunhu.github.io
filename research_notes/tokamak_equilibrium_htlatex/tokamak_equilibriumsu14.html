@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Axisymmetric equilibrium current density</title> 
+<head><title>MHD momentum equation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,63 +13,91 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 848--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 697--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu15.html" >next</a>] [<a 
-href="tokamak_equilibriumsu13.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu13.html#tailtokamak_equilibriumsu13.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu14.html">tail</a>] [<a 
 href="tokamak_equilibriumse3.html#tokamak_equilibriumsu14.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">3.4   </span> <a 
- id="x18-250003.4"></a>Axisymmetric equilibrium current density</h4>
-<!--l. 850--><p class="noindent" >Since <span 
-class="cmbx-10">J </span>= <span 
-class="cmmi-10">μ</span><sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmsy-7">−</span><span 
-class="cmr-7">1</span></sup><span 
-class="cmsy-10">∇× </span><span 
-class="cmbx-10">B</span>, the current density <span 
-class="cmbx-10">J </span>can be inferred from a given magnetic ﬁeld.
-The components of <span 
-class="cmbx-10">J </span>(expressed in terms of <span 
-class="cmmi-10">g </span>and Ψ) are given by Eqs. (<a 
-href="tokamak_equilibriumsu9.html#x12-16001r49">49<!--tex4ht:ref: 5-2-a2 --></a>), (<a 
-href="tokamak_equilibriumsu9.html#x12-16002r50">50<!--tex4ht:ref: 5-2-a1 --></a>) and
-(<a 
-href="tokamak_equilibriumsu10.html#x13-17003r53">53<!--tex4ht:ref: 6-9-a1 --></a>) and these expressions can be further simpliﬁed by using the equilibrium constraints,
-such as <span 
-class="cmmi-10">g </span>= <span 
-class="cmmi-10">g</span>(Ψ) and <span 
-class="cmsy-10">△</span><sup><span 
-class="cmsy-7">∗</span></sup>Ψ = <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">μ</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">R</span><sup><span 
-class="cmr-7">2</span></sup><img 
-src="tokamak_equilibrium100x.png" alt="dP
-dΨ"  class="frac" align="middle" /> <span 
-class="cmsy-10">−</span><img 
-src="tokamak_equilibrium101x.png" alt="dg-
-dΨ"  class="frac" align="middle" /><span 
-class="cmmi-10">g</span>. The simpliﬁed <span 
-class="cmbx-10">J </span>expressions are given in
-<a 
-href="tokamak_equilibriumsu82.html#x97-126000A.8">A.8<!--tex4ht:ref: 20-4-23-a1 --></a>. On the other hand, in the kinetic equilibrium reconstruction<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xli2013">17</a>]</span>, it is the current that
-is ﬁrst computed (by summing sources of current drive and bootstrap current) and then
-the current is used as constraints for the GS equation, i.e, constraints for the magnetic
-ﬁeld.
+   <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x18-220003.1"></a>MHD momentum equation</h4>
+<!--l. 699--><p class="noindent" >The MHD momentum equation of plasmas is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-22001r55"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium57x.png" alt="  (∂u         )
+ρ  ---+ u ⋅∇u   = ρqE + J × B − ∇ ⋅ℙ
+    ∂t
+" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 704--><p class="nopar" >
+where <span 
+class="cmmi-10">ρ</span>, <span 
+class="cmmi-10">ρ</span><sub><span 
+class="cmmi-7">q</span></sub>, <span 
+class="msbm-10">ℙ</span>, <span 
+class="cmbx-10">J</span>, <span 
+class="cmbx-10">E</span>, and <span 
+class="cmbx-10">B </span>are mass density, charge density, thermal pressure tensor, current density,
+electric ﬁeld, and magnetic ﬁeld, respectively. The electric ﬁeld force <span 
+class="cmmi-10">ρ</span><sub><span 
+class="cmmi-7">q</span></sub><span 
+class="cmbx-10">E </span>is usually ignored due to
+either <span 
+class="cmmi-10">ρ</span><sub><span 
+class="cmmi-7">q</span></sub> = 0 or <span 
+class="cmbx-10">E </span>= 0. Further assume that there is no plasma ﬂow (<span 
+class="cmbx-10">u </span>= 0, the ﬂow eﬀect is discussed
+in <span 
+class="cmbx-10">??</span>) and the plasma pressure is isotropic, then the steady state momentum equation (force balance
+equation) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x18-22002r56"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium58x.png" alt="J × B = ∇P,
+" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 715--><p class="nopar" >
+where <span 
+class="cmmi-10">P </span>is the scalar plasma pressure.
+</p><!--l. 718--><p class="indent" >   Is the force balance (<a 
+href="#x18-22002r56">56<!--tex4ht:ref: 7-7-force --></a>) always satisﬁed in a real toakamak discharge? To answer this question, we
+need to go back to the original momentum equation (<a 
+href="#x18-22001r55">55<!--tex4ht:ref: 19-5-5-1 --></a>). The imbalance between <span 
+class="cmbx-10">J </span><span 
+class="cmsy-10">× </span><span 
+class="cmbx-10">B </span>and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">P </span>will
+give rise to the compressional Alfven waves, the time-scale of which, <span 
+class="cmmi-10">τ</span><sub><span 
+class="cmmi-7">A</span></sub>, is much shorter than the
+time-scale <span 
+class="cmmi-10">τ </span>we are interested in. Therefore, on the time scale <span 
+class="cmmi-10">τ </span>and for slow ﬂow with <span 
+class="cmbx-10">u </span><span 
+class="cmmi-10">&#x003C; C</span><sub><span 
+class="cmmi-7">s</span></sub>,
+where <span 
+class="cmmi-10">C</span><sub><span 
+class="cmmi-7">s</span></sub> is the the sound speed, the leading order of the momentum equation is the force
+balance (<a 
+href="#x18-22002r56">56<!--tex4ht:ref: 7-7-force --></a>). (to be sure, I need to think about this again). This reasoning is from Youwen
+Sun<span class="cite">[<span 
+class="cmbx-10">?</span>]</span>.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 863--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 729--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu15.html" >next</a>] [<a 
-href="tokamak_equilibriumsu13.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu13.html#tailtokamak_equilibriumsu13.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu14.html" >front</a>] [<a 
 href="tokamak_equilibriumse3.html#tokamak_equilibriumsu14.html" >up</a>] </p></div>
-<!--l. 863--><p class="indent" >   <a 
+<!--l. 729--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu14.html"></a> </p> 
 </body></html> 

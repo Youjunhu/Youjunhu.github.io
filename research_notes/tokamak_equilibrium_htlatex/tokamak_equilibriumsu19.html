@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Coordinates transformation and Jacobian</title> 
+<head><title>Equilibrium scaling</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,133 +13,127 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 980--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 935--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu20.html" >next</a>] [<a 
+href="tokamak_equilibriumsu18.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu18.html#tailtokamak_equilibriumsu18.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu19.html">tail</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu19.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
- id="x24-310004.1"></a>Coordinates transformation and Jacobian</h4>
-<!--l. 982--><p class="noindent" >In the Cartesian coordinates, a point is described by its coordinates (<span 
-class="cmmi-10">x,y,z</span>), which, in the vector form,
-is written as
+href="tokamak_equilibriumse3.html#tokamak_equilibriumsu19.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.6   </span> <a 
+ id="x23-300003.6"></a>Equilibrium scaling</h4>
+<!--l. 937--><p class="noindent" >The GS equation is given by Eq. (<a 
+href="tokamak_equilibriumsu15.html#x19-26005r66">66<!--tex4ht:ref: 7-1-p1 --></a>), i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x24-31001r72"></a>
+ id="x23-30001r72"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium107x.png" alt="r = xˆx+ yˆy + zˆz,
+src="tokamak_equilibrium107x.png" alt="  2        (      )
+-∂Ψ2 +R -∂-  1-∂Ψ-  = − μ0R2 dP-− dgg.
+∂Z      ∂R   R ∂R           dΨ   dΨ
 " class="math-display"  /></center></td><td class="equation-label">(72)</td></tr></table>
-<!--l. 986--><p class="nopar" >
-where <span 
-class="cmbx-10">r </span>is the location vector of the point; <img 
-src="tokamak_equilibrium108x.png" alt="ˆx"  class="circ"  />, <img 
-src="tokamak_equilibrium109x.png" alt="ˆy"  class="circ"  />, and <img 
-src="tokamak_equilibrium110x.png" alt="ˆz"  class="circ"  /> are the basis vectors of the Cartesian
-coordinates. The transformation between the Cartesian coordinates system, (<span 
-class="cmmi-10">x,y,z</span>), and a general
-coordinates system, (<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
+<!--l. 942--><p class="nopar" >
+If a solution to the GS equation is obtained, the solution can be scaled to obtain a family of solutions.
+Given an equilibrium with <span 
+class="cmmi-10">Ψ</span>(<span 
+class="cmmi-10">R,Z</span>), <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">Ψ</span>), <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>), then it is ready to prove that <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">sΨ</span>, <span 
+class="cmmi-10">P</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">s</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">Ψ</span>),
+and <span 
+class="cmmi-10">g</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmsy-10">±</span><span 
+class="cmmi-10">sg</span>(<span 
+class="cmmi-10">Ψ</span>) is also a solution to the GS equation, where <span 
+class="cmmi-10">s </span>is a constant. In this case, both the
+poloidal and toroidal magnetic ﬁelds are increased by a factor of <span 
+class="cmmi-10">s</span>, and thus the safety factor remains
+unchanged. Also note that the pressure is increased by <span 
+class="cmmi-10">s</span><sup><span 
+class="cmr-7">2</span></sup> factor and thus the value of <span 
+class="cmmi-10">β </span>(the ratio
+of the therm pressure to magnetic pressure) remains unchanged. Note that <span 
+class="cmmi-10">g</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmsy-10">±</span><span 
+class="cmmi-10">sg</span>(<span 
+class="cmmi-10">Ψ</span>),
+which indicates that the direction of the toroidal magnetic ﬁeld can be reversed without
+breaking the force balance. Also note that <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">sΨ </span>and <span 
+class="cmmi-10">s </span>can be negative, which indicates
+that the direction of the toroidal current can also be reversed without breaking the force
+balance.
+</p><!--l. 957--><p class="indent" >   The second kind of scaling is to set <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">Ψ</span>, <span 
+class="cmmi-10">P</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">Ψ</span>), and <span 
+class="cmmi-10">g</span><sub><span 
+class="cmr-7">2</span></sub><sup><span 
+class="cmr-7">2</span></sup> = <span 
+class="cmmi-10">g</span><sup><span 
+class="cmr-7">2</span></sup>(<span 
+class="cmmi-10">Ψ</span>) + <span 
+class="cmmi-10">c</span>. It is ready to prove
+that the scaled expression is still a solution to the GS equation because <span 
+class="cmmi-10">g</span><sub><span 
 class="cmr-7">2</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">3</span></sub>), can be expressed as
-</p>
-                                                                                
-
-                                                                                
-   <table 
-class="equation"><tr><td><a 
- id="x24-31002r73"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium111x.png" alt="r = x(x1,x2,x3)ˆx + y(x1,x2,x3)ˆy+ z(x1,x2,x3)ˆz.
-" class="math-display"  /></center></td><td class="equation-label">(73)</td></tr></table>
-<!--l. 995--><p class="nopar" >
-(For example, cylindrical coordinates (<span 
-class="cmmi-10">R,ϕ,Z</span>) can be considered as a general coordinate systems,
-which are deﬁned by  <span 
-class="cmbx-10">r </span>= <span 
-class="cmmi-10">R</span> cos<span 
-class="cmmi-10">ϕ</span><img 
-src="tokamak_equilibrium112x.png" alt="ˆx"  class="circ"  /> + <span 
-class="cmmi-10">R</span> sin<span 
-class="cmmi-10">ϕ</span><img 
-src="tokamak_equilibrium113x.png" alt="ˆy"  class="circ"  /> + <span 
-class="cmmi-10">Z</span><img 
-src="tokamak_equilibrium114x.png" alt="ˆz"  class="circ"  />.) The transformation function in Eq. (<a 
-href="#x24-31002r73">73<!--tex4ht:ref: 11-8-10dd --></a>) can be
-written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x24-31003r74"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium115x.png" alt="x = x(x1,x2,x3)
-y = y(x1,x2,x3)
-z = z(x1,x2,x3)
-" class="math-display"  /></center></td><td class="equation-label">(74)</td></tr></table>
-<!--l. 1006--><p class="nopar" >
-The Jacobian determinant (or simply called Jacobian) of the transformation in Eq. (<a 
-href="#x24-31003r74">74<!--tex4ht:ref: 11-8-10 --></a>) is deﬁned
-by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x24-31004r75"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium116x.png" alt="    ||  ∂x   ∂x   ∂x  ||
-    || ∂x1  ∂x2  ∂x3 ||
-𝒥 = || ∂∂yx1  ∂∂yx2  ∂∂yx3 ||,
-    | ∂∂zx1  ∂∂zx2  ∂∂zx3 |
-                                                                                
-
-                                                                                
-" class="math-display"  /></center></td><td class="equation-label">(75)</td></tr></table>
-<!--l. 1018--><p class="nopar" >
-which can also be written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x24-31005r76"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium117x.png" alt="𝒥 =  ∂r-× -∂r-⋅-∂r-.
-     ∂x1  ∂x2  ∂x3
-" class="math-display"  /></center></td><td class="equation-label">(76)</td></tr></table>
-<!--l. 1024--><p class="nopar" >
-It is easy to prove that the Jacobian <span 
-class="cmsy-10">𝒥 </span>in Eq. (<a 
-href="#x24-31005r76">76<!--tex4ht:ref: 10-21-p3 --></a>) can also be written (the derivation is given in my
-notes on Jacobian)
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x24-31006r77"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium118x.png" alt="𝒥  = (∇x1 × ∇x2 ⋅∇x3 )−1.
-" class="math-display"  /></center></td><td class="equation-label">(77)</td></tr></table>
-<!--l. 1030--><p class="nopar" >
-In most cases, the Jacobian of the transformation from the Cartesian coordinates to a particular
-coordinate system are simply called the Jacobian of that particular coordinate system without
-mentioning that this transformation is with respect to the Cartesian coordinates. Using this
-nomenclature, the Jacobian <span 
-class="cmsy-10">𝒥 </span>of the Cartesian coordinates is obviously equal to one since the
-transformation is deﬁned with respect to the Cartesian coordinates. If the Jacobian of a coordinate
-system is greater than zero, it is called a right-hand coordinate system. Otherwise it is called a
-left-hand system.
+class="cmmi-10">g</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">gg</span><span 
+class="cmsy-10">′</span>. This scaling keep
+the pressure and the poloidal ﬁeld unchanged and thus the poloidal beta <span 
+class="cmmi-10">β</span><sub><span 
+class="cmmi-7">p</span></sub> remains unchanged. This
+scaling scales the toroidal ﬁeld and thus can be used to generate a family of equilibria with diﬀerent
+proﬁles of safety factor.
+</p><!--l. 965--><p class="indent" >   Another scaling, which is trivial, is to set <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">Ψ</span>, <span 
+class="cmmi-10">P</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">Ψ</span>) + <span 
+class="cmmi-10">c</span>, and <span 
+class="cmmi-10">g</span><sub><span 
+class="cmr-7">2</span></sub> = <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>). This scaling can
+be used to test the eﬀects of the pressure (not the pressure gradient) on various physical
+processes.
+</p><!--l. 969--><p class="indent" >   When a numerical equilibrium is obtained, one can use these scaling methods together to generate
+new equilibria that satisfy particular global conditions. Note that the shape of magnetic surfaces of the
+scaled equilibrium remains the same as the original one.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1041--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 974--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu20.html" >next</a>] [<a 
+href="tokamak_equilibriumsu18.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu18.html#tailtokamak_equilibriumsu18.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu19.html" >front</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu19.html" >up</a>] </p></div>
-<!--l. 1041--><p class="indent" >   <a 
+href="tokamak_equilibriumse3.html#tokamak_equilibriumsu19.html" >up</a>] </p></div>
+<!--l. 974--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu19.html"></a> </p> 
 </body></html> 

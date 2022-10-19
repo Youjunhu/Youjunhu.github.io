@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title> Contravariant form of magnetic ﬁeld in (ψ,𝜃,ζ) coordinates</title> 
+<head><title>Deﬁnition</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,65 +13,236 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 2947--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2568--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu37.html" >next</a>] [<a 
-href="tokamak_equilibriumsu35.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu35.html#tailtokamak_equilibriumsu35.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu36.html">tail</a>] [<a 
 href="tokamak_equilibriumse9.html#tokamak_equilibriumsu36.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">9.2   </span> <a 
- id="x46-620009.2"></a> Contravariant form of magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</h4>
-<!--l. 2949--><p class="noindent" >Recall that the contravariant form of the magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates is given by Eq. (<a 
-href="tokamak_equilibriumsu28.html#x34-42003r155">155<!--tex4ht:ref: 18-3-9-a1 --></a>),
-i.e.,
+   <h4 class="subsectionHead"><span class="titlemark">9.1   </span> <a 
+ id="x46-620009.1"></a>Deﬁnition</h4>
+<!--l. 2570--><p class="noindent" >The magnetic surface average of a physical quantity <span 
+class="cmmi-10">G </span>is deﬁned by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x46-62001r260"></a>
+ id="x46-62001r221"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium346x.png" alt="       ′
-B = − Ψ (∇ϕ × ∇ψ + ˆq∇ψ × ∇ 𝜃).
-" class="math-display"  /></center></td><td class="equation-label">(260)</td></tr></table>
-<!--l. 2954--><p class="nopar" >
-Next, let us derive the corresponding form in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates. Using the deﬁnition of <span 
-class="cmmi-10">ζ</span>, equation
-(<a 
-href="#x46-62001r260">260<!--tex4ht:ref: 6-24-p10 --></a>) is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium347x.png" alt="B   =  − Ψ′∇(ζ + qδ)× ∇ ψ− Ψ ′qˆ∇ ψ × ∇𝜃
-    =  − Ψ′∇ζ × ∇ψ − Ψ′∇(qδ)× ∇ ψ− Ψ ′ˆq∇ ψ× ∇ 𝜃
+src="tokamak_equilibrium295x.png" alt="             ∫ ∫ ∫
+           (     ΔΨ Gd3V )
+⟨G ⟩ ≡ ΔliΨm→0  ∫-∫ ∫--d3V-- ,
+                 Δ Ψ
+" class="math-display"  /></center></td><td class="equation-label">(221)</td></tr></table>
+<!--l. 2575--><p class="nopar" >
+where the volume integration is over a small volume between two adjacent ﬂux surfaces
+with <span 
+class="cmmi-10">Ψ </span>diﬀering by <span 
+class="cmsy-10">△</span><span 
+class="cmmi-10">Ψ</span>. (This formula is used in my PIC code to calculate the radial heat
+ﬂux.)
+</p><!--l. 2580--><p class="indent" >   The above 3D volume integration can also be written as a 2D surface integration. The diﬀerential
+volume element is given by <span 
+class="cmmi-10">d</span><sup><span 
+class="cmr-7">3</span></sup><span 
+class="cmmi-10">V </span>= <span 
+class="cmsy-10">|𝒥|</span><span 
+class="cmmi-10">dψd𝜃dϕ</span>, where <span 
+class="cmsy-10">𝒥 </span>is the Jacobian of (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates. Using
+this, equation (<a 
+href="#x46-62001r221">221<!--tex4ht:ref: 6-14-2 --></a>) is written as </p><div class="eqnarray">
+                                                                                
 
-    =  − Ψ′∇ζ × ∇ψ − Ψ′q∂δ∇ 𝜃× ∇ ψ− Ψ ′ˆq∇ ψ ×∇ 𝜃            (261)
-                        ∂𝜃
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium296x.png" alt="          ( ∫ ∫ ∫  G|𝒥 |dψd𝜃dϕ )
+⟨G⟩ = lim    -∫ ∫-Δ∫Ψ-----------
+     Δ Ψ→∫0∫      ΔΨ |𝒥 |dψd 𝜃dϕ
+   =  dψ-∫-G∫-|𝒥-|d𝜃dϕ-
+      dψ    |𝒥|d𝜃dϕ
+      ∫ ∫ G|𝒥|d𝜃dϕ
+   =  ∫-∫-|𝒥-|d𝜃dϕ-,                                 (222)
 " class="math-display"  /></center>
-</div>Using Eq. (<a 
-href="tokamak_equilibriumsu35.html#x45-61006r251">251<!--tex4ht:ref: 11-12-p1 --></a>), the above equation is simpliﬁed as <div class="eqnarray">
-                                                                                
-
-                                                                                
+</div>which is a 2D averaging over a magnetic surface and thus is called magnetic surface average.
+<!--l. 2598--><p class="indent" >   _________________________________________________________________________________________________________________________
+</p><!--l. 2600--><p class="indent" >   “Zonal” and mean components
+</p><!--l. 2602--><p class="indent" >   The magnetic surface average contains only the contribution from the <span 
+class="cmmi-10">n </span>= 0 component (<span 
+class="cmmi-10">n </span>is the
+toroidal mode number), i.e., axisymmetric component, since the surface averaging of any <span 
+class="cmmi-10">n</span><span 
+class="cmmi-10">≠</span>0 harmonic
+is zero. On the other hand, all poloidal harmonics of <span 
+class="cmmi-10">G </span>can contribute to the surface average since the
+Jacobian has a poloidal angle dependence. <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">G</span><span 
+class="cmsy-10">⟩ </span>is sometimes called the “zonal” component of <span 
+class="cmmi-10">G </span>if the
+radial wavelength of <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">G</span><span 
+class="cmsy-10">⟩ </span>is much smaller than the equilibrium scale length. If the radial
+wavelength of <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">G</span><span 
+class="cmsy-10">⟩ </span>is comparable to the equilibrium scale length, <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">G</span><span 
+class="cmsy-10">⟩ </span>is usually just called “mean”
+component in tokamak literature. For example, mean ﬂows are of system space scale and thus are
+easy to be observed in experiments. On the other hand, the “zonal” ﬂow, which usually
+refers to the turbulence generated secondary ﬂow, is of much smaller radial scale (the radial
+wavelength of zonal ﬂow is of several Larmor radius) and thus is diﬃcult to observe in
+experiments.
+</p><!--l. 2617--><p class="indent" >   _________________________________________________________________________________________________________________________
+</p><!--l. 2619--><p class="indent" >   Sometimes, we do not want the Jacobian to explicitly appear in the formula. This can be achieved
+by writing the diﬀerential volume element as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62003r223"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium348x.png" alt="          ′
-B   =  − Ψ (∇ ζ × ∇ ψ+ q∇ ψ× ∇ 𝜃).                 (262)
-" class="math-display"  /><a 
- id="x46-62003r262"></a></center>
-</div>Equation (<a 
-href="#x46-62003r262">262<!--tex4ht:ref: 3-13-p3 --></a>) is the contravariant form of the magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates.
+src="tokamak_equilibrium297x.png" alt="           dΨ
+d3V = Rd ϕ----dlp.
+          |∇ Ψ|
+" class="math-display"  /></center></td><td class="equation-label">(223)</td></tr></table>
+<!--l. 2623--><p class="nopar" >
+Using <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">p</span></sub> = <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">∕R</span>, the volume element is further written as
+</p>
                                                                                 
 
                                                                                 
-   <!--l. 2976--><div class="crosslinks"><p class="noindent">[<a 
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62004r224"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium298x.png" alt=" 3      dΨ
+d V = dϕBp-dlp
+" class="math-display"  /></center></td><td class="equation-label">(224)</td></tr></table>
+<!--l. 2627--><p class="nopar" >
+Using this, the averaging deﬁned in Eq. (<a 
+href="#x46-62001r221">221<!--tex4ht:ref: 6-14-2 --></a>) is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium299x.png" alt="           ∫ ∫ ∫  Gd ϕdΨdlp
+⟨G ⟩ = lim  -∫-∫Δ ∫-Ψ---dBΨp---
+      ΔΨ→0      ΔΨ dϕBpdlp
+      ∫ ∫ G-1dϕdlp
+    = -∫-∫-B1p-----.                              (225)
+          Bp dϕdlp
+" class="math-display"  /></center>
+</div>If <span 
+class="cmmi-10">G </span>is axisymmetric, then the above equation is written as
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62006r226"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium300x.png" alt="      ∮
+        GB1p dlp
+⟨G ⟩ =-∮-1-dl-.
+         Bp p
+" class="math-display"  /></center></td><td class="equation-label">(226)</td></tr></table>
+<!--l. 2640--><p class="nopar" >
+(Equation (<a 
+href="#x46-62006r226">226<!--tex4ht:ref: 10-16-3 --></a>) is used in the GTAW code to calculate the magnetic surface averaging.) Using Eq.
+(<a 
+href="tokamak_equilibriumsu32.html#x39-47004r168">168<!--tex4ht:ref: 5-30-p1 --></a>) and <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">p</span></sub> = <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">∕R</span>, equation (<a 
+href="#x46-62006r226">226<!--tex4ht:ref: 10-16-3 --></a>) can also be written as
+                                                                                
+
+                                                                                
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62007r227"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium301x.png" alt="     ∫ 2π
+⟨G ⟩ =-0∫--G|𝒥|d𝜃.
+       20π|𝒥 |d𝜃
+" class="math-display"  /></center></td><td class="equation-label">(227)</td></tr></table>
+<!--l. 2647--><p class="nopar" >
+Noting that the Jacobian does not change sign, the above equation is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62008r228"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium302x.png" alt="      ∫2π
+⟨G⟩ = -0∫-G-𝒥d𝜃-.
+        20π𝒥 d𝜃
+" class="math-display"  /></center></td><td class="equation-label">(228)</td></tr></table>
+<!--l. 2653--><p class="nopar" >
+Using the expression of the volume element <span 
+class="cmmi-10">dτ </span>= <span 
+class="cmsy-10">|𝒥|</span><span 
+class="cmmi-10">d𝜃dϕdψ</span>, the volume within a magnetic surface is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62009r229"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium303x.png" alt="       ∫      ∫               ∫ ψ ∫ 2π
+V (ψ) =  dτ =   |𝒥|d𝜃dϕdψ = 2π        |𝒥 |d𝜃dψ.
+                               ψ0  0
+" class="math-display"  /></center></td><td class="equation-label">(229)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 2660--><p class="nopar" >
+Using this, the diﬀerential of <span 
+class="cmmi-10">V </span>with respect to <span 
+class="cmmi-10">ψ </span>is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62010r230"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium304x.png" alt=" ′   dV-    ∫ 2π
+V ≡  dψ = 2π 0  |𝒥|d𝜃.
+" class="math-display"  /></center></td><td class="equation-label">(230)</td></tr></table>
+<!--l. 2665--><p class="nopar" >
+Using this, Eq. (<a 
+href="#x46-62007r227">227<!--tex4ht:ref: 3-18-a1m --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x46-62011r231"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium305x.png" alt="      2π ∫ 2π
+⟨G ⟩ = V-′   G|𝒥|d𝜃
+          0
+" class="math-display"  /></center></td><td class="equation-label">(231)</td></tr></table>
+<!--l. 2669--><p class="nopar" >
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 2672--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu37.html" >next</a>] [<a 
-href="tokamak_equilibriumsu35.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu35.html#tailtokamak_equilibriumsu35.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu36.html" >front</a>] [<a 
 href="tokamak_equilibriumse9.html#tokamak_equilibriumsu36.html" >up</a>] </p></div>
-<!--l. 2976--><p class="indent" >   <a 
+<!--l. 2672--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu36.html"></a> </p> 
 </body></html> 
