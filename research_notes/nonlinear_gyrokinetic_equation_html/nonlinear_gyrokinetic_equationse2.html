@@ -6,82 +6,50 @@
 > 
 <head><title>Transform Vlasov equation from particle coordinates to guiding-center coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
-<meta name="date" content="2019-01-28 10:19:00" /> 
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 54--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 215--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse3.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse1.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse1.html#tailnonlinear_gyrokinetic_equationse1.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationse2.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse2.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
- id="x3-20002"></a>Transform Vlasov equation from particle coordinates to guiding-center coordinates</h3>
-<!--l. 56--><p class="noindent" >To facilitate the derivation, we ﬁrst need to choose some good variables to work with (why they are good
-can only be realized when we get the results, but some preliminary considerations can suggest that some
-variables be good).
-</p><!--l. 60--><p class="indent" >   The Vlasov equation in terms of particle coordinates (<span 
+ id="x5-40002"></a>Transform Vlasov equation from particle coordinates to guiding-center coordinates</h3>
+<!--l. 217--><p class="noindent" >Next, we deﬁne the guiding-center transform and then we transform the Vlasov equation from the
+particle coordinates (<span 
 class="cmbx-10">x</span><span 
 class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>) is given by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2001r1"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation0x.png" alt="&part;fp      &part;fp   q            &part;fp
--&part;t + v&sdot; &part;x-+ m-(E + v× B )&sdot;&part;v- = 0,
-" class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
-<!--l. 66--><p class="nopar" >
-where <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub> = <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub>(<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>) is the particle distribution function, <span 
-class="cmbx-10">x </span>and <span 
-class="cmbx-10">v </span>are the location and velocity of particles.
-Next, we ﬁrst deﬁne the guiding-center transformation. Then we transform the Vlasov equation to the
-guiding-center coordinates, i.e., express the gradient operators <span 
-class="cmmi-10">&part;∕&part;</span><span 
-class="cmbx-10">x </span>and <span 
-class="cmmi-10">&part;∕&part;</span><span 
-class="cmbx-10">v </span>in terms of the
-guiding-center variables.
-</p><!--l. 74--><p class="noindent" >
+class="cmbx-10">v</span>) to the guiding-center coordinates, i.e., express the gradient operators <span 
+class="cmmi-10">∂∕∂</span><span 
+class="cmbx-10">x</span>
+and <span 
+class="cmmi-10">∂∕∂</span><span 
+class="cmbx-10">v </span>in terms of the guiding-center coordinates.
+</p><!--l. 223--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
-    <span class="subsectionToc" >2.1 <a 
-href="nonlinear_gyrokinetic_equationsu1.html#x4-30002.1">Guiding-center transformation</a></span>
-<br />    <span class="subsectionToc" >2.2 <a 
-href="nonlinear_gyrokinetic_equationsu2.html#x5-40002.2">Gyro-angle</a></span>
-<br />    <span class="subsectionToc" >2.3 <a 
-href="nonlinear_gyrokinetic_equationsu3.html#x6-50002.3">Distribution functions in terms of guiding-center variables</a></span>
-<br />    <span class="subsectionToc" >2.4 <a 
-href="nonlinear_gyrokinetic_equationsu4.html#x7-60002.4">Moments of distribution function expressed as integration over guiding-center
-variables</a></span>
-<br />    <span class="subsectionToc" >2.5 <a 
-href="nonlinear_gyrokinetic_equationsu5.html#x8-70002.5">Monte-Carlo sampling of 6D guiding-center phase-space </a></span>
-<br />    <span class="subsectionToc" >2.6 <a 
-href="nonlinear_gyrokinetic_equationsu6.html#x9-80002.6">Choosing velocity coordinates</a></span>
-<br />    <span class="subsectionToc" >2.7 <a 
-href="nonlinear_gyrokinetic_equationsu7.html#x10-90002.7">Spatial gradient operator in terms of guiding-center variables</a></span>
-<br />    <span class="subsectionToc" >2.8 <a 
-href="nonlinear_gyrokinetic_equationsu8.html#x11-100002.8">Velocity gradient operator in terms of guiding-center variables</a></span>
-                                                                                  
-                                                                                  
-<br />    <span class="subsectionToc" >2.9 <a 
-href="nonlinear_gyrokinetic_equationsu9.html#x12-110002.9">Time derivatives in terms of guiding-center variables</a></span>
-<br />    <span class="subsectionToc" >2.10 <a 
-href="nonlinear_gyrokinetic_equationsu10.html#x13-120002.10">Final form of Vlasov equation in guiding-center coordinates</a></span>
+     <span class="subsectionToc" >2.1 <a 
+href="nonlinear_gyrokinetic_equationsu3.html#x6-50002.1">Guiding-center transformation</a></span>
+<br />     <span class="subsectionToc" >2.2 <a 
+href="nonlinear_gyrokinetic_equationsu4.html#x7-60002.2">Choosing velocity coordinates</a></span>
+<br />     <span class="subsectionToc" >2.3 <a 
+href="nonlinear_gyrokinetic_equationsu5.html#x8-70002.3">Summary of the phase-space coordinate transform</a></span>
+<br />     <span class="subsectionToc" >2.4 <a 
+href="nonlinear_gyrokinetic_equationsu6.html#x9-80002.4">Distribution functions in terms of guiding-center variables</a></span>
+<br />     <span class="subsectionToc" >2.5 <a 
+href="nonlinear_gyrokinetic_equationsu7.html#x10-90002.5">Spatial gradient operator in guiding-center coordinates</a></span>
+<br />     <span class="subsectionToc" >2.6 <a 
+href="nonlinear_gyrokinetic_equationsu8.html#x11-100002.6">Velocity gradient operator in guiding-center coordinates</a></span>
+<br />     <span class="subsectionToc" >2.7 <a 
+href="nonlinear_gyrokinetic_equationsu9.html#x12-110002.7">Time derivatives in guiding-center coordinates</a></span>
+<br />     <span class="subsectionToc" >2.8 <a 
+href="nonlinear_gyrokinetic_equationsu10.html#x13-120002.8">Final form of Vlasov equation in guiding-center coordinates</a></span>
    </div>
 
 
@@ -90,16 +58,15 @@ href="nonlinear_gyrokinetic_equationsu10.html#x13-120002.10">Final form of Vlaso
 
 
 
+                                                                                
 
-
-                                                                                  
-                                                                                  
-   <!--l. 675--><div class="crosslinks"><p class="noindent">[<a 
+                                                                                
+   <!--l. 595--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse3.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse1.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse1.html#tailnonlinear_gyrokinetic_equationse1.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse2.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse2.html" >up</a>] </p></div>
-<!--l. 675--><p class="indent" >   <a 
+<!--l. 595--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse2.html"></a> </p> 
 </body></html> 

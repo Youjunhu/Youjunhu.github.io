@@ -4,84 +4,200 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Linear case</title> 
+<head><title>Moments of distribution function expressed as integration over guiding-center variables</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
-<meta name="date" content="2019-01-28 10:19:00" /> 
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 3307--><div class="crosslinks"><p class="noindent">[<a 
-href="nonlinear_gyrokinetic_equationsu28.html" >next</a>] [<a 
-href="#tailnonlinear_gyrokinetic_equationsu27.html">tail</a>] [<a 
-href="nonlinear_gyrokinetic_equationse10.html#nonlinear_gyrokinetic_equationsu27.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">D.1   </span> <a 
- id="x38-51000D.1"></a>Linear case</h4>
-<!--l. 3309--><p class="noindent" >Neglecting the nonlinear terms, drift-kinetic equation (<a 
-href="nonlinear_gyrokinetic_equationse10.html#x37-50001r259">259<!--tex4ht:ref: 17-5-14-e1 --></a>) is written </p><div class="eqnarray">
-                                                                                  
-                                                                                  
+   <!--l. 3137--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="nonlinear_gyrokinetic_equationsu28.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="#tailnonlinear_gyrokinetic_equationsu27.html"><span 
+class="ecrm-1000">tail</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="nonlinear_gyrokinetic_equationse9.html#nonlinear_gyrokinetic_equationsu27.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+   <h4 class="subsectionHead"><span class="titlemark"><span 
+class="ecrm-1000">C.1   </span></span> <a 
+ id="x37-57000C.1"></a><span 
+class="ecrm-1000">Moments of distribution function expressed as integration over guiding-center</span>
+<span 
+class="ecrm-1000">variables</span></h4>
+<!--l. 3139--><p class="noindent" ><span 
+class="ecrm-1000">In terms of particle variables </span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>)<span 
+class="ecrm-1000">, it is straightforward to calculate the moment of the distribution</span>
+<span 
+class="ecrm-1000">function. For example, the number density </span><span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) <span 
+class="ecrm-1000">is given by</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-57001r258"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation285x.png" alt="[                   ]
- -&part; + (v e + v  )&sdot;&nabla;   &delta;f
- &part;t    ∥ ∥   D     X
-    (       &delta;B&perp;-)         -q               &part;F0-
-= &minus;  vE + v∥ B0   &sdot;&nabla;XF0 &minus; m [(v∥e∥ + vD)&sdot;&delta;E ]&part;𝜀 .          (260)
-" class="math-display"  /><a 
- id="x38-51001r260"></a></center>
-</div>Next let us derive the parallel momentum equation from the linear drift kinetic equation (this is needed in
-my simulation). Multiplying the linear drift kinetic equation (<a 
-href="#x38-51001r260">260<!--tex4ht:ref: 17-5-17-p1 --></a>) by <span 
-class="cmmi-10">qv</span><sub><span 
-class="cmsy-7">∥</span></sub> and then integrating over
-velocity space, we obtain <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation286x.png" alt="            &int;
-&part;&delta;j∥
- &part;t   =  &minus; q  dvv∥(v∥e∥ + vD)&sdot;&nabla;X &delta;f
-          &int;      (       &delta;B &perp;)          q  &int;                    &part;F0
-      &minus;  q   dvv∥ vE + v∥-B0-  &sdot;&nabla;XF0 &minus; m-q   dvv∥[(v∥e∥ + vD )&sdot;&delta;E]&part;-𝜀 . (261)
-" class="math-display"  /><a 
- id="x38-51002r261"></a></center>
-</div>Equation (<a 
-href="#x38-51002r261">261<!--tex4ht:ref: 17-7-20-1 --></a>) involve <span 
-class="cmsy-10">&nabla;</span><sub><span 
-class="cmmi-7">X</span></sub><span 
-class="cmmi-10">&delta;f </span>and this should be avoided in particle methods whose goal is to
-avoid directly evaluating the derivatives of <span 
-class="cmmi-10">&delta;f </span>over phase-space coordinates. On the other
-hand, the partial derivatives of velocity moment of <span 
-class="cmmi-10">&delta;f </span>are allowed. Therefore, we would like to
-make the velocity integration of <span 
-class="cmmi-10">&delta;f </span>appear. Note that <span 
-class="cmsy-10">&nabla;</span><sub><span 
-class="cmmi-7">X</span></sub><span 
-class="cmmi-10">&delta;f </span>here is taken by holding (<span 
-class="cmmi-10">𝜀,&mu;</span>)
-constant and thus <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> is not a constant and thus can not be moved inside <span 
-class="cmsy-10">&nabla;</span><sub><span 
-class="cmmi-7">X</span></sub>. Next, to facilitate
-performing the integration over <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>, we transform the linear drift kinetic equation (<a 
-href="#x38-51001r260">260<!--tex4ht:ref: 17-5-17-p1 --></a>) into variable
-(<span 
+src="nonlinear_gyrokinetic_equation287x.png" alt="      ∫
+n(x) =  fp(x,v)dv.
+" class="math-display"  /></center></td><td class="equation-label">(258)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 3145--><p class="nopar" >
+<span 
+class="ecrm-1000">However, it is a little diﬃcult to calculate </span><span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) <span 
+class="ecrm-1000">at real space location </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">by using the guiding-center</span>
+<span 
+class="ecrm-1000">variables </span>(<span 
 class="cmbx-10">X</span><span 
-class="cmmi-10">,&mu;,v</span><sub><span 
-class="cmsy-7">∥</span></sub>).
-                                                                                  
-                                                                                  
-   <!--l. 3345--><div class="crosslinks"><p class="noindent">[<a 
-href="nonlinear_gyrokinetic_equationsu28.html" >next</a>] [<a 
-href="nonlinear_gyrokinetic_equationsu27.html" >front</a>] [<a 
-href="nonlinear_gyrokinetic_equationse10.html#nonlinear_gyrokinetic_equationsu27.html" >up</a>] </p></div>
-<!--l. 3345--><p class="indent" >   <a 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>)<span 
+class="ecrm-1000">. This is because holding </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">constant and changing </span><span 
+class="cmbx-10">v</span><span 
+class="ecrm-1000">, which is required by the</span>
+<span 
+class="ecrm-1000">integration in Eq. (</span><a 
+href="#x37-57001r258"><span 
+class="ecrm-1000">258</span><!--tex4ht:ref: 18-12-26-p1 --></a><span 
+class="ecrm-1000">), means the guiding-center variable </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">is changing according to Eq. (</span><a 
+href="nonlinear_gyrokinetic_equationsu3.html#x6-5001r19"><span 
+class="ecrm-1000">19</span><!--tex4ht:ref: 16-9-21-1 --></a><span 
+class="ecrm-1000">). Using</span>
+<span 
+class="ecrm-1000">Eq. (</span><a 
+href="nonlinear_gyrokinetic_equationsu6.html#x9-8001r26"><span 
+class="ecrm-1000">26</span><!--tex4ht:ref: 17-8-19-p1 --></a><span 
+class="ecrm-1000">), expression (</span><a 
+href="#x37-57001r258"><span 
+class="ecrm-1000">258</span><!--tex4ht:ref: 18-12-26-p1 --></a><span 
+class="ecrm-1000">) is written as</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-57002r259"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation288x.png" alt="      ∫
+n(x) =   f (X (x,v),v )dv,
+          g
+" class="math-display"  /></center></td><td class="equation-label">(259)</td></tr></table>
+<!--l. 3156--><p class="nopar" >
+<span 
+class="ecrm-1000">As is mentioned above, the </span><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span><span 
+class="ecrm-1000">integration in Eq. (</span><a 
+href="#x37-57002r259"><span 
+class="ecrm-1000">259</span><!--tex4ht:ref: 18-12-26-p2 --></a><span 
+class="ecrm-1000">) should be performed by holding </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">constant and</span>
+<span 
+class="ecrm-1000">changing </span><span 
+class="cmbx-10">v</span><span 
+class="ecrm-1000">, which means the guiding-center variable </span><span 
+class="cmbx-10">X </span>= <span 
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) <span 
+class="ecrm-1000">is changing. This means</span>
+<span 
+class="ecrm-1000">that, in </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) <span 
+class="ecrm-1000">space, the above integration is a (generalized) line integral along the the line</span>
+<span 
+class="ecrm-1000"> </span><span 
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">v</span>) = <span 
+class="cmbx-10">x </span><span 
+class="cmsy-10">−</span><span 
+class="cmmib-10">ρ</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) <span 
+class="ecrm-1000">with </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">being constant. Treating </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">and </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">as independent variables and using the</span>
+<span 
+class="ecrm-1000">Dirac delta function </span><span 
+class="cmmi-10">δ</span><span 
+class="ecrm-1000">, this line integral can be written as the following double integration over the</span>
+<span 
+class="ecrm-1000">independent variables </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">and </span><span 
+class="cmbx-10">v</span><span 
+class="ecrm-1000">:</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x37-57003r260"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation289x.png" alt="      ∫  ∫
+n(x) =     f (X, v)δ3(X − x + ρ)dvdX.
+            g
+" class="math-display"  /></center></td><td class="equation-label">(260)</td></tr></table>
+<!--l. 3171--><p class="nopar" >
+<span 
+class="ecrm-1000">Another perspective of interpreting Eq. (</span><a 
+href="#x37-57003r260"><span 
+class="ecrm-1000">260</span><!--tex4ht:ref: 19-1-19-p1 --></a><span 
+class="ecrm-1000">) is that we are ﬁrst using the tansformation (</span><a 
+href="nonlinear_gyrokinetic_equationse9.html#x36-56001r255"><span 
+class="ecrm-1000">255</span><!--tex4ht:ref: 19-1-20-e1 --></a><span 
+class="ecrm-1000">) to</span>
+<span 
+class="ecrm-1000">transform </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> <span 
+class="ecrm-1000">to </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> <span 
+class="ecrm-1000">and then integrating </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> <span 
+class="ecrm-1000">in the velocity space.</span>
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 3176--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="nonlinear_gyrokinetic_equationsu28.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="nonlinear_gyrokinetic_equationsu27.html" ><span 
+class="ecrm-1000">front</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="nonlinear_gyrokinetic_equationse9.html#nonlinear_gyrokinetic_equationsu27.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+<!--l. 3176--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu27.html"></a> </p> 
 </body></html> 

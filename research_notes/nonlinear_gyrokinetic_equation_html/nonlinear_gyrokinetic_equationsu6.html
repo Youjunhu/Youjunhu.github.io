@@ -4,161 +4,90 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Choosing velocity coordinates</title> 
+<head><title>Distribution functions in terms of guiding-center variables</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
-<meta name="date" content="2019-01-28 10:19:00" /> 
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 415--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 385--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationsu7.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu5.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu5.html#tailnonlinear_gyrokinetic_equationsu5.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationsu6.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu6.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">2.6   </span> <a 
- id="x9-80002.6"></a>Choosing velocity coordinates</h4>
-<!--l. 417--><p class="noindent" >Coordinates of the velocity space can be chosen as (<span 
-class="cmmi-10">v,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,&alpha;</span>), or (<span 
-class="cmmi-10">v,v</span><sub><span 
-class="cmsy-7">&perp;</span></sub><span 
-class="cmmi-10">,&alpha;</span>), or (<span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">&perp;</span></sub><span 
-class="cmmi-10">,&alpha;</span>), where <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> and <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">&perp;</span></sub>
-are the parallel and perpendicular (with respect to <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmbx-10">x</span>)) velocity, respectively, <span 
-class="cmmi-10">&alpha; </span>is the azimuthal angle
-in a cylindrical/spherical velocity coordinate system. Here <span 
-class="cmmi-10">&alpha; </span>is usually called the “gyro-angle”, which is
-the most important variable we need because we need to directly perform averaging over this variable in
-deriving the gyrokinetic equation.
-</p><!--l. 427--><p class="indent" >   (**incorrect**The parallel direction is fully determined by <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmbx-10">x</span>), but there are degrees of freedom in
-choosing one of the two perpendicular basis vectors. It seems that, in order to make the azimuthal angle <span 
-class="cmmi-10">&alpha;</span>
-fully deﬁned, we need to choose a way to deﬁne one of the two perpendicular directions. It turns out that
-this is not necessary because the gyro-angle is deﬁned only locally in space. At each spatial
-point, the perpendicular directions can be arbitrarily chosen. In other words, for a given <span 
-class="cmbx-10">v</span>, the
-corresponding gyro-angles <span 
-class="cmmi-10">&alpha; </span>at diﬀerent spatial locations are unrelated, i.e., <span 
-class="cmmi-10">&part;&alpha;∕&part;</span><span 
-class="cmbx-10">x</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmbx-7">v</span></sub> is not deﬁned.**
-Update: we DO need to deﬁne the perpendicular direction at each spatial location to make
-<span 
-class="cmmi-10">&part;&alpha;∕&part;</span><span 
-class="cmbx-10">x</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmbx-7">v</span></sub> deﬁned, which is needed in the Vlasov diﬀerential operators. However, it seems that
-terms related to <span 
-class="cmmi-10">&part;&alpha;∕&part;</span><span 
-class="cmbx-10">x</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmbx-7">v</span></sub> are ﬁnally dropped due to that they are of higher order, check***
-)
-</p><!--l. 443--><p class="indent" >   The gyro-angle is a velocity variable that we will stick to. The other velocity variables, <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>, <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">&perp;</span></sub>, and
-<span 
-class="cmmi-10">v</span>, can be replaced by other choices. In Frieman-Chen&#x2019;s paper, these variables are replaced
-by
+   <h4 class="subsectionHead"><span class="titlemark">2.4   </span> <a 
+ id="x9-80002.4"></a>Distribution functions in terms of guiding-center variables</h4>
+<!--l. 387--><p class="noindent" >Denote the distribution function in terms of the guiding-center variables (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,𝜀,μ,α</span>) by <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub>. Then the
+relation between <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> and the particle distribution function <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> is given by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x9-8001r19"></a>
+ id="x9-8001r26"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation18x.png" alt="𝜀 = 𝜀(v,x) &equiv; v2+  q&Phi;0-(x-),
-            2      m
-" class="math-display"  /></center></td><td class="equation-label">(19)</td></tr></table>
-<!--l. 449--><p class="nopar" >
-and
+src="nonlinear_gyrokinetic_equation26x.png" alt="fg(X, 𝜀,μ,α) = fp(x,v),
+" class="math-display"  /></center></td><td class="equation-label">(26)</td></tr></table>
+<!--l. 393--><p class="nopar" >
+where the coordinates (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,𝜀,μ,α</span>) are related to (<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) by Eq. (<a 
+href="nonlinear_gyrokinetic_equationsu5.html#x8-7001r25">25<!--tex4ht:ref: 21-8-25-a1 --></a>) . Equation (<a 
+href="#x9-8001r26">26<!--tex4ht:ref: 17-8-19-p1 --></a>) along with Eq. (<a 
+href="nonlinear_gyrokinetic_equationsu5.html#x8-7001r25">25<!--tex4ht:ref: 21-8-25-a1 --></a>)
+can be considered as the deﬁnition of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub>.
+</p><!--l. 399--><p class="indent" >   As is conventionally adopted in multi-variables calculus, both <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> and <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> are sometimes simply
+denoted by <span 
+class="cmmi-10">f</span>. Which one is actually assumed depends on the context, i.e., depends on which
+independent variables are actually assumed: particle variables or guiding-center variables. This is one of
+the subtle (trivial) things needed to be noted for gyrokinetic theory in particular and for
+multi-variables calculus in general. It seems better to use subscript notation on <span 
+class="cmmi-10">f </span>to identify which
+coordinates are assumed. One example where this distinguishing is important is encountered
+when we try to express the diamagnetic ﬂow in terms of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub>, which is discussed in Appendix
+<a 
+href="nonlinear_gyrokinetic_equationse10.html#x40-60000D">D<!--tex4ht:ref: 17-8-19-e1 --></a>.
+</p><!--l. 410--><p class="indent" >   In practice, <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> is often called the guiding-center distribution function whereas <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> is called the
+particle distribution function. However, they are actually the same distribution function expressed in
+diﬀerent variables. The name “guiding-center distribution function” is misleading because it may imply
+that we can count the number of guiding-centers to obtain this distribution function but this
+implication is wrong.
+                                                                                
+
+                                                                                
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x9-8002r20"></a>
-                                                                                  
-                                                                                  
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation19x.png" alt="             --v2&perp;--
-&mu; = &mu; (v&perp;,x ) &equiv; 2B0(x),
-" class="math-display"  /></center></td><td class="equation-label">(20)</td></tr></table>
-<!--l. 454--><p class="nopar" >
-where &Phi;<sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmbx-10">x</span>) is the equilibrium (macroscopic) electrical potential, <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">&perp;</span></sub> = <span 
-class="cmsy-10">|</span><span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">&perp;</span></sub><span 
-class="cmsy-10">|</span>, and <span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">&perp;</span></sub> = <span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">&minus; </span><span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">&sdot; </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub> is the
-perpendicular velocity. Note that (<span 
-class="cmmi-10">𝜀,&mu;,&alpha;</span>) is not suﬃcient in uniquely determining a velocity vector. An
-additional parameter <span 
-class="cmmi-10">&sigma; </span>= sign(<span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>) is needed to determine the sign of <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> = <span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">&sdot; </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub>. In the following, the
-dependence of the distribution function on <span 
-class="cmmi-10">&sigma; </span>is often not explicitly shown in the variable list
-(i.e., <span 
-class="cmmi-10">&sigma; </span>is hidden/suppressed), which, however, does not mean that the distribution function is
-independent of <span 
-class="cmmi-10">&sigma;</span>. Another frequently used velocity coordinates are (<span 
-class="cmmi-10">&mu;,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,&alpha;</span>). In the following, I will
-derive the gyrokinetic equation in (<span 
-class="cmmi-10">𝜀,&mu;,&alpha;</span>) coordinates. After that, I transform it to (<span 
-class="cmmi-10">&mu;,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,&alpha;</span>)
-coordinates.
-                                                                                  
-                                                                                  
-</p>
-   <!--l. 470--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 417--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationsu7.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu5.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu5.html#tailnonlinear_gyrokinetic_equationsu5.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu6.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu6.html" >up</a>] </p></div>
-<!--l. 470--><p class="indent" >   <a 
+<!--l. 417--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu6.html"></a> </p> 
 </body></html> 

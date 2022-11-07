@@ -4,242 +4,198 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Moments of distribution function expressed as integration over guiding-center variables</title> 
+<head><title>Choosing velocity coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
-<meta name="date" content="2019-01-28 10:19:00" /> 
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 217--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 281--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationsu5.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu3.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu3.html#tailnonlinear_gyrokinetic_equationsu3.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationsu4.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu4.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">2.4   </span> <a 
- id="x7-60002.4"></a>Moments of distribution function expressed as integration over guiding-center variables</h4>
-<!--l. 219--><p class="noindent" >In terms of particle variables (<span 
+   <h4 class="subsectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x7-60002.2"></a>Choosing velocity coordinates</h4>
+<!--l. 283--><p class="noindent" >The guiding-center transformations (<a 
+href="nonlinear_gyrokinetic_equationsu3.html#x6-5001r19">19<!--tex4ht:ref: 16-9-21-1 --></a>) and (<a 
+href="nonlinear_gyrokinetic_equationsu3.html#x6-5003r21">21<!--tex4ht:ref: 19-1-19-p2 --></a>) involve the particle velocity <span 
+class="cmbx-10">v</span>. It is the cross product
+between <span 
+class="cmbx-10">v </span>and <span 
+class="cmmib-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>) or <span 
+class="cmmib-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">X</span>) that is actually used. Therefore, only the perpendicular velocity (which
+is deﬁned by <span 
+class="cmbx-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub> = <span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">− </span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>) enters the transform. A natural choice of coordinates for the
+perpendicular velocity is (<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α</span>), where <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub> = <span 
+class="cmsy-10">|</span><span 
+class="cmbx-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmsy-10">| </span>and <span 
+class="cmmi-10">α </span>is the azimuthal angle of the perpendicular
+velocity in the local perpendicular plane.
+</p><!--l. 294--><p class="indent" >   The parallel direction is fully determined by <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">x</span>), but there are degrees of freedom in choosing one
+of the two perpendicular basis vectors. In order to make the azimuthal angle <span 
+class="cmmi-10">α </span>fully deﬁned, we need to
+choose a way to deﬁne one of the two perpendicular directions. In GEM simulations, one of the
+perpendicular direction is chosen as the direction perpendicular to the magnetic surface, which is fully
+determined at each spatial point. (We need to deﬁne the perpendicular direction at each spatial
+location to make <span 
+class="cmmi-10">∂α∕∂</span><span 
 class="cmbx-10">x</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>), it is straightforward to calculate the moment of the distribution
-function. For example, the number density <span 
-class="cmmi-10">n</span>(<span 
-class="cmbx-10">x</span>) is given by
+class="cmsy-10">|</span><sub><span 
+class="cmbx-7">v</span></sub> deﬁned, which is needed in the Vlasov diﬀerential operators. However, it
+seems that terms related to <span 
+class="cmmi-10">∂α∕∂</span><span 
+class="cmbx-10">x</span><span 
+class="cmsy-10">|</span><sub><span 
+class="cmbx-7">v</span></sub> are ﬁnally dropped due to that they are of higher
+order**check.)
+</p><!--l. 307--><p class="indent" >   In the following, <span 
+class="cmmi-10">α </span>will be called the “gyro-angle” . Note that the common use of the
+nomenclature “gyro-angle” is to describe the spatial motion of a particle, but here <span 
+class="cmmi-10">α </span>is a velocity
+coordinate rather than a spatial coordinate. How to justify the name “gyro-angle” for <span 
+class="cmmi-10">α</span>?
+Consider a series of points in terms of guiding-center coordinates (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α</span>) with (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>)
+ﬁxed but with <span 
+class="cmmi-10">α </span>changing. Using the inverse guiding-center transform (<a 
+href="nonlinear_gyrokinetic_equationsu3.html#x6-5003r21">21<!--tex4ht:ref: 19-1-19-p2 --></a>), it is obvious
+that the above points form a gyro-ring in real space, which justiﬁes calling <span 
+class="cmmi-10">α </span>by the name
+“gyro-angle”.
+</p><!--l. 318--><p class="indent" >   The gyro-angle is an important variable we will stick to because we need to directly perform
+averaging over this variable (with <span 
+class="cmbx-10">X </span>ﬁxed) in deriving the gyrokinetic equation. We have more than one
+choice for the remaining velocity coordinates , such as  (<span 
+class="cmmi-10">v,v</span><sub><span 
+class="cmsy-7">∥</span></sub>), or (<span 
+class="cmmi-10">v,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>), or (<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>). In
+Frieman-Chen’s paper, the velocity coordinates other than <span 
+class="cmmi-10">α </span>are chosen to be (<span 
+class="cmmi-10">𝜀,μ</span>) deﬁned
+by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x7-6001r11"></a>
+ id="x7-6001r22"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation10x.png" alt="      &int;
-n(x) =  fp(x,v)dv.
-" class="math-display"  /></center></td><td class="equation-label">(11)</td></tr></table>
-<!--l. 225--><p class="nopar" >
-However, it is a little diﬃcult to calculate <span 
-class="cmmi-10">n</span>(<span 
-class="cmbx-10">x</span>) at real space location <span 
-class="cmbx-10">x </span>by using the guiding-center
-variables (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>). This is because holding <span 
-class="cmbx-10">x </span>constant and changing <span 
-class="cmbx-10">v</span>, as required by the integration in Eq.
-(<a 
-href="#x7-6001r11">11<!--tex4ht:ref: 18-12-26-p1 --></a>), means the guiding-center variable <span 
-class="cmbx-10">X </span>is changing, according to Eq. (<a 
-href="nonlinear_gyrokinetic_equationsu1.html#x4-3001r2">2<!--tex4ht:ref: 16-9-21-1 --></a>). Using Eq. (<a 
-href="nonlinear_gyrokinetic_equationsu3.html#x6-5001r5">5<!--tex4ht:ref: 17-8-19-p1 --></a>), expression (<a 
-href="#x7-6001r11">11<!--tex4ht:ref: 18-12-26-p1 --></a>)
-is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x7-6002r12"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation11x.png" alt="       &int;
-n(x) =   fg(X (x,v),v)dv,
-" class="math-display"  /></center></td><td class="equation-label">(12)</td></tr></table>
-                                                                                  
-                                                                                  
-<!--l. 236--><p class="nopar" >
-As is mentioned above, the <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v </span>integration in Eq. (<a 
-href="#x7-6002r12">12<!--tex4ht:ref: 18-12-26-p2 --></a>) should be performed by holding <span 
-class="cmbx-10">x </span>constant and
-changing <span 
-class="cmbx-10">v</span>, which means the guiding-center variable <span 
-class="cmbx-10">X </span>= <span 
-class="cmbx-10">X</span>(<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>) is changing. This means
-that, in (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>) space, the above integration is a (generalized) line integral along the the line
-<span 
-class="cmbx-10">X</span>(<span 
-class="cmbx-10">v</span>) = <span 
-class="cmbx-10">x </span><span 
-class="cmsy-10">&minus;</span><span 
-class="cmmib-10">&rho;</span>(<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>) with <span 
-class="cmbx-10">x </span>being constant. By using the Dirac delta function <span 
-class="cmmi-10">&delta;</span>, this line integral can be
-written as the following two-dimensional integration over the independent variables <span 
-class="cmbx-10">X </span>and
-<span 
-class="cmbx-10">v</span>:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x7-6003r13"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation12x.png" alt="       &int; &int;
-n(x) =     fg(X,v)&delta;3(X &minus; x + &rho;)dvdX.
-" class="math-display"  /></center></td><td class="equation-label">(13)</td></tr></table>
-<!--l. 250--><p class="nopar" >
-In gyrokinetic particle in cell (PIC) simulations, the integral (<a 
-href="#x7-6003r13">13<!--tex4ht:ref: 19-1-19-p1 --></a>) is evaluated by using Monte-Carlo
-markers. Actually evaluated in the simulation is the integral of a special <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub> that is independent
-of the gyro-angle <span 
-class="cmmi-10">&alpha;</span>. Using <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">&perp;</span></sub> and <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> as the two remaining velocity coordinates, then <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub> is
-written as <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub> = <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub>(<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">&perp;</span></sub><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub>). In this case <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub> is a function of ﬁve variables (rather than six
-variables).
-</p><!--l. 259--><p class="indent" >   In simulations, the position of a marker represents the guiding-center location (rather
-than the particle location), i.e., it is the guiding-center location that is directly sampled (the
-particle position is indirectly sampled, as is discussed below). For a marker with coordinators
-(<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">&perp;</span></sub><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub>), we can calculate particle positions by using the transformation (<a 
-href="nonlinear_gyrokinetic_equationsu1.html#x4-3003r4">4<!--tex4ht:ref: 19-1-19-p2 --></a>). There are
-inﬁnite number of particle positions associated with the marker since the direction of <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">&perp;</span></sub> (i.e.,
-gyro-agnle) is not speciﬁed. All these possible particle positions are on a circle around the
-guiding-center position <span 
-class="cmbx-10">X</span>. This circle is often called the gyro-ring. In particle simulations, the
-gyro-ring is descretized by several sampling points in calculating its integration contribution to
-grids. We choose <span 
-class="cmmi-10">N </span>sampling points that are evenly distributed on the gyro-ring (<span 
-class="cmmi-10">N </span>is usually
-4 as a compromise between eﬃciency and accuracy). Denote the Mote-Carlo weight of the
-<span 
-class="cmmi-10">j</span> th marker by <span 
-class="cmmi-10">w</span><sub><span 
-class="cmmi-7">j</span></sub>. Then the weight is evenly split by the <span 
-class="cmmi-10">N </span>sub-markers on the gyro-ring
-since <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub>(<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">&perp;</span></sub><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub>) is independent of the gyro-phase (put it another way, <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub> is uniformed
-distributed in the gyro-phase) Therefore each sub-marker have a Monte-Carlo weight <span 
-class="cmmi-10">w</span><sub><span 
-class="cmmi-7">j</span></sub><span 
-class="cmmi-10">∕N</span>. Then
-calculating the integration (<a 
-href="#x7-6003r13">13<!--tex4ht:ref: 19-1-19-p1 --></a>) at a grid corresponds to depositing all the <span 
-class="cmmi-10">N </span>sub-markers
-associated with each guiding-center marker to the grid, as is illustrated in Fig. <a 
-href="#x7-60041">1<!--tex4ht:ref: 19-1-19-p4 --></a>. A more
-accurate interpretation of why the charge deposition can be done this way is discussed in Sec.
-<a 
-href="nonlinear_gyrokinetic_equationsu5.html#x8-70002.5">2.5<!--tex4ht:ref: 19-1-28-1 --></a>.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                  
-                                                                                  
-<a 
- id="x7-60041"></a>
-                                                                                  
-                                                                                  
+src="nonlinear_gyrokinetic_equation22x.png" alt="            v2  qΦ  (x)
+𝜀 = 𝜀(v,x) ≡ --+ ---0--,
+            2     m
+" class="math-display"  /></center></td><td class="equation-label">(22)</td></tr></table>
+<!--l. 328--><p class="nopar" >
+and
+                                                                                
 
-<!--l. 284--><p class="noindent" ><img 
-src="my_figure/home/yj/theory/figures/grids_cells/grids-3.png" alt="pict"  
- width="182.6825pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 1: </span><span  
-class="content">The spatial grids in the plane perpendicular to the equilibrium magnetic ﬁeld and
-one gyro-ring with 4 sampling points (sub-markers) on it. For a guiding-center marker <span 
-class="cmmi-10">C </span>with
-a Monte-Carlo weight of <span 
-class="cmmi-10">w</span><sub><span 
-class="cmmi-7">j</span></sub>, the 4 sub-markers are calculated by using the transformation (<a 
-href="nonlinear_gyrokinetic_equationsu1.html#x4-3003r4">4<!--tex4ht:ref: 19-1-19-p2 --></a>)
-(rebuilding  the  gyro-ring).  The  Monte-Carlo  weight  of  each  sub-marker  is  <span 
-class="cmmi-10">w</span><sub><span 
-class="cmmi-7">j</span></sub><span 
-class="cmmi-10">∕</span>4.  The  value  of
-integration (<a 
-href="#x7-6003r13">13<!--tex4ht:ref: 19-1-19-p1 --></a>) at a grid point is approximated by <span 
-class="cmmi-10">I∕</span>&Delta;<span 
-class="cmmi-10">V </span>, where <span 
-class="cmmi-10">I </span>is the Monte-Carlo integration
-of all sub-markers associated with all guiding-center markers in the cell, &Delta;<span 
-class="cmmi-10">V </span>is the cell volume. The
-cell associated with a grid-point (e.g., <span 
-class="cmmi-10">A</span>) is indicated by the dashed rectangle (this is for 2D case, for
-3D, it is a cube). If the Dirac delta function is used as the shape function of the sub-markers, then
-calculating the contribution of a sub-marker to a grid corresponds to the nearest-point interpolation
-(for example, the 4 sub-markers will contribute noting to grid <span 
-class="cmmi-10">B </span>since no-sub marker is located
-within the cell). In practice, the ﬂat-top shape function with its support equal to the cell size is
-often used, then the depositing corresponds to linearly interpolating the weight of each sub-marker
-to the nearby grids.</span></div><!--tex4ht:label?: x7-60041 -->
-                                                                                  
-                                                                                  
-   </div><hr class="endfigure" />
-<!--l. 305--><p class="indent" >    
-</p><!--l. 307--><p class="indent" >   The gyro-averaging of a perturbed ﬁeld can be numerically calculated in a way similar to the above
-(discussed later).
-                                                                                  
-                                                                                  
+                                                                                
 </p>
-   <!--l. 310--><div class="crosslinks"><p class="noindent">[<a 
+   <table 
+class="equation"><tr><td><a 
+ id="x7-6002r23"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation23x.png" alt="             --v2⊥--
+μ = μ(v⊥,x) ≡ 2B0(x),
+" class="math-display"  /></center></td><td class="equation-label">(23)</td></tr></table>
+<!--l. 333--><p class="nopar" >
+where <span 
+class="cmmi-10">Φ</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">x</span>) is the equilibrium (macroscopic) electrical potential.
+</p><!--l. 337--><p class="indent" >   Note that (<span 
+class="cmmi-10">𝜀,μ,α</span>) is not suﬃcient in uniquely determining a velocity vector. An additional
+parameter <span 
+class="cmmi-10">σ </span>= sign(<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>) is needed to determine the sign of <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> = <span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅</span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>. In the following, the dependence
+of the distribution function on <span 
+class="cmmi-10">σ </span>is often not explicitly shown in the variable list (i.e., <span 
+class="cmmi-10">σ </span>is
+hidden/suppressed), which, however, does not mean that the distribution function is independent of
+<span 
+class="cmmi-10">σ</span>.
+</p><!--l. 345--><p class="indent" >   Another frequently used velocity coordinates are (<span 
+class="cmmi-10">μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>). In the following, I will derive
+the gyrokinetic equation in (<span 
+class="cmmi-10">𝜀,μ,α</span>) coordinates. After that, I transform it to (<span 
+class="cmmi-10">μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>)
+coordinates.
+</p><!--l. 350--><p class="indent" >   One important thing to note about the above velocity coordinates is that they are deﬁned relative
+to the local magnetic ﬁeld. If the ﬁeld itself is spatially varying (such as in tokamaks), the above
+velocity coordinates are also spatially varying for a ﬁxed velocity <span 
+class="cmbx-10">v</span>. Speciﬁcally, the following
+derivatives are nonzero:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-6003r24"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation24x.png" alt="∂α-  ∂v⊥-  ∂v∥   ∂μ-
+∂x|v, ∂x |v, ∂x |v,∂x |v.
+" class="math-display"  /></center></td><td class="equation-label">(24)</td></tr></table>
+<!--l. 361--><p class="nopar" >
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 363--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationsu5.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu3.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu3.html#tailnonlinear_gyrokinetic_equationsu3.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu4.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu4.html" >up</a>] </p></div>
-<!--l. 310--><p class="indent" >   <a 
+<!--l. 363--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu4.html"></a> </p> 
 </body></html> 

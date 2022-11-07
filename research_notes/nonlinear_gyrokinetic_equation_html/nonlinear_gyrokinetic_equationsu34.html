@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Linear case</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 4225--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="nonlinear_gyrokinetic_equationsu35.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="#tailnonlinear_gyrokinetic_equationsu34.html"><span 
+class="ecrm-1000">tail</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="nonlinear_gyrokinetic_equationse13.html#nonlinear_gyrokinetic_equationsu34.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+   <h4 class="subsectionHead"><span class="titlemark"><span 
+class="ecrm-1000">G.1   </span></span> <a 
+ id="x48-68000G.1"></a><span 
+class="ecrm-1000">Linear case</span></h4>
+<!--l. 4227--><p class="noindent" ><span 
+class="ecrm-1000">Neglecting the nonlinear terms, drift-kinetic equation (</span><a 
+href="nonlinear_gyrokinetic_equationse13.html#x47-67001r319"><span 
+class="ecrm-1000">319</span><!--tex4ht:ref: 17-5-14-e1 --></a><span 
+class="ecrm-1000">) is written</span> </p><div class="eqnarray">
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation351x.png" alt="[ ∂                  ]
+  ∂t + (v∥e∥ + vD) ⋅∇X δf
+    (           )
+= −   vE +v∥δB-⊥  ⋅∇XF0  − q-[(v∥e∥ + vD )⋅δE]∂F0.          (320)
+             B0            m                ∂ 𝜀
+" class="math-display"  /><a 
+ id="x48-68001r320"></a></center>
+</div><span 
+class="ecrm-1000">Next let us derive the parallel momentum equation from the linear drift kinetic equation (this is needed</span>
+<span 
+class="ecrm-1000">in my simulation). Multiplying the linear drift kinetic equation (</span><a 
+href="#x48-68001r320"><span 
+class="ecrm-1000">320</span><!--tex4ht:ref: 17-5-17-p1 --></a><span 
+class="ecrm-1000">) by </span><span 
+class="cmmi-10">qv</span><sub><span 
+class="cmsy-7">∥</span></sub> <span 
+class="ecrm-1000">and then integrating over</span>
+<span 
+class="ecrm-1000">velocity space, we obtain </span><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation352x.png" alt="∂δj      ∫
+---∥ = − q  dvv∥(v∥e∥ + vD )⋅∇X δf
+ ∂t     ∫     (            )            ∫
+     − q  dvv∥  vE + v∥ δB-⊥- ⋅∇XF0  − q-q  dvv∥[(v∥e∥ + vD)⋅δE ]∂F0-.  (321)
+                       B0            m                        ∂𝜀
+" class="math-display"  /><a 
+ id="x48-68002r321"></a></center>
+</div><span 
+class="ecrm-1000">Equation (</span><a 
+href="#x48-68002r321"><span 
+class="ecrm-1000">321</span><!--tex4ht:ref: 17-7-20-1 --></a><span 
+class="ecrm-1000">) involve </span><span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">δf </span><span 
+class="ecrm-1000">and this should be avoided in particle methods whose goal is to avoid</span>
+<span 
+class="ecrm-1000">directly evaluating the derivatives of </span><span 
+class="cmmi-10">δf </span><span 
+class="ecrm-1000">over phase-space coordinates. On the other hand, the partial</span>
+<span 
+class="ecrm-1000">derivatives of velocity moment of </span><span 
+class="cmmi-10">δf </span><span 
+class="ecrm-1000">are allowed. Therefore, we would like to make the velocity</span>
+<span 
+class="ecrm-1000">integration of </span><span 
+class="cmmi-10">δf </span><span 
+class="ecrm-1000">appear. Note that </span><span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">δf </span><span 
+class="ecrm-1000">here is taken by holding </span>(<span 
+class="cmmi-10">𝜀,μ</span>) <span 
+class="ecrm-1000">constant and thus </span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>
+<span 
+class="ecrm-1000">is not a constant and thus can not be moved inside </span><span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="ecrm-1000">. Next, to facilitate performing</span>
+<span 
+class="ecrm-1000">the integration over </span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="ecrm-1000">, we transform the linear drift kinetic equation (</span><a 
+href="#x48-68001r320"><span 
+class="ecrm-1000">320</span><!--tex4ht:ref: 17-5-17-p1 --></a><span 
+class="ecrm-1000">) into variable</span>
+(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub>)<span 
+class="ecrm-1000">.</span>
+                                                                                
+
+                                                                                
+   <!--l. 4263--><div class="crosslinks"><p class="noindent"><span 
+class="ecrm-1000">[</span><a 
+href="nonlinear_gyrokinetic_equationsu35.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="nonlinear_gyrokinetic_equationsu34.html" ><span 
+class="ecrm-1000">front</span></a><span 
+class="ecrm-1000">] [</span><a 
+href="nonlinear_gyrokinetic_equationse13.html#nonlinear_gyrokinetic_equationsu34.html" ><span 
+class="ecrm-1000">up</span></a><span 
+class="ecrm-1000">] </span></p></div>
+<!--l. 4263--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationsu34.html"></a> </p> 
+</body></html> 
