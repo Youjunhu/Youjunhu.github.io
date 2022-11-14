@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Derivation of Eq. (112)</title> 
+<head><title>Implementation of gyrokinetics in Monte-Carlo simulations</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 3034--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 2881--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse9.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -32,108 +32,38 @@ class="ecrm-1000">up</span></a><span
 class="ecrm-1000">] </span></p></div>
    <h3 class="sectionHead"><span class="titlemark"><span 
 class="ecrm-1000">B   </span></span> <a 
- id="x35-55000B"></a><span 
-class="ecrm-1000">Derivation of Eq. (112)</span></h3>
-<!--l. 3036--><p class="noindent" ><span 
-class="ecrm-1000">Using the fact that </span><span 
-class="cmmi-10">δG</span><sub><span 
-class="cmr-7">0</span></sub> <span 
-class="ecrm-1000">is independent of </span><span 
-class="cmmi-10">α</span><span 
-class="ecrm-1000">, the left-hand side of Eq. (</span><a 
-href="nonlinear_gyrokinetic_equationsu15.html#x19-25004r112"><span 
-class="ecrm-1000">112</span><!--tex4ht:ref: 18-9-11-p3 --></a><span 
-class="ecrm-1000">) is written as</span>
-</p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation278x.png" alt="  ⟨v⋅[λB1 + λB2{ ]δ[G0⟩α      ]                          }
-  -1-∫ 2π            ∂-( e∥)   ∂δG0-  ∂μ-∂δG0-  ∂α-∂δG0-
-= 2π  0  dαv ⋅  v × ∂x  Ω    ⋅ ∂X  + ∂x  ∂μ  + ∂x  ∂α
-     ∫ 2π     { [      ( e )]                }
-= -1-    dαv ⋅  v × ∂-- -∥   ⋅ ∂δG0-+ ∂μ-∂δG0
-  2π  0             ∂x  Ω      ∂X    ∂x  ∂μ
-" class="math-display"  /></center>
-</div>
-<!--l. 3055--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
-</p><!--l. 3057--><p class="indent" >   <span 
-class="ecrm-1000">From the deﬁnition of </span><span 
-class="cmmi-10">μ</span><span 
-class="ecrm-1000">, we obtain</span>
+ id="x33-53000B"></a><span 
+class="ecrm-1000">Implementation of gyrokinetics in Monte-Carlo simulations</span></h3>
+<!--l. 2884--><p class="noindent" >
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x35-55002r252"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation279x.png" alt="∂μ     v2  ∂B     1  ∂v2     μ ∂B    ∂v    v
----= − -⊥2---0-+ ------⊥-= −------0+ ---⊥ ⋅-⊥-
-∂x     2B0 ∂x    2B0 ∂x     B0  ∂x    ∂x   B0
-" class="math-display"  /></center></td><td class="equation-label">(252)</td></tr></table>
-<!--l. 3065--><p class="nopar" >
+   <div class="subsectionTOCS">
+   <span 
+class="ecrm-1000"> </span><span 
+class="ecrm-1000"> </span><span class="subsectionToc" ><span 
+class="ecrm-1000">B.1 </span><a 
+href="nonlinear_gyrokinetic_equationsu25.html#x34-54000B.1"><span 
+class="ecrm-1000">Moments of distribution function expressed as integration over</span>
 <span 
-class="ecrm-1000">Using</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x35-55003r253"></a>
+class="ecrm-1000">guiding-center variables</span></a></span>
+<br />   <span 
+class="ecrm-1000"> </span><span 
+class="ecrm-1000"> </span><span class="subsectionToc" ><span 
+class="ecrm-1000">B.2 </span><a 
+href="nonlinear_gyrokinetic_equationsu26.html#x35-55000B.2"><span 
+class="ecrm-1000">Numerical evaluation of distribution function moments at grids</span></a></span>
+<br />   <span 
+class="ecrm-1000"> </span><span 
+class="ecrm-1000"> </span><span class="subsectionToc" ><span 
+class="ecrm-1000">B.3 </span><a 
+href="nonlinear_gyrokinetic_equationsu27.html#x36-56000B.3"><span 
+class="ecrm-1000">Monte-Carlo sampling of 6D guiding-center phase-space </span></a></span>
+   </div>
+
+
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation280x.png" alt="∂v⊥    ∂[v − v∥e∥]      ∂e∥   ∂v∥
--∂x-=  ---∂x-----= − v∥-∂x − ∂x-e∥,
-" class="math-display"  /></center></td><td class="equation-label">(253)</td></tr></table>
-<!--l. 3072--><p class="nopar" >
-<span 
-class="ecrm-1000">expression (</span><a 
-href="#x35-55002r252"><span 
-class="ecrm-1000">252</span><!--tex4ht:ref: 16-9-21-3 --></a><span 
-class="ecrm-1000">) is written as</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x35-55004r254"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation281x.png" alt="∂μ-= − μ-∂B0- − v∥∂e-∥⋅ v⊥-,
-∂x     B0 ∂x      ∂x  B0
-" class="math-display"  /></center></td><td class="equation-label">(254)</td></tr></table>
-<!--l. 3079--><p class="nopar" >
-<span 
-class="ecrm-1000">which agrees with Eq. (10) in Frieman-Chen’s paper</span><span class="cite"><span 
-class="ecrm-1000">[</span><a 
-href="nonlinear_gyrokinetic_equationli1.html#Xfrieman1982"><span 
-class="ecrm-1000">3</span></a><span 
-class="ecrm-1000">]</span></span><span 
-class="ecrm-1000">.</span> </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation282x.png" alt="-1-∫ 2π      ∂μ-
-2π  0  dαv⋅ ∂x
-   1 ∫ 2π     (   μ ∂B      ∂e   v  )
-= ---    dαv⋅  − -----0− v∥--∥ ⋅-⊥-
-  2π  0          B0 ∂x      ∂x  B0
-=?0
-" class="math-display"  /></center>
-</div>
-   <div class="eqnarray">
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation283x.png" alt="1 ∫ 2π     [     ∂ (e )]  ∂δG
----   dαv ⋅ v × --- -∥   ⋅----0
-2=π  0           ∂x  Ω      ∂X
-" class="math-display"  /></center>
-</div>
-                                                                                
-
-                                                                                
-   <!--l. 3099--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3292--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse9.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -150,6 +80,6 @@ class="ecrm-1000">] [</span><a
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse8.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
-<!--l. 3099--><p class="indent" >   <a 
+<!--l. 3292--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse8.html"></a> </p> 
 </body></html> 

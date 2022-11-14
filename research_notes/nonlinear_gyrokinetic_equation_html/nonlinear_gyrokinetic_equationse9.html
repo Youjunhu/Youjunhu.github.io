@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>ddd</title> 
+<head><title>Polarization density expression using δΦ at grid-points </title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 3099--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3292--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse10.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -32,170 +32,96 @@ class="ecrm-1000">up</span></a><span
 class="ecrm-1000">] </span></p></div>
    <h3 class="sectionHead"><span class="titlemark"><span 
 class="ecrm-1000">C   </span></span> <a 
- id="x36-56000C"></a><span 
-class="ecrm-1000">ddd</span></h3>
-<!--l. 3101--><p class="noindent" ><span 
-class="ecrm-1000">In the above, we assume that </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">are always related to each other by the guiding-center</span>
+ id="x37-57000C"></a><span 
+class="ecrm-1000">Polarization density expression using </span><span 
+class="cmmi-10">δΦ </span><span 
+class="ecrm-1000">at grid-points </span></h3>
+<!--l. 3294--><p class="noindent" ><span 
+class="ecrm-1000">In Sec. </span><a 
+href="nonlinear_gyrokinetic_equationsu23.html#x29-410005.7"><span 
+class="ecrm-1000">5.7</span><!--tex4ht:ref: 21-8-22-a3 --></a><span 
+class="ecrm-1000">, when evaluating the polarization density, the potential </span><span 
+class="cmmi-10">δΦ </span><span 
+class="ecrm-1000">is Fourier expanded in space and</span>
 <span 
-class="ecrm-1000">transformation (</span><a 
-href="nonlinear_gyrokinetic_equationsu3.html#x6-5001r19"><span 
-class="ecrm-1000">19</span><!--tex4ht:ref: 16-9-21-1 --></a><span 
-class="ecrm-1000">) or (</span><a 
-href="nonlinear_gyrokinetic_equationsu3.html#x6-5003r21"><span 
-class="ecrm-1000">21</span><!--tex4ht:ref: 19-1-19-p2 --></a><span 
-class="ecrm-1000">) , i.e., </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">are not independent. For some cases, it may be convienent to</span>
+class="ecrm-1000">then the double gyro-angle integration of each harmonic is expressed as the Bessel function. Are these</span>
 <span 
-class="ecrm-1000">treat </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">as independent variables and express the guiding-center transformation via an integral of</span>
+class="ecrm-1000">formulas scaring to beginners? Does this make gyrokinetic theory less accessible to general readers? I</span>
 <span 
-class="ecrm-1000">the Dirac delta function. For example,</span>
+class="ecrm-1000">think so.</span>
+</p><!--l. 3300--><p class="indent" >   <span 
+class="ecrm-1000">It seems that the motivation of using the Fourier expansion here is to facilitate analytical treatment</span>
+<span 
+class="ecrm-1000">and is not very useful for numerical treatment. GEM code does make use of the Fourier expansion form</span>
+<span 
+class="ecrm-1000">in its numerical implementation, where the local perpendicular wave number needs to be estimated</span>
+<span 
+class="ecrm-1000">numerically, which seems awkward.</span>
+</p><!--l. 3306--><p class="indent" >   <span 
+class="ecrm-1000">In this section, we avoid using the Fourier expansion at the ﬁrst place, and directly express the</span>
+<span 
+class="ecrm-1000">double gyro-angle integral as linear combination of values of </span><span 
+class="cmmi-10">δΦ </span><span 
+class="ecrm-1000">at spatial grid-points.</span>
+</p><!--l. 3310--><p class="indent" >   <span 
+class="ecrm-1000">The integration we try to evaluate is given by</span>
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-56001r255"></a>
+ id="x37-57001r248"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation284x.png" alt="         ∫
-fp(x,v) =  fg(X,v)δ3(X − x+ ρ)dX,
-" class="math-display"  /></center></td><td class="equation-label">(255)</td></tr></table>
-<!--l. 3110--><p class="nopar" >
+src="nonlinear_gyrokinetic_equation272x.png" alt="       ∫  (            )
+A  = -1    − q-⟨δΦ ⟩ ∂F0- dvdr,
+ ij  V       m    α ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(248)</td></tr></table>
+<!--l. 3315--><p class="nopar" >
 <span 
 class="ecrm-1000">where </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">are considered as independent variables,</span> <span 
-class="cmmib-10">ρ</span> <span 
-class="ecrm-1000">is evaluated at </span><span 
-class="cmbx-10">x</span><span 
-class="ecrm-1000">, </span><span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x </span><span 
-class="cmsy-10">− </span><span 
-class="cmbx-10">X </span><span 
-class="cmsy-10">−</span><span 
-class="cmmib-10">ρ</span>) <span 
-class="ecrm-1000">is</span>
+class="cmmi-10">A</span><sub><span 
+class="cmr-7">ij</span></sub> <span 
+class="ecrm-1000">is the value of   the integration at a grid-point, which is approximated by the spatial</span>
 <span 
-class="ecrm-1000">the three-dimensional Dirac delta function. [In terms of general coordinates </span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">2</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">3</span></sub>)<span 
-class="ecrm-1000">,</span>
-<span 
-class="ecrm-1000">the three-dimensional Dirac delta function is deﬁned via the 1D Dirac delta function as</span>
-<span 
-class="ecrm-1000">follows:</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x36-56002r256"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation285x.png" alt="        1
-δ3(x) = ---δ(x1)δ(x2)δ(x3),
-       |𝒥 |
-" class="math-display"  /></center></td><td class="equation-label">(256)</td></tr></table>
-<!--l. 3120--><p class="nopar" >
-<span 
-class="ecrm-1000">where </span><span 
-class="cmsy-10">𝒥 </span><span 
-class="ecrm-1000">is the the Jacobian of the general coordinate system. The Jacobian is included in order to</span>
-<span 
-class="ecrm-1000">make </span><span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x</span>) <span 
-class="ecrm-1000">satisfy the normalization condition</span> <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x</span>)<span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">x </span>= <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x</span>)<span 
-class="cmsy-10">|𝒥|</span><span 
-class="cmmi-10">dx</span><sub><span 
-class="cmr-7">1</span></sub><span 
-class="cmmi-10">dx</span><sub><span 
-class="cmr-7">2</span></sub><span 
-class="cmmi-10">dx</span><sub><span 
-class="cmr-7">3</span></sub> = 1<span 
-class="ecrm-1000">.]</span>
-</p><!--l. 3126--><p class="indent" >   <span 
-class="ecrm-1000">Expression (</span><a 
-href="#x36-56001r255"><span 
-class="ecrm-1000">255</span><!--tex4ht:ref: 19-1-20-e1 --></a><span 
-class="ecrm-1000">) can be considered as a transformation that transforms an arbitrary function from</span>
-<span 
-class="ecrm-1000">the guiding-center coordinates to the particle coordinates. Similarly,</span>
-                                                                                
-
-                                                                                
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x36-56003r257"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation286x.png" alt="          ∫
-fg(X,v) =   fp(x,v)δ3(x − X − ρ )dx,
-" class="math-display"  /></center></td><td class="equation-label">(257)</td></tr></table>
-<!--l. 3132--><p class="nopar" >
-<span 
-class="ecrm-1000">is a transformation that transforms an arbitrary function from the the particle coordinates to the</span>
-<span 
-class="ecrm-1000">guiding-center coordinates.</span>
-</p><!--l. 3137--><p class="noindent" >
+class="ecrm-1000">averaging integrand over the cell where the grid-point is located.</span>
+</p><!--l. 3320--><p class="indent" >   <span 
+class="ecrm-1000">Using MC markers and MC integration to compute the above cell average.</span>
+</p><!--l. 3322--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 3324--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 3326--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 3328--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
    <span 
 class="ecrm-1000"> </span><span 
 class="ecrm-1000"> </span><span class="subsectionToc" ><span 
 class="ecrm-1000">C.1 </span><a 
-href="nonlinear_gyrokinetic_equationsu27.html#x37-57000C.1"><span 
-class="ecrm-1000">Moments of distribution function expressed as integration over</span>
-<span 
-class="ecrm-1000">guiding-center variables</span></a></span>
+href="nonlinear_gyrokinetic_equationsu28.html#x38-58000C.1"><span 
+class="ecrm-1000">old, to be deleted</span></a></span>
 <br />   <span 
 class="ecrm-1000"> </span><span 
 class="ecrm-1000"> </span><span class="subsectionToc" ><span 
 class="ecrm-1000">C.2 </span><a 
-href="nonlinear_gyrokinetic_equationsu28.html#x38-58000C.2"><span 
-class="ecrm-1000">Numerical evaluation of distribution function moments at grids</span></a></span>
+href="nonlinear_gyrokinetic_equationsu29.html#x39-59000C.2"><span 
+class="ecrm-1000">Performing the parallel velocity integration</span></a></span>
 <br />   <span 
 class="ecrm-1000"> </span><span 
 class="ecrm-1000"> </span><span class="subsectionToc" ><span 
 class="ecrm-1000">C.3 </span><a 
-href="nonlinear_gyrokinetic_equationsu29.html#x39-59000C.3"><span 
-class="ecrm-1000">Monte-Carlo sampling of 6D guiding-center phase-space </span></a></span>
+href="nonlinear_gyrokinetic_equationsu30.html#x40-60000C.3"><span 
+class="ecrm-1000">Toroidal Fourier transform of polarization density in ﬁeld-aligned coordinates</span></a></span>
+                                                                                
+
+                                                                                
    </div>
 
 
                                                                                 
 
                                                                                 
-   <!--l. 3552--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3546--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse10.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -212,6 +138,6 @@ class="ecrm-1000">] [</span><a
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse9.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
-<!--l. 3552--><p class="indent" >   <a 
+<!--l. 3546--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse9.html"></a> </p> 
 </body></html> 

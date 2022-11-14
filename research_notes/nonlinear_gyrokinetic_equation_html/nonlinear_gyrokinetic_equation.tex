@@ -38,25 +38,24 @@
 
 \section{Gyrokinetic?}
 
-Most physicists believe that low-frequency (lower than ion cyclotron
-frequency) electromagnetic perturbations are more important than
-high-frequency ones in transporting tokamak plasma, based on some
-non-conclusive observations and analytical theories. This assumption can be
-verified numerically when we are able to do a full simulation including both
-low-frequency and high-freqeuncy perturbations. This kind of verification is
-not possible at present due to the difficulties in doing a full simulation.
+It is widely believed that low-frequency (lower than ion cyclotron frequency)
+electromagnetic perturbations are more important than high-frequency ones in
+transporting plasma in tokamaks, based on some non-conclusive observations and
+analytical theories. (This assumption can be verified numerically when we are
+able to do a full simulation including both low-frequency and high-frequency
+perturbations. This kind of verification is not possible at present due to the
+difficulties in doing a full simulation.)
 
 If only the low-frequency perturbations are present, the original Vlasov
 equation can be simplified. Specifically, some kind of symmetry of the
-perturbed particle distribution function in the phase space can be found if we
-choose suitable coordinates (independent variables) for the phase space and
-split the distribution function in a proper way. The symmetry is along the
+perturbed particle distribution function in the phase space can be established
+if we choose suitable coordinates (independent variables) for the phase space
+and split the distribution function in a proper way. The symmetry is along the
 so-called gyro-angle $\alpha$ in the guiding-center coordinates $(\mathbf{X},
 v_{\perp}, v_{\parallel}, \alpha)$. In obtaining the equation for the
 gyro-angle independent part of the distribution function, we need to average
-the coefficients of the equation (particle motion) over the gyro-angle
-$\alpha$ of the guiding-center coordinates and thus this model is called
-``gyrokinetic''.
+the coefficients of the equation over the gyro-angle $\alpha$ and thus this
+model is called ``gyrokinetic''.
 
 In deriving the gyrokinetic equation, the perturbed electromagnetic field is
 assumed to be known and of low-frequency. To do a kinetic simulation, we need
@@ -66,68 +65,81 @@ can still appear in a gyrokinetic simulation. If the amplitude of high
 frequency modes is large, then the simulation is not meaningful since the
 gyrokinetic model is invalid in this case.
 
-\subsection{Vlasov equation}
+\subsection{Vlasov equation and Gyro-angle symmetry of distribution
+function}\label{19-4-23-p1}
 
 The Vlasov equation in terms of particle coordinates $(\mathbf{x},
 \mathbf{v})$ is written
 \begin{equation}
-  \frac{\partial f_p}{\partial t} +\mathbf{v} \cdot \frac{\partial
-  f_p}{\partial \mathbf{x}} + \frac{q}{m} (\mathbf{E}+\mathbf{v} \times
-  \mathbf{B}) \cdot \frac{\partial f_p}{\partial \mathbf{v}} = 0,
+  \label{22-11-12-1} \frac{\partial f_p}{\partial t} +\mathbf{v} \cdot
+  \frac{\partial f_p}{\partial \mathbf{x}} + \frac{q}{m}
+  (\mathbf{E}+\mathbf{v} \times \mathbf{B}) \cdot \frac{\partial f_p}{\partial
+  \mathbf{v}} = 0,
 \end{equation}
 where $f_p = f_p (\mathbf{x}, \mathbf{v})$ is the particle distribution
 function, $\mathbf{x}$ and $\mathbf{v}$ are the location and velocity of
-particles. The left-hand side of the Vlasov equation describe the total time
-derivative of $f_p$ observed when we follow particle orbit in the 6D
-phase-space $(\mathbf{x}, \mathbf{v})$. Using a general 6D phase-space
-coordinates $(z^{(1)}, z^{(2)}, z^{(3)}, z^{(4)}, z^{(5)}, z^{(6)})$, the
-Vlasov equation in terms of particle orbit is written as
+particles.
+
+Let us consider a simple case where the electromagnetic field is a
+time-independent and spatial uniform magnetic field, $\mathbf{B}= B_0
+\hat{\mathbf{z}}$. And examine the Vlasov equation in this simple case and
+look if there is any coordinate system that can make the distribution function
+be uniform in one of its coordinates, i.e., being symmetric in this
+coordinate.
+
+Choose Cartesian coordinate system $(x, y, z)$ for the configuration space.
+Describe the velocity space using a right-handed cylindrical coordinates
+$(v_{\perp}, \alpha, v_{\parallel})$, where $v_{\parallel} =\mathbf{v} \cdot
+\mathbf{e}_{\parallel}$, $\mathbf{e}_{\parallel}$ is the unit vector along the
+magnetic field, $\alpha$ is the azimuthal angle of the velocity relative to
+$\mathbf{e}_x$. Then the 6D phase-space are described by coordinates $(x, y,
+z, v_{\perp}, \alpha, v_{\parallel})$. The distribution function $f_p$ depends
+on 7 variables, namely $x, y, z, v_{\parallel}, \alpha, v_{\perp}$, and $t$.
+
+In $(\mathbf{x}, v_{\perp}, \alpha, v_{\parallel})$ coordinates, the gradient
+in velocity space, $\partial f_p /\mathbf{v}$, is written as
+
+
 \begin{equation}
-  \label{19-1-31-6} \frac{d f_p}{d t} \equiv \frac{\partial f_p}{\partial t} +
-  \sum_{i = 1}^6 \frac{d z^{(i)}}{d t}  \frac{\partial f_p}{\partial z^{(i)}}
-  = 0,
+  \frac{\partial f_p}{\partial \mathbf{v}} = \frac{\partial f_p}{\partial
+  v_{\perp}} \mathbf{e}_1 + \frac{\partial f_p}{\partial v_{\parallel}}
+  \mathbf{e}_z + \frac{1}{v_{\perp}} \frac{\partial f_p}{\partial \alpha}
+  \mathbf{e}_{\alpha},
 \end{equation}
-where $d z^{(i)} / d t$ is given by the equation of particle motion.
-
-\subsection{Gyro-angle symmetry of distribution function}\label{19-4-23-p1}
-
-Let us consider a simple case: a time-independent and spatial uniform magnetic
-field $(\mathbf{B}= B_0 \hat{\mathbf{z}})$. Describe the velocity space using
-a right-handed cylindrical coordinates $(v_{\perp}, \alpha, v_{\parallel})$,
-where $v_{\parallel} =\mathbf{v} \cdot \mathbf{e}_{\parallel}$,
-$\mathbf{e}_{\parallel}$ is the unit vector along the magnetic field, $\alpha$
-is the azimuthal angle of the velocity. Choosing Cartesian coordinate system
-$(x, y, z)$ for the configuration space, then the 6D phase-space are described
-by coordinates $(x, y, z, v_{\perp}, \alpha, v_{\parallel})$. The distribution
-function $f_p$ depends on 7 variables, namely $x, y, z, v_{\parallel}, \alpha,
-v_{\perp}$, and $t$.
-
-Next, let use examine the Vlasov equation in this simple case and look if
-there is any coordinate transform that can reduce the number of dimensions of
-the distribution function.
-
-In $(\mathbf{x}, v_{\perp}, \alpha, v_{\parallel})$ coordinates, the Vlasov
-equation is written
+where $\mathbf{e}_1 =\mathbf{v}_{\perp} / | \mathbf{v}_{\perp} | =
+(\mathbf{v}- (\mathbf{v} \cdot \mathbf{e}_z) \mathbf{e}_z) / | \mathbf{v}-
+(\mathbf{v} \cdot \mathbf{e}_z) \mathbf{e}_z |$ and $\mathbf{e}_{\alpha} =
+-\mathbf{e}_1 \times \mathbf{e}_z$. Then $\frac{q}{m} (\mathbf{v} \times
+\mathbf{B}) \cdot \frac{\partial f_p}{\partial \mathbf{v}}$ is written as
+\begin{eqnarray}
+  \frac{q}{m} (\mathbf{v} \times \mathbf{B}) \cdot \frac{\partial
+  f_p}{\partial \mathbf{v}} & = & \frac{q}{m} (v_{\perp} \mathbf{e}_1 \times
+  \mathbf{B}) \cdot \left( \frac{\partial f_p}{\partial v_{\perp}}
+  \mathbf{e}_1 + \frac{\partial f_p}{\partial v_{\parallel}} \mathbf{e}_z +
+  \frac{1}{v_{\perp}} \frac{\partial f_p}{\partial \alpha} \mathbf{e}_{\alpha}
+  \right) \nonumber\\
+  & = & \frac{q}{m} (v_{\perp} \mathbf{e}_1 \times \mathbf{B}) \cdot \left(
+  \frac{1}{v_{\perp}} \frac{\partial f_p}{\partial \alpha} \mathbf{e}_{\alpha}
+  \right) \nonumber\\
+  & = & \frac{B_0 q}{m}  \frac{\partial f_p}{\partial \alpha}  (\mathbf{e}_1
+  \times \mathbf{e}_z) \cdot \mathbf{e}_{\alpha} \nonumber\\
+  & = & - \Omega \left( \frac{\partial f_p}{\partial \alpha} \right), 
+\end{eqnarray}
+where $\Omega = B_0 q / m$ is the gyro-frequency. Then the Vlasov equation
+(\ref{22-11-12-1}) is written as
 \begin{equation}
-  \frac{\partial f_p}{\partial t} +\mathbf{v} \cdot \frac{\partial
-  f_p}{\partial \mathbf{x}} + \frac{d v_{\perp}}{d t} \frac{\partial
-  f_p}{\partial v_{\perp}} + \frac{d v_{\parallel}}{d t} \frac{\partial
-  f_p}{\partial v_{\parallel}} + \frac{d \alpha}{d t} \frac{\partial
-  f_p}{\partial \alpha} = 0.
+  \frac{\partial f_p}{\partial t} + v_x \frac{\partial f_p}{\partial x} + v_y
+  \frac{\partial f_p}{\partial y} + v_z \frac{\partial f_p}{\partial z} -
+  \Omega \left( \frac{\partial f_p}{\partial \alpha} \right) = 0,
 \end{equation}
-Since $d v_{\perp} / d t = 0$, $d v_{\parallel} / d t = 0$, and $d \alpha / d
-t = - \Omega$, where $\Omega = q B / m$, the above equation is written as
+Multiplying the above equation by $2 \pi / \Omega f_p$, we get
 \begin{equation}
-  \frac{\partial f_p}{\partial t} +\mathbf{v} \cdot \frac{\partial
-  f_p}{\partial \mathbf{x}} - \Omega \frac{\partial f_p}{\partial \alpha} = 0,
-\end{equation}
-i.e.,
-\begin{equation}
-  \label{19-1-31-1} \frac{1}{f_p}  \frac{\partial f_p}{\partial t} \frac{2
-  \pi}{\Omega} + \frac{2 \pi}{f_p \Omega} \mathbf{v}_{\parallel} \cdot
-  \frac{\partial f_p}{\partial \mathbf{x}} + \frac{2 \pi}{f_p \Omega}
-  \mathbf{v}_{\perp} \cdot \frac{\partial f_p}{\partial \mathbf{x}} - \frac{2
-  \pi}{f_p} \frac{\partial f_p}{\partial \alpha} = 0.
+  \label{22-11-12-2} \frac{1}{f_p} \frac{2 \pi}{\Omega_0} \frac{\partial
+  f_p}{\partial t} + \frac{1}{f_p} \frac{2 \pi}{\Omega_0} v_x \frac{\partial
+  f_p}{\partial x} + \frac{1}{f_p} \frac{2 \pi}{\Omega_0} v_y \frac{\partial
+  f_p}{\partial y} + \frac{1}{f_p} \frac{2 \pi}{\Omega_0} v_z \frac{\partial
+  f_p}{\partial z} - \frac{2 \pi}{f_p} \left( \frac{\partial f_p}{\partial
+  \alpha} \right) = 0.
 \end{equation}
 We assume that $f_p$ evolves on a time scale much longer the the gyro-period,
 i.e.,
@@ -138,24 +150,19 @@ i.e.,
 where $\varepsilon$ is a small parameter. Further assume that the spatial
 variation of $f_p$ along the magnetic field is weak:
 \begin{equation}
-  \frac{1}{f_p}  \frac{2 \pi}{\Omega} \mathbf{v}_{\parallel} \cdot
-  \frac{\partial f_p}{\partial \mathbf{x}} \sim O (\varepsilon^1),
+  \frac{1}{f_p}  \frac{2 \pi}{\Omega} v_z \frac{\partial f_p}{\partial z} \sim
+  O (\varepsilon^1),
 \end{equation}
-where $2 \pi \mathbf{v}_{\parallel} / \Omega$ is the parallel distance
-traveled by a particle within one gyro-period. Dropping terms of $O
-(\varepsilon^1)$, Eq. (\ref{19-1-31-1}) is written as
+where $2 \pi v_z / \Omega$ is the parallel distance traveled by a particle
+within one gyro-period.
+
+Dropping terms of $O (\varepsilon^1)$, Eq. (\ref{22-11-12-2}) is written as
 \begin{equation}
-  \frac{1}{f_p} \frac{2 \pi}{\Omega} \mathbf{v}_{\perp} \cdot \frac{\partial
-  f_p}{\partial \mathbf{x}} - \frac{2 \pi}{f_p} \frac{\partial f_p}{\partial
-  \alpha} = 0,
+  \frac{1}{f_p} \frac{2 \pi}{\Omega_0} v_x \frac{\partial f_p}{\partial x} +
+  \frac{1}{f_p} \frac{2 \pi}{\Omega_0} v_y \frac{\partial f_p}{\partial y} -
+  \frac{2 \pi}{f_p} \left( \frac{\partial f_p}{\partial \alpha} \right) = 0,
 \end{equation}
 i.e.,
-\begin{equation}
-  \mathbf{v}_{\perp} \cdot \frac{\partial f_p}{\partial \mathbf{x}} - \Omega
-  \frac{\partial f_p}{\partial \alpha} = 0,
-\end{equation}
-In terms of $(x, y, z, v_{\perp}, \alpha, v_{\parallel})$ coordinates, the
-above equation is written as
 \begin{equation}
   \label{19-1-31-3} v_{\perp} \cos \alpha \frac{\partial f_p}{\partial x} +
   v_{\perp} \sin \alpha \frac{\partial f_p}{\partial y} - \Omega
@@ -163,22 +170,21 @@ above equation is written as
 \end{equation}
 Define the following coordinates transform (guiding-center transform):
 \begin{equation}
-  x' = x + \frac{v_{\perp} \sin \alpha}{\Omega},
-\end{equation}
-\begin{equation}
-  y' = y - \frac{v_{\perp} \cos \alpha}{\Omega},
-\end{equation}
-\begin{equation}
-  z' = z,
-\end{equation}
-\begin{equation}
-  \alpha' = \alpha,
-\end{equation}
-\begin{equation}
-  v_{\parallel}' = v_{\parallel},
-\end{equation}
-\begin{equation}
-  v_{\perp}' = v_{\perp} .
+  \left\{ \begin{array}{c}
+    x' = x + \frac{v_{\perp} \sin \alpha}{\Omega},\\
+    y' = y - \frac{v_{\perp} \cos \alpha}{\Omega},\\
+    z' = z,\\
+    \alpha' = \alpha,\\
+    v_{\parallel}' = v_{\parallel},\\
+    v_{\perp}' = v_{\perp} .
+  \end{array} \right. \Rightarrow \left\{ \begin{array}{c}
+    x = x' - \frac{v_{\perp}' \sin \alpha'}{\Omega},\\
+    y = y' + \frac{v_{\perp}' \cos \alpha'}{\Omega},\\
+    z = z',\\
+    \alpha = \alpha',\\
+    v_{\parallel} = v_{\parallel}',\\
+    v_{\perp} = v_{\perp'} .
+  \end{array} \right.
 \end{equation}
 Then, in terms of the new coordinates $(x', y', z', v_{\parallel}',
 v_{\perp}', \alpha')$, $\partial f_p / \partial \alpha'$ is written as
@@ -188,6 +194,9 @@ v_{\perp}', \alpha')$, $\partial f_p / \partial \alpha'$ is written as
   \frac{\partial x}{\partial \alpha'} + \frac{\partial f_p}{\partial y} 
   \frac{\partial y}{\partial \alpha'} + \frac{\partial f_p}{\partial \alpha} 
   \frac{\partial \alpha}{\partial \alpha'} \nonumber\\
+  & = & - \frac{\partial f_p}{\partial x}  \frac{1}{\Omega} v_{\perp}' \cos
+  \alpha' - \frac{\partial f_p}{\partial y}  \frac{1}{\Omega} v_{\perp}' \sin
+  \alpha' + \frac{\partial f_p}{\partial \alpha} \nonumber\\
   & = & - \frac{\partial f_p}{\partial x}  \frac{1}{\Omega} v_{\perp} \cos
   \alpha - \frac{\partial f_p}{\partial y}  \frac{1}{\Omega} v_{\perp} \sin
   \alpha + \frac{\partial f_p}{\partial \alpha}, 
@@ -199,17 +208,20 @@ obtain
   v_{\parallel}', v_{\perp}'} = 0,
 \end{equation}
 which indicates that, in the new coordinates $(x', y', z', v_{\parallel}',
-v_{\perp}', \alpha')$, \ $\alpha'$ is an ignorable coordinate and thus the
-phase space dimension of $f_p$ is reduced by one. This is obviously beneficial
-for numerically solving the Vlasov equation.
+v_{\perp}', \alpha')$, the distribution function $f_p$ is independent of
+$\alpha'$. Then working in the new coordinate system is beneficial for
+numerically solving the Vlasov equation because the dimension of the problem
+is reduced by one.
 
 Note that the gyro-angle symmetry is valid only in the guiding-center
 coordinates. In particle coordinates, there is no gyro-angle symmetry.
 
-For the case of static uniform magnetic field considered above, everything is
-simple. For non-uniform static magnetic field plus an electromagnetic
-perturbation, things are a little complicate and a great deal of efforts of
-gyrokinetic theory are devoted to taking into account these effects.
+The gyro-angle symmetry for the above simple case is found by using the
+guiding-center transform. This motivates us to investigate whether the
+guiding-center transform can be made use of to simplify the kinetic equation
+for more general cases where we have a (weakly) non-uniform static magnetic
+field plus an electromagnetic perturbation of small amplitude (low-frequency,
+$k_{\parallel} \rho_i \ll 1$, and $k_{\perp} \rho_i \sim 1$.).
 
 \section{Transform Vlasov equation from particle coordinates to guiding-center
 coordinates}
@@ -304,16 +316,16 @@ However, it seems that terms related to $\partial \alpha / \partial \mathbf{x}
 |_{\mathbf{v}} \nobracket$ are finally dropped due to that they are of higher
 order**check.)
 
-In the following, $\alpha$ will be called the ``gyro-angle'' . Note that the
-common use of the nomenclature ``gyro-angle'' is to describe the spatial
-motion of a particle, but here $\alpha$ is a velocity coordinate rather than a
-spatial coordinate. How to justify the name ``gyro-angle'' for $\alpha$?
-Consider a series of points in terms of guiding-center coordinates
-$(\mathbf{X}, v_{\parallel}, v_{\perp}, \alpha)$ with $(\mathbf{X},
-v_{\parallel}, v_{\perp})$ fixed but with $\alpha$ changing. Using the inverse
-guiding-center transform (\ref{19-1-19-p2}), it is obvious that the above
-points form a gyro-ring in real space, which justifies calling $\alpha$ by the
-name ``gyro-angle''.
+In the following, $\alpha$ will be called the ``gyro-angle'' . [Note that, in
+the guiding-center coordinates $(\mathbf{X}, v_{\parallel}, v_{\perp},
+\alpha)$, $\alpha$ is a velocity coordinate rather than a spatial coordinate.
+When transformed back to particle coordinates, $\alpha$ is both a velocity
+coordinate and a spatial coordinate. Consider a series of points in terms of
+guiding-center coordinates $(\mathbf{X}, v_{\parallel}, v_{\perp}, \alpha)$
+with $(\mathbf{X}, v_{\parallel}, v_{\perp})$ fixed but with $\alpha$
+changing. Using the inverse guiding-center transform (\ref{19-1-19-p2}), we
+know that the above points form a gyro-ring in space, i.e., $\alpha$
+influences both particle velocity and location.]
 
 The gyro-angle is an important variable we will stick to because we need to
 directly perform averaging over this variable (with $\mathbf{X}$ fixed) in
@@ -363,8 +375,8 @@ following derivatives are nonzero:
 \subsection{Summary of the phase-space coordinate transform}
 
 The coordinate transform from particle coordinates $(\mathbf{x}, \mathbf{v})$
-to guiding-center coordinates $(\mathbf{X}, \varepsilon, \mu,, \sigma)$ is
-given by
+to guiding-center coordinates $(\mathbf{X}, \varepsilon, \mu, \alpha, \sigma)$
+is given by
 \begin{equation}
   \label{21-8-25-a1} \left\{\begin{array}{l}
     \mathbf{X} (\mathbf{x}, \mathbf{v}) =\mathbf{x}+\mathbf{v} \times
@@ -379,8 +391,8 @@ given by
     \mathbf{e}_{\parallel} (\mathbf{x}))
   \end{array}\right.
 \end{equation}
-As mentioned above, the $\sigma$ dependence of the distribution function is
-hidden in the following.
+As mentioned above, the dependence of the distribution function on $\sigma$
+will not be explicitly indicated in the following.
 
 \subsection{Distribution functions in terms of guiding-center variables}
 
@@ -392,7 +404,7 @@ $f_g$ and the particle distribution function $f_p$ is given by
   (\mathbf{x}, \mathbf{v}),
 \end{equation}
 where the coordinates $(\mathbf{X}, \varepsilon, \mu, \alpha)$ are related to
-$(\mathbf{x}, \mathbf{v})$ by Eq. (\ref{21-8-25-a1}) . Equation
+$(\mathbf{x}, \mathbf{v})$ by Eq. (\ref{21-8-25-a1}). Equation
 (\ref{17-8-19-p1}) along with Eq. (\ref{21-8-25-a1}) can be considered as the
 definition of $f_g$.
 
@@ -537,8 +549,8 @@ Using the above results, expression (\ref{16-9-16-e2}) is written
 
 \subsection{Time derivatives in guiding-center coordinates}
 
-In the guiding-center variables, the time partial derivative $\partial f /
-\partial t$ appearing in Vlasov equation is written as
+In terms of the guiding-center variables, the time partial derivative
+$\partial f_p / \partial t$ appearing in Vlasov equation is written as
 \begin{equation}
   \frac{\partial f_p}{\partial t} |_{\mathbf{x}, \mathbf{v}} \nobracket =
   \frac{\partial f_g}{\partial t} |_{\mathbf{X}, \mathbf{V}} \nobracket +
@@ -552,7 +564,10 @@ because the equilibrium quantities involved in the definition of the
 guiding-center transformation are in general time dependent. This time
 dependence is assumed to be very slow in the gyrokinetic ordering discussed
 later. In the following, $\partial \mathbf{X}/ \partial t$ and $\partial
-\mathbf{V}/ \partial t$ will be dropped.
+\mathbf{V}/ \partial t$ will be dropped, i.e.,
+\begin{equation}
+  \frac{\partial f_p}{\partial t} \approx \frac{\partial f_g}{\partial t} .
+\end{equation}
 
 \subsection{Final form of Vlasov equation in guiding-center coordinates}
 
@@ -565,13 +580,13 @@ written
   f_g}{\partial \varepsilon} \right] \nonumber\\
   & + & \frac{q}{m} (\mathbf{E}+\mathbf{v} \times \mathbf{B}) \cdot \left(
   \frac{\mathbf{I} \times \tmmathbf{e}_{\parallel}}{\Omega} \cdot
-  \frac{\partial f_g}{\partial \mathbf{X}} + \tmmathbf{v} \frac{\partial
-  f_g}{\partial \varepsilon} + \frac{\tmmathbf{v}_{\perp}}{B_0} 
-  \frac{\partial f_g}{\partial \mu} + \frac{\tmmathbf{e}_{\alpha}}{v_{\perp}} 
-  \frac{\partial f_g}{\partial \alpha} \right) \nonumber\\
-  & = & 0,  \label{16-9-21-p1}
+  \frac{\partial f_g}{\partial \mathbf{X}} +\mathbf{v} \frac{\partial
+  f_g}{\partial \varepsilon} + \frac{\mathbf{v}_{\perp}}{B_0}  \frac{\partial
+  f_g}{\partial \mu} + \frac{\tmmathbf{e}_{\alpha}}{v_{\perp}}  \frac{\partial
+  f_g}{\partial \alpha} \right) \nonumber\\
+  & = & 0  \label{16-9-21-p1}
 \end{eqnarray}
-Using tensor identity $\mathbf{a} \cdot \tmmathbf{I} \times
+Using tensor identity $\mathbf{a} \cdot \mathbf{I} \times
 \mathbf{b}=\mathbf{a} \times \mathbf{b}$, equation (\ref{16-9-21-p1}) is
 written as
 \begin{eqnarray}
@@ -593,6 +608,8 @@ written as
 This is the Vlasov equation in guiding-center coordinates.
 
 \section{Perturbed Vlasov equation in guiding-center variables}
+
+\subsection{Electromagnetic field perturbation}
 
 Since the definition of the guiding-center variables $(\mathbf{X},
 \varepsilon, \mu, \alpha)$ involves the macroscopic (equilibrium) fields
@@ -648,9 +665,8 @@ Next, let us simplify the left-hand side of Eq. (\ref{16-10-2-p2}). Note that
   \mathbf{X}},
 \end{equation}
 where $\mathbf{v}_{\mathbf{E}0}$ is defined by $\mathbf{v}_{\mathbf{E}0} =
-c\mathbf{E}_0 \times \mathbf{e}_{\parallel} / B_0$, which is the macroscopic
-(equilibrium) flow due to $\mathbf{E}_0 \times \mathbf{B}_0$ drift. Further
-note that
+c\mathbf{E}_0 \times \mathbf{e}_{\parallel} / B_0$, which is the $\mathbf{E}_0
+\times \mathbf{B}_0$ drift. Further note that
 \begin{eqnarray}
   \tmcolor{red}{\frac{q}{m}  \frac{\mathbf{v} \times \mathbf{B}_0}{c} \times
   \left( \frac{\tmmathbf{e}_{\parallel}}{\Omega}  \right) \cdot \frac{\partial
@@ -685,16 +701,18 @@ the left-hand side of equation (\ref{16-10-2-p2}) is written as
   \frac{\partial f_g}{\partial \alpha} \right) \equiv L_g f_g 
   \label{16-9-22-1b}
 \end{eqnarray}
-which corresponds to Eq. (7) in Frieman-Chen's paper{\cite{frieman1982}}. (In
+which corresponds to Eq. (7) in Frieman-Chen's paper{\cite{frieman1982}}. [In
 Frieman-Chen's equation (7), there is a term
 \[ \frac{q}{m} (\mathbf{E}-\mathbf{E}_0) \cdot \mathbf{v}
    \frac{\partial}{\partial \varepsilon} \]
 where $\mathbf{E}$ is the macroscopic electric field and is in general
 different from the $\mathbf{E}_0$ introduced when defining the guiding-center
 transformation. In my derivation \ $\mathbf{E}_0$ is chosen to be equal to the
-macroscopic electric field thus the above term does not appear.) In expression
-(\ref{16-9-22-1b}), $L_g$ is often called the unperturbed Vlasov propagator in
-guiding-center coordinates $(\mathbf{X}, \varepsilon, \mu, \alpha)$.
+macroscopic electric field thus the above term does not appear.]
+
+In expression (\ref{16-9-22-1b}), $L_g$ is often called the unperturbed Vlasov
+propagator in guiding-center coordinates $(\mathbf{X}, \varepsilon, \mu,
+\alpha)$.
 
 Using the above results, Eq. (\ref{16-10-2-p2}) is written as
 \begin{equation}
@@ -773,7 +791,7 @@ experiment measure of fluctuations responsible for tokamak plasma transport,
 some of which can be invalid in some interesting cases.) These ordering are
 often called the standard gyrokinetic orderings.
 
-\subsubsection{Ordering of macroscopic quantities}
+\subsubsection{Assumptions for macroscopic quantities}
 
 Define the spatial scale length $L_0$ of equilibrium quantities by $L_0
 \approx F_g / | \nabla_X F_g |$. Assume that $L_0$ is much larger than the
@@ -793,7 +811,7 @@ is assumed to be weak with
   \frac{| \mathbf{v}_{E 0} |}{v_t} \sim O (\lambda^1),
 \end{equation}
 
-\subsubsection{Orderings of microscopic quantities}
+\subsubsection{Assumptions for microscopic quantities}
 
 We consider low frequency perturbations with $\omega / \Omega \sim O
 (\lambda^1)$, then
@@ -1470,7 +1488,7 @@ on the right-hand side are linear. The term
   \tmcolor{red}{- \frac{q}{m} \nabla_X \langle \delta L \rangle_{\alpha}
   \times \frac{\tmmathbf{e}_{\parallel}}{\Omega},}
 \end{equation}
-consists of the perturbed $E \times B$ drift and magnetic fluterring term
+consists of the perturbed $E \times B$ drift and magnetic fluttering term
 (refer to Sec. \ref{16-10-13-1}).
 
 \section{Characteristic curves of Frieman-Chen nonlinear gyrokinetic equation}
@@ -1601,9 +1619,11 @@ m$ in Eq. (\ref{16-10-11-p24}). This is because $\delta E_{\parallel} =
 $E_{\parallel}$ are of $O (\lambda^3)$ or higher and thus have been dropped in
 deriving Frieman-Chen equation.)
 
-\section{Gyrokinetic equation in forms amenable to numerical simulation}
+\section{Gyrokinetic equation in forms amenable to numerical computation}
 
-In the case of $F_0$ being isotropic, Frieman-Chen's gyrokinetic equation
+In the case of $F_0 (\varepsilon, \mu, \alpha, \mathbf{X})$ being isotropic
+($\partial F_0 / \partial \mu = 0$ and $\partial F_0 / \partial \alpha = 0$ in
+guiding-center coordinates), Frieman-Chen's gyrokinetic equation
 (\ref{16-10-11-1}) is written as
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
@@ -2069,11 +2089,11 @@ neglected. In this case, equation (\ref{19-3-21-p1}) is simplified as
 The perturbed distribution function is decomposed as given by Eq.
 (\ref{19-1-3-e2}), i.e.,
 \begin{equation}
-  \delta F = \delta h + \tmcolor{blue}{\frac{q}{m}} (\tmcolor{blue}{\delta
-  \Phi} - \tmcolor{red}{\langle \delta \Phi \rangle_{\alpha}})
-  \tmcolor{blue}{\frac{\partial F_0}{\partial \varepsilon}} + \frac{q}{m}
-  \langle \mathbf{v} \cdot \delta \mathbf{A} \rangle_{\alpha} \frac{\partial
-  F_0}{\partial \varepsilon},
+  \label{22-11-13-e2} \delta F = \delta h + \tmcolor{blue}{\frac{q}{m}}
+  (\tmcolor{blue}{\delta \Phi} - \tmcolor{red}{\langle \delta \Phi
+  \rangle_{\alpha}}) \tmcolor{blue}{\frac{\partial F_0}{\partial \varepsilon}}
+  + \frac{q}{m} \langle \mathbf{v} \cdot \delta \mathbf{A} \rangle_{\alpha}
+  \frac{\partial F_0}{\partial \varepsilon},
 \end{equation}
 where \tmcolor{blue}{the term in blue} is the so-called adiabatic response,
 which depends on the gyro-angle. Recall that the red term
@@ -2087,12 +2107,13 @@ original Frieman-Chen gyrokinetic equation by introducing another $\langle
 \delta \Phi \rangle_{\alpha}$ term with a free small parameter $\epsilon_g$.
 Specifically, $\delta h$ in the above is split as
 \begin{equation}
-  \delta h = \delta h_s + \epsilon_g \frac{q}{m} \langle \delta \Phi
-  \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon} .
+  \label{22-11-13-e1} \delta h = \delta h_s + \epsilon_g \frac{q}{m} \langle
+  \delta \Phi \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon} .
 \end{equation}
 (If $\varepsilon_g = 1$, then the two $\langle \delta \Phi \rangle_{\alpha}$
-terms cancel each other.) Substituting this expression into Eq.
-(\ref{19-3-30-1}), we obtain the following equation for $\delta h_s$:
+terms in Eq. (\ref{22-11-13-e2}) and (\ref{22-11-13-e1}) cancel each other.)
+Substituting this expression into Eq. (\ref{19-3-30-1}), we obtain the
+following equation for $\delta h_s$:
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
@@ -2236,8 +2257,8 @@ distribution function is often considered to be a big deal. Separating the
 perturbed part from the equilibrium part is considered to be a big deal and
 got the famous name ``$\delta f$ particle method'', in contrast to the
 conventional particle method which is now called full-f particle method.
-Summarizing the above result, we know that the total distribution function $F$
-is split in the following form:
+Summarizing the above result, the total distribution function $F$ is split in
+the following form:
 \begin{eqnarray}
   F & = & F_0 + \delta F \nonumber\\
   & = & F_0 + \delta h + \tmcolor{red}{\frac{q}{m} (\delta \Phi - \langle
@@ -2661,7 +2682,7 @@ $n_p$ in expression (\ref{18-9-23-p1}) can be written as
   \mathbf{x}) \frac{k_{\perp}^2 \rho^2}{1 + k_{\perp}^2 \rho^2}
   \frac{d\mathbf{k}}{(2 \pi)^3} .  \label{19-1-23-p6}
 \end{eqnarray}
-(Pad{\'e} approximant is the ``best'' approximation of a function by a
+(Pad{\'e} approximate is the ``best'' approximation of a function by a
 rational function of given order -- under this technique, the approximant's
 power series agrees with the power series of the function it is
 approximating.)
@@ -2690,12 +2711,12 @@ expression (\ref{18-9-23-p5}) for ions is much larger than the space charge
 term $\nabla^2 \delta \Phi \equiv \nabla^2_{\perp} \delta \Phi +
 \nabla^2_{\parallel} \delta \Phi \approx \nabla^2_{\perp} \delta \Phi$ in the
 Poisson equation. Therefore the space charge term can be neglected in the long
-wavelenght limit.
+wavelength limit.
 
-Equation (\ref{18-9-23-p5}) also shows that electron polariztion density is
-smaller than the ion polariztion density by a factor of $\rho_e / \rho_i
-\approx 1 / 60$. Note that this conclusion is drawn in the long wavelenth
-limit. For short wavelength, the electron polariztion and ion polariztion
+Equation (\ref{18-9-23-p5}) also shows that electron polarization density is
+smaller than the ion polarization density by a factor of $\rho_e / \rho_i
+\approx 1 / 60$. Note that this conclusion is drawn in the long wavelength
+limit. For short wavelength, the electron polarization and ion polarization
 density can be of similar magnitude (to be discussed later).
 
 \subsubsection{Polarization density expressed in terms of Laplacian operator}
@@ -2818,290 +2839,14 @@ $I_0 (b)$ is the zeroth modified Bessel function of the first kind. This
 expression is useful for gyrokinetic simulations that use spectral methods in
 solving the Poisson equation.
 
-\appendix\section{Poloarition density expression using $\delta \Phi$ at
-gridpoints }
-
-In Sec. \ref{21-8-22-a3}, when evaluating the polarization density, the
-potential $\delta \Phi$ is Fourier expanded in space and then the double
-gyro-angle integration of each harmonic is expressed as the Bessel function.
-Are these formulas scaring to beginners? Does this make gyrokinetic theory
-less accessible to general readers? I think so.
-
-In this section, we avoid using the Fourier expansion at the first place, and
-directly express the double gyro-angle integral as linear combination of
-values of $\delta \Phi$ at spatial gridpoints.
-
-The integral we try to evaluate is given by
-\begin{equation}
-  A (\mathbf{x}) = - \int \frac{q}{m} \langle \delta \Phi (\mathbf{x})
-  \rangle_{\alpha} \frac{\partial F_{i 0}}{\partial \varepsilon} d\mathbf{v},
-\end{equation}
-Using $d \mathbf{v} = v_{\perp} d v_{\perp} d v_{\parallel} d \alpha$ and the
-definition of gyro-averaging, the above integral is written as
-\begin{equation}
-  \label{21-8-22-e1} A (\mathbf{x}) = - \frac{q}{m} \int_{- \infty}^{\infty} d
-  v_{\parallel} \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial
-  \varepsilon} v_{\perp} \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left(
-  \frac{1}{2 \pi} \int_0^{2 \pi} \delta \Phi (\mathbf{x}) d \alpha \right)}
-\end{equation}
-Note that the gyro-averaging is performed in the guiding-center space and is
-performed by keeping the value of the guiding-center variable $\mathbf{X}$
-constant. So we need to transform $\mathbf{x}$ to $\mathbf{X}$. Using the
-relation between particle location and guiding-center location
-\begin{equation}
-  \mathbf{x}=\mathbf{X}+\tmmathbf{\rho} (\mathbf{x}, \mathbf{v}) \approx
-  \mathbf{X}-\mathbf{v} \times \frac{\mathbf{e}_{\parallel}
-  (\mathbf{X})}{\Omega (\mathbf{X})},
-\end{equation}
-$A (\mathbf{x})$ is written as
-\begin{eqnarray}
-  A (\mathbf{x}) & = & - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
-  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
-  v_{\perp} \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{2 \pi}
-  \int_0^{2 \pi} \delta \Phi \left( \mathbf{X}-\mathbf{v} \times
-  \frac{\mathbf{e}_{\parallel} (\mathbf{X})}{\Omega (\mathbf{X})} \right) d
-  \alpha \right]} \nonumber\\
-  & = & - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
-  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
-  v_{\perp} \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{N_2}
-  \sum_{j = 1}^{N_2} \delta \Phi \left( \mathbf{X}-\mathbf{v}_{\perp j} \times
-  \frac{\mathbf{e}_{\parallel} (\mathbf{X})}{\Omega (\mathbf{X})} \right)
-  \right]} 
-\end{eqnarray}
-where the summation is over the gyro-angle of $\mathbf{v}$, and
-$\mathbf{v}_{\perp j} = \mathbf{v} (v_{\perp}, \alpha_j)$ denotes a
-perpendicular velocity corresponding to a discrete gyro-angle.
-
-Next, in order to perform the remaining velocity space integration, transform
-back to the particle coordinates (because the velocity integration is
-performed in the particle coordinaes and is performed by keeping the particle
-coordinate $\mathbf{x}$ constant):
-\begin{eqnarray}
-  A (\mathbf{x}) & = & - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
-  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
-  v_{\perp} \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{N_2}
-  \sum_{j = 1}^{N_2} \delta \Phi \left( \mathbf{x} +\mathbf{v} \times
-  \frac{\mathbf{e}_{\parallel} (\mathbf{X})}{\Omega (\mathbf{X})}
-  -\mathbf{v}_{\perp j} \times \frac{\mathbf{e}_{\parallel}
-  (\mathbf{X})}{\Omega (\mathbf{X})} \right) \right]} \nonumber\\
-  & \approx & - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
-  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
-  v_{\perp} \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{N_2}
-  \sum_{j = 1}^{N_2} \delta \Phi \left( \mathbf{x} +\mathbf{v} \times
-  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})}
-  -\mathbf{v}_{\perp j} \times \frac{\mathbf{e}_{\parallel}
-  (\mathbf{x})}{\Omega (\mathbf{x})} \right) \right]} \nonumber\\
-  & = & - \frac{q}{m}  \int_{- \infty}^{\infty} d v_{\parallel}
-  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
-  v_{\perp} \nonumber\\
-  & \times & \frac{2 \pi}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
-  1}^{N_2} \delta \Phi \left( \mathbf{x} +\mathbf{v}_{\perp} (v_{\perp},
-  \alpha_i) \times \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega
-  (\mathbf{x})} -\mathbf{v}_{\perp} (v_{\perp}, \alpha_j) \times
-  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})} \right) . 
-  \label{21-9-16-a4}
-\end{eqnarray}
-For notation ease, define
-\begin{equation}
-  \Delta \mathbf{\rho}_{i j} (\mathbf{x}, v_{\perp}, \alpha_i, \alpha_j)
-  =\mathbf{v}_{\perp} (v_{\perp}, \alpha_i) \times
-  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})}
-  -\mathbf{v}_{\perp} (v_{\perp}, \alpha_j) \times
-  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})},
-\end{equation}
-where $\Delta \mathbf{\rho}_{i j}$ is a function of $(\mathbf{x}, v_{\perp},
-\alpha_i, \alpha_j)$. Then Eq. (\ref{21-9-16-a4}) is written as
-\begin{eqnarray}
-  A (\mathbf{x}) & = & - \frac{q}{m}  \int_{- \infty}^{\infty} d v_{\parallel}
-  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
-  v_{\perp} \frac{2 \pi}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
-  1}^{N_2} \delta \Phi (\mathbf{x} + \Delta \mathbf{\rho}_{i j}) . 
-\end{eqnarray}
-The guiding-center transform and the inverse one involved in the above is
-illustrated in Fig. \ref{21-8-22-a1}, which also shows how to evaluate the
-double gyro-angle integration using the discrete values of $\delta \Phi_{i
-j}$.
-
 \
 
-\begin{figure}[h]
-  \raisebox{-0.501460635568395\height}{\includegraphics[width=8.35305981896891cm,height=8.11671913944641cm]{nonlinear_gyrokinetic_equation-1.pdf}}
-  \caption{\label{21-8-22-a1}Given a $v_{\perp}$, then the double gyro-angle
-  integration (\ref{21-8-22-e1}) at a particle location $\mathbf{x}$ is
-  evaluated by the following steps: Use the guiding center transform to get
-  guiding-center locations (four locations are shown in this case, namely
-  $\mathbf{X}_i$ with $i = 1, 2, 3, 4$, corresponding gyro-angle $\alpha_i$
-  with $i = 1, 2, 3, 4$; 2.) For each guiding-center location, use the inverse
-  guiding-center transform to calculate points on the corresponding gyro-ring
-  (four points are shown for each guiding-center $\mathbf{X}_i$ in this case,
-  namely $\mathbf{x}_{i j}$ with $j = 1, 2, 3, 4$, corresponding gyro angle
-  $\alpha_j$ with $j = 1, 2, 3, 4$.) Then the double gyro-angle integral
-  appearing in the polarization density, namely $\int_0^{2 \pi} d \alpha
-  \left( \int_0^{2 \pi} \delta \Phi (\mathbf{x}) d \alpha \right)$, is
-  approximated as
-  $\label{21-9-2-a1} \int_0^{2 \pi} d \alpha \left( \int_0^{2 \pi} \delta \Phi
-  (\mathbf{x}) d \alpha \right) \approx \frac{(2 \pi)^2}{N_1 N_2}  \sum_{i =
-  1}^{N_1} \sum_{j = 1}^{N_2} \delta \Phi (\mathbf{x}_{i j}),$
-  where $N_1 = 4, N_2 = 4$ for the case shown here.}
-\end{figure}
-
-The spatial points $\mathbf{x}_{i j}$ appearing in Eq. (\ref{21-9-2-a1}) are
-not necessarily grid points. Linear interpolations are used to express $\delta
-\Phi (\mathbf{x}_{i j})$ as linear combination of values of $\delta \Phi$ on
-gridpoints.
-
-\
-
-\subsection{Performing the parallel velocity integration}
-
-Assume that $F_0$ is Maxwellian, then
-\begin{equation}
-  \frac{\partial F_0}{\partial \varepsilon} = - \frac{m}{T} f_M = -
-  \frac{m}{T} \frac{n_0}{(2 \pi T / m)^{3 / 2}} \exp \left( \frac{- m
-  v^2_{\parallel}}{2 T} \right) \exp \left( \frac{- m v^2_{\perp}}{2 T}
-  \right) .
-\end{equation}
-Note that $\Delta \mathbf{\rho}$ is independent of $v_{\parallel}$. Then the
-integration over $v_{\parallel}$ can be performed
-
-
-\begin{eqnarray}
-  A (\mathbf{x}) & = & \frac{q}{T}  \int_{- \infty}^{\infty} d
-  \overline{v}_{\parallel} \exp \left( \frac{- \overline{v}^2_{\parallel}}{2}
-  \right) \int_0^{\infty} d \overline{v}_{\perp} \overline{v}_{\perp}
-  \frac{n_0}{(2 \pi)^{3 / 2}} \exp \left( \frac{- \overline{v}^2_{\perp}}{2}
-  \right) \nonumber\\
-  & \times & \frac{2 \pi}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
-  1}^{N_2} \delta \Phi (\mathbf{x} + \Delta \mathbf{\rho}_{i j}) \nonumber\\
-  & = & n_0  \int_0^{\infty} d \overline{v}_{\perp} \overline{v}_{\perp} \exp
-  \left( \frac{- \overline{v}^2_{\perp}}{2} \right) \frac{1}{N_1} \sum_{i =
-  1}^{N_1} \frac{1}{N_2}  \sum_{j = 1}^{N_2} \frac{q}{T} \delta \Phi
-  (\mathbf{x} + \Delta \mathbf{\rho}_{i j}) .  \label{21-9-16-a5}
-\end{eqnarray}
-where $\overline{v}_{\parallel} = v_{\perp} / v_t$, $v_t = \sqrt{T / m}$,
-$\overline{v}_{\perp} = v_{\perp} / v_t$, and use has been made of
-\begin{equation}
-  \int_{- \infty}^{\infty} \exp \left( - \frac{x^2}{2} \right) d x = \sqrt{2
-  \pi} .
-\end{equation}
-
-\subsection{Toroidal Fourier transform of polarization density in
-field-aligned coordinates}
-
-In field-aligned coordinates $(x, y, z)$, Fourier expansion of $\delta \Phi$
-along $y$ is written
-\begin{equation}
-  \delta \Phi (\mathbf{x}) = \sum_{n = - N_t}^{N_t} \exp \left( \iota n
-  \frac{2 \pi}{L_y} y \right) \delta \Phi_n (x, z),
-\end{equation}
-where $N_t$ is the number of toroidal harmonics included. Use this in Eq.
-(\ref{21-9-16-a5}), yielding
-\begin{eqnarray}
-  A (\mathbf{x}) & = & n_0  \int_0^{\infty} d \overline{v}_{\perp}
-  \overline{v}_{\perp} \exp \left( \frac{- \overline{v}^2_{\perp}}{2} \right)
-  \nonumber\\
-  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
-  1}^{N_2} \left[ \frac{q}{T}  \sum_{n = - N_t}^{N_t} \exp \left( \iota n
-  \frac{2 \pi}{L_y} (y + \Delta \rho_{i j y}) \right) \delta \Phi_n (x +
-  \Delta \rho_{i j x}, z + \Delta \rho_{i j z}) \right] \nonumber\\
-  & = & n_0  \sum_{n = - N_t}^{N_t} \exp \left( \iota n \frac{2 \pi}{L_y} y
-  \right) \int_0^{\infty} d \overline{v}_{\perp} \overline{v}_{\perp} \exp
-  \left( \frac{- \overline{v}^2_{\perp}}{2} \right) \nonumber\\
-  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
-  1}^{N_2} \left[ \frac{q}{T} \exp \left( \iota n \frac{2 \pi}{L_y} \Delta
-  \rho_{i j y} \right) \delta \Phi_n (x + \Delta \rho_{i j x}, z + \Delta
-  \rho_{i j z}) \right] .  \label{21-9-16-a1}
-\end{eqnarray}
-From Eq. (\ref{21-9-16-a1}), the Fourier transform of $A (\mathbf{x})$ in $y$
-can be identified, which is
-\begin{eqnarray}
-  A_n (x, z) & = & n_0  \int_0^{\infty} d \overline{v}_{\perp}
-  \overline{v}_{\perp} \exp \left( \frac{- \overline{v}^2_{\perp}}{2} \right)
-  \nonumber\\
-  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
-  1}^{N_2} \left[ \frac{q}{T} \exp \left( \iota n \frac{2 \pi}{L_y} \Delta
-  \rho_{i j y} \right) \delta \Phi_n (x + \Delta \rho_{i j x}, z + \Delta
-  \rho_{i j z}) \right] . \nonumber\\
-  & \approx & n_0  \int_0^{\infty} d \overline{v}_{\perp}
-  \overline{v}_{\perp} \exp \left( \frac{- \overline{v}^2_{\perp}}{2} \right)
-  \nonumber\\
-  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
-  1}^{N_2} \left[ \exp \left( \iota n \frac{2 \pi}{L_y} \Delta \rho_{i j y}
-  \right) \frac{q}{T} \delta \Phi_n (x + \Delta \rho_{i j x}, z) \right] . 
-\end{eqnarray}
-
-
-\section{Derivation of Eq. (\ref{18-9-11-p3})}\label{21-8-25-p1}
-
-Using the fact that $\delta G_0$ is independent of $\alpha$, the left-hand
-side of Eq. (\ref{18-9-11-p3}) is written as
-\begin{eqnarray*}
-  &  & \langle \mathbf{v} \cdot [\tmmathbf{\lambda}_{B 1}
-  +\tmmathbf{\lambda}_{B 2}] \delta G_0 \rangle_{\alpha}\\
-  & = & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left\{
-  \left[ \mathbf{v} \times \frac{\partial}{\partial \mathbf{x}} \left(
-  \frac{\tmmathbf{e}_{\parallel}}{\Omega} \right) \right] \cdot \frac{\partial
-  \delta G_0}{\partial \mathbf{X}} + \frac{\partial \mu}{\partial \mathbf{x}} 
-  \frac{\partial \delta G_0}{\partial \mu} + \frac{\partial \alpha}{\partial
-  \mathbf{x}}  \frac{\partial \delta G_0}{\partial \alpha} \right\}\\
-  & = & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left\{
-  \left[ \mathbf{v} \times \frac{\partial}{\partial \mathbf{x}} \left(
-  \frac{\tmmathbf{e}_{\parallel}}{\Omega} \right) \right] \cdot \frac{\partial
-  \delta G_0}{\partial \mathbf{X}} + \frac{\partial \mu}{\partial \mathbf{x}} 
-  \frac{\partial \delta G_0}{\partial \mu} \right\}
-\end{eqnarray*}
-
-
-\
-
-From the definition of $\mu$, we obtain
-\begin{equation}
-  \label{16-9-21-3} \frac{\partial \mu}{\partial \mathbf{x}} = -
-  \frac{v_{\perp}^2}{2 B^2_0} \frac{\partial B_0}{\partial \mathbf{x}} +
-  \frac{1}{2 B_0}  \frac{\partial v_{\perp}^2}{\partial \mathbf{x}} = -
-  \frac{\mu}{B_0}  \frac{\partial B_0}{\partial \mathbf{x}} + \frac{\partial
-  \mathbf{v}_{\perp}}{\partial \mathbf{x}} \cdot
-  \frac{\mathbf{v}_{\perp}}{B_0}
-\end{equation}
-Using
-\begin{equation}
-  \frac{\partial \mathbf{v}_{\perp}}{\partial \mathbf{x}} = \frac{\partial
-  [\mathbf{v}- v_{\parallel} \mathbf{e}_{\parallel}]}{\partial \mathbf{x}} = -
-  v_{\parallel} \frac{\partial \mathbf{e}_{\parallel}}{\partial \mathbf{x}} -
-  \frac{\partial v_{\parallel}}{\partial \mathbf{x}} \mathbf{e}_{\parallel},
-\end{equation}
-expression (\ref{16-9-21-3}) is written as
-\begin{equation}
-  \frac{\partial \mu}{\partial \mathbf{x}} = - \frac{\mu}{B_0}  \frac{\partial
-  B_0}{\partial \mathbf{x}} - v_{\parallel} \frac{\partial
-  \mathbf{e}_{\parallel}}{\partial \mathbf{x}} \cdot
-  \frac{\mathbf{v}_{\perp}}{B_0},
-\end{equation}
-which agrees with Eq. (10) in Frieman-Chen's paper{\cite{frieman1982}}.
-\begin{eqnarray*}
-  &  & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot
-  \frac{\partial \mu}{\partial \mathbf{x}}\\
-  &  & = \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left( -
-  \frac{\mu}{B_0}  \frac{\partial B_0}{\partial \mathbf{x}} - v_{\parallel}
-  \frac{\partial \mathbf{e}_{\parallel}}{\partial \mathbf{x}} \cdot
-  \frac{\mathbf{v}_{\perp}}{B_0} \right)\\
-  &  & = ? 0
-\end{eqnarray*}
-
-\begin{eqnarray*}
-  &  & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left[
-  \mathbf{v} \times \frac{\partial}{\partial \mathbf{x}} \left(
-  \frac{\tmmathbf{e}_{\parallel}}{\Omega} \right) \right] \cdot \frac{\partial
-  \delta G_0}{\partial \mathbf{X}}\\
-  &  & =
-\end{eqnarray*}
-
-\section{ddd}
+\appendix\section{Distribution function transform**check}
 
 In the above, we assume that $\mathbf{X}$ and $\mathbf{x}$ are always related
 to each other by the guiding-center transformation (\ref{16-9-21-1}) or
 (\ref{19-1-19-p2}) , i.e., $\mathbf{x}$ and $\mathbf{X}$ are not independent.
-For some cases, it may be convienent to treat $\mathbf{x}$ and $\mathbf{X}$ as
+For some cases, it may be convenient to treat $\mathbf{x}$ and $\mathbf{X}$ as
 independent variables and express the guiding-center transformation via an
 integral of the Dirac delta function. For example,
 \begin{equation}
@@ -3109,7 +2854,7 @@ integral of the Dirac delta function. For example,
   \mathbf{v}) \delta^3 (\mathbf{X}-\mathbf{x}+\tmmathbf{\rho}) d\mathbf{X},
 \end{equation}
 where $\mathbf{x}$ and $\mathbf{X}$ are considered as independent variables,
-$\tmmathbf{\rho}$ is evaluated at $\mathbf{x}$, $\delta^3
+$\tmmathbf{\rho}$ is the gyroradius evaluated at $\mathbf{x}$, $\delta^3
 (\mathbf{x}-\mathbf{X}-\tmmathbf{\rho})$ is the three-dimensional Dirac delta
 function. [In terms of general coordinates $(x_1, x_2, x_3)$, the
 three-dimensional Dirac delta function is defined via the 1D Dirac delta
@@ -3132,6 +2877,8 @@ particle coordinates. Similarly,
 \end{equation}
 is a transformation that transforms an arbitrary function from the the
 particle coordinates to the guiding-center coordinates.
+
+\section{Implementation of gyrokinetics in Monte-Carlo simulations}
 
 \subsection{Moments of distribution function expressed as integration over
 guiding-center variables}
@@ -3159,10 +2906,10 @@ As is mentioned above, the $d\mathbf{v}$ integration in Eq.
 changing $\mathbf{v}$, which means the guiding-center variable
 $\mathbf{X}=\mathbf{X} (\mathbf{x}, \mathbf{v})$ is changing. This means that,
 in $(\mathbf{X}, \mathbf{v})$ space, the above integration is a (generalized)
-line integral along the the line \ $\mathbf{X} (\mathbf{v})
+curve integral along the the curve \ $\mathbf{X} (\mathbf{v})
 =\mathbf{x}-\tmmathbf{\rho} (\mathbf{x}, \mathbf{v})$ with $\mathbf{x}$ being
 constant. Treating $\mathbf{X}$ and $\mathbf{x}$ as independent variables and
-using the Dirac delta function $\delta$, this line integral can be written as
+using the Dirac delta function $\delta$, this curve integral can be written as
 the following double integration over the independent variables $\mathbf{X}$
 and $\mathbf{v}$:
 \begin{equation}
@@ -3170,7 +2917,7 @@ and $\mathbf{v}$:
   \delta^3 (\mathbf{X}-\mathbf{x}+\tmmathbf{\rho}) d\mathbf{v}d\mathbf{X}.
 \end{equation}
 Another perspective of interpreting Eq. (\ref{19-1-19-p1}) is that we are
-first using the tansformation (\ref{19-1-20-e1}) to transform $f_g$ to $f_p$
+first using the transformation (\ref{19-1-20-e1}) to transform $f_g$ to $f_p$
 and then integrating $f_p$ in the velocity space.
 
 \subsection{Numerical evaluation of distribution function moments at grids}
@@ -3191,22 +2938,22 @@ load an assemble of particles in the phase space $(\mathbf{x}, v_{\perp},
 v_{\parallel}, \alpha)$. Then we know the phase-space volume occupied by each
 marker, which is assumed to be constant in time for each marker. For a marker
 with coordinates $(\mathbf{x}_j, v_{\perp j}, v_{\parallel j}, \alpha_j)$, we
-can calculate the guiding-center position $\mathbf{X}$ of each marker by using
-Eq. (\ref{16-9-21-1}). This is done for only once at the initialization stage
-of the simulation. Most codes directly set guiding-center localtion
-$\mathbf{X}$, then the transformation is not needed, but I prefer the former
-method because particle coordinates are physical and guiding-center
-coodrinates $\mathbf{X}$ are only imaginary and auxiliary. Update: However,
-directly sampling particle position, rather than guiding-center position, is
-not practical because we need to load a distribution function that is
-independent of $\alpha$ in $(\mathbf{X}, v_{\perp}, v_{\parallel}, \alpha)$
-coordinates and this is hard to achieve if we directly sample $(\mathbf{x},
-v_{\perp}, v_{\parallel}, \alpha)$.
+can calculate the guiding-center position $\mathbf{X}$ by using Eq.
+(\ref{16-9-21-1}). This is done for only once at the initialization stage of
+the simulation. Most codes directly set guiding-center location $\mathbf{X}$,
+then the transformation is not needed, but I prefer the former method because
+particle coordinates are physical and guiding-center coordinates $\mathbf{X}$
+are only imaginary and auxiliary. Update: However, directly sampling particle
+position, rather than guiding-center position, is not practical because we
+need to load a distribution function that is independent of $\alpha$ in
+$(\mathbf{X}, v_{\perp}, v_{\parallel}, \alpha)$ coordinates and this is hard
+to achieve if we directly sample $(\mathbf{x}, v_{\perp}, v_{\parallel},
+\alpha)$.
 
 Then $(\mathbf{X}_j, v_{\perp j}, v_{\parallel j})$ can be evolved by using
 the guiding-center motion equation. But how does the gyro-angle $\alpha$
 evolves with time? We do not have an equation for the time evolution of
-$\alpha$. The evolution can be calculated by using the local gyro-frequency if
+$\alpha$. The evolution can be computed by using the local gyro-frequency if
 we want them. Do we need the gyro angle? Yes, we do. The gyro-angle $\alpha$
 is needed in the inverse guiding-center transform when depositing particle
 weight to grids. But it turns out tracking the evolution of $\alpha$ of a
@@ -3221,19 +2968,19 @@ each marker evolves on a very fast time-scale and at later time the
 distribution in gyro-angle should be still uniform. There is no need to follow
 the time evolution of $\alpha$ of each marker because any set of random
 samplings of $\alpha$ are similar to each other in terms of evaluating
-Monte-Carlo integration. When doing the deposition, the coresponding particle
-location is calculated by using an arbitrary gyro-angle, which is of cource
+Monte-Carlo integration. When doing the deposition, the corresponding particle
+location is calculated by using an arbitrary gyro-angle, which is of course
 not the correct value of $\alpha$ taken by that marker at that particular time
 since we do not follow the time evolution of $\alpha$ and thus the correct
 value is not available to us. As a result, the particle location calculated by
 using the incorrect gyro-angle is also incorrect. However, statistically, this
 phase error of particle location does not matter in terms of evaluating the
-Monte-Carlo integral because the phase error will cancell each other when
+Monte-Carlo integral because the phase error will cancel each other when
 summing over particles. (Wrong! no reason to believe that the error will
-cancel each other) Statistically, we still obtain consistent estimation of the
-integral. To further reduce the possible error, we select several (rather than
-just one) possible gyro-angles for each marker and average all these over all
-markers, yeilding more accurate estimation.
+cancel each other.) Statistically, we still obtain consistent estimation of
+the integral. To further reduce the possible error, we select several (rather
+than just one) possible gyro-angles for each marker and average all these over
+all markers, yielding more accurate estimation.
 
 Another way to understand the gyrokinetic simulation is that the density
 calculated in simulations can be considered as the time average of integral
@@ -3245,7 +2992,7 @@ calculated in simulations can be considered as the time average of integral
   (\mathbf{X}, \mathbf{v}) \delta^3 (\mathbf{X}-\mathbf{x}+\tmmathbf{\rho})
   d\mathbf{v}d\mathbf{X} \right) d\mathbf{x},
 \end{equation}
-where $\delta t$ is a typical gyro-period. In this small time inteval,
+where $\delta t$ is a typical gyro-period. In this small time interval,
 marker's $(\mathbf{X}, v_{\perp}, v_{\parallel})$ can be considered to be
 constant and only $\alpha$ changes. Then the time average is equivalent to an
 average over the gyro-angle. The four point averaging in gyrokinetic
@@ -3254,9 +3001,7 @@ averaging.
 
 Another way of understanding the four point gyro-averaging is that we do 4
 separate sampling of the phase space and then average the each estimation to
-get a bettter estimation.
-
-\
+get a better estimation.
 
 For a marker with coordinators $(\mathbf{X}, v_{\perp}, v_{\parallel},
 \alpha)$, where $\alpha$ is the gyro-angle, the corresponding particle
@@ -3265,24 +3010,19 @@ position can be calculated by using the inverse guiding-center transformation
 way that we do in conventional PIC simulations. Looping over all markers, we
 build the particle density at grids.
 
-\
-
 Compared with conventional PIC methods, where particle positions are directly
-sampled, what is the benifit of sampling guiding-center positions and then
+sampled, what is the benefit of sampling guiding-center positions and then
 transform them back to the particle positions? More computations are involved
 since we need to numerically perform the inverse guiding-center
 transformation.
 
-\
-
-**to be clean up***The answer lies in the important fact that the
-distribution function $f_g (\mathbf{X}, v_{\perp}, v_{\parallel}, \alpha)$
-that needs to be numerically evolved in gyrokinetic simulation is actually
-independent of the gyro-angle $\alpha$. Furthermore, we use a probability
-density function $P$ that is independent of $\alpha$ to sample the 6D phase
-space $(\mathbf{X}, v_{\perp}, v_{\parallel}, \alpha)$. Then the marker weight
-$w \equiv f_g / (N_p P)$ is independent of $\alpha$, where $N_p$ is number of
-markers loaded.
+**to be clean up***The answer lies in the important fact that the distribution
+function $f_g (\mathbf{X}, v_{\perp}, v_{\parallel}, \alpha)$ that needs to be
+numerically evolved in gyrokinetic simulation is actually independent of the
+gyro-angle $\alpha$. Furthermore, we use a probability density function $P$
+that is independent of $\alpha$ to sample the 6D phase space $(\mathbf{X},
+v_{\perp}, v_{\parallel}, \alpha)$. Then the marker weight $w \equiv f_g /
+(N_p P)$ is independent of $\alpha$, where $N_p$ is number of markers loaded.
 
 Suppose we have a concrete sampling of $f_g$ in the 6D phase-space
 $(\mathbf{X}, v_{\perp}, v_{\parallel}, \alpha)$, i.e., $(\mathbf{X}_j,
@@ -3307,7 +3047,7 @@ the average of the two estimations will give a more accurate estimation.
 
 Note that even if $P \mathcal{J}_{r v}$ is dependent on $\alpha$ due to the
 possible dependence of $\mathcal{J}_{r v}$ on $\alpha$, we still can easily
-generate a new set of sampling which differes from the old sampling only in
+generate a new set of sampling which differs from the old sampling only in
 $\alpha$, i.e., $(\mathbf{X}_j, v_{\perp j}, v_{\parallel j}, \alpha_j')$.
 Specifically, in the rejection method, we use the old sampling $(\mathbf{X}_j,
 v_{\perp j}, v_{\parallel j})$ for each reject step and only adjust $\alpha$
@@ -3332,7 +3072,7 @@ new sampling points are equal to the original values, i.e., $w_j' = w_j$.
 
 In doing the deposition, each marker has a single gyro-angle (this is the
 result from the guiding-center transformation, where the gyro-angle must be
-determined before we can transform a particl location to a guiding-center
+determined before we can transform a particle location to a guiding-center
 location). Due to the independence of the weight $(w = f_g / (N_p P))$ of the
 gyro-angle, the resolution over the gyro-angle can be increased in a way that
 there can be several gyro-angles for a single $(\mathbf{X}_j, v_{\perp j},
@@ -3342,9 +3082,9 @@ correct understanding is that given above, i.e., we take several times of
 samplings and average the estimations resulting from each sampling.
 
 In the code, the gyro-angle is defined relative to the direction $\nabla \psi
-/ | \nabla \psi |$ at the guiding-center position. Specificly, the gyro-angle
-is defined as the included angle between $\nabla \psi / | \nabla \psi |$ and
-$-\mathbf{v} \times \mathbf{e}_{\parallel} (\mathbf{x}) / \Omega
+/ | \nabla \psi |$ at the guiding-center position. Specifically, the
+gyro-angle is defined as the included angle between $\nabla \psi / | \nabla
+\psi |$ and $-\mathbf{v} \times \mathbf{e}_{\parallel} (\mathbf{x}) / \Omega
 (\mathbf{x})$, where $\mathbf{e}_{\parallel} (\mathbf{x}) / \Omega
 (\mathbf{x})$ is approximated by the value at the guiding-center location.
 
@@ -3457,24 +3197,26 @@ understanding.
 
 \begin{figure}[h]
   \includegraphics{/home/yj/theory/figures/grids_cells/grids-3.eps}
-  \caption{\label{19-1-19-p4}The spatial grids in the plane perpendicular to
-  the equilibrium magnetic field and one gyro-ring with \tmcolor{blue}{4
-  sampling points} (sub-markers) on it. For a guiding-center marker $C$ with a
-  Monte-Carlo weight of $w_j$, the 4 sub-markers are calculated by using the
-  transformation (\ref{19-1-19-p2}) (rebuilding the gyro-ring). The
+  \caption{\label{19-1-19-p4}The spatial grid in the plane perpendicular to
+  the equilibrium magnetic field, a guiding-center marker \tmcolor{red}{$C$},
+  and its gyro-ring with \tmcolor{blue}{4 sampling points} (sub-markers) on
+  it. The 4 sub-markers are calculated by using the transformation
+  (\ref{19-1-19-p2}) (rebuilding the gyro-ring). Assume that Monte-Carlo
+  weight of the guiding-center marker \tmcolor{red}{$C$} is $w_j$. Then The
   Monte-Carlo weight of each sub-marker is $w_j / 4$. The value of integration
   (\ref{19-1-19-p1}) at a grid point is approximated by $I / \Delta V$, where
   $I$ is the Monte-Carlo integration of all sub-markers (associated with all
   guiding-center markers) in the cell, $\Delta V$ is the cell volume. The cell
   associated with a grid-point (e.g., $A$) is indicated by the dashed
-  rectangle (this is for 2D case, for 3D, it is a cube). If the Dirac delta
-  function is used as the shape function of the sub-markers, then calculating
-  the contribution of a sub-marker to a grid corresponds to the nearest-point
-  interpolation (for example, the 4 sub-markers will contribute noting to grid
-  point $B$ since no-sub marker is located within the cell). In practice, the
-  flat-top shape function with its support equal to the cell size is often
-  used, then the depositing corresponds to linearly interpolating the weight
-  of each sub-marker to the nearby grids.}
+  rectangle (this is for the 2D projection, the cell is 3D and it is a cube).
+  If the Dirac delta function is used as the shape function of the
+  sub-markers, then calculating the contribution of a sub-marker to a grid
+  corresponds to the nearest-point interpolation (for example, the 4
+  sub-markers will contribute nothing to grid point $B$ since no-sub marker is
+  located within the cell). In practice, the flat-top shape function with its
+  support equal to the cell size is often used, then the depositing
+  corresponds to linearly interpolating the weight of each sub-marker to the
+  nearby grids.}
 \end{figure}
 
 \
@@ -3500,14 +3242,10 @@ specified. All these possible particle positions are on a circle around the
 guiding-center position $\mathbf{X}$. This circle is often called the
 gyro-ring.
 
-\
-
-\
-
-From the view of particle simulations, the gyrokinetic model can be
-considered as a noise reduction method, where the averaging over the
-gyro-angle is equivalent to a time averaging over a gyro-period, which reduces
-the fluctuation level (in both time and space) assosicated with evaluating the
+From the view of particle simulations, the gyrokinetic model can be considered
+as a noise reduction method, where the averaging over the gyro-angle is
+equivalent to a time averaging over a gyro-period, which reduces the
+fluctuation level (in both time and space) associated with evaluating the
 Monte-Carlo phase integration. Here the averaging in gyrokinetic particle
 simulation refers to taking several points on a gyro-ring when depositing
 markers to spatial grids to obtain the density and current on the grids.
@@ -3534,8 +3272,8 @@ time averaging over gyro-motion**]
 
 \
 
-When doing the time-average over the ion cylotron motion, the time variation
-of the low-frequency mode is negilible and only the spatial variation of the
+When doing the time-average over the ion cyclotron motion, the time variation
+of the low-frequency mode is negligible and only the spatial variation of the
 modes is important. For the gyro-motion, only the gyro-angle is changing and
 all the other variables, $(\mathbf{X}, v_{\perp}, v_{\parallel})$, \ are
 approximately constant. As a result, this time averaging finally reduces to a
@@ -3544,23 +3282,277 @@ gyro-averaging.
 \
 
 I am always reasoning in terms of particle position and velocity, considering
-the guiding-center location as an image of the particle position in an
-imaginary space (guiding-center space). When working in the guiding-center
-space, I am always reasoning by transforming back to the particle position.
-This reasoning is clear and help me avoid some confusions I used to have.
+the guiding-center location as an image of the particle position. When working
+in the guiding-center coordinates, I always reason by transforming back to the
+particle position. This reasoning is clear and help me avoid some confusions I
+used to have.
 
-\section{Diamagnetic flow}\label{17-9-26-1}\label{17-8-19-e1}
+\
+
+\section{Polarization density expression using $\delta \Phi$ at grid-points }
+
+In Sec. \ref{21-8-22-a3}, when evaluating the polarization density, the
+potential $\delta \Phi$ is Fourier expanded in space and then the double
+gyro-angle integration of each harmonic is expressed as the Bessel function.
+Are these formulas scaring to beginners? Does this make gyrokinetic theory
+less accessible to general readers? I think so.
+
+It seems that the motivation of using the Fourier expansion here is to
+facilitate analytical treatment and is not very useful for numerical
+treatment. GEM code does make use of the Fourier expansion form in its
+numerical implementation, where the local perpendicular wave number needs to
+be estimated numerically, which seems awkward.
+
+In this section, we avoid using the Fourier expansion at the first place, and
+directly express the double gyro-angle integral as linear combination of
+values of $\delta \Phi$ at spatial grid-points.
+
+The integration we try to evaluate is given by
+\begin{equation}
+  A_{i j} = \frac{1}{V} \int \left( - \frac{q}{m} \langle \delta \Phi
+  \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon} \right)
+  d\mathbf{v}d\mathbf{r},
+\end{equation}
+where $A_{\tmop{ij}}$ is the value of\quad the integration at a grid-point,
+which is approximated by the spatial averaging integrand over the cell where
+the grid-point is located.
+
+Using MC markers and MC integration to compute the above cell average.
+
+\
+
+\
+
+\
+
+\subsection{old, to be deleted}
+
+Using $d \mathbf{v} = v_{\perp} d v_{\perp} d v_{\parallel} d \alpha$, the
+above integration is written as
+\begin{equation}
+  A (\mathbf{x}) = - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
+  \int_0^{\infty} v_{\perp} d v_{\perp} \int_0^{2 \pi} \langle \delta \Phi
+  \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon} d \alpha
+\end{equation}
+and the definition of gyro-averaging $(2 \pi)^{- 1} \int_0^{2 \pi} (\ldots) d
+\alpha'$, the above integration is written as
+\begin{equation}
+  \label{21-8-22-e1} A (\mathbf{x}) = - \frac{q}{m} \int_{- \infty}^{\infty} d
+  v_{\parallel} \int_0^{\infty} v_{\perp} d v_{\perp} \tmcolor{blue}{\int_0^{2
+  \pi} \frac{\partial F_{i 0}}{\partial \varepsilon} d \alpha \left(
+  \frac{1}{2 \pi} \int_0^{2 \pi} \delta \Phi d \alpha' \right)}
+\end{equation}
+Note that the gyro-averaging is performed in the guiding-center space and is
+performed by varying $\alpha'$ while keeping guiding-center position
+$\mathbf{X}$, $v_{\perp}$, and $v_{\parallel}$ constant.
+
+\
+
+\
+
+\
+
+Using the definition of $\delta \Phi_g$ (i.e., its relation with $\delta
+\Phi$), i.e.,
+\begin{equation}
+  \delta \Phi_g (\mathbf{X}, \alpha', v_{\perp}) = \delta \Phi (\mathbf{x}),
+\end{equation}
+where the particle location $\tmmathbf{x}$ is computed from the guiding-center
+location by
+\begin{equation}
+  \mathbf{x}=\mathbf{X}+\tmmathbf{\rho} (\mathbf{x}, \mathbf{v}) \approx
+  \mathbf{X}-\mathbf{v} \times \frac{\mathbf{e}_{\parallel}
+  (\mathbf{X})}{\Omega (\mathbf{X})},
+\end{equation}
+then $A (\mathbf{x})$ is written as
+\begin{eqnarray*}
+  &  & A (\mathbf{x})\\
+  &  & = - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
+  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
+  v_{\perp} \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{2 \pi}
+  \int_0^{2 \pi} \delta \Phi \left( \mathbf{X}-\mathbf{v}_{\perp} (v_{\perp},
+  \alpha') \times \frac{\mathbf{e}_{\parallel} (\mathbf{X})}{\Omega
+  (\mathbf{X})} \right) d \alpha' \right]}\\
+  &  & = - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
+  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
+  v_{\perp} \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{N_2}
+  \sum_{j = 1}^{N_2} \delta \Phi \left( \mathbf{X}-\mathbf{v}_{\perp}
+  (v_{\perp}, \alpha'_j) \times \frac{\mathbf{e}_{\parallel}
+  (\mathbf{X})}{\Omega (\mathbf{X})} \right) \right]}
+\end{eqnarray*}
+where the summation is over the gyro-angle $\alpha'$, and $\mathbf{v}_{\perp}
+= \mathbf{v} (v_{\perp}, \alpha_j')$ denotes a perpendicular velocity
+corresponding to a discrete gyro-angle.
+
+Next, in order to perform the remaining velocity space integration, transform
+back to the particle coordinates (because the velocity integration is
+performed in the particle coordinates and is performed by keeping the particle
+coordinate $\mathbf{x}$ constant):
+\begin{eqnarray}
+  &  & A (\mathbf{x}) = - \frac{q}{m} \int_{- \infty}^{\infty} d
+  v_{\parallel} \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial
+  \varepsilon} v_{\perp} \nonumber\\
+  &  & \times \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{N_2}
+  \sum_{j = 1}^{N_2} \delta \Phi \left( \mathbf{x} +\mathbf{v} \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{X})}{\Omega (\mathbf{X})}
+  -\mathbf{v}_{\perp} (v_{\perp}, \alpha_j') \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{X})}{\Omega (\mathbf{X})} \right)
+  \right]} \nonumber\\
+  &  & \approx - \frac{q}{m} \int_{- \infty}^{\infty} d v_{\parallel}
+  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
+  v_{\perp} \nonumber\\
+  &  & \times \tmcolor{blue}{\int_0^{2 \pi} d \alpha \left[ \frac{1}{N_2}
+  \sum_{j = 1}^{N_2} \delta \Phi \left( \mathbf{x} +\mathbf{v} \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})}
+  -\mathbf{v}_{\perp} (v_{\perp}, \alpha_j') \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})} \right)
+  \right]} \nonumber\\
+  &  & = - \frac{q}{m}  \int_{- \infty}^{\infty} d v_{\parallel}
+  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
+  v_{\perp} \nonumber\\
+  &  & \times \tmcolor{blue}{\frac{2 \pi}{N_1} \sum_{i = 1}^{N_1}
+  \frac{1}{N_2}  \sum_{j = 1}^{N_2} \delta \Phi \left( \mathbf{x}
+  +\mathbf{v}_{\perp} (v_{\perp}, \alpha_i) \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})}
+  -\mathbf{v}_{\perp} (v_{\perp}, \alpha_j') \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})} \right) .} 
+  \label{21-9-16-a4}
+\end{eqnarray}
+For notation ease, define
+\begin{equation}
+  \Delta \mathbf{\rho}_{i j} =\mathbf{v}_{\perp} (v_{\perp}, \alpha_i) \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})}
+  -\mathbf{v}_{\perp} (v_{\perp}, \alpha_j') \times
+  \frac{\mathbf{e}_{\parallel} (\mathbf{x})}{\Omega (\mathbf{x})},
+\end{equation}
+where $\Delta \mathbf{\rho}_{i j}$ is a function of $(\mathbf{x}, v_{\perp},
+\alpha_i, \alpha_j')$. Then Eq. (\ref{21-9-16-a4}) is written as
+\begin{eqnarray}
+  A (\mathbf{x}) & = & - \frac{q}{m}  \int_{- \infty}^{\infty} d v_{\parallel}
+  \int_0^{\infty} d v_{\perp} \frac{\partial F_{i 0}}{\partial \varepsilon}
+  v_{\perp} \tmcolor{blue}{\frac{2 \pi}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2} 
+  \sum_{j = 1}^{N_2} \delta \Phi (\mathbf{x} + \Delta \mathbf{\rho}_{i j})} . 
+  \label{22-11-8-1}
+\end{eqnarray}
+The guiding-center transform and its inverse involved in the above are
+illustrated in Fig. \ref{21-8-22-a1}, which also shows how to evaluate the
+double gyro-angle integration using the discrete values of $\delta \Phi_{i
+j}$.
+
+\
+
+\begin{figure}[h]
+  \resizebox{238pt}{237pt}{\includegraphics{nonlinear_gyrokinetic_equation-1.pdf}}
+  \caption{\label{21-8-22-a1}Given a $v_{\perp}$, then the double gyro-angle
+  integration (\ref{21-8-22-e1}) at a particle location $\mathbf{x}$ is
+  evaluated by the following steps: Use the guiding center transform to get
+  guiding-center locations (four locations are shown in this case, namely
+  $\mathbf{X}_i$ with $i = 1, 2, 3, 4$, corresponding gyro-angle $\alpha_i$
+  with $i = 1, 2, 3, 4$; 2.) For each guiding-center location, use the inverse
+  guiding-center transform to calculate points on the corresponding gyro-ring
+  (four points are shown for each guiding-center $\mathbf{X}_i$ in this case,
+  namely $\mathbf{x}_{i j}$ with $j = 1, 2, 3, 4$, corresponding gyro angle
+  $\alpha_j'$ with $j = 1, 2, 3, 4$.) Then the double gyro-angle integral
+  appearing in the polarization density is approximated as
+  $\label{21-9-2-a1} \int_0^{2 \pi} d \alpha \left( \int_0^{2 \pi} \delta \Phi
+  (\mathbf{x}) d \alpha' \right) \approx \frac{(2 \pi)^2}{N_1 N_2}  \sum_{i =
+  1}^{N_1} \sum_{j = 1}^{N_2} \delta \Phi (\mathbf{x}_{i j}),$
+  where $N_1 = 4, N_2 = 4$ for the case shown here.}
+\end{figure}
+
+The spatial points $\mathbf{x}_{i j}$ appearing in Eq. (\ref{21-9-2-a1}) are
+not necessarily grid points. Linear interpolations are used to express $\delta
+\Phi (\mathbf{x}_{i j})$ as linear combination of values of $\delta \Phi$ at
+grid-points.
+
+\subsection{Performing the parallel velocity integration}
+
+Assume that $F_0$ is Maxwellian, then
+\begin{equation}
+  \frac{\partial F_0}{\partial \varepsilon} = - \frac{m}{T} f_M = -
+  \frac{m}{T} \frac{n_0}{(2 \pi T / m)^{3 / 2}} \exp \left( \frac{- m
+  v^2_{\parallel}}{2 T} \right) \exp \left( \frac{- m v^2_{\perp}}{2 T}
+  \right) .
+\end{equation}
+Note that $\Delta \mathbf{\rho}$ is independent of $v_{\parallel}$. Then the
+integration over $v_{\parallel}$ in Eq. (\ref{22-11-8-1}) can be performed,
+yielding
+
+
+\begin{eqnarray}
+  A (\mathbf{x}) & = & \frac{q}{T}  \int_{- \infty}^{\infty} d
+  \overline{v}_{\parallel} \exp \left( \frac{- \overline{v}^2_{\parallel}}{2}
+  \right) \int_0^{\infty} d \overline{v}_{\perp} \overline{v}_{\perp}
+  \frac{n_0}{(2 \pi)^{3 / 2}} \exp \left( \frac{- \overline{v}^2_{\perp}}{2}
+  \right) \nonumber\\
+  & \times & \frac{2 \pi}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
+  1}^{N_2} \delta \Phi (\mathbf{x} + \Delta \mathbf{\rho}_{i j}) \nonumber\\
+  & = & n_0  \int_0^{\infty} d \overline{v}_{\perp} \overline{v}_{\perp} \exp
+  \left( \frac{- \overline{v}^2_{\perp}}{2} \right) \frac{1}{N_1} \sum_{i =
+  1}^{N_1} \frac{1}{N_2}  \sum_{j = 1}^{N_2} \frac{q}{T} \delta \Phi
+  (\mathbf{x} + \Delta \mathbf{\rho}_{i j}) .  \label{21-9-16-a5}
+\end{eqnarray}
+where $\overline{v}_{\parallel} = v_{\parallel} / v_t$, $\overline{v}_{\perp}
+= v_{\perp} / v_t$, \ $v_t = \sqrt{T / m}$, and use has been made of
+\begin{equation}
+  \int_{- \infty}^{\infty} \exp \left( - \frac{x^2}{2} \right) d x = \sqrt{2
+  \pi} .
+\end{equation}
+
+\subsection{Toroidal Fourier transform of polarization density in
+field-aligned coordinates}
+
+In field-aligned coordinates $(x, y, z)$, Fourier expansion of $\delta \Phi$
+along $y$ is written
+\begin{equation}
+  \delta \Phi (\mathbf{x}) = \sum_{n = - N_t}^{N_t} \exp \left( \iota n
+  \frac{2 \pi}{L_y} y \right) \delta \Phi_n (x, z),
+\end{equation}
+where $N_t$ is the number of toroidal harmonics included. Use this in Eq.
+(\ref{21-9-16-a5}), yielding
+\begin{eqnarray}
+  A (\mathbf{x}) & = & n_0  \int_0^{\infty} d \overline{v}_{\perp}
+  \overline{v}_{\perp} \exp \left( \frac{- \overline{v}^2_{\perp}}{2} \right)
+  \nonumber\\
+  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
+  1}^{N_2} \left[ \frac{q}{T}  \sum_{n = - N_t}^{N_t} \exp \left( \iota n
+  \frac{2 \pi}{L_y} (y + \Delta \rho_{i j y}) \right) \delta \Phi_n (x +
+  \Delta \rho_{i j x}, z + \Delta \rho_{i j z}) \right] \nonumber\\
+  & = & n_0  \sum_{n = - N_t}^{N_t} \exp \left( \iota n \frac{2 \pi}{L_y} y
+  \right) \int_0^{\infty} d \overline{v}_{\perp} \overline{v}_{\perp} \exp
+  \left( \frac{- \overline{v}^2_{\perp}}{2} \right) \nonumber\\
+  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
+  1}^{N_2} \left[ \frac{q}{T} \exp \left( \iota n \frac{2 \pi}{L_y} \Delta
+  \rho_{i j y} \right) \delta \Phi_n (x + \Delta \rho_{i j x}, z + \Delta
+  \rho_{i j z}) \right] .  \label{21-9-16-a1}
+\end{eqnarray}
+From Eq. (\ref{21-9-16-a1}), the Fourier transform of $A (\mathbf{x})$ in $y$
+can be identified, which is
+\begin{eqnarray}
+  A_n (x, z) & = & n_0  \int_0^{\infty} d \overline{v}_{\perp}
+  \overline{v}_{\perp} \exp \left( \frac{- \overline{v}^2_{\perp}}{2} \right)
+  \nonumber\\
+  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
+  1}^{N_2} \left[ \frac{q}{T} \exp \left( \iota n \frac{2 \pi}{L_y} \Delta
+  \rho_{i j y} \right) \delta \Phi_n (x + \Delta \rho_{i j x}, z + \Delta
+  \rho_{i j z}) \right] . \nonumber\\
+  & \approx & n_0  \int_0^{\infty} d \overline{v}_{\perp}
+  \overline{v}_{\perp} \exp \left( \frac{- \overline{v}^2_{\perp}}{2} \right)
+  \nonumber\\
+  & \times & \frac{1}{N_1} \sum_{i = 1}^{N_1} \frac{1}{N_2}  \sum_{j =
+  1}^{N_2} \left[ \exp \left( \iota n \frac{2 \pi}{L_y} \Delta \rho_{i j y}
+  \right) \frac{q}{T} \delta \Phi_n (x + \Delta \rho_{i j x}, z) \right] . 
+\end{eqnarray}
+\section{Diamagnetic flow **check**}\label{17-9-26-1}\label{17-8-19-e1}
 
 The perturbed distribution function $\delta F$ given in Eq. (\ref{17-8-19-2})
 contains two terms. The first term is gyro-phase dependent while the second
-term is gyro-phase independent. The perpendicular velocity moment of the first
-term will give rise to the so-called $\delta \mathbf{E} \times \mathbf{B}_0$
-flow (seems wrong, need checking) and the second term will give rise to the
-so-called diamagnetic flow. Let us discuss the diamagnetic flow first. For
-this case, it is crucial to distinguish between the distribution function in
-terms of the guiding-center variables, $f_g (\mathbf{X}, \mathbf{v})$, and
-that in terms of the particle variables, $f_p (\mathbf{x}, \mathbf{v})$. In
-terms of these denotations, \ equation (\ref{17-8-19-2}) is written as
+term is gyro-phase independent. The perpendicular velocity moment of the
+second term will give rise to the so-called diamagnetic flow. For this case,
+it is crucial to distinguish between the distribution function in terms of the
+guiding-center variables, $f_g (\mathbf{X}, \mathbf{v})$, and that in terms of
+the particle variables, $f_p (\mathbf{x}, \mathbf{v})$. In terms of these
+denotations, \ equation (\ref{17-8-19-2}) is written as
 \begin{equation}
   \delta F_g = \frac{q}{m} (\delta \Phi - \langle \delta \Phi
   \rangle_{\alpha}) \frac{\partial F_{0 g}}{\partial \varepsilon} + \delta f_g
@@ -4727,7 +4719,73 @@ ddddd
 
 \
 
-\section{Modern view of gyrokinetic equation**wrong**}
+\section{Derivation of Eq. (\ref{18-9-11-p3}), not
+finished}\label{21-8-25-p1}
+
+Using the fact that $\delta G_0$ is independent of $\alpha$, the left-hand
+side of Eq. (\ref{18-9-11-p3}) is written as
+\begin{eqnarray*}
+  &  & \langle \mathbf{v} \cdot [\tmmathbf{\lambda}_{B 1}
+  +\tmmathbf{\lambda}_{B 2}] \delta G_0 \rangle_{\alpha}\\
+  & = & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left\{
+  \left[ \mathbf{v} \times \frac{\partial}{\partial \mathbf{x}} \left(
+  \frac{\tmmathbf{e}_{\parallel}}{\Omega} \right) \right] \cdot \frac{\partial
+  \delta G_0}{\partial \mathbf{X}} + \frac{\partial \mu}{\partial \mathbf{x}} 
+  \frac{\partial \delta G_0}{\partial \mu} + \frac{\partial \alpha}{\partial
+  \mathbf{x}}  \frac{\partial \delta G_0}{\partial \alpha} \right\}\\
+  & = & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left\{
+  \left[ \mathbf{v} \times \frac{\partial}{\partial \mathbf{x}} \left(
+  \frac{\tmmathbf{e}_{\parallel}}{\Omega} \right) \right] \cdot \frac{\partial
+  \delta G_0}{\partial \mathbf{X}} + \frac{\partial \mu}{\partial \mathbf{x}} 
+  \frac{\partial \delta G_0}{\partial \mu} \right\}
+\end{eqnarray*}
+
+
+\
+
+From the definition of $\mu$, we obtain
+\begin{equation}
+  \label{16-9-21-3} \frac{\partial \mu}{\partial \mathbf{x}} = -
+  \frac{v_{\perp}^2}{2 B^2_0} \frac{\partial B_0}{\partial \mathbf{x}} +
+  \frac{1}{2 B_0}  \frac{\partial v_{\perp}^2}{\partial \mathbf{x}} = -
+  \frac{\mu}{B_0}  \frac{\partial B_0}{\partial \mathbf{x}} + \frac{\partial
+  \mathbf{v}_{\perp}}{\partial \mathbf{x}} \cdot
+  \frac{\mathbf{v}_{\perp}}{B_0}
+\end{equation}
+Using
+\begin{equation}
+  \frac{\partial \mathbf{v}_{\perp}}{\partial \mathbf{x}} = \frac{\partial
+  [\mathbf{v}- v_{\parallel} \mathbf{e}_{\parallel}]}{\partial \mathbf{x}} = -
+  v_{\parallel} \frac{\partial \mathbf{e}_{\parallel}}{\partial \mathbf{x}} -
+  \frac{\partial v_{\parallel}}{\partial \mathbf{x}} \mathbf{e}_{\parallel},
+\end{equation}
+expression (\ref{16-9-21-3}) is written as
+\begin{equation}
+  \frac{\partial \mu}{\partial \mathbf{x}} = - \frac{\mu}{B_0}  \frac{\partial
+  B_0}{\partial \mathbf{x}} - v_{\parallel} \frac{\partial
+  \mathbf{e}_{\parallel}}{\partial \mathbf{x}} \cdot
+  \frac{\mathbf{v}_{\perp}}{B_0},
+\end{equation}
+which agrees with Eq. (10) in Frieman-Chen's paper{\cite{frieman1982}}.
+\begin{eqnarray*}
+  &  & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot
+  \frac{\partial \mu}{\partial \mathbf{x}}\\
+  &  & = \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left( -
+  \frac{\mu}{B_0}  \frac{\partial B_0}{\partial \mathbf{x}} - v_{\parallel}
+  \frac{\partial \mathbf{e}_{\parallel}}{\partial \mathbf{x}} \cdot
+  \frac{\mathbf{v}_{\perp}}{B_0} \right)\\
+  &  & = ? 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  &  & \frac{1}{2 \pi} \int_0^{2 \pi} d \alpha \mathbf{v} \cdot \left[
+  \mathbf{v} \times \frac{\partial}{\partial \mathbf{x}} \left(
+  \frac{\tmmathbf{e}_{\parallel}}{\Omega} \right) \right] \cdot \frac{\partial
+  \delta G_0}{\partial \mathbf{X}}\\
+  &  & =
+\end{eqnarray*}
+
+\part{Modern view of gyrokinetic equation**wrong**}
 
 The modern form of the nonlinear gyrokinetic equation is in the total-f form.
 The modern way of deriving the gyrokinetic equation is to use transformation
@@ -4776,37 +4834,6 @@ know the gyrokinetic orderings and physics included in the model is highly
 desirable, which motivates me to write this note.
 
 \
-
-\
-
-----to be deleted---
-
-Since $d v_{\parallel} / d t = 0$ and $d v_{\perp} / d t = 0$, the
-phase-space structure of $f_p$ along $v_{\parallel}$ and $v_{\perp}$, i.e.,
-$\partial f_p / \partial v_{\parallel}$ and $\partial f_p / \partial
-v_{\perp}$, disappears from Eq. (\ref{19-1-31-6}).
-
-We assume that $f_p$ evolves at a time scale much longer than typical
-gyro-periods. Further assume that the spatial variation of $f_p$ along the
-magnetic field is weak on the space scale of the distance travelled by a
-particle within one gyro-period. Then, the terms $\partial f_p / \partial t$
-and $\partial f_p / \partial z$ can be dropped from the Vlasov equation.
-
-Therefore only 3 of the 7 variables $(x, y, z, v_{\perp}, \alpha,
-v_{\parallel}, t)$, namely $x, y$, and $\alpha$, can possibly contribute to
-the variation of $f_p$ when we follow a particle orbit. Could the number of
-these variables be further reduced? That is, whether there are more constants
-of motion can be found (so that $d z^{(i)} / d t = 0$) or weak dependence of
-$f_p$ on more variables (so that $\partial f / \partial z^{(i)} \sim 0$) can
-be assumed? It is ready to realise that there are two additional constants of
-motion, namely the two coordinates $(x', y')$ of the guiding-center. If we use
-these two variables as new variables replacing $x$ and $y$. The chain rule
-indicates that the dependence of $f_p$ on $x'$ and $y'$ will not show up in
-the expression of $d f_p / d t$ because $d x' / d t = 0$ and $d y' / d t = 0$.
-Then the only variable dependence of $f_p$ remains in the expression of $d f_p
-/ d t$ is the gyro-angle $\alpha$. Then the Vlasov equation implies that $f_p$
-is independent of $\alpha$ in the chosen coordinate system, giving a clear
-information about the phase-space structure of $f_p$.
 
 \begin{thebibliography}{1}
   \bibitem[1]{Catto1978}P~J Catto.{\newblock} Linearized

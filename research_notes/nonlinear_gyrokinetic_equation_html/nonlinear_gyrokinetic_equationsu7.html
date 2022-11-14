@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Spatial gradient operator in guiding-center coordinates</title> 
+<head><title>Velocity gradient operator in guiding-center coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,145 +13,119 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 417--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 498--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationsu8.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu6.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu6.html#tailnonlinear_gyrokinetic_equationsu6.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationsu7.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu7.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">2.5   </span> <a 
- id="x10-90002.5"></a>Spatial gradient operator in guiding-center coordinates</h4>
-<!--l. 419--><p class="noindent" >Using the chain-rule, the spatial gradient <span 
-class="cmmi-10">∂f</span><sub><span 
-class="cmmi-7">p</span></sub><span 
-class="cmmi-10">∕∂</span><span 
-class="cmbx-10">x </span>is written
+   <h4 class="subsectionHead"><span class="titlemark">2.6   </span> <a 
+ id="x10-90002.6"></a>Velocity gradient operator in guiding-center coordinates</h4>
+<!--l. 500--><p class="noindent" >Next, consider the form of the velocity gradient <span 
+class="cmmi-10">∂f∕∂</span><span 
+class="cmbx-10">v </span>in terms of the guiding-center variables. Using
+the chain rule, <span 
+class="cmmi-10">∂f∕∂</span><span 
+class="cmbx-10">v </span>is written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x10-9001r27"></a>
+ id="x10-9001r28"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation27x.png" alt="∂fp| =  ∂X-⋅ ∂fg + ∂𝜀-∂fg+ ∂-μ∂fg + ∂α-∂fg.
-∂x  v   ∂x  ∂X    ∂x ∂𝜀   ∂x ∂ μ   ∂x ∂α
-" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
-<!--l. 429--><p class="nopar" >
-From the deﬁnition of <span 
-class="cmbx-10">X</span>, Eq. (<a 
-href="nonlinear_gyrokinetic_equationsu3.html#x6-5001r19">19<!--tex4ht:ref: 16-9-21-1 --></a>), we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x10-9002r28"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation28x.png" alt="∂X           ∂  (e∥)
--∂x = I+ v × ∂x- Ω-  ,
+src="nonlinear_gyrokinetic_equation32x.png" alt="∂fp| =  ∂X-⋅ ∂fg + ∂𝜀-∂fg+ ∂-μ∂fg + ∂α-∂fg.
+∂v  x   ∂v  ∂X    ∂v ∂𝜀   ∂v ∂ μ   ∂v ∂α
 " class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
-<!--l. 435--><p class="nopar" >
-where <span 
-class="cmbx-10">I </span>is the unit dyad. From the deﬁnition of <span 
+<!--l. 511--><p class="nopar" >
+From the deﬁnition of <span 
+class="cmbx-10">X</span>, we obtain </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation33x.png" alt="∂X    ∂  (v × e )
+---=  --- -----∥
+∂v    ∂v    Ω
+   =  ∂v-× e∥
+      ∂v   Ω
+   = I × e∥.                                 (29)
+         Ω
+" class="math-display"  /></center>
+</div>From the deﬁnition of <span 
 class="cmmi-10">𝜀</span>, we obtain
-</p>
    <table 
 class="equation"><tr><td><a 
- id="x10-9003r29"></a>
+ id="x10-9003r30"></a>
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation29x.png" alt="∂𝜀     q
----= − --E0,
-∂x     m
-" class="math-display"  /></center></td><td class="equation-label">(29)</td></tr></table>
-<!--l. 441--><p class="nopar" >
-where <span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">∂Φ</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕∂</span><span 
-class="cmbx-10">x</span>. Using the above results, equation (<a 
-href="#x10-9001r27">27<!--tex4ht:ref: 16-9-17-e1 --></a>) is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x10-9004r30"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation30x.png" alt="∂f      ∂f   [     ∂ (e ) ] ∂f    q   ∂f    ∂μ ∂f    ∂α∂f
---p |v = --g+  v × --- -∥   ⋅--g − --E0--g + -----g+  ----g .
- ∂x     ∂X        ∂x   Ω    ∂X    m    ∂𝜀   ∂x ∂μ    ∂x ∂α
+src="nonlinear_gyrokinetic_equation34x.png" alt="∂ 𝜀
+∂v-= v,
 " class="math-display"  /></center></td><td class="equation-label">(30)</td></tr></table>
-<!--l. 454--><p class="nopar" >
-As mentioned above, the partial derivative <span 
-class="cmmi-10">∂∕∂</span><span 
-class="cmbx-10">x </span>is taken by holding <span 
-class="cmbx-10">v </span>constant. Since <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub> is spatially
-varying, <span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub> is spatially varying when holding <span 
-class="cmbx-10">v </span>constant. Therefore <img 
-src="nonlinear_gyrokinetic_equation31x.png" alt="∂μ
-∂x"  class="frac" align="middle" /> and <img 
-src="nonlinear_gyrokinetic_equation32x.png" alt="∂α
-∂x"  class="frac" align="middle" /> are generally nonzero.
-The explicit expressions of these two derivatives are needed later in the derivation of the gyrokinetic
-equation and is discussed in Appendix <a 
-href="nonlinear_gyrokinetic_equationse8.html#x35-55000B">B<!--tex4ht:ref: 21-8-25-p1 --></a>.
-</p><!--l. 464--><p class="indent" >   For notation ease, deﬁne
+<!--l. 524--><p class="nopar" >
+From the deﬁnition of <span 
+class="cmmi-10">μ</span>, we obtain
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x10-9005r31"></a>
+ id="x10-9004r31"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation33x.png" alt="      [     ∂ (e ) ]  ∂
-λB1 =  v × --- -∥   ⋅---,
-           ∂x  Ω     ∂X
+src="nonlinear_gyrokinetic_equation35x.png" alt="∂-μ = v⊥,
+∂v    B0
 " class="math-display"  /></center></td><td class="equation-label">(31)</td></tr></table>
-<!--l. 470--><p class="nopar" >
-and
+<!--l. 528--><p class="nopar" >
+From the deﬁnition of <span 
+class="cmmi-10">α</span>, we obtain
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x10-9006r32"></a>
-                                                                                
-
-                                                                                
+ id="x10-9005r32"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation34x.png" alt="      ∂μ ∂    ∂α ∂
-λB2 = -----+  -----,
-      ∂x ∂μ   ∂x∂ α
+src="nonlinear_gyrokinetic_equation36x.png" alt="∂α    1 (     v⊥)    eα
+∂v-= v-- e∥ × v-- =  v-,
+      ⊥        ⊥      ⊥
 " class="math-display"  /></center></td><td class="equation-label">(32)</td></tr></table>
-<!--l. 476--><p class="nopar" >
-then expression (<a 
-href="#x10-9004r30">30<!--tex4ht:ref: 22-9-24-p1 --></a>) is written as
+<!--l. 534--><p class="nopar" >
+where <span 
+class="cmbx-10">e</span><sub><span 
+class="cmmi-7">α</span></sub> is deﬁned by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x10-9007r33"></a>
+ id="x10-9006r33"></a>
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation35x.png" alt="∂fp    ∂fg                  q   ∂fg
-∂x-|v =-∂X + [λB1 + λB2]fg − m-E0 ∂𝜀-.
+src="nonlinear_gyrokinetic_equation37x.png" alt="          v⊥
+eα = e∥ × v⊥.
 " class="math-display"  /></center></td><td class="equation-label">(33)</td></tr></table>
-<!--l. 483--><p class="nopar" >
+<!--l. 539--><p class="nopar" >
+Using the above results, expression (<a 
+href="#x10-9001r28">28<!--tex4ht:ref: 16-9-16-e2 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x10-9007r34"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation38x.png" alt="∂fp    I× e∥  ∂fg    ∂fg   v⊥ ∂fg  eα ∂fg
+∂v-|x = --Ω---⋅∂X- + v∂-𝜀 + B0-∂μ-+ v⊥-∂α-.
+" class="math-display"  /></center></td><td class="equation-label">(34)</td></tr></table>
+<!--l. 548--><p class="nopar" >
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 486--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 550--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationsu8.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu6.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu6.html#tailnonlinear_gyrokinetic_equationsu6.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu7.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu7.html" >up</a>] </p></div>
-<!--l. 486--><p class="indent" >   <a 
+<!--l. 550--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu7.html"></a> </p> 
 </body></html> 

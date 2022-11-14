@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Toroidal Fourier transform of polarization density in ﬁeld-aligned coordinates</title> 
+<head><title>Numerical evaluation of distribution function moments at grids</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,8 +13,11 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 2989--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 2923--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
+href="nonlinear_gyrokinetic_equationsu27.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
 href="nonlinear_gyrokinetic_equationsu25.html" ><span 
 class="ecrm-1000">prev</span></a><span 
 class="ecrm-1000">] [</span><a 
@@ -24,92 +27,677 @@ class="ecrm-1000">] [</span><a
 href="#tailnonlinear_gyrokinetic_equationsu26.html"><span 
 class="ecrm-1000">tail</span></a><span 
 class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse7.html#nonlinear_gyrokinetic_equationsu26.html" ><span 
+href="nonlinear_gyrokinetic_equationse8.html#nonlinear_gyrokinetic_equationsu26.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
    <h4 class="subsectionHead"><span class="titlemark"><span 
-class="ecrm-1000">A.2   </span></span> <a 
- id="x34-54000A.2"></a><span 
-class="ecrm-1000">Toroidal Fourier transform of polarization density in ﬁeld-aligned coordinates</span></h4>
-<!--l. 2991--><p class="noindent" ><span 
-class="ecrm-1000">In ﬁeld-aligned coordinates </span>(<span 
-class="cmmi-10">x,y,z</span>)<span 
-class="ecrm-1000">, Fourier expansion of </span><span 
-class="cmmi-10">δΦ </span><span 
-class="ecrm-1000">along </span><span 
-class="cmmi-10">y </span><span 
-class="ecrm-1000">is written</span>
+class="ecrm-1000">B.2   </span></span> <a 
+ id="x35-55000B.2"></a><span 
+class="ecrm-1000">Numerical evaluation of distribution function moments at grids</span></h4>
+<!--l. 2925--><p class="noindent" ><span 
+class="ecrm-1000">Consider the evaluation of integral (</span><a 
+href="nonlinear_gyrokinetic_equationsu25.html#x34-54003r239"><span 
+class="ecrm-1000">239</span><!--tex4ht:ref: 19-1-19-p1 --></a><span 
+class="ecrm-1000">). Actually evaluated in PIC simulation is the average of </span><span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) <span 
+class="ecrm-1000">in</span>
+<span 
+class="ecrm-1000">a spatial cell, i.e.,</span>
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x34-54001r249"></a>
+ id="x35-55001r240"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation275x.png" alt="                (      )
-         N∑t         2π-
-δΦ(x) =      exp  ιn Lyy  δΦn(x,z),
-        n=−Nt
-" class="math-display"  /></center></td><td class="equation-label">(249)</td></tr></table>
-<!--l. 2996--><p class="nopar" >
+src="nonlinear_gyrokinetic_equation264x.png" alt="         1  ∫    ( ∫ ∫                         )
+ni,j,k = -----           fg(X,v)δ3(X  − x + ρ)dvdX dx,
+       Vi,j,k  Ωi,j,k
+" class="math-display"  /></center></td><td class="equation-label">(240)</td></tr></table>
+<!--l. 2932--><p class="nopar" >
+<span 
+class="ecrm-1000">where </span><span 
+class="cmmi-10">Ω</span><sub><span 
+class="cmmi-7">i,j,k</span></sub> <span 
+class="ecrm-1000">is a spatial cell and </span><span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">i,j,k</span></sub> <span 
+class="ecrm-1000">is its volume.</span>
+</p><!--l. 2935--><p class="indent" >   <span 
+class="ecrm-1000">In PIC simulations, integral (</span><a 
+href="#x35-55001r240"><span 
+class="ecrm-1000">240</span><!--tex4ht:ref: 19-3-23-1 --></a><span 
+class="ecrm-1000">) is evaluated by using Monte-Carlo markers. Thinking in terms of</span>
+<span 
+class="ecrm-1000">full orbit particle simulation, we load an assemble of particles in the phase space </span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>)<span 
+class="ecrm-1000">. Then we</span>
+<span 
+class="ecrm-1000">know the phase-space volume occupied by each marker, which is assumed to be constant in time for</span>
+<span 
+class="ecrm-1000">each marker. For a marker with coordinates </span>(<span 
+class="cmbx-10">x</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub>)<span 
+class="ecrm-1000">, we can calculate the guiding-center</span>
+<span 
+class="ecrm-1000">position </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">by using Eq. (</span><a 
+href="nonlinear_gyrokinetic_equationsu2.html#x5-4001r13"><span 
+class="ecrm-1000">13</span><!--tex4ht:ref: 16-9-21-1 --></a><span 
+class="ecrm-1000">). This is done for only once at the initialization stage of the simulation.</span>
+<span 
+class="ecrm-1000">Most codes directly set guiding-center location </span><span 
+class="cmbx-10">X</span><span 
+class="ecrm-1000">, then the transformation is not needed, but I prefer</span>
+<span 
+class="ecrm-1000">the former method because particle coordinates are physical and guiding-center coordinates </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">are only</span>
+<span 
+class="ecrm-1000">imaginary and auxiliary. Update: However, directly sampling particle position, rather than</span>
+<span 
+class="ecrm-1000">guiding-center position, is not practical because we need to load a distribution function that is</span>
+<span 
+class="ecrm-1000">independent of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">in </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) <span 
+class="ecrm-1000">coordinates and this is hard to achieve if we directly sample</span>
+(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>)<span 
+class="ecrm-1000">.</span>
+</p><!--l. 2953--><p class="indent" >   <span 
+class="ecrm-1000">Then </span>(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) <span 
+class="ecrm-1000">can be evolved by using the guiding-center motion equation. But</span>
+<span 
+class="ecrm-1000">how does the gyro-angle </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">evolves with time? We do not have an equation for the time</span>
+<span 
+class="ecrm-1000">evolution of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">. The evolution can be computed by using the local gyro-frequency if we</span>
+<span 
+class="ecrm-1000">want them. Do we need the gyro angle? Yes, we do. The gyro-angle </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">is needed in the</span>
+<span 
+class="ecrm-1000">inverse guiding-center transform when depositing particle weight to grids. But it turns out</span>
+<span 
+class="ecrm-1000">tracking the evolution of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">of a marker is not necessary for PIC simulations because the</span>
+<span 
+class="ecrm-1000">density and current needed in gyrokinetic particle simulations are those averaged over a</span>
+<span 
+class="ecrm-1000">gyro-period and during this time interval the gyro-angle of a mark has taken all the possible</span>
+<span 
+class="ecrm-1000">values.</span>
+</p><!--l. 2965--><p class="indent" >   <span 
+class="ecrm-1000">Assume that we load markers in </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) <span 
+class="ecrm-1000">with uniform random distribution in the gyro-angle.</span>
+<span 
+class="ecrm-1000">The gyro-angle of each marker evolves on a very fast time-scale and at later time the distribution in</span>
+<span 
+class="ecrm-1000">gyro-angle should be still uniform. There is no need to follow the time evolution of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">of each marker</span>
+                                                                                
+
+                                                                                
+<span 
+class="ecrm-1000">because any set of random samplings of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">are similar to each other in terms of evaluating Monte-Carlo</span>
+<span 
+class="ecrm-1000">integration. When doing the deposition, the corresponding particle location is calculated by</span>
+<span 
+class="ecrm-1000">using an arbitrary gyro-angle, which is of course not the correct value of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">taken by that</span>
+<span 
+class="ecrm-1000">marker at that particular time since we do not follow the time evolution of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">and thus the</span>
+<span 
+class="ecrm-1000">correct value is not available to us. As a result, the particle location calculated by using the</span>
+<span 
+class="ecrm-1000">incorrect gyro-angle is also incorrect. However, statistically, this phase error of particle</span>
+<span 
+class="ecrm-1000">location does not matter in terms of evaluating the Monte-Carlo integral because the phase</span>
+<span 
+class="ecrm-1000">error will cancel each other when summing over particles. (Wrong! no reason to believe that</span>
+<span 
+class="ecrm-1000">the error will cancel each other.) Statistically, we still obtain consistent estimation of the</span>
+<span 
+class="ecrm-1000">integral. To further reduce the possible error, we select several (rather than just one) possible</span>
+<span 
+class="ecrm-1000">gyro-angles for each marker and average all these over all markers, yielding more accurate</span>
+<span 
+class="ecrm-1000">estimation.</span>
+</p><!--l. 2985--><p class="indent" >   <span 
+class="ecrm-1000">Another way to understand the gyrokinetic simulation is that the density calculated in</span>
+<span 
+class="ecrm-1000">simulations can be considered as the time average of integral (</span><a 
+href="#x35-55001r240"><span 
+class="ecrm-1000">240</span><!--tex4ht:ref: 19-3-23-1 --></a><span 
+class="ecrm-1000">) over one typical gyro-period,</span>
+<span 
+class="ecrm-1000">i.e.,</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x35-55002r241"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation265x.png" alt="--      1∫ tn+δt         1 ∫ tn+δt  1  ∫     (∫ ∫                         )
+ni,j,k = δt      dtni,j,k = δt      dtV----           fg(X, v)δ3(X − x + ρ)dvdX  dx,
+           tn                tn       i,j,k  Ωi,j,k
+" class="math-display"  /></center></td><td class="equation-label">(241)</td></tr></table>
+<!--l. 2994--><p class="nopar" >
+<span 
+class="ecrm-1000">where </span><span 
+class="cmmi-10">δt </span><span 
+class="ecrm-1000">is a typical gyro-period. In this small time interval, marker’s </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) <span 
+class="ecrm-1000">can be considered to</span>
+<span 
+class="ecrm-1000">be constant and only </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">changes. Then the time average is equivalent to an average over the gyro-angle.</span>
+<span 
+class="ecrm-1000">The four point averaging in gyrokinetic simulations can be considered as the time descretization of this</span>
+<span 
+class="ecrm-1000">time averaging.</span>
+</p><!--l. 3002--><p class="indent" >   <span 
+class="ecrm-1000">Another way of understanding the four point gyro-averaging is that we do 4 separate sampling of</span>
+<span 
+class="ecrm-1000">the phase space and then average the each estimation to get a better estimation.</span>
+</p><!--l. 3006--><p class="indent" >   <span 
+class="ecrm-1000">For a marker with coordinators </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>)<span 
+class="ecrm-1000">, where </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">is the gyro-angle, the corresponding particle</span>
+<span 
+class="ecrm-1000">position can be calculated by using the inverse guiding-center transformation (</span><a 
+href="nonlinear_gyrokinetic_equationsu2.html#x5-4003r15"><span 
+class="ecrm-1000">15</span><!--tex4ht:ref: 19-1-19-p2 --></a><span 
+class="ecrm-1000">). Then we can deposit</span>
+<span 
+class="ecrm-1000">the marker weight to grids in the same way that we do in conventional PIC simulations. Looping over</span>
+<span 
+class="ecrm-1000">all markers, we build the particle density at grids.</span>
+</p><!--l. 3013--><p class="indent" >   <span 
+class="ecrm-1000">Compared with conventional PIC methods, where particle positions are directly sampled, what is</span>
+<span 
+class="ecrm-1000">the beneﬁt of sampling guiding-center positions and then transform them back to the particle</span>
+<span 
+class="ecrm-1000">positions? More computations are involved since we need to numerically perform the inverse</span>
+<span 
+class="ecrm-1000">guiding-center transformation.</span>
+</p><!--l. 3019--><p class="indent" >   <span 
+class="ecrm-1000">**to be clean up***The answer lies in the important fact that the distribution function</span>
+<span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) <span 
+class="ecrm-1000">that needs to be numerically evolved in gyrokinetic simulation is actually independent</span>
+<span 
+class="ecrm-1000">of the gyro-angle </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">. Furthermore, we use a probability density function </span><span 
+class="cmmi-10">P </span><span 
+class="ecrm-1000">that is independent of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">to</span>
+<span 
+class="ecrm-1000">sample the 6D phase space </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>)<span 
+class="ecrm-1000">. Then the marker weight </span><span 
+class="cmmi-10">w </span><span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>) <span 
+class="ecrm-1000">is independent of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">,</span>
+                                                                                
+
+                                                                                
 <span 
 class="ecrm-1000">where </span><span 
 class="cmmi-10">N</span><sub><span 
-class="cmmi-7">t</span></sub> <span 
-class="ecrm-1000">is the number of toroidal harmonics included. Use this in Eq. (</span><a 
-href="nonlinear_gyrokinetic_equationsu25.html#x33-53002r247"><span 
-class="ecrm-1000">247</span><!--tex4ht:ref: 21-9-16-a5 --></a><span 
-class="ecrm-1000">), yielding</span>
-</p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation276x.png" alt="         ∫ ∞  - -     (− v2)
-A(x) = n0    dv⊥v⊥ exp  --2⊥
-          0N     N  [    N      (              )                       ]
-       -1-∑1 -1-∑ 2 -q ∑ t        2π-
-     × N1    N2     T       exp ιnLy (y+ Δ ρijy) δΦn(x +Δ ρijx,z +Δ ρijz)
-          i=1    j=1(   n=−) N∫t           (     )
-          ∑Nt        2π-    ∞  - -       − v2⊥
-     = n0     exp  ιnLyy   0  dv⊥v⊥ exp   2
-         n=−Nt     [     (          )                      ]
-       -1-N∑1 -1-N∑2  q-       2π-
-     × N1    N2     T exp  ιn LyΔ ρijy  δΦn(x+ Δ ρijx,z + Δ ρijz) .        (250)
-          i=1    j=1
-" class="math-display"  /><a 
- id="x34-54002r250"></a></center>
-                                                                                
-
-                                                                                
-</div><span 
-class="ecrm-1000">From Eq. (</span><a 
-href="#x34-54002r250"><span 
-class="ecrm-1000">250</span><!--tex4ht:ref: 21-9-16-a1 --></a><span 
-class="ecrm-1000">), the Fourier transform of </span><span 
-class="cmmi-10">A</span>(<span 
+class="cmmi-7">p</span></sub> <span 
+class="ecrm-1000">is number of markers loaded.</span>
+</p><!--l. 3027--><p class="indent" >   <span 
+class="ecrm-1000">Suppose we have a concrete sampling of </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> <span 
+class="ecrm-1000">in the 6D phase-space </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>)<span 
+class="ecrm-1000">, i.e.,</span>
+(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">j</span></sub>) <span 
+class="ecrm-1000">with </span><span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="ecrm-1000">, then we can do the inverse guiding-center transform and then</span>
+<span 
+class="ecrm-1000">deposit particles to the grids to obtain a moment (e.g. density).</span>
+</p><!--l. 3033--><p class="indent" >   <span 
+class="ecrm-1000">Since </span><span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub><span 
+class="ecrm-1000">, where </span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> = <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub> <span 
+class="ecrm-1000">is the Jacobian of </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>)<span 
+class="ecrm-1000">, is independent of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">,</span>
+<span 
+class="ecrm-1000">the sampling </span><span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> <span 
+class="ecrm-1000">with </span><span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub> <span 
+class="ecrm-1000">are uniform distributed random numbers. Therefore</span>
+<span 
+class="ecrm-1000">we can generate another sampling of </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">(denoted by </span><span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span><span 
+class="ecrm-1000">with </span><span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="ecrm-1000">) using random</span>
+<span 
+class="ecrm-1000">number generators and combine </span><span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span><span 
+class="ecrm-1000">with the old sampling </span>(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) <span 
+class="ecrm-1000">to obtain a new</span>
+<span 
+class="ecrm-1000">sampling </span>(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span>)<span 
+class="ecrm-1000">. </span><span 
+class="ecrm-1000"> The values of </span><span 
+class="cmmi-10">w </span><span 
+class="ecrm-1000">at the new sampling points are equal to</span>
+<span 
+class="ecrm-1000">the original values, i.e., </span><span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> <span 
+class="ecrm-1000">since the particle weight </span><span 
+class="cmmi-10">w </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>) <span 
+class="ecrm-1000">is independent</span>
+<span 
+class="ecrm-1000">of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">. </span><span 
+class="ecrm-1000"> Using the new sampling and following the same procedures given above, we can</span>
+<span 
+class="ecrm-1000">estimate values of the moment at grids again, which will diﬀer from the estimation obtained</span>
+<span 
+class="ecrm-1000">using the old sampling. Taking the average of the two estimations will give a more accurate</span>
+<span 
+class="ecrm-1000">estimation.</span>
+</p><!--l. 3048--><p class="indent" >   <span 
+class="ecrm-1000">Note that even if </span><span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> <span 
+class="ecrm-1000">is dependent on </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">due to the possible dependence of </span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> <span 
+class="ecrm-1000">on </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">, we still can</span>
+<span 
+class="ecrm-1000">easily generate a new set of sampling which diﬀers from the old sampling only in </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">, i.e.,</span>
+(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span>)<span 
+class="ecrm-1000">. Speciﬁcally, in the rejection method, we use the old sampling </span>(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) <span 
+class="ecrm-1000">for each</span>
+<span 
+class="ecrm-1000">reject step and only adjust </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">to satisfy the acceptance criteria.</span>
+</p><!--l. 3056--><p class="indent" >   <span 
+class="ecrm-1000">The independence of </span><span 
+class="cmmi-10">P </span><span 
+class="ecrm-1000">on </span><span 
+class="cmmi-10">α </span><span 
+class="ecrm-1000">is the essential thing, because the combination </span>(<span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕P</span>) <span 
+class="ecrm-1000">must be</span>
+<span 
+class="ecrm-1000">independent of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">, where </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> <span 
+class="ecrm-1000">is already independent of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">.</span>
+</p><!--l. 3060--><p class="indent" >   <span 
+class="ecrm-1000">We can also construct a new sampling by replacing </span><span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> <span 
+class="ecrm-1000">by </span><span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> + <span 
+class="cmmi-10">Δ</span><span 
+class="ecrm-1000">, where </span><span 
+class="cmmi-10">Δ </span><span 
+class="ecrm-1000">is a constant.</span>
+<span 
+class="ecrm-1000">Then the new sampling is given by </span>(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub> + <span 
+class="cmmi-10">Δ,w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span>) <span 
+class="ecrm-1000">with </span><span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="ecrm-1000">. Since the</span>
+<span 
+class="ecrm-1000">original sampling probability function </span><span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub> <span 
+class="ecrm-1000">is independent of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">, then </span>(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub> + <span 
+class="cmmi-10">Δ</span>)
+<span 
+class="ecrm-1000">is still a consistent sampling that can be generated by the original probability function</span>
+<span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="ecrm-1000">. Furthermore, since the particle weight </span><span 
+class="cmmi-10">w </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>) <span 
+class="ecrm-1000">is independent of </span><span 
+class="cmmi-10">α</span><span 
+class="ecrm-1000">, we</span>
+<span 
+class="ecrm-1000">infer that the values of </span><span 
+class="cmmi-10">w </span><span 
+class="ecrm-1000">at the new sampling points are equal to the original values, i.e.,</span>
+<span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="ecrm-1000">.</span>
+</p><!--l. 3071--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 3073--><p class="indent" >   <span 
+class="ecrm-1000">In doing the deposition, each marker has a single gyro-angle (this is the result from the</span>
+<span 
+class="ecrm-1000">guiding-center transformation, where the gyro-angle must be determined before we can transform a</span>
+<span 
+class="ecrm-1000">particle location to a guiding-center location). Due to the independence of the weight </span>(<span 
+class="cmmi-10">w </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>))
+<span 
+class="ecrm-1000">of the gyro-angle, the resolution over the gyro-angle can be increased in a way that there can be several</span>
+<span 
+class="ecrm-1000">gyro-angles for a single </span>(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>)<span 
+class="ecrm-1000">. This gives the impression that the gyro-angle of a guiding-center</span>
+<span 
+class="ecrm-1000">marker is arbitrary. This is impression is incorrect. The correct understanding is that given above,</span>
+<span 
+class="ecrm-1000">i.e., we take several times of samplings and average the estimations resulting from each</span>
+<span 
+class="ecrm-1000">sampling.</span>
+</p><!--l. 3084--><p class="indent" >   <span 
+class="ecrm-1000">In the code, the gyro-angle is deﬁned relative to the direction </span><span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ∕</span><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">ψ</span><span 
+class="cmsy-10">| </span><span 
+class="ecrm-1000">at the guiding-center</span>
+<span 
+class="ecrm-1000">position. Speciﬁcally, the gyro-angle is deﬁned as the included angle between </span><span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ∕</span><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">ψ</span><span 
+class="cmsy-10">| </span><span 
+class="ecrm-1000">and</span>
+<span 
+class="cmsy-10">−</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">× </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">∕Ω</span>(<span 
+class="cmbx-10">x</span>)<span 
+class="ecrm-1000">, where </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">∕Ω</span>(<span 
 class="cmbx-10">x</span>) <span 
-class="ecrm-1000">in </span><span 
-class="cmmi-10">y </span><span 
-class="ecrm-1000">can be identiﬁed, which is </span><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation277x.png" alt="           ∫            (  -  )
-A (x,z) = n  ∞ dv v  exp  −v2⊥-
- n        0 0    ⊥ ⊥       2
-            N∑1    ∑N2[      (         )                       ]
-       × -1-   -1-     q-exp  ιn2π-Δρijy  δΦn(x +Δ ρijx,z +Δ ρijz) .
-         N1 i=1N2 j=1  T       Ly
-           ∫ ∞  - -     ( − v2 )
-       ≈ n0    dv⊥v⊥ exp  -2⊥-
-            0N      N [    (         )                  ]
-         -1-∑ 1-1-∑ 2        2π-      q-
-       × N1    N2     exp  ιnLy Δρijy  T δΦn(x+ Δ ρijx,z) .          (251)
-            i=1   j=1
-" class="math-display"  /></center>
-</div>
+class="ecrm-1000">is approximated by the value at the guiding-center</span>
+<span 
+class="ecrm-1000">location.</span>
                                                                                 
 
                                                                                 
-   <!--l. 3034--><div class="crosslinks"><p class="noindent"><span 
+</p>
+   <!--l. 3091--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
+href="nonlinear_gyrokinetic_equationsu27.html" ><span 
+class="ecrm-1000">next</span></a><span 
+class="ecrm-1000">] [</span><a 
 href="nonlinear_gyrokinetic_equationsu25.html" ><span 
 class="ecrm-1000">prev</span></a><span 
 class="ecrm-1000">] [</span><a 
@@ -119,9 +707,9 @@ class="ecrm-1000">] [</span><a
 href="nonlinear_gyrokinetic_equationsu26.html" ><span 
 class="ecrm-1000">front</span></a><span 
 class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse7.html#nonlinear_gyrokinetic_equationsu26.html" ><span 
+href="nonlinear_gyrokinetic_equationse8.html#nonlinear_gyrokinetic_equationsu26.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
-<!--l. 3034--><p class="indent" >   <a 
+<!--l. 3091--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu26.html"></a> </p> 
 </body></html> 
