@@ -167,18 +167,18 @@ v_{\perp}', \alpha')$, $\partial f / \partial \alpha'$ is written as
 \end{eqnarray}
 Using this, Eq. (\ref{22-11-16-1}) is written as
 \begin{equation}
-  \label{22-11-16-3} \frac{\partial f}{\partial t} + v_{\parallel}
-  \frac{\partial f}{\partial z} + \Omega \left( \frac{\partial f}{\partial
+  \label{22-11-16-3} \frac{\partial f}{\partial t} + v_{\parallel}'
+  \frac{\partial f}{\partial z'} + \Omega \left( \frac{\partial f}{\partial
   \alpha'} \right) = 0.
 \end{equation}
 Note that the derivative $\partial f / \partial \alpha'$ in the new coordinate
 system incorporate three derivatives in the original coordinate system,
 namely, $\partial f / \partial x$, $\partial f / \partial y$, and $\partial f
-/ \partial \alpha$. In the new coordinate system, $x'$, $y'$ and $v_{\perp}'$
-does not appear in Eq. (\ref{22-11-16-3}), which means that the grids
-correspond to these variables are not needed when numerically solving Eq.
-(\ref{22-11-16-3}) using Euler grid-based methods, i.e., the dimesion of the
-problem is reduced. This reduction will reduce the computational cost.
+/ \partial \alpha$. Note that $x'$, $y'$ and $v_{\perp}'$ do not appear in Eq.
+(\ref{22-11-16-3}), which means that the grids correspond to these variables
+are not needed when numerically solving Eq. (\ref{22-11-16-3}) using Euler
+grid-based methods, i.e., the dimesion of the problem is reduced. This
+reduction will reduce the computational cost.
 
 The dimension reduction for the above simple case is found by using the
 guiding-center transform. This motivates us to investigate whether the

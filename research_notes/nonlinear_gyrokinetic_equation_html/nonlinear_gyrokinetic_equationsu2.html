@@ -237,8 +237,8 @@ class="equation"><tr><td><a
  id="x4-3007r7"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation9x.png" alt="∂f     ∂f    ( ∂f )
----+ v∥---+ Ω  --′  = 0.
+src="nonlinear_gyrokinetic_equation9x.png" alt="∂f     ∂f     ( ∂f)
+---+ v∥′--′ + Ω ---′ = 0.
 ∂t     ∂z      ∂α
 " class="math-display"  /></center></td><td class="equation-label">(7)</td></tr></table>
 <!--l. 173--><p class="nopar" >
@@ -248,23 +248,22 @@ class="cmsy-10">′ </span>in the new coordinate system incorporate three deriva
 original coordinate system, namely, <span 
 class="cmmi-10">∂f∕∂x</span>, <span 
 class="cmmi-10">∂f∕∂y</span>, and <span 
-class="cmmi-10">∂f∕∂α</span>. In the new coordinate system, <span 
+class="cmmi-10">∂f∕∂α</span>. Note that <span 
 class="cmmi-10">x</span><span 
-class="cmsy-10">′</span>,
-<span 
+class="cmsy-10">′</span>, <span 
 class="cmmi-10">y</span><span 
 class="cmsy-10">′ </span>and <span 
 class="cmmi-10">v</span><sub><span 
 class="cmsy-7">⊥</span></sub><span 
-class="cmsy-10">′ </span>does not appear in Eq. (<a 
-href="#x4-3007r7">7<!--tex4ht:ref: 22-11-16-3 --></a>), which means that the grids correspond to these
-variables are not needed when numerically solving Eq. (<a 
-href="#x4-3007r7">7<!--tex4ht:ref: 22-11-16-3 --></a>) using Euler grid-based methods,
-i.e., the dimesion of the problem is reduced. This reduction will reduce the computational
+class="cmsy-10">′ </span>do not appear
+in Eq. (<a 
+href="#x4-3007r7">7<!--tex4ht:ref: 22-11-16-3 --></a>), which means that the grids correspond to these variables are not needed when numerically
+solving Eq. (<a 
+href="#x4-3007r7">7<!--tex4ht:ref: 22-11-16-3 --></a>) using Euler grid-based methods, i.e., the dimesion of the problem is reduced. This
+reduction will reduce the computational cost.
                                                                                 
 
                                                                                 
-cost.
 </p><!--l. 183--><p class="indent" >   The dimension reduction for the above simple case is found by using the guiding-center transform.
 This motivates us to investigate whether the guiding-center transform can be made use of to simplify
 the kinetic equation for more general cases where we have a (weakly) non-uniform static magnetic ﬁeld
