@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Implementation of gyrokinetics in Monte-Carlo simulations</title> 
+<head><title>Polarization density expression using δΦ at grid-points </title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 2881--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3175--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse9.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -32,38 +32,96 @@ class="ecrm-1000">up</span></a><span
 class="ecrm-1000">] </span></p></div>
    <h3 class="sectionHead"><span class="titlemark"><span 
 class="ecrm-1000">B   </span></span> <a 
- id="x33-53000B"></a><span 
-class="ecrm-1000">Implementation of gyrokinetics in Monte-Carlo simulations</span></h3>
-<!--l. 2884--><p class="noindent" >
+ id="x38-58000B"></a><span 
+class="ecrm-1000">Polarization density expression using </span><span 
+class="cmmi-10">δΦ </span><span 
+class="ecrm-1000">at grid-points </span></h3>
+<!--l. 3177--><p class="noindent" ><span 
+class="ecrm-1000">In Sec. </span><a 
+href="nonlinear_gyrokinetic_equationsu24.html#x30-420005.7"><span 
+class="ecrm-1000">5.7</span><!--tex4ht:ref: 21-8-22-a3 --></a><span 
+class="ecrm-1000">, when evaluating the polarization density, the potential </span><span 
+class="cmmi-10">δΦ </span><span 
+class="ecrm-1000">is Fourier expanded in space and</span>
+<span 
+class="ecrm-1000">then the double gyro-angle integration of each harmonic is expressed as the Bessel function. Are these</span>
+<span 
+class="ecrm-1000">formulas scaring to beginners? Does this make gyrokinetic theory less accessible to general readers? I</span>
+<span 
+class="ecrm-1000">think so.</span>
+</p><!--l. 3183--><p class="indent" >   <span 
+class="ecrm-1000">It seems that the motivation of using the Fourier expansion here is to facilitate analytical treatment</span>
+<span 
+class="ecrm-1000">and is not very useful for numerical treatment. GEM code does make use of the Fourier expansion form</span>
+<span 
+class="ecrm-1000">in its numerical implementation, where the local perpendicular wave number needs to be estimated</span>
+<span 
+class="ecrm-1000">numerically, which seems awkward.</span>
+</p><!--l. 3189--><p class="indent" >   <span 
+class="ecrm-1000">In this section, we avoid using the Fourier expansion at the ﬁrst place, and directly express the</span>
+<span 
+class="ecrm-1000">double gyro-angle integral as linear combination of values of </span><span 
+class="cmmi-10">δΦ </span><span 
+class="ecrm-1000">at spatial grid-points.</span>
+</p><!--l. 3193--><p class="indent" >   <span 
+class="ecrm-1000">The integration we try to evaluate is given by</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x38-58001r241"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation265x.png" alt="       ∫  (            )
+A  = -1    − q-⟨δΦ ⟩ ∂F0- dvdr,
+ ij  V       m    α ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(241)</td></tr></table>
+<!--l. 3198--><p class="nopar" >
+<span 
+class="ecrm-1000">where </span><span 
+class="cmmi-10">A</span><sub><span 
+class="cmr-7">ij</span></sub> <span 
+class="ecrm-1000">is the value of   the integration at a grid-point, which is approximated by the spatial</span>
+<span 
+class="ecrm-1000">averaging integrand over the cell where the grid-point is located.</span>
+</p><!--l. 3203--><p class="indent" >   <span 
+class="ecrm-1000">Using MC markers and MC integration to compute the above cell average.</span>
+</p><!--l. 3205--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 3207--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 3209--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
+</p><!--l. 3211--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
    <span 
 class="ecrm-1000"> </span><span 
 class="ecrm-1000"> </span><span class="subsectionToc" ><span 
 class="ecrm-1000">B.1 </span><a 
-href="nonlinear_gyrokinetic_equationsu25.html#x34-54000B.1"><span 
-class="ecrm-1000">Moments of distribution function expressed as integration over</span>
-<span 
-class="ecrm-1000">guiding-center variables</span></a></span>
+href="nonlinear_gyrokinetic_equationsu30.html#x39-59000B.1"><span 
+class="ecrm-1000">old, to be deleted</span></a></span>
 <br />   <span 
 class="ecrm-1000"> </span><span 
 class="ecrm-1000"> </span><span class="subsectionToc" ><span 
 class="ecrm-1000">B.2 </span><a 
-href="nonlinear_gyrokinetic_equationsu26.html#x35-55000B.2"><span 
-class="ecrm-1000">Numerical evaluation of distribution function moments at grids</span></a></span>
+href="nonlinear_gyrokinetic_equationsu31.html#x40-60000B.2"><span 
+class="ecrm-1000">Performing the parallel velocity integration</span></a></span>
 <br />   <span 
 class="ecrm-1000"> </span><span 
 class="ecrm-1000"> </span><span class="subsectionToc" ><span 
 class="ecrm-1000">B.3 </span><a 
-href="nonlinear_gyrokinetic_equationsu27.html#x36-56000B.3"><span 
-class="ecrm-1000">Monte-Carlo sampling of 6D guiding-center phase-space </span></a></span>
+href="nonlinear_gyrokinetic_equationsu32.html#x41-61000B.3"><span 
+class="ecrm-1000">Toroidal Fourier transform of polarization density in ﬁeld-aligned coordinates</span></a></span>
+                                                                                
+
+                                                                                
    </div>
 
 
                                                                                 
 
                                                                                 
-   <!--l. 3292--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3429--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse9.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -80,6 +138,6 @@ class="ecrm-1000">] [</span><a
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse8.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
-<!--l. 3292--><p class="indent" >   <a 
+<!--l. 3429--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse8.html"></a> </p> 
 </body></html> 

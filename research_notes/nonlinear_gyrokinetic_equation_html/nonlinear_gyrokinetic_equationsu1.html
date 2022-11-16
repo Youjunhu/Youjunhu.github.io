@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Vlasov equation and Gyro-angle symmetry of distribution function</title> 
+<head><title>Gyrokinetic?</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,360 +13,52 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 69--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 41--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu2.html" >next</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationsu1.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse1.html#nonlinear_gyrokinetic_equationsu1.html" >up</a>] </p></div>
+                                                                                
+
+                                                                                
    <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
- id="x3-20001.1"></a>Vlasov equation and Gyro-angle symmetry of distribution function</h4>
-<!--l. 71--><p class="noindent" >The Vlasov equation in terms of particle coordinates (<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>) is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2001r1"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation0x.png" alt="∂f       ∂f    q            ∂f
---p + v⋅ --p+ --(E + v× B )⋅--p = 0,
- ∂t      ∂x   m             ∂v
-" class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
-<!--l. 78--><p class="nopar" >
-where <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub> = <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub>(<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>) is the particle distribution function, <span 
-class="cmbx-10">x </span>and <span 
-class="cmbx-10">v </span>are the location and velocity of
-particles.
-</p><!--l. 83--><p class="indent" >   Let us consider a simple case where the electromagnetic ﬁeld is a time-independent and spatial
-uniform magnetic ﬁeld, <span 
-class="cmbx-10">B </span>= <span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub><img 
-src="nonlinear_gyrokinetic_equation1x.png" alt="ˆz"  class="circ"  />. And examine the Vlasov equation in this simple case and look if
-there is any coordinate system that can make the distribution function be uniform in one of its
-coordinates, i.e., being symmetric in this coordinate.
-</p><!--l. 90--><p class="indent" >   Choose Cartesian coordinate system (<span 
-class="cmmi-10">x,y,z</span>) for the conﬁguration space. Describe the velocity space
-using a right-handed cylindrical coordinates (<span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmmi-10">,α,v</span><sub><span 
-class="cmsy-7">∥</span></sub>), where <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> = <span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub>, <span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub> is the unit vector along
-the magnetic ﬁeld, <span 
-class="cmmi-10">α </span>is the azimuthal angle of the velocity relative to <span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">x</span></sub>. Then the 6D phase-space are
-described by coordinates (<span 
-class="cmmi-10">x,y,z,v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmmi-10">,α,v</span><sub><span 
-class="cmsy-7">∥</span></sub>). The distribution function <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub> depends on 7 variables, namely
-<span 
-class="cmmi-10">x,y,z,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α,v</span><sub><span 
-class="cmsy-7">⊥</span></sub>, and <span 
-class="cmmi-10">t</span>.
-</p><!--l. 99--><p class="indent" >   In (<span 
-class="cmbx-10">x</span><span 
+ id="x3-20001.1"></a>Gyrokinetic?</h4>
+<!--l. 43--><p class="noindent" >It is widely believed that low-frequency (lower than ion cyclotron frequency) electromagnetic
+perturbations are more important than high-frequency ones in transporting plasma in tokamaks, based
+on some non-conclusive observations and analytical theories. (This assumption can be veriﬁed
+numerically when we are able to do a full simulation including both low-frequency and high-frequency
+perturbations. This kind of veriﬁcation is not possible at present due to the diﬃculties in doing a full
+simulation.)
+</p><!--l. 51--><p class="indent" >   If only the low-frequency perturbations are present, the Vlasov equation can be simpliﬁed.
+Speciﬁcally, some kind of symmetry of the perturbed particle distribution function in the phase space
+can be established if we choose suitable coordinates (independent variables) and split the distribution
+function in a proper way. The symmetry is along the so-called gyro-angle <span 
+class="cmmi-10">α </span>in the guiding-center
+coordinates (<span 
+class="cmbx-10">X</span><span 
 class="cmmi-10">,v</span><sub><span 
 class="cmsy-7">⊥</span></sub><span 
-class="cmmi-10">,α,v</span><sub><span 
-class="cmsy-7">∥</span></sub>) coordinates, the gradient in velocity space, <span 
-class="cmmi-10">∂f</span><sub><span 
-class="cmmi-7">p</span></sub><span 
-class="cmmi-10">∕</span><span 
-class="cmbx-10">v</span>, is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2002r2"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation2x.png" alt="∂fp=  ∂fpe1 + ∂fpez +-1-∂fpeα,
-∂v    ∂v⊥     ∂v∥    v⊥ ∂α
-" class="math-display"  /></center></td><td class="equation-label">(2)</td></tr></table>
-<!--l. 108--><p class="nopar" >
-where <span 
-class="cmbx-10">e</span><sub><span 
-class="cmr-7">1</span></sub> = <span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmmi-10">∕</span><span 
-class="cmsy-10">|</span><span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmsy-10">| </span>= (<span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">− </span>(<span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">z</span></sub>)<span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">z</span></sub>)<span 
-class="cmmi-10">∕</span><span 
-class="cmsy-10">|</span><span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">− </span>(<span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">z</span></sub>)<span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">z</span></sub><span 
-class="cmsy-10">| </span>and <span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">α</span></sub> = <span 
-class="cmsy-10">−</span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmr-7">1</span></sub> <span 
-class="cmsy-10">× </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">z</span></sub>. Then <img 
-src="nonlinear_gyrokinetic_equation3x.png" alt=" q
-m-"  class="frac" align="middle" />(<span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">× </span><span 
-class="cmbx-10">B</span>) <span 
-class="cmsy-10">⋅</span><img 
-src="nonlinear_gyrokinetic_equation4x.png" alt="∂fp
-∂v-"  class="frac" align="middle" /> is
-written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation5x.png" alt="q         ∂f    q            (∂f      ∂f      1  ∂f   )
---(v× B )⋅--p = --(v⊥e1 × B )⋅---pe1 +--pez + -----peα
-m         ∂v    m            (∂v⊥     ∂)v∥     v⊥ ∂α
-              = q-(v e × B )⋅ -1-∂fpe
-                m   ⊥ 1       v⊥ ∂α  α
-                B0q ∂fp
-              = -m--∂α-(e1 × ez)⋅eα
-                   ( ∂fp)
-              = − Ω  ∂α-  ,                                      (3)
-" class="math-display"  /></center>
-</div>where <span 
-class="cmmi-10">Ω </span>= <span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">q∕m </span>is the gyro-frequency. Then the Vlasov equation (<a 
-href="#x3-2001r1">1<!--tex4ht:ref: 22-11-12-1 --></a>) is written as
-   <table 
-class="equation"><tr><td><a 
- id="x3-2004r4"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation6x.png" alt="∂f     ∂f      ∂f     ∂f      (∂f )
---p+ vx--p + vy--p+ vz--p − Ω  --p  = 0,
-∂t      ∂x     ∂y      ∂z       ∂α
-" class="math-display"  /></center></td><td class="equation-label">(4)</td></tr></table>
-<!--l. 134--><p class="nopar" >
-Multiplying the above equation by 2<span 
-class="cmmi-10">π∕Ωf</span><sub><span 
-class="cmmi-7">p</span></sub>, we get
-</p>
-                                                                                
-
-                                                                                
-   <table 
-class="equation"><tr><td><a 
- id="x3-2005r5"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation7x.png" alt="1 2π ∂fp   1 2π   ∂fp   1 2π  ∂fp   1 2π   ∂fp   2π( ∂fp)
-fpΩ0--∂t + fpΩ0-vx∂x-+ fp Ω0vy-∂y + fpΩ0-vz∂z-−  fp- ∂α-  = 0.
-" class="math-display"  /></center></td><td class="equation-label">(5)</td></tr></table>
-<!--l. 143--><p class="nopar" >
-We assume that <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub> evolves on a time scale much longer the the gyro-period, i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2006r6"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation8x.png" alt="1 ∂fp2π
-f--∂t-Ω-∼ O (𝜀1),
- p
-" class="math-display"  /></center></td><td class="equation-label">(6)</td></tr></table>
-<!--l. 149--><p class="nopar" >
-where <span 
-class="cmmi-10">𝜀 </span>is a small parameter. Further assume that the spatial variation of <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub> along the magnetic ﬁeld is
-weak:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2007r7"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation9x.png" alt="1 2π   ∂f
------vz --p∼ O (𝜀1),
-fpΩ    ∂z
-" class="math-display"  /></center></td><td class="equation-label">(7)</td></tr></table>
-<!--l. 155--><p class="nopar" >
-where 2<span 
-class="cmmi-10">πv</span><sub><span 
-class="cmmi-7">z</span></sub><span 
-class="cmmi-10">∕Ω </span>is the parallel distance traveled by a particle within one gyro-period.
-</p><!--l. 159--><p class="indent" >   Dropping terms of <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">𝜀</span><sup><span 
-class="cmr-7">1</span></sup>), Eq. (<a 
-href="#x3-2005r5">5<!--tex4ht:ref: 22-11-12-2 --></a>) is written as
-                                                                                
-
-                                                                                
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2008r8"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation10x.png" alt="                            (   )
-1-2π-  ∂fp  -1 2π- ∂fp   2π- ∂fp
-fpΩ0vx ∂x + fp Ω0vy ∂y − fp   ∂α  = 0,
-" class="math-display"  /></center></td><td class="equation-label">(8)</td></tr></table>
-<!--l. 164--><p class="nopar" >
-i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2009r9"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation11x.png" alt="       ∂fp         ∂fp    ∂fp
-v⊥cosα ∂x + v⊥ sinα ∂y − Ω ∂ α = 0.
-" class="math-display"  /></center></td><td class="equation-label">(9)</td></tr></table>
-<!--l. 170--><p class="nopar" >
-Deﬁne the following coordinates transform (guiding-center transform):
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x3-2010r10"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation12x.png" alt="( x′ = x+ v⊥sinα,  (| x = x ′− v′⊥-sinα′,
-|||| y′ = y− v⊥Ωcosα,  ||||     ′  v′⊥-Ωcosα′
-||{     z′ = zΩ,      ||{ y = y +  ′Ω   ,
-     α ′ = α,   ⇒        z = z,′
-||||    v′= v ,       ||||     α = α,′
-||(     ∥′   ∥        |||(     v∥ = v∥,
-     v⊥ = v⊥.           v⊥ = v⊥′.
-                                                                                
-
-                                                                                
-" class="math-display"  /></center></td><td class="equation-label">(10)</td></tr></table>
-<!--l. 188--><p class="nopar" >
-Then, in terms of the new coordinates (<span 
-class="cmmi-10">x</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,y</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,z</span><span 
-class="cmsy-10">′</span><span 
 class="cmmi-10">,v</span><sub><span 
 class="cmsy-7">∥</span></sub><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>), <span 
-class="cmmi-10">∂f</span><sub><span 
-class="cmmi-7">p</span></sub><span 
-class="cmmi-10">∕∂α</span><span 
-class="cmsy-10">′ </span>is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation13x.png" alt="   |
-∂fp||         =  ∂fp∂x- + ∂fp-∂y + ∂fp∂-α
-∂α′|x′,y′,z′,v′∥,v′⊥   ∂x ∂α′   ∂y ∂α′   ∂α ∂α ′
-                 ∂f  1          ∂f  1          ∂f
-             = − --p -v′⊥ cosα′ −--p--v′⊥ sinα ′ +--p
-                  ∂x Ω          ∂y Ω           ∂α
-             = − ∂fp 1v⊥ cosα−  ∂fp1-v⊥sinα + ∂fp,           (11)
-                  ∂x Ω          ∂y Ω          ∂α
-" class="math-display"  /></center>
-</div>Eq. (<a 
-href="#x3-2009r9">9<!--tex4ht:ref: 19-1-31-3 --></a>) implies that the above expression is zero. Therefore we obtain
-   <table 
-class="equation"><tr><td><a 
- id="x3-2012r12"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation14x.png" alt="   ||
-∂fp||          = 0,
-∂α ′x′,y′,z′,v′∥,v′⊥
-" class="math-display"  /></center></td><td class="equation-label">(12)</td></tr></table>
-<!--l. 209--><p class="nopar" >
-which indicates that, in the new coordinates (<span 
-class="cmmi-10">x</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,y</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,z</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>), the distribution function <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">p</span></sub> is
-independent of <span 
-class="cmmi-10">α</span><span 
-class="cmsy-10">′</span>. Then working in the new coordinate system is beneﬁcial for numerically solving the
-Vlasov equation because the dimension of the problem is reduced by one.
-</p><!--l. 216--><p class="indent" >   Note that the gyro-angle symmetry is valid only in the guiding-center coordinates. In particle
-coordinates, there is no gyro-angle symmetry.
-</p><!--l. 219--><p class="indent" >   The gyro-angle symmetry for the above simple case is found by using the guiding-center transform.
-This motivates us to investigate whether the guiding-center transform can be made use of to simplify
-the kinetic equation for more general cases where we have a (weakly) non-uniform static magnetic ﬁeld
-plus an electromagnetic perturbation of small amplitude (low-frequency, <span 
-class="cmmi-10">k</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">ρ</span><sub><span 
-class="cmmi-7">i</span></sub> <span 
-class="cmsy-10">≪ </span>1, and
-<span 
-class="cmmi-10">k</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmmi-10">ρ</span><sub><span 
-class="cmmi-7">i</span></sub> <span 
-class="cmsy-10">∼ </span>1.).
+class="cmmi-10">,α</span>). In obtaining the equation for the gyro-angle independent part of the
+distribution function, we need to average the coeﬃcients of the equation over the gyro-angle <span 
+class="cmmi-10">α </span>and thus
+this model is called “gyrokinetic”.
+</p><!--l. 62--><p class="indent" >   In deriving the gyrokinetic equation, the perturbed electromagnetic ﬁeld is assumed to be known
+and of low-frequency. To do a kinetic simulation, we need to solve the ﬁeld equation to obtain the
+perturbed electromagnetic ﬁeld. It is still possible that high frequency modes (e.g., compressional
+Alfven waves and <span 
+class="cmmi-10">Ω</span><sub><span 
+class="cmmi-7">H</span></sub> modes) appear in a gyrokinetic simulation. If the amplitude of high frequency
+modes is large, then the simulation is not meaningful since the gyrokinetic model is invalid in this
+case.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 226--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 70--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu2.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu1.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equationse1.html#nonlinear_gyrokinetic_equationsu1.html" >up</a>] </p></div>
-<!--l. 226--><p class="indent" >   <a 
+<!--l. 70--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu1.html"></a> </p> 
 </body></html> 

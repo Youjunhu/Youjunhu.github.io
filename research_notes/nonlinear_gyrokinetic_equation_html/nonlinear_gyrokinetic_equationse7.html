@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Distribution function transform**check</title> 
+<head><title>Implementation of gyrokinetics in Monte-Carlo simulations</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 2844--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 2808--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse8.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -32,144 +32,45 @@ class="ecrm-1000">up</span></a><span
 class="ecrm-1000">] </span></p></div>
    <h3 class="sectionHead"><span class="titlemark"><span 
 class="ecrm-1000">A   </span></span> <a 
- id="x32-52000A"></a><span 
-class="ecrm-1000">Distribution function transform**check</span></h3>
-<!--l. 2846--><p class="noindent" ><span 
-class="ecrm-1000">In the above, we assume that </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">are always related to each other by the guiding-center</span>
-<span 
-class="ecrm-1000">transformation (</span><a 
-href="nonlinear_gyrokinetic_equationsu2.html#x5-4001r13"><span 
-class="ecrm-1000">13</span><!--tex4ht:ref: 16-9-21-1 --></a><span 
-class="ecrm-1000">) or (</span><a 
-href="nonlinear_gyrokinetic_equationsu2.html#x5-4003r15"><span 
-class="ecrm-1000">15</span><!--tex4ht:ref: 19-1-19-p2 --></a><span 
-class="ecrm-1000">) , i.e., </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">are not independent. For some cases, it may be convenient to</span>
-<span 
-class="ecrm-1000">treat </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">as independent variables and express the guiding-center transformation via an integral of</span>
-<span 
-class="ecrm-1000">the Dirac delta function. For example,</span>
+ id="x33-53000A"></a><span 
+class="ecrm-1000">Implementation of gyrokinetics in Monte-Carlo simulations</span></h3>
+<!--l. 2811--><p class="noindent" >
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52001r234"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation258x.png" alt="         ∫         3
-fp(x,v) =  fg(X,v)δ (X − x+ ρ)dX,
-" class="math-display"  /></center></td><td class="equation-label">(234)</td></tr></table>
-<!--l. 2855--><p class="nopar" >
+   <div class="subsectionTOCS">
+   <span 
+class="ecrm-1000"> </span><span 
+class="ecrm-1000"> </span><span class="subsectionToc" ><span 
+class="ecrm-1000">A.1 </span><a 
+href="nonlinear_gyrokinetic_equationsu26.html#x34-54000A.1"><span 
+class="ecrm-1000">Numerical evaluation of distribution function moment at grid-points</span></a></span>
+<br />   <span 
+class="ecrm-1000"> </span><span 
+class="ecrm-1000"> </span><span class="subsectionToc" ><span 
+class="ecrm-1000">A.2 </span><a 
+href="nonlinear_gyrokinetic_equationsu27.html#x35-55000A.2"><span 
+class="ecrm-1000">Monte-Carlo sampling of 6D guiding-center phase-space </span></a></span>
+<br />   <span 
+class="ecrm-1000"> </span><span 
+class="ecrm-1000"> </span><span class="subsectionToc" ><span 
+class="ecrm-1000">A.3 </span><a 
+href="nonlinear_gyrokinetic_equationsu28.html#x36-56000A.3"><span 
+class="ecrm-1000">Distribution function transform**check</span></a></span>
+<br />   <span 
+class="ecrm-1000"> </span><span 
+class="ecrm-1000"> </span><span class="subsectionToc" ><span 
+class="ecrm-1000">A.4 </span><a 
+href="nonlinear_gyrokinetic_equationsu29.html#x37-57000A.4"><span 
+class="ecrm-1000">Moments of distribution function expressed as integration over</span>
 <span 
-class="ecrm-1000">where </span><span 
-class="cmbx-10">x </span><span 
-class="ecrm-1000">and </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">are considered as independent variables,</span> <span 
-class="cmmib-10">ρ</span> <span 
-class="ecrm-1000">is the gyroradius evaluated at </span><span 
-class="cmbx-10">x</span><span 
-class="ecrm-1000">,</span>
-<span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x </span><span 
-class="cmsy-10">− </span><span 
-class="cmbx-10">X </span><span 
-class="cmsy-10">−</span> <span 
-class="cmmib-10">ρ</span>) <span 
-class="ecrm-1000">is the three-dimensional Dirac delta function. [In terms of general coordinates</span>
-(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">1</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">2</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">3</span></sub>)<span 
-class="ecrm-1000">, the three-dimensional Dirac delta function is deﬁned via the 1D Dirac delta function as</span>
-<span 
-class="ecrm-1000">follows:</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52002r235"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation259x.png" alt="        1
-δ3(x) = ---δ(x1)δ(x2)δ(x3),
-       |𝒥 |
-" class="math-display"  /></center></td><td class="equation-label">(235)</td></tr></table>
-<!--l. 2865--><p class="nopar" >
-<span 
-class="ecrm-1000">where </span><span 
-class="cmsy-10">𝒥 </span><span 
-class="ecrm-1000">is the the Jacobian of the general coordinate system. The Jacobian is included in order to</span>
-<span 
-class="ecrm-1000">make </span><span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x</span>) <span 
-class="ecrm-1000">satisfy the normalization condition</span> <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x</span>)<span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">x </span>= <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">δ</span><sup><span 
-class="cmr-7">3</span></sup>(<span 
-class="cmbx-10">x</span>)<span 
-class="cmsy-10">|𝒥|</span><span 
-class="cmmi-10">dx</span><sub><span 
-class="cmr-7">1</span></sub><span 
-class="cmmi-10">dx</span><sub><span 
-class="cmr-7">2</span></sub><span 
-class="cmmi-10">dx</span><sub><span 
-class="cmr-7">3</span></sub> = 1<span 
-class="ecrm-1000">.]</span>
+class="ecrm-1000">guiding-center variables</span></a></span>
+   </div>
+
+
+
                                                                                 
 
                                                                                 
-</p><!--l. 2871--><p class="indent" >   <span 
-class="ecrm-1000">Expression (</span><a 
-href="#x32-52001r234"><span 
-class="ecrm-1000">234</span><!--tex4ht:ref: 19-1-20-e1 --></a><span 
-class="ecrm-1000">) can be considered as a transformation that transforms an arbitrary function from</span>
-<span 
-class="ecrm-1000">the guiding-center coordinates to the particle coordinates. Similarly,</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52003r236"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation260x.png" alt="          ∫
-f (X,v) =   f (x,v)δ3(x − X − ρ )dx,
- g           p
-" class="math-display"  /></center></td><td class="equation-label">(236)</td></tr></table>
-<!--l. 2877--><p class="nopar" >
-<span 
-class="ecrm-1000">is a transformation that transforms an arbitrary function from the the particle coordinates to the</span>
-<span 
-class="ecrm-1000">guiding-center coordinates.</span>
-                                                                                
-
-                                                                                
-</p>
-   <!--l. 2881--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3175--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
 href="nonlinear_gyrokinetic_equationse8.html" ><span 
 class="ecrm-1000">next</span></a><span 
@@ -186,6 +87,6 @@ class="ecrm-1000">] [</span><a
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse7.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
-<!--l. 2881--><p class="indent" >   <a 
+<!--l. 3175--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse7.html"></a> </p> 
 </body></html> 

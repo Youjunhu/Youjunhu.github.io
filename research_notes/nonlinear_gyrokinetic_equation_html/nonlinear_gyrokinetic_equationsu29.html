@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Performing the parallel velocity integration</title> 
+<head><title>Moments of distribution function expressed as integration over guiding-center variables</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,11 +13,8 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 3468--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3134--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
-href="nonlinear_gyrokinetic_equationsu30.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
 href="nonlinear_gyrokinetic_equationsu28.html" ><span 
 class="ecrm-1000">prev</span></a><span 
 class="ecrm-1000">] [</span><a 
@@ -27,104 +24,174 @@ class="ecrm-1000">] [</span><a
 href="#tailnonlinear_gyrokinetic_equationsu29.html"><span 
 class="ecrm-1000">tail</span></a><span 
 class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse9.html#nonlinear_gyrokinetic_equationsu29.html" ><span 
+href="nonlinear_gyrokinetic_equationse7.html#nonlinear_gyrokinetic_equationsu29.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
    <h4 class="subsectionHead"><span class="titlemark"><span 
-class="ecrm-1000">C.2   </span></span> <a 
- id="x39-59000C.2"></a><span 
-class="ecrm-1000">Performing the parallel velocity integration</span></h4>
-<!--l. 3470--><p class="noindent" ><span 
-class="ecrm-1000">Assume that </span><span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub> <span 
-class="ecrm-1000">is Maxwellian, then</span>
+class="ecrm-1000">A.4   </span></span> <a 
+ id="x37-57000A.4"></a><span 
+class="ecrm-1000">Moments of distribution function expressed as integration over guiding-center</span>
+<span 
+class="ecrm-1000">variables</span></h4>
+<!--l. 3136--><p class="noindent" ><span 
+class="ecrm-1000">In terms of particle variables </span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>)<span 
+class="ecrm-1000">, it is straightforward to calculate the moment of the distribution</span>
+<span 
+class="ecrm-1000">function. For example, the number density </span><span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) <span 
+class="ecrm-1000">is given by</span>
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x39-59001r256"></a>
+ id="x37-57001r238"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation283x.png" alt="                                (     2)    (      )
-∂F0-= − mf   = − m----n0---- exp  − mv-∥ exp  − mv2⊥ .
-∂ 𝜀     T M     T (2πT ∕m)3∕2       2T          2T
-" class="math-display"  /></center></td><td class="equation-label">(256)</td></tr></table>
-<!--l. 3476--><p class="nopar" >
+src="nonlinear_gyrokinetic_equation262x.png" alt="      ∫
+n(x) =  fp(x,v)dv.
+" class="math-display"  /></center></td><td class="equation-label">(238)</td></tr></table>
+<!--l. 3142--><p class="nopar" >
 <span 
-class="ecrm-1000">Note that </span><span 
-class="cmmi-10">Δρ </span><span 
-class="ecrm-1000">is independent of </span><span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="ecrm-1000">. Then the integration over </span><span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> <span 
-class="ecrm-1000">in Eq. (</span><a 
-href="nonlinear_gyrokinetic_equationsu28.html#x38-58008r255"><span 
-class="ecrm-1000">255</span><!--tex4ht:ref: 22-11-8-1 --></a><span 
-class="ecrm-1000">) can be performed,</span>
+class="ecrm-1000">However, it is a little diﬃcult to calculate </span><span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) <span 
+class="ecrm-1000">at real space location </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">by using the guiding-center</span>
 <span 
-class="ecrm-1000">yielding</span>
+class="ecrm-1000">variables </span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>)<span 
+class="ecrm-1000">. This is because holding </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">constant and changing </span><span 
+class="cmbx-10">v</span><span 
+class="ecrm-1000">, which is required by the</span>
+<span 
+class="ecrm-1000">integration in Eq. (</span><a 
+href="#x37-57001r238"><span 
+class="ecrm-1000">238</span><!--tex4ht:ref: 18-12-26-p1 --></a><span 
+class="ecrm-1000">), means the guiding-center variable </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">is changing according to Eq. (</span><a 
+href="nonlinear_gyrokinetic_equationsu3.html#x6-5001r8"><span 
+class="ecrm-1000">8</span><!--tex4ht:ref: 16-9-21-1 --></a><span 
+class="ecrm-1000">). Using</span>
+<span 
+class="ecrm-1000">Eq. (</span><a 
+href="nonlinear_gyrokinetic_equationsu6.html#x9-8001r15"><span 
+class="ecrm-1000">15</span><!--tex4ht:ref: 17-8-19-p1 --></a><span 
+class="ecrm-1000">), expression (</span><a 
+href="#x37-57001r238"><span 
+class="ecrm-1000">238</span><!--tex4ht:ref: 18-12-26-p1 --></a><span 
+class="ecrm-1000">) is written as</span>
 </p>
-   <div class="eqnarray">
+   <table 
+class="equation"><tr><td><a 
+ id="x37-57002r239"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation284x.png" alt="                   (   - )                    (     )
-       q-∫ ∞  -      −-v2∥  ∫ ∞ -  - --n0--      − v2⊥
-A (x) = T  −∞ dv∥exp   2     0 dv⊥ v⊥(2π)3∕2 exp   2
-
-       2π-N∑1 -1-N∑2
-     × N1    N2    δΦ(x + Δρij)
-         ∫i=1   j=1   (     )
-           ∞  - -       − v2⊥ -1-∑N1 1--N∑2 q-
-     = n0 0  dv⊥v⊥ exp   2   N1     N2    T δΦ (x + Δ ρij).       (257)
-                                 i=1    j=1
-" class="math-display"  /><a 
- id="x39-59002r257"></a></center>
-</div><span 
-class="ecrm-1000">where </span><span class="overline"><span 
-class="cmmi-10">v</span></span><sub><span 
-class="cmsy-7">∥</span></sub> = <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">∕v</span><sub><span 
-class="cmmi-7">t</span></sub><span 
-class="ecrm-1000">, </span><span class="overline"><span 
-class="cmmi-10">v</span></span><sub><span 
-class="cmsy-7">⊥</span></sub> = <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmmi-10">∕v</span><sub><span 
-class="cmmi-7">t</span></sub><span 
-class="ecrm-1000">, </span><span 
+src="nonlinear_gyrokinetic_equation263x.png" alt="      ∫
+n(x) =   fg(X (x,v),v )dv,
+" class="math-display"  /></center></td><td class="equation-label">(239)</td></tr></table>
+<!--l. 3153--><p class="nopar" >
+<span 
+class="ecrm-1000">As is mentioned above, the </span><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span><span 
+class="ecrm-1000">integration in Eq. (</span><a 
+href="#x37-57002r239"><span 
+class="ecrm-1000">239</span><!--tex4ht:ref: 18-12-26-p2 --></a><span 
+class="ecrm-1000">) should be performed by holding </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">constant and</span>
+<span 
+class="ecrm-1000">changing </span><span 
+class="cmbx-10">v</span><span 
+class="ecrm-1000">, which means the guiding-center variable </span><span 
+class="cmbx-10">X </span>= <span 
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) <span 
+class="ecrm-1000">is changing. This means that, in</span>
+(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) <span 
+class="ecrm-1000">space, the above integration is a (generalized) curve integral along the the curve</span>
+<span 
 class="ecrm-1000"> </span><span 
-class="cmmi-10">v</span><sub><span 
-class="cmmi-7">t</span></sub> = <img 
-src="nonlinear_gyrokinetic_equation285x.png" alt="∘ ----
-  T∕m"  class="sqrt"  /><span 
-class="ecrm-1000">, and use has been made of</span>
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">v</span>) = <span 
+class="cmbx-10">x </span><span 
+class="cmsy-10">−</span><span 
+class="cmmib-10">ρ</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) <span 
+class="ecrm-1000">with </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">being constant. Treating </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">and </span><span 
+class="cmbx-10">x </span><span 
+class="ecrm-1000">as independent variables and using the</span>
                                                                                 
 
                                                                                 
+<span 
+class="ecrm-1000">Dirac delta function </span><span 
+class="cmmi-10">δ</span><span 
+class="ecrm-1000">, this curve integral can be written as the following double integration over the</span>
+<span 
+class="ecrm-1000">independent variables </span><span 
+class="cmbx-10">X </span><span 
+class="ecrm-1000">and </span><span 
+class="cmbx-10">v</span><span 
+class="ecrm-1000">:</span>
+</p>
    <table 
 class="equation"><tr><td><a 
- id="x39-59003r258"></a>
+ id="x37-57003r240"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation286x.png" alt="∫      (     )
-  ∞        x2      √ ---
- −∞ exp  − 2  dx =   2π.
-" class="math-display"  /></center></td><td class="equation-label">(258)</td></tr></table>
-<!--l. 3500--><p class="nopar" >
+src="nonlinear_gyrokinetic_equation264x.png" alt="      ∫  ∫
+n(x) =     f (X, v)δ3(X − x + ρ)dvdX.
+            g
+" class="math-display"  /></center></td><td class="equation-label">(240)</td></tr></table>
+<!--l. 3168--><p class="nopar" >
+<span 
+class="ecrm-1000">Another perspective of interpreting Eq. (</span><a 
+href="#x37-57003r240"><span 
+class="ecrm-1000">240</span><!--tex4ht:ref: 19-1-19-p1 --></a><span 
+class="ecrm-1000">) is that we are ﬁrst using the transformation (</span><a 
+href="nonlinear_gyrokinetic_equationsu28.html#x36-56001r235"><span 
+class="ecrm-1000">235</span><!--tex4ht:ref: 19-1-20-e1 --></a><span 
+class="ecrm-1000">) to</span>
+<span 
+class="ecrm-1000">transform </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> <span 
+class="ecrm-1000">to </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> <span 
+class="ecrm-1000">and then integrating </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> <span 
+class="ecrm-1000">in the velocity space.</span>
+</p><!--l. 3173--><p class="indent" >   <span 
+class="ecrm-1000"> </span>
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 3502--><div class="crosslinks"><p class="noindent"><span 
+   <!--l. 3175--><div class="crosslinks"><p class="noindent"><span 
 class="ecrm-1000">[</span><a 
-href="nonlinear_gyrokinetic_equationsu30.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
 href="nonlinear_gyrokinetic_equationsu28.html" ><span 
 class="ecrm-1000">prev</span></a><span 
 class="ecrm-1000">] [</span><a 
@@ -134,9 +201,9 @@ class="ecrm-1000">] [</span><a
 href="nonlinear_gyrokinetic_equationsu29.html" ><span 
 class="ecrm-1000">front</span></a><span 
 class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse9.html#nonlinear_gyrokinetic_equationsu29.html" ><span 
+href="nonlinear_gyrokinetic_equationse7.html#nonlinear_gyrokinetic_equationsu29.html" ><span 
 class="ecrm-1000">up</span></a><span 
 class="ecrm-1000">] </span></p></div>
-<!--l. 3502--><p class="indent" >   <a 
+<!--l. 3175--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu29.html"></a> </p> 
 </body></html> 

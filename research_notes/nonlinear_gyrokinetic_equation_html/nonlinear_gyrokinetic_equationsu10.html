@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Electromagnetic ﬁeld perturbation</title> 
+<head><title>Final form of Vlasov equation in guiding-center coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,260 +13,56 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 612--><div class="crosslinks"><p class="noindent">[<a 
-href="nonlinear_gyrokinetic_equationsu11.html" >next</a>] [<a 
+   <!--l. 534--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu9.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu9.html#tailnonlinear_gyrokinetic_equationsu9.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationsu10.html">tail</a>] [<a 
-href="nonlinear_gyrokinetic_equationse3.html#nonlinear_gyrokinetic_equationsu10.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
- id="x14-130003.1"></a>Electromagnetic ﬁeld perturbation</h4>
-<!--l. 614--><p class="noindent" >Since the deﬁnition of the guiding-center variables (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,𝜀,μ,α</span>) involves the macroscopic (equilibrium)
-ﬁelds <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub> and <span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub>, to further simplify Eq. (<a 
-href="nonlinear_gyrokinetic_equationsu9.html#x12-11002r38">38<!--tex4ht:ref: 16-10-2-p1 --></a>), we need to separate electromagnetic ﬁeld into
-equilibrium and perturbation parts. Writing the electromagnetic ﬁeld as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x14-13001r39"></a>
+href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu10.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">2.8   </span> <a 
+ id="x13-120002.8"></a>Final form of Vlasov equation in guiding-center coordinates</h4>
+<!--l. 536--><p class="noindent" >Using the above results, the Vlasov equation in guiding-center coordinates is written </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation43x.png" alt="E = E0 + δE
-" class="math-display"  /></center></td><td class="equation-label">(39)</td></tr></table>
-                                                                                
-
-                                                                                
-<!--l. 621--><p class="nopar" >
-and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x14-13002r40"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation44x.png" alt="B = B0 + δB,
-" class="math-display"  /></center></td><td class="equation-label">(40)</td></tr></table>
-<!--l. 625--><p class="nopar" >
-then substituting these expressions into equation (<a 
-href="nonlinear_gyrokinetic_equationsu9.html#x12-11002r38">38<!--tex4ht:ref: 16-10-2-p1 --></a>) and moving all terms involving the perturbed
-ﬁelds to the right-hand side, we obtain </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation45x.png" alt="                  [                      ]
-  ∂fg + v⋅ ∂fg + v⋅ [λB1 + λB2]fg − q-E0∂fg
-   ∂t     ∂X                      m    ∂𝜀(      )
-+ q-(E + v × B )× ( e∥)⋅ ∂fg+ -q(v × B )⋅  eα∂fg
-  m   0       0     Ω    ∂X   m       0    v⊥ ∂α
-  q     ( ∂fg   v⊥ ∂fg   eα∂fg )
-+ m-E0 ⋅ v-∂𝜀 + B--∂-μ + v--∂α
-                  0       ⊥
-= δRfg,                                                      (41)
+src="nonlinear_gyrokinetic_equation36x.png" alt="   ∂fg     [∂fg                 q   ∂fg]
+   ∂t-+ v ⋅ ∂X-+ [λB1 + λB2]fg − m-E0-∂𝜀
+                (                                   )
++  q(E + v ×B )⋅  I×-e∥⋅ ∂fg+ v ∂fg+ v⊥-∂fg + eα-∂fg
+   m                Ω    ∂X     ∂𝜀   B0  ∂μ   v⊥ ∂α
+= 0                                                            (32)
 " class="math-display"  /><a 
- id="x14-13003r41"></a></center>
-</div>where <span 
-class="cmmi-10">δR </span>is deﬁned by <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation46x.png" alt="                       (  )                  (      )
-δR = − -q(δE +v × δB) ×  e∥  ⋅-∂-− -q(v × δB )⋅  eα-∂-
-      m                 Ω    ∂X   m            v⊥∂ α
-      -q    (  ∂-- v-⊥-∂-  eα--∂-)
-    − m δE ⋅ v ∂𝜀 + B0 ∂μ + v⊥ ∂α .                            (42)
-" class="math-display"  /><a 
- id="x14-13004r42"></a></center>
-</div>Next, let us simplify the left-hand side of Eq. (<a 
-href="#x14-13003r41">41<!--tex4ht:ref: 16-10-2-p2 --></a>). Note that
-   <table 
-class="equation"><tr><td><a 
- id="x14-13005r43"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation47x.png" alt=" q     (e∥)  ∂f     (E0 × e∥)  ∂f         ∂f
---E0 ×  --  ⋅--g = c -------  ⋅--g = vE0 ⋅--g,
-m       Ω    ∂X         B0     ∂X         ∂X
-" class="math-display"  /></center></td><td class="equation-label">(43)</td></tr></table>
-<!--l. 666--><p class="nopar" >
-where <span 
-class="cmbx-10">v</span><sub><span 
-class="cmbx-7">E</span><span 
-class="cmr-7">0</span></sub> is deﬁned by <span 
-class="cmbx-10">v</span><sub><span 
-class="cmbx-7">E</span><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmmi-10">c</span><span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub> <span 
+ id="x13-12001r32"></a></center>
+</div>Using tensor identity <span 
+class="cmbx-10">a </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmbx-10">I </span><span 
 class="cmsy-10">× </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">∕B</span><sub><span 
-class="cmr-7">0</span></sub>, which is the <span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub> <span 
+class="cmbx-10">b </span>= <span 
+class="cmbx-10">a </span><span 
 class="cmsy-10">× </span><span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub> drift. Further note that
-</p><div class="eqnarray">
+class="cmbx-10">b</span>, equation (<a 
+href="#x13-12001r32">32<!--tex4ht:ref: 16-9-21-p1 --></a>) is written as <div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation48x.png" alt="q v × B    (e∥)  ∂f                 ∂f
--------0 ×  --  ⋅--g = [(v× e∥)× e∥]⋅--g
-m    c      Ω    ∂X             ∂f  ∂X
-                     = [v∥e∥ − v]⋅-g ,                   (44)
-                                ∂X
+src="nonlinear_gyrokinetic_equation37x.png" alt="          [                            ]
+  ∂fg + v⋅  ∂fg+ [λB1 + λB2 ]fg −-qE0 ∂fg
+   ∂t       ∂X                 m    ∂𝜀 (      )
+  -q             (e∥)  ∂fg   q-         eα-∂fg
++ m (E + v× B )×  Ω   ⋅∂X  + m (v × B) ⋅ v⊥ ∂α
+   q   (  ∂fg  v ⊥∂fg   eα ∂fg)
++ m-E ⋅ v ∂𝜀-+ -B--∂μ + v--∂α-
+                 0       ⊥
+= 0,                                                        (33)
 " class="math-display"  /><a 
- id="x14-13006r44"></a></center>
-</div>which can be combined with <span 
-class="cmbx-10">v </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmmi-10">∂f</span><sub><span 
-class="cmmi-7">g</span></sub><span 
-class="cmmi-10">∕∂</span><span 
-class="cmbx-10">X </span>term, yielding <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmsy-10">⋅ </span><span 
-class="cmmi-10">∂f</span><sub><span 
-class="cmmi-7">g</span></sub><span 
-class="cmmi-10">∕∂</span><span 
-class="cmbx-10">X</span>. Finally note that
-<div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation49x.png" alt="           (       )
- q-(v × B )⋅  eα-∂fg
- m      0    v⊥ ∂α
-   q-         e∥ ×-v⊥-∂fg
-=  m (v × B0)⋅   v2⊥   ∂α
-      ∂f
-= − Ω --g.                                      (45)
-      ∂α
-" class="math-display"  /><a 
- id="x14-13007r45"></a></center>
-</div>Using Eqs. (<a 
-href="#x14-13005r43">43<!--tex4ht:ref: 16-10-2-e5 --></a>),  (<a 
-href="#x14-13006r44">44<!--tex4ht:ref: 16-10-2-e7 --></a>), and  (<a 
-href="#x14-13007r45">45<!--tex4ht:ref: 16-10-2-e9 --></a>), the left-hand side of equation (<a 
-href="#x14-13003r41">41<!--tex4ht:ref: 16-10-2-p2 --></a>) is written as <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation50x.png" alt="  ∂fg               ∂fg                      ∂fg
-   ∂t + ((v∥e∥ + VE0)⋅ ∂X +) v ⋅[λB1 + λB2]fg − Ω ∂α
-  -q     v-⊥∂fg   eα-∂fg
-+ m E0 ⋅  B0 ∂μ + v⊥ ∂α   ≡ Lgfg                            (46)
-" class="math-display"  /><a 
- id="x14-13008r46"></a></center>
-</div>which corresponds to Eq. (7) in Frieman-Chen’s paper<span class="cite">[<a 
-href="nonlinear_gyrokinetic_equationli1.html#Xfrieman1982">3</a>]</span>. [In Frieman-Chen’s equation (7), there is a
-term
-   <table 
-class="equation-star"><tr><td>
-                                <img 
-src="nonlinear_gyrokinetic_equation51x.png" alt="q-
-m"  class="frac" align="middle" />(<span 
-class="cmbx-10">E </span><span 
-class="cmsy-10">− </span><span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub>) <span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">v</span><img 
-src="nonlinear_gyrokinetic_equation52x.png" alt="-∂-
-∂𝜀"  class="frac" align="middle" />
-</td></tr></table>
-<!--l. 707--><p class="nopar" >
-where <span 
-class="cmbx-10">E </span>is the macroscopic electric ﬁeld and is in general diﬀerent from the <span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub> introduced when
-deﬁning the guiding-center transformation. In my derivation  <span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub> is chosen to be equal to the
-macroscopic electric ﬁeld thus the above term does not appear.]
-</p><!--l. 713--><p class="indent" >   In expression (<a 
-href="#x14-13008r46">46<!--tex4ht:ref: 16-9-22-1b --></a>), <span 
-class="cmmi-10">L</span><sub><span 
-class="cmmi-7">g</span></sub> is often called the unperturbed Vlasov propagator in guiding-center
-coordinates (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,𝜀,μ,α</span>).
-</p><!--l. 717--><p class="indent" >   Using the above results, Eq. (<a 
-href="#x14-13003r41">41<!--tex4ht:ref: 16-10-2-p2 --></a>) is written as
-</p>
+ id="x13-12002r33"></a></center>
+</div>This is the Vlasov equation in guiding-center coordinates.
                                                                                 
 
                                                                                 
-   <table 
-class="equation"><tr><td><a 
- id="x14-13009r47"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation53x.png" alt="Lgfg = δRfg,
-" class="math-display"  /></center></td><td class="equation-label">(47)</td></tr></table>
-<!--l. 720--><p class="nopar" >
-i.e. </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation54x.png" alt="∂fg + (v∥e∥ + VE0)⋅ ∂fg
- ∂t [       (  )   ∂X                 ]
-+v ⋅ v × -∂- e∥  ⋅ ∂fg + ∂μ∂fg + ∂α-∂fg − Ω ∂fg
-         ∂x  Ω    ∂X    ∂x ∂μ   ∂x ∂α       ∂α
-  q    ( v⊥ ∂fg   eα∂fg)
-+ m-E0 ⋅ B0-∂μ- + v⊥-∂α
-                    ( e )                  (      )
-= − q-(δE + v × δB)×   -∥ ⋅ ∂fg− -q(v× δB )⋅  eα∂fg
-    m  (              Ω    ∂X ) m            v⊥ ∂α
-− q-δE ⋅ v∂fg + v⊥-∂fg + eα∂fg  .                             (48)
-  m        ∂𝜀   B0 ∂μ    v⊥ ∂α
-" class="math-display"  /><a 
- id="x14-13010r48"></a></center>
-</div>It is instructive to consider some special cases of the above complicated equation. Consider the case
-that the equilibrium magnetic ﬁeld <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub> is uniform and time-independent, <span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub> = 0, and the electrostatic
-limit <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">B </span>= 0, then equation (<a 
-href="#x14-13010r48">48<!--tex4ht:ref: 18-12-16-1 --></a>) is simpliﬁed as <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation55x.png" alt=" ∂fg+ v∥e∥ ⋅ ∂fg − Ω ∂fg
- ∂t        ∂X(   )  ∂α
-= − q-(δE)×  e∥  ⋅ ∂fg                              (49)
-    m   (     Ω   ∂X           )
-− q-δE ⋅ v∂fg + v⊥-∂fg + eα∂fg                      (50)
-  m        ∂𝜀   B0 ∂ μ   v⊥ ∂α
-" class="math-display"  /></center>
-</div>If neglecting all the perturbations and the time and parallel spatial variation of <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">g</span></sub>, the above equation
-reduces to
-   <table 
-class="equation"><tr><td><a 
- id="x14-13012r51"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation56x.png" alt="Ω ∂fg = 0.
-  ∂α
-" class="math-display"  /></center></td><td class="equation-label">(51)</td></tr></table>
-<!--l. 767--><p class="nopar" >
-i.e., the gyro-angle symmetry discussed in Sec. <a 
-href="nonlinear_gyrokinetic_equationsu1.html#x3-20001.1">1.1<!--tex4ht:ref: 19-4-23-p1 --></a>.
-                                                                                
-
-                                                                                
-</p>
-   <!--l. 770--><div class="crosslinks"><p class="noindent">[<a 
-href="nonlinear_gyrokinetic_equationsu11.html" >next</a>] [<a 
+   <!--l. 572--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu9.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu9.html#tailnonlinear_gyrokinetic_equationsu9.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu10.html" >front</a>] [<a 
-href="nonlinear_gyrokinetic_equationse3.html#nonlinear_gyrokinetic_equationsu10.html" >up</a>] </p></div>
-<!--l. 770--><p class="indent" >   <a 
+href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu10.html" >up</a>] </p></div>
+<!--l. 572--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu10.html"></a> </p> 
 </body></html> 

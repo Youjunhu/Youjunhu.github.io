@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Guiding-center transformation</title> 
+<head><title>Vlasov equation and dimensionality reduction</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,157 +13,282 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 235--><div class="crosslinks"><p class="noindent">[<a 
-href="nonlinear_gyrokinetic_equationsu3.html" >next</a>] [<a 
+   <!--l. 70--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu1.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu1.html#tailnonlinear_gyrokinetic_equationsu1.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationsu2.html">tail</a>] [<a 
-href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu2.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
- id="x5-40002.1"></a>Guiding-center transformation</h4>
-<!--l. 237--><p class="noindent" >In a magnetic ﬁeld, given a particle location and velocity (<span 
+href="nonlinear_gyrokinetic_equationse1.html#nonlinear_gyrokinetic_equationsu2.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
+ id="x4-30001.2"></a>Vlasov equation and dimensionality reduction</h4>
+<!--l. 72--><p class="noindent" >The Vlasov equation in terms of particle coordinates (<span 
 class="cmbx-10">x</span><span 
 class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>), we know how to calculate its
-guiding-center location <span 
-class="cmbx-10">X</span>, i.e.,
+class="cmbx-10">v</span>) is written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-4001r13"></a>
+ id="x4-3001r1"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation15x.png" alt="                e (x)
-X (x,v) = x+ v × -∥---,
-                Ω (x )
-" class="math-display"  /></center></td><td class="equation-label">(13)</td></tr></table>
-<!--l. 243--><p class="nopar" >
+src="nonlinear_gyrokinetic_equation0x.png" alt="∂f-+ v ⋅ ∂f-+ q-(E+ v × B) ⋅ ∂f-= 0,
+∂t      ∂x   m             ∂v
+" class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
+<!--l. 78--><p class="nopar" >
 where <span 
-class="cmmib-10">e</span><sub><span 
+class="cmmi-10">f </span>= <span 
+class="cmmi-10">f</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is the particle distribution function, <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">v </span>are the location and velocity of
+particles. The distribution function <span 
+class="cmmi-10">f </span>depends on 7 variables (<span 
+class="cmmi-10">t,</span><span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>).
+</p><!--l. 84--><p class="indent" >   Consider a simple case where the electromagnetic ﬁeld is a time-independent and spatial uniform
+magnetic ﬁeld, <span 
+class="cmbx-10">B </span>= <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><img 
+src="nonlinear_gyrokinetic_equation1x.png" alt="ˆz"  class="circ"  /> and <span 
+class="cmbx-10">E </span>= 0. Let us examine the Vlasov equation in this simple
+case and look if there is any coordinate system that can reduce the dimensionality of the
+problem.
+</p><!--l. 90--><p class="indent" >   Choose Cartesian coordinate system (<span 
+class="cmmi-10">x,y,z</span>) for the conﬁguration space. Describe the velocity space
+using a right-handed cylindrical coordinates (<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>), where <span 
+class="cmmi-10">v</span><sub><span 
 class="cmsy-7">∥</span></sub> = <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕B</span><sub><span 
-class="cmr-7">0</span></sub>, <span 
-class="cmmi-10">Ω </span>= <span 
-class="cmmi-10">qB</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕m</span>, <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmbx-10">x</span>) is the equilibrium (macroscopic) magnetic ﬁeld at the
-particle position. We will consider Eq. (<a 
-href="#x5-4001r13">13<!--tex4ht:ref: 16-9-21-1 --></a>) as a transform and call it guiding-center transform<span class="cite">[<a 
-href="nonlinear_gyrokinetic_equationli1.html#XCatto1978">1</a>]</span>. Note
-that the transform (<a 
-href="#x5-4001r13">13<!--tex4ht:ref: 16-9-21-1 --></a>) involves both position and velocity of particles.
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>, <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub> is the unit vector along
+the magnetic ﬁeld, <span 
+class="cmmi-10">α </span>is the azimuthal angle of the velocity relative to <span 
+class="cmbx-10">e</span><sub><span 
+class="cmmi-7">x</span></sub>. Then the 6D phase-space are
+described by coordinates (<span 
+class="cmmi-10">x,y,z,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>). The distribution function <span 
+class="cmmi-10">f </span>depends on 7 variables, namely
+<span 
+class="cmmi-10">x,y,z,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>, and <span 
+class="cmmi-10">t</span>.
+</p><!--l. 99--><p class="indent" >   In (<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) coordinates, the gradient in velocity space, <span 
+class="cmmi-10">∂f∕</span><span 
+class="cmbx-10">v</span>, is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3002r2"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation2x.png" alt="∂f-=  ∂f-e1 + ∂f-ez +-1-∂feα,
+∂v    ∂v⊥     ∂v∥    v⊥ ∂α
                                                                                 
 
                                                                                 
-</p><!--l. 251--><p class="indent" >   For later use, deﬁne <span 
-class="cmmib-10">ρ</span> <span 
-class="cmsy-10">≡−</span><span 
+" class="math-display"  /></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 108--><p class="nopar" >
+where <span 
+class="cmbx-10">e</span><sub><span 
+class="cmr-7">1</span></sub> = <span 
+class="cmbx-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">∕</span><span 
+class="cmsy-10">|</span><span 
+class="cmbx-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmsy-10">| </span>= (<span 
 class="cmbx-10">v </span><span 
+class="cmsy-10">− </span>(<span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmmi-7">z</span></sub>)<span 
+class="cmbx-10">e</span><sub><span 
+class="cmmi-7">z</span></sub>)<span 
+class="cmmi-10">∕</span><span 
+class="cmsy-10">|</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">− </span>(<span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmmi-7">z</span></sub>)<span 
+class="cmbx-10">e</span><sub><span 
+class="cmmi-7">z</span></sub><span 
+class="cmsy-10">| </span>and <span 
+class="cmbx-10">e</span><sub><span 
+class="cmmi-7">α</span></sub> = <span 
+class="cmsy-10">−</span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmr-7">1</span></sub> <span 
 class="cmsy-10">× </span><span 
 class="cmbx-10">e</span><sub><span 
+class="cmmi-7">z</span></sub>. Then <img 
+src="nonlinear_gyrokinetic_equation3x.png" alt="-q
+m"  class="frac" align="middle" />(<span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">× </span><span 
+class="cmbx-10">B</span>) <span 
+class="cmsy-10">⋅</span><img 
+src="nonlinear_gyrokinetic_equation4x.png" alt="∂f
+∂v"  class="frac" align="middle" /> is
+written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation5x.png" alt="                            (                       )
+q-        ∂f-  q-            -∂f-    -∂f     1--∂f-
+m(v × B)⋅ ∂v = m (v⊥e1 × B )⋅ ∂v⊥ e1 + ∂v∥ez + v⊥ ∂αeα
+                            (        )
+             = q-(v⊥e1 × B )⋅-1-∂f-eα
+               m             v⊥ ∂α
+             = B0q-∂f(e1 × ez)⋅eα
+                m (∂α )
+             = − Ω  ∂f- ,                                       (3)
+                    ∂α
+" class="math-display"  /></center>
+</div>where <span 
+class="cmmi-10">Ω </span>= <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">q∕m </span>is the gyro-frequency. Then the Vlasov equation (<a 
+href="#x4-3001r1">1<!--tex4ht:ref: 22-11-12-1 --></a>) is written as
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3004r4"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation6x.png" alt="∂f         ∂f          ∂f     ∂f    ( ∂f)
+∂t-+v⊥ cosα∂x-+ v⊥ sinα ∂y-+ v∥ ∂z − Ω  ∂α- = 0,
+" class="math-display"  /></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 134--><p class="nopar" >
+Deﬁne the following coordinates transform (guiding-center transform):
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-3005r5"></a>
+   <center class="math-display" >
+                                                                                
+
+                                                                                
+<img 
+src="nonlinear_gyrokinetic_equation7x.png" alt="                   (
+(| x′ = x+ v⊥sinα,  || x = x ′− v′⊥-sinα′,
+|||| y′ = y− v⊥Ωcosα,  |||| y = y′ + v′⊥-Ωcosα′,
+|{     z′ = zΩ,      |{     z = z′,Ω
+|    α ′ = α,   ⇒  |     α = α′,
+||||    v′= v∥,       ||||     v = v′,
+|(    v∥′= v  .      ||(      ∥   ∥
+      ⊥   ⊥             v⊥ = v⊥′.
+" class="math-display"  /></center></td><td class="equation-label">(5)</td></tr></table>
+<!--l. 152--><p class="nopar" >
+Then, in terms of the new coordinates (<span 
+class="cmmi-10">x</span><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,y</span><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,z</span><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,v</span><sub><span 
 class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">∕Ω</span>, which is the vector gyro-radius pointing from the the
-guiding-center to the particle position.
-</p><!--l. 255--><p class="indent" >   Given (<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>), it is straightforward to obtain <span 
-class="cmbx-10">X </span>by using Eq. (<a 
-href="#x5-4001r13">13<!--tex4ht:ref: 16-9-21-1 --></a>). On the other hand, the inverse
-transform, i.e., given (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">v</span>), to ﬁnd <span 
-class="cmbx-10">x</span>, which is in principle not easy because <span 
-class="cmmi-10">Ω </span>and <span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub> depend on <span 
-class="cmbx-10">x</span>,
-which usually requires solving for the root of a nonlinear equation. Numerically, one can
-use
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-4002r14"></a>
+class="cmsy-10">′</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,α</span><span 
+class="cmsy-10">′</span>), <span 
+class="cmmi-10">∂f∕∂α</span><span 
+class="cmsy-10">′ </span>is written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation16x.png" alt="xn+1 = X − v×  e∥(xn),
-               Ω(xn)
-" class="math-display"  /></center></td><td class="equation-label">(14)</td></tr></table>
-<!--l. 264--><p class="nopar" >
-as an iteration scheme to compute <span 
-class="cmbx-10">x</span>, with the initial guess chosen as <span 
-class="cmbx-10">x</span><sub><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmbx-10">X</span>. The equilibrium
-magnetic ﬁeld we will consider has spatial scale length much larger than the thermal gyro
-radius <span 
-class="cmmib-10">ρ</span>. In this case the diﬀerence between the values of <span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub>(<span 
-class="cmbx-10">x</span>)<span 
-class="cmmi-10">∕Ω</span>(<span 
-class="cmbx-10">x</span>) and <span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub>(<span 
-class="cmbx-10">X</span>)<span 
-class="cmmi-10">∕Ω</span>(<span 
-class="cmbx-10">X</span>) is
-small and thus can be neglected. Then the inverse guiding-center transform can be written
-as
-</p>
+src="nonlinear_gyrokinetic_equation8x.png" alt="∂f ||            ∂f ∂x   ∂f ∂y   ∂f ∂ α
+--′||         =  -----′ +-----′ +------′
+∂α  x′,y′,z′,v′∥,v′⊥   ∂x∂α    ∂y ∂α   ∂ α∂α
+                 ∂f-1- ′    ′  ∂f-1- ′    ′  ∂f-
+             = − ∂x Ω v⊥cosα − ∂y Ω v⊥sinα + ∂α
+                 ∂f 1          ∂f 1         ∂f
+             = − ∂x-Ω-v⊥cosα − ∂y-Ωv⊥ sinα + ∂α-,             (6)
+" class="math-display"  /></center>
+</div>Using this, Eq. (<a 
+href="#x4-3004r4">4<!--tex4ht:ref: 22-11-16-1 --></a>) is written as
    <table 
 class="equation"><tr><td><a 
- id="x5-4003r15"></a>
+ id="x4-3007r7"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation17x.png" alt="           e (X )
-x ≈ X − v× -∥----,
-            Ω(X )
-" class="math-display"  /></center></td><td class="equation-label">(15)</td></tr></table>
-<!--l. 275--><p class="nopar" >
-which can also be considered as using the iterative scheme (<a 
-href="#x5-4002r14">14<!--tex4ht:ref: 18-9-13-p1 --></a>) to computer <span 
-class="cmbx-10">x </span>with initial guess of <span 
-class="cmbx-10">x</span>
-being <span 
-class="cmbx-10">X </span>and stopping at the ﬁrst iteration. [The diﬀerence between equilibrium ﬁeld values evaluated
-at <span 
-class="cmbx-10">X </span>and <span 
-class="cmbx-10">x </span>is always neglected in gyrokinetic theory. Therefore it does not matter whether the above
+src="nonlinear_gyrokinetic_equation9x.png" alt="∂f     ∂f    ( ∂f )
+---+ v∥---+ Ω  --′  = 0.
+∂t     ∂z      ∂α
+" class="math-display"  /></center></td><td class="equation-label">(7)</td></tr></table>
+<!--l. 173--><p class="nopar" >
+Note that the derivative <span 
+class="cmmi-10">∂f∕∂α</span><span 
+class="cmsy-10">′ </span>in the new coordinate system incorporate three derivatives in the
+original coordinate system, namely, <span 
+class="cmmi-10">∂f∕∂x</span>, <span 
+class="cmmi-10">∂f∕∂y</span>, and <span 
+class="cmmi-10">∂f∕∂α</span>. In the new coordinate system, <span 
+class="cmmi-10">x</span><span 
+class="cmsy-10">′</span>,
 <span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">∕Ω </span>is evaluated at <span 
-class="cmbx-10">x </span>or <span 
-class="cmbx-10">X</span>. What matters is where the perturbed ﬁelds are evaluated:
-at <span 
-class="cmbx-10">x </span>or at <span 
-class="cmbx-10">X</span>. The values of perturbed ﬁelds at <span 
-class="cmbx-10">x </span>or at <span 
-class="cmbx-10">X </span>are diﬀerent and this is called
-the ﬁnite Larmor radius (FLR) eﬀect, which is almost all that the gyrokinetic theory is
-about.]
+class="cmmi-10">y</span><span 
+class="cmsy-10">′ </span>and <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmsy-10">′ </span>does not appear in Eq. (<a 
+href="#x4-3007r7">7<!--tex4ht:ref: 22-11-16-3 --></a>), which means that the grids correspond to these
+variables are not needed when numerically solving Eq. (<a 
+href="#x4-3007r7">7<!--tex4ht:ref: 22-11-16-3 --></a>) using Euler grid-based methods,
+i.e., the dimesion of the problem is reduced. This reduction will reduce the computational
                                                                                 
 
                                                                                 
-</p><!--l. 288--><p class="indent" >   The inverse guiding-center transformation (<a 
-href="#x5-4003r15">15<!--tex4ht:ref: 19-1-19-p2 --></a>) needs to be performed numerically in gyrokinetic
-PIC simulations when we deposit markers to grids or when we calculate the gyro-averaged ﬁeld to be
-used in pushing guiding-centers.
+cost.
+</p><!--l. 183--><p class="indent" >   The dimension reduction for the above simple case is found by using the guiding-center transform.
+This motivates us to investigate whether the guiding-center transform can be made use of to simplify
+the kinetic equation for more general cases where we have a (weakly) non-uniform static magnetic ﬁeld
+plus an electromagnetic perturbation of small amplitude (and of low-frequency, <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">ρ</span><sub><span 
+class="cmmi-7">i</span></sub> <span 
+class="cmsy-10">≪ </span>1, and
+<span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">ρ</span><sub><span 
+class="cmmi-7">i</span></sub> <span 
+class="cmsy-10">∼ </span>1.).
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 293--><div class="crosslinks"><p class="noindent">[<a 
-href="nonlinear_gyrokinetic_equationsu3.html" >next</a>] [<a 
+   <!--l. 190--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu1.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu1.html#tailnonlinear_gyrokinetic_equationsu1.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationsu2.html" >front</a>] [<a 
-href="nonlinear_gyrokinetic_equationse2.html#nonlinear_gyrokinetic_equationsu2.html" >up</a>] </p></div>
-<!--l. 293--><p class="indent" >   <a 
+href="nonlinear_gyrokinetic_equationse1.html#nonlinear_gyrokinetic_equationsu2.html" >up</a>] </p></div>
+<!--l. 190--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationsu2.html"></a> </p> 
 </body></html> 
