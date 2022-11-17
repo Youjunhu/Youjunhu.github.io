@@ -97,9 +97,7 @@ z, v_{\perp}, \alpha, v_{\parallel})$. The distribution function $f$ depends
 on 7 variables, namely $x, y, z, v_{\parallel}, \alpha, v_{\perp}$, and $t$.
 
 In $(\mathbf{x}, v_{\perp}, \alpha, v_{\parallel})$ coordinates, the gradient
-in velocity space, $\partial f /\mathbf{v}$, is written as
-
-
+in velocity space, $\partial f / \partial \mathbf{v}$, is written as
 \begin{equation}
   \frac{\partial f}{\partial \mathbf{v}} = \frac{\partial f}{\partial
   v_{\perp}} \mathbf{e}_1 + \frac{\partial f}{\partial v_{\parallel}}
@@ -168,24 +166,24 @@ v_{\perp}', \alpha')$, $\partial f / \partial \alpha'$ is written as
 Using this, Eq. (\ref{22-11-16-1}) is written as
 \begin{equation}
   \label{22-11-16-3} \frac{\partial f}{\partial t} + v_{\parallel}'
-  \frac{\partial f}{\partial z'} + \Omega \left( \frac{\partial f}{\partial
+  \frac{\partial f}{\partial z'} - \Omega \left( \frac{\partial f}{\partial
   \alpha'} \right) = 0.
 \end{equation}
-Note that the derivative $\partial f / \partial \alpha'$ in the new coordinate
-system incorporate three derivatives in the original coordinate system,
-namely, $\partial f / \partial x$, $\partial f / \partial y$, and $\partial f
-/ \partial \alpha$. Note that $x'$, $y'$ and $v_{\perp}'$ do not appear in Eq.
-(\ref{22-11-16-3}), which means that the grids correspond to these variables
-are not needed when numerically solving Eq. (\ref{22-11-16-3}) using Euler
-grid-based methods, i.e., the dimesion of the problem is reduced. This
-reduction will reduce the computational cost.
+(Note that the derivative $\partial f / \partial \alpha'$ in the new
+coordinate system incorporate three derivatives in the original coordinate
+system, namely, $\partial f / \partial x$, $\partial f / \partial y$, and
+$\partial f / \partial \alpha$.) Note that $x'$, $y'$ and $v_{\perp}'$ do not
+appear in Eq. (\ref{22-11-16-3}), which means that the grids correspond to
+these variables are not needed when numerically solving Eq. (\ref{22-11-16-3})
+using Euler grid-based methods, i.e., the dimesion of the problem is reduced.
+This reduction will reduce the computational cost.
 
 The dimension reduction for the above simple case is found by using the
 guiding-center transform. This motivates us to investigate whether the
 guiding-center transform can be made use of to simplify the kinetic equation
 for more general cases where we have a (weakly) non-uniform static magnetic
-field plus an electromagnetic perturbation of small amplitude (and of
-low-frequency, $k_{\parallel} \rho_i \ll 1$, and $k_{\perp} \rho_i \sim 1$.).
+field plus electromagnetic perturbations of low frequency (and of small
+amplitude and $k_{\parallel} \rho_i \ll 1$).
 
 \section{Transform Vlasov equation from particle coordinates to guiding-center
 coordinates}
@@ -722,12 +720,14 @@ as
   f_g}{\partial \mu} + \frac{\tmmathbf{e}_{\alpha}}{v_{\perp}}  \frac{\partial
   f_g}{\partial \alpha} \right) 
 \end{eqnarray}
-If neglecting all the perturbations and the time and parallel spatial
-variation of $f_g$, the above equation reduces to
+If neglecting the $\delta \mathbf{E}$ perturbation, the above equation reduces
+to
 \begin{equation}
-  \Omega \frac{\partial f_g}{\partial \alpha} = 0.
+  \frac{\partial f_g}{\partial t} + v_{\parallel} \mathbf{e}_{\parallel} \cdot
+  \frac{\partial f_g}{\partial \mathbf{X}} - \Omega \frac{\partial
+  f_g}{\partial \alpha} = 0,
 \end{equation}
-i.e., the gyro-angle symmetry discussed in Sec. \ref{19-4-23-p1}.
+which agrees with Eq. (\ref{22-11-16-3}) discussed in Sec. \ref{19-4-23-p1}.
 
 \subsection{Distribution function perturbation}
 
