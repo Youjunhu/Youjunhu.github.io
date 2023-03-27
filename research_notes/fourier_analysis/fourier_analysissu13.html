@@ -4,143 +4,105 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>About using the FFTW library</title> 
+<head><title>Inverse Discrete Fourier transformation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
-<meta name="date" content="2019-01-05 20:48:00" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 796--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 696--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu14.html" >next</a>] [<a 
 href="fourier_analysissu12.html" >prev</a>] [<a 
 href="fourier_analysissu12.html#tailfourier_analysissu12.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu13.html">tail</a>] [<a 
 href="fourier_analysisse5.html#fourier_analysissu13.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">5.7   </span> <a 
- id="x19-180005.7"></a>About using the FFTW library</h4>
-<!--l. 798--><p class="noindent" >I use the Fortran interface of the FFTW library. To have access to FFTW library, use
-the following codes: </p><div class="alltt">
-<div class="obeylines-v">            <span 
-class="cmtt-10">use,</span><span 
-class="cmtt-10"> intrinsic</span><span 
-class="cmtt-10"> ::</span><span 
-class="cmtt-10"> iso_c_binding</span>
-<br /><span 
-class="cmtt-10">implicit</span><span 
-class="cmtt-10"> none</span>
-<br /><span 
-class="cmtt-10">include</span><span 
-class="cmtt-10"> &#x2019;fftw3.f03&#x2019;</span>
-</div>
-</div>
-Here the ﬁrst line uses the iso_c_binding module to interface with C in which FFTW
-is written. To use the FFT subroutines in FFTW, we need to deﬁne some variables of
-the desired types, such as <div class="alltt">
-<div class="obeylines-v">            <span 
-class="cmtt-10">type(C_PTR)</span><span 
-class="cmtt-10"> ::</span><span 
-class="cmtt-10"> plan1,</span><span 
-class="cmtt-10"> plan2</span>
-<br /><span 
-class="cmtt-10">complex(C_DOUBLE_COMPLEX)</span><span 
-class="cmtt-10"> ::</span><span 
-class="cmtt-10"> in(0:n-1),</span><span 
-class="cmtt-10"> out(0:n-1)</span>
-</div>
-</div>
-Specify what kind of transform to be performed by calling the corresponding
-“planner” routine: <div class="alltt">
-<div class="obeylines-v">
-<span 
-class="cmtt-10">plan1</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> fftw_plan_dft_1d(n,</span><span 
-class="cmtt-10"> in,out,</span><span 
-class="cmtt-10"> FFTW_FORWARD,FFTW_ESTIMATE)</span>
-</div>
-</div>
-Here the “planner” routine for one-dimensional DFT is called. One thing that the
-“planner” routine does is to factor the matrix <span 
-class="cmmi-10">M</span><sub><span 
-class="cmmi-7">kj</span></sub> mentioned above, in order to
-get prepared for performing the actual transform. Therefore “planner” do
-not need the actual data stored in “in” array. What is neede is the length
-and numerical type of “in” array. It is obvious that the “planner” routine
-needes to be invoked for only once for a given type of array with the same
-length.
-<!--l. 825--><p class="indent" >   Store input data in the “in” arrays, then, we can perform a DFT by the following
-codes: </p><div class="alltt">
-
-<div class="obeylines-v">            <span 
-class="cmtt-10">call</span><span 
-class="cmtt-10"> fftw_execute_dft(plan1,</span><span 
-class="cmtt-10"> in,</span><span 
-class="cmtt-10"> out)</span>
-</div>
-</div>
-Similarly, we can perform a inverse DFT by the following codes: <div class="alltt">
-<div class="obeylines-v">            <span 
-class="cmtt-10">plan2</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> fftw_plan_dft_1d(ngrids,</span><span 
-class="cmtt-10"> in,out,FFTW_BACKWARD,FFTW_ESTIMATE)</span>
-<br /><span 
-class="cmtt-10">call</span><span 
-class="cmtt-10"> fftw_execute_dft(plan2,</span><span 
-class="cmtt-10"> in,</span><span 
-class="cmtt-10"> out)</span>
-</div>
-</div>
-After all the transforms are done, we need to manuual de-allocate the arrays
-created by the “planner” routine by calling the “ﬀtw_destroy_plan” routine:
-<div class="alltt">
-<div class="obeylines-v">            <span 
-class="cmtt-10">call</span><span 
-class="cmtt-10"> fftw_destroy_plan(plan2)</span>
-</div>
-</div>
-Fortran does not automatically de-allocate arrays allocated by the “acllocate()”
-subroutine, so manuually de-allocate all allocated arryas is necessary for preventing
-memory leak from appearing.
-<!--l. 845--><p class="indent" >   Note that the forward DFT in FFTW is deﬁned by
+   <h4 class="subsectionHead"><span class="titlemark">5.3   </span> <a 
+ id="x19-180005.3"></a>Inverse Discrete Fourier transformation</h4>
+<!--l. 698--><p class="noindent" >The DFT in Eq. (<a 
+href="fourier_analysissu8.html#x13-12006r59">59<!--tex4ht:ref: 2-26-2 --></a>), i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x19-18001r75"></a>
+ id="x19-18001r72"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis78x.png" alt="     N&sum;&minus;1      (       )
-Hn &equiv;     hjexp  &minus; 2&pi;inj ,
+src="fourier_analysis74x.png" alt="     N∑−1     (      )
+Hn ≡     hjexp  i2πnj  ,
       j=0         N
-" class="math-display"  /></center></td><td class="equation-label">(75)</td></tr></table>
-<!--l. 849--><p class="nopar" >
-and the inverse DFT is deﬁned by
+" class="math-display"  /></center></td><td class="equation-label">(72)</td></tr></table>
+<!--l. 702--><p class="nopar" >
+with <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1 and <span 
+class="cmmi-10">n </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1 can also be considered as a set of
+linear algebraic equations for <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> and can be solved in terms of <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>, which
+gives
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x19-18002r76"></a>
-
+ id="x19-18002r73"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis79x.png" alt="     N&minus;1      (      )
-hj = &sum;  Hn exp  2&pi;inj  ,
-     n=0        N
-" class="math-display"  /></center></td><td class="equation-label">(76)</td></tr></table>
-<!--l. 853--><p class="nopar" >
-where there is no 1<span 
-class="cmmi-10">∕N </span>factor in the inverse DFT, and thus this factor should be
-included by hand if we want to recover the original data from the inverse
-DFT.
+src="fourier_analysis75x.png" alt="     1 N∑− 1      (   2π  )
+hj = N-    Hn exp  − iN-nj  .
+       n=0
+" class="math-display"  /></center></td><td class="equation-label">(73)</td></tr></table>
+                                                                  
 
+                                                                  
+<!--l. 709--><p class="nopar" >
+(The details on how to solve Eq. (<a 
+href="fourier_analysissu8.html#x13-12006r59">59<!--tex4ht:ref: 2-26-2 --></a>) to obtain the solution (<a 
+href="#x19-18002r73">73<!--tex4ht:ref: 10-7-1 --></a>) is provided in Sec.
+<a 
+href="fourier_analysissu14.html#x20-190005.4">5.4<!--tex4ht:ref: 10-7-p5 --></a>.) Equation (<a 
+href="#x19-18002r73">73<!--tex4ht:ref: 10-7-1 --></a>) recovers <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> from <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">n</span></sub> (i.e., the DFT of <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>), and thus is called the
+inverse DFT.
+</p><!--l. 715--><p class="indent" >   The normalization factor multiplying the DFT and inverse DFT (here 1 and
+1<span 
+class="cmmi-10">∕N</span>) and the signs of the exponents are merely conventions, and diﬀer in
+some treatments. The only requirements of these conventions are that the
+DFT and inverse DFT have opposite-sign exponents and that the product of
+their normalization factors be 1<span 
+class="cmmi-10">∕N</span>. In most FFT computer libraries, the
+1<span 
+class="cmmi-10">∕N </span>factor is omitted. So one must take this factor into account when one
+wants to reproduce the original data after a forward and then a backward
+transform.
+                                                                  
+
+                                                                  
 </p>
-   <!--l. 858--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 723--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu14.html" >next</a>] [<a 
 href="fourier_analysissu12.html" >prev</a>] [<a 
 href="fourier_analysissu12.html#tailfourier_analysissu12.html" >prev-tail</a>] [<a 
 href="fourier_analysissu13.html" >front</a>] [<a 
 href="fourier_analysisse5.html#fourier_analysissu13.html" >up</a>] </p></div>
-<!--l. 858--><p class="indent" >   <a 
+<!--l. 723--><p class="indent" >   <a 
  id="tailfourier_analysissu13.html"></a> </p> 
 </body></html> 

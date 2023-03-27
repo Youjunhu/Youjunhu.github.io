@@ -4,64 +4,99 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Aliasing errors</title> 
+<head><title>Numerical computation of Fourier transformation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
-<meta name="date" content="2019-01-05 20:48:00" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 550--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 403--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu7.html" >next</a>] [<a 
 href="fourier_analysissu5.html" >prev</a>] [<a 
 href="fourier_analysissu5.html#tailfourier_analysissu5.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu6.html">tail</a>] [<a 
-href="fourier_analysisse4.html#fourier_analysissu6.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
- id="x11-100004.4"></a>Aliasing errors</h4>
-<!--l. 552--><p class="noindent" >Signals that are not band-limited usually contains all frequencies and thus do not
-satisfy the condition required by the sampling theorem (i.e., <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) = 0 for
+href="fourier_analysisse3.html#fourier_analysissu6.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x10-90003.3"></a>Numerical computation of Fourier transformation</h4>
+<!--l. 405--><p class="noindent" >Next, consider how to numerically compute the Fourier transformation of a function
 <span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">f</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; </span>1<span 
-class="cmmi-10">∕</span>(2&Delta;)). In this case, for any given <span 
-class="cmmi-10">N </span>data, we can still calculate its DFT by
-using Eq. (<a 
-href="fourier_analysissu4.html#x9-8006r49">49<!--tex4ht:ref: 2-26-2 --></a>). However the results obtained are meaningful only when <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub>
-approaches zero as the frequency approaches <span 
-class="cmsy-10">&minus;</span>1<span 
-class="cmmi-10">∕</span>(2&Delta;) from above and approaches
-1<span 
-class="cmmi-10">∕</span>(2&Delta;) from below, i.e., only when the results obtained are consistent with the
-assumption used to obtain the results (the assumption is that <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) = 0 for
-<span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">f</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; </span>1<span 
-class="cmmi-10">∕</span>(2&Delta;)). When the results obtained do not satisfy the above condition, then
-it indicates that the “aliasing errors” have contributed to the results. We
-can reduce the aliasing errors by increasing the sampling frequency. The
-aliasing errors can be reduced but can not be completely removed for a
-non-band-limited signal. More details on the aliasing errors are needed here, to be
-continued.
-
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>). A simple way is to use the rectangle formula to approximate the integration in
+Eq. (<a 
+href="fourier_analysissu5.html#x9-8001r40">40<!--tex4ht:ref: 10-3-e1 --></a>), i.e.,
 </p>
-   <!--l. 567--><div class="crosslinks"><p class="noindent">[<a 
+   <table 
+class="equation"><tr><td><a 
+ id="x10-9001r48"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis48x.png" alt="          ∞∑
+H (f) ≈ Δ     hjexp(i2πfjΔ ),
+         j=−∞
+" class="math-display"  /></center></td><td class="equation-label">(48)</td></tr></table>
+<!--l. 411--><p class="nopar" >
+where <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">j</span></sub>) and <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">j</span>Δ with <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,</span><span 
+class="cmsy-10">−</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmsy-10">−</span>1<span 
+class="cmmi-10">,</span>0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span>. Note Eq. (<a 
+href="#x10-9001r48">48<!--tex4ht:ref: 10-3-e2 --></a>) is an
+approximation, which will become exact if Δ <span 
+class="cmsy-10">→ </span>0. In practice, we can sample <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>)
+only with a nonzero Δ. Therefore Eq. (<a 
+href="#x10-9001r48">48<!--tex4ht:ref: 10-3-e2 --></a>) is usually an approximation. Do we have
+some rules to choose a suitable Δ so that Eq. (<a 
+href="#x10-9001r48">48<!--tex4ht:ref: 10-3-e2 --></a>) can become a good approximation
+or even an exact relation? This important question is answered by the sampling
+theorem, which sates that a suitable Δ to make Eq. (<a 
+href="#x10-9001r48">48<!--tex4ht:ref: 10-3-e2 --></a>) exact is given by
+Δ <span 
+class="msam-10">≤ </span>1<span 
+class="cmmi-10">∕</span>(2<span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">c</span></sub>), where <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">c</span></sub> is the largest frequency contained in <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) (i.e., <span 
+class="cmmi-10">H</span>(<span 
+class="cmmi-10">f</span>) = 0 for
+<span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">f</span><span 
+class="cmsy-10">| </span><span 
+class="cmmi-10">&#x003E; f</span><sub><span 
+class="cmmi-7">c</span></sub>).
+                                                                  
+
+                                                                  
+</p>
+   <!--l. 423--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu7.html" >next</a>] [<a 
 href="fourier_analysissu5.html" >prev</a>] [<a 
 href="fourier_analysissu5.html#tailfourier_analysissu5.html" >prev-tail</a>] [<a 
 href="fourier_analysissu6.html" >front</a>] [<a 
-href="fourier_analysisse4.html#fourier_analysissu6.html" >up</a>] </p></div>
-<!--l. 567--><p class="indent" >   <a 
+href="fourier_analysisse3.html#fourier_analysissu6.html" >up</a>] </p></div>
+<!--l. 423--><p class="indent" >   <a 
  id="tailfourier_analysissu6.html"></a> </p> 
 </body></html> 

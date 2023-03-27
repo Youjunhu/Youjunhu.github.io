@@ -7,19 +7,22 @@
 <head>
    <title>Fourier analysis</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
-<meta name="date" content="2019-01-05 20:48:00" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-<!--l. 19--><p class="noindent" > 
+<!--l. 22--><p class="noindent" > 
 </p>
    <div class="maketitle">
+                                                                  
 
+                                                                  
+                                                                  
 
+                                                                  
 
 <h2 class="titleHead">Fourier analysis</h2>
                        <div class="author" > <span 
@@ -29,22 +32,20 @@ class="cmr-12">Institute of Plasma Physics, Chinese Academy of Sciences</span>
 <br />                 <span 
 class="cmr-12">Email: yjhu@ipp.cas.cn </span></div><br />
 <div class="date" ><span 
-class="cmr-12">January 5, 2019</span></div>
+class="cmr-12">March 27, 2023</span></div>
    </div>
    <div 
 class="abstract" 
 >
 <div class="center" 
 >
-<!--l. 31--><p class="noindent" >
-</p><!--l. 31--><p class="noindent" ><span 
+<!--l. 34--><p class="noindent" >
+</p><!--l. 34--><p class="noindent" ><span 
 class="cmbx-9">Abstract</span></p></div>
-     <!--l. 32--><p class="indent" >    <span 
-class="cmr-9">These notes review the basic theory of Fourier analysis. The emphasis</span>
+     <!--l. 35--><p class="indent" >    <span 
+class="cmr-9">These notes review the basic theory of Fourier expansion that are</span>
      <span 
-class="cmr-9">is on the content that are necessary for one to correctly interpret and use</span>
-     <span 
-class="cmr-9">the output of FFT computer libraries (e.g. FFTW).</span>
+class="cmr-9">necessary for one to use Fourier expansion in numerical codes.</span>
 </p>
 </div>
    <div class="tableofcontents">
@@ -53,65 +54,84 @@ href="fourier_analysisse1.html#x2-10001" id="QQ2-2-1">Introduction</a></span>
 <br />   <span class="sectionToc" >2 <a 
 href="fourier_analysisse2.html#x3-20002" id="QQ2-3-2">Fourier series</a></span>
 <br />    <span class="subsectionToc" >2.1 <a 
-href="fourier_analysissu1.html#x4-30002.1" id="QQ2-4-3">Fourier series in terms of trigonometric functions cosine and sine</a></span>
+href="fourier_analysissu1.html#x4-30002.1" id="QQ2-4-3">Fourier series in terms of trigonometric functions</a></span>
 <br />    <span class="subsectionToc" >2.2 <a 
-href="fourier_analysissu2.html#x5-40002.2" id="QQ2-5-4">Fourier series in terms of complex-valued basis functions <span 
+href="fourier_analysissu2.html#x5-40002.2" id="QQ2-5-4">Fourier series in terms of basis functions <span 
 class="cmmi-10">e</span><sup><span 
-class="cmmi-7">in&pi;x∕L</span></sup></a></span>
+class="cmmi-7">inπx∕L</span></sup></a></span>
+<br />    <span class="subsectionToc" >2.3 <a 
+href="fourier_analysissu3.html#x6-50002.3" id="QQ2-6-5">Numerical computation of Fourier expansion coeﬃcient</a></span>
 <br />   <span class="sectionToc" >3 <a 
-href="fourier_analysisse3.html#x6-50003" id="QQ2-6-5">From discrete spectrum to continuous spectrum: Fourier series<span 
-class="cmsy-10">&rarr;</span>Fourier transformation</a></span>
+href="fourier_analysisse3.html#x7-60003" id="QQ2-7-6">Fourier series<span 
+class="cmsy-10">→</span>Fourier transformation</a></span>
+<br />    <span class="subsectionToc" >3.1 <a 
+href="fourier_analysissu4.html#x8-70003.1" id="QQ2-8-7">From discrete spectrum to continuous spectrum</a></span>
+<br />    <span class="subsectionToc" >3.2 <a 
+href="fourier_analysissu5.html#x9-80003.2" id="QQ2-9-8">Fourier transformation</a></span>
+<br />    <span class="subsectionToc" >3.3 <a 
+href="fourier_analysissu6.html#x10-90003.3" id="QQ2-10-9">Numerical computation of Fourier transformation</a></span>
+<br />    <span class="subsectionToc" >3.4 <a 
+href="fourier_analysissu7.html#x11-100003.4" id="QQ2-11-10">Sampling theorem</a></span>
 <br />   <span class="sectionToc" >4 <a 
-href="fourier_analysisse4.html#x7-60004" id="QQ2-7-6">Fourier transformation</a></span>
+href="fourier_analysisse4.html#x12-110004" id="QQ2-12-11">Discrete Fourier transformation (DFT)</a></span>
 <br />    <span class="subsectionToc" >4.1 <a 
-href="fourier_analysissu3.html#x8-70004.1" id="QQ2-8-7">Sampling theorem</a></span>
+href="fourier_analysissu8.html#x13-120004.1" id="QQ2-13-12">Deﬁnition of DFT</a></span>
 <br />    <span class="subsectionToc" >4.2 <a 
-href="fourier_analysissu4.html#x9-80004.2" id="QQ2-9-8">Discrete Fourier transformation</a></span>
-<br />    <span class="subsectionToc" >4.3 <a 
-href="fourier_analysissu5.html#x10-90004.3" id="QQ2-10-10">Periodic property of Discrete Fourier transformation</a></span>
-<br />    <span class="subsectionToc" >4.4 <a 
-href="fourier_analysissu6.html#x11-100004.4" id="QQ2-11-12">Aliasing errors</a></span>
-<br />   <span class="sectionToc" >5 <a 
-href="fourier_analysisse5.html#x12-110005" id="QQ2-12-13">Frequency resolution and bandwidth</a></span>
-<br />    <span class="subsectionToc" >5.1 <a 
-href="fourier_analysissu7.html#x13-120005.1" id="QQ2-13-14">Relation between Fourier series coeﬃcients and DFTs</a></span>
+href="fourier_analysissu9.html#x14-130004.2" id="QQ2-14-14">Periodic property of Discrete Fourier transformation</a></span>
+                                                                  
 
+                                                                  
+<br />    <span class="subsectionToc" >4.3 <a 
+href="fourier_analysissu10.html#x15-140004.3" id="QQ2-15-16">Frequency resolution and bandwidth</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="fourier_analysisse5.html#x16-150005" id="QQ2-16-17">Inverse transform</a></span>
+<br />    <span class="subsectionToc" >5.1 <a 
+href="fourier_analysissu11.html#x17-160005.1" id="QQ2-17-18">Reconstruct the original function using DFT</a></span>
 <br />    <span class="subsectionToc" >5.2 <a 
-href="fourier_analysissu8.html#x14-130005.2" id="QQ2-14-15">Reconstruct the original function using DFT</a></span>
+href="fourier_analysissu12.html#x18-170005.2" id="QQ2-18-19">Evaluate the reconstructed function at discrete points</a></span>
 <br />    <span class="subsectionToc" >5.3 <a 
-href="fourier_analysissu9.html#x15-140005.3" id="QQ2-15-16">Evaluate the reconstructed function at discrete points</a></span>
+href="fourier_analysissu13.html#x19-180005.3" id="QQ2-19-20">Inverse Discrete Fourier transformation</a></span>
 <br />    <span class="subsectionToc" >5.4 <a 
-href="fourier_analysissu10.html#x16-150005.4" id="QQ2-16-17">Inverse Discrete Fourier transformation</a></span>
-<br />    <span class="subsectionToc" >5.5 <a 
-href="fourier_analysissu11.html#x17-160005.5" id="QQ2-17-18">Proof of the inverse DFT</a></span>
-<br />    <span class="subsectionToc" >5.6 <a 
-href="fourier_analysissu12.html#x18-170005.6" id="QQ2-18-19">Eﬃcient method of computing DFT: Fast Fourier Tansformation (FFT)
-algorithm (not ﬁnished)</a></span>
-<br />    <span class="subsectionToc" >5.7 <a 
-href="fourier_analysissu13.html#x19-180005.7" id="QQ2-19-20">About using the FFTW library</a></span>
+href="fourier_analysissu14.html#x20-190005.4" id="QQ2-20-21">Proof of the inverse DFT</a></span>
 <br />   <span class="sectionToc" >6 <a 
-href="fourier_analysisse6.html#x20-190006" id="QQ2-20-21">Sine transform and Cosine transform</a></span>
-<br />    <span class="subsectionToc" >6.1 <a 
-href="fourier_analysissu14.html#x21-200006.1" id="QQ2-21-24">Deﬁnition of the Discrete Sine Transform (DST)</a></span>
-<br />    <span class="subsectionToc" >6.2 <a 
-href="fourier_analysissu15.html#x22-210006.2" id="QQ2-22-26">Deﬁne DST via DFT</a></span>
-<br />    <span class="subsectionToc" >6.3 <a 
-href="fourier_analysissu16.html#x23-220006.3" id="QQ2-23-28">The meaning of DST and inverse DST</a></span>
-<br />    <span class="subsectionToc" >6.4 <a 
-href="fourier_analysissu17.html#x24-230006.4" id="QQ2-24-29">Discrete Cosine transform</a></span>
+href="fourier_analysisse6.html#x21-200006" id="QQ2-21-22">About using the FFTW library</a></span>
 <br />   <span class="sectionToc" >7 <a 
-href="fourier_analysisse7.html#x25-240007" id="QQ2-25-30">Misc content</a></span>
+href="fourier_analysisse7.html#x22-210007" id="QQ2-22-23">Sine transform and Cosine transform</a></span>
 <br />    <span class="subsectionToc" >7.1 <a 
-href="fourier_analysissu18.html#x26-250007.1" id="QQ2-26-31">Multi-dimensional Fourier series</a></span>
+href="fourier_analysissu15.html#x23-220007.1" id="QQ2-23-26">Deﬁnition of the Discrete Sine Transform (DST)</a></span>
 <br />    <span class="subsectionToc" >7.2 <a 
-href="fourier_analysissu19.html#x27-260007.2" id="QQ2-27-32">Multidimensional Fourier series using trigonometric functions cosine and sine</a></span>
+href="fourier_analysissu16.html#x24-230007.2" id="QQ2-24-28">Deﬁne DST via DFT</a></span>
 <br />    <span class="subsectionToc" >7.3 <a 
-href="fourier_analysissu20.html#x28-270007.3" id="QQ2-28-33">Details on FFT codes provided by the Numerical recipes book[2]</a></span>
+href="fourier_analysissu17.html#x25-240007.3" id="QQ2-25-30">Reconstruct original function using DST</a></span>
 <br />    <span class="subsectionToc" >7.4 <a 
-href="fourier_analysissu21.html#x29-280007.4" id="QQ2-29-36">Computing Fourier integrals using FFT (not ﬁnished, to be deleted)</a></span>
+href="fourier_analysissu18.html#x26-260007.4" id="QQ2-26-32">Discrete Cosine transform</a></span>
+<br />   <span class="sectionToc" >8 <a 
+href="fourier_analysisse8.html#x27-270008" id="QQ2-27-33">Misc content</a></span>
+<br />    <span class="subsectionToc" >8.1 <a 
+href="fourier_analysissu19.html#x28-280008.1" id="QQ2-28-34">Nonlinear process</a></span>
+<br />    <span class="subsectionToc" >8.2 <a 
+href="fourier_analysissu20.html#x29-290008.2" id="QQ2-29-35">Aliasing errors</a></span>
+<br />    <span class="subsectionToc" >8.3 <a 
+href="fourier_analysissu21.html#x30-300008.3" id="QQ2-30-36">Relation between Fourier series coeﬃcients and DFTs</a></span>
+<br />   <span class="sectionToc" >A <a 
+href="fourier_analysisse9.html#x31-31000A" id="QQ2-31-37">Eﬃcient method of computing DFT: Fast Fourier Transformation (FFT)
+algorithm (not ﬁnished)</a></span>
+<br />   <span class="sectionToc" >B <a 
+href="fourier_analysisse10.html#x32-32000B" id="QQ2-32-38">Multi-dimensional Fourier series</a></span>
+<br />    <span class="subsectionToc" >B.1 <a 
+href="fourier_analysissu22.html#x33-33000B.1" id="QQ2-33-39">2D Fourier series in terms of complex basis functions</a></span>
+<br />    <span class="subsectionToc" >B.2 <a 
+href="fourier_analysissu23.html#x34-34000B.2" id="QQ2-34-40">2D Fourier series using trigonometric functions cosine and sine</a></span>
+<br />    <span class="subsectionToc" >B.3 <a 
+href="fourier_analysissu24.html#x35-35000B.3" id="QQ2-35-41">Details on FFT codes provided by the Numerical recipes book[2]</a></span>
+<br />    <span class="subsectionToc" >B.4 <a 
+href="fourier_analysissu25.html#x36-36000B.4" id="QQ2-36-44">Computing Fourier integrals using FFT (not ﬁnished, to be deleted)</a></span>
 <br />   <span class="likesectionToc" ><a 
-href="fourier_analysisli1.html#x30-290007.4" id="QQ2-30-38">References</a></span>
+href="fourier_analysisli1.html#x37-37000B.4" id="QQ2-37-46">References</a></span>
    </div>
+
+
+
 
 
 
@@ -121,5 +141,6 @@ href="fourier_analysisli1.html#x30-290007.4" id="QQ2-30-38">References</a></span
  
 </body></html> 
 
+                                                                  
 
 

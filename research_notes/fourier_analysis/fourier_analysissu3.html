@@ -4,186 +4,129 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Sampling theorem</title> 
+<head><title>Numerical computation of Fourier expansion coeﬃcient</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
-<meta name="date" content="2019-01-05 20:48:00" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 351--><div class="crosslinks"><p class="noindent">[<a 
-href="fourier_analysissu4.html" >next</a>] [<a 
+   <!--l. 228--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu2.html" >prev</a>] [<a 
+href="fourier_analysissu2.html#tailfourier_analysissu2.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu3.html">tail</a>] [<a 
-href="fourier_analysisse4.html#fourier_analysissu3.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
- id="x8-70004.1"></a>Sampling theorem</h4>
-<!--l. 353--><p class="noindent" >In computational and experimental work, we know only a list of values <span 
+href="fourier_analysisse2.html#fourier_analysissu3.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x6-50002.3"></a>Numerical computation of Fourier expansion coeﬃcient</h4>
+<!--l. 230--><p class="noindent" >For a periodic function <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) with a period of <span 
+class="cmmi-10">T</span>, Fourier series are written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5001r26"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis25x.png" alt="       ∑∞       ( in2πt)
+h(t) =     cnexp  -----  ,
+      n=−∞          T
+" class="math-display"  /></center></td><td class="equation-label">(26)</td></tr></table>
+<!--l. 235--><p class="nopar" >
+with the coeﬃcient <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">n</span></sub> given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5002r27"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis26x.png" alt="       ∫ T       (       )
+cn = 1-   h(t)exp  − in2πt dt.
+     T  0             T
+" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
+<!--l. 240--><p class="nopar" >
+How to numerically compute the Fourier expansion coeﬃcient? A simple way is
+to use the rectangle formula to approximate the integration in Eq. (<a 
+href="#x6-5002r27">27<!--tex4ht:ref: 19-1-10-1m --></a>),
+i.e.,
+</p>
+                                                                  
+
+                                                                  
+   <table 
+class="equation"><tr><td><a 
+ id="x6-5003r28"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis27x.png" alt="    Δ N∑−1      (  in2πjΔ )
+cn ≈ T    hjexp  − --T---- ,
+       j=0
+" class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
+<!--l. 247--><p class="nopar" >
+where <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span><sub><span 
-class="cmmi-7">j</span></sub>) sampled
-at discrete values of <span 
+class="cmmi-7">j</span></sub>) and <span 
 class="cmmi-10">t</span><sub><span 
-class="cmmi-7">j</span></sub>. Let us suppose that <span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">j</span>Δ with <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1 and Δ = <span 
+class="cmmi-10">T∕N</span>. Note Eq. (<a 
+href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>)
+is an approximation, which will become exact if Δ <span 
+class="cmsy-10">→ </span>0. In practice, we can sample
+<span 
 class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) is sampled with uniform interval
-between consecutive points:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7001r39"></a>
-   <center class="math-display" >
-
-<img 
-src="fourier_analysis39x.png" alt="hj = h(tj),tj = j&Delta;,j = ...,&minus; 2,&minus; 1,0,1,2,...
-" class="math-display"  /></center></td><td class="equation-label">(39)</td></tr></table>
-<!--l. 358--><p class="nopar" >
-The sampling rate is deﬁned by <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">s</span></sub> = 1<span 
-class="cmmi-10">∕</span>&Delta;. The sampling theorem states
-that: If the Fourier transformation of function <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>), <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>), has the following
-property
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7002r40"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis40x.png" alt="H (f) = 0for|f| &ge; fc
-" class="math-display"  /></center></td><td class="equation-label">(40)</td></tr></table>
-<!--l. 364--><p class="nopar" >
-then sampling <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) with the sampling rate <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">s</span></sub> <span 
-class="msam-10">&ge; </span>2<span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">c</span></sub> (i.e., &Delta; <span 
-class="msam-10">&le; </span>1<span 
+class="cmmi-10">t</span>) only with a nonzero Δ. Therefore Eq. (<a 
+href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>) is usually an approximation. Do we
+have some rules to choose a suitable Δ so that Eq. (<a 
+href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>) can become a good
+approximation or even an exact relation? This important question is answered by the
+sampling theorem, which sates that a suitable Δ to make Eq. (<a 
+href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>) exact is given by
+Δ <span 
+class="msam-10">≤ </span>1<span 
 class="cmmi-10">∕</span>(2<span 
 class="cmmi-10">f</span><sub><span 
-class="cmmi-7">c</span></sub>)) will
-completely determine <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>), which is given explicitly by the formula
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7003r41"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis41x.png" alt="        &sum;&infin;
-h(t) = &Delta;     hj sin[2&pi;fc(t&minus;-j&Delta;)].
-        j=&minus; &infin;      &pi;(t &minus; j&Delta; )
-" class="math-display"  /></center></td><td class="equation-label">(41)</td></tr></table>
-<!--l. 371--><p class="nopar" >
-We will not concern us here with the proof of the sampling theorem and simply
-start working with Eq. (<a 
-href="#x8-7003r41">41<!--tex4ht:ref: 8-28-4 --></a>) to derive the concrete expression for the Fourier
-transformation of <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>). Substituting the expression (<a 
-href="#x8-7003r41">41<!--tex4ht:ref: 8-28-4 --></a>) for <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) into the Fourier
-transformation (<a 
-href="fourier_analysisse4.html#x7-6001r34">34<!--tex4ht:ref: 10-3-e1 --></a>), we obtain the explicit form of the Fourier transformation of <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>):
-</p><div class="eqnarray">
-
-   <center class="math-display" >
-<img 
-src="fourier_analysis42x.png" alt="         &int; &infin;
-H (f)  &equiv;       h(t)exp(i2&pi;f t)dt,
-          &minus; &infin;&infin;    &int; &infin;
-      =  &Delta;  &sum;   h      sin[2&pi;fc(t&minus;-j&Delta;-)]exp (i2&pi;ft)dt,
-           j=&minus;&infin;  j  &minus;&infin;    &pi;(t&minus; j&Delta;)
-            &sum;&infin;                &int; &infin;
-      =  &Delta;      hjexp(i2&pi;fj&Delta;)     sin[2&pi;fc(t&minus;-j&Delta;-)]exp[i2&pi;f(t&minus; j&Delta;)]dt,
-           j=&minus;&infin;                &minus;&infin;    &pi;(t&minus; j&Delta;)
-            &sum;&infin;                &int; &infin;
-      =  &Delta;      hjexp(i2&pi;fj&Delta;)     sin[2&pi;fc&tau;]exp[i2&pi;f&tau;]d&tau;.        (42)
-           j=&minus;&infin;                &minus;&infin;    &pi;&tau;
-" class="math-display"  /><a 
- id="x8-7004r42"></a></center>
-</div>With the help of Wolfram Mathematica, the integration in Eq. (<a 
-href="#x8-7004r42">42<!--tex4ht:ref: 8-28-1 --></a>) is evaluated
-analytically, giving
-   <table 
-class="equation"><tr><td><a 
- id="x8-7005r43"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis43x.png" alt="&int;                          {
-  &infin; sin[2&pi;fc&tau;]                0For |f| &#x003E; fc
- &minus;&infin;    &pi;&tau;    exp(i2&pi;f&tau;)d&tau; =   1For |f| &#x003C; fc .
-" class="math-display"  /></center></td><td class="equation-label">(43)</td></tr></table>
-<!--l. 398--><p class="nopar" >
-Using this,  Eq. (<a 
-href="#x8-7004r42">42<!--tex4ht:ref: 8-28-1 --></a>) is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7006r44"></a>
-   <center class="math-display" >
-
-<img 
-src="fourier_analysis44x.png" alt="       {
-          0for&sum;|f| &#x003E; fc
-H (f) =   &Delta;   &infin;j=&minus; &infin; hjexp(i2&pi;fj&Delta; )for|f| &le; fc ,
-" class="math-display"  /></center></td><td class="equation-label">(44)</td></tr></table>
-<!--l. 406--><p class="nopar" >
-which shows that <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) = 0 for <span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">f</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; f</span><sub><span 
-class="cmmi-7">c</span></sub>, which is consistent with the assumption of
-sampling theorem, i.e., <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) has the property given in Eq. (<a 
-href="#x8-7002r40">40<!--tex4ht:ref: 8-28-3 --></a>). The second line of
-Eq. (<a 
-href="#x8-7006r44">44<!--tex4ht:ref: 8-28-5 --></a>) is identical to Eq. (<a 
-href="fourier_analysisse4.html#x7-6005r38">38<!--tex4ht:ref: 10-3-e2 --></a>) except that Eq. (<a 
-href="#x8-7006r44">44<!--tex4ht:ref: 8-28-5 --></a>) in this case is exact while Eq.
-(<a 
-href="fourier_analysisse4.html#x7-6005r38">38<!--tex4ht:ref: 10-3-e2 --></a>) is only approximate. In other words, if &Delta; <span 
-class="msam-10">&le; </span>1<span 
-class="cmmi-10">∕</span>(2<span 
+class="cmmi-7">c</span></sub>), where <span 
 class="cmmi-10">f</span><sub><span 
-class="cmmi-7">c</span></sub>), then the Fourier
-transformation is exactly given by Eq. (<a 
-href="#x8-7006r44">44<!--tex4ht:ref: 8-28-5 --></a>), where <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">c</span></sub> is the largest frequency
-contained in <span 
+class="cmmi-7">c</span></sub> = <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">c</span></sub><span 
+class="cmmi-10">∕T </span>is the largest frequency contained in <span 
 class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) (i.e., <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) = 0 for <span 
+class="cmmi-10">t</span>) (i.e, <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">n</span></sub> is
+zero for <span 
 class="cmsy-10">|</span><span 
-class="cmmi-10">f</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; f</span><sub><span 
+class="cmmi-10">n</span><span 
+class="cmsy-10">|</span><span 
+class="msam-10">≥ </span><span 
+class="cmmi-10">N</span><sub><span 
 class="cmmi-7">c</span></sub>).
+                                                                  
 
+                                                                  
 </p>
-   <!--l. 416--><div class="crosslinks"><p class="noindent">[<a 
-href="fourier_analysissu4.html" >next</a>] [<a 
+   <!--l. 259--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu2.html" >prev</a>] [<a 
+href="fourier_analysissu2.html#tailfourier_analysissu2.html" >prev-tail</a>] [<a 
 href="fourier_analysissu3.html" >front</a>] [<a 
-href="fourier_analysisse4.html#fourier_analysissu3.html" >up</a>] </p></div>
-<!--l. 416--><p class="indent" >   <a 
+href="fourier_analysisse2.html#fourier_analysissu3.html" >up</a>] </p></div>
+<!--l. 259--><p class="indent" >   <a 
  id="tailfourier_analysissu3.html"></a> </p> 
 </body></html> 

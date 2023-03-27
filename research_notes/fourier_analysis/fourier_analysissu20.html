@@ -4,217 +4,103 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Details on FFT codes provided by the Numerical recipes book[2]</title> 
+<head><title>Aliasing errors</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
-<meta name="date" content="2019-01-05 20:48:00" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1352--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="fourier_analysissu21.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="fourier_analysissu19.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="fourier_analysissu19.html#tailfourier_analysissu19.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="#tailfourier_analysissu20.html"><span 
-class="ecrm-1000">tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="fourier_analysisse7.html#fourier_analysissu20.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-   <h4 class="subsectionHead"><span class="titlemark"><span 
-class="ecrm-1000">7.3   </span></span> <a 
- id="x28-270007.3"></a><span 
-class="ecrm-1000">Details on FFT codes provided by the Numerical recipes book</span><span class="cite"><span 
-class="ecrm-1000">[</span><a 
-href="fourier_analysisli1.html#Xpress1992"><span 
-class="ecrm-1000">2</span></a><span 
-class="ecrm-1000">]</span></span></h4>
-<!--l. 1354--><p class="noindent" ><span 
-class="ecrm-1000">The following is about a speciﬁc FFT subroutine provided by the Numerical recipes</span>
+   <!--l. 1158--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu21.html" >next</a>] [<a 
+href="fourier_analysissu19.html" >prev</a>] [<a 
+href="fourier_analysissu19.html#tailfourier_analysissu19.html" >prev-tail</a>] [<a 
+href="#tailfourier_analysissu20.html">tail</a>] [<a 
+href="fourier_analysisse8.html#fourier_analysissu20.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">8.2   </span> <a 
+ id="x29-290008.2"></a>Aliasing errors</h4>
+<!--l. 1160--><p class="noindent" >Signals that are not band-limited usually contains all frequencies and thus do not
+satisfy the condition required by the sampling theorem (i.e., <span 
+class="cmmi-10">H</span>(<span 
+class="cmmi-10">f</span>) = 0 for
 <span 
-class="ecrm-1000">book</span><span class="cite"><span 
-class="ecrm-1000">[</span><a 
-href="fourier_analysisli1.html#Xpress1992"><span 
-class="ecrm-1000">2</span></a><span 
-class="ecrm-1000">]</span></span><span 
-class="ecrm-1000">. This is not a general case.</span>
-</p><!--l. 1357--><p class="indent" >   <span 
-class="ecrm-1000">The input and output of the DFT are usually complex numbers. In the</span>
+class="cmsy-10">|</span><span 
+class="cmmi-10">f</span><span 
+class="cmsy-10">| </span><span 
+class="cmmi-10">&#x003E; </span>1<span 
+class="cmmi-10">∕</span>(2Δ)). In this case, for any given <span 
+class="cmmi-10">N </span>data, we can still calculate its DFT by
+using Eq. (<a 
+href="fourier_analysissu8.html#x13-12006r59">59<!--tex4ht:ref: 2-26-2 --></a>). However the results obtained are meaningful only when <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">n</span></sub>
+approaches zero as the frequency approaches <span 
+class="cmsy-10">−</span>1<span 
+class="cmmi-10">∕</span>(2Δ) from above and approaches
+1<span 
+class="cmmi-10">∕</span>(2Δ) from below, i.e., only when the results obtained are consistent with the
+assumption used to obtain the results (the assumption is that <span 
+class="cmmi-10">H</span>(<span 
+class="cmmi-10">f</span>) = 0 for
 <span 
-class="ecrm-1000">implementation of FFT algorithm provided by Numerical recipes book</span><span class="cite"><span 
-class="ecrm-1000">[</span><a 
-href="fourier_analysisli1.html#Xpress1992"><span 
-class="ecrm-1000">2</span></a><span 
-class="ecrm-1000">]</span></span><span 
-class="ecrm-1000">, to avoid</span>
-<span 
-class="ecrm-1000">using complex numbers, the algorithm adopts the real number representation of</span>
-<span 
-class="ecrm-1000">the complex numbers. In this scheme, two elements of a real number array</span>
-<span 
-class="ecrm-1000">are used to store one complex number. To store a complex array “cdata” of</span>
-<span 
-class="ecrm-1000">length </span><span 
-class="cmmi-10">N</span><span 
-class="ecrm-1000">, we will need a real number array “rdata” of length </span>2<span 
-class="cmmi-10">N</span><span 
-class="ecrm-1000">. The ﬁrst</span>
-<span 
-class="ecrm-1000">elements of array “rdata” will contain the real part of “cdata(1)”, the second</span>
-<span 
-class="ecrm-1000">elements of “rdata” will contain the imaginary part of </span><span 
-class="ecrm-1000"> “cdata(1)”, and so</span>
-<span 
-class="ecrm-1000">on.</span>
-</p><!--l. 1367--><p class="indent" >   <span 
-class="ecrm-1000">To test the correctness of the above statement, I generated a real number array</span>
-<span 
-class="ecrm-1000">with length </span><span 
-class="cmmi-10">N </span>= 2 <span 
-class="cmsy-10">× </span>2<sup><span 
-class="cmr-7">8</span></sup> <span 
-class="ecrm-1000">by using a random generating routine and calculate the DFT</span>
-<span 
-class="ecrm-1000">of the array with two methods. The real array generated by the random generator</span>
-<span 
-class="ecrm-1000">are considered to be a real number representation of a complex array with</span>
-<span 
-class="ecrm-1000">length </span><span 
-class="cmmi-10">N∕</span>2<span 
-class="ecrm-1000">. Using the real array as the input of the FFT routine (the code in</span>
-<span 
-class="ecrm-1000">˜/project_new/ﬀt). To check the correctness of my understanding of the input</span>
-<span 
-class="ecrm-1000">and output of the FFT, I manually convert the real number of length </span><span 
-class="cmmi-10">N</span>
-<span 
-class="ecrm-1000">to a complex array with length </span><span 
-class="cmmi-10">N∕</span>2<span 
-class="ecrm-1000">, and use directly the summation in</span>
-<span 
-class="ecrm-1000">Eq. (</span><a 
-href="fourier_analysissu5.html#x10-9001r51"><span 
-class="ecrm-1000">51</span><!--tex4ht:ref: 3-25-e3 --></a><span 
-class="ecrm-1000">) to calculate the DFT. The output I got is obviously a complex</span>
-<span 
-class="ecrm-1000">array with length </span><span 
-class="cmmi-10">N∕</span>2<span 
-class="ecrm-1000">. Then I manually convert the complex array to a</span>
-<span 
-class="ecrm-1000">real number array of length </span><span 
-class="cmmi-10">N </span><span 
-class="ecrm-1000">and plot the output in Fig. </span><a 
-href="#x28-270017"><span 
-class="ecrm-1000">7</span><!--tex4ht:ref: 3-25-e8 --></a> <span 
-class="ecrm-1000">with dashed</span>
-<span 
-class="ecrm-1000">line. The results in Fig. </span><a 
-href="#x28-270017"><span 
-class="ecrm-1000">7</span><!--tex4ht:ref: 3-25-e8 --></a> <span 
-class="ecrm-1000">indicates the results given by the FFT and the</span>
-<span 
-class="ecrm-1000">naive method used by me agree with each other well. This proves that my</span>
-<span 
-class="ecrm-1000">understanding of the input and output of FFT (especially the storage arrangement)</span>
-<span 
-class="ecrm-1000">is correct.</span>
+class="cmsy-10">|</span><span 
+class="cmmi-10">f</span><span 
+class="cmsy-10">| </span><span 
+class="cmmi-10">&#x003E; </span>1<span 
+class="cmmi-10">∕</span>(2Δ)). When the results obtained do not satisfy the above condition, then it
+indicates that the “aliasing errors” have contributed to the results. We can reduce
+the aliasing errors by increasing the sampling frequency. The aliasing errors
+can be reduced but can not be completely removed for a non-band-limited
+signal.
+</p><!--l. 1174--><p class="indent" >   In signal processing and related disciplines, <span 
+class="cmbx-10">aliasing</span> is an eﬀect that causes
+diﬀerent signals to become indistinguishable (or <span 
+class="cmti-10">aliases</span> of one another) when
+sampled. It also often refers to the distortion or artifact that results when a
+signal reconstructed from samples is diﬀerent from the original continuous
+signal.
+</p><!--l. 1180--><p class="indent" >   An alias is a false lower frequency component that appears in sampled data
+acquired at too low a sampling rate.
+</p><!--l. 1183--><p class="indent" >   Aliasing errors are hard to detect and almost impossible to remove using software.
+The solution is to use a high enough sampling rate, or if this is not possible, to use an
+anti-aliasing ﬁlter in front of the analog-to-digital converter (ADC) to eliminate
+the high frequency components before they get into the data acquisition
+system.
+</p><!--l. 1189--><p class="indent" >   When a digital image is viewed, a reconstruction is performed by a display or
+printer device, and by the eyes and the brain. If the image data is processed in some
+way during sampling or reconstruction, the reconstructed image will diﬀer from the
+original image, and an alias is seen.
+</p><!--l. 1194--><p class="indent" >    
+</p><!--l. 1196--><p class="indent" >   Aliasing can be caused either by the sampling stage or the reconstruction stage;
+these may be distinguished by calling sampling aliasing (<span 
+class="cmti-10">prealiasing</span>) and
+reconstruction aliasing (<span 
+class="cmti-10">postaliasing</span>).
+</p><!--l. 1201--><p class="indent" >   In video or cinematography, temporal aliasing results from the limited frame rate,
+and causes the <a 
+href="https://en.wikipedia.org/wiki/Wagon-wheel_effect" >wagon-wheel eﬀect</a>, whereby a spoked wheel appears to rotate too
+slowly or even backwards. Aliasing has changed its apparent frequency of rotation. A
+reversal of direction can be described as a <a 
+href="https://en.wikipedia.org/wiki/Negative_frequency" >negative frequency</a>. Temporal aliasing
+frequencies in video and cinematography are determined by the frame rate of the
+                                                                  
+
+                                                                  
+camera, but the relative intensity of the aliased frequencies is determined by the
+shutter timing (exposure time) or the use of a temporal aliasing reduction ﬁlter
+during ﬁlming.
+                                                                  
+
+                                                                  
 </p>
-   <hr class="figure" /><div class="figure" 
->
-
-<a 
- id="x28-270017"></a>
-
-<!--l. 1384--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fft/fig1/tmp.png" alt="pict"  
- width="180.67499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 7: </span><span  
-class="content">The output of a FFT routine (solid line) agrees well with those
-(dashed line) calculated by directly evaluate the summation in Eq. (<a 
-href="fourier_analysissu5.html#x10-9001r51">51<!--tex4ht:ref: 3-25-e3 --></a>) (the
-latter is coded by me). The agreement indicates my understanding of the output
-of FFT (especially the storage arrangement) is correct. Here the time domain
-data is generated by a random generating routine. </span></div><!--tex4ht:label?: x28-270017 -->
-
-   </div><hr class="endfigure" />
-<!--l. 1393--><p class="indent" >   <span 
-class="ecrm-1000">To clearly show the output of FFT, we recover the real and imaginary part of</span>
-<span 
-class="ecrm-1000">DFT from the output of FFT and plots the data as a function of their corresponding</span>
-<span 
-class="ecrm-1000">frequency. The results are given in Fig. </span><a 
-href="#x28-270028"><span 
-class="ecrm-1000">8</span><!--tex4ht:ref: 8-27-p1 --></a><span 
-class="ecrm-1000">.</span>
-</p>
-   <hr class="figure" /><div class="figure" 
->
-
-<a 
- id="x28-270028"></a>
-
-<!--l. 1398--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fft/fig3/tmp.png" alt="pict"  
- width="180.67499pt" />                                         <img 
-src="my_figure/home/yj/project_new/fft/fig3/tmp2.png" alt="pict"  
- width="180.67499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 8: </span><span  
-class="content">The real (left) and imaginary (right) part of the discrete Fourier
-transformation as a function of the frequency. The point <span 
-class="cmmi-10">n </span>= <span 
-class="cmsy-10">&minus;</span>128 corresponds
-to frequency <span 
-class="cmsy-10">&minus;</span><span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">s</span></sub><span 
-class="cmmi-10">∕</span>2 while the point <span 
-class="cmmi-10">n </span>= 128 corresponds to frequency +<span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">s</span></sub><span 
-class="cmmi-10">∕</span>2,
-where <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">s</span></sub> = 1<span 
-class="cmmi-10">∕</span>&Delta; with &Delta; is the sample interval in time domain. The time domain
-data is the same as used in Fig. <a 
-href="#x28-270017">7<!--tex4ht:ref: 3-25-e8 --></a>. Why is there a spike at zero frequency?</span></div><!--tex4ht:label?: x28-270028 -->
-
-   </div><hr class="endfigure" />
-<!--l. 1407--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
-</p><!--l. 1409--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
-
-</p>
-   <!--l. 1411--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="fourier_analysissu21.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="fourier_analysissu19.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="fourier_analysissu19.html#tailfourier_analysissu19.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="fourier_analysissu20.html" ><span 
-class="ecrm-1000">front</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="fourier_analysisse7.html#fourier_analysissu20.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-<!--l. 1411--><p class="indent" >   <a 
+   <!--l. 1213--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysissu21.html" >next</a>] [<a 
+href="fourier_analysissu19.html" >prev</a>] [<a 
+href="fourier_analysissu19.html#tailfourier_analysissu19.html" >prev-tail</a>] [<a 
+href="fourier_analysissu20.html" >front</a>] [<a 
+href="fourier_analysisse8.html#fourier_analysissu20.html" >up</a>] </p></div>
+<!--l. 1213--><p class="indent" >   <a 
  id="tailfourier_analysissu20.html"></a> </p> 
 </body></html> 

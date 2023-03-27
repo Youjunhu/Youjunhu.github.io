@@ -4,286 +4,163 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Sine transform and Cosine transform</title> 
+<head><title>About using the FFTW library</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
-<meta name="date" content="2019-01-05 20:48:00" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 858--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 764--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse7.html" >next</a>] [<a 
 href="fourier_analysisse5.html" >prev</a>] [<a 
 href="fourier_analysisse5.html#tailfourier_analysisse5.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysisse6.html">tail</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse6.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
- id="x20-190006"></a>Sine transform and Cosine transform</h3>
-<!--l. 860--><p class="noindent" >We mentioned (without giving proof) that the set of functions cos(<span 
-class="cmmi-10">k&pi;x∕L</span>) and
-sin(<span 
-class="cmmi-10">k&pi;x∕L</span>) with <span 
-class="cmmi-10">k </span>= 0<span 
-class="cmmi-10">,</span>1<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">&hellip;</span><span 
-class="cmsy-10">&infin; </span>is a “complete set” in expanding any function in the
-interval (<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>), where <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> is an arbitrary point. Therefore Fourier series
-use both cosine and sine as basis functions to expand a function. Let us
-introduce another conclusion (again without giving proof) that the set of sine
-functions sin(<span 
-class="cmmi-10">k&pi;x∕</span>(2<span 
-class="cmmi-10">L</span>)) with <span 
-class="cmmi-10">k </span>= 1<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">&hellip;</span><span 
-class="cmsy-10">&infin; </span>is a “complete set” in expanding any
-function <span 
-class="cmmi-10">h </span>in the interval (<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>). A similar conclusion is that the
-set of cosine functions cos(<span 
-class="cmmi-10">k&pi;x∕</span>(2<span 
-class="cmmi-10">L</span>)) with <span 
-class="cmmi-10">k </span>= 0<span 
-class="cmmi-10">,</span>1<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">&hellip;</span><span 
-class="cmsy-10">&infin; </span>is a “complete
-set” in expanding any function <span 
-class="cmmi-10">h </span>in the interval (<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>). Note that
-the argument of the basis functions used in the Fourier expansion and the
-sine (or cosine) expansion diﬀers by a factor of two, namely <span 
-class="cmmi-10">k&pi;x∕L </span>and
-<span 
-class="cmmi-10">k&pi;x∕</span>(2<span 
-class="cmmi-10">L</span>).
-</p><!--l. 874--><p class="indent" >   The ﬁrst ﬁve basis functions used in Fourier expansion, sine expansion, and cosine
-expansion are plotted in Fig. <a 
-href="#x20-190013">3<!--tex4ht:ref: 18-1-10-e1 --></a>.
+ id="x21-200006"></a>About using the FFTW library</h3>
+<!--l. 766--><p class="noindent" >FFTW uses negative exponents as the forward transform and and the positive
+exponents as inverse transform. Speciﬁcally, the forward DFT in FFTW is deﬁned
+by
 </p>
-   <hr class="figure" /><div class="figure" 
->
-
-<a 
- id="x20-190013"></a>
-
-
-<!--l. 878--><p class="noindent" ><img 
-src="my_figure/home/yj/project_new/test_space/sin_transform/f.png" alt="pict"  
- width="334.24875pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 3: </span><span  
-class="content">The ﬁrst ﬁve basis functions used in Fourier expansion (upper), sine
-expansion (middle), and cosine expansion (lower) in the interval [<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">,x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>]
-with <span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> = 0 and <span 
-class="cmmi-10">L </span>= 1.</span></div><!--tex4ht:label?: x20-190013 -->
-
-   </div><hr class="endfigure" />
-<!--l. 884--><p class="indent" >    
-</p><!--l. 886--><p class="indent" >    
-</p><!--l. 888--><p class="indent" >   The basis function <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span>) used in the Fourier expansion have the properties
-<span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>). Therefore Fourier expansion works best for function that
-satisfy <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>). For functions that do not satisﬁes this condition, there
-will be Gibbs oscillations near the interval boundary when approximated by using the
-Fourier expansion. A function with <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>)<span 
-class="cmmi-10">&ne;</span><span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) can still be considered as a
-periodic function with period 2<span 
-class="cmmi-10">L </span>but having discontinuity points at the interval
-boundary. Gibbs oscillation appear near discontinuity points, which can be inner
-points in the interval or at the interval boundaries.
-</p><!--l. 898--><p class="indent" >   The basis functions <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span>) used in the sine expansion have the properties
-<span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0. Therefore since expansion works best for functions that
-satisfy <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0. For functions that do not satisﬁes this condition,
-there will be Gibbs oscillations near the interval boundary when approximated by
-using the sine expansion. Examples are shown in Fig. <a 
-href="#x20-190024">4<!--tex4ht:ref: 18-1-11-a1 --></a>.
-</p><!--l. 905--><p class="indent" >   The basis functions <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span>) used in the cosine expansion have the properties
-<span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub><span 
-class="cmsy-10">&prime;</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub><span 
-class="cmsy-10">&prime;</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0. Therefore cosine expansion works best for functions that
-satisfy <span 
-class="cmmi-10">h</span><span 
-class="cmsy-10">&prime;</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">h</span><span 
-class="cmsy-10">&prime;</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0. For functions that do not satisﬁes this
-condition, there will be Gibbs oscillations near the interval boundary when
-approximated by using the cosine expansion (to be veriﬁed numerically by
-me).
+   <table 
+class="equation"><tr><td><a 
+ id="x21-20001r80"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis83x.png" alt="               (       )
+     N∑−1         2π-
+Hn ≡     hjexp  − i N nj ,
+      j=0
+" class="math-display"  /></center></td><td class="equation-label">(80)</td></tr></table>
+<!--l. 772--><p class="nopar" >
+and the inverse DFT is deﬁned by
 </p>
-   <hr class="figure" /><div class="figure" 
->
+   <table 
+class="equation"><tr><td><a 
+ id="x21-20002r81"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis84x.png" alt="     N∑−1      (      )
+hj =    Hn exp  i2πnj  ,
+     n=0         N
+" class="math-display"  /></center></td><td class="equation-label">(81)</td></tr></table>
+<!--l. 776--><p class="nopar" >
+where there is no 1<span 
+class="cmmi-10">∕N </span>factor in the inverse DFT, and thus this factor should be
+included manually if we want to recover the original data from the inverse DFT. (In
+some rare cases, e.g. in the book “Numerical recipe”<span class="cite">[<a 
+href="fourier_analysisli1.html#Xpress1992">2</a>]</span>, positive exponents are used
+                                                                  
 
-<a 
- id="x20-190024"></a>
-
-
-<!--l. 913--><p class="noindent" ><img 
-src="my_figure/home/yj/project_new/test_space/sin_transform/fig2/p.png" alt="pict"  
- width="218.8175pt" /> <img 
-src="my_figure/home/yj/project_new/test_space/sin_transform/fig3/p.png" alt="pict"  
- width="218.8175pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 4: </span><span  
-class="content">Left: constant function <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span>) = 1 approximated by using the sine
-expansion. Right: linear function <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span>) = <span 
-class="cmmi-10">x </span><span 
-class="cmsy-10">&minus; </span>1 approximated by using the sine
-expansion. Gibbs oscillation appears near the boundaries, where <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span>) does not
-satisfy the condition <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0 (<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> = 0 and <span 
-class="cmmi-10">L </span>= 1 for this case).
-The expansion coeﬃcients <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">k</span></sub> are obtained via the discrete sine transform (<a 
-href="fourier_analysissu14.html#x21-20001r77">77<!--tex4ht:ref: 18-1-11-a2 --></a>)
-with number of sampling point <span 
-class="cmmi-10">N </span>= 50. The reconstruction formula is given by
+                                                                  
+in deﬁning the forward Fourier transformation and negative exponents are used in
+deﬁning the backward one. When using a Fourier transformation library, it is
+necessary to know which convention is used in order to correctly use the output of
+the library.)
+</p><!--l. 786--><p class="indent" >   I use the Fortran interface of the FFTW library. To have access to FFTW library,
+use the following codes: </p><div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">use,</span><span 
+class="cmtt-10"> intrinsic</span><span 
+class="cmtt-10"> ::</span><span 
+class="cmtt-10"> iso_c_binding</span>
+<br /><span 
+class="cmtt-10">implicit</span><span 
+class="cmtt-10"> none</span>
+<br /><span 
+class="cmtt-10">include</span><span 
+class="cmtt-10"> ’fftw3.f03’</span>
+</div>
+</div>
+Here the ﬁrst line uses <span 
+class="cmbx-10">iso</span><span 
+class="cmbx-10">_c</span><span 
+class="cmbx-10">_binding</span> module to interface with C in which FFTW is
+written. To use the FFT subroutines in FFTW, we need to deﬁne some variables of
+the desired types, such as <div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">type(C_PTR)</span><span 
+class="cmtt-10"> ::</span><span 
+class="cmtt-10"> plan1,</span><span 
+class="cmtt-10"> plan2</span>
+<br /><span 
+class="cmtt-10">complex(C_DOUBLE_COMPLEX)</span><span 
+class="cmtt-10"> ::</span><span 
+class="cmtt-10"> in(0:n-1),</span><span 
+class="cmtt-10"> out(0:n-1)</span>
+</div>
+</div>
+Specify what kind of transform to be performed by calling the corresponding
+“planner” routine: <div class="alltt">
+<div class="obeylines-v">
 <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span>) = <img 
-src="fourier_analysis80x.png" alt="2-
-N"  class="frac" align="middle" /> <span 
-class="cmex-10">&sum;</span>
-   <sub><span 
-class="cmmi-7">k</span><span 
-class="cmr-7">=1</span></sub><sup><span 
-class="cmmi-7">N</span><span 
-class="cmsy-7">&minus;</span><span 
-class="cmr-7">1</span></sup><span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">k</span></sub> sin<img 
-src="fourier_analysis81x.png" alt="(k&pi;x)
-  2L"  class="left" align="middle" />.</span></div><!--tex4ht:label?: x20-190024 -->
+class="cmtt-10">plan1</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> fftw_plan_dft_1d(n,</span><span 
+class="cmtt-10"> in,out,</span><span 
+class="cmtt-10"> FFTW_FORWARD,FFTW_ESTIMATE)</span>
+</div>
+</div>
+Here the “planner” routine for one-dimensional DFT is called. One thing that the
+“planner” routine does is to factor the matrix <span 
+class="cmmi-10">M</span><sub><span 
+class="cmmi-7">kj</span></sub> mentioned above, in order to
+get prepared for performing the actual transform. Therefore “planner” do
+not need the actual data stored in “in” array. What is needed is the length
+and numerical type of “in” array. It is obvious that the “planner” routine
+needs to be invoked for only once for a given type of array with the same
+length.
+<!--l. 813--><p class="indent" >   Store input data in the “in” arrays, then, we can perform a DFT by the following
+codes: </p><div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">call</span><span 
+class="cmtt-10"> fftw_execute_dft(plan1,</span><span 
+class="cmtt-10"> in,</span><span 
+class="cmtt-10"> out)</span>
+</div>
+</div>
+Similarly, we can perform a inverse DFT by the following codes: <div class="alltt">
+                                                                  
 
-   </div><hr class="endfigure" />
-<!--l. 925--><p class="indent" >    
-</p><!--l. 927--><p class="indent" >    
-</p><!--l. 929--><p class="indent" >   Next, let us discuss the sine and cosine transformation.
+                                                                  
+<div class="obeylines-v">            <span 
+class="cmtt-10">plan2</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> fftw_plan_dft_1d(ngrids,</span><span 
+class="cmtt-10"> in,out,FFTW_BACKWARD,FFTW_ESTIMATE)</span>
+<br /><span 
+class="cmtt-10">call</span><span 
+class="cmtt-10"> fftw_execute_dft(plan2,</span><span 
+class="cmtt-10"> in,</span><span 
+class="cmtt-10"> out)</span>
+</div>
+</div>
+After all the transforms are done, we need to manually de-allocate the arrays
+created by the “planner” routine by calling the “ﬀtw_destroy_plan” routine:
+<div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">call</span><span 
+class="cmtt-10"> fftw_destroy_plan(plan2)</span>
+</div>
+</div>
+(Unless they are local arrays, Fortran does not automatically de-allocate arrays
+allocated by the <span 
+class="cmbx-10">acllocate()</span>, so manually de-allocate all allocated arrays is necessary
+for preventing memory leak from appearing.)
+<!--l. 833--><p class="indent" >    
+                                                                  
+
+                                                                  
 </p>
-   <div class="subsectionTOCS">
-    <span class="subsectionToc" >6.1 <a 
-href="fourier_analysissu14.html#x21-200006.1">Deﬁnition of the Discrete Sine Transform (DST)</a></span>
-<br />    <span class="subsectionToc" >6.2 <a 
-href="fourier_analysissu15.html#x22-210006.2">Deﬁne DST via DFT</a></span>
-<br />    <span class="subsectionToc" >6.3 <a 
-href="fourier_analysissu16.html#x23-220006.3">The meaning of DST and inverse DST</a></span>
-<br />    <span class="subsectionToc" >6.4 <a 
-href="fourier_analysissu17.html#x24-230006.4">Discrete Cosine transform</a></span>
-   </div>
-
-
-
-
-   <!--l. 1169--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 835--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse7.html" >next</a>] [<a 
 href="fourier_analysisse5.html" >prev</a>] [<a 
 href="fourier_analysisse5.html#tailfourier_analysisse5.html" >prev-tail</a>] [<a 
 href="fourier_analysisse6.html" >front</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse6.html" >up</a>] </p></div>
-<!--l. 1169--><p class="indent" >   <a 
+<!--l. 835--><p class="indent" >   <a 
  id="tailfourier_analysisse6.html"></a> </p> 
 </body></html> 

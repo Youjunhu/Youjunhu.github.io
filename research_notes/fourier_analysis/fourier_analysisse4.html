@@ -4,200 +4,44 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Fourier transformation</title> 
+<head><title>Discrete Fourier transformation (DFT)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
-<meta name="date" content="2019-01-05 20:48:00" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 297--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 488--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse5.html" >next</a>] [<a 
 href="fourier_analysisse3.html" >prev</a>] [<a 
 href="fourier_analysisse3.html#tailfourier_analysisse3.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysisse4.html">tail</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse4.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
- id="x7-60004"></a>Fourier transformation</h3>
-<!--l. 299--><p class="noindent" >As discussed above, the Fourier transformation of a function <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) is given
-by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x7-6001r34"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis33x.png" alt="       &int; &infin;
-H (f ) =    h(t)ei2&pi;ftdt.
-        &minus;&infin;
-" class="math-display"  /></center></td><td class="equation-label">(34)</td></tr></table>
-<!--l. 303--><p class="nopar" >
-Once the Fourier transformation <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) is known, the original function <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) can be
-reconstructed via
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x7-6002r35"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis34x.png" alt="      &int; &infin;
-h (t) =    H (f)e&minus;i2&pi;ftdf.
-       &minus;&infin;
-" class="math-display"  /></center></td><td class="equation-label">(35)</td></tr></table>
-<!--l. 309--><p class="nopar" >
-[Physicists usually prefer to use the angular frequency <span 
-class="cmmi-10">&omega; </span><span 
-class="cmsy-10">&equiv; </span>2<span 
-class="cmmi-10">&pi;f </span>instead of the
-frequency <span 
-class="cmmi-10">f </span>to represent the Fourier transformation. Using <span 
-class="cmmi-10">&omega;</span>, equations. (<a 
-href="#x7-6001r34">34<!--tex4ht:ref: 10-3-e1 --></a>) and
-(<a 
-href="#x7-6002r35">35<!--tex4ht:ref: 10-11-3 --></a>) are written, respectively, as
-
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x7-6003r36"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis35x.png" alt="       &int;
-         &infin;     i&omega;t
-H(&omega;) =  &minus;&infin; h(t)e  dt,
-" class="math-display"  /></center></td><td class="equation-label">(36)</td></tr></table>
-<!--l. 316--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x7-6004r37"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis36x.png" alt="         &int;
-h (t) =-1-  &infin; H (&omega;)e&minus;i&omega;td&omega;,
-      2&pi;  &minus;&infin;
-" class="math-display"  /></center></td><td class="equation-label">(37)</td></tr></table>
-<!--l. 320--><p class="nopar" >
-where we see that the asymmetry between the Fourier transformation and its inverse
-is more severe in this representation: besides the opposite-sign in the exponents, there
-is also a 1<span 
-class="cmmi-10">∕</span>2<span 
-class="cmmi-10">&pi; </span>factor diﬀerence between the Fourier transformation and its inverse.
-Whether the 1<span 
-class="cmmi-10">∕</span>2<span 
-class="cmmi-10">&pi; </span>factor appears at the forward transformation or inverse one is
-actually a matter of convention. The only requirement is that the product of the two
-factors in the forward and inverse transformation is equal to 1<span 
-class="cmmi-10">∕</span>2<span 
-class="cmmi-10">&pi;</span>. To obtain a more
-symmetric pair, one can adopt a factor 1<span 
-class="cmmi-10">∕</span><img 
-src="fourier_analysis37x.png" alt=" ---
-&radic;2&pi;"  class="sqrt"  /> at both the forward and
-inverse transformation. The representation in Eqs. (<a 
-href="#x7-6001r34">34<!--tex4ht:ref: 10-3-e1 --></a>) and (<a 
-href="#x7-6002r35">35<!--tex4ht:ref: 10-11-3 --></a>) is adopted in
-this note. But we should know how to change to the <span 
-class="cmmi-10">&omega; </span>representation when
-needed.]
-</p><!--l. 333--><p class="indent" >   Next, consider how to numerically compute the Fourier transformation of a
-function <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>). A simple way is to use the rectangle formula to approximate the
-integration in Eq. (<a 
-href="#x7-6001r34">34<!--tex4ht:ref: 10-3-e1 --></a>), i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x7-6005r38"></a>
-
-   <center class="math-display" >
-<img 
-src="fourier_analysis38x.png" alt="          &infin;&sum;
-H (f) &asymp; &Delta;     hjexp(i2&pi;fj&Delta; ),
-         j=&minus;&infin;
-" class="math-display"  /></center></td><td class="equation-label">(38)</td></tr></table>
-<!--l. 339--><p class="nopar" >
-where <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">j</span></sub> = <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span><sub><span 
-class="cmmi-7">j</span></sub>) and <span 
-class="cmmi-10">t</span><sub><span 
-class="cmmi-7">j</span></sub> = <span 
-class="cmmi-10">j</span>&Delta; with <span 
-class="cmmi-10">j </span>= <span 
-class="cmmi-10">&hellip;</span><span 
-class="cmmi-10">,</span><span 
-class="cmsy-10">&minus;</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmsy-10">&minus;</span>1<span 
-class="cmmi-10">,</span>0<span 
-class="cmmi-10">,</span>1<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">&hellip;</span>. Note Eq. (<a 
-href="#x7-6005r38">38<!--tex4ht:ref: 10-3-e2 --></a>) is an
-approximation, which will become exact if &Delta; <span 
-class="cmsy-10">&rarr; </span>0. In practice, we can sample <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>)
-only with a nonzero &Delta;. Therefore Eq. (<a 
-href="#x7-6005r38">38<!--tex4ht:ref: 10-3-e2 --></a>) is usually an approximation. Do we have
-some rules to choose a suitable &Delta; so that Eq. (<a 
-href="#x7-6005r38">38<!--tex4ht:ref: 10-3-e2 --></a>) can become a good approximation
-or even an exact relation? This important question is answered by the famous
-sampling theorem, which sates that a suitable &Delta; to make Eq. (<a 
-href="#x7-6005r38">38<!--tex4ht:ref: 10-3-e2 --></a>) exact is given by
-&Delta; <span 
-class="msam-10">&le; </span>1<span 
-class="cmmi-10">∕</span>(2<span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">c</span></sub>), where <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">c</span></sub> is the largest frequency contained in <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) (i.e., <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) = 0 for
-<span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">f</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; f</span><sub><span 
-class="cmmi-7">c</span></sub>).
-</p><!--l. 351--><p class="noindent" >
+ id="x12-110004"></a>Discrete Fourier transformation (DFT)</h3>
+<!--l. 490--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
     <span class="subsectionToc" >4.1 <a 
-href="fourier_analysissu3.html#x8-70004.1">Sampling theorem</a></span>
+href="fourier_analysissu8.html#x13-120004.1">Deﬁnition of DFT</a></span>
 <br />    <span class="subsectionToc" >4.2 <a 
-href="fourier_analysissu4.html#x9-80004.2">Discrete Fourier transformation</a></span>
+href="fourier_analysissu9.html#x14-130004.2">Periodic property of Discrete Fourier transformation</a></span>
 <br />    <span class="subsectionToc" >4.3 <a 
-href="fourier_analysissu5.html#x10-90004.3">Periodic property of Discrete Fourier transformation</a></span>
-<br />    <span class="subsectionToc" >4.4 <a 
-href="fourier_analysissu6.html#x11-100004.4">Aliasing errors</a></span>
+href="fourier_analysissu10.html#x15-140004.3">Frequency resolution and bandwidth</a></span>
    </div>
 
 
+                                                                  
 
-
-   <!--l. 567--><div class="crosslinks"><p class="noindent">[<a 
+                                                                  
+   <!--l. 641--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse5.html" >next</a>] [<a 
 href="fourier_analysisse3.html" >prev</a>] [<a 
 href="fourier_analysisse3.html#tailfourier_analysisse3.html" >prev-tail</a>] [<a 
 href="fourier_analysisse4.html" >front</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse4.html" >up</a>] </p></div>
-<!--l. 567--><p class="indent" >   <a 
+<!--l. 641--><p class="indent" >   <a 
  id="tailfourier_analysisse4.html"></a> </p> 
 </body></html> 
