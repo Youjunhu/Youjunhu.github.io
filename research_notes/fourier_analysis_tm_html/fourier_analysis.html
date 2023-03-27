@@ -108,7 +108,7 @@
       The Fast Fourier Transform algorithm (FFT) makes the Fourier analysis
       fast enough to solve many real-life problems, which makes FFT be among
       the top ten algorithms that have changed the world. The FFT algorithm
-      remain mysterious to me for decades until I read Cooley and Tukey's
+      remained mysterious to me for many years until I read Cooley and Tukey's
       original paper, which turns out to be a very concise paper and very easy
       to follow (details are discussed in Append. <a href="#23-3-23-p1">A</a>).
     </p>
@@ -132,10 +132,10 @@
       functions <img src="fourier_analysis-4.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> and <img src="fourier_analysis-5.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> with <img
       src="fourier_analysis-6.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242431em; margin-top: -0.040969696969697em; vertical-align: -0.201115151515152em; height: 0.930909090909091em"></img> is a &ldquo;complete set&rdquo;[<a href="#bib-snieder1994">1</a>]). We
       will not concern us here with this proof and simply start working with
-      the Fourier series in Eq. (<a href="#2-25-1">?</a>). At this point it is not
+      the Fourier series in Eq. (<a href="#2-25-1">1</a>). At this point it is not
       clear yet what the coefficients <img src="fourier_analysis-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and <img src="fourier_analysis-8.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img> are. These can be obtained by taking product of Eq. (<a
-      href="#2-25-1">?</a>) with <img src="fourier_analysis-9.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> and <span class="no-breaks"><img src="fourier_analysis-10.png"
+      href="#2-25-1">1</a>) with <img src="fourier_analysis-9.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> and <span class="no-breaks"><img src="fourier_analysis-10.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> respectively, and then integrating form <img src="fourier_analysis-11.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: 0.0613333333333333em; margin-right: -0.0248242424242426em; margin-top: -0.0255515151515152em; vertical-align: -0.0861575757575758em; height: 0.757139393939394em"></img> to <span class="no-breaks"><img src="fourier_analysis-12.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>,</span> which
       gives
@@ -166,7 +166,7 @@
     </table>
     <p>
       In order to enable <img src="fourier_analysis-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> to be uniformly expressed by
-      Eq. (<a href="#2-25-p1">?</a>), we redefine the Fourier series to the following
+      Eq. (<a href="#2-25-p1">3</a>), we redefine the Fourier series to the following
       form
     </p>
     <table width="100%">
@@ -179,15 +179,15 @@
       If <img src="fourier_analysis-1.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is a complex-valued function (the independent
       variable <img src="fourier_analysis-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> is still real number), then the above
       Fourier expansion can be applied to its real part and imaginary part,
-      respectively. Combining the results, we can see that Eqs. (<a href="#2-25-p1">?</a>)-(<a
-      href="#2-25-p3">?</a>) is still valid. In this case, <img src="fourier_analysis-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and
+      respectively. Combining the results, we can see that Eqs. (<a href="#2-25-p1">3</a>)-(<a
+      href="#2-25-p3">5</a>) is still valid. In this case, <img src="fourier_analysis-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and
       <img src="fourier_analysis-8.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img> are complex numbers.
     </p>
     <p>
       Note that sine and cosine are essentially the same function: one can be
       obtained from the other by shifting, i.e., they differs only in the
       &ldquo;phase&rdquo;. For the case that <img src="fourier_analysis-19.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is
-      real-valued, using trigonometric identities, expression (<a href="#2-25-p3">?</a>)
+      real-valued, using trigonometric identities, expression (<a href="#2-25-p3">5</a>)
       can be expressed in terms of only cosine/sine functions:
     </p>
     <table width="100%">
@@ -206,7 +206,7 @@
       </tr>
     </table>
     <p>
-      and the initial phase <img src="fourier_analysis-23.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> is given by
+      and the phase <img src="fourier_analysis-23.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> is given by
     </p>
     <table width="100%">
       <tr>
@@ -251,7 +251,7 @@
       </tr>
     </table>
     <p>
-      in Eq. (<a href="#2-25-p3">?</a>), we obtain
+      in Eq. (<a href="#2-25-p3">5</a>), we obtain
     </p>
     <table width="100%">
       <tr>
@@ -279,7 +279,7 @@
     </table>
     <p>
       where <img src="fourier_analysis-33.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.040969696969697em; vertical-align: -0.201115151515152em; height: 0.930909090909091em"></img> (note <span class="no-breaks"><img src="fourier_analysis-34.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242422em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img>),</span>
-      then Eq. (<a href="#10-24-e1">?</a>) is written
+      then Eq. (<a href="#10-24-e1">12</a>) is written
     </p>
     <table width="100%">
       <tr>
@@ -289,9 +289,9 @@
     </table>
     <p>
       Furthermore, the expressions of <img src="fourier_analysis-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and <img src="fourier_analysis-8.png"
-      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img> given by Eq. (<a href="#2-25-p1">?</a>) and (<a href="#2-25-p1m">?</a>)
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img> given by Eq. (<a href="#2-25-p1">3</a>) and (<a href="#2-25-p1m">4</a>)
       indicate that <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and <img src="fourier_analysis-37.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.234521212121212em; height: 0.669672727272727em"></img> in Eq.
-      (<a href="#2-25-p4">?</a>) can be uniformly expressed as
+      (<a href="#2-25-p4">13</a>) can be uniformly expressed as
     </p>
     <table width="100%">
       <tr>
@@ -300,18 +300,18 @@
       </tr>
     </table>
     <p>
-      Equations (<a href="#2-25-p6">?</a>) along with Eq. (<a href="#2-25-p7">?</a>) gives a
+      Equations (<a href="#2-25-p6">14</a>) along with Eq. (<a href="#2-25-p7">15</a>) gives a
       compact form of the Fourier series. In this expansion, <img src="fourier_analysis-39.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>
       is an integer from negative infinity to positive infinity, which is
-      unlike Eq. (<a href="#2-25-1">?</a>), where <img src="fourier_analysis-39.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> is from zero
-      to positive infinity. An advantage of Eqs. (<a href="#2-25-p6">?</a>) and (<a
-      href="#2-25-p7">?</a>) is that no special treatment is needed for the edge case of
-      <span class="no-breaks"><img src="fourier_analysis-40.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242422em; margin-top: -0.040969696969697em; vertical-align: 0em; height: 0.757139393939394em"></img>.</span>
+      unlike Eq. (<a href="#2-25-1">1</a>), where <img src="fourier_analysis-39.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> is from zero
+      to positive infinity. An advantage of Eqs. (<a href="#2-25-p6">14</a>) and (<a
+      href="#2-25-p7">15</a>) is that no special treatment is needed for the edge case
+      of <span class="no-breaks"><img src="fourier_analysis-40.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242422em; margin-top: -0.040969696969697em; vertical-align: 0em; height: 0.757139393939394em"></img>.</span>
     </p>
     <p>
-      On the other hand, using Eq. (<a href="#2-25-p4">?</a>), the coefficients <img
+      On the other hand, using Eq. (<a href="#2-25-p4">13</a>), the coefficients <img
       src="fourier_analysis-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and <img src="fourier_analysis-8.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img> appearing in Eq. (<a
-      href="#2-25-1">?</a>) can be recovered from <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> by
+      href="#2-25-1">1</a>) can be recovered from <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> by
     </p>
     <table width="100%">
       <tr>
@@ -329,9 +329,9 @@
       Note that if <img src="fourier_analysis-1.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is real, then the coefficients <img
       src="fourier_analysis-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and <img src="fourier_analysis-8.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img> are real while the
       coefficient <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> are complex-valued. Then equation
-      (<a href="#2-25-p4">?</a>) implies that <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and <img src="fourier_analysis-37.png"
+      (<a href="#2-25-p4">13</a>) implies that <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> and <img src="fourier_analysis-37.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.234521212121212em; height: 0.669672727272727em"></img> are complex conjugates. In this case, expressions (<a
-      href="#11-8-e1">?</a>) and (<a href="#4-18-e1">?</a>) are simplified as
+      href="#11-8-e1">16</a>) and (<a href="#4-18-e1">17</a>) are simplified as
     </p>
     <table width="100%">
       <tr>
@@ -347,8 +347,8 @@
     </table>
     <p>
       In terms of <span class="no-breaks"><img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img>,</span> the <img src="fourier_analysis-21.png"
-      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: -0.148363636363636em; height: 0.955151515151515em"></img> and <img src="fourier_analysis-23.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> in Eqs. (<a href="#20-12-16-a1">?</a>) and
-      (<a href="#20-12-19-a1">?</a>) are written as
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: -0.148363636363636em; height: 0.955151515151515em"></img> and <img src="fourier_analysis-23.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> in Eqs. (<a href="#20-12-16-a1">7</a>) and
+      (<a href="#20-12-19-a1">8</a>) are written as
     </p>
     <table width="100%">
       <tr>
@@ -430,7 +430,7 @@
     <p>
       How to numerically compute the Fourier expansion coefficient? A simple
       way is to use the rectangle formula to approximate the integration in
-      Eq. (<a href="#19-1-10-1m">?</a>), i.e.,
+      Eq. (<a href="#19-1-10-1m">27</a>), i.e.,
     </p>
     <table width="100%">
       <tr>
@@ -441,14 +441,14 @@
     <p>
       where <img src="fourier_analysis-57.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img> and <img src="fourier_analysis-58.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0627878787878788em; vertical-align: -0.289115151515152em; height: 1.09168484848485em"></img> with <img src="fourier_analysis-59.png"
       style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242431em; margin-top: -0.0255515151515152em; vertical-align: -0.201115151515152em; height: 0.955733333333333em"></img> and <span class="no-breaks"><img src="fourier_analysis-60.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0998787878787883em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Note Eq.
-      (<a href="#10-3-e2m">?</a>) is an approximation, which will become exact if <span
+      (<a href="#10-3-e2m">28</a>) is an approximation, which will become exact if <span
       class="no-breaks"><img src="fourier_analysis-61.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242422em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.8192em"></img>.</span> In practice, we can sample <img
       src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> only with a nonzero <span class="no-breaks"><img src="fourier_analysis-63.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img>.</span>
-      Therefore Eq. (<a href="#10-3-e2m">?</a>) is usually an approximation. Do we have
+      Therefore Eq. (<a href="#10-3-e2m">28</a>) is usually an approximation. Do we have
       some rules to choose a suitable <img src="fourier_analysis-63.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> so that Eq. (<a
-      href="#10-3-e2m">?</a>) can become a good approximation or even an exact relation?
+      href="#10-3-e2m">28</a>) can become a good approximation or even an exact relation?
       This important question is answered by the sampling theorem, which sates
-      that a suitable <img src="fourier_analysis-64.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> to make Eq. (<a href="#10-3-e2m">?</a>)
+      that a suitable <img src="fourier_analysis-64.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> to make Eq. (<a href="#10-3-e2m">28</a>)
       exact is given by <span class="no-breaks"><img src="fourier_analysis-65.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> where
       <img src="fourier_analysis-66.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.140315151515152em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is the largest frequency contained in <img src="fourier_analysis-62.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> (i.e, <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> is zero for <span class="no-breaks"><img
@@ -490,7 +490,7 @@
     </table>
     <p>
       In terms of <span class="no-breaks"><img src="fourier_analysis-72.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242426em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img>,</span> the coefficient
-      in Eq. (<a href="#9-28-2">?</a>) is written
+      in Eq. (<a href="#9-28-2">31</a>) is written
     </p>
     <table width="100%">
       <tr>
@@ -500,7 +500,7 @@
     </table>
     <p>
       In terms of <span class="no-breaks"><img src="fourier_analysis-72.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242426em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img>,</span> the Fourier
-      series in Eq. (<a href="#9-27-e14">?</a>) is written
+      series in Eq. (<a href="#9-27-e14">29</a>) is written
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
@@ -545,7 +545,7 @@
       </tr>
     </table>
     <p>
-      where <img src="fourier_analysis-89.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is given by Eq. (<a href="#9-27-e11">?</a>), i.e.,
+      where <img src="fourier_analysis-89.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is given by Eq. (<a href="#9-27-e11">32</a>), i.e.,
     </p>
     <table width="100%">
       <tr>
@@ -554,13 +554,13 @@
       </tr>
     </table>
     <p>
-      Note that the function <img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> given in Eq. (<a href="#9-28-6">?</a>)
+      Note that the function <img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> given in Eq. (<a href="#9-28-6">35</a>)
       is proportional to <img src="fourier_analysis-91.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> while the function <img src="fourier_analysis-89.png"
-      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> given in Eq. (<a href="#9-28-7">?</a>) is proportional to <span
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> given in Eq. (<a href="#9-28-7">36</a>) is proportional to <span
       class="no-breaks"><img src="fourier_analysis-83.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.140315151515152em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Since <span class="no-breaks"><img src="fourier_analysis-87.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.769551515151515em"></img>,</span> it is desired to eliminate the <img src="fourier_analysis-53.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.140315151515152em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>
-      and <img src="fourier_analysis-83.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.140315151515152em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> factors in Eqs. (<a href="#9-28-6">?</a>) and (<a
-      href="#9-28-7">?</a>), which can be easily achieved by defining a new function
+      and <img src="fourier_analysis-83.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.140315151515152em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> factors in Eqs. (<a href="#9-28-6">35</a>) and (<a
+      href="#9-28-7">36</a>), which can be easily achieved by defining a new function
     </p>
     <table width="100%">
       <tr>
@@ -569,7 +569,7 @@
       </tr>
     </table>
     <p>
-      Then equations (<a href="#9-28-6">?</a>) and (<a href="#9-28-7">?</a>) are written as
+      Then equations (<a href="#9-28-6">35</a>) and (<a href="#9-28-7">36</a>) are written as
     </p>
     <table width="100%">
       <tr>
@@ -584,7 +584,7 @@
       </tr>
     </table>
     <p>
-      Equations (<a href="#9-28-10">?</a>) and (<a href="#9-28-11">?</a>) are the Fourier
+      Equations (<a href="#9-28-10">38</a>) and (<a href="#9-28-11">39</a>) are the Fourier
       transformation pairs discussed in the next section.
     </p>
     <h3 id="auto-8">3.2<span style="margin-left: 1em"></span>Fourier transformation<span style="margin-left: 1em"></span></h3>
@@ -612,12 +612,12 @@
       
     </p>
     <p>
-      [Note that the signs in the exponential of Eq. (<a href="#9-28-10">?</a>) and (<a
-      href="#9-28-11">?</a>) are opposite. Which one should be minus or positive is
+      [Note that the signs in the exponential of Eq. (<a href="#9-28-10">38</a>) and (<a
+      href="#9-28-11">39</a>) are opposite. Which one should be minus or positive is
       actually a matter of convention because a trivial variable substitution
       <img src="fourier_analysis-98.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0894060606060605em; margin-top: -0.0321939393939393em; vertical-align: -0.201115151515152em; height: 1.04121212121212em"></img> can change the sign between minus and positive.
       Proof. In terms of <span class="no-breaks"><img src="fourier_analysis-99.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242424em; margin-top: -0.0321939393939393em; vertical-align: -0.201115151515152em; height: 1.04121212121212em"></img>,</span> Eq.  (<a
-      href="#10-11-3">?</a>) is written
+      href="#10-11-3">41</a>) is written
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
@@ -662,15 +662,15 @@
       </tr>
     </table>
     <p>
-      The signs in the exponential of Eqs. (<a href="#9-28-20">43</a>) and (<a href="#9-28-21">?</a>)
-      are opposite to Eqs. (<a href="#10-3-e1">?</a>) and (<a href="#10-11-3">?</a>),
+      The signs in the exponential of Eqs. (<a href="#9-28-20">43</a>) and (<a href="#9-28-21">44</a>)
+      are opposite to Eqs. (<a href="#10-3-e1">40</a>) and (<a href="#10-11-3">41</a>),
       respectively.]
     </p>
     <p>
       [Some physicists prefer to use the angular frequency <img src="fourier_analysis-107.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0894060606060609em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img>
       rather than the frequency <img src="fourier_analysis-108.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0894060606060606em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img> to represent the
       Fourier transformation. Using <span class="no-breaks"><img src="fourier_analysis-109.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>,</span>
-      equations. (<a href="#10-3-e1">?</a>) and (<a href="#10-11-3">?</a>) are written,
+      equations. (<a href="#10-3-e1">40</a>) and (<a href="#10-11-3">41</a>) are written,
       respectively, as
     </p>
     <table width="100%">
@@ -696,8 +696,8 @@
       and inverse transformation is equal to <span class="no-breaks"><img src="fourier_analysis-112.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span>
       To obtain a more symmetric pair, one can adopt a factor <img src="fourier_analysis-113.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.021139393939394em; margin-right: -0.0248242424242422em; margin-top: 0.0309818181818181em; vertical-align: -0.264339393939394em; height: 1.12780606060606em"></img>
       at both the forward and inverse transformation. The representation in
-      Eqs. (<a href="#10-3-e1">?</a>) and (<a href="#10-11-3">?</a>) is adopted in this note. But
-      we should know how to change to the <img src="fourier_analysis-109.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>
+      Eqs. (<a href="#10-3-e1">40</a>) and (<a href="#10-11-3">41</a>) is adopted in this note.
+      But we should know how to change to the <img src="fourier_analysis-109.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>
       representation when needed.]
     </p>
     <p>
@@ -718,7 +718,7 @@
       Next, consider how to numerically compute the Fourier transformation of
       a function <span class="no-breaks"><img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> A simple way is
       to use the rectangle formula to approximate the integration in Eq. (<a
-      href="#10-3-e1">?</a>), i.e.,
+      href="#10-3-e1">40</a>), i.e.,
     </p>
     <table width="100%">
       <tr>
@@ -728,15 +728,15 @@
     </table>
     <p>
       where <img src="fourier_analysis-57.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img> and <img src="fourier_analysis-58.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0627878787878788em; vertical-align: -0.289115151515152em; height: 1.09168484848485em"></img> with <span
-      class="no-breaks"><img src="fourier_analysis-116.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242431em; margin-top: -0.037769696969697em; vertical-align: -0.201115151515152em; height: 0.943321212121212em"></img>.</span> Note Eq. (<a href="#10-3-e2">?</a>) is an
+      class="no-breaks"><img src="fourier_analysis-116.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242431em; margin-top: -0.037769696969697em; vertical-align: -0.201115151515152em; height: 0.943321212121212em"></img>.</span> Note Eq. (<a href="#10-3-e2">48</a>) is an
       approximation, which will become exact if <span class="no-breaks"><img src="fourier_analysis-61.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242422em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.8192em"></img>.</span>
       In practice, we can sample <img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> only with a nonzero
-      <span class="no-breaks"><img src="fourier_analysis-63.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img>.</span> Therefore Eq. (<a href="#10-3-e2">?</a>)
+      <span class="no-breaks"><img src="fourier_analysis-63.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img>.</span> Therefore Eq. (<a href="#10-3-e2">48</a>)
       is usually an approximation. Do we have some rules to choose a suitable
-      <img src="fourier_analysis-63.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> so that Eq. (<a href="#10-3-e2">?</a>) can become a good
+      <img src="fourier_analysis-63.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> so that Eq. (<a href="#10-3-e2">48</a>) can become a good
       approximation or even an exact relation? This important question is
       answered by the sampling theorem, which sates that a suitable <img src="fourier_analysis-64.png"
-      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> to make Eq. (<a href="#10-3-e2">?</a>) exact is given by <span
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> to make Eq. (<a href="#10-3-e2">48</a>) exact is given by <span
       class="no-breaks"><img src="fourier_analysis-65.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> where <img src="fourier_analysis-117.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242424em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img> is
       the largest frequency contained in <img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> (i.e., <img
       src="fourier_analysis-118.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> for <span class="no-breaks"><img src="fourier_analysis-119.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>).</span>
@@ -780,10 +780,10 @@
     </table>
     <p>
       We will not concern us here with the proof of the sampling theorem and
-      simply start working with Eq. (<a href="#8-28-4">?</a>) to derive the concrete
+      simply start working with Eq. (<a href="#8-28-4">51</a>) to derive the concrete
       expression for the Fourier transformation of <span class="no-breaks"><img src="fourier_analysis-62.png"
-      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Substituting the expression (<a href="#8-28-4">?</a>) for
-      <img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> into the Fourier transformation (<a href="#10-3-e1">?</a>),
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Substituting the expression (<a href="#8-28-4">51</a>) for
+      <img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> into the Fourier transformation (<a href="#10-3-e1">40</a>),
       we obtain the explicit form of the Fourier transformation of <span
       class="no-breaks"><img src="fourier_analysis-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>:</span>
     </p>
@@ -835,11 +835,11 @@
       which shows that <img src="fourier_analysis-118.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> for <span class="no-breaks"><img src="fourier_analysis-119.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> which is consistent with the assumption of
       sampling theorem, i.e., <img src="fourier_analysis-96.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> has the property given
-      in Eq. (<a href="#8-28-3">?</a>). The second line of Eq. (<a href="#8-28-5">?</a>) is
-      identical to Eq. (<a href="#10-3-e2">?</a>) except that Eq. (<a href="#8-28-5">?</a>) in
-      this case is exact while Eq. (<a href="#10-3-e2">?</a>) is only approximate. In
+      in Eq. (<a href="#8-28-3">50</a>). The second line of Eq. (<a href="#8-28-5">54</a>) is
+      identical to Eq. (<a href="#10-3-e2">48</a>) except that Eq. (<a href="#8-28-5">54</a>) in
+      this case is exact while Eq. (<a href="#10-3-e2">48</a>) is only approximate. In
       other words, if <span class="no-breaks"><img src="fourier_analysis-65.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then the
-      Fourier transformation is exactly given by Eq. (<a href="#8-28-5">?</a>), where
+      Fourier transformation is exactly given by Eq. (<a href="#8-28-5">54</a>), where
       <img src="fourier_analysis-117.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242424em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img> is the largest frequency contained in <img src="fourier_analysis-62.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> (i.e., <img src="fourier_analysis-118.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> for <span class="no-breaks"><img src="fourier_analysis-119.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>).</span>
@@ -887,7 +887,7 @@
       </table>
     </div>
     <p>
-      Then the infinite summation in Eq. (<a href="#2-26-p1">?</a>) reduces to the
+      Then the infinite summation in Eq. (<a href="#2-26-p1">55</a>) reduces to the
       following partial sum:
     </p>
     <table width="100%">
@@ -916,7 +916,7 @@
     <p>
       with <img src="fourier_analysis-148.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242413em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> (we consider only the case that <img src="fourier_analysis-149.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> is an even number). Evaluate <img src="fourier_analysis-96.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> given
-      by Eq. (<a href="#2-26-4">?</a>) at <span class="no-breaks"><img src="fourier_analysis-81.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242426em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img>,</span>
+      by Eq. (<a href="#2-26-4">56</a>) at <span class="no-breaks"><img src="fourier_analysis-81.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242426em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img>,</span>
       then <img src="fourier_analysis-150.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is written as
     </p>
     <table width="100%">
@@ -926,7 +926,7 @@
       </tr>
     </table>
     <p>
-      The partial summation in Eq. (<a href="#2-26-1">?</a>),
+      The partial summation in Eq. (<a href="#2-26-1">58</a>),
     </p>
     <table width="100%">
       <tr>
@@ -937,7 +937,7 @@
     <p>
       is called the <strong>Discrete Fourier transformation (DFT)</strong>.
       (The efficient algorithm of computing the DFT is discussed in Appendix
-      <a href="#18-1-28-a1">A</a>.) Using Eqs. (<a href="#2-26-1">?</a>) and (<a href="#2-26-2">?</a>), we
+      <a href="#18-1-28-a1">A</a>.) Using Eqs. (<a href="#2-26-1">58</a>) and (<a href="#2-26-2">59</a>), we
       know <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> is related to the value of Fourier
       transform <img src="fourier_analysis-144.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> at <img src="fourier_analysis-81.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0248242424242426em; margin-top: -0.0388848484848485em; vertical-align: -0.201115151515152em; height: 0.992969696969697em"></img> by
     </p>
@@ -949,7 +949,7 @@
     </table>
     <p>
       and the Fourier expansion coefficients <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> in Eq.
-      (<a href="#10-3-e2m">?</a>) by
+      (<a href="#10-3-e2m">28</a>) by
     </p>
     <table width="100%">
       <tr>
@@ -961,7 +961,7 @@
     transformation<span style="margin-left: 1em"></span></h3>
     <p>
       The DFT of time-domain array <img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img> with <img src="fourier_analysis-156.png"
-      style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.201115151515152em; height: 0.955733333333333em"></img> is given by Eq. (<a href="#2-26-2">?</a>), i.e.,
+      style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.201115151515152em; height: 0.955733333333333em"></img> is given by Eq. (<a href="#2-26-2">59</a>), i.e.,
     </p>
     <table width="100%">
       <tr>
@@ -979,7 +979,7 @@
       the range <span class="no-breaks"><img src="fourier_analysis-156.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.201115151515152em; height: 0.955733333333333em"></img>.</span> Further note that
       <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> contains <img src="fourier_analysis-160.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242426em; margin-top: -0.0255515151515152em; vertical-align: -0.0861575757575758em; height: 0.844024242424242em"></img> elements while
       <img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img> contains only <img src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> elements.
-      It is ready to find that the array defined in Eq. (<a href="#3-25-e3">?</a>) has
+      It is ready to find that the array defined in Eq. (<a href="#3-25-e3">62</a>) has
       the following periodic property
     </p>
     <table width="100%">
@@ -1007,12 +1007,12 @@
       the range <span class="no-breaks"><img src="fourier_analysis-158.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then shift the
       array to achieve the desired storage arrangement, as is shown in Fig <a
       href="#4-16-1">2</a>. It turns out that we have a better way to achieve the same
-      goal: using again the periodic property Eq. (<a href="#3-25-e1">?</a>), we know
+      goal: using again the periodic property Eq. (<a href="#3-25-e1">63</a>), we know
       that the value of the <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> array elements with
       negative subscripts, <span class="no-breaks"><img src="fourier_analysis-166.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span>
       happens to be equal to the value of the <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> elements
       with subscripts <span class="no-breaks"><img src="fourier_analysis-167.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242413em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span>
-      respectively. Using this, we can simply use Eq. (<a href="#3-25-e3">?</a>) to
+      respectively. Using this, we can simply use Eq. (<a href="#3-25-e3">62</a>) to
       calculate values of <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> in the range <img src="fourier_analysis-168.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.201115151515152em; height: 0.955733333333333em"></img> and the array obtained is exactly in the desired storage
       arrangement.
@@ -1040,7 +1040,7 @@
       </table>
     </div>
     <p>
-      In practice, we do not use Eq. (<a href="#3-25-e3">?</a>) directly to calculate
+      In practice, we do not use Eq. (<a href="#3-25-e3">62</a>) directly to calculate
       <span class="no-breaks"><img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img>.</span> Instead, the famous Fast
       Fourier Transformation (FFT) algorithm is used to calculate <img src="fourier_analysis-153.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> with <span class="no-breaks"><img src="fourier_analysis-172.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242431em; margin-top: -0.0255515151515152em; vertical-align: -0.201115151515152em; height: 0.955733333333333em"></img>.</span> Remember
@@ -1058,7 +1058,7 @@
       </tr>
     </table>
     <p>
-      Define <span class="no-breaks"><img src="fourier_analysis-177.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.140315151515151em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then Eq. (<a href="#17-10-14-1">?</a>)
+      Define <span class="no-breaks"><img src="fourier_analysis-177.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.140315151515151em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then Eq. (<a href="#17-10-14-1">64</a>)
       can be written as
     </p>
     <table width="100%">
@@ -1191,13 +1191,13 @@
       </tr>
     </table>
     <p>
-      The right-hand side of Eq. (<a href="#11-9-3">?</a>) turns out to be the inverse
+      The right-hand side of Eq. (<a href="#11-9-3">71</a>) turns out to be the inverse
       DFT discussed in Sec. <a href="#11-9-2">5.3</a>.
     </p>
     <h3 id="auto-20">5.3<span style="margin-left: 1em"></span><a id="11-9-2"></a>Inverse Discrete Fourier
     transformation<span style="margin-left: 1em"></span></h3>
     <p>
-      The DFT in Eq. (<a href="#2-26-2">?</a>), i.e.,
+      The DFT in Eq. (<a href="#2-26-2">59</a>), i.e.,
     </p>
     <table width="100%">
       <tr>
@@ -1218,11 +1218,11 @@
       </tr>
     </table>
     <p>
-      (The details on how to solve Eq. (<a href="#2-26-2">?</a>) to obtain the solution
-      (<a href="#10-7-1">?</a>) is provided in Sec. <a href="#10-7-p5">5.4</a>.) Equation (<a
-      href="#10-7-1">?</a>) recovers <img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img> from <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img>
-      (i.e., the DFT of <span class="no-breaks"><img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img>),</span> and thus
-      is called the inverse DFT.
+      (The details on how to solve Eq. (<a href="#2-26-2">59</a>) to obtain the
+      solution (<a href="#10-7-1">73</a>) is provided in Sec. <a href="#10-7-p5">5.4</a>.)
+      Equation (<a href="#10-7-1">73</a>) recovers <img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img> from <img
+      src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> (i.e., the DFT of <span class="no-breaks"><img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img>),</span>
+      and thus is called the inverse DFT.
     </p>
     <p>
       The normalization factor multiplying the DFT and inverse DFT (here <img
@@ -1239,7 +1239,7 @@
     <h3 id="auto-21">5.4<span style="margin-left: 1em"></span><a id="10-7-p5"></a>Proof of the inverse DFT<span
     style="margin-left: 1em"></span></h3>
     <p>
-      In order to solve the linear algebraic equations (<a href="#2-26-2">?</a>) for
+      In order to solve the linear algebraic equations (<a href="#2-26-2">59</a>) for
       <span class="no-breaks"><img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img>,</span> multiply both sides of each
       equation by <span class="no-breaks"><img src="fourier_analysis-203.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242425em; margin-right: 0em; margin-top: -0.0423272727272728em; vertical-align: -0.439418181818182em; height: 1.51626666666667em"></img>,</span> where <img src="fourier_analysis-204.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0967272727272728em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.781963636363636em"></img> is an integer between <span class="no-breaks"><img src="fourier_analysis-205.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0144969696969697em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.07985454545455em"></img>,</span>
@@ -1253,7 +1253,7 @@
     </table>
     <p>
       Interchanging the sequence of the two summation on the right-hand side,
-      equation (<a href="#10-7-p2">?</a>) is written
+      equation (<a href="#10-7-p2">74</a>) is written
     </p>
     <table width="100%">
       <tr>
@@ -1271,7 +1271,7 @@
       </tr>
     </table>
     <p>
-      where <img src="fourier_analysis-209.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0206545454545454em; margin-right: -0.0248242424242424em; margin-top: -0.0388848484848485em; vertical-align: -0.289066666666667em; height: 1.06686060606061em"></img> is the Kroneker Delta, equation (<a href="#10-7-p3">?</a>)
+      where <img src="fourier_analysis-209.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0206545454545454em; margin-right: -0.0248242424242424em; margin-top: -0.0388848484848485em; vertical-align: -0.289066666666667em; height: 1.06686060606061em"></img> is the Kroneker Delta, equation (<a href="#10-7-p3">75</a>)
       is written
     </p>
     <table width="100%">
@@ -1299,7 +1299,7 @@
       </tr>
     </table>
     <p>
-      Equation (<a href="#10-7-p1">?</a>) is the inverse DFT.
+      Equation (<a href="#10-7-p1">79</a>) is the inverse DFT.
     </p>
     <h2 id="auto-22">6<span style="margin-left: 1em"></span>About using the FFTW library<span style="margin-left: 1em"></span></h2>
     <p>
@@ -1486,7 +1486,7 @@ call fftw_destroy_plan(plan2)</pre>
               not satisfy the condition <img src="fourier_analysis-233.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242413em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> (<img src="fourier_analysis-226.png"
               style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242422em; margin-top: -0.040969696969697em; vertical-align: -0.148363636363636em; height: 0.893090909090909em"></img> and <img src="fourier_analysis-227.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242426em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> for this case). The
               expansion coefficients <img src="fourier_analysis-240.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> are obtained via
-              the discrete sine transform (<a href="#18-1-11-a2">?</a>) with number of
+              the discrete sine transform (<a href="#18-1-11-a2">82</a>) with number of
               sampling point <span class="no-breaks"><img src="fourier_analysis-241.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242426em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.781963636363636em"></img>.</span> The
               reconstruction formula is given by <span class="no-breaks"><img src="fourier_analysis-242.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0289939393939393em; margin-right: 0em; margin-top: -0.0331151515151515em; vertical-align: -0.672290909090909em; height: 1.92387878787879em"></img>.</span>
             </p></font>
@@ -1543,7 +1543,7 @@ call fftw_destroy_plan(plan2)</pre>
       by <span class="no-breaks"><img src="fourier_analysis-250.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> The inverse sine
       transformation is given by (I did not derive this, but had numerically
       verified that this transform recovers the original data if applied after
-      the sine transform (<a href="#18-1-11-a2">?</a>) (code at
+      the sine transform (<a href="#18-1-11-a2">82</a>) (code at
       /home/yj/project_new/test_space/sine_expansion/t2.f90))
     </p>
     <p>
@@ -1559,8 +1559,8 @@ call fftw_destroy_plan(plan2)</pre>
       which is identical with the forward sine transformation except for the
       normalization factor <span class="no-breaks"><img src="fourier_analysis-252.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0998787878787879em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> (The
       elements with index of zero can also be excluded from the summation (<a
-      href="#18-1-11-a2">?</a>) and (<a href="#18-8-15-p1">?</a>) since these elements are zero).
-      Replacing <img src="fourier_analysis-253.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0269090909090909em; margin-right: -0.0998787878787879em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> in Eq. (<a href="#18-8-15-p1">?</a>) by <img src="fourier_analysis-254.png"
+      href="#18-1-11-a2">82</a>) and (<a href="#18-8-15-p1">83</a>) since these elements are zero).
+      Replacing <img src="fourier_analysis-253.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0269090909090909em; margin-right: -0.0998787878787879em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> in Eq. (<a href="#18-8-15-p1">83</a>) by <img src="fourier_analysis-254.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> , we obtain the reconstructing function
     </p>
     <table width="100%">
@@ -1658,7 +1658,7 @@ call fftw_destroy_plan(plan2)</pre>
     </table>
     <p>
       Noting that <img src="fourier_analysis-273.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0321939393939394em; vertical-align: -0.185987878787879em; height: 1.0662303030303em"></img> and <span class="no-breaks"><img src="fourier_analysis-274.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0131393939393939em; margin-right: -0.0248242424242422em; margin-top: -0.0321939393939394em; vertical-align: -0.272145454545455em; height: 1.12829090909091em"></img>,</span>
-      then expression (<a href="#18-1-12-a1">?</a>) is written as
+      then expression (<a href="#18-1-12-a1">85</a>) is written as
     </p>
     <table width="100%">
       <tr>
@@ -1677,7 +1677,7 @@ call fftw_destroy_plan(plan2)</pre>
       </tr>
     </table>
     <p>
-      Using the relations (<a href="#18-1-12-a2">?</a>) and (<a href="#18-1-12-a3">?</a>) to replace
+      Using the relations (<a href="#18-1-12-a2">86</a>) and (<a href="#18-1-12-a3">87</a>) to replace
       <img src="fourier_analysis-268.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0321939393939394em; vertical-align: -0.326739393939394em; height: 1.20276363636364em"></img> by <span class="no-breaks"><img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img>,</span>
       the above expression is written
     </p>
@@ -1755,7 +1755,7 @@ call fftw_destroy_plan(plan2)</pre>
     <p>
       with <span class="no-breaks"><img src="fourier_analysis-294.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.0264727272727273em; vertical-align: -0.201115151515152em; height: 0.968145454545455em"></img>,</span> which is the index
       that we prefer. Finally, the so-called type-I Discrete Sine Transform
-      (DST-I) is defined based on Eq. (<a href="#18-1-12-a10">?</a>) via
+      (DST-I) is defined based on Eq. (<a href="#18-1-12-a10">93</a>) via
     </p>
     <table width="100%">
       <tr>
@@ -1791,7 +1791,7 @@ call fftw_destroy_plan(plan2)</pre>
       samplings <img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img> with <img src="fourier_analysis-156.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.201115151515152em; height: 0.955733333333333em"></img> are made.
       For our present case, i.e., an odd extension of the original <img src="fourier_analysis-39.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> data, we have <img src="fourier_analysis-262.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> and <img src="fourier_analysis-300.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img>
-      and <span class="no-breaks"><img src="fourier_analysis-301.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0176em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.353018181818182em; height: 1.10293333333333em"></img>.</span> Then Eq. (<a href="#18-1-12-e1">?</a>)
+      and <span class="no-breaks"><img src="fourier_analysis-301.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0176em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.353018181818182em; height: 1.10293333333333em"></img>.</span> Then Eq. (<a href="#18-1-12-e1">95</a>)
       is written as
     </p>
     <table width="100%">
@@ -1843,7 +1843,7 @@ call fftw_destroy_plan(plan2)</pre>
     <p>
       As a convention, we prefer that the summation index begins from 0 and
       ends at <span class="no-breaks"><img src="fourier_analysis-309.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242426em; margin-top: -0.040969696969697em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img>.</span> Then expression (<a
-      href="#18-1-12-e3">?</a>) is written as
+      href="#18-1-12-e3">100</a>) is written as
     </p>
     <center>
       <img src="fourier_analysis-310.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: 0em; margin-top: -0.0423272727272725em; vertical-align: -1.21178181818182em; height: 3.03626666666667em"></img>
@@ -1873,7 +1873,7 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <h4 id="auto-31">7.3.1<span style="margin-left: 1em"></span>Inverse DST<span style="margin-left: 1em"></span></h4>
     <p>
-      Evaluate the function in Eq. (<a href="#18-1-13-e3">?</a>) at <img src="fourier_analysis-316.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img>
+      Evaluate the function in Eq. (<a href="#18-1-13-e3">101</a>) at <img src="fourier_analysis-316.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img>
       with <span class="no-breaks"><img src="fourier_analysis-317.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.037769696969697em; vertical-align: -0.201115151515152em; height: 0.943321212121212em"></img>,</span> then we obtain
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
@@ -1927,7 +1927,7 @@ call fftw_destroy_plan(plan2)</pre>
       thus do not satisfy the condition required by the sampling theorem
       (i.e., <img src="fourier_analysis-118.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> for <span class="no-breaks"><img src="fourier_analysis-323.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>).</span>
       In this case, for any given <img src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> data, we can still
-      calculate its DFT by using Eq. (<a href="#2-26-2">?</a>). However the results
+      calculate its DFT by using Eq. (<a href="#2-26-2">59</a>). However the results
       obtained are meaningful only when <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> approaches
       zero as the frequency approaches <img src="fourier_analysis-324.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> from above and
       approaches <img src="fourier_analysis-325.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> from below, i.e., only when the
@@ -1996,7 +1996,7 @@ call fftw_destroy_plan(plan2)</pre>
       Fourier series and DFT are discrete in frequency, it is instructive to
       examine the relation between the Fourier coefficient <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img>
       and the DFT <span class="no-breaks"><img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img>.</span> The Fourier
-      coefficient of <img src="fourier_analysis-52.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is given by Eq. (<a href="#9-28-2">?</a>),
+      coefficient of <img src="fourier_analysis-52.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is given by Eq. (<a href="#9-28-2">31</a>),
       i.e.,
     </p>
     <table width="100%">
@@ -2020,7 +2020,7 @@ call fftw_destroy_plan(plan2)</pre>
       src="fourier_analysis-123.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then the number of sampling points per period
       is <span class="no-breaks"><img src="fourier_analysis-329.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Then the frequency at
       which the Fourier transform <img src="fourier_analysis-144.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is evaluated in
-      getting the DFT [Eq. (<a href="#10-26-1">?</a>)] is written
+      getting the DFT [Eq. (<a href="#10-26-1">57</a>)] is written
     </p>
     <table width="100%">
       <tr>
@@ -2031,7 +2031,7 @@ call fftw_destroy_plan(plan2)</pre>
     <p>
       which is identical to the frequency to which the Fourier coefficient
       <img src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> corresponds. Using <img src="fourier_analysis-331.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> in
-      Eq. (<a href="#9-29-3">?</a>), we obtain
+      Eq. (<a href="#9-29-3">105</a>), we obtain
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
@@ -2061,8 +2061,8 @@ call fftw_destroy_plan(plan2)</pre>
     <p>
       i.e., dividing the DFT <img src="fourier_analysis-153.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> by <img src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>
       gives the corresponding Fourier expansion coefficient <span class="no-breaks"><img
-      src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img>.</span> We can further use Eqs. (<a href="#18-2-2p1">?</a>) and
-      (<a href="#18-2-2p2">?</a>) to recover the Fourier coefficients in terms of
+      src="fourier_analysis-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img>.</span> We can further use Eqs. (<a href="#18-2-2p1">24</a>) and
+      (<a href="#18-2-2p2">25</a>) to recover the Fourier coefficients in terms of
       trigonometric functions cosine and sine, 
     </p>
     <p>
@@ -2074,7 +2074,7 @@ call fftw_destroy_plan(plan2)</pre>
     method of computing DFT: Fast Fourier Transformation (FFT) algorithm (not
     finished)</h2>
     <p>
-      The DFT is defined by Eq. (<a href="#2-26-2">?</a>), i.e.,
+      The DFT is defined by Eq. (<a href="#2-26-2">59</a>), i.e.,
     </p>
     <table width="100%">
       <tr>
@@ -2083,7 +2083,7 @@ call fftw_destroy_plan(plan2)</pre>
       </tr>
     </table>
     <p>
-      where <span class="no-breaks"><img src="fourier_analysis-159.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Equations (<a href="#18-1-28-a2">?</a>)
+      where <span class="no-breaks"><img src="fourier_analysis-159.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Equations (<a href="#18-1-28-a2">109</a>)
       indicates that the DFT is the multiplication of a transformation matrix
       <img src="fourier_analysis-339.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0309333333333334em; vertical-align: -0.289115151515152em; height: 1.22681212121212em"></img> with a column vector <span class="no-breaks"><img src="fourier_analysis-340.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.148363636363636em; height: 0.930327272727273em"></img>,</span> where the transformation matrix <img src="fourier_analysis-215.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.289115151515152em; height: 1.05444848484848em"></img>
@@ -2097,9 +2097,9 @@ call fftw_destroy_plan(plan2)</pre>
       </tr>
     </table>
     <p>
-      If directly using the definition in Eq. (<a href="#18-1-31-a1">?</a>) to compute DFT,
-      then a matrix multiplication need to be performed, which requires <img
-      src="fourier_analysis-342.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0423272727272728em; vertical-align: -0.258569696969697em; height: 1.16533333333333em"></img> operations. Here the powers of <img src="fourier_analysis-343.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.115442424242424em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.781963636363636em"></img>
+      If directly using the definition in Eq. (<a href="#18-1-31-a1">110</a>) to compute
+      DFT, then a matrix multiplication need to be performed, which requires
+      <img src="fourier_analysis-342.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0423272727272728em; vertical-align: -0.258569696969697em; height: 1.16533333333333em"></img> operations. Here the powers of <img src="fourier_analysis-343.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.115442424242424em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.781963636363636em"></img>
       are assumed to be pre-computed, and we define &ldquo;an operation&rdquo;
       as a multiplication followed by an addition.
     </p>
@@ -2119,8 +2119,8 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <p>
       Suppose <img src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> is a composite, i.e., <span class="no-breaks"><img
-      src="fourier_analysis-345.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.90550303030303em"></img>.</span> Then the indices in Eq. (<a href="#18-1-28-a2">?</a>) can
-      be expressed as
+      src="fourier_analysis-345.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242422em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.90550303030303em"></img>.</span> Then the indices in Eq. (<a href="#18-1-28-a2">109</a>)
+      can be expressed as
     </p>
     <table width="100%">
       <tr>
@@ -2190,15 +2190,6 @@ call fftw_destroy_plan(plan2)</pre>
       two-step algorithm requires a total of <img src="fourier_analysis-360.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>
       operations.
     </p>
-    <center>
-      
-    </center>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
     <p>
       
     </p>
@@ -2210,101 +2201,100 @@ call fftw_destroy_plan(plan2)</pre>
     <h3 id="auto-39">B.1<span style="margin-left: 1em"></span>2D Fourier series in terms of complex basis
     functions<span style="margin-left: 1em"></span></h3>
     <p>
-      Compared with Eq. (<a href="#2-25-1">?</a>) that uses the trigonometric
-      functions, Fourier series (<a href="#2-25-p6">?</a>) and (<a href="#2-25-p7">?</a>), which
+      Compared with Eq. (<a href="#2-25-1">1</a>) that uses the trigonometric
+      functions, Fourier series (<a href="#2-25-p6">14</a>) and (<a href="#2-25-p7">15</a>), which
       is expressed in terms of the complex exponential function <span class="no-breaks"><img
-      src="fourier_analysis-362.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0279757575757575em; vertical-align: 0em; height: 1.01178181818182em"></img>,</span> is more compact. The convenience introduced
+      src="fourier_analysis-361.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0279757575757575em; vertical-align: 0em; height: 1.01178181818182em"></img>,</span> is more compact. The convenience introduced
       by the complex exponential function is more obvious when we deal with
       multiple-dimensional cases. For example, a two-dimensional function <img
-      src="fourier_analysis-363.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> can be expanded as Fourier series about <span class="no-breaks"><img
+      src="fourier_analysis-362.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> can be expanded as Fourier series about <span class="no-breaks"><img
       src="fourier_analysis-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>,</span>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-364.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242431em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em" id="10-22-p2"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-363.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242431em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em" id="10-22-p2"></img></td>
         <td align="right">(118)</td>
       </tr>
     </table>
     <p>
-      where <img src="fourier_analysis-365.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> is the period of <img src="fourier_analysis-366.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: 0em; height: 0.806787878787879em"></img>
+      where <img src="fourier_analysis-364.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.917915151515152em"></img> is the period of <img src="fourier_analysis-365.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: 0em; height: 0.806787878787879em"></img>
       in <img src="fourier_analysis-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> direction. The expansion coefficients <img
-      src="fourier_analysis-367.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> can be further expanded as Fourier series about <span
-      class="no-breaks"><img src="fourier_analysis-368.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0266181818181818em; margin-top: -0.038739393939394em; vertical-align: -0.201115151515152em; height: 0.71990303030303em"></img>,</span>
+      src="fourier_analysis-366.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> can be further expanded as Fourier series about <span
+      class="no-breaks"><img src="fourier_analysis-367.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0266181818181818em; margin-top: -0.038739393939394em; vertical-align: -0.201115151515152em; height: 0.71990303030303em"></img>,</span>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-369.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em" id="10-22-p1"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-368.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em" id="10-22-p1"></img></td>
         <td align="right">(119)</td>
       </tr>
     </table>
     <p>
-      where <img src="fourier_analysis-370.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.289115151515152em; height: 1.05444848484848em"></img> is the period of <img src="fourier_analysis-366.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: 0em; height: 0.806787878787879em"></img>
-      in <img src="fourier_analysis-368.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0266181818181818em; margin-top: -0.038739393939394em; vertical-align: -0.201115151515152em; height: 0.71990303030303em"></img> direction, and the coefficients <img src="fourier_analysis-371.png"
+      where <img src="fourier_analysis-369.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.289115151515152em; height: 1.05444848484848em"></img> is the period of <img src="fourier_analysis-365.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: 0em; height: 0.806787878787879em"></img>
+      in <img src="fourier_analysis-367.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0266181818181818em; margin-top: -0.038739393939394em; vertical-align: -0.201115151515152em; height: 0.71990303030303em"></img> direction, and the coefficients <img src="fourier_analysis-370.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img> is given by
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-372.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img></td>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-371.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-373.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-372.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-374.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-373.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right"><class style="font-style: normal">(120)</class><a id="2-4-1"></a></td>
         </tr></tbody>
       </table>
     </div>
     <p>
-      Using Eq. (<a href="#10-22-p1">?</a>) in Eq. (<a href="#10-22-p2">?</a>), we obtain
+      Using Eq. (<a href="#10-22-p1">119</a>) in Eq. (<a href="#10-22-p2">118</a>), we obtain
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-375.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em" id="10-22-e1"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-374.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em" id="10-22-e1"></img></td>
         <td align="right">(121)</td>
       </tr>
     </table>
     <p>
-      Equations (<a href="#10-22-e1">?</a>) and (<a href="#2-4-1">120</a>) give the
-      two-dimensional Fourier series of <span class="no-breaks"><img src="fourier_analysis-363.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span>
-      
+      Equations (<a href="#10-22-e1">121</a>) and (<a href="#2-4-1">120</a>) give the
+      two-dimensional Fourier series of <span class="no-breaks"><img src="fourier_analysis-362.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span>
     </p>
     <p>
       The formula for expanding a real-valued two-dimensional function <img
-      src="fourier_analysis-376.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> in terms of basis functions <img src="fourier_analysis-377.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0289939393939393em; margin-right: 0em; margin-top: -0.0331151515151515em; vertical-align: -0.672290909090909em; height: 1.92387878787879em"></img>
-      and <img src="fourier_analysis-378.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0289939393939393em; margin-right: 0em; margin-top: -0.0331151515151515em; vertical-align: -0.672290909090909em; height: 1.92387878787879em"></img> can be readily recovered from Eqs. (<a href="#10-22-e1">?</a>)
+      src="fourier_analysis-375.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> in terms of basis functions <img src="fourier_analysis-376.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0289939393939393em; margin-right: 0em; margin-top: -0.0331151515151515em; vertical-align: -0.672290909090909em; height: 1.92387878787879em"></img>
+      and <img src="fourier_analysis-377.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0289939393939393em; margin-right: 0em; margin-top: -0.0331151515151515em; vertical-align: -0.672290909090909em; height: 1.92387878787879em"></img> can be readily recovered from Eqs. (<a href="#10-22-e1">121</a>)
       and (<a href="#2-4-1">120</a>). For notation ease, define
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-379.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0387393939393939em; vertical-align: -0.961309090909091em; height: 2.09905454545455em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-378.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0387393939393939em; vertical-align: -0.961309090909091em; height: 2.09905454545455em"></img></td>
         <td align="right">(122)</td>
       </tr>
     </table>
     <p>
-      Then Eq. (<a href="#10-22-e1">?</a>) is written as
+      Then Eq. (<a href="#10-22-e1">121</a>) is written as
     </p>
     <center>
-      <img src="fourier_analysis-380.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303029em; vertical-align: -4.56446060606061em; height: 9.58162424242424em"></img>
+      <img src="fourier_analysis-379.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303029em; vertical-align: -4.56446060606061em; height: 9.58162424242424em"></img>
     </center>
     <p>
-      Sine <img src="fourier_analysis-376.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is assumed to be real-valued, the imaginary
-      part of the above expression can be dropped. Therefore, the above
-      expansion is simplified to
+      Sine <img src="fourier_analysis-375.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is assumed to be real-valued, the imaginary
+      parts of the above expression will cancel each other. Therefore, the
+      above expansion is simplified to
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-381.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-380.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-382.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-381.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-383.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-384.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em"></img></td>
+          <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-382.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-383.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303031em; vertical-align: -1.29793939393939em; height: 2.87490909090909em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right"><class style="font-style: normal">(123)</class></td>
         </tr></tbody>
       </table>
@@ -2317,60 +2307,60 @@ call fftw_destroy_plan(plan2)</pre>
     <p>
       We see that the extension of Fourier series from one-dimension case to
       two-dimension case is straightforward when expressed in terms of the
-      complex exponential function <span class="no-breaks"><img src="fourier_analysis-362.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0279757575757575em; vertical-align: 0em; height: 1.01178181818182em"></img>.</span>
-      However, if we use <span class="no-breaks"><img src="fourier_analysis-385.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> <span
-      class="no-breaks"><img src="fourier_analysis-386.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> <span class="no-breaks"><img src="fourier_analysis-387.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img>,</span>
-      and <img src="fourier_analysis-388.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img> as basis functions, the derivation of the
-      two-dimensional Fourier series of <img src="fourier_analysis-363.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is a little
+      complex exponential function <span class="no-breaks"><img src="fourier_analysis-361.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0279757575757575em; vertical-align: 0em; height: 1.01178181818182em"></img>.</span>
+      However, if we use <span class="no-breaks"><img src="fourier_analysis-384.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> <span
+      class="no-breaks"><img src="fourier_analysis-385.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> <span class="no-breaks"><img src="fourier_analysis-386.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img>,</span>
+      and <img src="fourier_analysis-387.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img> as basis functions, the derivation of the
+      two-dimensional Fourier series of <img src="fourier_analysis-362.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> is a little
       complicated (product-to-sum trigonometric identities are involved to
       simplify the results).
     </p>
     <p>
       In this section, we derive the two-dimensional Fourier series using
-      cosine and sine as basis functions. A two-dimensional function <img src="fourier_analysis-363.png"
+      cosine and sine as basis functions. A two-dimensional function <img src="fourier_analysis-362.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> can be first expanded as Fourier series about <span class="no-breaks"><img
       src="fourier_analysis-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>,</span>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-389.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em" id="10-23-3"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-388.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242449em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em" id="10-23-3"></img></td>
         <td align="right">(124)</td>
       </tr>
     </table>
     <p>
       (the zero-frequency component is dropped, will take it back later) and
-      then the two coefficients <img src="fourier_analysis-390.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> and <img src="fourier_analysis-391.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>
-      can be further expanded as Fourier series about <span class="no-breaks"><img src="fourier_analysis-368.png"
+      then the two coefficients <img src="fourier_analysis-389.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> and <img src="fourier_analysis-390.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>
+      can be further expanded as Fourier series about <span class="no-breaks"><img src="fourier_analysis-367.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0266181818181818em; margin-top: -0.038739393939394em; vertical-align: -0.201115151515152em; height: 0.71990303030303em"></img>,</span>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-392.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em" id="10-23-1"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-391.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em" id="10-23-1"></img></td>
         <td align="right">(125)</td>
       </tr>
     </table>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-393.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em" id="10-23-2"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-392.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em" id="10-23-2"></img></td>
         <td align="right">(126)</td>
       </tr>
     </table>
     <p>
       (the zero-frequency component is dropped, will take it back later)
-      Substituting Eq. (<a href="#10-23-1">?</a>) and (<a href="#10-23-2">?</a>) into Eq. (<a
-      href="#10-23-3">?</a>), we obtain
+      Substituting Eq. (<a href="#10-23-1">125</a>) and (<a href="#10-23-2">126</a>) into Eq. (<a
+      href="#10-23-3">124</a>), we obtain
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-394.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-393.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-395.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.00416969696969693em; margin-right: 0em; margin-top: -0.0455272727272729em; vertical-align: -1.29294545454545em; height: 3.15267878787879em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-394.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.00416969696969693em; margin-right: 0em; margin-top: -0.0455272727272729em; vertical-align: -1.29294545454545em; height: 3.15267878787879em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-383.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-396.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.00416969696969693em; margin-right: -0.0248242424242413em; margin-top: -0.0455272727272729em; vertical-align: -1.29294545454545em; height: 3.15267878787879em"></img></td>
+          <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-382.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-395.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.00416969696969693em; margin-right: -0.0248242424242413em; margin-top: -0.0455272727272729em; vertical-align: -1.29294545454545em; height: 3.15267878787879em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right"><class style="font-style: normal">(127)</class><a id="10-23-4"></a></td>
         </tr></tbody>
       </table>
@@ -2380,7 +2370,7 @@ call fftw_destroy_plan(plan2)</pre>
       is written
     </p>
     <center>
-      <img src="fourier_analysis-397.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242378em; margin-top: -0.0358303030303029em; vertical-align: -6.0688em; height: 12.6765090909091em"></img>
+      <img src="fourier_analysis-396.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242378em; margin-top: -0.0358303030303029em; vertical-align: -6.0688em; height: 12.6765090909091em"></img>
     </center>
     <p>
       which can be organized as
@@ -2388,24 +2378,24 @@ call fftw_destroy_plan(plan2)</pre>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-381.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-380.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-397.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: 0em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em"></img></td>
+          <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
+        </tr><tr>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
+          <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-382.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
           <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-398.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: 0em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-383.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
+          <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-382.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
           <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-399.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: 0em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-383.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-400.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: 0em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em"></img></td>
-          <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
-        </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-383.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-401.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: 0em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em"></img></td>
+          <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-382.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-400.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: 0em; margin-top: -0.0358303030303031em; vertical-align: -1.21178181818182em; height: 2.87490909090909em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right"><class style="font-style: normal">(128)</class><a id="11-9-4"></a></td>
         </tr></tbody>
       </table>
@@ -2415,13 +2405,13 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-402.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242449em; margin-top: -0.0389818181818182em; vertical-align: -1.0201696969697em; height: 2.64930909090909em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-401.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242449em; margin-top: -0.0389818181818182em; vertical-align: -1.0201696969697em; height: 2.64930909090909em"></img></td>
         <td align="right">(129)</td>
       </tr>
     </table>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-403.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.0201696969697em; height: 2.64930909090909em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-402.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.0201696969697em; height: 2.64930909090909em"></img></td>
         <td align="right">(130)</td>
       </tr>
     </table>
@@ -2430,35 +2420,35 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-404.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181792em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-403.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181792em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
         <td align="right">(131)</td>
       </tr>
     </table>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-405.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181792em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-404.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181792em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
         <td align="right">(132)</td>
       </tr>
     </table>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-406.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181828em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-405.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181828em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
         <td align="right">(133)</td>
       </tr>
     </table>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-407.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181828em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-406.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181828em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
         <td align="right">(134)</td>
       </tr>
     </table>
     <p>
-      Noting that <span class="no-breaks"><img src="fourier_analysis-408.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0206060606060606em; margin-right: -0.0248242424242422em; margin-top: -0.0279757575757575em; vertical-align: -0.400921212121212em; height: 1.50787878787879em"></img>,</span> and <img src="fourier_analysis-409.png"
-      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0206060606060606em; margin-right: -0.0248242424242422em; margin-top: -0.0279757575757575em; vertical-align: -0.400921212121212em; height: 1.50787878787879em"></img> and <span class="no-breaks"><img src="fourier_analysis-410.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then Eq.
+      Noting that <span class="no-breaks"><img src="fourier_analysis-407.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0206060606060606em; margin-right: -0.0248242424242422em; margin-top: -0.0279757575757575em; vertical-align: -0.400921212121212em; height: 1.50787878787879em"></img>,</span> and <img src="fourier_analysis-408.png"
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0206060606060606em; margin-right: -0.0248242424242422em; margin-top: -0.0279757575757575em; vertical-align: -0.400921212121212em; height: 1.50787878787879em"></img> and <span class="no-breaks"><img src="fourier_analysis-409.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then Eq.
       (<a href="#11-9-4">128</a>) can be written as
     </p>
     <center>
-      <img src="fourier_analysis-411.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303029em; vertical-align: -2.88775757575758em; height: 6.22826666666667em"></img>
+      <img src="fourier_analysis-410.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303029em; vertical-align: -2.88775757575758em; height: 6.22826666666667em"></img>
     </center>
     <p>
       
@@ -2469,19 +2459,19 @@ call fftw_destroy_plan(plan2)</pre>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-372.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img></td>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-371.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-103.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0292363636363637em; vertical-align: 0em; height: 0.533721212121212em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-412.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: 0em; margin-top: -0.0409696969696969em; vertical-align: -0.672193939393939em; height: 2.02516363636364em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-411.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: 0em; margin-top: -0.0409696969696969em; vertical-align: -0.672193939393939em; height: 2.02516363636364em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-413.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181863em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-412.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181863em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-414.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-413.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right"><class style="font-style: normal">(135)</class></td>
         </tr></tbody>
       </table>
@@ -2492,19 +2482,19 @@ call fftw_destroy_plan(plan2)</pre>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-415.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img></td>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-414.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.038739393939394em; vertical-align: -0.148363636363636em; height: 0.669672727272727em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-103.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0292363636363637em; vertical-align: 0em; height: 0.533721212121212em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-416.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: 0em; margin-top: -0.0409696969696969em; vertical-align: -0.672193939393939em; height: 2.02516363636364em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-415.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: 0em; margin-top: -0.0409696969696969em; vertical-align: -0.672193939393939em; height: 2.02516363636364em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-417.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181863em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-416.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0266181818181863em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-418.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-417.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0236121212121212em; margin-right: -0.0248242424242413em; margin-top: -0.0389818181818182em; vertical-align: -1.12067878787879em; height: 2.74860606060606em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right"><class style="font-style: normal">(136)</class></td>
         </tr></tbody>
       </table>
@@ -2513,24 +2503,24 @@ call fftw_destroy_plan(plan2)</pre>
       
     </p>
     <p>
-      **need to check***To handle the special case of <img src="fourier_analysis-419.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242426em; margin-top: -0.040969696969697em; vertical-align: 0em; height: 0.757139393939394em"></img>
+      **need to check***To handle the special case of <img src="fourier_analysis-418.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242426em; margin-top: -0.040969696969697em; vertical-align: 0em; height: 0.757139393939394em"></img>
       and/or <span class="no-breaks"><img src="fourier_analysis-40.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0248242424242422em; margin-top: -0.040969696969697em; vertical-align: 0em; height: 0.757139393939394em"></img>,</span> define
     </p>
     <center>
-      <img src="fourier_analysis-420.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242422em; margin-top: -0.0321939393939394em; vertical-align: -0.185987878787879em; height: 1.0662303030303em"></img>
+      <img src="fourier_analysis-419.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242422em; margin-top: -0.0321939393939394em; vertical-align: -0.185987878787879em; height: 1.0662303030303em"></img>
     </center>
     <p>
       and
     </p>
     <center>
-      <img src="fourier_analysis-421.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242431em; margin-top: -0.0321939393939394em; vertical-align: -0.185987878787879em; height: 1.0662303030303em"></img>
+      <img src="fourier_analysis-420.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242431em; margin-top: -0.0321939393939394em; vertical-align: -0.185987878787879em; height: 1.0662303030303em"></img>
     </center>
     <p>
       where
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-422.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0600242424242428em; margin-right: 0em; margin-top: -0.00208484848484813em; vertical-align: -2.56349090909091em; height: 5.27481212121212em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-421.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0600242424242428em; margin-right: 0em; margin-top: -0.00208484848484813em; vertical-align: -2.56349090909091em; height: 5.27481212121212em"></img></td>
         <td align="right">(137)</td>
       </tr>
     </table>
@@ -2538,7 +2528,7 @@ call fftw_destroy_plan(plan2)</pre>
       Then 
     </p>
     <center>
-      <img src="fourier_analysis-423.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303029em; vertical-align: -2.88775757575758em; height: 6.22826666666667em"></img>
+      <img src="fourier_analysis-422.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0489212121212121em; margin-right: -0.0248242424242413em; margin-top: -0.0358303030303029em; vertical-align: -2.88775757575758em; height: 6.22826666666667em"></img>
     </center>
     <p>
       
@@ -2563,7 +2553,7 @@ call fftw_destroy_plan(plan2)</pre>
       elements of a real number array are used to store one complex number. To
       store a complex array &ldquo;cdata&rdquo; of length <span class="no-breaks"><img
       src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>,</span> we will need a real number array
-      &ldquo;rdata&rdquo; of length <span class="no-breaks"><img src="fourier_analysis-424.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>.</span>
+      &ldquo;rdata&rdquo; of length <span class="no-breaks"><img src="fourier_analysis-423.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>.</span>
       The first elements of array &ldquo;rdata&rdquo; will contain the real
       part of &ldquo;cdata(1)&rdquo;, the second elements of
       &ldquo;rdata&rdquo; will contain the imaginary part of 
@@ -2571,28 +2561,28 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <p>
       To test the correctness of the above statement, I generated a real
-      number array with length <img src="fourier_analysis-425.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0613333333333333em; margin-right: -0.0248242424242431em; margin-top: -0.0423272727272728em; vertical-align: -0.0861575757575758em; height: 0.904678787878788em"></img> by using a random
+      number array with length <img src="fourier_analysis-424.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0613333333333333em; margin-right: -0.0248242424242431em; margin-top: -0.0423272727272728em; vertical-align: -0.0861575757575758em; height: 0.904678787878788em"></img> by using a random
       generating routine and calculate the DFT of the array with two methods.
       The real array generated by the random generator are considered to be a
       real number representation of a complex array with length <span class="no-breaks"><img
-      src="fourier_analysis-426.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Using the real array as the input of the FFT
+      src="fourier_analysis-425.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Using the real array as the input of the FFT
       routine (the code in ~/project_new/fft). To check the correctness of my
       understanding of the input and output of the FFT, I manually convert the
       real number of length <img src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> to a complex array with
-      length <span class="no-breaks"><img src="fourier_analysis-426.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> and use directly the
-      summation in Eq. (<a href="#3-25-e3">?</a>) to calculate the DFT. The output I got
-      is obviously a complex array with length <span class="no-breaks"><img src="fourier_analysis-426.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span>
-      Then I manually convert the complex array to a real number array of
-      length <img src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> and plot the output in Fig. <a href="#3-25-e8">7</a>
-      with dashed line. The results in Fig. <a href="#3-25-e8">7</a> indicates the
-      results given by the FFT and the naive method used by me agree with each
-      other well. This proves that my understanding of the input and output of
-      FFT (especially the storage arrangement) is correct.
+      length <span class="no-breaks"><img src="fourier_analysis-425.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> and use directly the
+      summation in Eq. (<a href="#3-25-e3">62</a>) to calculate the DFT. The output I
+      got is obviously a complex array with length <span class="no-breaks"><img src="fourier_analysis-425.png"
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Then I manually convert the complex array to a
+      real number array of length <img src="fourier_analysis-149.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0998787878787879em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> and plot the output
+      in Fig. <a href="#3-25-e8">7</a> with dashed line. The results in Fig. <a href="#3-25-e8">7</a>
+      indicates the results given by the FFT and the naive method used by me
+      agree with each other well. This proves that my understanding of the
+      input and output of FFT (especially the storage arrangement) is correct.
     </p>
     <div style="margin-top: 1em; margin-bottom: 1em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-427.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 16.4191515151515em"></img></td>
+          <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-426.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 16.4191515151515em"></img></td>
         </tr><tr>
           <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
         </tr><tr>
@@ -2600,7 +2590,7 @@ call fftw_destroy_plan(plan2)</pre>
             <font style="font-size: 84.1%"><p>
               <b>Figure 7. </b><a id="auto-42"></a><a id="3-25-e8"></a>The output of a FFT
               routine (solid line) agrees well with those (dashed line)
-              calculated by directly evaluate the summation in Eq. (<a href="#3-25-e3">?</a>)
+              calculated by directly evaluate the summation in Eq. (<a href="#3-25-e3">62</a>)
               (the latter is coded by me). The agreement indicates my
               understanding of the output of FFT (especially the storage
               arrangement) is correct. Here the time domain data is generated
@@ -2618,7 +2608,7 @@ call fftw_destroy_plan(plan2)</pre>
     <div style="margin-top: 1em; margin-bottom: 1em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-428.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 16.4191515151515em"></img><img src="fourier_analysis-429.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 16.4191515151515em"></img></td>
+          <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fourier_analysis-427.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 16.4191515151515em"></img><img src="fourier_analysis-428.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 16.4191515151515em"></img></td>
         </tr><tr>
           <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
         </tr><tr>
@@ -2626,10 +2616,10 @@ call fftw_destroy_plan(plan2)</pre>
             <font style="font-size: 84.1%"><p>
               <b>Figure 8. </b><a id="auto-43"></a><a id="8-27-p1"></a>The real (left) and
               imaginary (right) part of the discrete Fourier transformation as
-              a function of the frequency. The point <img src="fourier_analysis-430.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0240969696969697em; margin-right: -0.0248242424242422em; margin-top: -0.0688000000000001em; vertical-align: -0.0861575757575758em; height: 0.794375757575758em"></img>
-              corresponds to frequency <img src="fourier_analysis-431.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> while the point
-              <img src="fourier_analysis-432.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0620606060606061em; margin-right: -0.0248242424242426em; margin-top: -0.0688000000000001em; vertical-align: 0em; height: 0.794375757575758em"></img> corresponds to frequency <span class="no-breaks"><img
-              src="fourier_analysis-433.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> where <img src="fourier_analysis-123.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> with
+              a function of the frequency. The point <img src="fourier_analysis-429.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0240969696969697em; margin-right: -0.0248242424242422em; margin-top: -0.0688000000000001em; vertical-align: -0.0861575757575758em; height: 0.794375757575758em"></img>
+              corresponds to frequency <img src="fourier_analysis-430.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> while the point
+              <img src="fourier_analysis-431.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0620606060606061em; margin-right: -0.0248242424242426em; margin-top: -0.0688000000000001em; vertical-align: 0em; height: 0.794375757575758em"></img> corresponds to frequency <span class="no-breaks"><img
+              src="fourier_analysis-432.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> where <img src="fourier_analysis-123.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> with
               <img src="fourier_analysis-266.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0627878787878788em; vertical-align: 0em; height: 0.794375757575758em"></img> is the sample interval in time domain.
               The time domain data is the same as used in Fig. <a href="#3-25-e8">7</a>.
               Why is there a spike at zero frequency?
@@ -2651,68 +2641,68 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-434.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333335em; vertical-align: -0.916315151515152em; height: 2.55786666666667em" id="8-26-1"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-433.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333335em; vertical-align: -0.916315151515152em; height: 2.55786666666667em" id="8-26-1"></img></td>
         <td align="right">(138)</td>
       </tr>
     </table>
     <p>
-      Divide the interval <img src="fourier_analysis-435.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0144969696969697em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.07985454545455em"></img> into <img src="fourier_analysis-436.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.101236363636364em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>
+      Divide the interval <img src="fourier_analysis-434.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0144969696969697em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.07985454545455em"></img> into <img src="fourier_analysis-435.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.101236363636364em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>
       uniform sub-intervals and define
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-437.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.101236363636364em; margin-top: -0.0264727272727272em; vertical-align: -0.672193939393939em; height: 2.0624em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-436.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.101236363636364em; margin-top: -0.0264727272727272em; vertical-align: -0.672193939393939em; height: 2.0624em"></img></td>
         <td align="right">(139)</td>
       </tr>
     </table>
     <p>
-      Then the integration in Eq. (<a href="#8-26-1">?</a>) can be approximated as
+      Then the integration in Eq. (<a href="#8-26-1">138</a>) can be approximated as
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-438.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="8-26-e1"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-437.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="8-26-e1"></img></td>
         <td align="right">(140)</td>
       </tr>
     </table>
     <p>
-      Define <img src="fourier_analysis-439.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> with integer <img src="fourier_analysis-440.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> and
-      <span class="no-breaks"><img src="fourier_analysis-441.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242413em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Consider the calculation of
-      <span class="no-breaks"><img src="fourier_analysis-442.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Using Eq. (<a href="#8-26-e1">?</a>),
+      Define <img src="fourier_analysis-438.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> with integer <img src="fourier_analysis-439.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> and
+      <span class="no-breaks"><img src="fourier_analysis-440.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242413em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Consider the calculation of
+      <span class="no-breaks"><img src="fourier_analysis-441.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span> Using Eq. (<a href="#8-26-e1">140</a>),
       we obtain
     </p>
     <div style="text-indent: 0em; margin-top: 0.5em; margin-bottom: 0.5em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-443.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
+          <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-442.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-444.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-443.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-445.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242413em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-444.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242413em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-446.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: 0em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-445.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: 0em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right; padding-bottom: 0.45em"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center; padding-bottom: 0.45em"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-447.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242431em; margin-top: -0.0298181818181819em; vertical-align: -0.148363636363636em; height: 1.06545454545455em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left; padding-bottom: 0.45em"><img src="fourier_analysis-446.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242431em; margin-top: -0.0298181818181819em; vertical-align: -0.148363636363636em; height: 1.06545454545455em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right; padding-bottom: 0.45em"><class style="font-style: normal">(141)</class></td>
         </tr><tr>
           <td style="width: 33.3333333333333%; white-space: nowrap; padding-left: 0em; text-align: right"><img src="fourier_analysis-77.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
           <td style="white-space: nowrap; text-align: center"><img src="fourier_analysis-75.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.494836363636364em"></img></td>
-          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-448.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242449em; margin-top: -0.0298181818181819em; vertical-align: -0.258569696969697em; height: 1.16533333333333em"></img></td>
+          <td style="width: 66.6666666666667%; white-space: nowrap; text-align: center; text-align: left"><img src="fourier_analysis-447.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242449em; margin-top: -0.0298181818181819em; vertical-align: -0.258569696969697em; height: 1.16533333333333em"></img></td>
           <td style="white-space: nowrap; padding-right: 0em; text-align: right"><class style="font-style: normal">(142)</class><a id="8-26-e2"></a></td>
         </tr></tbody>
       </table>
     </div>
     <p>
       Equation (<a href="#8-26-e2">142</a>) indicates the value of the integration <img
-      src="fourier_analysis-442.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> can be obtained by calculating the discrete Fourier
+      src="fourier_analysis-441.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> can be obtained by calculating the discrete Fourier
       transformation of <span class="no-breaks"><img src="fourier_analysis-137.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.289115151515152em; height: 1.06686060606061em"></img>.</span> However,
       as discussed in Ref. [<a href="#bib-press1992">2</a>], equation (<a href="#8-26-e2">142</a>) is
       not recommended for practical use because the oscillatory nature of the
@@ -2722,38 +2712,38 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-449.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: 0em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="8-27-1"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-448.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: 0em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="8-27-1"></img></td>
         <td align="right">(143)</td>
       </tr>
     </table>
     <p>
-      Apply the integral operator<img src="fourier_analysis-450.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.415854545454545em; height: 1.55694545454545em"></img> to both sides of Eq.
-      (<a href="#8-27-1">?</a>), we obtain
+      Apply the integral operator<img src="fourier_analysis-449.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.415854545454545em; height: 1.55694545454545em"></img> to both sides of Eq.
+      (<a href="#8-27-1">143</a>), we obtain
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-451.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242449em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-450.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242449em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
         <td align="right">(144)</td>
       </tr>
     </table>
     <p>
-      Make the change of variables <img src="fourier_analysis-452.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img> in the first
-      integral and <img src="fourier_analysis-453.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> in the second integral, the above
+      Make the change of variables <img src="fourier_analysis-451.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.289115151515152em; height: 1.12892121212121em"></img> in the first
+      integral and <img src="fourier_analysis-452.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> in the second integral, the above
       equation is written as
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-454.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242449em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-453.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242449em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em"></img></td>
         <td align="right">(145)</td>
       </tr>
     </table>
     <p>
-      Define <img src="fourier_analysis-455.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0512969696969697em; vertical-align: 0em; height: 0.806787878787879em"></img> and make use of <span class="no-breaks"><img src="fourier_analysis-456.png"
+      Define <img src="fourier_analysis-454.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242426em; margin-top: -0.0512969696969697em; vertical-align: 0em; height: 0.806787878787879em"></img> and make use of <span class="no-breaks"><img src="fourier_analysis-455.png"
       style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0627878787878788em; vertical-align: -0.289115151515152em; height: 1.09168484848485em"></img>,</span> the above equation is written as
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-457.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242449em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="8-27-5"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-456.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242449em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="8-27-5"></img></td>
         <td align="right">(146)</td>
       </tr>
     </table>
@@ -2762,22 +2752,22 @@ call fftw_destroy_plan(plan2)</pre>
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-458.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333335em; vertical-align: -0.916315151515152em; height: 2.55786666666667em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-457.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333335em; vertical-align: -0.916315151515152em; height: 2.55786666666667em"></img></td>
         <td align="right">(147)</td>
       </tr>
     </table>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-459.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242413em; margin-top: -0.0309333333333335em; vertical-align: -0.916315151515152em; height: 2.55786666666667em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-458.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242413em; margin-top: -0.0309333333333335em; vertical-align: -0.916315151515152em; height: 2.55786666666667em"></img></td>
         <td align="right">(148)</td>
       </tr>
     </table>
     <p>
-      Then Eq. (<a href="#8-27-5">?</a>) is written as
+      Then Eq. (<a href="#8-27-5">146</a>) is written as
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="fourier_analysis-460.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0662303030303029em; margin-right: -0.0248242424242449em; margin-top: 0.00412121212121219em; vertical-align: -1.6032em; height: 3.78564848484849em"></img></td>
+        <td width="100%" align="center"><img src="fourier_analysis-459.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0662303030303029em; margin-right: -0.0248242424242449em; margin-top: 0.00412121212121219em; vertical-align: -1.6032em; height: 3.78564848484849em"></img></td>
         <td align="right">(149)</td>
       </tr>
     </table>
@@ -2803,7 +2793,7 @@ call fftw_destroy_plan(plan2)</pre>
       <table style="width: 100%">
         <tbody><tr>
           <td style="text-align: center; padding-left: 0em; padding-right: 0em"><p>
-            <img src="fourier_analysis-461.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 5.48198787878788em"></img>
+            <img src="fourier_analysis-460.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 5.48198787878788em"></img>
           </p></td>
         </tr><tr>
           <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
