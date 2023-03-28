@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Visualization of grids in ﬁeld aligned coordinates</title> 
+<head><title>Deﬁnition of the ﬁeld-line-following coordinates (ψ,𝜃,α)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,1280 +13,235 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 3485--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3416--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu49.html" >next</a>] [<a 
-href="tokamak_equilibriumsu47.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu47.html#tailtokamak_equilibriumsu47.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu48.html">tail</a>] [<a 
-href="tokamak_equilibriumse10.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">10.3   </span> <a 
- id="x59-7500010.3"></a>Visualization of grids in ﬁeld aligned coordinates</h4>
-<!--l. 3487--><p class="noindent" >I am developing a fully kinetic ions module in electromagnetic turbulence code GEM which uses
-ﬁeld-line-following coordinates. Having an accurate understanding of the ﬁeld-line-following coordinates
-is important for writing the code. In this section, I try to visualize some aspects of the coordinates
-relevant to the numerical implementation. The directions of the covariant basis vectors of (<span 
-class="cmmi-10">ψ,𝜃,α</span>)
-coordinates are as follows:
+href="tokamak_equilibriumse11.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">11.1   </span> <a 
+ id="x60-7600011.1"></a>Deﬁnition of the ﬁeld-line-following coordinates (<span 
+class="cmmi-10">ψ,𝜃,α</span>)</h4>
+<!--l. 3418--><p class="noindent" >In (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinates, a magnetic ﬁeld line is straight in (<span 
+class="cmmi-10">𝜃,ζ</span>) plane with slope being <span 
+class="cmmi-10">q</span>. Then the
+equation for a magnetic ﬁeld line is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x59-75001r308"></a>
+ id="x60-76001r291"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium397x.png" alt="∂r
-∂α|ψ,𝜃 −→ usualtoroidaldirection(ˆϕ),
-" class="math-display"  /></center></td><td class="equation-label">(308)</td></tr></table>
-<!--l. 3497--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-75002r309"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium398x.png" alt="∂r
-∂𝜃|ψ,α −→  ﬁeldline direction,B∕B,
-" class="math-display"  /></center></td><td class="equation-label">(309)</td></tr></table>
-<!--l. 3501--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-75003r310"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium399x.png" alt="∂r
---|𝜃,α −→ combination ofthe usualradialand toroidaldirection
-∂ψ
-" class="math-display"  /></center></td><td class="equation-label">(310)</td></tr></table>
-<!--l. 3506--><p class="nopar" >
-Here <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> is a combination of the usual radial and toroidal direction, which needs some
-clariﬁcation. Note that, for nonzero magnetic shear (i.e., <span 
-class="cmmi-10">q</span><span 
-class="cmsy-10">′</span>(<span 
-class="cmmi-10">ψ</span>)<span 
-class="cmmi-10">≠</span>0) and <span 
-class="cmmi-10">𝜃</span><span 
-class="cmmi-10">≠</span>0, the usual toroidal angle <span 
-class="cmmi-10">ϕ </span>is
-changing when changing <span 
-class="cmmi-10">ψ </span>while holding <span 
-class="cmmi-10">𝜃 </span>and the generalized toroidal angle <span 
-class="cmmi-10">α </span>ﬁxed. This is given by
-Eq. (<a 
-href="tokamak_equilibriumsu46.html#x57-73008r299">299<!--tex4ht:ref: 17-9-15-1 --></a>), i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-75004r311"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium400x.png" alt="       ∫ 𝜃
-ϕ = α +   B-⋅∇-ϕd𝜃 ≈ α+ q(ψ)𝜃,
-        0 B ⋅∇ 𝜃
-" class="math-display"  /></center></td><td class="equation-label">(311)</td></tr></table>
-<!--l. 3517--><p class="nopar" >
-where the second equality becomes exact if <span 
-class="cmmi-10">𝜃 </span>is the straight-ﬁeld-line poloidal angle deﬁned in Sec.
-<a 
-href="tokamak_equilibriumsu30.html#x36-490005.3.5">5.3.5<!--tex4ht:ref: 17-10-30-1 --></a>. Figure <a 
-href="#x59-7500514">14<!--tex4ht:ref: 17-9-16-1 --></a>b shows how the usual toroidal angle <span 
-class="cmmi-10">ϕ </span>changes when we change <span 
-class="cmmi-10">ψ </span>while holding <span 
-class="cmmi-10">𝜃 </span>and
-<span 
-class="cmmi-10">α </span>ﬁxed.
-</p><!--l. 3523--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-7500514"></a>
-                                                                                
-
-                                                                                
-<!--l. 3526--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2b2/p.png" alt="pict"  
- width="113.42375pt" />                   <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2f/p.png" alt="pict"  
- width="256.96pt" />
-</p><!--l. 3528--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2r1/p.png" alt="pict"  
- width="256.96pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2/p.png" alt="pict"  
- width="256.96pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 14: </span><span  
-class="content">(a): A <span 
-class="cmmi-10">𝜃 </span>contour on <span 
-class="cmmi-10">ϕ </span>= 0 plane. Here <span 
-class="cmmi-10">𝜃 </span>= 9 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π∕</span>63.  This is the direction of
-<span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,ϕ</span></sub>. (b): <span 
-class="cmmi-10">ψ </span>coordinate lines in (<span 
-class="cmmi-10">ψ,𝜃,α</span>) coordinates ( <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> is tangent to these lines)
-on the isosurface of <span 
-class="cmmi-10">𝜃 </span>= 9 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π∕</span>63. Here diﬀerent lines correspond to diﬀerent values of <span 
-class="cmmi-10">α</span>. (c): <span 
-class="cmmi-10">α</span>
-coordinate lines (<span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂α</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">ψ,𝜃</span></sub> is tangent to these lines), which are along the usual toroidal direction
-<img 
-src="tokamak_equilibrium401x.png" alt="ˆ
-ϕ"  class="circ"  />. (d): Grids on the isosurface of <span 
-class="cmmi-10">𝜃 </span>= 9 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π∕</span>63, where the red lines are <span 
-class="cmmi-10">α </span>coordinate lines while
-the blue lines are <span 
-class="cmmi-10">ψ </span>coordinate lines. Magnetic ﬁeld from EAST discharge #59954@3.03s.</span></div><!--tex4ht:label?: x59-7500514 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 3544--><p class="indent" >   The relation <span 
-class="cmmi-10">ϕ </span><span 
-class="cmsy-10">≈ </span><span 
-class="cmmi-10">α </span>+ <span 
-class="cmmi-10">q</span>(<span 
-class="cmmi-10">ψ</span>)<span 
-class="cmmi-10">𝜃 </span>given by Eq. (<a 
-href="#x59-75004r311">311<!--tex4ht:ref: 17-10-30-2 --></a>) indicates that the toroidal shift along <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">α,𝜃</span></sub>
-for a radial change form <span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmr-7">1</span></sub> to <span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmr-7">2</span></sub> is given by (<span 
-class="cmmi-10">q</span>(<span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmr-7">2</span></sub>) <span 
-class="cmsy-10">− </span><span 
-class="cmmi-10">q</span>(<span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmr-7">2</span></sub>))<span 
-class="cmmi-10">𝜃</span>, which is large for large
-magnetic shear or on <span 
-class="cmmi-10">𝜃 </span>isosurface with larger value of <span 
-class="cmmi-10">𝜃</span>. An example for this is shown in Fig.
-<a 
-href="#x59-7500615">15<!--tex4ht:ref: 17-10-30-5 --></a> for <span 
-class="cmmi-10">𝜃 </span>= 19 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π∕</span>63, where <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">α,𝜃</span></sub> has larger toroidal shift than that in Fig. <a 
-href="#x59-7500514">14<!--tex4ht:ref: 17-9-16-1 --></a> for
-<span 
-class="cmmi-10">𝜃 </span>= 9 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π∕</span>63.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-7500615"></a>
-                                                                                
-
-                                                                                
-<!--l. 3555--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2b3/p.png" alt="pict"  
- width="113.42375pt" />                   <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2d/p.png" alt="pict"  
- width="250.9375pt" />
-</p><!--l. 3557--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2e/p.png" alt="pict"  
- width="250.9375pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2c/p.png" alt="pict"  
- width="250.9375pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 15: </span><span  
-class="content">(a) <span 
-class="cmmi-10">𝜃 </span>= 19<span 
-class="cmsy-10">×</span>2<span 
-class="cmmi-10">π∕</span>63 contour on <span 
-class="cmmi-10">ϕ </span>= 0 plane, <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ </span>lines (upper left) and <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂α </span>lines
-(upper right) on isosurface of <span 
-class="cmmi-10">𝜃 </span>= 19 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π∕</span>63. <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂α </span>lines are identical with <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ϕ </span>lines. Lower
-left: Grids on the isosurface of <span 
-class="cmmi-10">𝜃 </span>= 19 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π∕</span>63, which are the combinations of <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ </span>lines and
-<span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂α </span>lines.</span></div><!--tex4ht:label?: x59-7500615 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 3568--><p class="indent" >    
-</p><!--l. 3570--><p class="indent" >   The <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> lines can be understood from another perspective. Examine a family of magnetic
-ﬁeld lines that start from the low-ﬁeld-side midplane (<span 
-class="cmmi-10">𝜃 </span>= 0) with the same toroidal angle <span 
-class="cmmi-10">ϕ </span>= <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">1</span></sub> but
-diﬀerent radial coordinates. These starting points all have the same value of <span 
-class="cmmi-10">α</span>, which is equal to <span 
-class="cmmi-10">ϕ</span>.
-When following these ﬁeld lines to another isosurfce of <span 
-class="cmmi-10">𝜃</span>, the intersecting points of these ﬁeld lines with
-the <span 
-class="cmmi-10">𝜃 </span>isosurface will trace out one <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> line. Examine another family of magnetic ﬁeld lines similar
-to the above but with the starting toroidal angle <span 
-class="cmmi-10">ϕ </span>= <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">2</span></sub>. They will trace out another <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> line
-on the <span 
-class="cmmi-10">𝜃 </span>isosurface. Continue the process, we ﬁnally get those lines in Fig. <a 
-href="#x59-7500514">14<!--tex4ht:ref: 17-9-16-1 --></a>b and Fig.
-<a 
-href="#x59-7500615">15<!--tex4ht:ref: 17-10-30-5 --></a>b.
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">10.3.1   </span> <a 
- id="x59-7600010.3.1"></a>Radial wavenumber in ﬁeld-aligned coordinates (<span 
-class="cmmi-10">ψ,𝜃,α</span>)</h5>
-<!--l. 3587--><p class="noindent" >For a harmonic in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates given by <span 
-class="cmmi-10">A</span>(<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) = exp(<span 
-class="cmmi-10">ik</span><sub><span 
-class="cmmi-7">ψ</span></sub><span 
-class="cmmi-10">ψ </span>+ <span 
-class="cmmi-10">im𝜃 </span>+ <span 
-class="cmmi-10">inϕ</span>), the radial wave
-number is <span 
-class="cmmi-10">k</span><sub><span 
-class="cmmi-7">ψ</span></sub>. Let us calculate the corresponding radial wavenumber <span 
-class="cmmi-10">k</span><sub><span 
-class="cmmi-7">ψ</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> in the new coordinates
-(<span 
-class="cmmi-10">ψ,𝜃,α</span>), which is deﬁned by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-76001r312"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium402x.png" alt=" ⋆   ∂phase||
-kψ =   ∂ψ  ||   ,
-            𝜃,α
-" class="math-display"  /></center></td><td class="equation-label">(312)</td></tr></table>
-<!--l. 3595--><p class="nopar" >
-where the phase is given by phase = <span 
-class="cmmi-10">k</span><sub><span 
-class="cmmi-7">ψ</span></sub><span 
-class="cmmi-10">ψ </span>+ <span 
-class="cmmi-10">m𝜃 </span>+ <span 
-class="cmmi-10">nϕ</span>. Then the above expression is written as
-</p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium403x.png" alt="                        |
- ⋆      ∂(kψψ-+-m𝜃-+-nϕ)||
-kψ  =          ∂ψ       |𝜃,α
-              ∂ϕ ||
-    =   kψ + n---||                               (313)
-              ∂ψ 𝜃,α
-                                                                                
-
-                                                                                
-" class="math-display"  /></center>
-</div>Using  Using <span 
-class="cmmi-10">ϕ </span><span 
-class="cmsy-10">≈ </span><span 
-class="cmmi-10">α </span>+ <span 
-class="cmmi-10">q</span>(<span 
-class="cmmi-10">ψ</span>)<span 
-class="cmmi-10">𝜃</span>, the above expression is written as <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium404x.png" alt="k⋆ψ  =  kψ + nq′𝜃,                           (314)
-" class="math-display"  /></center>
-</div>where <span 
-class="cmmi-10">q</span><span 
-class="cmsy-10">′ </span>= <span 
-class="cmmi-10">dq∕dψ</span>. This result indicates that, compared with the radial wavenumber in coordinate
-system (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>), the radial wavenumber in the new coordinate system (<span 
-class="cmmi-10">ψ,𝜃,α</span>) has an increment <span 
-class="cmmi-10">n𝜃q</span><span 
-class="cmsy-10">′</span>.
-For nonzero magnetic shear (<span 
-class="cmmi-10">q</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">≠</span>0) and nonzero poloidal location (<span 
-class="cmmi-10">𝜃</span><span 
-class="cmmi-10">≠</span>0), the increment <span 
-class="cmmi-10">n𝜃q</span><span 
-class="cmsy-10">′ </span>can be large
-for modes with toroidal mode number <span 
-class="cmmi-10">n </span><span 
-class="cmsy-10">≫ </span>1. Then we need to use more radial grid number (compared
-what is needed in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates) to resolve the radial variation. This is one of disadvantage of
-using ﬁeld-aligned coordinates. If the saving associated with using less parallel grid number out-weights
-the cost associated with using more radial grid number, we obtain a net saving in using the ﬁeld-aligned
-coordinates.
-<!--l. 3621--><p class="indent" >   Let us examine how many <span 
-class="cmmi-10">ψ </span>grid points are needed to resolve the <span 
-class="cmmi-10">ψ </span>dependence in (<span 
-class="cmmi-10">ψ,𝜃,α</span>)
-coordinates on the high-ﬁeld side (<span 
-class="cmmi-10">𝜃 </span>= <span 
-class="cmmi-10">π</span>). Assume <span 
-class="cmmi-10">k</span><sub><span 
-class="cmmi-7">ψ</span></sub> <span 
-class="cmsy-10">≈ </span>0, then <span 
-class="cmmi-10">k</span><sub><span 
-class="cmmi-7">ψ</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> at <span 
-class="cmmi-10">𝜃 </span>= <span 
-class="cmmi-10">π </span>is given by <span 
-class="cmmi-10">k</span><sub><span 
-class="cmmi-7">ψ</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> = <span 
-class="cmmi-10">nπq</span><span 
-class="cmsy-10">′</span>.
-The corresponding wave-length is given by <span 
-class="cmmi-10">λ</span><sub><span 
-class="cmmi-7">ψ</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> = 2<span 
-class="cmmi-10">π∕k</span><sub><span 
-class="cmmi-7">ψ</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup>. The grid spacing Δ<span 
-class="cmmi-10">ψ </span>should be less
-than half of this wave-length (sampling theorem). Then the grid number should satisfy
-that
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-76004r315"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium405x.png" alt=" ⋆   L-ψ   -Lψ--    ′
-Nψ = Δ ψ ≥ λ⋆ψ∕2 = nq Lψ,
-" class="math-display"  /></center></td><td class="equation-label">(315)</td></tr></table>
-<!--l. 3631--><p class="nopar" >
+src="tokamak_equilibrium381x.png" alt="ζ = q𝜃 + α,
+" class="math-display"  /></center></td><td class="equation-label">(291)</td></tr></table>
+<!--l. 3423--><p class="nopar" >
 where <span 
-class="cmmi-10">L</span><sub><span 
-class="cmmi-7">ψ</span></sub> is the radial width of the computational domain.
-</p><!--l. 3634--><p class="indent" >   The number of Fourier harmonics that need to be included is given by
+class="cmmi-10">α </span>is a constant in (<span 
+class="cmmi-10">𝜃,ζ</span>) plane and can be used to label magnetic ﬁeld lines on a magnetic surface.
+This motivates us to use <span 
+class="cmmi-10">α</span>, i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x59-76005r316"></a>
+ id="x60-76002r292"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium382x.png" alt="α ≡ ζ − q𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(292)</td></tr></table>
+<!--l. 3429--><p class="nopar" >
+to replace <span 
+class="cmmi-10">ζ</span>, then the magnetic ﬁeld in Eq. (<a 
+href="tokamak_equilibriumsu39.html#x50-66003r261">261<!--tex4ht:ref: 3-13-p3 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x60-76003r293"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium383x.png" alt="      ′
+B = Ψ ∇ ψ × ∇α,
+" class="math-display"  /></center></td><td class="equation-label">(293)</td></tr></table>
+<!--l. 3433--><p class="nopar" >
+which is called the Clebsch form. The direction
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x60-76004r294"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium384x.png" alt="∂r|   = 𝒥∇ α× ∇ ψ,
+∂𝜃ψ,α
+" class="math-display"  /></center></td><td class="equation-label">(294)</td></tr></table>
+<!--l. 3438--><p class="nopar" >
+is parallel (or anti-parallel) to the magnetic ﬁeld direction. Due to this fact, (<span 
+class="cmmi-10">ψ,𝜃,α</span>) coordinates are
+usually called “ﬁeld-line-following coordinates” or “ﬁeld-aligned coordinates” <span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xbeer1995">2</a>, <a 
+href="tokamak_equilibriumli1.html#Xychen2003">6</a>]</span>.
+</p><!--l. 3444--><p class="indent" >   Equation (<a 
+href="#x60-76003r293">293<!--tex4ht:ref: 10-9-p1 --></a>) implies that
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x60-76005r295"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium385x.png" alt="B ⋅∇α = 0,
+" class="math-display"  /></center></td><td class="equation-label">(295)</td></tr></table>
+<!--l. 3447--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x60-76006r296"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium386x.png" alt="B ⋅∇ψ = 0,
+" class="math-display"  /></center></td><td class="equation-label">(296)</td></tr></table>
+<!--l. 3451--><p class="nopar" >
+i.e., both <span 
+class="cmmi-10">α </span>and <span 
+class="cmmi-10">ψ </span>are constant along a magnetic ﬁeld line. Taking scalar product of Eq. (<a 
+href="#x60-76003r293">293<!--tex4ht:ref: 10-9-p1 --></a>) with <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">𝜃</span>,
+we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x60-76007r297"></a>
+   <center class="math-display" >
                                                                                 
 
                                                                                 
-   <center class="math-display" >
 <img 
-src="tokamak_equilibrium406x.png" alt="        k⋆       ′
-Nk ⋆ψ = --ψ---= nq-Lψ.
-       2π∕Lψ     2
-" class="math-display"  /></center></td><td class="equation-label">(316)</td></tr></table>
-<!--l. 3638--><p class="nopar" >
-For DIII-D cyclone base case, choose the radial coordinate <span 
-class="cmmi-10">ψ </span>as <span 
-class="cmmi-10">r</span>. At the radial location
+src="tokamak_equilibrium387x.png" alt="          Ψ-′
+B ⋅∇ 𝜃 = − 𝒥 ,
+" class="math-display"  /></center></td><td class="equation-label">(297)</td></tr></table>
+<!--l. 3456--><p class="nopar" >
+which is nonzero, i.e., only <span 
+class="cmmi-10">𝜃 </span>among (<span 
+class="cmmi-10">ψ,𝜃,α</span>) is changing along a magnetic ﬁeld line. (Here
 <span 
-class="cmmi-10">ψ </span>= <span 
-class="cmmi-10">r</span><sub><span 
-class="cmr-7">0</span></sub> = 0<span 
-class="cmmi-10">.</span>24<span 
-class="cmmi-10">m</span>, <span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">0</span></sub> = 1<span 
-class="cmmi-10">.</span>4, <span 
-class="cmmi-10">ŝ</span><sub><span 
-class="cmr-7">0</span></sub> = 0<span 
-class="cmmi-10">.</span>78, then <span 
-class="cmmi-10">q</span><span 
-class="cmsy-10">′</span><sub><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmmi-10">s</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕r</span><sub><span 
-class="cmr-7">0</span></sub> = 4<span 
-class="cmmi-10">.</span>5<span 
-class="cmmi-10">m</span><sup><span 
+class="cmsy-10">𝒥 </span>= (<span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">α</span>)<sup><span 
 class="cmsy-7">−</span><span 
-class="cmr-7">1</span></sup>. Then <span 
-class="cmmi-10">N</span><sub><span 
-class="cmmi-7">r</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> = <span 
-class="cmmi-10">n</span><span 
-class="cmsy-10">× </span>0<span 
-class="cmmi-10">.</span>45 for the radial
-width <span 
-class="cmmi-10">L</span><sub><span 
-class="cmmi-7">r</span></sub> = 0<span 
-class="cmmi-10">.</span>10<span 
-class="cmmi-10">m</span>.
-</p><!--l. 3644--><p class="indent" >    
-</p><!--l. 3646--><p class="indent" >   Figure <a 
-href="#x59-7600616">16<!--tex4ht:ref: 17-11-10-1 --></a> plots <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> lines on the <span 
-class="cmmi-10">𝜃 </span>= 0<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">π </span>isosurfaces, which are chosen to be on the
-low-ﬁeld-side midplane. On <span 
-class="cmmi-10">𝜃 </span>= 0 surface, <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> lines are identical to <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,ϕ</span></sub> lines. On <span 
-class="cmmi-10">𝜃 </span>= 2<span 
-class="cmmi-10">π</span>
-surface, each <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> line has large <span 
-class="cmmi-10">ϕ </span>shift. In old version of my code, <span 
-class="cmmi-10">𝜃 </span>= 0<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">π </span>surfaces
-are chosen as the <span 
-class="cmmi-10">𝜃 </span>cuts (in the new version <span 
-class="cmmi-10">𝜃 </span>= [<span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">π,π</span>]). A connection condition for the
-perturbations is needed between these two surfaces. This connection condition is discussed in Sec.
-<a 
-href="#x59-7700010.3.2">10.3.2<!--tex4ht:ref: 17-11-10-3 --></a>.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-7600616"></a>
-                                                                                
-
-                                                                                
-<!--l. 3659--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2jr1/p.png" alt="pict"  
- width="113.42375pt" />             <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2fr1/p.png" alt="pict"  
- width="240.9pt" />                                   <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2fr2/p.png" alt="pict"  
- width="241.90375pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 16: </span><span  
-class="content">(a) <span 
-class="cmmi-10">𝜃 </span>=  0 contour (blue line) in <span 
-class="cmmi-10">ϕ </span>=  0 plane; (b) a series of <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> curves
-(with <span 
-class="cmmi-10">α</span><sub><span 
-class="cmmi-7">j</span></sub> = <span 
-class="cmmi-10">j</span>2<span 
-class="cmmi-10">π∕</span>20, <span 
-class="cmmi-10">j </span>= 0<span 
-class="cmmi-10">,</span>1<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,</span>20) on <span 
-class="cmmi-10">𝜃 </span>= 0 isosurface, (c) a single <span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂ψ</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">𝜃,α</span></sub> curve (with
-<span 
-class="cmmi-10">α </span>= 0) on <span 
-class="cmmi-10">𝜃 </span>= 2<span 
-class="cmmi-10">π </span>isosurface. This curve ﬁnish about 4 torodial loops because (<span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">max</span></sub> <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">min</span></sub>)2<span 
-class="cmmi-10">π </span>=
-(5<span 
-class="cmmi-10">.</span>56 <span 
-class="cmsy-10">− </span>1<span 
-class="cmmi-10">.</span>79) <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π </span><span 
-class="cmsy-10">≈ </span>4 <span 
-class="cmsy-10">× </span>2<span 
-class="cmmi-10">π</span>. The radial range is <span 
-class="cmmi-10">ψ </span>= 0<span 
-class="cmmi-10">.</span>2 <span 
-class="cmsy-10">→ </span>0<span 
-class="cmmi-10">.</span>9, where <span 
-class="cmmi-10">ψ </span>is the normalized
-poloidal magnetic ﬂux. Magnetic ﬁeld from EAST discharge #59954@3.03s (gﬁle g059954.003030
-provided by Hao BaoLong).</span></div><!--tex4ht:label?: x59-7600616 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-   <h5 class="subsubsectionHead"><span class="titlemark">10.3.2   </span> <a 
- id="x59-7700010.3.2"></a>Periodic conditions of physical quantity along <span 
-class="cmmi-10">𝜃 </span>and <span 
-class="cmmi-10">α </span>in ﬁeld-line-following coordinates
-(<span 
-class="cmmi-10">ψ,𝜃,α</span>)</h5>
-<!--l. 3676--><p class="noindent" >Since (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) and (<span 
-class="cmmi-10">ψ,𝜃 </span>+ 2<span 
-class="cmmi-10">π,ϕ</span>) correspond to the same spatial point, a real space continuous quantity
-<span 
-class="cmmi-10">f </span>expressed in terms of coordinates (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>), i.e., <span 
-class="cmmi-10">f </span>= <span 
-class="cmmi-10">f</span>(<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>), must satisfy the following periodic
-conditions along <span 
-class="cmmi-10">𝜃</span>:
+class="cmr-7">1</span></sup> is the Jacobian of the coordinate system (<span 
+class="cmmi-10">ψ,𝜃,α</span>), which happens to be equal to
+the Jacobian of (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinates.)
+</p><!--l. 3463--><p class="indent" >   Using Eq. (<a 
+href="#x60-76003r293">293<!--tex4ht:ref: 10-9-p1 --></a>), the magnetic diﬀerential operator <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇ </span>in the new coordinate system (<span 
+class="cmmi-10">ψ,𝜃,α</span>) is
+written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x59-77001r317"></a>
+ id="x60-76008r298"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium407x.png" alt="f(ψ,𝜃 +2π,ϕ ) = f(ψ,𝜃,ϕ).
-" class="math-display"  /></center></td><td class="equation-label">(317)</td></tr></table>
-<!--l. 3682--><p class="nopar" >
-Since (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) and (<span 
-class="cmmi-10">ψ,𝜃,ϕ </span>+ 2<span 
-class="cmmi-10">π</span>) correspond to the same spatial point, <span 
-class="cmmi-10">f </span>must satisfy the following
-periodic conditions along <span 
-class="cmmi-10">ϕ</span>:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-77002r318"></a>
+src="tokamak_equilibrium388x.png" alt="         Ψ-′∂--
+B ⋅∇f  = − 𝒥 ∂𝜃f,
+" class="math-display"  /></center></td><td class="equation-label">(298)</td></tr></table>
+<!--l. 3468--><p class="nopar" >
+which is just a partial derivative over <span 
+class="cmmi-10">𝜃</span>, as is expected, since only <span 
+class="cmmi-10">𝜃 </span>is changing along a magnetic ﬁeld
+line.
+</p><!--l. 3472--><p class="indent" >   Using Eqs. (<a 
+href="#x60-76002r292">292<!--tex4ht:ref: 17-3-18-1 --></a>) and (<a 
+href="tokamak_equilibriumsu38.html#x49-65007r255">255<!--tex4ht:ref: 17-4-11-1 --></a>), <span 
+class="cmmi-10">α </span>can be written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium408x.png" alt="f(ψ,𝜃,ϕ +2π ) = f(ψ,𝜃,ϕ).
-" class="math-display"  /></center></td><td class="equation-label">(318)</td></tr></table>
-<!--l. 3688--><p class="nopar" >
-Since (<span 
-class="cmmi-10">ψ,𝜃,α</span>) and (<span 
-class="cmmi-10">ψ,𝜃,α </span>+ 2<span 
-class="cmmi-10">π</span>) correspond to the same spatial point, a real space continuous quantity
-<span 
-class="cmmi-10">g </span>expressed in terms of ﬁeld-line-following coordinates (<span 
-class="cmmi-10">ψ,𝜃,α</span>), i.e., <span 
-class="cmmi-10">g </span>= <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">ψ,𝜃,α</span>), must satisfy the
-following periodic condition along <span 
-class="cmmi-10">α</span>:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-77003r319"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium409x.png" alt="g(ψ,𝜃,α +2π ) = g(ψ,𝜃,α).
-" class="math-display"  /></center></td><td class="equation-label">(319)</td></tr></table>
-<!--l. 3696--><p class="nopar" >
-However, <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">1</span></sub> = (<span 
-class="cmmi-10">ψ,𝜃,α</span>) and <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">2</span></sub> = (<span 
-class="cmmi-10">ψ,𝜃 </span>+ 2<span 
-class="cmmi-10">π,α</span>) are not usually corresponding to the same
-spatial point. In fact, equation (<a 
-href="tokamak_equilibriumsu46.html#x57-73008r299">299<!--tex4ht:ref: 17-9-15-1 --></a>) implies, for point <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">1</span></sub>, its toroidal angle <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">1</span></sub> is given
-by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-77004r320"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium410x.png" alt="        ∫ 𝜃B ⋅∇ ϕ
-ϕ1 = α +   B-⋅∇-𝜃d𝜃,
-         0
-" class="math-display"  /></center></td><td class="equation-label">(320)</td></tr></table>
-<!--l. 3704--><p class="nopar" >
-while for point <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">2</span></sub>, its toroidal angle <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">2</span></sub> is given by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-77005r321"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium411x.png" alt="        ∫ 𝜃+2π B ⋅∇ϕ
-ϕ2 = α +       ------d𝜃 = ϕ1 + 2πq,
-          0    B ⋅∇𝜃
-" class="math-display"  /></center></td><td class="equation-label">(321)</td></tr></table>
-<!--l. 3709--><p class="nopar" >
-i.e., <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">1</span></sub> and <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">2</span></sub> are diﬀerent by 2<span 
-class="cmmi-10">πq</span>. From this, we know that (<span 
-class="cmmi-10">ψ,𝜃,α</span>) and (<span 
-class="cmmi-10">ψ,𝜃 </span>+ 2<span 
-class="cmmi-10">π,α </span><span 
-class="cmsy-10">− </span>2<span 
-class="cmmi-10">πq</span>)
-correspond to the same spatial point. Therefore we have the following periodic condition:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-77006r322"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium412x.png" alt="g(ψ,𝜃,α) = g(ψ, 𝜃+ 2π,α− 2πq),
-" class="math-display"  /></center></td><td class="equation-label">(322)</td></tr></table>
-<!--l. 3717--><p class="nopar" >
-or equivalently
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-77007r323"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium413x.png" alt="g(ψ,𝜃 + 2π,α) = g(ψ,𝜃,α+ 2πq).
-" class="math-display"  /></center></td><td class="equation-label">(323)</td></tr></table>
-<!--l. 3721--><p class="nopar" >
-</p><!--l. 3724--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">10.3.3   </span> <a 
- id="x59-7800010.3.3"></a>Numerical implementation of periodic condition (322)</h5>
-<!--l. 3726--><p class="noindent" >For the fully kinetic ion module of GEM code that I am developing, <span 
-class="cmmi-10">𝜃 </span>is chosen in the range [0 : 2<span 
-class="cmmi-10">π</span>].
-The condition (<a 
-href="#x59-77006r322">322<!--tex4ht:ref: 17-11-2-p1 --></a>) imposes the following boundary condition:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-78001r324"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium414x.png" alt="g(ψ,2π,α) = g(ψ,0,α + 2πq).
-" class="math-display"  /></center></td><td class="equation-label">(324)</td></tr></table>
-                                                                                
-
-                                                                                
-<!--l. 3731--><p class="nopar" >
-If <span 
-class="cmmi-10">α </span>is on a grid, <span 
-class="cmmi-10">α </span>+ 2<span 
-class="cmmi-10">πq </span>is usually not on a grid. Therefore, to get the value of <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">ψ,</span>0<span 
-class="cmmi-10">,α </span>+ 2<span 
-class="cmmi-10">πq</span>), an
-interpolation of the discrete date over the generalized toroidal angle <span 
-class="cmmi-10">α </span>(or equivalently <span 
-class="cmmi-10">ϕ</span>) is needed, as
-is shown in Fig. <a 
-href="#x59-7800217">17<!--tex4ht:ref: 17-11-2-1 --></a>.
-</p><!--l. 3738--><p class="indent" >    
-</p><!--l. 3740--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-7800217"></a>
-                                                                                
-
-                                                                                
-<!--l. 3743--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2fr3/p.png" alt="pict"  
- width="250.9375pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 17: </span><span  
-class="content">Twenty magnetic ﬁeld lines (on <span 
-class="cmmi-10">ψ </span>=  0<span 
-class="cmmi-10">.</span>2 magnetic surface) starting at diﬀerent
-toroidal angle (blue points) on the midplane (<span 
-class="cmmi-10">𝜃 </span>= 0) go a full poloidal loop (i.e., Δ<span 
-class="cmmi-10">𝜃 </span>= 2<span 
-class="cmmi-10">π</span>),
-arriving at a toroidal angle (red points) which are diﬀerent from their respective starting toroidal
-angle. The ﬁeld values on the red points can be obtained by interpolating the ﬁeld values on
-the blue points. The safety factor of the magnetic surface <span 
-class="cmmi-10">q </span>= 1<span 
-class="cmmi-10">.</span>79. Magnetic ﬁeld from EAST
-discharge #59954@3.03s.</span></div><!--tex4ht:label?: x59-7800217 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 3754--><p class="indent" >    
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">10.3.4   </span> <a 
- id="x59-7900010.3.4"></a><span 
-class="cmmi-10">α </span>contours on a magnetic surface</h5>
-<!--l. 3758--><p class="noindent" >Figure <a 
-href="#x59-7900118">18<!--tex4ht:ref: 17-10-29-1 --></a> compares a small number of <span 
-class="cmmi-10">ϕ </span>contours and <span 
-class="cmmi-10">α </span>contours on a magnetic surface.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-7900118"></a>
-                                                                                
-
-                                                                                
-<!--l. 3762--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3e/p.png" alt="pict"  
- width="242.9075pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3d/p.png" alt="pict"  
- width="242.9075pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 18: </span><span  
-class="content">Comparison between a series of <span 
-class="cmmi-10">ϕ </span>contours (left) and a series of <span 
-class="cmmi-10">α </span>contours (right) on
-a magnetic surface. Here the values of <span 
-class="cmmi-10">ϕ </span>are <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmmi-7">j</span></sub> = <span 
-class="cmmi-10">α</span><sub><span 
-class="cmmi-7">j</span></sub> = (<span 
-class="cmmi-10">j </span><span 
-class="cmsy-10">− </span>1)2<span 
-class="cmmi-10">π∕</span>4<span 
-class="cmmi-10">∕</span>(10 <span 
-class="cmsy-10">− </span>1) with <span 
-class="cmmi-10">j </span>= 1<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,</span>10,
-i.e., only 1<span 
-class="cmmi-10">∕</span>4 of the full torus. The values of <span 
-class="cmmi-10">α </span>contours are <span 
-class="cmmi-10">α</span><sub><span 
-class="cmmi-7">j</span></sub> = (<span 
-class="cmmi-10">j </span><span 
-class="cmsy-10">− </span>1)2<span 
-class="cmmi-10">π∕</span>4<span 
-class="cmmi-10">∕</span>(10 <span 
-class="cmsy-10">− </span>1) with
-<span 
-class="cmmi-10">j  </span>=  1<span 
-class="cmmi-10">,</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,</span>10,  i.e.,  only  1<span 
-class="cmmi-10">∕</span>4  of  the  full  range  2<span 
-class="cmmi-10">π</span>.  Every  <span 
-class="cmmi-10">ϕ </span>and  <span 
-class="cmmi-10">α </span>contours  start  from  the
-lower-ﬁeld-side midplane and go one full poloidal loop.  Magnetic ﬁeld from EAST discharge
-#59954@3.03s.</span></div><!--tex4ht:label?: x59-7900118 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 3774--><p class="indent" >    
-</p><!--l. 3776--><p class="indent" >   As is shown in the left panel of Fig. <a 
-href="#x59-7900118">18<!--tex4ht:ref: 17-10-29-1 --></a>, with <span 
-class="cmmi-10">ϕ </span>ﬁxed, an <span 
-class="cmmi-10">𝜃 </span>curve reaches its starting
-point when <span 
-class="cmmi-10">𝜃 </span>changes from zero to 2<span 
-class="cmmi-10">π</span>. However, as shown in the right panel of Fig. <a 
-href="#x59-7900118">18<!--tex4ht:ref: 17-10-29-1 --></a>,
-with <span 
-class="cmmi-10">α </span>ﬁxed, an <span 
-class="cmmi-10">𝜃 </span>curve (i.e. a magnetic ﬁeld line) does not necessarily reach its starting
-point when <span 
-class="cmmi-10">𝜃 </span>changes from zero to 2<span 
-class="cmmi-10">π</span>. There is a toroidal shift, 2<span 
-class="cmmi-10">πq</span>, between the starting
-point and ending point. Therefore there is generally no periodic condition along <span 
-class="cmmi-10">𝜃 </span>since
-<span 
-class="cmmi-10">q </span>is not always an integer. A mixed periodic condition involves both <span 
-class="cmmi-10">𝜃 </span>and <span 
-class="cmmi-10">α </span>is given in
-(<a 
-href="#x59-77006r322">322<!--tex4ht:ref: 17-11-2-p1 --></a>).
-</p><!--l. 3786--><p class="indent" >   In ﬁeld-line-following coordinates (<span 
-class="cmmi-10">ψ,𝜃,α</span>), a toroidal harmonic of a physical perturbation can be
-written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-79002r325"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium415x.png" alt="δA (ψ,𝜃,α) = δA0(ψ)cos(m′𝜃+ nα + α0)
-" class="math-display"  /></center></td><td class="equation-label">(325)</td></tr></table>
-<!--l. 3791--><p class="nopar" >
-where <span 
-class="cmmi-10">n </span>is the toroidal mode number, <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′</span>, which is not necessary an integer, is introduced to
-describe the variation along a ﬁeld line. The periodic condition given by Eq. (<a 
-href="#x59-77006r322">322<!--tex4ht:ref: 17-11-2-p1 --></a>) requires
-that
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-79003r326"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium416x.png" alt="cos(m ′𝜃+ n α+ α0) = cos[m′(𝜃 + 2π)+ n(α− 2πq) +α0 ],
-" class="math-display"  /></center></td><td class="equation-label">(326)</td></tr></table>
-<!--l. 3798--><p class="nopar" >
-To satisfy the above condition, we can choose
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-79004r327"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium417x.png" alt=" ′
-m 2π− n2πq = N 2π,
-" class="math-display"  /></center></td><td class="equation-label">(327)</td></tr></table>
-<!--l. 3802--><p class="nopar" >
-where <span 
-class="cmmi-10">N </span>is an arbitrary integer, i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-79005r328"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium418x.png" alt="m ′ = N + nq.
-" class="math-display"  /></center></td><td class="equation-label">(328)</td></tr></table>
-<!--l. 3806--><p class="nopar" >
-We are interested in perturbation with a slow variation along the ﬁeld line direction (i.e., along
-<span 
-class="cmmi-10">∂</span><span 
-class="cmbx-10">r</span><span 
-class="cmmi-10">∕∂𝜃</span><span 
-class="cmsy-10">|</span><sub><span 
-class="cmmi-7">ψ,α</span></sub>) and thus we want the value of <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′ </span>to be small. One of the possible small values
-given by expression (<a 
-href="#x59-79005r328">328<!--tex4ht:ref: 17-12-16-5 --></a>) is to choose <span 
-class="cmmi-10">N </span>= <span 
-class="cmmi-10">n </span><span 
-class="cmsy-10">×</span> NINT((<span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">max</span></sub> + <span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">min</span></sub>)<span 
-class="cmmi-10">∕</span>2), so that <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′ </span>is given
-by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-79006r329"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium419x.png" alt="                  (          )
-m ′ = nq− n ×NINT  qmax-+qmin  ,
-                        2
-" class="math-display"  /></center></td><td class="equation-label">(329)</td></tr></table>
-<!--l. 3815--><p class="nopar" >
-where NINT is a function that return the nearest integer of its argument, <span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">max</span></sub> and <span 
-class="cmmi-10">q</span><sub><span 
-class="cmr-7">min</span></sub> is the maximal
-and minimal value of the safety factor in the radial region in which we are interested. [In the past, I
-choose <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′</span>(<span 
-class="cmmi-10">ψ</span>) = <span 
-class="cmmi-10">nq </span><span 
-class="cmsy-10">−</span> NINT(<span 
-class="cmmi-10">nq</span>). However, <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′</span>(<span 
-class="cmmi-10">ψ</span>) in this case is not a continuous function of <span 
-class="cmmi-10">ψ </span>and thus
-is not physical.] This form is used to set the initial density perturbation in the fully kinetic code I am
-                                                                                
-
-                                                                                
-developing. Note that <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′ </span>in Eq. (<a 
-href="#x59-79006r329">329<!--tex4ht:ref: 18-5-4-p1 --></a>) depends on the radial coordinate <span 
-class="cmmi-10">ψ </span>through <span 
-class="cmmi-10">q</span>(<span 
-class="cmmi-10">ψ</span>). Also note that
-<span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′ </span>here is diﬀerent from the poloidal mode number <span 
-class="cmmi-10">m </span>in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system. It is ready to show
-that the perturbation given by Eq. (<a 
-href="#x59-79002r325">325<!--tex4ht:ref: 17-10-30-e1 --></a>) with <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′∼ </span>1 and <span 
-class="cmmi-10">n </span><span 
-class="cmsy-10">≫ </span>1 has large poloidal mode
-number <span 
-class="cmmi-10">m </span>when expressed in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates. [Proof: Expression (<a 
-href="#x59-79002r325">325<!--tex4ht:ref: 17-10-30-e1 --></a>) can be written
-as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x59-79007r330"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium420x.png" alt="δA = δA0 (ψ )cos[m′𝜃+ n(ϕ − δ(ψ,𝜃))+ α0]
-" class="math-display"  /></center></td><td class="equation-label">(330)</td></tr></table>
-<!--l. 3832--><p class="nopar" >
-If <span 
-class="cmmi-10">𝜃 </span>is the straight-ﬁeld-line poloidal angle in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system, then <span class="overline"><span 
-class="cmmi-10">δ</span></span>(<span 
-class="cmmi-10">ψ,𝜃</span>) = <span 
-class="cmmi-10">q𝜃 </span>and the
-above equation is written as
-</p>
-   <table 
-class="equation-star"><tr><td>
-                       <span 
-class="cmmi-10">δA </span>= <span 
-class="cmmi-10">δA</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmmi-10">ψ</span>)cos[(<span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′− </span><span 
-class="cmmi-10">nq</span>)<span 
-class="cmmi-10">𝜃 </span>+ <span 
-class="cmmi-10">nϕ </span>+ <span 
-class="cmmi-10">α</span><sub><span 
-class="cmr-7">0</span></sub>]<span 
-class="cmmi-10">,</span>
-</td></tr></table>
-<!--l. 3837--><p class="nopar" >
-which indicates the poloidal mode number <span 
-class="cmmi-10">m </span>in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates is given by <span 
-class="cmmi-10">m </span>= <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′−</span><span 
-class="cmmi-10">nq</span>. For the
-case with <span 
-class="cmmi-10">m</span><span 
-class="cmsy-10">′∼ </span>1 and <span 
-class="cmmi-10">n </span><span 
-class="cmsy-10">≫ </span>1, <span 
-class="cmmi-10">m </span>is much larger than one.]
-</p><!--l. 3842--><p class="indent" >    
-</p><!--l. 3844--><p class="indent" >   [Since <span 
-class="cmmi-10">α </span>contours are magnetic ﬁeld lines, they span out the 3D shape of the magnetic surface when
-there are enough number of <span 
-class="cmmi-10">α </span>contours on a magnetic surface, as is shown by the right-panel of Fig.
-<a 
-href="#x59-7900819">19<!--tex4ht:ref: 17-10-29-e1 --></a>.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-7900819"></a>
-                                                                                
-
-                                                                                
-<!--l. 3849--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3c/p.png" alt="pict"  
- width="242.9075pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3b/p.png" alt="pict"  
- width="242.9075pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 19: </span><span  
-class="content">Comparison between a series of <span 
-class="cmmi-10">ϕ </span>contours(left) and a series of <span 
-class="cmmi-10">α </span>contours (left)
-on a magnetic surface. The <span 
-class="cmmi-10">α </span>contours correspond to magnetic ﬁeld lines. Here the <span 
-class="cmmi-10">α </span>values
-of adjacent <span 
-class="cmmi-10">α </span>contours diﬀer by <span 
-class="cmmi-10">dα </span>= 2<span 
-class="cmmi-10">π∕</span>20 and each <span 
-class="cmmi-10">α </span>contour goes one full poloidal loop.
-Magnetic ﬁeld from EAST discharge #59954@3.03s.</span></div><!--tex4ht:label?: x59-7900819 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 3858--><p class="indent" >    
-</p><!--l. 3860--><p class="indent" >    
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">10.3.5   </span> <a 
- id="x59-8000010.3.5"></a><span 
-class="cmmi-10">α </span>contours in a toroidal annulus</h5>
-<!--l. 3864--><p class="noindent" >Figure <a 
-href="#x59-8000120">20<!--tex4ht:ref: 17-9-18-1 --></a> compares the <span 
-class="cmmi-10">ϕ </span>coordinate surface of (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates with the <span 
-class="cmmi-10">α </span>coordinate surface of
-(<span 
-class="cmmi-10">ψ,𝜃,α</span>) coordinates.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-8000120"></a>
-                                                                                
-
-                                                                                
-<!--l. 3869--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3g/p.png" alt="pict"  
- width="242.90749pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3f/p.png" alt="pict"  
- width="238.89249pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 20: </span><span  
-class="content">Comparison between isosurface of <span 
-class="cmmi-10">ϕ </span>= 2<span 
-class="cmmi-10">π∕</span>8 (projection of magnetic ﬁeld lines onto
-<span 
-class="cmmi-10">ϕ </span>= 2<span 
-class="cmmi-10">π∕</span>8 plane) and isosurface of <span 
-class="cmmi-10">α </span>= 2<span 
-class="cmmi-10">π∕</span>8. The <span 
-class="cmmi-10">α </span>isosurface is made of a family of contours of
-<span 
-class="cmmi-10">α </span>= 2<span 
-class="cmmi-10">π∕</span>8, which are all magnetic ﬁeld lines. These ﬁeld lines are traced by starting from a series
-of points on the low-ﬁeld-side midplane (<span 
-class="cmmi-10">𝜃 </span>= 0) at diﬀerent radial locations and the ﬁeld lines
-are followed by a complete poloidal loop. The radial range is given by <span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmmi-7">N</span></sub> <span 
-class="cmsy-10">∈ </span>[0<span 
-class="cmmi-10">.</span>4 : 0<span 
-class="cmmi-10">.</span>5], where <span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmmi-7">N</span></sub>
-is the normalized poloidal magnetic ﬂux. Magnetic ﬁeld from EAST discharge #59954@3.03s.</span></div><!--tex4ht:label?: x59-8000120 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 3881--><p class="indent" >    
-</p><!--l. 3883--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-8000221"></a>
-                                                                                
-
-                                                                                
-<!--l. 3886--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3i/p.png" alt="pict"  
- width="242.90749pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3h/p.png" alt="pict"  
- width="263.98625pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 21: </span><span  
-class="content">The same plot as in Fig. <a 
-href="#x59-8000120">20<!--tex4ht:ref: 17-9-18-1 --></a> but with a larger radial range. <span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmmi-7">N</span></sub> <span 
-class="cmsy-10">∈ </span>[0<span 
-class="cmmi-10">.</span>4 : 0<span 
-class="cmmi-10">.</span>7], where
-<span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmmi-7">N</span></sub> is the normalized poloidal magnetic ﬂux.</span></div><!--tex4ht:label?: x59-8000221 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x59-8000322"></a>
-                                                                                
-
-                                                                                
-<!--l. 3893--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig15c/p.png" alt="pict"  
- width="268.00125pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig15d/p.png" alt="pict"  
- width="268.00125pt" />
-</p><!--l. 3895--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig15e/p.png" alt="pict"  
- width="266.9975pt" />                                         <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig15f/p.png" alt="pict"  
- width="266.9975pt" />
-</p><!--l. 3897--><p class="noindent" > 
-<br /> </p><div class="caption" 
-><span class="id">Figure 22: </span><span  
-class="content">The value of <span 
-class="cmmi-10">𝜃 </span>and <span class="overline"><span 
-class="cmmi-10">δ</span></span> on an annulus in the poloidal plane (<span 
-class="cmmi-10">R,Z</span>). Upper panel:
-using magnetic coordinates, Lower panel: comparison with the results computed in cylindricall
-coordinates.  <span class="overline"><span 
+src="tokamak_equilibrium389x.png" alt="        (             )
+               ∫ 𝜃
+α = ϕ −  q𝜃ref +    ˆqd𝜃  ,                       (299)
+                𝜃ref
+" class="math-display"  /><a 
+ id="x60-76009r299"></a></center>
+</div>where <img 
+src="tokamak_equilibrium390x.png" alt="ˆq"  class="circ"  /> = <span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">ϕ∕</span><span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃 </span>is the local safety factor. For convenience, we choose <span 
+class="cmmi-10">𝜃</span><sub><span 
+class="cmr-7">ref</span></sub> = 0. Then <span 
+class="cmmi-10">α </span>= <span 
+class="cmmi-10">ϕ</span><span 
+class="cmsy-10">−</span><span class="overline"><span 
+class="cmmi-10">δ</span></span>,
+where <span class="overline"><span 
 class="cmmi-10">δ</span></span> = <span 
 class="cmex-10">∫</span>
  <sub><span 
 class="cmr-7">0</span></sub><sup><span 
 class="cmmi-7">𝜃</span></sup><img 
-src="tokamak_equilibrium421x.png" alt="ˆq"  class="circ"  /> <span 
-class="cmmi-10">d𝜃</span>. Both <span 
-class="cmmi-10">𝜃 </span>and <span class="overline"><span 
-class="cmmi-10">δ</span></span> are discontinuous at the <span 
-class="cmmi-10">𝜃 </span>cut, which is chosen on the
-high-ﬁeld-side in this case.</span></div><!--tex4ht:label?: x59-8000322 -->
+src="tokamak_equilibrium391x.png" alt="ˆq"  class="circ"  /> <span 
+class="cmmi-10">d𝜃</span>, which is called tor_shift in TEK code.
+<!--l. 3483--><p class="indent" >   It is widely believed (but can still be questioned because of lacking of conclusive experiments) that
+turbulence in tokamak plasmas usually has <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">≪ </span><span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">⊥</span></sub>, where <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub> and <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">⊥</span></sub> are the parallel and
+perpendicular wavenumbers, respectively. Due to this elongated structure along the parallel
+direction, less grids can be used in the parallel direction than that in the perpendicular
+direction in turbulence simulation. In this case, the ﬁeld-aligned coordinates (<span 
+class="cmmi-10">ψ,𝜃,α</span>) provide
                                                                                 
 
                                                                                 
-   </div><hr class="endfigure" />
-<!--l. 3906--><p class="indent" >    
-</p><!--l. 3908--><p class="indent" >    
+suitable coordinates to be used, where less grids can be used for <span 
+class="cmmi-10">𝜃 </span>coordinate in simulations
+and even some <span 
+class="cmmi-10">∂∕∂𝜃 </span>derivatives can be neglected (high-n approximation), which simpliﬁes
+the equations that need to be solved. However, this is not the most important reason why
+almost all gyrokinetic codes use ﬁeld-aligned coordinates. The most important advantage of
+using ﬁeld-aligned coordinates is that the  stability of numerical algorthims is improved
+when we use coarse grids in the parallel direction because the parallel Courant condition
+(for explicit schemes) <span 
+class="cmmi-10">Δt </span><span 
+class="msam-10">≤ </span><span 
+class="cmmi-10">ΔL</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕v</span><sub><span 
+class="cmsy-7">∥</span></sub> can be more easily satisﬁed (especially for the cases
+with kinetic electrons), where <span 
+class="cmmi-10">ΔL</span><sub><span 
+class="cmsy-7">∥</span></sub> is the parallel grid spacing, which is larger when coarse
+grids are used in the parallel direction. This is also mentioned in Ref. <span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xottaviani2011">21</a>]</span> and it seems
+to be right from my experiences of testing several algorithm but a strict test is needed
+to verify this. This can also be understood in the following way: the coarse parallel grid
+automatically ﬁlters out physically irrelevant but numerically problematic high-<span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub> modes,
+permitting much longer time steps for explicit time stepping, in both particle and ﬂuid
+codes<span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xdimits1993">12</a>]</span>.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 3910--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3509--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu49.html" >next</a>] [<a 
-href="tokamak_equilibriumsu47.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu47.html#tailtokamak_equilibriumsu47.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu48.html" >front</a>] [<a 
-href="tokamak_equilibriumse10.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
-<!--l. 3910--><p class="indent" >   <a 
- id="tailtokamak_equilibriumsu48.html"></a>  </p> 
+href="tokamak_equilibriumse11.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
+<!--l. 3509--><p class="indent" >   <a 
+ id="tailtokamak_equilibriumsu48.html"></a> </p> 
 </body></html> 

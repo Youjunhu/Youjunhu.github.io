@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Boundary magnetic surface and initial coordinates</title> 
+<head><title>Special treatment at coordinate origin, wrong! to be deleted</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,217 +13,102 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 5066--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 5035--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu63.html" >next</a>] [<a 
 href="tokamak_equilibriumsu61.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu61.html#tailtokamak_equilibriumsu61.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu62.html">tail</a>] [<a 
-href="tokamak_equilibriumse12.html#tokamak_equilibriumsu62.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">12.5   </span> <a 
- id="x75-10100012.5"></a>Boundary magnetic surface and initial coordinates</h4>
-<!--l. 5068--><p class="noindent" >In the ﬁxed boundary equilibrium problem, the shape of the boundary magnetic surface (it is also the
-boundary of the computational region) is given while the shape of the inner ﬂux surface is
-to be solved. A simple analytical expression for a D-shaped magnetic surface takes the
-form
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu62.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">13.3   </span> <a 
+ id="x76-10200013.3"></a>Special treatment at coordinate origin, wrong! to be deleted</h4>
+   <table 
+class="equation"><tr><td><a 
+ id="x76-102001r409"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium538x.png" alt="Ψ ≈ a00 + a10R + a01Z + a11RZ + a20R2 + a02Z2.
+" class="math-display"  /></center></td><td class="equation-label">(409)</td></tr></table>
+<!--l. 5040--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x75-101001r427"></a>
+ id="x76-102002r410"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium553x.png" alt="R = R0 + acos(𝜃 +Δ sin𝜃),
-" class="math-display"  /></center></td><td class="equation-label">(427)</td></tr></table>
-<!--l. 5074--><p class="nopar" >
+src="tokamak_equilibrium539x.png" alt="           ∘ --
+R = R0 + b11 ψ cos𝜃
+" class="math-display"  /></center></td><td class="equation-label">(410)</td></tr></table>
+<!--l. 5043--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x75-101002r428"></a>
+ id="x76-102003r411"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium554x.png" alt="Z = κa sin𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(428)</td></tr></table>
-<!--l. 5077--><p class="nopar" >
-with <span 
-class="cmmi-10">𝜃 </span>changing from 0 to 2<span 
-class="cmmi-10">π</span>. According to the deﬁnition in Eqs. (<a 
-href="tokamak_equilibriumsu6.html#x8-8002r29">29<!--tex4ht:ref: 4-25-p1 --></a>), (<a 
-href="tokamak_equilibriumsu6.html#x8-8003r30">30<!--tex4ht:ref: 4-25-p2 --></a>), and (<a 
-href="tokamak_equilibriumsu6.html#x8-8005r32">32<!--tex4ht:ref: 4-25-p4 --></a>) we can readily
-verify that the parameters <span 
-class="cmmi-10">a</span>, <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub>, <span 
-class="cmmi-10">κ </span>appearing in Eqs. (<a 
-href="#x75-101001r427">427<!--tex4ht:ref: 4-20-1 --></a>) and (<a 
-href="#x75-101002r428">428<!--tex4ht:ref: 4-20-2 --></a>) are indeed the minor radius,
-major radius, and ellipticity, respectively. According to the deﬁnition of triangularity Eq.
-(<a 
-href="tokamak_equilibriumsu6.html#x8-8004r31">31<!--tex4ht:ref: 4-25-p3 --></a>), the triangularity <span 
-class="cmmi-10">δ </span>for the magnetic surface deﬁned by Eqs. (<a 
-href="#x75-101001r427">427<!--tex4ht:ref: 4-20-1 --></a>) and (<a 
-href="#x75-101002r428">428<!--tex4ht:ref: 4-20-2 --></a>) is written
-as
+src="tokamak_equilibrium540x.png" alt="            --
+Z = Z0 + c11∘ ψ sin 𝜃
+" class="math-display"  /></center></td><td class="equation-label">(411)</td></tr></table>
+<!--l. 5046--><p class="nopar" >
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium541x.png" alt="            (       ∘ --   )        ∘ --        (       ∘ --    )  ∘ --         (       ∘ --   )2      (  ∘ --   )2
+Ψ ≈ a00 + a10  R0 + b11 ψcos𝜃  + a01c11  ψsin 𝜃+ a11 R0 + b11  ψ cos𝜃 c11 ψ sin 𝜃+ a20 R0 + b11  ψ cos𝜃   + a02 c11  ψ sin𝜃
+                     ∘ --           ∘ --             ∘--            ∘ --  ∘ --                                       ∘ --
+  = a00 + a10R0 + a10b11  ψcos𝜃 + a01c11  ψsin 𝜃+ a11R0c11 ψ sin 𝜃+ 1a11b11 ψc11  ψ sin2𝜃 +2a20R20 + a20(b11)2ψ cos2𝜃 + 2a20R0b11 ψ cos𝜃 + a02(c11)2ψ sin2𝜃
+          ∘ --       ∘ --                                     2
+  = d0 + d1 ψcos𝜃+ d2  ψ sin𝜃 + d3ψsin 2𝜃+ d4ψ cos2𝜃 + d5ψ sin2 𝜃
+" class="math-display"  /></center>
+</div>
+   <table 
+class="equation-star"><tr><td>
+                          <span 
+class="cmmi-10">Ψ </span>= <span 
+class="cmmi-10">d</span><sub><span 
+class="cmr-7">0</span></sub> + <span 
+class="cmmi-10">d</span><sub><span 
+class="cmr-7">1</span></sub><img 
+src="tokamak_equilibrium542x.png" alt="∘ --
+  ψ"  class="sqrt"  />cos<span 
+class="cmmi-10">𝜃 </span>+ <span 
+class="cmmi-10">d</span><sub><span 
+class="cmr-7">2</span></sub><img 
+src="tokamak_equilibrium543x.png" alt="∘ --
+  ψ"  class="sqrt"  />sin<span 
+class="cmmi-10">𝜃</span>
+</td></tr></table>
+<!--l. 5064--><p class="nopar" >
 </p>
+   <table 
+class="equation"><tr><td><a 
+ id="x76-102005r412"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium544x.png" alt="R = R  +b11∘ ψcos𝜃 + b12∘ ψ-cos2𝜃 + b21( ∘ψ-)2cos𝜃+ b22(∘ ψ)2 cos2𝜃
+     0
+" class="math-display"  /></center></td><td class="equation-label">(412)</td></tr></table>
+<!--l. 5070--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x76-102006r413"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium545x.png" alt="                                    (    )          (   )
+Z = Z  + c11∘ ψ-sin𝜃 + c12∘ ψ-sin2𝜃 + c21 ∘ ψ- 2sin 𝜃+ c22  ∘ ψ-2sin2𝜃
+      0
+" class="math-display"  /></center></td><td class="equation-label">(413)</td></tr></table>
+<!--l. 5075--><p class="nopar" >
                                                                                 
 
                                                                                 
-   <table 
-class="equation"><tr><td><a 
- id="x75-101003r429"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium555x.png" alt="δ = sin Δ.
-" class="math-display"  /></center></td><td class="equation-label">(429)</td></tr></table>
-<!--l. 5087--><p class="nopar" >
-Another common expression for the shape of a magnetic surface was given by Miller<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xchen2010">8</a>, <a 
-href="tokamak_equilibriumli1.html#Xmiller1998">19</a>]</span>, which is
-written as
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x75-101004r430"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium556x.png" alt="R = R0 + acos[𝜃+ arcsin(Δ sin𝜃)],
-" class="math-display"  /></center></td><td class="equation-label">(430)</td></tr></table>
-<!--l. 5092--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x75-101005r431"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium557x.png" alt="Z = κa sin𝜃.
-" class="math-display"  /></center></td><td class="equation-label">(431)</td></tr></table>
-<!--l. 5095--><p class="nopar" >
-Note that Miller’s formula is only slightly diﬀerent from the formula (<a 
-href="#x75-101001r427">427<!--tex4ht:ref: 4-20-1 --></a>). For Miller’s formula, it is
-easy to prove that the triangularity <span 
-class="cmmi-10">δ </span>is equal to Δ (instead of <span 
-class="cmmi-10">δ </span>= sinΔ as given in Eq.
-(<a 
-href="#x75-101003r429">429<!--tex4ht:ref: 8-10-1 --></a>)).
-                                                                                
-
-                                                                                
-</p><!--l. 5101--><p class="indent" >   In the iterative metric method<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xdelucia1980">11</a>]</span> for solving the ﬁxed boundary equilibrium problem, we need to
-provide an initial guess of the shape of the inner ﬂux surface (this initial guess is used to construct a
-initial generalized coordinates system). A common guess of the inner ﬂux surfaces is given
-by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x75-101006r432"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium558x.png" alt="R = ψα(RLCFS − R0)+ R0,
-" class="math-display"  /></center></td><td class="equation-label">(432)</td></tr></table>
-<!--l. 5108--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x75-101007r433"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium559x.png" alt="Z = ψαZLCFS,
-" class="math-display"  /></center></td><td class="equation-label">(433)</td></tr></table>
-<!--l. 5111--><p class="nopar" >
-where <span 
-class="cmmi-10">α </span>is a parameter, <span 
-class="cmmi-10">ψ </span>is a label parameter of ﬂux surface. If the shape of the LCFS is given by Eqs.
-(<a 
-href="#x75-101001r427">427<!--tex4ht:ref: 4-20-1 --></a>) and (<a 
-href="#x75-101002r428">428<!--tex4ht:ref: 4-20-2 --></a>), then Eqs. (<a 
-href="#x75-101006r432">432<!--tex4ht:ref: 4-25-p5 --></a>) and (<a 
-href="#x75-101007r433">433<!--tex4ht:ref: 4-25-p6 --></a>) are written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x75-101008r434"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium560x.png" alt="          α
-R = R0 + ψ acos(𝜃 + Δ sin𝜃),
-                                                                                
-
-                                                                                
-" class="math-display"  /></center></td><td class="equation-label">(434)</td></tr></table>
-<!--l. 5118--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x75-101009r435"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium561x.png" alt="Z = ψaκa sin 𝜃.
-" class="math-display"  /></center></td><td class="equation-label">(435)</td></tr></table>
-<!--l. 5121--><p class="nopar" >
-Fig. <a 
-href="#x75-10101028">28<!--tex4ht:ref: 4-25-p10 --></a> plots the shape given by Eqs. (<a 
-href="#x75-101008r434">434<!--tex4ht:ref: 4-25-p8 --></a>) and (<a 
-href="#x75-101009r435">435<!--tex4ht:ref: 4-25-p9 --></a>) for <span 
-class="cmmi-10">a </span>=0.4, <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub> = 1<span 
-class="cmmi-10">.</span>7, <span 
-class="cmmi-10">κ </span>= 1<span 
-class="cmmi-10">.</span>7, Δ = arcsin(0<span 
-class="cmmi-10">.</span>6),
-and <span 
-class="cmmi-10">α </span>= 1 with <span 
-class="cmmi-10">ψ </span>varying from zero to one.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x75-10101028"></a>
-                                                                                
-
-                                                                                
-<!--l. 5127--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/inverse_metric_method/fig1/plt.png" alt="pict"  
- width="180.67499pt" /> <img 
-src="my_figure/home/yj/project_new/inverse_metric_method/fig2/plt.png" alt="pict"  
- width="180.67499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 28: </span><span  
-class="content">Shape of ﬂux surface given by Eqs. (<a 
-href="#x75-101008r434">434<!--tex4ht:ref: 4-25-p8 --></a>) and (<a 
-href="#x75-101009r435">435<!--tex4ht:ref: 4-25-p9 --></a>). Left ﬁgure: points with the same
-value of <span 
-class="cmmi-10">ψ </span>are connected to show <span 
-class="cmmi-10">ψ </span>coordinate surface; Right ﬁgure: dot plot. Parameters are
-<span 
-class="cmmi-10">a </span>=0.4m, <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub> = 1<span 
-class="cmmi-10">.</span>7<span 
-class="cmmi-10">m</span>, <span 
-class="cmmi-10">κ </span>= 1<span 
-class="cmmi-10">.</span>7, Δ = arcsin(0<span 
-class="cmmi-10">.</span>6), <span 
-class="cmmi-10">α </span>= 1 with <span 
-class="cmmi-10">ψ </span>varying from zero (center) to one
-(boundary). The shape parameters of LCFS are chosen according to the parameters of EAST
-tokamak.</span></div><!--tex4ht:label?: x75-10101028 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-                                                                                
-
-                                                                                
-   <!--l. 5137--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 5077--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu63.html" >next</a>] [<a 
 href="tokamak_equilibriumsu61.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu61.html#tailtokamak_equilibriumsu61.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu62.html" >front</a>] [<a 
-href="tokamak_equilibriumse12.html#tokamak_equilibriumsu62.html" >up</a>] </p></div>
-<!--l. 5137--><p class="indent" >   <a 
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu62.html" >up</a>] </p></div>
+<!--l. 5077--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu62.html"></a> </p> 
 </body></html> 

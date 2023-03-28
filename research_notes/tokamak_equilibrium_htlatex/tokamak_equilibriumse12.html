@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Fixed boundary tokamak equilibrium problem</title> 
+<head><title>Concentric-circular magnetic conﬁguration with a given safety factor proﬁle</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,63 +13,428 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 4722--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4372--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse13.html" >next</a>] [<a 
 href="tokamak_equilibriumse11.html" >prev</a>] [<a 
 href="tokamak_equilibriumse11.html#tailtokamak_equilibriumse11.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumse12.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse12.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">12   </span> <a 
- id="x70-9600012"></a>Fixed boundary tokamak equilibrium problem</h3>
-<!--l. 4724--><p class="noindent" >The ﬁxed boundary equilibrium problem (also called the “inverse equilibrium problem” by some
-authors) refers to the case where the shape of a boundary magnetic surface is given and one is asked to
-solve the equilibrium within this magnetic surface. To make it convenient to deal with the shape of the
-boundary, one usually uses a general coordinates system which has one coordinate surface coinciding
-with the given magnetic surface. This makes it trivial to deal with the irregular boundary.
-To obtain the equilibrium, one needs to solve the GS equation in the general coordinate
-system.
-</p><!--l. 4733--><p class="noindent" >
+ id="x67-9300012"></a>Concentric-circular magnetic conﬁguration with a given safety factor proﬁle</h3>
+<!--l. 4374--><p class="noindent" >Assume magnetic surfaces of a magnetic conﬁguration are known and given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93001r344"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium443x.png" alt="R (r,𝜃) = R0 + rcos𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(344)</td></tr></table>
+<!--l. 4377--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93002r345"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium444x.png" alt="Z(r,𝜃) = rsin 𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(345)</td></tr></table>
+<!--l. 4380--><p class="nopar" >
+where (<span 
+class="cmmi-10">r,𝜃</span>) are two parameters and <span 
+class="cmmi-10">r </span>is magnetic surface label (i.e., <span 
+class="cmmi-10">∂Ψ∕∂𝜃</span><span 
+class="cmsy-10">|</span><sub><span 
+class="cmmi-7">r</span></sub> = 0). The above
+parametric equations specify a series of concentric-circular magnetic surfaces.
+</p><!--l. 4386--><p class="indent" >   Assume the toroidal ﬁeld function <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">r</span>) = <span 
+class="cmmi-10">RB</span><sub><span 
+class="cmmi-7">ϕ</span></sub> is given. Then the toroidal magnetic ﬁeld is
+determined by <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">ϕ</span></sub> = <span 
+class="cmmi-10">g∕R</span>. Further assume the safety factor proﬁle <span 
+class="cmmi-10">q</span>(<span 
+class="cmmi-10">r</span>) is given, then the magnetic ﬁeld
+is fully determined. Next, let us derive the explicit form of the poloidal magnetic ﬁeld <span 
+class="cmbx-10">B</span><sub><span 
+class="cmmi-7">p</span></sub>, which is
+given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93003r346"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium445x.png" alt="Bp = ∇ Ψ × ∇ ϕ = 1-∇ Ψp × ∇ ϕ,
+                2π
+" class="math-display"  /></center></td><td class="equation-label">(346)</td></tr></table>
+<!--l. 4394--><p class="nopar" >
+which involves the poloidal magnetic ﬂux <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">p</span></sub>. Therefore our task is to express <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">p</span></sub> in terms of <span 
+class="cmmi-10">q </span>and <span 
+class="cmmi-10">g</span>.
+Using <span 
+class="cmmi-10">q</span>(<span 
+class="cmmi-10">r</span>) = <span 
+class="cmmi-10">dΨ</span><sub><span 
+class="cmmi-7">t</span></sub><span 
+class="cmmi-10">∕dΨ</span><sub><span 
+class="cmmi-7">p</span></sub>, we obtain
+</p>
+   <table 
+class="equation-star"><tr><td>
+                                  <span 
+class="cmmi-10">dΨ</span><sub><span 
+class="cmmi-7">p</span></sub> = <img 
+src="tokamak_equilibrium446x.png" alt="1
+q"  class="frac" align="middle" /><span 
+class="cmmi-10">dΨ</span><sub><span 
+class="cmmi-7">t</span></sub><span 
+class="cmmi-10">,</span>
+</td></tr></table>
+<!--l. 4398--><p class="nopar" >
+Integrate the above equation over <span 
+class="cmmi-10">r</span>, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93004r347"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium447x.png" alt="∫ r      ∫ r1
+   dΨp =    -dΨt,
+ 0        0 q
+" class="math-display"  /></center></td><td class="equation-label">(347)</td></tr></table>
+<!--l. 4402--><p class="nopar" >
+which an be written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93005r348"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium448x.png" alt="              ∫ r     (∫ r∫ π        )
+Ψ (r)− Ψ (0) =    -1--d        B rdrd𝜃  ,
+ p      p      0 q(r)   0  − π ϕ
+" class="math-display"  /></center></td><td class="equation-label">(348)</td></tr></table>
+<!--l. 4407--><p class="nopar" >
+where use has been made of <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">t</span></sub> = <span 
+class="cmex-10">∫</span>
+ <sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmmi-7">r</span></sup> <span 
+class="cmex-10">∫</span>
+ <sub><span 
+class="cmsy-7">−</span><span 
+class="cmmi-7">π</span></sub><sup><span 
+class="cmmi-7">π</span></sup><span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">ϕ</span></sub><span 
+class="cmmi-10">rdrd𝜃</span>. Using <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">ϕ</span></sub> = <span 
+class="cmmi-10">g∕R </span>and <span 
+class="cmmi-10">R </span>= <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub> + <span 
+class="cmmi-10">r</span> cos<span 
+class="cmmi-10">𝜃</span>, the above
+equation is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93006r349"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium449x.png" alt="              ∫ r     ( ∫ r∫ π               )
+Ψp (r)− Ψp(0) =    -1-d         ----g-----rdrd𝜃
+               0  q(r)    0  −π R0 + r cos𝜃
+" class="math-display"  /></center></td><td class="equation-label">(349)</td></tr></table>
+<!--l. 4415--><p class="nopar" >
+Using <span 
+class="cmmib-10">maxima</span> (an open-source computer algebra system), the above integration over <span 
+class="cmmi-10">𝜃 </span>can be
+performed analytically, giving
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93007r350"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium450x.png" alt="∫ π     1            2π
+    ----------d𝜃 = ∘--2---2.
+ −π R0 + r cos𝜃      R 0 − r
+" class="math-display"  /></center></td><td class="equation-label">(350)</td></tr></table>
+<!--l. 4421--><p class="nopar" >
+Using this, equation (<a 
+href="#x67-93006r349">349<!--tex4ht:ref: 17-11-21-1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93008r351"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium451x.png" alt="              ∫       (∫             )
+                r-1--    r --2πgr---
+Ψp(r)− Ψp(0) =  0 q(r)d   0  ∘R2-−-r2dr  ,
+                              0
+" class="math-display"  /></center></td><td class="equation-label">(351)</td></tr></table>
+<!--l. 4426--><p class="nopar" >
+which can be simpliﬁed as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93009r352"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium452x.png" alt="              ∫ r
+Ψp(r) − Ψp(0) =    -1--∘-2πgr--dr.
+               0 q(r)   R20 − r2
+" class="math-display"  /></center></td><td class="equation-label">(352)</td></tr></table>
+<!--l. 4431--><p class="nopar" >
+This is what we want—the expression of the poloidal magnetic ﬂux in terms of <span 
+class="cmmi-10">q </span>and <span 
+class="cmmi-10">g</span>. [Another way
+of obtaining Eq. (<a 
+href="#x67-93009r352">352<!--tex4ht:ref: 17-11-21-e3 --></a>) is to use Eq. (<a 
+href="tokamak_equilibriumsu31.html#x38-46005r160">160<!--tex4ht:ref: 7-11-p1 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93010r353"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium453x.png" alt="dΨ     g ∫ 2π 𝒥
+--p= − -     -2d𝜃,
+dr     q  0  R
+" class="math-display"  /></center></td><td class="equation-label">(353)</td></tr></table>
+<!--l. 4438--><p class="nopar" >
+where <span 
+class="cmsy-10">𝒥 </span>is the Jacobian of the (<span 
+class="cmmi-10">r,𝜃,ϕ</span>) coordinates and is given by <span 
+class="cmsy-10">𝒥 </span>= <span 
+class="cmmi-10">R</span>(<span 
+class="cmmi-10">R</span><sub><span 
+class="cmmi-7">𝜃</span></sub><span 
+class="cmmi-10">Z</span><sub><span 
+class="cmmi-7">r</span></sub> <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">R</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">Z</span><sub><span 
+class="cmmi-7">𝜃</span></sub>) = <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">Rr</span>. Then
+Eq. (<a 
+href="#x67-93010r353">353<!--tex4ht:ref: 19-5-9-p1 --></a>) is simpliﬁed as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93011r354"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium454x.png" alt="       ∫ 2π        ∫ 2π
+dΨp-= g     rd𝜃 = g     ----r-----d𝜃 = g r∘-2π---,
+dr    q 0   R     q  0  R0 + r cos𝜃    q    R20 − r2
+" class="math-display"  /></center></td><td class="equation-label">(354)</td></tr></table>
+<!--l. 4446--><p class="nopar" >
+which, after being integrated over <span 
+class="cmmi-10">r</span>, gives Eq. (<a 
+href="#x67-93009r352">352<!--tex4ht:ref: 17-11-21-e3 --></a>).]
+</p><!--l. 4449--><p class="indent" >   Using Eq. (<a 
+href="#x67-93009r352">352<!--tex4ht:ref: 17-11-21-e3 --></a>), the poloidal magnetic ﬁeld in Eq. (<a 
+href="#x67-93003r346">346<!--tex4ht:ref: 17-11-21-6 --></a>) is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium455x.png" alt="                (                  )
+      ∇r×-∇-ϕ-∂-- ∫ r-1----2πgr---
+Bp =    2π    ∂r   0 q(r) ∘R2-−-r2dr
+                            0
+   = ∇r × ∇ ϕ-1--∘--gr---.                            (355)
+             q(r)  R20 − r2
+" class="math-display"  /><a 
+ id="x67-93012r355"></a></center>
+</div>[Using the formulas <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">r </span>= <span 
+class="cmsy-10">−</span><img 
+src="tokamak_equilibrium456x.png" alt="R𝒥-"  class="frac" align="middle" />(<span 
+class="cmmi-10">Z</span><sub><span 
+class="cmmi-7">𝜃</span></sub><img 
+src="tokamak_equilibrium457x.png" alt="Rˆ"  class="circ"  /><span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">R</span><sub><span 
+class="cmmi-7">𝜃</span></sub><img 
+src="tokamak_equilibrium458x.png" alt="ˆZ"  class="circ"  />) and <span 
+class="cmsy-10">𝒥 </span>= <span 
+class="cmmi-10">R</span>(<span 
+class="cmmi-10">R</span><sub><span 
+class="cmmi-7">𝜃</span></sub><span 
+class="cmmi-10">Z</span><sub><span 
+class="cmmi-7">r</span></sub> <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">R</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">Z</span><sub><span 
+class="cmmi-7">𝜃</span></sub>), where <span 
+class="cmsy-10">𝒥 </span>is the Jacobian of the
+(<span 
+class="cmmi-10">r,𝜃,ϕ</span>) coordinates, we obtain <span 
+class="cmsy-10">𝒥 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">Rr </span>and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">r </span>= cos<span 
+class="cmmi-10">𝜃</span><img 
+src="tokamak_equilibrium459x.png" alt="Rˆ"  class="circ"  /> + sin<span 
+class="cmmi-10">𝜃</span><img 
+src="tokamak_equilibrium460x.png" alt="ˆZ"  class="circ"  />, <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ϕ </span>= <img 
+src="tokamak_equilibrium461x.png" alt="ˆϕ"  class="circ"  /><span 
+class="cmmi-10">∕R</span>. Then Eq. (<a 
+href="#x67-93012r355">355<!--tex4ht:ref: 17-11-21-e1 --></a>) is
+written as
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93013r356"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium462x.png" alt="     cos𝜃ˆZ − sin 𝜃ˆR  1     gr
+Bp = ------------- ---∘---2---2
+           R       q(r)  R 0 − r
+" class="math-display"  /></center></td><td class="equation-label">(356)</td></tr></table>
+<!--l. 4467--><p class="nopar" >
+This is the explicit form of the poloidal magnetic ﬁeld in terms of <span 
+class="cmmi-10">g </span>and <span 
+class="cmmi-10">q</span>. The magnitude of <span 
+class="cmbx-10">B</span><sub><span 
+class="cmmi-7">p</span></sub> is
+written as
+</p>
+                                                                                
+
+                                                                                
+   <table 
+class="equation"><tr><td><a 
+ id="x67-93014r357"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium463x.png" alt="     -----1-------1-----gr----
+Bp = (R0 + rcos𝜃)q(r) ∘R2-−-r2
+                        0
+" class="math-display"  /></center></td><td class="equation-label">(357)</td></tr></table>
+<!--l. 4473--><p class="nopar" >
+Note that both <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">p</span></sub> and <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">ϕ</span></sub> depend on the poloidal angle <span 
+class="cmmi-10">𝜃</span>.]
+</p><!--l. 4476--><p class="indent" >   I use Eq. (<a 
+href="#x67-93009r352">352<!--tex4ht:ref: 17-11-21-e3 --></a>) to compute the 2D data of <span 
+class="cmmi-10">Ψ </span>(<span 
+class="cmmi-10">Ψ </span>= <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">∕</span>2<span 
+class="cmmi-10">π</span>) on the poloidal plane when
+creating a numerical G-eqdsk ﬁle for the above magnetic conﬁguration (Fortran code is at
+<span 
+class="cmmib-10">∕home∕yj∕project</span>_<span 
+class="cmmib-10">new∕circular</span>_<span 
+class="cmmib-10">configuration</span>_<span 
+class="cmmib-10">with</span>_<span 
+class="cmmib-10">q</span>_<span 
+class="cmmib-10">given</span>).
+</p><!--l. 4481--><p class="indent" >   Assume that the poloidal plasma current is zero, then <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">r</span>) = <span 
+class="cmmi-10">RB</span><sub><span 
+class="cmmi-7">ϕ</span></sub> is a constant independent of <span 
+class="cmmi-10">r</span>.
+This is always assumed by the authors who use concentric-circular conﬁguration but is seldom explicitly
+mentioned.
+</p><!--l. 4485--><p class="indent" >   In analytical work, 1<span 
+class="cmmi-10">∕R </span>dependence on (<span 
+class="cmmi-10">r,𝜃</span>) is often approximated as
+</p>
+   <table 
+class="equation-star"><tr><td>
+                  <img 
+src="tokamak_equilibrium464x.png" alt="1-
+R"  class="frac" align="middle" /> = <img 
+src="tokamak_equilibrium465x.png" alt="----1-----
+R0 + r cos𝜃"  class="frac" align="middle" /> = <img 
+src="tokamak_equilibrium466x.png" alt="-1-
+R0"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium467x.png" alt="----1----
+1+ 𝜀 cos𝜃"  class="frac" align="middle" /> <span 
+class="cmsy-10">≈</span><img 
+src="tokamak_equilibrium468x.png" alt="-1-
+R0"  class="frac" align="middle" />(1 <span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">𝜀</span>cos<span 
+class="cmmi-10">𝜃</span>)<span 
+class="cmmi-10">,</span>
+</td></tr></table>
+<!--l. 4489--><p class="nopar" >
+where <span 
+class="cmmi-10">𝜀 </span>= <span 
+class="cmmi-10">r∕R</span><sub><span 
+class="cmr-7">0</span></sub> is the local inverse aspect ratio.
+</p><!--l. 4492--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
-    <span class="subsectionToc" >12.1 <a 
-href="tokamak_equilibriumsu58.html#x71-9700012.1">Toroidal elliptic operator in general coordinates</a></span>
-<br />    <span class="subsectionToc" >12.2 <a 
-href="tokamak_equilibriumsu59.html#x72-9800012.2">Finite diﬀerence form of toroidal elliptic operator in general coordinate system</a></span>
-<br />    <span class="subsectionToc" >12.3 <a 
-href="tokamak_equilibriumsu60.html#x73-9900012.3">Special treatment at coordinate origin, wrong! to be deleted</a></span>
-<br />    <span class="subsectionToc" >12.4 <a 
-href="tokamak_equilibriumsu61.html#x74-10000012.4">Pressure and toroidal ﬁeld function proﬁle</a></span>
-<br />    <span class="subsectionToc" >12.5 <a 
-href="tokamak_equilibriumsu62.html#x75-10100012.5">Boundary magnetic surface and initial coordinates</a></span>
-<br />    <span class="subsectionToc" >12.6 <a 
-href="tokamak_equilibriumsu63.html#x76-10200012.6">Fixed boundary equilibrium numerical code</a></span>
-<br />    <span class="subsectionToc" >12.7 <a 
-href="tokamak_equilibriumsu64.html#x77-10300012.7">Benchmark of the code</a></span>
-<br />    <span class="subsectionToc" >12.8 <a 
-href="tokamak_equilibriumsu65.html#x78-10400012.8">Low-beta equilibrium vs. high-beta equilibrium</a></span>
-<br />    <span class="subsectionToc" >12.9 <a 
-href="tokamak_equilibriumsu66.html#x79-10500012.9">Analytical form of Jacobian (need cleaning up)</a></span>
-<br />    <span class="subsectionToc" >12.10 <a 
-href="tokamak_equilibriumsu67.html#x80-10600012.10">Grad-Shafranov equation with prescribed safety factor proﬁle (to be ﬁnished)</a></span>
+     <span class="subsectionToc" >12.1 <a 
+href="tokamak_equilibriumsu55.html#x68-9400012.1">Is the above <span 
+class="cmbx-10">B </span>divergence-free?</a></span>
+<br />     <span class="subsectionToc" >12.2 <a 
+href="tokamak_equilibriumsu56.html#x69-9500012.2">Is the above <span 
+class="cmbx-10">B </span>a solution to the GS equation?</a></span>
+<br />     <span class="subsectionToc" >12.3 <a 
+href="tokamak_equilibriumsu57.html#x70-9600012.3">Explicit expression for the generalized toroidal angle</a></span>
+<br />     <span class="subsectionToc" >12.4 <a 
+href="tokamak_equilibriumsu58.html#x71-9700012.4">Metric elements</a></span>
+                                                                                
+
+                                                                                
+<br />     <span class="subsectionToc" >12.5 <a 
+href="tokamak_equilibriumsu59.html#x72-9800012.5">Safety factor proﬁle</a></span>
    </div>
 
 
 
 
-
-
-
-
-
                                                                                 
 
                                                                                 
-   <!--l. 5486--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4818--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse13.html" >next</a>] [<a 
 href="tokamak_equilibriumse11.html" >prev</a>] [<a 
 href="tokamak_equilibriumse11.html#tailtokamak_equilibriumse11.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumse12.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse12.html" >up</a>] </p></div>
-<!--l. 5486--><p class="indent" >   <a 
+<!--l. 4818--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse12.html"></a> </p> 
 </body></html> 

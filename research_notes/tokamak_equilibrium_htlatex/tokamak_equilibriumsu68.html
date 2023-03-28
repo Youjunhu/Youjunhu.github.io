@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Cylindrical tokamak</title> 
+<head><title>Analytical form of Jacobian (need cleaning up)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,57 +13,142 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 5488--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 5307--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu69.html" >next</a>] [<a 
+href="tokamak_equilibriumsu67.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu67.html#tailtokamak_equilibriumsu67.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu68.html">tail</a>] [<a 
 href="tokamak_equilibriumse13.html#tokamak_equilibriumsu68.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">13.1   </span> <a 
- id="x82-10800013.1"></a>Cylindrical tokamak</h4>
-<!--l. 5490--><p class="noindent" >For a large aspect-ratio, circular cross section tokamak, the <span 
-class="cmmi-10">R </span>on a magnetic surface is nearly
-constant, <span 
-class="cmmi-10">R </span><span 
-class="cmsy-10">≈ </span><span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub>. The poloidal angle dependence of the magnetic ﬁeld can be neglected, i.e.,
-<span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">ϕ</span></sub>(<span 
-class="cmmi-10">r,𝜃</span>) <span 
-class="cmsy-10">≈ </span><span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">ϕ</span></sub>(<span 
-class="cmmi-10">r</span>), and <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">p</span></sub>(<span 
-class="cmmi-10">r,𝜃</span>) <span 
-class="cmsy-10">≈ </span><span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">p</span></sub>(<span 
-class="cmmi-10">r</span>). Using these, the safety factor in Eq.  (<a 
-href="tokamak_equilibriumsu7.html#x9-11004r37">37<!--tex4ht:ref: 9-5-e1 --></a>) is approximated
-to
+   <h4 class="subsectionHead"><span class="titlemark">13.9   </span> <a 
+ id="x82-10800013.9"></a>Analytical form of Jacobian (need cleaning up)</h4>
+<!--l. 5309--><p class="noindent" >Consider the Jacobian of the form
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x82-108001r474"></a>
+ id="x82-108001r436"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium606x.png" alt="      ∮                      ∮
-   -1-   1B-ϕ      1-B-ϕ(r)-1-        -1-Bϕ(r)1--     -r-Bϕ(r)
-q = 2π   R Bpdℓp ≈ 2πBp (r)R0    dℓp = 2π Bp(r)R02πr = R0 Bp(r),
-" class="math-display"  /></center></td><td class="equation-label">(474)</td></tr></table>
-<!--l. 5500--><p class="nopar" >
+src="tokamak_equilibrium569x.png" alt="     ( R )m
+𝒥 = μ  ---   ψn,
+       R0
+" class="math-display"  /></center></td><td class="equation-label">(436)</td></tr></table>
+<!--l. 5312--><p class="nopar" >
 where <span 
-class="cmmi-10">r </span>is the minor radius of the magnetic surface.
+class="cmmi-10">m </span>and <span 
+class="cmmi-10">n </span>are arbitrary integers which can be appropriately chosen by users, <span 
+class="cmmi-10">μ</span><sub><span 
+class="cmr-7">0</span></sub> and <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub> are
+constants included for normalization. In the iterative metric method of solving ﬁxed boundary
+equilibrium problem, we ﬁrst construct a coordinates transformation (<span 
+class="cmmi-10">𝜃,ψ</span>) <span 
+class="cmsy-10">→ </span>(<span 
+class="cmmi-10">R</span>(<span 
+class="cmmi-10">𝜃,ψ</span>)<span 
+class="cmmi-10">,Z</span>(<span 
+class="cmmi-10">𝜃,ψ</span>)) (this
+transformation is arbitrary except for that surface <span 
+class="cmmi-10">ψ </span>= 1 coincides with the last closed ﬂux surface),
+then solve the GS equation in (<span 
+class="cmmi-10">𝜃,ψ</span>) coordinate system to get the value of <span 
+class="cmmi-10">Ψ </span>at grid points, and ﬁnally
+adjust the value of (<span 
+class="cmmi-10">R</span>(<span 
+class="cmmi-10">𝜃,ψ</span>)<span 
+class="cmmi-10">,Z</span>(<span 
+class="cmmi-10">𝜃,ψ</span>)) to make surface <span 
+class="cmmi-10">ψ </span>= const lies on a magnetic surface. It is obvious
+the Jacobian of the ﬁnal transformation we obtained usually does not satisfy the constraint given by
+Eq. (<a 
+href="#x82-108001r436">436<!--tex4ht:ref: 1-4-1 --></a>) since we do not use any information of Eq. (<a 
+href="#x82-108001r436">436<!--tex4ht:ref: 1-4-1 --></a>) in the above steps. Now comes the question:
+how to make the transformation obtained above satisfy the constraint Eq. (<a 
+href="#x82-108001r436">436<!--tex4ht:ref: 1-4-1 --></a>) through
+adjusting the values of <span 
+class="cmmi-10">𝜃</span>? To make the constraint Eq. (<a 
+href="#x82-108001r436">436<!--tex4ht:ref: 1-4-1 --></a>) satisﬁed, <span 
+class="cmmi-10">𝜃 </span>and <span 
+class="cmmi-10">ψ </span>should satisfy the
+relation
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x82-108002r437"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium570x.png" alt="          [R (𝜃,ψ )]m
+𝒥 (𝜃,ψ) = μ -------  ψn,
+             R0
+" class="math-display"  /></center></td><td class="equation-label">(437)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 5332--><p class="nopar" >
+which
+</p><!--l. 5335--><p class="indent" >    
+</p><!--l. 5337--><p class="indent" >    
+</p><!--l. 5339--><p class="indent" >   Using Eq. (), we obtain
+</p>
+   <table 
+class="equation-star"><tr><td>
+                           <span 
+class="cmex-10">∫</span>
+                             <sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmmi-7">𝜃</span></sup><span 
+class="cmmi-10">d𝜃 </span>= <span 
+class="cmex-10">∫</span>
+  <sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmmi-7">𝜃</span></sup><span 
+class="cmmi-10">d𝜃</span><img 
+src="tokamak_equilibrium571x.png" alt="-𝒥-
+ψn"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium572x.png" alt="1-
+μ"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium573x.png" alt="(   )
+  R0-
+  R"  class="left" align="middle" /><sup><span 
+class="cmmi-7">m</span></sup>
+</td></tr></table>
+<!--l. 5341--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x82-108003r438"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium574x.png" alt="    ∫ 𝜃   𝒥 1 (R0 )m
+𝜃 =    d𝜃ψn-μ- -R-
+     0
+" class="math-display"  /></center></td><td class="equation-label">(438)</td></tr></table>
+<!--l. 5345--><p class="nopar" >
+normalized to 2<span 
+class="cmmi-10">π</span>, the normalized <span 
+class="cmmi-10">𝜃 </span>is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x82-108004r439"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium575x.png" alt="       ∫𝜃d𝜃-𝒥n 1(R0 )m       ∫𝜃d𝜃𝒥 (1-)m
+𝜃 = 2π∫-02π--ψ𝒥-μ1-(RR0)m-= 2π∫-02π-----R(1)m-
+       0  d𝜃ψnμ  R         0  d𝜃𝒥  R
+" class="math-display"  /></center></td><td class="equation-label">(439)</td></tr></table>
+<!--l. 5353--><p class="nopar" >
+</p><!--l. 5356--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 5503--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 5358--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu69.html" >next</a>] [<a 
+href="tokamak_equilibriumsu67.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu67.html#tailtokamak_equilibriumsu67.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu68.html" >front</a>] [<a 
 href="tokamak_equilibriumse13.html#tokamak_equilibriumsu68.html" >up</a>] </p></div>
-<!--l. 5503--><p class="indent" >   <a 
+<!--l. 5358--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu68.html"></a> </p> 
 </body></html> 

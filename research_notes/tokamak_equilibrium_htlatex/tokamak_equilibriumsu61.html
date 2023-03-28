@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Pressure and toroidal ﬁeld function proﬁle</title> 
+<head><title>Finite diﬀerence form of toroidal elliptic operator in general coordinate system</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,236 +13,253 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 4981--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4896--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu62.html" >next</a>] [<a 
 href="tokamak_equilibriumsu60.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu60.html#tailtokamak_equilibriumsu60.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu61.html">tail</a>] [<a 
-href="tokamak_equilibriumse12.html#tokamak_equilibriumsu61.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">12.4   </span> <a 
- id="x74-10000012.4"></a>Pressure and toroidal ﬁeld function proﬁle</h4>
-<!--l. 4983--><p class="noindent" >The function <span 
-class="cmmi-10">p</span>(Ψ) and <span 
-class="cmmi-10">g</span>(Ψ) in the GS equation are free functions which must be speciﬁed by users
-before solving the GS equation. Next, we discuss one way to specify the free functions. Following Ref.
-<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xjardin2010">15</a>]</span>,  we take <span 
-class="cmmi-10">P</span>(Ψ) and <span 
-class="cmmi-10">g</span>(Ψ) to be of the forms
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu61.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">13.2   </span> <a 
+ id="x75-10100013.2"></a>Finite diﬀerence form of toroidal elliptic operator in general coordinate system</h4>
+<!--l. 4898--><p class="noindent" >The toroidal elliptic operator in Eq. (<a 
+href="tokamak_equilibriumsu60.html#x74-100002r391">391<!--tex4ht:ref: 4-23-4 --></a>) can be written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x74-100001r414"></a>
+ id="x75-101001r395"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium539x.png" alt="                     --
-P(Ψ) = P0 − (P0 − Pb)ˆp(Ψ),
-" class="math-display"  /></center></td><td class="equation-label">(414)</td></tr></table>
-<!--l. 4989--><p class="nopar" >
+src="tokamak_equilibrium523x.png" alt="         2
+△ ∗Ψ = R--[(hψψΨψ)ψ + (h 𝜃𝜃Ψ𝜃)𝜃 + (hψ𝜃Ψ𝜃)ψ + (hψ𝜃Ψψ)𝜃],
+       𝒥
+" class="math-display"  /></center></td><td class="equation-label">(395)</td></tr></table>
+<!--l. 4903--><p class="nopar" >
+where <span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">aβ</span></sup> is deﬁned by Eq. (<a 
+href="tokamak_equilibriumse5.html#x36-44005r151">151<!--tex4ht:ref: 4-25-e20 --></a>), i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x74-100002r415"></a>
+ id="x75-101002r396"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium540x.png" alt="1g2(Ψ ) = 1 g2(1 − γ ˆg(Ψ-)),
-2       2  0
-" class="math-display"  /></center></td><td class="equation-label">(415)</td></tr></table>
-<!--l. 4993--><p class="nopar" >
-with <img 
-src="tokamak_equilibrium541x.png" alt="ˆp"  class="circ"  /> and <span 
-class="cmmi-10">ĝ</span> chosen to be of polynomial form:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x74-100003r416"></a>
+src="tokamak_equilibrium524x.png" alt="      𝒥
+hαβ = -2∇ α⋅∇ β.
+      R
+" class="math-display"  /></center></td><td class="equation-label">(396)</td></tr></table>
+<!--l. 4908--><p class="nopar" >
+Next, we derive the ﬁnite diﬀerence form of the toroidal elliptic operator. The ﬁnite diﬀerence form of
+the term (<span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">ψψ</span></sup><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">ψ</span></sub>)<sub><span 
+class="cmmi-7">ψ</span></sub> is written </p><div class="eqnarray">
+   <center class="math-display" >
                                                                                 
 
                                                                                 
+<img 
+src="tokamak_equilibrium525x.png" alt="                [       (           )         (           ) ]
+(hψψΨ ) |  = -1- hψψ      Ψi,j+1-−-Ψi,j- − hψψ     Ψi,j −-Ψi,j−1
+     ψ ψ i,j  δψ   i,j+1∕2      δψ          i,j− 1∕2      δψ
+           = H ψψ   (Ψi,j+1 − Ψi,j)− H ψψ  (Ψi,j − Ψi,j−1),           (397)
+               i,j+1∕2                i,j− 1∕2
+" class="math-display"  /></center>
+</div>where
+   <table 
+class="equation"><tr><td><a 
+ id="x75-101004r398"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium542x.png" alt="  --  --α
-ˆp(Ψ) = Ψ ,
-" class="math-display"  /></center></td><td class="equation-label">(416)</td></tr></table>
-<!--l. 4997--><p class="nopar" >
+src="tokamak_equilibrium526x.png" alt=" ψψ   -hψψ-
+H   = (δψ)2.
+" class="math-display"  /></center></td><td class="equation-label">(398)</td></tr></table>
+<!--l. 4924--><p class="nopar" >
+The ﬁnite diﬀerence form of (<span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">𝜃𝜃</span></sup><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">𝜃</span></sub>)<sub><span 
+class="cmmi-7">𝜃</span></sub> is written </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium527x.png" alt="            1 [       ( Ψ    − Ψ  )          (Ψ   − Ψ    )]
+(h𝜃𝜃Ψ𝜃)𝜃|i,j = -- h 𝜃𝜃i+1∕2,j  -i+1,j---i,j- − h𝜃i𝜃−1∕2,j  -i,j----i−1,j
+            δ𝜃              δ𝜃                    δ𝜃
+          = Hi𝜃𝜃+1∕2,j(Ψi+1,j − Ψi,j)− H𝜃i𝜃−1∕2,j(Ψi,j − Ψi−1,j),             (399)
+" class="math-display"  /></center>
+</div>where
+   <table 
+class="equation"><tr><td><a 
+ id="x75-101006r400"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium528x.png" alt="  𝜃𝜃  -h𝜃𝜃-
+H   = (δ𝜃)2.
+" class="math-display"  /></center></td><td class="equation-label">(400)</td></tr></table>
+<!--l. 4939--><p class="nopar" >
+The ﬁnite diﬀerence form of (<span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">ψ𝜃</span></sup><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">𝜃</span></sub>)<sub><span 
+class="cmmi-7">ψ</span></sub> is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x74-100004r417"></a>
+ id="x75-101007r401"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium543x.png" alt="ˆg(Ψ) = Ψ-β,
-" class="math-display"  /></center></td><td class="equation-label">(417)</td></tr></table>
-<!--l. 5000--><p class="nopar" >
+src="tokamak_equilibrium529x.png" alt="                [       (                    )         (                    )]
+(Ψ hψ𝜃) ||  = -1- hψ𝜃     Ψi+1,j+1∕2 −-Ψi−1,j+1∕2 − hψ𝜃      Ψi+1,j−-1∕2 −-Ψi−1,j−1∕2  .
+  𝜃    ψ i,j  δψ   i,j+1∕2          2δ𝜃             i,j−1∕2          2δ𝜃
+" class="math-display"  /></center></td><td class="equation-label">(401)</td></tr></table>
+<!--l. 4948--><p class="nopar" >
+Approximating the value of <span 
+class="cmmi-10">Ψ </span>at the grid centers by the average of the value of <span 
+class="cmmi-10">Ψ </span>at the neighbor grid
+points, Eq. (<a 
+href="#x75-101007r401">401<!--tex4ht:ref: 4-27-e1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x75-101008r402"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium530x.png" alt="(Ψ𝜃hψ𝜃)ψ|i,j = H ψi,𝜃j+1∕2(Ψi+1,j+Ψi+1,j+1− Ψi−1,j− Ψi−1,j+1)− H ψi,𝜃j−1∕2(Ψi+1,j− 1+ Ψi+1,j− Ψi−1,j−1− Ψi− 1,j).
+" class="math-display"  /></center></td><td class="equation-label">(402)</td></tr></table>
+<!--l. 4956--><p class="nopar" >
 where
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x74-100005r418"></a>
+ id="x75-101009r403"></a>
    <center class="math-display" >
-<img 
-src="tokamak_equilibrium544x.png" alt="Ψ-≡ Ψ-−-Ψa-,
-    Ψb − Ψa
-" class="math-display"  /></center></td><td class="equation-label">(418)</td></tr></table>
-<!--l. 5004--><p class="nopar" >
-with Ψ<sub><span 
-class="cmmi-7">b</span></sub> the value of Ψ on the boundary, Ψ<sub><span 
-class="cmmi-7">a</span></sub> the value of Ψ on the magnetic axis, <span 
-class="cmmi-10">α</span>, <span 
-class="cmmi-10">β</span>, <span 
-class="cmmi-10">γ</span>, <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">0</span></sub>, <span 
-class="cmmi-10">P</span><sub><span 
-class="cmmi-7">b</span></sub>, and
-<span 
-class="cmmi-10">g</span><sub><span 
-class="cmr-7">0</span></sub> are free parameters. Using the proﬁles of <span 
-class="cmmi-10">P </span>and <span 
-class="cmmi-10">g </span>given by Eqs. (<a 
-href="#x74-100001r414">414<!--tex4ht:ref: 4-28-p1 --></a>) and (<a 
-href="#x74-100002r415">415<!--tex4ht:ref: 4-28-p2 --></a>), we
-obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x74-100006r419"></a>
                                                                                 
 
                                                                                 
+<img 
+src="tokamak_equilibrium531x.png" alt="  ψ𝜃   -hψ𝜃--
+H    = 4δψd𝜃.
+" class="math-display"  /></center></td><td class="equation-label">(403)</td></tr></table>
+<!--l. 4961--><p class="nopar" >
+Similarly, the ﬁnite diﬀerence form of (<span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">ψ𝜃</span></sup><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">ψ</span></sub>)<sub><span 
+class="cmmi-7">𝜃</span></sub> is written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium545x.png" alt="dP (Ψ )    1          --
-------= − --(P0 − Pb)αΨα− 1
-  dΨ      Δ
-" class="math-display"  /></center></td><td class="equation-label">(419)</td></tr></table>
-<!--l. 5012--><p class="nopar" >
-where Δ = Ψ<sub><span 
-class="cmmi-7">b</span></sub> <span 
-class="cmsy-10">− </span>Ψ<sub><span 
-class="cmmi-7">a</span></sub>, and
+src="tokamak_equilibrium532x.png" alt="               [       (                    )         (                    )]
+    ψ𝜃       1-  ψ𝜃     Ψi+1∕2,j+1 −-Ψi+1∕2,j−1    ψ𝜃      Ψi−-1∕2,j+1 −-Ψi−1∕2,j−1
+(Ψψh  )𝜃|i,j = δ𝜃  hi+1∕2,j         2δψ          − hi−1∕2,j          2δψ
+              ψ𝜃                                       ψ𝜃
+          = H i+1∕2,j(Ψi+1,j+1 + Ψi,j+1 − Ψi+1,j−1 − Ψi,j−1) − H i−1∕2,j(Ψi,j+1 + Ψi−1,j+1 − Ψi,j−1 − Ψi− 1,(j−4014).)
+" class="math-display"  /></center>
+</div>Using the above results, the ﬁnite diﬀerence form of the operator <span 
+class="cmsy-10">𝒥△</span><sup><span 
+class="cmmi-7">⋆</span></sup><span 
+class="cmmi-10">Ψ∕R</span><sup><span 
+class="cmr-7">2</span></sup> is written as
+<div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium533x.png" alt="       |
+-𝒥-△∗Ψ ||  = (h ψ𝜃Ψ )  + (h ψψΨ ) + (h𝜃𝜃Ψ ) + (h ψ𝜃Ψ  )
+R2     |i,j        𝜃ψ        ψ ψ       𝜃 𝜃       ψ 𝜃
+          = Hψψ    (Ψ     − Ψ ) − Hψψ   (Ψ   − Ψ   )
+             i,j+1∕2 i,j+1    i,j    i,j−1∕2 i,j    i,j−1
+          + H𝜃i𝜃+1∕2,j(Ψi+1,j − Ψi,j) − H𝜃i𝜃−1∕2,j(Ψi,j − Ψi−1,j)
+          + Hψ𝜃    (Ψ     + Ψ      − Ψ    − Ψ      )− H ψ𝜃   (Ψ       + Ψ    − Ψ      − Ψ    )
+             i,j+1∕2 i+1,j    i+1,j+1    i− 1,j   i−1,j+1    i,j−1∕2  i+1,j−1    i+1,j   i− 1,j−1   i−1,j
+          + Hψi𝜃+1∕2,j(Ψi+1,j+1 +Ψi,j+1 − Ψi+1,j− 1 − Ψi,j−1)− Hiψ−𝜃1∕2,j(Ψi,j+1 + Ψi− 1,j+1 − Ψi− 1,j−1 − Ψi,j−1)
+                   ψψ       ψψ       𝜃𝜃       𝜃𝜃
+          = Ψi,j(− Hi,j+1∕2 − H i,j− 1∕2 − H i+1∕2,j − H i−1∕2,j)
+          + Ψi− 1,j−1(H ψi,𝜃j−1∕2 +H ψi𝜃−1∕2,j) +Ψi,j−1(H ψi,ψj− 1∕2 − H ψi+𝜃1∕2,j +H ψi𝜃−1∕2,j)
+                       ψ𝜃       ψ𝜃             𝜃𝜃       ψ 𝜃       ψ𝜃
+          + Ψi+1,j− 1(− Hi,j−1∕2 − H i+1∕2,j)+ Ψi−1,j(Hi−1∕2,j − Hi,j+1∕2 + Hi,j−1∕2)
+          + Ψi+1,j(H 𝜃𝜃    + Hψ𝜃    − Hψ𝜃    )+ Ψi− 1,j+1(− Hψ𝜃    − H ψ𝜃   )
+                   i+1∕2,j    i,j+1∕2    i,j−1∕2             i,j+1∕2   i−1∕2,j
+          + Ψi,j+1(H ψi,ψj+1∕2 + Hψi𝜃+1∕2,j − Hψi𝜃−1∕2,j)+ Ψi+1,j+1(H ψi,𝜃j+1∕2 + H ψi+𝜃1∕2,j)
+" class="math-display"  /></center>
+</div>The coeﬃcients are given by
+   <table 
+class="equation"><tr><td><a 
+ id="x75-101012r405"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium534x.png" alt=" ψψ    𝒥     2   1  2    2
+h   = R2-|∇ ψ| = 𝒥-(R𝜃 + Z𝜃),
+" class="math-display"  /></center></td><td class="equation-label">(405)</td></tr></table>
+<!--l. 5014--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x74-100007r420"></a>
+ id="x75-101013r406"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium546x.png" alt="  dg     1   1  -β−1
-g ---= − -g20γ--βΨ   .
-  dΨ     2   Δ
-" class="math-display"  /></center></td><td class="equation-label">(420)</td></tr></table>
-<!--l. 5017--><p class="nopar" >
-Then the term on the r.h.s (nonlinear source term) of the GS equation is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x74-100008r421"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium547x.png" alt="      dP    dg        [ 1          -α−1]   1   1  -β− 1
-− μ0R2---−  --g = μ0R2  -(P0 − Pb)α Ψ     + -g20γ--βΨ   .
-      dΨ    dΨ          Δ                  2   Δ
-" class="math-display"  /></center></td><td class="equation-label">(421)</td></tr></table>
-<!--l. 5025--><p class="nopar" >
-The value of parameters <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">0</span></sub>, <span 
-class="cmmi-10">P</span><sub><span 
-class="cmmi-7">b</span></sub>, and <span 
-class="cmmi-10">g</span><sub><span 
-class="cmr-7">0</span></sub> in Eqs. (<a 
-href="#x74-100001r414">414<!--tex4ht:ref: 4-28-p1 --></a>) and (<a 
-href="#x74-100002r415">415<!--tex4ht:ref: 4-28-p2 --></a>), and the value of <span 
-class="cmmi-10">α </span>and <span 
-class="cmmi-10">β </span>in Eqs. (<a 
-href="#x74-100003r416">416<!--tex4ht:ref: 1-2-1 --></a>)
-and (<a 
-href="#x74-100004r417">417<!--tex4ht:ref: 1-2-2 --></a>) can be chosen arbitrarily. The parameter <span 
-class="cmmi-10">γ </span>is used to set the value of the total toroidal
-current. The toroidal current density is given by Eq. (<a 
-href="tokamak_equilibriumsu82.html#x97-126001r542">542<!--tex4ht:ref: 4-10-1 --></a>), i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x74-100009r422"></a>
+src="tokamak_equilibrium535x.png" alt="      𝒥         1
+h𝜃𝜃 = -2|∇ 𝜃|2 = -(R2ψ + Z2ψ ),
+      R         𝒥
+" class="math-display"  /></center></td><td class="equation-label">(406)</td></tr></table>
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium548x.png" alt="      dP    1 dg g
-Jϕ = R---+  -------,
-      dΨ    μ0dΨ R
-" class="math-display"  /></center></td><td class="equation-label">(422)</td></tr></table>
-<!--l. 5034--><p class="nopar" >
-which can be integrated over the poloidal cross section within the boundary magnetic surface to give
-the total toroidal current, </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium549x.png" alt="        ∫
-Iϕ  =     JϕdS
-        ∫ (  dP    1 dg g)
-    =      R ---+ -------- dRdZ
-        ∫ [  d(Ψ   μ)0 dΨ R                        ]
-    =      R  − 1- (P0 − Pb)ˆp′(Ψ-)−-1--1g2γ-1ˆg′(Ψ-) dRdZ         (423)
-                Δ                 μ0R 2 0 Δ
-" class="math-display"  /><a 
- id="x74-100010r423"></a></center>
-</div>Using
-   <table 
-class="equation"><tr><td><a 
- id="x74-100011r424"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium550x.png" alt="dRdZ = -1𝒥 dψd𝜃,
-       R
-" class="math-display"  /></center></td><td class="equation-label">(424)</td></tr></table>
-<!--l. 5048--><p class="nopar" >
-Eq. (<a 
-href="#x74-100010r423">423<!--tex4ht:ref: 9-28-1 --></a>) is written as
+<!--l. 5018--><p class="nopar" >
+and
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x74-100012r425"></a>
-                                                                                
-
-                                                                                
+ id="x75-101014r407"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium551x.png" alt="     ∫ [(   1)           --    1  1    1   --]
-Iϕ =     − --  (P0 − Pb)ˆp′(Ψ)−  ---2- g02γ --ˆg′(Ψ) 𝒥 dψd𝜃,
-           Δ                  μ0R 2    Δ
-" class="math-display"  /></center></td><td class="equation-label">(425)</td></tr></table>
-<!--l. 5055--><p class="nopar" >
-from which we solve for <span 
-class="cmmi-10">γ</span>, giving
+src="tokamak_equilibrium536x.png" alt="hψ𝜃 = 𝒥-∇ ψ ⋅∇𝜃 = −-1(R R  + Z Z  ),
+      R2           𝒥   𝜃  ψ    𝜃 ψ
+" class="math-display"  /></center></td><td class="equation-label">(407)</td></tr></table>
+<!--l. 5023--><p class="nopar" >
+where the Jacobian
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x74-100013r426"></a>
+ id="x75-101015r408"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium552x.png" alt="                    ∫ ′ --
-γ = −-ΔIϕ −1-(P0∫ [−1Pb)-[pˆ](Ψ)]𝒥-dψd𝜃.
-        2μ0g20   R2ˆg′(Ψ) 𝒥 dψd𝜃
-" class="math-display"  /></center></td><td class="equation-label">(426)</td></tr></table>
-<!--l. 5062--><p class="nopar" >
-If the total toroidal current <span 
-class="cmmi-10">I</span><sub><span 
-class="cmmi-7">ϕ</span></sub> is given, Eq. (<a 
-href="#x74-100013r426">426<!--tex4ht:ref: 9-28-2 --></a>) can be used to determine the value of
-<span 
-class="cmmi-10">γ</span>.
+src="tokamak_equilibrium537x.png" alt="𝒥 = R (R 𝜃Zψ − R ψZ𝜃).
+" class="math-display"  /></center></td><td class="equation-label">(408)</td></tr></table>
+<!--l. 5027--><p class="nopar" >
+The partial derivatives, <span 
+class="cmmi-10">R</span><sub><span 
+class="cmmi-7">𝜃</span></sub>, <span 
+class="cmmi-10">R</span><sub><span 
+class="cmmi-7">ψ</span></sub>, <span 
+class="cmmi-10">Z</span><sub><span 
+class="cmmi-7">𝜃</span></sub>, and <span 
+class="cmmi-10">Z</span><sub><span 
+class="cmmi-7">ψ</span></sub>, appearing in Eqs. (<a 
+href="#x75-101012r405">405<!--tex4ht:ref: 7-5-1 --></a>)-(<a 
+href="#x75-101015r408">408<!--tex4ht:ref: 7-5-2 --></a>) are calculated by using the
+central diﬀerence scheme. The values of <span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">ψψ</span></sup>, <span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">𝜃𝜃</span></sup>, <span 
+class="cmmi-10">h</span><sup><span 
+class="cmmi-7">ψ𝜃</span></sup> and <span 
+class="cmsy-10">𝒥 </span>at the middle points are approximated by
+the linear average of their values at the neighbor grid points.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 5066--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 5035--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu62.html" >next</a>] [<a 
 href="tokamak_equilibriumsu60.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu60.html#tailtokamak_equilibriumsu60.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu61.html" >front</a>] [<a 
-href="tokamak_equilibriumse12.html#tokamak_equilibriumsu61.html" >up</a>] </p></div>
-<!--l. 5066--><p class="indent" >   <a 
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu61.html" >up</a>] </p></div>
+<!--l. 5035--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu61.html"></a> </p> 
 </body></html> 

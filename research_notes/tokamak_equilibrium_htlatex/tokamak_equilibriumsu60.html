@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Special treatment at coordinate origin, wrong! to be deleted</title> 
+<head><title>Toroidal elliptic operator in general coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,99 +13,113 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 4939--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4829--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu61.html" >next</a>] [<a 
-href="tokamak_equilibriumsu59.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu59.html#tailtokamak_equilibriumsu59.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu60.html">tail</a>] [<a 
-href="tokamak_equilibriumse12.html#tokamak_equilibriumsu60.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">12.3   </span> <a 
- id="x73-9900012.3"></a>Special treatment at coordinate origin, wrong! to be deleted</h4>
-   <table 
-class="equation"><tr><td><a 
- id="x73-99001r409"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium531x.png" alt="     00   10     01    11      20 2   02 2
-Ψ ≈ a   +a  R + a Z + a  RZ + a  R + a  Z .
-" class="math-display"  /></center></td><td class="equation-label">(409)</td></tr></table>
-<!--l. 4944--><p class="nopar" >
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu60.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">13.1   </span> <a 
+ id="x74-10000013.1"></a>Toroidal elliptic operator in general coordinates</h4>
+<!--l. 4831--><p class="noindent" >Next we derive the form of the GS equation in a general coordinate system. The main task is to derive
+the form of the toroidal elliptic operator in the general coordinate system. The toroidal elliptic operator
+takes the form
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x73-99002r410"></a>
+ id="x74-100001r390"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium532x.png" alt="R = R0 + b11∘ ψ-cos𝜃
-" class="math-display"  /></center></td><td class="equation-label">(410)</td></tr></table>
-<!--l. 4947--><p class="nopar" >
+src="tokamak_equilibrium518x.png" alt="            (      )
+  ∗     2     -1-
+△  Ψ ≡ R ∇ ⋅  R2∇ Ψ
+" class="math-display"  /></center></td><td class="equation-label">(390)</td></tr></table>
+<!--l. 4837--><p class="nopar" >
+For an arbitrary general coordinate system (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) (the (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system here is an arbitrary
+general coordinate system except that <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ϕ </span>is perpendicular to both <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span>and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">𝜃</span>), the toroidal elliptic
+operator is written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x73-99003r411"></a>
+ id="x74-100002r391"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium533x.png" alt="            --
-Z = Z0 + c11∘ ψ sin 𝜃
-" class="math-display"  /></center></td><td class="equation-label">(411)</td></tr></table>
-<!--l. 4950--><p class="nopar" >
+src="tokamak_equilibrium519x.png" alt="        2 {[          ]    [         ]   [              ]   [           ]  }
+△ ⋆Ψ = R--  Ψ ψ 𝒥-|∇ ψ|2  +  Ψ𝜃 𝒥-|∇ 𝜃|2  +  Ψψ 𝒥-(∇ ψ⋅∇ 𝜃)  +  Ψ𝜃 𝒥-∇𝜃 ⋅∇ψ    ,
+       𝒥       R2      ψ      R2      𝜃      R2          𝜃     R2        ψ
+" class="math-display"  /></center></td><td class="equation-label">(391)</td></tr></table>
+<!--l. 4850--><p class="nopar" >
+where the subscripts denotes partial derivatives, <span 
+class="cmsy-10">𝒥 </span>is the Jacobian of the coordinate system (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>).
+[Next, we provide the proof of Eq. (<a 
+href="#x74-100002r391">391<!--tex4ht:ref: 4-23-4 --></a>). The gradient of <span 
+class="cmmi-10">Ψ </span>is written as (note that <span 
+class="cmmi-10">Ψ </span>is independent of
+<span 
+class="cmmi-10">ϕ</span>)
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x74-100003r392"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium520x.png" alt="      ∂Ψ      ∂Ψ
+∇ Ψ = ∂ψ∇ ψ + ∂𝜃-∇𝜃
+" class="math-display"  /></center></td><td class="equation-label">(392)</td></tr></table>
+<!--l. 4858--><p class="nopar" >
+Using this expression and the divergence formula (<a 
+href="tokamak_equilibriumsu27.html#x32-39003r110">110<!--tex4ht:ref: 6-8-e5 --></a>), the elliptic operator in Eq. (<a 
+href="#x74-100001r390">390<!--tex4ht:ref: 4-23-5 --></a>) is written
 </p><div class="eqnarray">
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium534x.png" alt="              (        ∘ --   )        ∘--         (       ∘ --   )   ∘ --         (       ∘ --   )2      (  ∘ --   )2
-Ψ  ≈   a00 + a10  R0 + b11 ψcos𝜃  +a01c11 ψ sin 𝜃+ a11 R0 + b11  ψ cos 𝜃 c11  ψ sin 𝜃+ a20 R0 + b11  ψcos𝜃   + a02  c11  ψ sin𝜃
-                        ∘ --           ∘--             ∘ --      1     ∘ --  ∘ --                                       ∘ --
-   =   a00 + a10R0 + a10b11  ψcos𝜃 +a01c11 ψ sin 𝜃+ a11R0c11 ψ sin 𝜃+ -a11b11  ψc11  ψsin2𝜃+ 2a20R20 + a20(b11)2ψ cos2𝜃 + 2a20R0b11  ψcos𝜃 + a02(c11)2ψ sin2𝜃
-             ∘--        ∘ --                      2         2    2
-   =   d0 + d1 ψ cos𝜃+ d2 ψ sin𝜃 + d3ψ sin 2𝜃+ d4ψcos 𝜃+ d5ψ sin 𝜃
+src="tokamak_equilibrium521x.png" alt="            ( 1 ∂Ψ       1 ∂Ψ   )
+△ ∗Ψ = R2 ∇ ⋅ R2-∂ψ-∇ψ + R2-∂𝜃-∇𝜃
+              (                               )
+    = R2 1--∂- 𝒥 -1-∂Ψ-∇ψ ⋅∇ ψ+ 𝒥 -1-∂Ψ-∇𝜃 ⋅∇ ψ
+         𝒥 ∂ψ (  R2 ∂ψ            R2 ∂𝜃      )
+        2 1-∂-   -1-∂Ψ-          -1-∂Ψ-
+    + R  𝒥 ∂𝜃  𝒥 R2 ∂ψ∇ ψ ⋅∇𝜃 +𝒥 R2 ∂𝜃 ∇𝜃 ⋅∇𝜃
+        2[ (          )    (            )    (            )    (         ) ]
+    =  R--  Ψψ-𝒥2|∇ψ|2   +  Ψ𝜃-𝒥2∇ ψ⋅∇ 𝜃   +  Ψψ 𝒥2∇ ψ⋅∇ 𝜃   +  Ψ𝜃-𝒥2|∇ 𝜃|2 (39,3)
+       𝒥      R        ψ      R          ψ       R         𝜃      R        𝜃
 " class="math-display"  /></center>
-</div>
-   <table 
-class="equation-star"><tr><td>
-                         Ψ = <span 
-class="cmmi-10">d</span><sub><span 
-class="cmr-7">0</span></sub> + <span 
-class="cmmi-10">d</span><sub><span 
-class="cmr-7">1</span></sub><img 
-src="tokamak_equilibrium535x.png" alt="∘ ψ-"  class="sqrt"  />cos<span 
-class="cmmi-10">𝜃 </span>+ <span 
-class="cmmi-10">d</span><sub><span 
-class="cmr-7">2</span></sub><img 
-src="tokamak_equilibrium536x.png" alt="∘ ψ-"  class="sqrt"  />sin<span 
-class="cmmi-10">𝜃</span>
-</td></tr></table>
-<!--l. 4968--><p class="nopar" >
+</div>which is Eq. (<a 
+href="#x74-100002r391">391<!--tex4ht:ref: 4-23-4 --></a>).]
+<!--l. 4882--><p class="indent" >   Using Eq. (<a 
+href="#x74-100002r391">391<!--tex4ht:ref: 4-23-4 --></a>), the GS equation (<a 
+href="tokamak_equilibriumsu15.html#x19-26005r66">66<!--tex4ht:ref: 7-1-p1 --></a>) is written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x73-99005r412"></a>
+ id="x74-100005r394"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium537x.png" alt="R = R  +b11∘ ψcos𝜃 + b12∘ ψ-cos2𝜃 + b21( ∘ψ-)2cos𝜃+ b22(∘ ψ)2 cos2𝜃
-     0
-" class="math-display"  /></center></td><td class="equation-label">(412)</td></tr></table>
-<!--l. 4974--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x73-99006r413"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium538x.png" alt="                                    (    )          (   )
-Z = Z  + c11∘ ψ-sin𝜃 + c12∘ ψ-sin2𝜃 + c21 ∘ ψ- 2sin 𝜃+ c22  ∘ ψ-2sin2𝜃
-      0
-" class="math-display"  /></center></td><td class="equation-label">(413)</td></tr></table>
-<!--l. 4979--><p class="nopar" >
+src="tokamak_equilibrium522x.png" alt="   [(          )    (          )   (            )    (             ) ]
+R2-  Ψ  𝒥-|∇ ψ|2   +   Ψ 𝒥-|∇𝜃|2  +   Ψ 𝒥--∇ψ ⋅∇𝜃   +   Ψ -𝒥-∇ψ ⋅∇ 𝜃   =  − μ R2 dP− dg-g,
+𝒥      ψR2       ψ     𝜃R2      𝜃     𝜃R2         ψ     ψR2         𝜃      0   dΨ  dΨ
+" class="math-display"  /></center></td><td class="equation-label">(394)</td></tr></table>
+<!--l. 4891--><p class="nopar" >
+which is the form of the GS equation in (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 4981--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4895--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu61.html" >next</a>] [<a 
-href="tokamak_equilibriumsu59.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu59.html#tailtokamak_equilibriumsu59.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu60.html" >front</a>] [<a 
-href="tokamak_equilibriumse12.html#tokamak_equilibriumsu60.html" >up</a>] </p></div>
-<!--l. 4981--><p class="indent" >   <a 
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu60.html" >up</a>] </p></div>
+<!--l. 4895--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu60.html"></a> </p> 
 </body></html> 
