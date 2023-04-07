@@ -13,14 +13,14 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1213--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1273--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu20.html" >prev</a>] [<a 
 href="fourier_analysissu20.html#tailfourier_analysissu20.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu21.html">tail</a>] [<a 
 href="fourier_analysisse8.html#fourier_analysissu21.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">8.3   </span> <a 
  id="x30-300008.3"></a>Relation between Fourier series coeﬃcients and DFTs</h4>
-<!--l. 1215--><p class="noindent" >In the above, we go through the process “Fourier series<span 
+<!--l. 1275--><p class="noindent" >In the above, we go through the process “Fourier series<span 
 class="cmsy-10">→</span>Fourier transformation
 <span 
 class="cmsy-10">→</span>DFT”, which corresponds to going from the discrete case (Fourier series) to the
@@ -34,33 +34,33 @@ class="cmmi-7">n</span></sub>. The
 Fourier coeﬃcient of <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) is given by Eq. (<a 
-href="fourier_analysissu4.html#x8-7003r31">31<!--tex4ht:ref: 9-28-2 --></a>), i.e.,
+href="fourier_analysissu4.html#x8-7003r36">36<!--tex4ht:ref: 9-28-2 --></a>), i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x30-30001r104"></a>
+ id="x30-30001r109"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis113x.png" alt="     1∫ T∕2
+src="fourier_analysis117x.png" alt="     1∫ T∕2
 cn =--     h (t)ein2πt∕Tdt,
     T  −T ∕2
-" class="math-display"  /></center></td><td class="equation-label">(104)</td></tr></table>
-<!--l. 1224--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(109)</td></tr></table>
+<!--l. 1284--><p class="nopar" >
 which can be equivalently written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x30-30002r105"></a>
+ id="x30-30002r110"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis114x.png" alt="         ∫ T∕2
+src="fourier_analysis118x.png" alt="         ∫ T∕2
 c(fn) = 1     h(t)ei2πtfndt,
        T  −T∕2
-" class="math-display"  /></center></td><td class="equation-label">(105)</td></tr></table>
+" class="math-display"  /></center></td><td class="equation-label">(110)</td></tr></table>
                                                                   
 
                                                                   
-<!--l. 1229--><p class="nopar" >
+<!--l. 1289--><p class="nopar" >
 where <span 
 class="cmmi-10">f</span><sub><span 
 class="cmmi-7">n</span></sub> = <span 
@@ -76,18 +76,18 @@ class="cmmi-10">T∕</span>Δ. Then the frequency at
 which the Fourier transform <span 
 class="cmmi-10">H</span>(<span 
 class="cmmi-10">f</span>) is evaluated in getting the DFT [Eq. (<a 
-href="fourier_analysissu8.html#x13-12004r57">57<!--tex4ht:ref: 10-26-1 --></a>)] is
+href="fourier_analysissu8.html#x13-12004r62">62<!--tex4ht:ref: 10-26-1 --></a>)] is
 written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x30-30003r106"></a>
+ id="x30-30003r111"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis115x.png" alt="fn = -n--= n-,
+src="fourier_analysis119x.png" alt="fn = -n--= n-,
      ΔN    T
-" class="math-display"  /></center></td><td class="equation-label">(106)</td></tr></table>
-<!--l. 1236--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(111)</td></tr></table>
+<!--l. 1296--><p class="nopar" >
 which is identical to the frequency to which the Fourier coeﬃcient <span 
 class="cmmi-10">c</span><sub><span 
 class="cmmi-7">n</span></sub> corresponds.
@@ -96,21 +96,21 @@ class="cmmi-10">f</span><sub><span
 class="cmmi-7">n</span></sub> = <span 
 class="cmmi-10">n∕</span>(Δ<span 
 class="cmmi-10">N</span>) in Eq. (<a 
-href="#x30-30002r105">105<!--tex4ht:ref: 9-29-3 --></a>), we obtain </p><div class="eqnarray">
+href="#x30-30002r110">110<!--tex4ht:ref: 9-29-3 --></a>), we obtain </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="fourier_analysis116x.png" alt="           ∫ T∕2       (      )
+src="fourier_analysis120x.png" alt="           ∫ T∕2       (      )
 c(fn)  =  -1      h(t)exp  i2πtn-  dt.
          T  − T∕2          ΔN
           1  N∑−1      ( 2πi   )
-      ≈  --Δ    hj exp  ---nj                (107)
+      ≈  --Δ    hj exp  ---nj                (112)
          T   j=0        N
          -1
       =  T ΔHn
          -1
-      =  N Hn                                (108)
+      =  N Hn                                (113)
 " class="math-display"  /><a 
- id="x30-30004r107"></a></center>
+ id="x30-30004r112"></a></center>
 </div>i.e., dividing the DFT <span 
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">n</span></sub> by <span 
@@ -118,14 +118,14 @@ class="cmmi-10">N </span>gives the corresponding Fourier expansion coeﬃcient
 <span 
 class="cmmi-10">c</span><sub><span 
 class="cmmi-7">n</span></sub>. We can further use Eqs. (<a 
-href="fourier_analysissu2.html#x5-4016r24">24<!--tex4ht:ref: 18-2-2p1 --></a>) and (<a 
-href="fourier_analysissu2.html#x5-4017r25">25<!--tex4ht:ref: 18-2-2p2 --></a>) to recover the Fourier coeﬃcients in terms
+href="fourier_analysissu2.html#x5-4019r29">29<!--tex4ht:ref: 18-2-2p1 --></a>) and (<a 
+href="fourier_analysissu2.html#x5-4020r30">30<!--tex4ht:ref: 18-2-2p2 --></a>) to recover the Fourier coeﬃcients in terms
 of trigonometric functions cosine and sine,
                                                                   
 
                                                                   
-<!--l. 1252--><p class="indent" >   Note that the approximation in Eq. (<a 
-href="#x30-30004r107">107<!--tex4ht:ref: 10-6-e1 --></a>) becomes an exact relation if the largest
+<!--l. 1312--><p class="indent" >   Note that the approximation in Eq. (<a 
+href="#x30-30004r112">112<!--tex4ht:ref: 10-6-e1 --></a>) becomes an exact relation if the largest
 frequency contained in <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) is less than 1<span 
@@ -134,11 +134,11 @@ class="cmmi-10">∕</span>(2Δ).
 
                                                                   
 </p>
-   <!--l. 1255--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1315--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu20.html" >prev</a>] [<a 
 href="fourier_analysissu20.html#tailfourier_analysissu20.html" >prev-tail</a>] [<a 
 href="fourier_analysissu21.html" >front</a>] [<a 
 href="fourier_analysisse8.html#fourier_analysissu21.html" >up</a>] </p></div>
-<!--l. 1255--><p class="indent" >   <a 
+<!--l. 1315--><p class="indent" >   <a 
  id="tailfourier_analysissu21.html"></a> </p> 
 </body></html> 

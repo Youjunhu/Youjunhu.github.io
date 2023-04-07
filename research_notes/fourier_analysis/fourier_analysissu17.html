@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1059--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1119--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu18.html" >next</a>] [<a 
 href="fourier_analysissu16.html" >prev</a>] [<a 
 href="fourier_analysissu16.html#tailfourier_analysissu16.html" >prev-tail</a>] [<a 
@@ -21,7 +21,7 @@ href="#tailfourier_analysissu17.html">tail</a>] [<a
 href="fourier_analysisse7.html#fourier_analysissu17.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">7.3   </span> <a 
  id="x25-240007.3"></a>Reconstruct original function using DST</h4>
-<!--l. 1061--><p class="noindent" >From the above derivation, we know that the DST, <span 
+<!--l. 1121--><p class="noindent" >From the above derivation, we know that the DST, <span 
 class="cmmi-10">Y</span> <sub><span 
 class="cmmi-7">k</span></sub>, is related to the DFT, <span 
 class="cmmi-10">H</span><sub><span 
@@ -41,19 +41,19 @@ use the DST to reconstruct the original function from which the data are
 sampled. Since DST is only a special case of DFT, reconstructing the function
 using DST follows the same procedure used in DFT. In DFT, the function is
 reconstructed via Eq. (<a 
-href="fourier_analysissu11.html#x17-16004r69">69<!--tex4ht:ref: 11-9-1 --></a>) (changing to the positive exponent convention),
+href="fourier_analysissu11.html#x17-16004r74">74<!--tex4ht:ref: 11-9-1 --></a>) (changing to the positive exponent convention),
 i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-24001r95"></a>
+ id="x25-24001r100"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis102x.png" alt="         ⌊N∑ ∕2      (      )    N∑−1       (           ) ⌋
+src="fourier_analysis106x.png" alt="         ⌊N∑ ∕2      (      )    N∑−1       (           ) ⌋
 h(x) = 1-⌈   Hk exp  ik2πx- +      Hk exp  i(k-−-N)2πx  ⌉.
        N  k=0          2L     k=N∕2            2L
-" class="math-display"  /></center></td><td class="equation-label">(95)</td></tr></table>
-<!--l. 1072--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(100)</td></tr></table>
+<!--l. 1132--><p class="nopar" >
 where 2<span 
 class="cmmi-10">L </span>is the length of the interval in which the samplings <span 
 class="cmmi-10">h</span><sub><span 
@@ -74,23 +74,23 @@ class="cmr-7">0</span></sub> = 0 and <span
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">N∕</span><span 
 class="cmr-7">2</span></sub> = 0. Then Eq. (<a 
-href="#x25-24001r95">95<!--tex4ht:ref: 18-1-12-e1 --></a>) is written
+href="#x25-24001r100">100<!--tex4ht:ref: 18-1-12-e1 --></a>) is written
 as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-24002r96"></a>
+ id="x25-24002r101"></a>
    <center class="math-display" >
                                                                   
 
                                                                   
 <img 
-src="fourier_analysis103x.png" alt="         [            (      )                 (            )]
+src="fourier_analysis107x.png" alt="         [            (      )                 (            )]
        1-    ∑n          k2πx-       2∑n+1         (k-−-N-)2πx-
 h(x) = N  0+    Hk exp  i 2L   + 0+      Hk exp  i    2L        .
              k=1                    k=n+2
-" class="math-display"  /></center></td><td class="equation-label">(96)</td></tr></table>
-<!--l. 1081--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(101)</td></tr></table>
+<!--l. 1141--><p class="nopar" >
 Using the odd symmetry of <span 
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">k</span></sub>, i.e., <span 
@@ -105,14 +105,14 @@ as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-24003r97"></a>
+ id="x25-24003r102"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis104x.png" alt="       1 [∑n       ( k2πx )   2n∑+1         (  (k − N )2πx )]
+src="fourier_analysis108x.png" alt="       1 [∑n       ( k2πx )   2n∑+1         (  (k − N )2πx )]
 h(x) = --    Hk exp  i----  −      HN −kexp  i----------   .
        N  k=1         2L      k=n+2                2L
-" class="math-display"  /></center></td><td class="equation-label">(97)</td></tr></table>
-<!--l. 1088--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(102)</td></tr></table>
+<!--l. 1148--><p class="nopar" >
 Deﬁne <span 
 class="cmmi-10">k</span><span 
 class="cmsy-10">′ </span>= 2<span 
@@ -125,14 +125,14 @@ written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-24004r98"></a>
+ id="x25-24004r103"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis105x.png" alt="              [ n       (      )    1        (          )]
+src="fourier_analysis109x.png" alt="              [ n       (      )    1        (          )]
 h(x) = ---1--- ∑  H  exp  ik2πx- − ∑   H ′ exp i(−-k′)2πx-  .
        2(n + 1) k=1  k       2L     k′=n  k         2L
-" class="math-display"  /></center></td><td class="equation-label">(98)</td></tr></table>
-<!--l. 1095--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(103)</td></tr></table>
+<!--l. 1155--><p class="nopar" >
 i.e.,
                                                                   
 
@@ -140,31 +140,31 @@ i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-24005r99"></a>
+ id="x25-24005r104"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis106x.png" alt="      ---1--- ∑n    [   ( k2πx-)      (   k2πx)]
+src="fourier_analysis110x.png" alt="      ---1--- ∑n    [   ( k2πx-)      (   k2πx)]
 h(x) = 2(n + 1)  Hk  exp i 2L    − exp  − i 2L     ,
               k=1
-" class="math-display"  /></center></td><td class="equation-label">(99)</td></tr></table>
-<!--l. 1101--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(104)</td></tr></table>
+<!--l. 1161--><p class="nopar" >
 which is simpliﬁed as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-24006r100"></a>
+ id="x25-24006r105"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis107x.png" alt="          1   ∑n        ( k2πx )
+src="fourier_analysis111x.png" alt="          1   ∑n        ( k2πx )
 h (x) = -------   2iHk sin  ----- .
        2(n+ 1)k=1          2L
-" class="math-display"  /></center></td><td class="equation-label">(100)</td></tr></table>
-<!--l. 1106--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(105)</td></tr></table>
+<!--l. 1166--><p class="nopar" >
 As a convention, we prefer that the summation index begins from 0 and ends at
 <span 
 class="cmmi-10">n </span><span 
 class="cmsy-10">− </span>1. Then expression (<a 
-href="#x25-24006r100">100<!--tex4ht:ref: 18-1-12-e3 --></a>) is written as
+href="#x25-24006r105">105<!--tex4ht:ref: 18-1-12-e3 --></a>) is written as
 </p>
    <table 
 class="equation-star"><tr><td>
@@ -174,7 +174,7 @@ class="equation-star"><tr><td>
            <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">x</span>) = <img 
-src="fourier_analysis108x.png" alt="---1---
+src="fourier_analysis112x.png" alt="---1---
 2(n +1)"  class="frac" align="middle" /><span 
 class="cmex-10">∑</span>
         <sub><span 
@@ -187,11 +187,11 @@ class="cmmi-10">iH</span><sub>
 <span 
 class="cmmi-7">k</span><span 
 class="cmr-7">+1</span></sub> sin<img 
-src="fourier_analysis109x.png" alt="(          )
+src="fourier_analysis113x.png" alt="(          )
   (k-+-1)2πx-
      2L"  class="left" align="middle" />
 </td></tr></table>
-<!--l. 1110--><p class="nopar" >
+<!--l. 1170--><p class="nopar" >
 Using the relation between DST and DFT, i.e., <span 
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">k</span><span 
@@ -203,14 +203,14 @@ written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-24007r101"></a>
+ id="x25-24007r106"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis110x.png" alt="       -1---n∑−1     ( (k-+-1)2πx-)
+src="fourier_analysis114x.png" alt="       -1---n∑−1     ( (k-+-1)2πx-)
 h(x) = n+ 1    Yksin     2L     .
             k=0
-" class="math-display"  /></center></td><td class="equation-label">(101)</td></tr></table>
-<!--l. 1116--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(106)</td></tr></table>
+<!--l. 1176--><p class="nopar" >
 This is the formula for constructing the continuous function using the DST
 data. This formula is an expansion over the basis functions sin[(<span 
 class="cmmi-10">k </span>+ 1)<span 
@@ -232,12 +232,12 @@ class="cmmi-10">L </span>= (<span
 class="cmmi-10">n </span>+ 1)Δ, where Δ is the uniform spacing between the original <span 
 class="cmmi-10">n </span>sampling
 points.
-</p><!--l. 1126--><p class="noindent" >
+</p><!--l. 1186--><p class="noindent" >
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">7.3.1   </span> <a 
  id="x25-250007.3.1"></a>Inverse DST</h5>
-<!--l. 1128--><p class="noindent" >Evaluate the function in Eq. (<a 
-href="#x25-24007r101">101<!--tex4ht:ref: 18-1-13-e3 --></a>) at <span 
+<!--l. 1188--><p class="noindent" >Evaluate the function in Eq. (<a 
+href="#x25-24007r106">106<!--tex4ht:ref: 18-1-13-e3 --></a>) at <span 
 class="cmmi-10">x</span><sub><span 
 class="cmmi-7">j</span></sub> = (<span 
 class="cmmi-10">j </span>+ 1)Δ with <span 
@@ -253,15 +253,15 @@ obtain </p><div class="eqnarray">
 
                                                                   
 <img 
-src="fourier_analysis111x.png" alt="                       (                )
+src="fourier_analysis115x.png" alt="                       (                )
           -1---n∑−1      (k-+-1)2π(j +-1)Δ
 h(xj)  =   n+ 1    Yksin         2L
                k=0     (             )
           -1---n∑−1      (k-+-1)π(j-+1)
-      =   n+ 1    Yksin      (n+ 1)     .         (102)
+      =   n+ 1    Yksin      (n+ 1)     .         (107)
                k=0
 " class="math-display"  /><a 
- id="x25-25001r102"></a></center>
+ id="x25-25001r107"></a></center>
 </div>It can be proved that <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">x</span><sub><span 
@@ -271,19 +271,19 @@ class="cmmi-7">j</span></sub> used
 in deﬁning the DST <span 
 class="cmmi-10">Y</span> <sub><span 
 class="cmmi-7">k</span></sub>. Therefore Eq. (<a 
-href="#x25-25001r102">102<!--tex4ht:ref: 18-1-16-p1 --></a>) is the Inverse Discrete Sine
+href="#x25-25001r107">107<!--tex4ht:ref: 18-1-16-p1 --></a>) is the Inverse Discrete Sine
 Transform.
-<!--l. 1140--><p class="indent" >    
+<!--l. 1200--><p class="indent" >    
                                                                   
 
                                                                   
 </p>
-   <!--l. 1142--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1202--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu18.html" >next</a>] [<a 
 href="fourier_analysissu16.html" >prev</a>] [<a 
 href="fourier_analysissu16.html#tailfourier_analysissu16.html" >prev-tail</a>] [<a 
 href="fourier_analysissu17.html" >front</a>] [<a 
 href="fourier_analysisse7.html#fourier_analysissu17.html" >up</a>] </p></div>
-<!--l. 1142--><p class="indent" >   <a 
+<!--l. 1202--><p class="indent" >   <a 
  id="tailfourier_analysissu17.html"></a>  </p> 
 </body></html> 

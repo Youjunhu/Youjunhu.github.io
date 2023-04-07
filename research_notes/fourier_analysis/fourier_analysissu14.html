@@ -13,19 +13,19 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 723--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 773--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu13.html" >prev</a>] [<a 
 href="fourier_analysissu13.html#tailfourier_analysissu13.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu14.html">tail</a>] [<a 
 href="fourier_analysisse5.html#fourier_analysissu14.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">5.4   </span> <a 
  id="x20-190005.4"></a>Proof of the inverse DFT</h4>
-<!--l. 725--><p class="noindent" >In order to solve the linear algebraic equations (<a 
-href="fourier_analysissu8.html#x13-12006r59">59<!--tex4ht:ref: 2-26-2 --></a>) for <span 
+<!--l. 775--><p class="noindent" >In order to solve the linear algebraic equations (<a 
+href="fourier_analysissu8.html#x13-12006r64">64<!--tex4ht:ref: 2-26-2 --></a>) for <span 
 class="cmmi-10">h</span><sub><span 
 class="cmmi-7">j</span></sub>, multiply both sides of
 each equation by exp<img 
-src="fourier_analysis76x.png" alt="(   2π-  )
+src="fourier_analysis80x.png" alt="(   2π-  )
  − iN nJ"  class="left" align="middle" />, where <span 
 class="cmmi-10">J </span>is an integer between [0<span 
 class="cmmi-10">,N </span><span 
@@ -34,28 +34,28 @@ add all the equations together, which yields
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x20-19001r74"></a>
+ id="x20-19001r79"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis77x.png" alt="N∑ −1   (        )     N∑−1N∑− 1     (           )
+src="fourier_analysis81x.png" alt="N∑ −1   (        )     N∑−1N∑− 1     (           )
     exp − i2πnJ  Hn =         hjexp  i2π-n(j − J) .
 n=0        N           n=0j=0         N
-" class="math-display"  /></center></td><td class="equation-label">(74)</td></tr></table>
-<!--l. 733--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(79)</td></tr></table>
+<!--l. 783--><p class="nopar" >
 Interchanging the sequence of the two summation on the right-hand side, equation
 (<a 
-href="#x20-19001r74">74<!--tex4ht:ref: 10-7-p2 --></a>) is written
+href="#x20-19001r79">79<!--tex4ht:ref: 10-7-p2 --></a>) is written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x20-19002r75"></a>
+ id="x20-19002r80"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis78x.png" alt="N∑ −1   (   2π   )     N∑−1  N∑−1   ( 2π        )
+src="fourier_analysis82x.png" alt="N∑ −1   (   2π   )     N∑−1  N∑−1   ( 2π        )
     exp − iN-nJ  Hn =     hj    exp  iN-n(j − J) .
 n=0                    j=0   n=0
-" class="math-display"  /></center></td><td class="equation-label">(75)</td></tr></table>
-<!--l. 740--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(80)</td></tr></table>
+<!--l. 790--><p class="nopar" >
 Using the fact that (veriﬁed by Wolfram Mathematica)
                                                                   
 
@@ -63,64 +63,64 @@ Using the fact that (veriﬁed by Wolfram Mathematica)
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x20-19003r76"></a>
+ id="x20-19003r81"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis79x.png" alt="N∑−1   [ 2π        ]
+src="fourier_analysis83x.png" alt="N∑−1   [ 2π        ]
    exp iN--n(j − J) = N δjJ,
 n=0
-" class="math-display"  /></center></td><td class="equation-label">(76)</td></tr></table>
-<!--l. 745--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(81)</td></tr></table>
+<!--l. 795--><p class="nopar" >
 where <span 
 class="cmmi-10">δ</span><sub><span 
 class="cmr-7">jJ</span></sub> is the Kroneker Delta, equation (<a 
-href="#x20-19002r75">75<!--tex4ht:ref: 10-7-p3 --></a>) is written
+href="#x20-19002r80">80<!--tex4ht:ref: 10-7-p3 --></a>) is written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x20-19004r77"></a>
+ id="x20-19004r82"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis80x.png" alt="N −1   (        )      N−1
+src="fourier_analysis84x.png" alt="N −1   (        )      N−1
  ∑  exp  − i2πnJ Hn  = ∑  hjN δjJ,
  n=0        N           j=0
-" class="math-display"  /></center></td><td class="equation-label">(77)</td></tr></table>
-<!--l. 751--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(82)</td></tr></table>
+<!--l. 801--><p class="nopar" >
 i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x20-19005r78"></a>
+ id="x20-19005r83"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis81x.png" alt="N∑−1   (   2π   )
+src="fourier_analysis85x.png" alt="N∑−1   (   2π   )
     exp  − iN-nJ Hn  = NhJ,
  n=0
-" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
-<!--l. 756--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(83)</td></tr></table>
+<!--l. 806--><p class="nopar" >
 which can be solved to give
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x20-19006r79"></a>
+ id="x20-19006r84"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis82x.png" alt="       N− 1   (       )
+src="fourier_analysis86x.png" alt="       N− 1   (       )
 hJ = 1-∑   exp − i2πnJ  Hn.
      N n=0        N
-" class="math-display"  /></center></td><td class="equation-label">(79)</td></tr></table>
-<!--l. 761--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(84)</td></tr></table>
+<!--l. 811--><p class="nopar" >
 Equation (<a 
-href="#x20-19006r79">79<!--tex4ht:ref: 10-7-p1 --></a>) is the inverse DFT.
+href="#x20-19006r84">84<!--tex4ht:ref: 10-7-p1 --></a>) is the inverse DFT.
                                                                   
 
                                                                   
 </p>
-   <!--l. 764--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 814--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu13.html" >prev</a>] [<a 
 href="fourier_analysissu13.html#tailfourier_analysissu13.html" >prev-tail</a>] [<a 
 href="fourier_analysissu14.html" >front</a>] [<a 
 href="fourier_analysisse5.html#fourier_analysissu14.html" >up</a>] </p></div>
-<!--l. 764--><p class="indent" >   <a 
+<!--l. 814--><p class="indent" >   <a 
  id="tailfourier_analysissu14.html"></a> </p> 
 </body></html> 

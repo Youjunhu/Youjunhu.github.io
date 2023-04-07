@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>About using the FFTW library</title> 
+<head><title>About using the FFT library</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,41 +13,41 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 764--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 814--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse7.html" >next</a>] [<a 
 href="fourier_analysisse5.html" >prev</a>] [<a 
 href="fourier_analysisse5.html#tailfourier_analysisse5.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysisse6.html">tail</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse6.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
- id="x21-200006"></a>About using the FFTW library</h3>
-<!--l. 766--><p class="noindent" >FFTW uses negative exponents as the forward transform and and the positive
+ id="x21-200006"></a>About using the FFT library</h3>
+<!--l. 816--><p class="noindent" >FFTW/scipy uses negative exponents as the forward transform and and the positive
 exponents as inverse transform. Speciﬁcally, the forward DFT in FFTW is deﬁned
 by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x21-20001r80"></a>
+ id="x21-20001r85"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis83x.png" alt="               (       )
+src="fourier_analysis87x.png" alt="               (       )
      N∑−1         2π-
 Hn ≡     hjexp  − i N nj ,
       j=0
-" class="math-display"  /></center></td><td class="equation-label">(80)</td></tr></table>
-<!--l. 772--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(85)</td></tr></table>
+<!--l. 822--><p class="nopar" >
 and the inverse DFT is deﬁned by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x21-20002r81"></a>
+ id="x21-20002r86"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis84x.png" alt="     N∑−1      (      )
+src="fourier_analysis88x.png" alt="     N∑−1      (      )
 hj =    Hn exp  i2πnj  ,
      n=0         N
-" class="math-display"  /></center></td><td class="equation-label">(81)</td></tr></table>
-<!--l. 776--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(86)</td></tr></table>
+<!--l. 826--><p class="nopar" >
 where there is no 1<span 
 class="cmmi-10">∕N </span>factor in the inverse DFT, and thus this factor should be
 included manually if we want to recover the original data from the inverse DFT. (In
@@ -60,8 +60,109 @@ in deﬁning the forward Fourier transformation and negative exponents are used 
 deﬁning the backward one. When using a Fourier transformation library, it is
 necessary to know which convention is used in order to correctly use the output of
 the library.)
-</p><!--l. 786--><p class="indent" >   I use the Fortran interface of the FFTW library. To have access to FFTW library,
-use the following codes: </p><div class="alltt">
+</p><!--l. 836--><p class="indent" >   In Scipy: </p><div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">def</span><span 
+class="cmtt-10"> fft(x,</span><span 
+class="cmtt-10"> n=None,</span><span 
+class="cmtt-10"> axis=-1,</span><span 
+class="cmtt-10"> norm=None,</span><span 
+class="cmtt-10"> overwrite_x=False,</span><span 
+class="cmtt-10"> workers=None,</span><span 
+class="cmtt-10"> *,</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> plan=None):</span>
+<br /><span 
+class="cmtt-10">#norm</span><span 
+class="cmtt-10"> :</span><span 
+class="cmtt-10"> </span><span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">&#x0022;backward&#x0022;,</span><span 
+class="cmtt-10"> &#x0022;ortho&#x0022;,</span><span 
+class="cmtt-10"> &#x0022;forward&#x0022;</span><span 
+class="cmsy-10">}</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10"> optional</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> Normalization</span><span 
+class="cmtt-10"> mode.</span><span 
+class="cmtt-10"> Default</span><span 
+class="cmtt-10"> is</span><span 
+class="cmtt-10"> &#x0022;backward&#x0022;,</span><span 
+class="cmtt-10"> meaning</span><span 
+class="cmtt-10"> no</span><span 
+class="cmtt-10"> normalization</span><span 
+class="cmtt-10"> on</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> the</span><span 
+class="cmtt-10"> forward</span><span 
+class="cmtt-10"> transforms</span><span 
+class="cmtt-10"> and</span><span 
+class="cmtt-10"> scaling</span><span 
+class="cmtt-10"> by</span><span 
+class="cmtt-10"> 1/n</span><span 
+class="cmtt-10"> on</span><span 
+class="cmtt-10"> the</span><span 
+class="cmtt-10"> ifft.</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> &#x0022;forward&#x0022;</span><span 
+class="cmtt-10"> instead</span><span 
+class="cmtt-10"> applies</span><span 
+class="cmtt-10"> the</span><span 
+class="cmtt-10"> 1/n</span><span 
+class="cmtt-10"> factor</span><span 
+class="cmtt-10"> on</span><span 
+class="cmtt-10"> the</span><span 
+class="cmtt-10"> forward</span><span 
+class="cmtt-10"> tranform.</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> For</span><span 
+class="cmtt-10"> norm=&#x0022;ortho&#x0022;,</span><span 
+class="cmtt-10"> both</span><span 
+class="cmtt-10"> directions</span><span 
+class="cmtt-10"> are</span><span 
+class="cmtt-10"> scaled</span><span 
+class="cmtt-10"> by</span><span 
+class="cmtt-10"> 1/sqrt(n).</span>
+</div>
+</div>
+I use the Fortran interface of the FFTW library. To have access to FFTW library, use
+the following codes: <div class="alltt">
 <div class="obeylines-v">            <span 
 class="cmtt-10">use,</span><span 
 class="cmtt-10"> intrinsic</span><span 
@@ -109,11 +210,14 @@ Here the “planner” routine for one-dimensional DFT is called. One thing that
 class="cmmi-10">M</span><sub><span 
 class="cmmi-7">kj</span></sub> mentioned above, in order to
 get prepared for performing the actual transform. Therefore “planner” do
+                                                                  
+
+                                                                  
 not need the actual data stored in “in” array. What is needed is the length
 and numerical type of “in” array. It is obvious that the “planner” routine
 needs to be invoked for only once for a given type of array with the same
 length.
-<!--l. 813--><p class="indent" >   Store input data in the “in” arrays, then, we can perform a DFT by the following
+<!--l. 873--><p class="indent" >   Store input data in the “in” arrays, then, we can perform a DFT by the following
 codes: </p><div class="alltt">
 <div class="obeylines-v">            <span 
 class="cmtt-10">call</span><span 
@@ -123,9 +227,6 @@ class="cmtt-10"> out)</span>
 </div>
 </div>
 Similarly, we can perform a inverse DFT by the following codes: <div class="alltt">
-                                                                  
-
-                                                                  
 <div class="obeylines-v">            <span 
 class="cmtt-10">plan2</span><span 
 class="cmtt-10"> =</span><span 
@@ -149,18 +250,18 @@ class="cmtt-10"> fftw_destroy_plan(plan2)</span>
 (Unless they are local arrays, Fortran does not automatically de-allocate arrays
 allocated by the <span 
 class="cmbx-10">acllocate()</span>, so manually de-allocate all allocated arrays is necessary
-for preventing memory leak from appearing.)
-<!--l. 833--><p class="indent" >    
+for avoid memory leak)
+<!--l. 893--><p class="indent" >    
                                                                   
 
                                                                   
 </p>
-   <!--l. 835--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 895--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse7.html" >next</a>] [<a 
 href="fourier_analysisse5.html" >prev</a>] [<a 
 href="fourier_analysisse5.html#tailfourier_analysisse5.html" >prev-tail</a>] [<a 
 href="fourier_analysisse6.html" >front</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse6.html" >up</a>] </p></div>
-<!--l. 835--><p class="indent" >   <a 
+<!--l. 895--><p class="indent" >   <a 
  id="tailfourier_analysisse6.html"></a> </p> 
 </body></html> 

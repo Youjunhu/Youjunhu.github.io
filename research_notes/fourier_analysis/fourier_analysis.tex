@@ -3,8 +3,6 @@
 \usepackage{amsmath,amssymb,graphicx,hyperref,xcolor,alltt}
 
 %%%%%%%%%% Start TeXmacs macros
-\newcommand{\infixand}{\text{ and }}
-\newcommand{\infixor}{\text{ or }}
 \newcommand{\nobracket}{}
 \newcommand{\tmaffiliation}[1]{\\ #1}
 \newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
@@ -38,23 +36,20 @@
 
 \section{Introduction}
 
-This note was written when I was developing numerical codes that need to use
-FFT libraries. Fourier series and Fourier transform are usually taught in
-undergraduate calculus courses. To numerically use this mathematical method in
-practice, one additional necessary step is to know the Discrete Fourier
-Transform (DFT). There are many online material discussing these topics and I
-read some of them. But finally I found that I need to derive all the relevant
-formulas step by step by myself. This note gives step by step derivation of
-the definition of DFT and its variations such as the discrete sine transform.
-I also discuss how relate this to the output of various FFT computer libraries
-(e.g. FFTW).
+This note discusses the Fourier expansion and Discrete Fourier Transform
+(DFT). There are many online documents discussing these topics and I read some
+of them. But finally I found that I need to derive all the relevant formulas
+step by step by myself. This note gives step by step derivation of the
+definition of DFT and its variations such as the discrete sine transform. I
+also discuss how to relate this to the output of some computer libraries (e.g.
+FFTW).
 
-The Fast Fourier Transform algorithm (FFT) makes the Fourier analysis fast
-enough to solve many real-life problems, which makes FFT be among the top ten
-algorithms that have changed the world. The FFT algorithm remained mysterious
-to me for many years until I read Cooley and Tukey's original paper, which
-turns out to be a very concise paper and very easy to follow (details are
-discussed in Append. \ref{23-3-23-p1}).
+The Fast Fourier Transform algorithm (FFT) makes the DFT fast enough to solve
+many real-life problems, which makes FFT be among the top ten algorithms that
+have changed the world. The FFT algorithm remained mysterious to me for many
+years until I read Cooley and Tukey's original paper, which turns out to be a
+very concise paper and very easy to follow (details are discussed in Append.
+\ref{23-3-23-p1}).
 
 \section{Fourier series}
 
@@ -66,15 +61,15 @@ can be expressed as the following series
   \label{2-25-1} h (x) = \sum_{n = 0}^{\infty} a_n \cos \left( \frac{n \pi}{L}
   x \right) + \sum_{n = 1}^{\infty} b_n \sin \left( \frac{n \pi}{L} x \right),
 \end{equation}
-which is called Fourier series. It is not trivial to prove the above statement
-(what is needed in the proof is to prove that the set of functions $\cos (n
-\pi x / L)$ and $\sin (n \pi x / L)$ with $n = 0, 1, \ldots \infty$ is a
-``complete set''{\cite{snieder1994}}). We will not concern us here with this
-proof and simply start working with the Fourier series in Eq. (\ref{2-25-1}).
-At this point it is not clear yet what the coefficients $a_n$ and $b_n$ are.
-These can be obtained by taking product of Eq. (\ref{2-25-1}) with $\cos (j
-\pi x / L)$ and $\sin (j \pi x / L)$, respectively, and then integrating form
-$- L$ to $L$, which gives
+which is called Fourier series. [It is not trivial to prove the above
+statement (what is needed in the proof is to prove that the set of functions
+$\cos (n \pi x / L)$ and $\sin (n \pi x / L)$ with $n = 0, 1, \ldots \infty$
+is a ``complete set''{\cite{snieder1994}}). We will not concern us here with
+this proof and simply start working with the Fourier series in Eq.
+(\ref{2-25-1}).] At this point it is not clear yet what the coefficients $a_n$
+and $b_n$ are. These can be obtained by taking product of Eq. (\ref{2-25-1})
+with $\cos (j \pi x / L)$ and $\sin (j \pi x / L)$, respectively, and then
+integrating form $- L$ to $L$, which gives
 \begin{equation}
   a_0 = \frac{1}{2 L} \int_{- L}^L h (x) d x,
 \end{equation}
@@ -88,13 +83,25 @@ and, for $j \geqslant 1$,
   \label{2-25-p1m} b_j = \frac{1}{L} \int_{- L}^L h (x) \sin \left( \frac{j
   \pi}{L} x \right) d x.
 \end{equation}
-In order to enable $a_n$ to be uniformly expressed by Eq. (\ref{2-25-p1}), we
-redefine the Fourier series to the following form
+Fourier series are often redefined as
 \begin{equation}
   \label{2-25-p3} h (x) = \frac{a_0}{2} + \sum_{n = 1}^{\infty} \left[ a_n
   \cos \left( \frac{n \pi}{L} x \right) + b_n \sin \left( \frac{n \pi}{L} x
-  \right) \right] .
+  \right) \right],
 \end{equation}
+in order to enable $a_n$ to be uniformly expressed by Eq. (\ref{2-25-p1}).
+Fourier series (\ref{2-25-p3}) can be further written as
+\begin{equation}
+  \label{23-4-3-1} h (x) = \sum_{n = - \infty}^{\infty} \left[ \frac{a_n}{2}
+  \cos \left( \frac{n \pi}{L} x \right) + \frac{b_n}{2} \sin \left( \frac{n
+  \pi}{L} x \right) \right],
+\end{equation}
+where $n$ ranges from $- \infty$ to $\infty$, and there is no special
+treatment for the edge case of $n = 0$. In obtaining expression
+(\ref{23-4-3-1}) from (\ref{2-25-p3}), use has been made of $a_n \cos (n \pi x
+/ L) = a_{- n} \cos (- n \pi x / L)$, $b_n \sin (n \pi x / L) = b_{- n} \sin
+(- n \pi x / L)$, and $b_0 = 0$.
+
 If $h (x)$ is a complex-valued function (the independent variable $x$ is still
 real number), then the above Fourier expansion can be applied to its real part
 and imaginary part, respectively. Combining the results, we can see that Eqs.
@@ -119,13 +126,12 @@ and the phase $\Phi_n$ is given by
   \label{20-12-19-a1} \Phi_n = \tmop{atan} 2 (b_n, a_n),
 \end{equation}
 where $\tmop{atan} 2 (y, x)$ is a Fortran function computing the poloidal
-angle of Cartesian point $(x, y)$, which determines the angle in the correct
-quadrant. Note that these formulas are valid only for the case that $h (x)$ is
-real-valued (and thus $a_n$ and $b_n$ are also real-valued).
+angle of Cartesian point $(x, y)$, which gives an angle in the correct
+quadrant.
 
 \subsection{Fourier series in terms of basis functions $e^{i n \pi x / L}$}
 
-The Fourier series can also be expressed in terms of the complex-valued basis
+Fourier series are often expressed in terms of the complex-valued basis
 functions $e^{i n \pi x / L}$. Next, we derive this version of the Fourier
 series, which is the most popular version we see in textbooks and papers (we
 will see the reason why this version is popular).
@@ -170,40 +176,84 @@ can be uniformly expressed as
   \label{2-25-p7} c_n = \frac{1}{2 L} \int_{- L}^L h (x) e^{- i n \pi x / L} d
   x.
 \end{equation}
-Equations (\ref{2-25-p6}) along with Eq. (\ref{2-25-p7}) gives a compact form
-of the Fourier series. In this expansion, $n$ is an integer from negative
-infinity to positive infinity, which is unlike Eq. (\ref{2-25-1}), where $n$
-is from zero to positive infinity. An advantage of Eqs. (\ref{2-25-p6}) and
-(\ref{2-25-p7}) is that no special treatment is needed for the edge case of $n
-= 0$.
+Equation (\ref{2-25-p6}) along with Eq. (\ref{2-25-p7}) is the version of
+Fourier series using complex basis functions. In this version, the index $n$
+is an integer ranging from negative infinity to positive infinity, which is
+unlike Eq. (\ref{2-25-1}), where $n$ is from zero to positive infinity. An
+advantage of Eqs. (\ref{2-25-p6}) and (\ref{2-25-p7}) is that no special
+treatment is needed for the edge case of $n = 0$.
 
-On the other hand, using Eq. (\ref{2-25-p4}), the coefficients $a_n$ and $b_n$
-appearing in Eq. (\ref{2-25-1}) can be recovered from $c_n$ by
+Using Eq. (\ref{2-25-p7}) in Eqs. (\ref{2-25-p6}), we obtain
+\begin{eqnarray}
+  h (x) & = & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h
+  (x) e^{- i n \pi x / L} d x \right) e^{i n \pi x / L} . \nonumber\\
+  & = & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h (x)
+  \left( \cos \left( \frac{n \pi}{L} x \right) - i \sin \left( \frac{n \pi}{L}
+  x \right) \right) d x \right) \left( \cos \left( \frac{n \pi}{L} x \right) +
+  i \sin \left( \frac{n \pi}{L} x \right) \right) \nonumber\\
+  & = & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h (x)
+  \cos \left( \frac{n \pi}{L} x \right) d x \right) \cos \left( \frac{n
+  \pi}{L} x \right) \nonumber\\
+  & + & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h (x)
+  \sin \left( \frac{n \pi}{L} x \right) d x \right) \left. \sin \left( \frac{n
+  \pi}{L} x \right. \right) \nonumber\\
+  & + & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h (x)
+  \left. \cos \left( \frac{n \pi}{L} x \right. \right) d x \right) \left( i
+  \sin \left( \frac{n \pi}{L} x \right) \right)  \label{23-4-3-4}\\
+  & + & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h (x)
+  \left( - i \sin \left( \frac{n \pi}{L} x \right) \right) d x \right) \left(
+  \cos \left( \frac{n \pi}{L} x \right) \right)  \label{23-4-3-5}
+\end{eqnarray}
+Noting that the $+ n$ terms cancel the $- n$ terms in both line
+(\ref{23-4-3-4}) and line (\ref{23-4-3-5}), then $h (x)$ is written as
+\begin{eqnarray}
+  h (x) & = & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h
+  (x) \cos \left( \frac{n \pi}{L} x \right) d x \right) \cos \left( \frac{n
+  \pi}{L} x \right) \nonumber\\
+  & + & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h (x)
+  \sin \left( \frac{n \pi}{L} x \right) d x \right) \left. \sin \left( \frac{n
+  \pi}{L} x \right. \right)  \label{23-3-27-1}
+\end{eqnarray}
+Define new expansion coefficients
+\begin{equation}
+  a_n' = \frac{a_n}{2} = \frac{1}{2 L} \int_{- L}^L h (x) \cos \left( \frac{n
+  \pi}{L} x \right) d x
+\end{equation}
+and
+\begin{equation}
+  b_n' = \frac{b_n}{2} = \frac{1}{2 L} \int_{- L}^L h (x) \sin \left( \frac{n
+  \pi}{L} x \right) d x
+\end{equation}
+then expression (\ref{23-3-27-1}) is written as
+\begin{equation}
+  h (x) = \sum_{n = - \infty}^{\infty} a_n' \cos \left( \frac{n \pi}{L} x
+  \right) + \sum_{n = - \infty}^{\infty} b_n' \left. \sin \left( \frac{n
+  \pi}{L} x \right. \right),
+\end{equation}
+which recovers expression (\ref{23-4-3-1}). Note that $n \in (- \infty, +
+\infty)$ in this version, which differs from Eq. (\ref{2-25-p3}). Also this
+expression has no edge case that needs special treatment.
+
+Using Eq. (\ref{2-25-p4}), the coefficients $a_n$ and $b_n$ appearing in Eq.
+(\ref{2-25-p3}) can be recovered from $c_n$ by
 \begin{equation}
   \label{11-8-e1} a_n = c_n + c_{- n},
 \end{equation}
 \begin{equation}
   \label{4-18-e1} b_n = i (c_n - c_{- n}) .
 \end{equation}
-Note that if $h (x)$ is real, then the coefficients $a_n$ and $b_n$ are real
-while the coefficient $c_n$ are complex-valued. Then equation (\ref{2-25-p4})
-implies that $c_n$ and $c_{- n}$ are complex conjugates. In this case,
-expressions (\ref{11-8-e1}) and (\ref{4-18-e1}) are simplified as
+If $h (x)$ is real, then the coefficients $a_n$ and $b_n$ are real. Then
+equation (\ref{2-25-p4}) implies that $c_n$ and $c_{- n}$ are complex
+conjugates. In this case, expressions (\ref{11-8-e1}) and (\ref{4-18-e1}) are
+simplified as
 \begin{equation}
   a_n = 2 \tmop{Re} (c_n),
 \end{equation}
 \begin{equation}
   b_n = - 2 \tmop{Im} (c_n) .
 \end{equation}
-In terms of $c_n$, the $A_n$ and $\Phi_n$ in Eqs. (\ref{20-12-16-a1}) and
-(\ref{20-12-19-a1}) are written as
-\begin{equation}
-  A_n = 2 | c_n |,
-\end{equation}
-and
-\begin{equation}
-  \Phi_n = \tmop{atan} 2 (- \tmop{Im} (c_n), \tmop{Re} (c_n)),
-\end{equation}
+
+
 [In the above, we use the basis functions $e^{i n \pi x / L}$ to expand $h
 (x)$. If we choose the basis functions to be $e^{- i n \pi x / L}$, then it is
 ready to verify that the Fourier series are written
@@ -645,12 +695,12 @@ $1 / T$, which is the spacing between samples in the frequency domain.
 The Fourier series of $h (t)$
 \begin{equation}
   h (t) = \sum_{n = - \infty}^{\infty} c_n \exp \left( - i \frac{n 2 \pi t}{T}
-  \right)
+  \right),
 \end{equation}
 can be approximated as
 \begin{equation}
   h (t) \approx \sum_{n = - N / 2}^{N / 2} c_n \exp \left( - i \frac{n 2 \pi
-  t}{T} \right)
+  t}{T} \right) .
 \end{equation}
 Using the relation $c_n = H_n / N$, the above equation is written as
 \begin{eqnarray}
@@ -761,11 +811,11 @@ which can be solved to give
 \end{equation}
 Equation (\ref{10-7-p1}) is the inverse DFT.
 
-\section{About using the FFTW library}
+\section{About using the FFT library}
 
-FFTW uses negative exponents as the forward transform and and the positive
-exponents as inverse transform. Specifically, the forward DFT in FFTW is
-defined by
+FFTW/scipy uses negative exponents as the forward transform and and the
+positive exponents as inverse transform. Specifically, the forward DFT in FFTW
+is defined by
 \begin{equation}
   H_n \equiv \sum_{j = 0}^{N - 1} h_j \exp \left( - i \frac{2 \pi}{N} n j
   \right),
@@ -783,6 +833,16 @@ backward one. When using a Fourier transformation library, it is necessary to
 know which convention is used in order to correctly use the output of the
 library.)
 
+In Scipy:
+\begin{tmcode}
+def fft(x, n=None, axis=-1, norm=None, overwrite_x=False, workers=None, *,
+        plan=None):
+#norm : \{"backward", "ortho", "forward"\}, optional
+        Normalization mode. Default is "backward", meaning no normalization on
+        the forward transforms and scaling by 1/n on the ifft.
+        "forward" instead applies the 1/n factor on the forward tranform.
+        For norm="ortho", both directions are scaled by 1/sqrt(n).
+\end{tmcode}
 I use the Fortran interface of the FFTW library. To have access to FFTW
 library, use the following codes:
 \begin{tmcode}
@@ -828,7 +888,7 @@ call fftw_destroy_plan(plan2)
 \end{tmcode}
 (Unless they are local arrays, Fortran does not automatically de-allocate
 arrays allocated by the {\codestar{acllocate()}}, so manually de-allocate all
-allocated arrays is necessary for preventing memory leak from appearing.)
+allocated arrays is necessary for avoid memory leak)
 
 \
 
@@ -892,7 +952,7 @@ verified numerically by me).
   2 L) = 0$ ($x_0 = 0$ and $L = 1$ for this case). The expansion coefficients
   $H_k$ are obtained via the discrete sine transform (\ref{18-1-11-a2}) with
   number of sampling point $N = 50$. The reconstruction formula is given by $h
-  (x) = \frac{2}{N} \sum_{k = 1}^{N - 1} H_k \sin ( \frac{k \pi x}{2 L}
+  (x) = \frac{2}{N} \sum_{k = 1}^{N - 1} H_k \sin( \frac{k \pi x}{2 L}
   )$.}
 \end{figure}
 
@@ -1411,7 +1471,7 @@ simplified to
   \cos \alpha d x d y \right) \cos \alpha \nonumber\\
   & + & \sum_{m = - \infty}^{\infty} \sum_{n = - \infty}^{\infty} \left(
   \frac{1}{4 L_x L_y} \int_{- L_y}^{L_y} \int_{- L_x}^{L_x} G (x, y) \sin
-  \alpha d x d y \right) \sin \alpha . 
+  \alpha d x d y \right) \sin \alpha .  \label{23-3-31-p1}
 \end{eqnarray}
 
 
@@ -1558,26 +1618,14 @@ The coefficients can be further written as
 \end{eqnarray}
 
 
-**need to check***To handle the special case of $m = 0$ and/or $n = 0$, define
-\[ c_{m n}' = \kappa c_{m n} \]
-and
-\[ s'_{m n} = \kappa s_{m n} \]
-where
-\begin{equation}
-  \kappa = \left\{\begin{array}{l}
-    1, \tmop{for} m \neq 0, n \neq 0\\
-    \frac{1}{4}, \tmop{for} m = 0 \infixand n = 0\\
-    \frac{1}{2}, \tmop{for} m = 0 \infixor n = 0
-  \end{array}\right.
-\end{equation}
-Then
-\begin{eqnarray*}
-  G (x, y) & = & \sum_{m = 0}^{\infty} \sum_{n = - \infty}^{\infty} c_{m n}'
-  \cos \left( \frac{m \pi}{L_x} x + \frac{n \pi}{L_y} y \right)\\
-  & + & \sum_{m = 0}^{\infty} \sum_{n = - \infty}^{\infty} s_{m n}' \sin
-  \left( \frac{m \pi}{L_x} x + \frac{n \pi}{L_y} y \right) .
-\end{eqnarray*}
+Then comes the drudgery to handle the special cases of $m = 0$ and/or $n = 0$,
+which I do not enjoy. I finally give up doing this. And I decide to stick to
+using expression (\ref{23-3-31-p1}) for 2D real-valued function, which can be
+obtained simply by taking the real part of expression (\ref{10-22-e1}). We see
+that allowing the index runing from $- \infty$ to $+ \infty$ has the advantage
+of making the expression more uniform, and thus avoiding tedious work.
 
+\
 
 \
 

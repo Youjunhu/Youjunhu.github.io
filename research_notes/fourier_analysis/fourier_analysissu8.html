@@ -13,13 +13,13 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 490--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 540--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu9.html" >next</a>] [<a 
 href="#tailfourier_analysissu8.html">tail</a>] [<a 
 href="fourier_analysisse4.html#fourier_analysissu8.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
  id="x13-120004.1"></a>Deﬁnition of DFT</h4>
-<!--l. 492--><p class="noindent" >Suppose that a function <span 
+<!--l. 542--><p class="noindent" >Suppose that a function <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) is sampled with a sampling frequency <span 
 class="cmmi-10">f</span><sub><span 
@@ -45,14 +45,14 @@ class="cmmi-10">∕</span>2 can be written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x13-12001r55"></a>
+ id="x13-12001r60"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis55x.png" alt="          ∞∑
+src="fourier_analysis59x.png" alt="          ∞∑
 H (f) = Δ     hjexp(i2πfjΔ ).
          j=−∞
-" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
-<!--l. 500--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(60)</td></tr></table>
+<!--l. 550--><p class="nopar" >
 Assume that the function <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) is periodic with period <span 
@@ -82,7 +82,7 @@ href="#x13-120021">1<!--tex4ht:ref: 16-2-25 --></a>.
                                                                   
 
                                                                   
-<!--l. 506--><p class="noindent" > <img 
+<!--l. 556--><p class="noindent" > <img 
 src="my_figure/home/yj/project_new/fft/fig2c/MyFigure.png" alt="pict"  
  width="180.675pt" />
 <br /> </p><div class="caption" 
@@ -95,20 +95,20 @@ period of the signal.</span></div><!--tex4ht:label?: x13-120021 -->
 
                                                                   
    </div><hr class="endfigure" />
-<!--l. 511--><p class="indent" >   Then the inﬁnite summation in Eq. (<a 
-href="#x13-12001r55">55<!--tex4ht:ref: 2-26-p1 --></a>) reduces to the following partial
+<!--l. 561--><p class="indent" >   Then the inﬁnite summation in Eq. (<a 
+href="#x13-12001r60">60<!--tex4ht:ref: 2-26-p1 --></a>) reduces to the following partial
 sum:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x13-12003r56"></a>
+ id="x13-12003r61"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis56x.png" alt="          N∑ −1
+src="fourier_analysis60x.png" alt="          N∑ −1
 H (f ) = CΔ    hjexp(i2πf jΔ ),
            j=0
-" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
-<!--l. 516--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(61)</td></tr></table>
+<!--l. 566--><p class="nopar" >
 where <span 
 class="cmmi-10">C </span>is the number of periods during the inﬁnite time. Since <span 
 class="cmmi-10">h</span>(<span 
@@ -140,13 +140,13 @@ at
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x13-12004r57"></a>
+ id="x13-12004r62"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis57x.png" alt="       n
+src="fourier_analysis61x.png" alt="       n
 fn = fsN-,
-" class="math-display"  /></center></td><td class="equation-label">(57)</td></tr></table>
-<!--l. 525--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(62)</td></tr></table>
+<!--l. 575--><p class="nopar" >
 with <span 
 class="cmmi-10">n </span>= <span 
 class="cmsy-10">−</span><span 
@@ -161,7 +161,7 @@ class="cmmi-10">N </span>is an even
 number). Evaluate <span 
 class="cmmi-10">H</span>(<span 
 class="cmmi-10">f</span>) given by Eq. (<a 
-href="#x13-12003r56">56<!--tex4ht:ref: 2-26-4 --></a>) at <span 
+href="#x13-12003r61">61<!--tex4ht:ref: 2-26-4 --></a>) at <span 
 class="cmmi-10">f </span>= <span 
 class="cmmi-10">f</span><sub><span 
 class="cmmi-7">n</span></sub>, then <span 
@@ -172,36 +172,36 @@ as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x13-12005r58"></a>
+ id="x13-12005r63"></a>
                                                                   
 
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis58x.png" alt="           N −1     (      )
+src="fourier_analysis62x.png" alt="           N −1     (      )
 H (fn ) = CΔ ∑  hjexp  i2πnj  .
             j=0         N
-" class="math-display"  /></center></td><td class="equation-label">(58)</td></tr></table>
-<!--l. 532--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(63)</td></tr></table>
+<!--l. 582--><p class="nopar" >
 The partial summation in Eq. (<a 
-href="#x13-12005r58">58<!--tex4ht:ref: 2-26-1 --></a>),
+href="#x13-12005r63">63<!--tex4ht:ref: 2-26-1 --></a>),
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x13-12006r59"></a>
+ id="x13-12006r64"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis59x.png" alt="     N∑−1     (  2π  )
+src="fourier_analysis63x.png" alt="     N∑−1     (  2π  )
 Hn ≡     hjexp  i--nj  ,
       j=0         N
-" class="math-display"  /></center></td><td class="equation-label">(59)</td></tr></table>
-<!--l. 537--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(64)</td></tr></table>
+<!--l. 587--><p class="nopar" >
 is called the <span 
 class="cmbx-10">Discrete Fourier transformation (DFT)</span>. (The eﬃcient algorithm of
 computing the DFT is discussed in Appendix <a 
 href="fourier_analysisse9.html#x31-31000A">A<!--tex4ht:ref: 18-1-28-a1 --></a>.) Using Eqs. (<a 
-href="#x13-12005r58">58<!--tex4ht:ref: 2-26-1 --></a>) and (<a 
-href="#x13-12006r59">59<!--tex4ht:ref: 2-26-2 --></a>),
+href="#x13-12005r63">63<!--tex4ht:ref: 2-26-1 --></a>) and (<a 
+href="#x13-12006r64">64<!--tex4ht:ref: 2-26-2 --></a>),
 we know <span 
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">n</span></sub> is related to the value of Fourier transform <span 
@@ -214,37 +214,37 @@ by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x13-12007r60"></a>
+ id="x13-12007r65"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis60x.png" alt="H(fn) = C ΔHn.
-" class="math-display"  /></center></td><td class="equation-label">(60)</td></tr></table>
+src="fourier_analysis64x.png" alt="H(fn) = C ΔHn.
+" class="math-display"  /></center></td><td class="equation-label">(65)</td></tr></table>
                                                                   
 
                                                                   
-<!--l. 544--><p class="nopar" >
+<!--l. 594--><p class="nopar" >
 and the Fourier expansion coeﬃcients <span 
 class="cmmi-10">c</span><sub><span 
 class="cmmi-7">n</span></sub> in Eq. (<a 
-href="fourier_analysissu3.html#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>) by
+href="fourier_analysissu3.html#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x13-12008r61"></a>
+ id="x13-12008r66"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis61x.png" alt="c = -1H  .
+src="fourier_analysis65x.png" alt="c = -1H  .
  n  N   n
-" class="math-display"  /></center></td><td class="equation-label">(61)</td></tr></table>
-<!--l. 548--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(66)</td></tr></table>
+<!--l. 598--><p class="nopar" >
                                                                   
 
                                                                   
 </p>
-   <!--l. 550--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 600--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu9.html" >next</a>] [<a 
 href="fourier_analysissu8.html" >front</a>] [<a 
 href="fourier_analysisse4.html#fourier_analysissu8.html" >up</a>] </p></div>
-<!--l. 550--><p class="indent" >   <a 
+<!--l. 600--><p class="indent" >   <a 
  id="tailfourier_analysissu8.html"></a> </p> 
 </body></html> 

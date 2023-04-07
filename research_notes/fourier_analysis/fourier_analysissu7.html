@@ -13,14 +13,14 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 423--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 473--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu6.html" >prev</a>] [<a 
 href="fourier_analysissu6.html#tailfourier_analysissu6.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu7.html">tail</a>] [<a 
 href="fourier_analysisse3.html#fourier_analysissu7.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">3.4   </span> <a 
  id="x11-100003.4"></a>Sampling theorem</h4>
-<!--l. 425--><p class="noindent" >In computational and experimental work, we know only a list of values <span 
+<!--l. 475--><p class="noindent" >In computational and experimental work, we know only a list of values <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span><sub><span 
 class="cmmi-7">j</span></sub>) sampled
@@ -33,12 +33,12 @@ between consecutive points:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x11-10001r49"></a>
+ id="x11-10001r54"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis49x.png" alt="hj = h(tj),tj = jΔ,j = ...,− 2,− 1,0,1,2,...
-" class="math-display"  /></center></td><td class="equation-label">(49)</td></tr></table>
-<!--l. 430--><p class="nopar" >
+src="fourier_analysis53x.png" alt="hj = h(tj),tj = jΔ,j = ...,− 2,− 1,0,1,2,...
+" class="math-display"  /></center></td><td class="equation-label">(54)</td></tr></table>
+<!--l. 480--><p class="nopar" >
 The sampling rate is deﬁned by <span 
 class="cmmi-10">f</span><sub><span 
 class="cmmi-7">s</span></sub> = 1<span 
@@ -52,12 +52,12 @@ property
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x11-10002r50"></a>
+ id="x11-10002r55"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis50x.png" alt="H (f) = 0for|f| ≥ fc
-" class="math-display"  /></center></td><td class="equation-label">(50)</td></tr></table>
-<!--l. 436--><p class="nopar" >
+src="fourier_analysis54x.png" alt="H (f) = 0for|f| ≥ fc
+" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
+<!--l. 486--><p class="nopar" >
 then sampling <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) with the sampling rate <span 
@@ -79,31 +79,31 @@ class="cmmi-10">t</span>), which is given explicitly by the formula
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x11-10003r51"></a>
+ id="x11-10003r56"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis51x.png" alt="        ∑∞     sin[2πfc(t−-jΔ)]-
+src="fourier_analysis55x.png" alt="        ∑∞     sin[2πfc(t−-jΔ)]-
 h(t) = Δ     hj    π(t − jΔ )  .
         j=− ∞
-" class="math-display"  /></center></td><td class="equation-label">(51)</td></tr></table>
-<!--l. 443--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 493--><p class="nopar" >
 We will not concern us here with the proof of the sampling theorem and simply
 start working with Eq. (<a 
-href="#x11-10003r51">51<!--tex4ht:ref: 8-28-4 --></a>) to derive the concrete expression for the Fourier
+href="#x11-10003r56">56<!--tex4ht:ref: 8-28-4 --></a>) to derive the concrete expression for the Fourier
 transformation of <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>). Substituting the expression (<a 
-href="#x11-10003r51">51<!--tex4ht:ref: 8-28-4 --></a>) for <span 
+href="#x11-10003r56">56<!--tex4ht:ref: 8-28-4 --></a>) for <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) into the Fourier
 transformation (<a 
-href="fourier_analysissu5.html#x9-8001r40">40<!--tex4ht:ref: 10-3-e1 --></a>), we obtain the explicit form of the Fourier transformation of <span 
+href="fourier_analysissu5.html#x9-8001r45">45<!--tex4ht:ref: 10-3-e1 --></a>), we obtain the explicit form of the Fourier transformation of <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>):
 </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="fourier_analysis52x.png" alt="         ∫ ∞
+src="fourier_analysis56x.png" alt="         ∫ ∞
 H (f)  ≡       h(t)exp(i2πf t)dt,
           − ∞∞    ∫ ∞
       =  Δ  ∑   hj     sin[2πfc(t−-jΔ-)]exp (i2πft)dt,
@@ -112,39 +112,39 @@ H (f)  ≡       h(t)exp(i2πf t)dt,
       =  Δ      hjexp(i2πfjΔ)     sin[2πfc(t−-jΔ-)]exp[i2πf(t− jΔ)]dt,
            j=−∞                −∞    π(t− jΔ)
             ∑∞                ∫ ∞
-      =  Δ      hjexp(i2πfjΔ)     sin[2πfcτ]exp[i2πfτ]dτ.        (52)
+      =  Δ      hjexp(i2πfjΔ)     sin[2πfcτ]exp[i2πfτ]dτ.        (57)
            j=−∞                −∞    πτ
 " class="math-display"  /><a 
- id="x11-10004r52"></a></center>
+ id="x11-10004r57"></a></center>
 </div>With the help of Wolfram Mathematica, the integration in Eq. (<a 
-href="#x11-10004r52">52<!--tex4ht:ref: 8-28-1 --></a>) is evaluated
+href="#x11-10004r57">57<!--tex4ht:ref: 8-28-1 --></a>) is evaluated
 analytically, giving
    <table 
 class="equation"><tr><td><a 
- id="x11-10005r53"></a>
+ id="x11-10005r58"></a>
                                                                   
 
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis53x.png" alt="∫ ∞ sin[2πf τ]              {
+src="fourier_analysis57x.png" alt="∫ ∞ sin[2πf τ]              {
     ------c--exp(i2πfτ)dτ =   0For |f| &#x003E; fc .
  −∞    πτ                    1For |f| &#x003C; fc
-" class="math-display"  /></center></td><td class="equation-label">(53)</td></tr></table>
-<!--l. 470--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(58)</td></tr></table>
+<!--l. 520--><p class="nopar" >
 Using this,  Eq. (<a 
-href="#x11-10004r52">52<!--tex4ht:ref: 8-28-1 --></a>) is written
+href="#x11-10004r57">57<!--tex4ht:ref: 8-28-1 --></a>) is written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x11-10006r54"></a>
+ id="x11-10006r59"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis54x.png" alt="       {
+src="fourier_analysis58x.png" alt="       {
 H (f) =   0for∑|f∞| &#x003E; fc                     ,
           Δ   j=− ∞ hjexp(i2πfjΔ )for|f| ≤ fc
-" class="math-display"  /></center></td><td class="equation-label">(54)</td></tr></table>
-<!--l. 478--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(59)</td></tr></table>
+<!--l. 528--><p class="nopar" >
 which shows that <span 
 class="cmmi-10">H</span>(<span 
 class="cmmi-10">f</span>) = 0 for <span 
@@ -156,19 +156,19 @@ class="cmmi-7">c</span></sub>, which is consistent with the assumption of
 sampling theorem, i.e., <span 
 class="cmmi-10">H</span>(<span 
 class="cmmi-10">f</span>) has the property given in Eq. (<a 
-href="#x11-10002r50">50<!--tex4ht:ref: 8-28-3 --></a>). The second line of
+href="#x11-10002r55">55<!--tex4ht:ref: 8-28-3 --></a>). The second line of
 Eq. (<a 
-href="#x11-10006r54">54<!--tex4ht:ref: 8-28-5 --></a>) is identical to Eq. (<a 
-href="fourier_analysissu6.html#x10-9001r48">48<!--tex4ht:ref: 10-3-e2 --></a>) except that Eq. (<a 
-href="#x11-10006r54">54<!--tex4ht:ref: 8-28-5 --></a>) in this case is exact while Eq.
+href="#x11-10006r59">59<!--tex4ht:ref: 8-28-5 --></a>) is identical to Eq. (<a 
+href="fourier_analysissu6.html#x10-9001r53">53<!--tex4ht:ref: 10-3-e2 --></a>) except that Eq. (<a 
+href="#x11-10006r59">59<!--tex4ht:ref: 8-28-5 --></a>) in this case is exact while Eq.
 (<a 
-href="fourier_analysissu6.html#x10-9001r48">48<!--tex4ht:ref: 10-3-e2 --></a>) is only approximate. In other words, if Δ <span 
+href="fourier_analysissu6.html#x10-9001r53">53<!--tex4ht:ref: 10-3-e2 --></a>) is only approximate. In other words, if Δ <span 
 class="msam-10">≤ </span>1<span 
 class="cmmi-10">∕</span>(2<span 
 class="cmmi-10">f</span><sub><span 
 class="cmmi-7">c</span></sub>), then the Fourier
 transformation is exactly given by Eq. (<a 
-href="#x11-10006r54">54<!--tex4ht:ref: 8-28-5 --></a>), where <span 
+href="#x11-10006r59">59<!--tex4ht:ref: 8-28-5 --></a>), where <span 
 class="cmmi-10">f</span><sub><span 
 class="cmmi-7">c</span></sub> is the largest frequency
 contained in <span 
@@ -185,11 +185,11 @@ class="cmmi-7">c</span></sub>).
 
                                                                   
 </p>
-   <!--l. 488--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 538--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu6.html" >prev</a>] [<a 
 href="fourier_analysissu6.html#tailfourier_analysissu6.html" >prev-tail</a>] [<a 
 href="fourier_analysissu7.html" >front</a>] [<a 
 href="fourier_analysisse3.html#fourier_analysissu7.html" >up</a>] </p></div>
-<!--l. 488--><p class="indent" >   <a 
+<!--l. 538--><p class="indent" >   <a 
  id="tailfourier_analysissu7.html"></a> </p> 
 </body></html> 

@@ -13,14 +13,14 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 228--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 278--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu2.html" >prev</a>] [<a 
 href="fourier_analysissu2.html#tailfourier_analysissu2.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu3.html">tail</a>] [<a 
 href="fourier_analysisse2.html#fourier_analysissu3.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">2.3   </span> <a 
  id="x6-50002.3"></a>Numerical computation of Fourier expansion coeﬃcient</h4>
-<!--l. 230--><p class="noindent" >For a periodic function <span 
+<!--l. 280--><p class="noindent" >For a periodic function <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) with a period of <span 
 class="cmmi-10">T</span>, Fourier series are written
@@ -28,31 +28,31 @@ as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x6-5001r26"></a>
+ id="x6-5001r31"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis25x.png" alt="       ∑∞       ( in2πt)
+src="fourier_analysis29x.png" alt="       ∑∞       ( in2πt)
 h(t) =     cnexp  -----  ,
       n=−∞          T
-" class="math-display"  /></center></td><td class="equation-label">(26)</td></tr></table>
-<!--l. 235--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(31)</td></tr></table>
+<!--l. 285--><p class="nopar" >
 with the coeﬃcient <span 
 class="cmmi-10">c</span><sub><span 
 class="cmmi-7">n</span></sub> given by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x6-5002r27"></a>
+ id="x6-5002r32"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis26x.png" alt="       ∫ T       (       )
+src="fourier_analysis30x.png" alt="       ∫ T       (       )
 cn = 1-   h(t)exp  − in2πt dt.
      T  0             T
-" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
-<!--l. 240--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(32)</td></tr></table>
+<!--l. 290--><p class="nopar" >
 How to numerically compute the Fourier expansion coeﬃcient? A simple way is
 to use the rectangle formula to approximate the integration in Eq. (<a 
-href="#x6-5002r27">27<!--tex4ht:ref: 19-1-10-1m --></a>),
+href="#x6-5002r32">32<!--tex4ht:ref: 19-1-10-1m --></a>),
 i.e.,
 </p>
                                                                   
@@ -60,14 +60,14 @@ i.e.,
                                                                   
    <table 
 class="equation"><tr><td><a 
- id="x6-5003r28"></a>
+ id="x6-5003r33"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis27x.png" alt="    Δ N∑−1      (  in2πjΔ )
+src="fourier_analysis31x.png" alt="    Δ N∑−1      (  in2πjΔ )
 cn ≈ T    hjexp  − --T---- ,
        j=0
-" class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
-<!--l. 247--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(33)</td></tr></table>
+<!--l. 297--><p class="nopar" >
 where <span 
 class="cmmi-10">h</span><sub><span 
 class="cmmi-7">j</span></sub> = <span 
@@ -85,18 +85,18 @@ class="cmmi-10">…</span><span
 class="cmmi-10">,N </span><span 
 class="cmsy-10">− </span>1 and Δ = <span 
 class="cmmi-10">T∕N</span>. Note Eq. (<a 
-href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>)
+href="#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>)
 is an approximation, which will become exact if Δ <span 
 class="cmsy-10">→ </span>0. In practice, we can sample
 <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) only with a nonzero Δ. Therefore Eq. (<a 
-href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>) is usually an approximation. Do we
+href="#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) is usually an approximation. Do we
 have some rules to choose a suitable Δ so that Eq. (<a 
-href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>) can become a good
+href="#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) can become a good
 approximation or even an exact relation? This important question is answered by the
 sampling theorem, which sates that a suitable Δ to make Eq. (<a 
-href="#x6-5003r28">28<!--tex4ht:ref: 10-3-e2m --></a>) exact is given by
+href="#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) exact is given by
 Δ <span 
 class="msam-10">≤ </span>1<span 
 class="cmmi-10">∕</span>(2<span 
@@ -122,11 +122,11 @@ class="cmmi-7">c</span></sub>).
 
                                                                   
 </p>
-   <!--l. 259--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 309--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu2.html" >prev</a>] [<a 
 href="fourier_analysissu2.html#tailfourier_analysissu2.html" >prev-tail</a>] [<a 
 href="fourier_analysissu3.html" >front</a>] [<a 
 href="fourier_analysisse2.html#fourier_analysissu3.html" >up</a>] </p></div>
-<!--l. 259--><p class="indent" >   <a 
+<!--l. 309--><p class="indent" >   <a 
  id="tailfourier_analysissu3.html"></a> </p> 
 </body></html> 

@@ -13,13 +13,13 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 905--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 965--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu16.html" >next</a>] [<a 
 href="#tailfourier_analysissu15.html">tail</a>] [<a 
 href="fourier_analysisse7.html#fourier_analysissu15.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
  id="x23-220007.1"></a>Deﬁnition of the Discrete Sine Transform (DST)</h4>
-<!--l. 907--><p class="noindent" >Figure (<a 
+<!--l. 967--><p class="noindent" >Figure (<a 
 href="#x23-220015">5<!--tex4ht:ref: 18-8-15-p3 --></a>) illustrates the grids used in the following discussion.
 </p>
    <hr class="figure" /><div class="figure" 
@@ -32,7 +32,7 @@ href="#x23-220015">5<!--tex4ht:ref: 18-8-15-p3 --></a>) illustrates the grids us
                                                                   
 
                                                                   
-<!--l. 911--><p class="noindent" > <img 
+<!--l. 971--><p class="noindent" > <img 
 src="my_figure/home/yj/theory/figures/sin_expansion/grids-2.png" alt="pict"  
  width="283.0575pt" />
 <br /> </p><div class="caption" 
@@ -55,19 +55,19 @@ class="cmmi-10">L</span>) = 0.</span></div><!--tex4ht:label?: x23-220015 -->
 
                                                                   
    </div><hr class="endfigure" />
-<!--l. 916--><p class="indent" >   There are several slightly diﬀerent types of Discrete Sine Transforms (DST). One
+<!--l. 976--><p class="indent" >   There are several slightly diﬀerent types of Discrete Sine Transforms (DST). One
 form I saw in W. Press’s numerical recipe book is given by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x23-22002r82"></a>
+ id="x23-22002r87"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis87x.png" alt="     N∑−1     (kπj )
+src="fourier_analysis91x.png" alt="     N∑−1     (kπj )
 Hk =     hjsin  -N-- ,
       j=0
-" class="math-display"  /></center></td><td class="equation-label">(82)</td></tr></table>
-<!--l. 921--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(87)</td></tr></table>
+<!--l. 981--><p class="nopar" >
 where <span 
 class="cmmi-10">h</span><sub><span 
 class="cmr-7">0</span></sub> = <span 
@@ -78,27 +78,27 @@ class="cmmi-10">πikj∕N</span>) by sin(<span
 class="cmmi-10">πkj∕N</span>). The inverse sine
 transformation is given by (I did not derive this, but had numerically veriﬁed that
 this transform recovers the original data if applied after the sine transform (<a 
-href="#x23-22002r82">82<!--tex4ht:ref: 18-1-11-a2 --></a>) (code
+href="#x23-22002r87">87<!--tex4ht:ref: 18-1-11-a2 --></a>) (code
 at /home/yj/project_new/test_space/sine_expansion/t2.f90))
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x23-22003r83"></a>
+ id="x23-22003r88"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis88x.png" alt="       N−1      (    )
+src="fourier_analysis92x.png" alt="       N−1      (    )
 h =  2-∑   H sin  kπj- ,
  j   N k=0  k     N
-" class="math-display"  /></center></td><td class="equation-label">(83)</td></tr></table>
-<!--l. 933--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(88)</td></tr></table>
+<!--l. 993--><p class="nopar" >
 which is identical with the forward sine transformation except for the normalization
 factor 2<span 
 class="cmmi-10">∕N</span>. (The elements with index of zero can also be excluded from the
 summation (<a 
-href="#x23-22002r82">82<!--tex4ht:ref: 18-1-11-a2 --></a>) and (<a 
-href="#x23-22003r83">83<!--tex4ht:ref: 18-8-15-p1 --></a>) since these elements are zero). Replacing <span 
+href="#x23-22002r87">87<!--tex4ht:ref: 18-1-11-a2 --></a>) and (<a 
+href="#x23-22003r88">88<!--tex4ht:ref: 18-8-15-p1 --></a>) since these elements are zero). Replacing <span 
 class="cmmi-10">j∕N </span>in Eq. (<a 
-href="#x23-22003r83">83<!--tex4ht:ref: 18-8-15-p1 --></a>)
+href="#x23-22003r88">88<!--tex4ht:ref: 18-8-15-p1 --></a>)
 by (<span 
 class="cmmi-10">x </span><span 
 class="cmsy-10">− </span><span 
@@ -108,19 +108,19 @@ class="cmmi-10">∕L </span>, we obtain the reconstructing function
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x23-22004r84"></a>
+ id="x23-22004r89"></a>
                                                                   
 
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis89x.png" alt="         N−1      (          )
+src="fourier_analysis93x.png" alt="         N−1      (          )
 h(x) = 2-∑  Hk sin  kπ(x−-x0)- .
        N k=0           L
-" class="math-display"  /></center></td><td class="equation-label">(84)</td></tr></table>
-<!--l. 942--><p class="nopar" >
-</p><!--l. 945--><p class="indent" >    
-</p><!--l. 947--><p class="indent" >   We need a fast method of computing the above DST. All fast methods for this
+" class="math-display"  /></center></td><td class="equation-label">(89)</td></tr></table>
+<!--l. 1002--><p class="nopar" >
+</p><!--l. 1005--><p class="indent" >    
+</p><!--l. 1007--><p class="indent" >   We need a fast method of computing the above DST. All fast methods for this
 ﬁnally need to make use of the fast method used in the computation of DFT. To
 conveniently use the fast method of DFT, we need to deﬁne the DST in a way that
 the DST can be easily connected to the DFT so that the DFT fast method can be
@@ -131,10 +131,10 @@ this.
 
                                                                   
 </p>
-   <!--l. 955--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1015--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu16.html" >next</a>] [<a 
 href="fourier_analysissu15.html" >front</a>] [<a 
 href="fourier_analysisse7.html#fourier_analysissu15.html" >up</a>] </p></div>
-<!--l. 955--><p class="indent" >   <a 
+<!--l. 1015--><p class="indent" >   <a 
  id="tailfourier_analysissu15.html"></a> </p> 
 </body></html> 
