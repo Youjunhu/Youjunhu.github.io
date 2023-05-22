@@ -8,60 +8,60 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1695--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1663--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu24.html" >prev</a>] [<a 
 href="fourier_analysissu24.html#tailfourier_analysissu24.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu25.html">tail</a>] [<a 
 href="fourier_analysisse10.html#fourier_analysissu25.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">B.4   </span> <a 
- id="x36-36000B.4"></a>Computing Fourier integrals using FFT (not ﬁnished, to be deleted)</h4>
-<!--l. 1697--><p class="noindent" >Consider the calculation of the following integral:
+   <h4 class="subsectionHead"><span class="titlemark">C.4   </span> <a 
+ id="x36-36000C.4"></a>Computing Fourier integrals using FFT (not ﬁnished, to be deleted)</h4>
+<!--l. 1665--><p class="noindent" >Consider the calculation of the following integral:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36001r142"></a>
+ id="x36-36001r138"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis154x.png" alt="      ∫ b
+src="fourier_analysis150x.png" alt="      ∫ b
 I(ω ) =   eiωth(t)dt.
        a
-" class="math-display"  /></center></td><td class="equation-label">(142)</td></tr></table>
-<!--l. 1700--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(138)</td></tr></table>
+<!--l. 1668--><p class="nopar" >
 Divide the interval [<span 
 class="cmmi-10">a,b</span>] into <span 
 class="cmmi-10">M </span>uniform sub-intervals and deﬁne
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36002r143"></a>
+ id="x36-36002r139"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis155x.png" alt="    b− a
+src="fourier_analysis151x.png" alt="    b− a
 Δ = ----,tj = a + Δj,hj = h(tj),j = 0,1,2,...,M
      M
-" class="math-display"  /></center></td><td class="equation-label">(143)</td></tr></table>
-<!--l. 1705--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(139)</td></tr></table>
+<!--l. 1673--><p class="nopar" >
 Then the integration in Eq. (<a 
-href="#x36-36001r142">142<!--tex4ht:ref: 8-26-1 --></a>) can be approximated as
+href="#x36-36001r138">138<!--tex4ht:ref: 8-26-1 --></a>) can be approximated as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36003r144"></a>
+ id="x36-36003r140"></a>
                                                                   
 
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis156x.png" alt="         M−1
+src="fourier_analysis152x.png" alt="         M−1
 I(ω) ≈ Δ ∑  hj exp (iωtj).
          j=0
-" class="math-display"  /></center></td><td class="equation-label">(144)</td></tr></table>
-<!--l. 1710--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(140)</td></tr></table>
+<!--l. 1678--><p class="nopar" >
 Deﬁne <span 
 class="cmmi-10">ω</span><sub><span 
 class="cmmi-7">m</span></sub> = 2<span 
@@ -75,10 +75,10 @@ calculation of <span
 class="cmmi-10">I</span>(<span 
 class="cmmi-10">ω</span><sub><span 
 class="cmmi-7">m</span></sub>). Using Eq. (<a 
-href="#x36-36003r144">144<!--tex4ht:ref: 8-26-e1 --></a>), we obtain </p><div class="eqnarray">
+href="#x36-36003r140">140<!--tex4ht:ref: 8-26-e1 --></a>), we obtain </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="fourier_analysis157x.png" alt="            M∑ −1
+src="fourier_analysis153x.png" alt="            M∑ −1
 I(ωm)  =  Δ     hjexp[iωm (a+ Δj)]
              j=0
              iω a M∑−1
@@ -87,12 +87,12 @@ I(ωm)  =  Δ     hjexp[iωm (a+ Δj)]
              iω a M∑−1      ( 2πm  )
        =  Δe  m      hjexp i-M--j
                  j=0
-       =  ΔeiωmaHm                               (145)
-       =  Δeiωma[DFT (h0,h1,h2,...,hM −1)]m.        (146)
+       =  ΔeiωmaHm                               (141)
+       =  Δeiωma[DFT (h0,h1,h2,...,hM −1)]m.        (142)
 " class="math-display"  /><a 
- id="x36-36004r146"></a></center>
+ id="x36-36004r142"></a></center>
 </div>Equation (<a 
-href="#x36-36004r146">146<!--tex4ht:ref: 8-26-e2 --></a>) indicates the value of the integration <span 
+href="#x36-36004r142">142<!--tex4ht:ref: 8-26-e2 --></a>) indicates the value of the integration <span 
 class="cmmi-10">I</span>(<span 
 class="cmmi-10">ω</span><sub><span 
 class="cmmi-7">m</span></sub>) can be obtained by
@@ -101,9 +101,9 @@ class="cmmi-10">h</span><sub><span
 class="cmmi-7">j</span></sub>. However, as discussed in Ref.
 <span class="cite">[<a 
 href="fourier_analysisli1.html#Xpress1992">2</a>]</span>, equation (<a 
-href="#x36-36004r146">146<!--tex4ht:ref: 8-26-e2 --></a>) is not recommended for practical use because the oscillatory
+href="#x36-36004r142">142<!--tex4ht:ref: 8-26-e2 --></a>) is not recommended for practical use because the oscillatory
 nature of the integral will make Eq. (<a 
-href="#x36-36004r146">146<!--tex4ht:ref: 8-26-e2 --></a>) become systematically inaccurate
+href="#x36-36004r142">142<!--tex4ht:ref: 8-26-e2 --></a>) become systematically inaccurate
 as <span 
 class="cmmi-10">ω </span>increases. Next, consider a new method, in which <span 
 class="cmmi-10">h</span>(<span 
@@ -111,17 +111,17 @@ class="cmmi-10">t</span>) is expanded
 as
    <table 
 class="equation"><tr><td><a 
- id="x36-36005r147"></a>
+ id="x36-36005r143"></a>
                                                                   
 
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis158x.png" alt="      M     (      )               (      )
+src="fourier_analysis154x.png" alt="      M     (      )               (      )
 h(t) ≈ ∑ hjψ  t−-tj  +   ∑     hjφj  t−-tj
       j=0       Δ      j=endpoints        Δ
-" class="math-display"  /></center></td><td class="equation-label">(147)</td></tr></table>
-<!--l. 1736--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(143)</td></tr></table>
+<!--l. 1704--><p class="nopar" >
 Apply the integral operator<span 
 class="cmex-10">∫</span>
  <sub><span 
@@ -129,19 +129,19 @@ class="cmmi-7">a</span></sub><sup><span
 class="cmmi-7">b</span></sup><span 
 class="cmmi-10">dt</span>exp(<span 
 class="cmmi-10">iωt</span>) to both sides of Eq. (<a 
-href="#x36-36005r147">147<!--tex4ht:ref: 8-27-1 --></a>), we
+href="#x36-36005r143">143<!--tex4ht:ref: 8-27-1 --></a>), we
 obtain
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36006r148"></a>
+ id="x36-36006r144"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis159x.png" alt="∫ b    iωt    ∑M    ∫ b ( t− tj) iωt     ∑       ∫ b   (t − tj) iωt
+src="fourier_analysis155x.png" alt="∫ b    iωt    ∑M    ∫ b ( t− tj) iωt     ∑       ∫ b   (t − tj) iωt
    h(t)e  dt ≈   hj    ψ  -Δ--- e  dt+         hj   φj  --Δ--  e  dt.
  a           j=0    a                 j=endpoints    a
-" class="math-display"  /></center></td><td class="equation-label">(148)</td></tr></table>
-<!--l. 1744--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(144)</td></tr></table>
+<!--l. 1712--><p class="nopar" >
 Make the change of variables <span 
 class="cmmi-10">s </span>= (<span 
 class="cmmi-10">t</span><span 
@@ -158,17 +158,17 @@ the second integral, the above equation is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36007r149"></a>
+ id="x36-36007r145"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis160x.png" alt="∫ b            ∑M    ∫ b                   ∑       ∫ b
+src="fourier_analysis156x.png" alt="∫ b            ∑M    ∫ b                   ∑       ∫ b
    h(t)eiωtdt ≈ Δ   hj    ψ(s)eiω(Δs+tj)ds+ Δ         hj   φj (s− j)eiω(Δs+a)ds
  a             j=0    a                  j=endpoints    a
                                                                   
 
                                                                   
-" class="math-display"  /></center></td><td class="equation-label">(149)</td></tr></table>
-<!--l. 1753--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(145)</td></tr></table>
+<!--l. 1721--><p class="nopar" >
 Deﬁne <span 
 class="cmmi-10">𝜃 </span>= <span 
 class="cmmi-10">ω</span>Δ and make use of <span 
@@ -180,59 +180,59 @@ as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36008r150"></a>
+ id="x36-36008r146"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis161x.png" alt="∫ b    iωt       iωa M∑    i𝜃j∫ b    i𝜃s     iωa   ∑       ∫ b        i𝜃s
+src="fourier_analysis157x.png" alt="∫ b    iωt       iωa M∑    i𝜃j∫ b    i𝜃s     iωa   ∑       ∫ b        i𝜃s
  a h(t)e  dt ≈ Δe      hje   a ψ(s)e  ds+ Δe            hj a φj(s− j)e ds
                    j=0                        j=endpoints
-" class="math-display"  /></center></td><td class="equation-label">(150)</td></tr></table>
-<!--l. 1761--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(146)</td></tr></table>
+<!--l. 1729--><p class="nopar" >
 Deﬁne
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36009r151"></a>
+ id="x36-36009r147"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis162x.png" alt="       ∫ b
+src="fourier_analysis158x.png" alt="       ∫ b
 W (𝜃) =   ψ (s)ei𝜃sds
         a
-" class="math-display"  /></center></td><td class="equation-label">(151)</td></tr></table>
-<!--l. 1765--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(147)</td></tr></table>
+<!--l. 1733--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36010r152"></a>
+ id="x36-36010r148"></a>
                                                                   
 
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis163x.png" alt="       ∫ b
+src="fourier_analysis159x.png" alt="       ∫ b
 αj(𝜃) =   φj(s− j)ei𝜃sds
         a
-" class="math-display"  /></center></td><td class="equation-label">(152)</td></tr></table>
-<!--l. 1768--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(148)</td></tr></table>
+<!--l. 1736--><p class="nopar" >
 Then Eq. (<a 
-href="#x36-36008r150">150<!--tex4ht:ref: 8-27-5 --></a>) is written as
+href="#x36-36008r146">146<!--tex4ht:ref: 8-27-5 --></a>) is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x36-36011r153"></a>
+ id="x36-36011r149"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis164x.png" alt="                   ⌊                               ⌋
+src="fourier_analysis160x.png" alt="                   ⌊                               ⌋
 ∫ b     iωt       iωa⌈     ∑M    i𝜃j    ∑            ⌉
   a h (t)e dt ≈ Δe    W (𝜃)   hje   +         hjαj(𝜃) .
                          j=0        j=endpoints
-" class="math-display"  /></center></td><td class="equation-label">(153)</td></tr></table>
-<!--l. 1774--><p class="nopar" >
-</p><!--l. 1777--><p class="indent" >    
-</p><!--l. 1779--><p class="indent" >    
-</p><!--l. 1781--><p class="indent" >    
-</p><!--l. 1783--><p class="indent" >    
-</p><!--l. 1785--><p class="indent" >    
+" class="math-display"  /></center></td><td class="equation-label">(149)</td></tr></table>
+<!--l. 1742--><p class="nopar" >
+</p><!--l. 1745--><p class="indent" >    
+</p><!--l. 1747--><p class="indent" >    
+</p><!--l. 1749--><p class="indent" >    
+</p><!--l. 1751--><p class="indent" >    
+</p><!--l. 1753--><p class="indent" >    
 </p>
    <hr class="figure" /><div class="figure" 
 >
@@ -244,28 +244,25 @@ src="fourier_analysis164x.png" alt="                   ⌊                      
                                                                   
 
                                                                   
-<!--l. 1788--><p class="noindent" > <img 
+<!--l. 1756--><p class="noindent" > <img 
 src="my_figure/home/yj/project_new/fft/fig2b/MyFigure.png" alt="pict"  
  width="400.49625pt" />
 <br /> </p><div class="caption" 
 ><span class="id">Figure 9: </span><span  
 class="content">Older version of Fig. <a 
-href="fourier_analysissu9.html#x14-130032">2<!--tex4ht:ref: 4-16-1 --></a>, created by Metapost, the new version is
+href="fourier_analysissu5.html#x9-80032">2<!--tex4ht:ref: 4-16-1 --></a>, created by Metapost, the new version is
 created by the vector graphic editor in TeXmacs.</span></div><!--tex4ht:label?: x36-360129 -->
                                                                   
 
                                                                   
    </div><hr class="endfigure" />
-<!--l. 1793--><p class="indent" >    
-                                                                  
-
-                                                                  
+<!--l. 1761--><p class="indent" >    
 </p>
-   <!--l. 1795--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1763--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu24.html" >prev</a>] [<a 
 href="fourier_analysissu24.html#tailfourier_analysissu24.html" >prev-tail</a>] [<a 
 href="fourier_analysissu25.html" >front</a>] [<a 
 href="fourier_analysisse10.html#fourier_analysissu25.html" >up</a>] </p></div>
-<!--l. 1795--><p class="indent" >   <a 
+<!--l. 1763--><p class="indent" >   <a 
  id="tailfourier_analysissu25.html"></a> </p> 
 </body></html> 

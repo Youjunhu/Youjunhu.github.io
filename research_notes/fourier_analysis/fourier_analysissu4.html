@@ -4,40 +4,51 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>From discrete spectrum to continuous spectrum</title> 
+<head><title>Deﬁnition of DFT</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 311--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 318--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu5.html" >next</a>] [<a 
 href="#tailfourier_analysissu4.html">tail</a>] [<a 
 href="fourier_analysisse3.html#fourier_analysissu4.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
- id="x8-70003.1"></a>From discrete spectrum to continuous spectrum</h4>
-<!--l. 313--><p class="noindent" >The Fourier series discussed above indicates that a periodic function is composed of
-discrete spectrum and is written as
+ id="x8-70003.1"></a>Deﬁnition of DFT</h4>
+<!--l. 320--><p class="noindent" >The summation in Eq. (<a 
+href="fourier_analysissu3.html#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>),
 </p>
    <table 
 class="equation"><tr><td><a 
  id="x8-7001r34"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis32x.png" alt="       ∑∞       (  n2π )
-h(t) =     cnexp  i-T-t  ,
-      n=−∞
+src="fourier_analysis32x.png" alt="     N∑−1      (  2π   )
+Hn ≡     hjexp  − i--nj ,
+      j=0          N
 " class="math-display"  /></center></td><td class="equation-label">(34)</td></tr></table>
-<!--l. 318--><p class="nopar" >
-where <span 
-class="cmmi-10">T </span>is the period of <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>). The <span 
-class="cmmi-10">n</span>th term of the above Fourier series corresponds
-to a harmonic of frequency
+<!--l. 324--><p class="nopar" >
+is called the <span 
+class="cmbx-10">Discrete Fourier transformation (DFT)</span>, where <span 
+class="cmmi-10">n </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">N∕</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,</span>0<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N∕</span>2
+(we consider only the case that <span 
+class="cmmi-10">N </span>is an even number). The Fourier expansion
+coeﬃcients <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">n</span></sub> in Eq. (<a 
+href="fourier_analysissu3.html#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) is then written as
 </p>
    <table 
 class="equation"><tr><td><a 
@@ -47,206 +58,39 @@ class="equation"><tr><td><a
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis33x.png" alt="     n
-fn = T-,
+src="fourier_analysis33x.png" alt="     1
+cn =--Hn.
+    N
 " class="math-display"  /></center></td><td class="equation-label">(35)</td></tr></table>
-<!--l. 323--><p class="nopar" >
-and the expansion coeﬃcient <span 
+<!--l. 331--><p class="nopar" >
+The corresponding frequency corresponding to the <span 
 class="cmmi-10">c</span><sub><span 
-class="cmmi-7">n</span></sub> is given by
+class="cmmi-7">n</span></sub> term is
 </p>
    <table 
 class="equation"><tr><td><a 
  id="x8-7003r36"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis34x.png" alt="     1 ∫ T∕2       (   n2π )
-cn = T-     h(t)exp − i-T-t  dt.
-        −T∕2
+src="fourier_analysis34x.png" alt="       n-
+fn = fsN ,
 " class="math-display"  /></center></td><td class="equation-label">(36)</td></tr></table>
-<!--l. 328--><p class="nopar" >
-In terms of <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">n</span></sub>, the coeﬃcient in Eq. (<a 
-href="#x8-7003r36">36<!--tex4ht:ref: 9-28-2 --></a>) is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7004r37"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis35x.png" alt="             ∫ T∕2
-cn = c(fn) =-1     h(t)exp(− i2πfnt)dt
-           T  − T∕2
-" class="math-display"  /></center></td><td class="equation-label">(37)</td></tr></table>
-<!--l. 333--><p class="nopar" >
-In terms of <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">n</span></sub>, the Fourier series in Eq. (<a 
-href="#x8-7001r34">34<!--tex4ht:ref: 9-27-e14 --></a>) is written </p><div class="eqnarray">
-                                                                  
-
-                                                                  
-   <center class="math-display" >
-<img 
-src="fourier_analysis36x.png" alt="          ∞∑
-h(t) =        c(fn)ei2πtfn
-         n=−∞
-           ∑∞             1
-     =   T      c(fn)ei2πtfn T-               (38)
-          n= −∞
-" class="math-display"  /><a 
- id="x8-7005r38"></a></center>
-</div>Note that <span 
-class="cmmi-10">c</span>(<span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">n</span></sub>)<span 
-class="cmmi-10">e</span><sup><span 
-class="cmmi-7">i</span><span 
-class="cmr-7">2</span><span 
-class="cmmi-7">πtf</span><sub><span 
-class="cmmi-5">n</span></sub></sup> is the value of function <span 
-class="cmmi-10">c</span>(<span 
-class="cmmi-10">f</span>)<span 
-class="cmmi-10">e</span><sup><span 
-class="cmmi-7">i</span><span 
-class="cmr-7">2</span><span 
-class="cmmi-7">πtf</span></sup> at <span 
-class="cmmi-10">f </span>= <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">n</span></sub>. Further note
-that the interval between <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">n</span></sub> and <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">n</span><span 
-class="cmr-7">+1</span></sub> is 1<span 
-class="cmmi-10">∕T</span>. Thus the above summation is the
-rectangular formula for numerically calculating the integration <span 
-class="cmex-10">∫</span>
- <sub><span 
-class="cmsy-7">−∞</span></sub><sup><span 
-class="cmsy-7">∞</span></sup><span 
-class="cmmi-10">c</span>(<span 
-class="cmmi-10">f</span>)<span 
-class="cmmi-10">e</span><sup><span 
-class="cmmi-7">i</span><span 
-class="cmr-7">2</span><span 
-class="cmmi-7">πtf</span></sup><span 
-class="cmmi-10">df</span>.
-Therefore, equation (<a 
-href="#x8-7005r38">38<!--tex4ht:ref: 9-28-5 --></a>) can be approximately written as
-   <table 
-class="equation"><tr><td><a 
- id="x8-7006r39"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis37x.png" alt="       ∫ ∞
-h(t) ≈ T    c(f)ei2πtfdf,
-        −∞
-" class="math-display"  /></center></td><td class="equation-label">(39)</td></tr></table>
-<!--l. 349--><p class="nopar" >
-which will become exact when the interval 1<span 
-class="cmmi-10">∕T </span><span 
-class="cmsy-10">→ </span>0, i.e., <span 
-class="cmmi-10">T </span><span 
-class="cmsy-10">→∞</span>. Therefore, for the
-case <span 
-class="cmmi-10">T </span><span 
-class="cmsy-10">→∞</span>, the Fourier series exactly becomes
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7007r40"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis38x.png" alt="       ∫
-         ∞      i2πtf
-h(t) = T −∞ c(f)e   df,
-" class="math-display"  /></center></td><td class="equation-label">(40)</td></tr></table>
-<!--l. 355--><p class="nopar" >
+<!--l. 335--><p class="nopar" >
 where <span 
-class="cmmi-10">c</span>(<span 
-class="cmmi-10">f</span>) is given by Eq. (<a 
-href="#x8-7004r37">37<!--tex4ht:ref: 9-27-e11 --></a>), i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7008r41"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis39x.png" alt="      -1∫ T∕2     −i2πtf
-c(f) = T − T∕2 h(t)e     dt.
-" class="math-display"  /></center></td><td class="equation-label">(41)</td></tr></table>
-<!--l. 360--><p class="nopar" >
-Note that the function <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) given in Eq. (<a 
-href="#x8-7007r40">40<!--tex4ht:ref: 9-28-6 --></a>) is proportional to <span 
-class="cmmi-10">Tc</span>(<span 
-class="cmmi-10">f</span>) while the
-function <span 
-class="cmmi-10">c</span>(<span 
-class="cmmi-10">f</span>) given in Eq. (<a 
-href="#x8-7008r41">41<!--tex4ht:ref: 9-28-7 --></a>) is proportional to 1<span 
-class="cmmi-10">∕T</span>. Since <span 
-class="cmmi-10">T </span><span 
-class="cmsy-10">→∞</span>, it is desired to
-eliminate the <span 
-class="cmmi-10">T </span>and 1<span 
-class="cmmi-10">∕T </span>factors in Eqs. (<a 
-href="#x8-7007r40">40<!--tex4ht:ref: 9-28-6 --></a>) and (<a 
-href="#x8-7008r41">41<!--tex4ht:ref: 9-28-7 --></a>), which can be easily achieved
-by deﬁning a new function
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7009r42"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis40x.png" alt="H(f) = T c(f).
-" class="math-display"  /></center></td><td class="equation-label">(42)</td></tr></table>
-<!--l. 368--><p class="nopar" >
-Then equations (<a 
-href="#x8-7007r40">40<!--tex4ht:ref: 9-28-6 --></a>) and (<a 
-href="#x8-7008r41">41<!--tex4ht:ref: 9-28-7 --></a>) are written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7010r43"></a>
-                                                                  
-
-                                                                  
-   <center class="math-display" >
-<img 
-src="fourier_analysis41x.png" alt="      ∫ ∞
-h(t) =    H (f )ei2πtfdf,
-       −∞
-" class="math-display"  /></center></td><td class="equation-label">(43)</td></tr></table>
-<!--l. 372--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x8-7011r44"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis42x.png" alt="       ∫ T∕2              ∫ ∞
-H (f) =     h(t)e− i2πtfdt =     h(t)e−i2πtfdt,
-        −T∕2               −∞
-" class="math-display"  /></center></td><td class="equation-label">(44)</td></tr></table>
-<!--l. 376--><p class="nopar" >
-Equations (<a 
-href="#x8-7010r43">43<!--tex4ht:ref: 9-28-10 --></a>) and (<a 
-href="#x8-7011r44">44<!--tex4ht:ref: 9-28-11 --></a>) are the Fourier transformation pairs discussed in the next
-section.
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">s</span></sub> = 1<span 
+class="cmmi-10">∕</span>Δ is called sampling frequency.
+</p><!--l. 338--><p class="indent" >   The eﬃcient algorithm of computing the DFT is discussed in Appendix
+<a 
+href="fourier_analysisse8.html#x26-26000A">A<!--tex4ht:ref: 18-1-28-a1 --></a>.
                                                                   
 
                                                                   
 </p>
-   <!--l. 380--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 341--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu5.html" >next</a>] [<a 
 href="fourier_analysissu4.html" >front</a>] [<a 
 href="fourier_analysisse3.html#fourier_analysissu4.html" >up</a>] </p></div>
-<!--l. 380--><p class="indent" >   <a 
+<!--l. 341--><p class="indent" >   <a 
  id="tailfourier_analysissu4.html"></a> </p> 
 </body></html> 

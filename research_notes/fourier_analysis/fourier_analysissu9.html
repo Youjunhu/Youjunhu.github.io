@@ -4,309 +4,105 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Periodic property of Discrete Fourier transformation</title> 
+<head><title>Inverse Discrete Fourier transformation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 600--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 487--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu10.html" >next</a>] [<a 
 href="fourier_analysissu8.html" >prev</a>] [<a 
 href="fourier_analysissu8.html#tailfourier_analysissu8.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu9.html">tail</a>] [<a 
 href="fourier_analysisse4.html#fourier_analysissu9.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
- id="x14-130004.2"></a>Periodic property of Discrete Fourier transformation</h4>
-<!--l. 602--><p class="noindent" >The DFT of time-domain array <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">j</span></sub> with <span 
-class="cmmi-10">j </span>= 0<span 
-class="cmmi-10">,</span>1<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1 is given by Eq. (<a 
-href="fourier_analysissu8.html#x13-12006r64">64<!--tex4ht:ref: 2-26-2 --></a>),
-i.e.,
+   <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x14-130004.3"></a>Inverse Discrete Fourier transformation</h4>
+<!--l. 489--><p class="noindent" >The DFT in Eq. (<a 
+href="fourier_analysissu4.html#x8-7001r34">34<!--tex4ht:ref: 2-26-2 --></a>), i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x14-13001r67"></a>
+ id="x14-13001r47"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis66x.png" alt="      N∑−1
-Hn  =    W njhj
-      j=0
-" class="math-display"  /></center></td><td class="equation-label">(67)</td></tr></table>
-<!--l. 606--><p class="nopar" >
+src="fourier_analysis47x.png" alt="     N∑−1     (      )
+Hn ≡     hjexp  i2πnj  ,
+      j=0         N
+" class="math-display"  /></center></td><td class="equation-label">(47)</td></tr></table>
+<!--l. 493--><p class="nopar" >
 with <span 
-class="cmmi-10">n </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N∕</span>2, where <span 
-class="cmmi-10">W </span>= exp(2<span 
-class="cmmi-10">πi∕N</span>).
-</p><!--l. 609--><p class="indent" >   Note that the subscript of <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> is in the range <span 
-class="cmmi-10">n </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N∕</span>2 while the
-subscript of <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">j</span></sub> is in the range <span 
 class="cmmi-10">j </span>= 0<span 
 class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
 class="cmmi-10">,</span><span 
 class="cmmi-10">…</span><span 
 class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1. Further note that <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> contains <span 
-class="cmmi-10">N </span>+ 1
-elements while <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">j</span></sub> contains only <span 
-class="cmmi-10">N </span>elements. It is ready to ﬁnd that the array deﬁned
-in Eq. (<a 
-href="#x14-13001r67">67<!--tex4ht:ref: 3-25-e3 --></a>) has the following periodic property
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x14-13002r68"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis67x.png" alt="Hn+N  = Hn.
-" class="math-display"  /></center></td><td class="equation-label">(68)</td></tr></table>
-                                                                  
-
-                                                                  
-<!--l. 616--><p class="nopar" >
-Using this general property, we obtain <span 
-class="cmmi-10">H</span><sub><span 
-class="cmsy-7">−</span><span 
-class="cmmi-7">N∕</span><span 
-class="cmr-7">2</span></sub> = <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">N∕</span><span 
-class="cmr-7">2</span></sub>, i.e., the two ending elements
-of <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub>, namely <span 
-class="cmmi-10">H</span><sub><span 
-class="cmsy-7">−</span><span 
-class="cmmi-7">N∕</span><span 
-class="cmr-7">2</span></sub> and <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">N∕</span><span 
-class="cmr-7">2</span></sub>, are equal to each other. Thus only one value is
-needed to be stored. This can be used to reduce the number of elements of <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> that
-need to be stored by one. Then <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> contains only <span 
-class="cmmi-10">N </span>elements rather than <span 
-class="cmmi-10">N </span>+ 1.
-Furthermore, we prefer to make the index of <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> and <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">j</span></sub> array have the same range,
-i.e., [0<span 
-class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1]. This can be done by storing the negative frequency part (i.e.,
-<span 
-class="cmmi-10">n </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,</span><span 
-class="cmsy-10">−</span>1) of <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> in the locations where the subscripts are respectively
-<span 
-class="cmmi-10">n </span>= <span 
-class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1, as is shown in Fig <a 
-href="#x14-130032">2<!--tex4ht:ref: 4-16-1 --></a>. A naive method of implementing this in a
-code is to ﬁrst calculate the values of <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> in the range <span 
-class="cmmi-10">n </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N∕</span>2, then shift
-the array to achieve the desired storage arrangement, as is shown in Fig
-<a 
-href="#x14-130032">2<!--tex4ht:ref: 4-16-1 --></a>. It turns out that we have a better way to achieve the same goal: using
-again the periodic property Eq. (<a 
-href="#x14-13002r68">68<!--tex4ht:ref: 3-25-e1 --></a>), we know that the value of the <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub>
-array elements with negative subscripts, <span 
-class="cmmi-10">n </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,</span><span 
-class="cmsy-10">−</span>1, happens to be
-equal to the value of the <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> elements with subscripts <span 
-class="cmmi-10">n </span>= <span 
-class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1,
-respectively. Using this, we can simply use Eq. (<a 
-href="#x14-13001r67">67<!--tex4ht:ref: 3-25-e3 --></a>) to calculate values of <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> in the
-range <span 
+class="cmsy-10">− </span>1 and <span 
 class="cmmi-10">n </span>= 0<span 
 class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
 class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1 and the array obtained is exactly in the desired storage
-arrangement.
+class="cmsy-10">− </span>1 can also be considered as a set of
+linear algebraic equations for <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> and can be solved in terms of <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>, which
+gives
 </p>
-   <hr class="figure" /><div class="figure" 
->
+   <table 
+class="equation"><tr><td><a 
+ id="x14-13002r48"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis48x.png" alt="     1 N∑− 1      (   2π  )
+hj = N-    Hn exp  − iN-nj  .
+       n=0
+" class="math-display"  /></center></td><td class="equation-label">(48)</td></tr></table>
                                                                   
 
                                                                   
+<!--l. 500--><p class="nopar" >
+(The details on how to solve Eq. (<a 
+href="fourier_analysissu4.html#x8-7001r34">34<!--tex4ht:ref: 2-26-2 --></a>) to obtain the solution (<a 
+href="#x14-13002r48">48<!--tex4ht:ref: 10-7-1 --></a>) is provided in Sec.
 <a 
- id="x14-130032"></a>
-                                                                  
-
-                                                                  
-<!--l. 638--><p class="noindent" > <img 
-src="my_figure/home/yj/theory/figures/fft_storage/a-1.png" alt="pict"  
- width="389.45499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 2: </span><span  
-class="content">The negative frequency parts of the discrete Fourier transformation
-are stored at the locations with the array index <span 
-class="cmmi-10">n </span>= <img 
-src="fourier_analysis68x.png" alt="N-
-2"  class="frac" align="middle" /><span 
-class="cmmi-10">,</span><img 
-src="fourier_analysis69x.png" alt="N-
-2"  class="frac" align="middle" /> + 1<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1. Since
-<span 
+href="fourier_analysissu10.html#x15-140004.4">4.4<!--tex4ht:ref: 10-7-p5 --></a>.) Equation (<a 
+href="#x14-13002r48">48<!--tex4ht:ref: 10-7-1 --></a>) recovers <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> from <span 
 class="cmmi-10">H</span><sub><span 
-class="cmsy-7">−</span><span 
-class="cmmi-7">N∕</span><span 
-class="cmr-7">2</span></sub> = <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">N∕</span><span 
-class="cmr-7">2</span></sub>, the location <span 
-class="cmmi-10">j </span>= <span 
-class="cmmi-10">N∕</span>2 of the new array can be considered to be
-storing both of them.</span></div><!--tex4ht:label?: x14-130032 -->
-                                                                  
-
-                                                                  
-   </div><hr class="endfigure" />
-<!--l. 646--><p class="indent" >   In practice, we do not use Eq. (<a 
-href="#x14-13001r67">67<!--tex4ht:ref: 3-25-e3 --></a>) directly to calculate <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub>. Instead, the famous
-Fast Fourier Transformation (FFT) algorithm is used to calculate <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub> with
-<span 
-class="cmmi-10">n </span>= 0<span 
-class="cmmi-10">,</span>1<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N </span><span 
-class="cmsy-10">− </span>1. Remember the storage arrangement discussed above is important
-for one to correctly interpret and use the output of FFT. For example, what
-frequency does the element <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">j</span></sub> with <span 
-class="cmmi-10">j &#x003E; N∕</span>2 correspond to? The answer is obvious if
-we know the storage arrangement of FFT output: the corresponding frequency of No.
-<span 
-class="cmmi-10">j</span>th element is given by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x14-13004r69"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis70x.png" alt="    {
-      jfNs,      for  0 ≤ j ≤ N2
-fj =   (j − N )fNs, for N2-&#x003C; j ≤ N − 1
-" class="math-display"  /></center></td><td class="equation-label">(69)</td></tr></table>
-<!--l. 661--><p class="nopar" >
-Deﬁne <span 
-class="cmmi-10">f</span><sub><span 
-class="cmr-7">1</span></sub> = <span 
-class="cmmi-10">f</span><sub><span 
-class="cmmi-7">s</span></sub><span 
-class="cmmi-10">∕N </span>= 1<span 
-class="cmmi-10">∕T</span>, then Eq. (<a 
-href="#x14-13004r69">69<!--tex4ht:ref: 17-10-14-1 --></a>) can be written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x14-13005r70"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis71x.png" alt="    {
-       jf1,         for  0 ≤ j ≤ N2-
-fj =   (j − N )f1,   for  N2 &#x003C; j ≤ N − 1 ,
-" class="math-display"  /></center></td><td class="equation-label">(70)</td></tr></table>
-<!--l. 668--><p class="nopar" >
-Here <span 
-class="cmmi-10">f</span><sub><span 
-class="cmr-7">1</span></sub> is the spacing in the frequency domain and is called frequency resolution.
-</p><!--l. 672--><p class="indent" >   Q: What is the negative frequency counterpart of the element <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">j</span></sub> for <span 
-class="cmmi-10">j</span><span 
-class="cmmi-10">≠</span>0
-?
-</p><!--l. 675--><p class="indent" >   A: The storage arrangement shown in Fig. <a 
-href="#x14-130032">2<!--tex4ht:ref: 4-16-1 --></a> indicates that it is the element
-<span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">N</span><span 
-class="cmsy-7">−</span><span 
-class="cmmi-7">j</span></sub>.
+class="cmmi-7">n</span></sub> (i.e., the DFT of <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>), and thus is called the
+inverse DFT.
+</p><!--l. 506--><p class="indent" >   The normalization factor multiplying the DFT and inverse DFT (here 1 and
+1<span 
+class="cmmi-10">∕N</span>) and the signs of the exponents are merely conventions, and diﬀer in
+some treatments. The only requirements of these conventions are that the
+DFT and inverse DFT have opposite-sign exponents and that the product of
+their normalization factors be 1<span 
+class="cmmi-10">∕N</span>. In most FFT computer libraries, the
+1<span 
+class="cmmi-10">∕N </span>factor is omitted. So one must take this factor into account when one
+wants to reproduce the original data after a forward and then a backward
+transform.
                                                                   
 
                                                                   
 </p>
-   <!--l. 678--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 514--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu10.html" >next</a>] [<a 
 href="fourier_analysissu8.html" >prev</a>] [<a 
 href="fourier_analysissu8.html#tailfourier_analysissu8.html" >prev-tail</a>] [<a 
 href="fourier_analysissu9.html" >front</a>] [<a 
 href="fourier_analysisse4.html#fourier_analysissu9.html" >up</a>] </p></div>
-<!--l. 678--><p class="indent" >   <a 
+<!--l. 514--><p class="indent" >   <a 
  id="tailfourier_analysissu9.html"></a> </p> 
 </body></html> 

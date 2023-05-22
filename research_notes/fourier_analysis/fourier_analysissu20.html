@@ -4,103 +4,99 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Aliasing errors</title> 
+<head><title>Numerical computation of Fourier transformation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1218--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1291--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu21.html" >next</a>] [<a 
 href="fourier_analysissu19.html" >prev</a>] [<a 
 href="fourier_analysissu19.html#tailfourier_analysissu19.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu20.html">tail</a>] [<a 
-href="fourier_analysisse8.html#fourier_analysissu20.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">8.2   </span> <a 
- id="x29-290008.2"></a>Aliasing errors</h4>
-<!--l. 1220--><p class="noindent" >Signals that are not band-limited usually contains all frequencies and thus do not
-satisfy the condition required by the sampling theorem (i.e., <span 
-class="cmmi-10">H</span>(<span 
-class="cmmi-10">f</span>) = 0 for
+href="fourier_analysisse9.html#fourier_analysissu20.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">B.3   </span> <a 
+ id="x30-30000B.3"></a>Numerical computation of Fourier transformation</h4>
+<!--l. 1293--><p class="noindent" >Next, consider how to numerically compute the Fourier transformation of a function
 <span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">f</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; </span>1<span 
-class="cmmi-10">∕</span>(2Δ)). In this case, for any given <span 
-class="cmmi-10">N </span>data, we can still calculate its DFT by
-using Eq. (<a 
-href="fourier_analysissu8.html#x13-12006r64">64<!--tex4ht:ref: 2-26-2 --></a>). However the results obtained are meaningful only when <span 
-class="cmmi-10">H</span><sub><span 
-class="cmmi-7">n</span></sub>
-approaches zero as the frequency approaches <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>). A simple way is to use the rectangle formula to approximate the integration in
+Eq. (<a 
+href="fourier_analysissu19.html#x29-29001r104">104<!--tex4ht:ref: 10-3-e1 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-30001r112"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis119x.png" alt="          ∞∑
+H (f) ≈ Δ     hjexp(i2πfjΔ ),
+         j=−∞
+" class="math-display"  /></center></td><td class="equation-label">(112)</td></tr></table>
+<!--l. 1299--><p class="nopar" >
+where <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">j</span></sub>) and <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">j</span></sub> = <span 
+class="cmmi-10">j</span>Δ with <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,</span><span 
+class="cmsy-10">−</span>2<span 
+class="cmmi-10">,</span><span 
 class="cmsy-10">−</span>1<span 
-class="cmmi-10">∕</span>(2Δ) from above and approaches
-1<span 
-class="cmmi-10">∕</span>(2Δ) from below, i.e., only when the results obtained are consistent with the
-assumption used to obtain the results (the assumption is that <span 
+class="cmmi-10">,</span>0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span>. Note Eq. (<a 
+href="#x30-30001r112">112<!--tex4ht:ref: 10-3-e2 --></a>) is an
+approximation, which will become exact if Δ <span 
+class="cmsy-10">→ </span>0. In practice, we can sample <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>)
+only with a nonzero Δ. Therefore Eq. (<a 
+href="#x30-30001r112">112<!--tex4ht:ref: 10-3-e2 --></a>) is usually an approximation. Do we have
+some rules to choose a suitable Δ so that Eq. (<a 
+href="#x30-30001r112">112<!--tex4ht:ref: 10-3-e2 --></a>) can become a good
+approximation or even an exact relation? This important question is answered by the
+sampling theorem, which sates that a suitable Δ to make Eq. (<a 
+href="#x30-30001r112">112<!--tex4ht:ref: 10-3-e2 --></a>) exact is given by
+Δ <span 
+class="msam-10">≤ </span>1<span 
+class="cmmi-10">∕</span>(2<span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">c</span></sub>), where <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">c</span></sub> is the largest frequency contained in <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">t</span>) (i.e., <span 
 class="cmmi-10">H</span>(<span 
 class="cmmi-10">f</span>) = 0 for
 <span 
 class="cmsy-10">|</span><span 
 class="cmmi-10">f</span><span 
 class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; </span>1<span 
-class="cmmi-10">∕</span>(2Δ)). When the results obtained do not satisfy the above condition, then it
-indicates that the “aliasing errors” have contributed to the results. We can reduce
-the aliasing errors by increasing the sampling frequency. The aliasing errors
-can be reduced but can not be completely removed for a non-band-limited
-signal.
-</p><!--l. 1234--><p class="indent" >   In signal processing and related disciplines, <span 
-class="cmbx-10">aliasing</span> is an eﬀect that causes
-diﬀerent signals to become indistinguishable (or <span 
-class="cmti-10">aliases</span> of one another) when
-sampled. It also often refers to the distortion or artifact that results when a
-signal reconstructed from samples is diﬀerent from the original continuous
-signal.
-</p><!--l. 1240--><p class="indent" >   An alias is a false lower frequency component that appears in sampled data
-acquired at too low a sampling rate.
-</p><!--l. 1243--><p class="indent" >   Aliasing errors are hard to detect and almost impossible to remove using software.
-The solution is to use a high enough sampling rate, or if this is not possible, to use an
-anti-aliasing ﬁlter in front of the analog-to-digital converter (ADC) to eliminate
-the high frequency components before they get into the data acquisition
-system.
-</p><!--l. 1249--><p class="indent" >   When a digital image is viewed, a reconstruction is performed by a display or
-printer device, and by the eyes and the brain. If the image data is processed in some
-way during sampling or reconstruction, the reconstructed image will diﬀer from the
-original image, and an alias is seen.
-</p><!--l. 1254--><p class="indent" >    
-</p><!--l. 1256--><p class="indent" >   Aliasing can be caused either by the sampling stage or the reconstruction stage;
-these may be distinguished by calling sampling aliasing (<span 
-class="cmti-10">prealiasing</span>) and
-reconstruction aliasing (<span 
-class="cmti-10">postaliasing</span>).
-</p><!--l. 1261--><p class="indent" >   In video or cinematography, temporal aliasing results from the limited frame rate,
-and causes the <a 
-href="https://en.wikipedia.org/wiki/Wagon-wheel_effect" >wagon-wheel eﬀect</a>, whereby a spoked wheel appears to rotate too
-slowly or even backwards. Aliasing has changed its apparent frequency of rotation. A
-reversal of direction can be described as a <a 
-href="https://en.wikipedia.org/wiki/Negative_frequency" >negative frequency</a>. Temporal aliasing
-frequencies in video and cinematography are determined by the frame rate of the
-                                                                  
-
-                                                                  
-camera, but the relative intensity of the aliased frequencies is determined by the
-shutter timing (exposure time) or the use of a temporal aliasing reduction ﬁlter
-during ﬁlming.
+class="cmmi-10">&#x003E; f</span><sub><span 
+class="cmmi-7">c</span></sub>).
                                                                   
 
                                                                   
 </p>
-   <!--l. 1273--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1311--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu21.html" >next</a>] [<a 
 href="fourier_analysissu19.html" >prev</a>] [<a 
 href="fourier_analysissu19.html#tailfourier_analysissu19.html" >prev-tail</a>] [<a 
 href="fourier_analysissu20.html" >front</a>] [<a 
-href="fourier_analysisse8.html#fourier_analysissu20.html" >up</a>] </p></div>
-<!--l. 1273--><p class="indent" >   <a 
+href="fourier_analysisse9.html#fourier_analysissu20.html" >up</a>] </p></div>
+<!--l. 1311--><p class="indent" >   <a 
  id="tailfourier_analysissu20.html"></a> </p> 
 </body></html> 

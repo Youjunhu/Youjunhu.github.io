@@ -4,231 +4,48 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Eﬃcient method of computing DFT: Fast Fourier Transformation (FFT)
-algorithm (not ﬁnished)</title> 
+<head><title>Fourier series→Fourier transformation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1317--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1147--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse10.html" >next</a>] [<a 
 href="fourier_analysisse8.html" >prev</a>] [<a 
 href="fourier_analysisse8.html#tailfourier_analysisse8.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysisse9.html">tail</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse9.html" >up</a>] </p></div>
-   <h3 class="sectionHead"><span class="titlemark">A   </span> <a 
- id="x31-31000A"></a>Eﬃcient method of computing DFT: Fast Fourier Transformation (FFT)
-algorithm (not ﬁnished)</h3>
-<!--l. 1319--><p class="noindent" >The DFT is deﬁned by Eq. (<a 
-href="fourier_analysissu8.html#x13-12006r64">64<!--tex4ht:ref: 2-26-2 --></a>), i.e.,
+   <h3 class="sectionHead"><span class="titlemark">B   </span> <a 
+ id="x27-27000B"></a>Fourier series<span 
+class="cmsy-10">→</span>Fourier transformation</h3>
+<!--l. 1149--><p class="noindent" >
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31001r114"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis121x.png" alt="     N∑ −1  kj
-Hj ≡     W  hk,
-     k=0
-" class="math-display"  /></center></td><td class="equation-label">(114)</td></tr></table>
-<!--l. 1322--><p class="nopar" >
-where <span 
-class="cmmi-10">W </span>= exp(2<span 
-class="cmmi-10">πi∕N</span>). Equations (<a 
-href="#x31-31001r114">114<!--tex4ht:ref: 18-1-28-a2 --></a>) indicates that the DFT is the
-multiplication of a transformation matrix <span 
-class="cmmi-10">M</span><sub><span 
-class="cmmi-7">kj</span></sub> <span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">W</span><sup><span 
-class="cmmi-7">kj</span></sup> with a column vector <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">k</span></sub>,
-where the transformation matrix <span 
-class="cmmi-10">M</span><sub><span 
-class="cmmi-7">kj</span></sub> is symmetric and called DFT matrix. In the
-matrix form, the DFT is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31002r115"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis122x.png" alt="(       )    (                                              ) (       )
-    H1         1    1        1        1     ...      1            h1
-||   H2  ||    || 1   W 1      W 2      W 3    ...    W N− 1   || ||   h2  ||
-||   H3  ||    || 1   W 2      W 4      W 6    ...   W 2(N −1)  || ||   h3  ||
-||   H4  ||  = || 1   W 3      W 6      W 9    ...   W 3(N −1)  || ||   h4  ||
-|(    ...  |)    |( ..    ..        ..        ..     ...      ..      |) |(    ...  |)
-  H            .    .N− 1   2(.N−1)    3.(N− 1)        (N−.1)(N −1)     h
-    N− 1       1  W      W         W        ... W                 N−1
-" class="math-display"  /></center></td><td class="equation-label">(115)</td></tr></table>
-<!--l. 1351--><p class="nopar" >
-If directly using the deﬁnition in Eq. (<a 
-href="#x31-31002r115">115<!--tex4ht:ref: 18-1-31-a1 --></a>) to compute DFT, then a matrix
-multiplication need to be performed, which requires <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">N</span><sup><span 
-class="cmr-7">2</span></sup>) operations. Here the
-powers of <span 
-class="cmmi-10">W </span>are assumed to be pre-computed, and we deﬁne “an operation” as a
-multiplication followed by an addition.
-</p><!--l. 1357--><p class="indent" >    
-</p><!--l. 1359--><p class="indent" >   The Fast Fourier Transformation (FFT) algorithm manage to reduce the
-complexity of computing the DFT from <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">N</span><sup><span 
-class="cmr-7">2</span></sup>) to <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">N</span> log <sub><span 
-class="cmr-7">2</span></sub><span 
-class="cmmi-10">N</span>) by factoring the DFT
-matrix <span 
-class="cmmi-10">M</span><sub><span 
-class="cmmi-7">kj</span></sub> into a product of sparse matrices.
-</p><!--l. 1363--><p class="indent" >   The original paper on FFT is Cooley and Tukey’s paper: An algorithm for the
-machine calculation of complex Fourier series, which turns out to be a very concise
-paper.
-</p><!--l. 1367--><p class="indent" >   Suppose <span 
-class="cmmi-10">N </span>is a composite, i.e., <span 
-class="cmmi-10">N </span>= <span 
-class="cmmi-10">r</span><sub><span 
-class="cmr-7">1</span></sub> <span 
-class="cmsy-10">⋅</span><span 
-class="cmmi-10">r</span><sub><span 
-class="cmr-7">2</span></sub>. Then the indices in Eq. (<a 
-href="#x31-31001r114">114<!--tex4ht:ref: 18-1-28-a2 --></a>) can be
-expressed as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31003r116"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis123x.png" alt="j = j r + j,    j = 0,1,...,r  − 1,   j  = 0,1,...,r − 1
-    1 1   0      0          1         1          2
-" class="math-display"  /></center></td><td class="equation-label">(116)</td></tr></table>
-<!--l. 1372--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31004r117"></a>
+   <div class="subsectionTOCS">
+    <span class="subsectionToc" >B.1 <a 
+href="fourier_analysissu18.html#x28-28000B.1">From discrete spectrum to continuous spectrum</a></span>
+<br />    <span class="subsectionToc" >B.2 <a 
+href="fourier_analysissu19.html#x29-29000B.2">Fourier transformation</a></span>
+<br />    <span class="subsectionToc" >B.3 <a 
+href="fourier_analysissu20.html#x30-30000B.3">Numerical computation of Fourier transformation</a></span>
+<br />    <span class="subsectionToc" >B.4 <a 
+href="fourier_analysissu21.html#x31-31000B.4">Sampling theorem</a></span>
+   </div>
+
+
+
                                                                   
 
                                                                   
-   <center class="math-display" >
-<img 
-src="fourier_analysis124x.png" alt="k = k1r2 +k0,    k0 = 0,1,...,r2 − 1,  k1 = 0,1,...,r1 − 1
-" class="math-display"  /></center></td><td class="equation-label">(117)</td></tr></table>
-<!--l. 1376--><p class="nopar" >
-Then, one can write
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31005r118"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis125x.png" alt="         ∑   ∑
-H(j0,j1) =       h(k0,k1)W (jk1r2+jk0),
-          k0 k1
-" class="math-display"  /></center></td><td class="equation-label">(118)</td></tr></table>
-<!--l. 1380--><p class="nopar" >
-Noting that
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31006r119"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis126x.png" alt="W jk1r2 = W j1r1k1r2+j0k1r2 = W j0k1r2
-" class="math-display"  /></center></td><td class="equation-label">(119)</td></tr></table>
-<!--l. 1384--><p class="nopar" >
-Eq. () is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31007r120"></a>
-                                                                  
-
-                                                                  
-   <center class="math-display" >
-<img 
-src="fourier_analysis127x.png" alt="             (                   )
-H (j0,j1) = ∑   ∑  h(k0,k1)W (j0k1r2)  W (jk0),
-           k0   k1
-" class="math-display"  /></center></td><td class="equation-label">(120)</td></tr></table>
-<!--l. 1389--><p class="nopar" >
-where the inner sum over <span 
-class="cmmi-10">k</span><sub><span 
-class="cmr-7">1</span></sub> is independent of <span 
-class="cmmi-10">j</span><sub><span 
-class="cmr-7">1</span></sub> and can be deﬁned as a new
-array
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31008r121"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis128x.png" alt="           ∑
-h1(j0,k0) =    h(k0,k1)W (j0k1r2).
-           k1
-" class="math-display"  /></center></td><td class="equation-label">(121)</td></tr></table>
-<!--l. 1394--><p class="nopar" >
-Then
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x31-31009r122"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis129x.png" alt="          ∑
-H (j0,j1) =    h1(j0,k0)W (j1r1+j0)k0,
-          k0
-" class="math-display"  /></center></td><td class="equation-label">(122)</td></tr></table>
-                                                                  
-
-                                                                  
-<!--l. 1398--><p class="nopar" >
-There are <span 
-class="cmmi-10">N </span>elements in the array <span 
-class="cmmi-10">h</span><sub><span 
-class="cmr-7">1</span></sub>, each requiring <span 
-class="cmmi-10">r</span><sub><span 
-class="cmr-7">1</span></sub> operations, giving a total of
-<span 
-class="cmmi-10">Nr</span><sub><span 
-class="cmr-7">1</span></sub> operation to obtain <span 
-class="cmmi-10">h</span><sub><span 
-class="cmr-7">1</span></sub>. Similarly, it takes <span 
-class="cmmi-10">Nr</span><sub><span 
-class="cmr-7">2</span></sub> operations to calculate <span 
-class="cmmi-10">H</span>
-from <span 
-class="cmmi-10">h</span><sub><span 
-class="cmr-7">1</span></sub>. Therefore, this two-step algorithm requires a total of <span 
-class="cmmi-10">N</span>(<span 
-class="cmmi-10">r</span><sub><span 
-class="cmr-7">1</span></sub> + <span 
-class="cmmi-10">r</span><sub><span 
-class="cmr-7">2</span></sub>)
-operations.
-</p><!--l. 1404--><p class="indent" >    
-</p><!--l. 1406--><p class="indent" >    
-                                                                  
-
-                                                                  
-</p>
-   <!--l. 1408--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1376--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse10.html" >next</a>] [<a 
 href="fourier_analysisse8.html" >prev</a>] [<a 
 href="fourier_analysisse8.html#tailfourier_analysisse8.html" >prev-tail</a>] [<a 
 href="fourier_analysisse9.html" >front</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse9.html" >up</a>] </p></div>
-<!--l. 1408--><p class="indent" >   <a 
+<!--l. 1376--><p class="indent" >   <a 
  id="tailfourier_analysisse9.html"></a> </p> 
 </body></html> 

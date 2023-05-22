@@ -4,48 +4,120 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Frequency resolution and bandwidth</title> 
+<head><title>Proof of the inverse DFT</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 678--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 514--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu9.html" >prev</a>] [<a 
 href="fourier_analysissu9.html#tailfourier_analysissu9.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu10.html">tail</a>] [<a 
 href="fourier_analysisse4.html#fourier_analysissu10.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
- id="x15-140004.3"></a>Frequency resolution and bandwidth</h4>
-<!--l. 680--><p class="noindent" >The frequency interval between neighbor DFT points is 1<span 
-class="cmmi-10">∕T</span>, where <span 
-class="cmmi-10">T </span>is the
-time-window in which the signal is sampled. This frequency interval is called
-frequency resolution, which is determined only by the length of the time-window and
-is independent of the sampling frequency. If the time-window is ﬁxed, increasing the
-sampling frequency only increase the bandwidth (the frequency range of DFT) and
-the frequency interval between neighbor DFT points are still 1<span 
-class="cmmi-10">∕T</span>, i.e., the frequency
-resolution is not changed. In summary, <span 
-class="cmti-10">Bandwidth </span>is the highest frequency that is
-captured in the Fourier transform, equal to half the sampling rate. <span 
-class="cmti-10">Frequency</span>
-<span 
-class="cmti-10">Resolution </span>is 1<span 
-class="cmmi-10">∕T</span>, which is the spacing between samples in the frequency
-domain.
+   <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
+ id="x15-140004.4"></a>Proof of the inverse DFT</h4>
+<!--l. 516--><p class="noindent" >In order to solve the linear algebraic equations (<a 
+href="fourier_analysissu4.html#x8-7001r34">34<!--tex4ht:ref: 2-26-2 --></a>) for <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>, multiply both sides of
+each equation by exp<img 
+src="fourier_analysis49x.png" alt="(   2π-  )
+ − iN nJ"  class="left" align="middle" />, where <span 
+class="cmmi-10">J </span>is an integer between [0<span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1], and then
+add all the equations together, which yields
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-14001r49"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis50x.png" alt="N∑ −1   (        )     N∑−1N∑− 1     (           )
+    exp − i2πnJ  Hn =         hjexp  i2π-n(j − J) .
+n=0        N           n=0j=0         N
+" class="math-display"  /></center></td><td class="equation-label">(49)</td></tr></table>
+<!--l. 524--><p class="nopar" >
+Interchanging the sequence of the two summation on the right-hand side, equation
+(<a 
+href="#x15-14001r49">49<!--tex4ht:ref: 10-7-p2 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-14002r50"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis51x.png" alt="N∑ −1   (   2π   )     N∑−1  N∑−1   ( 2π        )
+    exp − iN-nJ  Hn =     hj    exp  iN-n(j − J) .
+n=0                    j=0   n=0
+" class="math-display"  /></center></td><td class="equation-label">(50)</td></tr></table>
+<!--l. 531--><p class="nopar" >
+Using the fact that (veriﬁed by Wolfram Mathematica)
                                                                   
 
                                                                   
 </p>
-   <!--l. 691--><div class="crosslinks"><p class="noindent">[<a 
+   <table 
+class="equation"><tr><td><a 
+ id="x15-14003r51"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis52x.png" alt="N∑−1   [ 2π        ]
+   exp iN--n(j − J) = N δjJ,
+n=0
+" class="math-display"  /></center></td><td class="equation-label">(51)</td></tr></table>
+<!--l. 536--><p class="nopar" >
+where <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmr-7">jJ</span></sub> is the Kroneker Delta, equation (<a 
+href="#x15-14002r50">50<!--tex4ht:ref: 10-7-p3 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-14004r52"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis53x.png" alt="N −1   (        )      N−1
+ ∑  exp  − i2πnJ Hn  = ∑  hjN δjJ,
+ n=0        N           j=0
+" class="math-display"  /></center></td><td class="equation-label">(52)</td></tr></table>
+<!--l. 542--><p class="nopar" >
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-14005r53"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis54x.png" alt="N∑−1   (   2π   )
+    exp  − iN-nJ Hn  = NhJ,
+ n=0
+" class="math-display"  /></center></td><td class="equation-label">(53)</td></tr></table>
+<!--l. 547--><p class="nopar" >
+which can be solved to give
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-14006r54"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis55x.png" alt="       N− 1   (       )
+hJ = 1-∑   exp − i2πnJ  Hn.
+     N n=0        N
+" class="math-display"  /></center></td><td class="equation-label">(54)</td></tr></table>
+<!--l. 552--><p class="nopar" >
+Equation (<a 
+href="#x15-14006r54">54<!--tex4ht:ref: 10-7-p1 --></a>) is the inverse DFT.
+</p>
+   <!--l. 555--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu9.html" >prev</a>] [<a 
 href="fourier_analysissu9.html#tailfourier_analysissu9.html" >prev-tail</a>] [<a 
 href="fourier_analysissu10.html" >front</a>] [<a 
 href="fourier_analysisse4.html#fourier_analysissu10.html" >up</a>] </p></div>
-<!--l. 691--><p class="indent" >   <a 
+<!--l. 555--><p class="indent" >   <a 
  id="tailfourier_analysissu10.html"></a> </p> 
 </body></html> 

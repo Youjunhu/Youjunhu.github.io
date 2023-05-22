@@ -9,8 +9,8 @@
 \newcommand{\tmem}[1]{{\em #1\/}}
 \newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
 \newcommand{\tmstrong}[1]{\textbf{#1}}
+\newcommand{\codestar}[1]{\textbf{#1}}
 \newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
-\newcommand{\codestar}[1]{\text{{\bfseries{#1}}}}
 \newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
 \newenvironment{tmcode}[1][]{\begin{alltt} }{\end{alltt}}
 %%%%%%%%%% End TeXmacs macros
@@ -37,12 +37,9 @@
 \section{Introduction}
 
 This note discusses the Fourier expansion and Discrete Fourier Transform
-(DFT). There are many online documents discussing these topics and I read some
-of them. But finally I found that I need to derive all the relevant formulas
-step by step by myself. This note gives step by step derivation of the
-definition of DFT and its variations such as the discrete sine transform. I
-also discuss how to relate this to the output of some computer libraries (e.g.
-FFTW).
+(DFT), giving step by step derivation of the definition of DFT and its
+variations such as the discrete sine transform. I also discuss how to relate
+this to the output of some computer libraries (e.g. FFTW).
 
 The Fast Fourier Transform algorithm (FFT) makes the DFT fast enough to solve
 many real-life problems, which makes FFT be among the top ten algorithms that
@@ -296,261 +293,7 @@ to use the rectangle formula to approximate the integration in Eq.
   \left( - \frac{i n 2 \pi j \Delta}{T} \right),
 \end{equation}
 where $h_j = h (t_j)$ and $t_j = j \Delta$ with $j = 0, 1, 2, \ldots, N - 1$
-and $\Delta = T / N$. Note Eq. (\ref{10-3-e2m}) is an approximation, which
-will become exact if $\Delta \rightarrow 0$. In practice, we can sample $h
-(t)$ only with a nonzero $\Delta$. Therefore Eq. (\ref{10-3-e2m}) is usually
-an approximation. Do we have some rules to choose a suitable $\Delta$ so that
-Eq. (\ref{10-3-e2m}) can become a good approximation or even an exact
-relation? This important question is answered by the sampling theorem, which
-sates that a suitable $\Delta$ to make Eq. (\ref{10-3-e2m}) exact is given by
-$\Delta \leqslant 1 / (2 f_c)$, where $f_c = N_c / T$ is the largest frequency
-contained in $h (t)$ (i.e, $c_n$ is zero for $| n | \geqslant N_c$).
-
-\section{Fourier series$\rightarrow$Fourier transformation}
-
-\subsection{From discrete spectrum to continuous spectrum}
-
-The Fourier series discussed above indicates that a periodic function is
-composed of discrete spectrum and is written as
-\begin{equation}
-  \label{9-27-e14} h (t) = \sum_{n = - \infty}^{\infty} c_n \exp \left( i
-  \frac{n 2 \pi}{T} t \right) ,
-\end{equation}
-where $T$ is the period of $h (t)$. The $n$th term of the above Fourier series
-corresponds to a harmonic of frequency
-\begin{equation}
-  \label{9-27-e10} f_n = \frac{n}{T},
-\end{equation}
-and the expansion coefficient $c_n$ is given by
-\begin{equation}
-  \label{9-28-2} c_n = \frac{1}{T} \int_{- T / 2}^{T / 2} h (t) \exp \left( -
-  i \frac{n 2 \pi}{T} t \right) d t.
-\end{equation}
-In terms of $f_n$, the coefficient in Eq. (\ref{9-28-2}) is written
-\begin{equation}
-  \label{9-27-e11} c_n = c (f_n) = \frac{1}{T} \int_{- T / 2}^{T / 2} h (t)
-  \exp (- i 2 \pi f_n t)  d t
-\end{equation}
-In terms of $f_n$, the Fourier series in Eq. (\ref{9-27-e14}) is written
-\begin{eqnarray}
-  h (t) & = & \sum_{n = - \infty}^{\infty} c (f_n) e^{i 2 \pi t f_n}
-  \nonumber\\
-  & = & T \sum_{n = - \infty}^{\infty} c (f_n) e^{i 2 \pi t f_n} \frac{1}{T} 
-  \label{9-28-5}
-\end{eqnarray}
-Note that $c (f_n) e^{i 2 \pi t f_n}$ is the value of function $c (f) e^{i 2
-\pi t f}$ at $f = f_n$. Further note that the interval between $f_n$ and $f_{n
-+ 1}$ is $1 / T$. Thus the above summation is the rectangular formula for
-numerically calculating the integration $\int_{- \infty}^{\infty} c (f) e^{i 2
-\pi t f} d f$. Therefore, equation (\ref{9-28-5}) can be approximately written
-as
-\begin{equation}
-  h (t) \approx T \int_{- \infty}^{\infty} c (f) e^{i 2 \pi t f} d f,
-\end{equation}
-which will become exact when the interval $1 / T \rightarrow 0$, i.e., $T
-\rightarrow \infty$. Therefore, for the case $T \rightarrow \infty$, the
-Fourier series exactly becomes
-\begin{equation}
-  \label{9-28-6} h (t) = T \int_{- \infty}^{\infty} c (f) e^{i 2 \pi t f} d f,
-\end{equation}
-where $c (f)$ is given by Eq. (\ref{9-27-e11}), i.e.,
-\begin{equation}
-  \label{9-28-7} c (f) = \frac{1}{T} \int_{- T / 2}^{T / 2} h (t) e^{- i 2 \pi
-  t f} d t.
-\end{equation}
-Note that the function $h (t)$ given in Eq. (\ref{9-28-6}) is proportional to
-$T c (f)$ while the function $c (f)$ given in Eq. (\ref{9-28-7}) is
-proportional to $1 / T$. Since $T \rightarrow \infty$, it is desired to
-eliminate the $T$ and $1 / T$ factors in Eqs. (\ref{9-28-6}) and
-(\ref{9-28-7}), which can be easily achieved by defining a new function
-\begin{equation}
-  H (f) = T c (f) .
-\end{equation}
-Then equations (\ref{9-28-6}) and (\ref{9-28-7}) are written as
-\begin{equation}
-  \label{9-28-10} h (t) = \int_{- \infty}^{\infty} H (f) e^{i 2 \pi t f} d f,
-\end{equation}
-\begin{equation}
-  \label{9-28-11} H (f) = \int_{- T / 2}^{T / 2} h (t) e^{- i 2 \pi t f} d t =
-  \int_{- \infty}^{\infty} h (t) e^{- i 2 \pi t f} d t,
-\end{equation}
-Equations (\ref{9-28-10}) and (\ref{9-28-11}) are the Fourier transformation
-pairs discussed in the next section.
-
-\subsection{Fourier transformation}
-
-As discussed above, the Fourier transformation of a function $h (t)$ is given
-by
-\begin{equation}
-  \label{10-3-e1} H (f) = \int_{- \infty}^{\infty} h (t) e^{i 2 \pi f t} d t.
-\end{equation}
-Once the Fourier transformation $H (f)$ is known, the original function $h
-(t)$ can be reconstructed via
-\begin{equation}
-  \label{10-11-3} h (t) = \int_{- \infty}^{\infty} H (f) e^{- i 2 \pi f t} d
-  f.
-\end{equation}
-
-
-[Note that the signs in the exponential of Eq. (\ref{9-28-10}) and
-(\ref{9-28-11}) are opposite. Which one should be minus or positive is
-actually a matter of convention because a trivial variable substitution $f' =
-- f$ can change the sign between minus and positive. Proof. In terms of $f'$,
-Eq. \ (\ref{10-11-3}) is written
-\begin{eqnarray}
-  h (t) & = & \int_{\infty}^{- \infty} H (- f') e^{i 2 \pi t f'} d (- f'),
-  \nonumber\\
-  & = & \int_{- \infty}^{\infty} H (- f') e^{i 2 \pi t f'} d f', 
-  \label{9-28-23}
-\end{eqnarray}
-Define
-\begin{eqnarray}
-  \overline{H} (f') & \equiv & H (- f') \nonumber\\
-  & = & \int_{- \infty}^{\infty} h (t) e^{- i 2 \pi t f'} d t. 
-  \label{9-28-20}
-\end{eqnarray}
-Then Eq. (\ref{9-28-23}) is written
-\begin{equation}
-  \label{9-28-21} h (t) = \int_{- \infty}^{\infty} \overline{H} (f') e^{i 2
-  \pi t f'} d f'
-\end{equation}
-The signs in the exponential of Eqs. (\ref{9-28-20}) and (\ref{9-28-21}) are
-opposite to Eqs. (\ref{10-3-e1}) and (\ref{10-11-3}), respectively.]
-
-[Some physicists prefer to use the angular frequency $\omega \equiv 2 \pi f$
-rather than the frequency $f$ to represent the Fourier transformation. Using
-$\omega$, equations. (\ref{10-3-e1}) and (\ref{10-11-3}) are written,
-respectively, as
-\begin{equation}
-  H (\omega) = \int_{- \infty}^{\infty} h (t) e^{i \omega t} d t,
-\end{equation}
-\begin{equation}
-  h (t) = \frac{1}{2 \pi} \int_{- \infty}^{\infty} H (\omega) e^{- i \omega t}
-  d \omega,
-\end{equation}
-where we see that the asymmetry between the Fourier transformation and its
-inverse is more severe in this representation: besides the opposite-sign in
-the exponents, there is also a $1 / 2 \pi$ factor difference between the
-Fourier transformation and its inverse. Whether the $1 / 2 \pi$ factor appears
-at the forward transformation or inverse one is actually a matter of
-convention. The only requirement is that the product of the two factors in the
-forward and inverse transformation is equal to $1 / 2 \pi$. To obtain a more
-symmetric pair, one can adopt a factor $1 / \sqrt{2 \pi}$ at both the forward
-and inverse transformation. The representation in Eqs. (\ref{10-3-e1}) and
-(\ref{10-11-3}) is adopted in this note. But we should know how to change to
-the $\omega$ representation when needed.]
-
-[
-\begin{equation}
-  \int_{- \infty}^{\infty} \frac{d h (t)}{d t} e^{- i 2 \pi t f} d t = h (t)
-  e^{- i 2 \pi t f} |_{- \infty}^{+ \infty} \nobracket - \int_{-
-  \infty}^{\infty} h (t) \frac{d e^{- i 2 \pi t f}}{d t} d t = - \int_{-
-  \infty}^{\infty} h (t) \frac{d e^{- i 2 \pi t f}}{d t} d t = i 2 \pi f
-  \int_{- \infty}^{\infty} h (t) e^{- i 2 \pi t f} d t = i 2 \pi f H (f)
-\end{equation}
-]
-
-\subsection{Numerical computation of Fourier transformation}
-
-Next, consider how to numerically compute the Fourier transformation of a
-function $h (t)$. A simple way is to use the rectangle formula to approximate
-the integration in Eq. (\ref{10-3-e1}), i.e.,
-\begin{equation}
-  \label{10-3-e2} H (f) \approx \Delta \sum_{j = - \infty}^{\infty} h_j \exp
-  (i 2 \pi f j \Delta),
-\end{equation}
-where $h_j = h (t_j)$ and $t_j = j \Delta$ with $j = \ldots, - 2, - 1, 0, 1,
-2, \ldots$. Note Eq. (\ref{10-3-e2}) is an approximation, which will become
-exact if $\Delta \rightarrow 0$. In practice, we can sample $h (t)$ only with
-a nonzero $\Delta$. Therefore Eq. (\ref{10-3-e2}) is usually an approximation.
-Do we have some rules to choose a suitable $\Delta$ so that Eq.
-(\ref{10-3-e2}) can become a good approximation or even an exact relation?
-This important question is answered by the sampling theorem, which sates that
-a suitable $\Delta$ to make Eq. (\ref{10-3-e2}) exact is given by $\Delta
-\leqslant 1 / (2 f_c)$, where $f_c$ is the largest frequency contained in $h
-(t)$ (i.e., $H (f) = 0$ for $|f| > f_c$).
-
-\subsection{Sampling theorem}
-
-In computational and experimental work, we know only a list of values $h
-(t_j)$ sampled at discrete values of $t_j$. Let us suppose that $h (t)$ is
-sampled with uniform interval between consecutive points:
-\begin{equation}
-  h_j = h (t_j), t_j = j \Delta, j = \ldots, - 2, - 1, 0, 1, 2, \ldots
-\end{equation}
-The sampling rate is defined by $f_s = 1 / \Delta$. The sampling theorem
-states that: If the Fourier transformation of function $h (t)$, $H (f)$, has
-the following property
-\begin{equation}
-  \label{8-28-3} H (f) = 0 \tmop{for} |f| \geqslant f_c
-\end{equation}
-then sampling $h (t)$ with the sampling rate $f_s \geqslant 2 f_c$ (i.e.,
-$\Delta \leqslant 1 / (2 f_c)$) will completely determine $h (t)$, which is
-given explicitly by the formula
-\begin{equation}
-  \label{8-28-4} h (t) = \Delta \sum_{j = - \infty}^{\infty} h_j \frac{\sin [2
-  \pi f_c (t - j \Delta)]}{\pi (t - j \Delta)} .
-\end{equation}
-We will not concern us here with the proof of the sampling theorem and simply
-start working with Eq. (\ref{8-28-4}) to derive the concrete expression for
-the Fourier transformation of $h (t)$. Substituting the expression
-(\ref{8-28-4}) for $h (t)$ into the Fourier transformation (\ref{10-3-e1}), we
-obtain the explicit form of the Fourier transformation of $h (t)$:
-\begin{eqnarray}
-  H (f) & \equiv & \int_{- \infty}^{\infty} h (t) \exp (i 2 \pi f t) d t,
-  \nonumber\\
-  & = & \Delta \sum_{j = - \infty}^{\infty} h_j \int_{- \infty}^{\infty}
-  \frac{\sin [2 \pi f_c (t - j \Delta)]}{\pi (t - j \Delta)} \exp (i 2 \pi f
-  t) d t, \nonumber\\
-  & = & \Delta \sum_{j = - \infty}^{\infty} h_j \exp (i 2 \pi f j \Delta)
-  \int_{- \infty}^{\infty} \frac{\sin [2 \pi f_c (t - j \Delta)]}{\pi (t - j
-  \Delta)} \exp [i 2 \pi f (t - j \Delta)] d t, \nonumber\\
-  & = & \Delta \sum_{j = - \infty}^{\infty} h_j \exp (i 2 \pi f j \Delta)
-  \int_{- \infty}^{\infty} \frac{\sin [2 \pi f_c \tau]}{\pi \tau} \exp [i 2
-  \pi f \tau] d \tau .  \label{8-28-1}
-\end{eqnarray}
-With the help of Wolfram Mathematica, the integration in Eq. (\ref{8-28-1}) is
-evaluated analytically, giving
-\begin{equation}
-  \int_{- \infty}^{\infty} \frac{\sin [2 \pi f_c \tau]}{\pi \tau} \exp (i 2
-  \pi f \tau) d \tau = \left\{ \begin{array}{l}
-    0 \tmop{For} |f| > f_c\\
-    1 \tmop{For} |f| < f_c
-  \end{array} . \right.
-\end{equation}
-Using this, \ Eq. (\ref{8-28-1}) is written
-\begin{equation}
-  \label{8-28-5} H (f) = \left\{ \begin{array}{l}
-    0 \tmop{for} |f| > f_c\\
-    \Delta \sum_{j = - \infty}^{\infty} h_j \exp (i 2 \pi f j \Delta)
-    \tmop{for} |f| \leqslant f_c
-  \end{array}, \right.
-\end{equation}
-which shows that $H (f) = 0$ for $|f| > f_c$, which is consistent with the
-assumption of sampling theorem, i.e., $H (f)$ has the property given in Eq.
-(\ref{8-28-3}). The second line of Eq. (\ref{8-28-5}) is identical to Eq.
-(\ref{10-3-e2}) except that Eq. (\ref{8-28-5}) in this case is exact while Eq.
-(\ref{10-3-e2}) is only approximate. In other words, if $\Delta \leqslant 1 /
-(2 f_c)$, then the Fourier transformation is exactly given by Eq.
-(\ref{8-28-5}), where $f_c$ is the largest frequency contained in $h (t)$
-(i.e., $H (f) = 0$ for $|f| > f_c$).
-
-\section{Discrete Fourier transformation (DFT)}\label{9-29-8}
-
-\subsection{Definition of DFT}
-
-Suppose that a function $h (t)$ is sampled with a sampling frequency $f_s = 1
-/ \Delta$, and we know (by some other means) that the largest frequency
-contained in $h (t)$ is less than $f_s / 2$, then the sampling theorem
-indicates that the Fourier transformation $H (f)$ for $|f| \leqslant f_s / 2$
-can be written as
-\begin{equation}
-  \label{2-26-p1} H (f) = \Delta \sum_{j = - \infty}^{\infty} h_j \exp (i 2
-  \pi f j \Delta) .
-\end{equation}
-Assume that the function $h (t)$ is periodic with period $T$ and is sampled in
-one period with $h_j$ with $j = 0, 1, \ldots, N$, in which $h_0 = h_N$, as
-shown in Fig. \ref{16-2-25}.
+and $\Delta = T / N$, as is shown in Fig. \ref{16-2-25}.
 
 \begin{figure}[h]
   \resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fft/fig2c/MyFigure.eps}}
@@ -558,44 +301,42 @@ shown in Fig. \ref{16-2-25}.
   $T = N \Delta$ is the period of the signal.}
 \end{figure}
 
-Then the infinite summation in Eq. (\ref{2-26-p1}) reduces to the following
-partial sum:
+\
+
+Note Eq. (\ref{10-3-e2m}) is an approximation, which will become exact if
+$\Delta \rightarrow 0$. In practice, we can sample $h (t)$ only with a nonzero
+$\Delta$. Therefore Eq. (\ref{10-3-e2m}) is usually an approximation. Do we
+have some rules to choose a suitable $\Delta$ so that Eq. (\ref{10-3-e2m}) can
+become a good approximation or even an exact relation? This important question
+is answered by the sampling theorem, which sates that a suitable $\Delta$ to
+make Eq. (\ref{10-3-e2m}) exact is given by $\Delta \leqslant 1 / (2 f_c)$,
+where $f_c = N_c / T$ is the largest frequency contained in $h (t)$ (i.e,
+$c_n$ is zero for $| n | \geqslant N_c$).
+
+\section{Discrete Fourier transformation (DFT)}\label{9-29-8}
+
+\subsection{Definition of DFT}
+
+The summation in Eq. (\ref{10-3-e2m}),
 \begin{equation}
-  \label{2-26-4} H (f) = C \Delta \sum_{j = 0}^{N - 1} h_j \exp (i 2 \pi f j
-  \Delta),
-\end{equation}
-where $C$ is the number of periods during the infinite time. Since $h (t)$ is
-periodic with period $T$, Fourier series theorem implies that $H (f)$ is
-nonzero only at discrete frequencies given by $f = n / T = f_s n / N$. Further
-recall that the condition required by the sampling theory is that $H (f)$ is
-nonzero only within $[- f_s / 2, f_s / 2]$. Therefore all nonzero values of $H
-(f)$, which need to be evaluated and stored, are at
-\begin{equation}
-  \label{10-26-1} f_n = f_s \frac{n}{N},
-\end{equation}
-with $n = - N / 2, \ldots, 0, \ldots, N / 2$ (we consider only the case that
-$N$ is an even number). Evaluate $H (f)$ given by Eq. (\ref{2-26-4}) at $f =
-f_n$, then $H (f_n)$ is written as
-\begin{equation}
-  \label{2-26-1} H (f_n) = C \Delta \sum_{j = 0}^{N - 1} h_j \exp \left( i
-  \frac{2 \pi}{N} n j \right) .
-\end{equation}
-The partial summation in Eq. (\ref{2-26-1}),
-\begin{equation}
-  \label{2-26-2} H_n \equiv \sum_{j = 0}^{N - 1} h_j \exp \left( i \frac{2
+  \label{2-26-2} H_n \equiv \sum_{j = 0}^{N - 1} h_j \exp \left( - i \frac{2
   \pi}{N} n j \right),
 \end{equation}
-is called the {\tmstrong{Discrete Fourier transformation (DFT)}}. (The
-efficient algorithm of computing the DFT is discussed in Appendix
-\ref{18-1-28-a1}.) Using Eqs. (\ref{2-26-1}) and (\ref{2-26-2}), we know $H_n$
-is related to the value of Fourier transform $H (f)$ at $f = f_n$ by
-\begin{equation}
-  H (f_n) = C \Delta H_n .
-\end{equation}
-and the Fourier expansion coefficients $c_n$ in Eq. (\ref{10-3-e2m}) by
+is called the {\tmstrong{Discrete Fourier transformation (DFT)}}, where $n = -
+N / 2, \ldots, 0, \ldots, N / 2$ (we consider only the case that $N$ is an
+even number). The Fourier expansion coefficients $c_n$ in Eq. (\ref{10-3-e2m})
+is then written as
 \begin{equation}
   c_n = \frac{1}{N} H_n .
 \end{equation}
+The corresponding frequency corresponding to the $c_n$ term is
+\begin{equation}
+  \label{10-26-1} f_n = f_s \frac{n}{N},
+\end{equation}
+where $f_s = 1 / \Delta$ is called sampling frequency.
+
+The efficient algorithm of computing the DFT is discussed in Appendix
+\ref{18-1-28-a1}.
 
 \subsection{Periodic property of Discrete Fourier transformation}
 
@@ -952,7 +693,7 @@ verified numerically by me).
   2 L) = 0$ ($x_0 = 0$ and $L = 1$ for this case). The expansion coefficients
   $H_k$ are obtained via the discrete sine transform (\ref{18-1-11-a2}) with
   number of sampling point $N = 50$. The reconstruction formula is given by $h
-  (x) = \frac{2}{N} \sum_{k = 1}^{N - 1} H_k \sin( \frac{k \pi x}{2 L}
+  (x) = \frac{2}{N} \sum_{k = 1}^{N - 1} H_k \sin ( \frac{k \pi x}{2 L}
   )$.}
 \end{figure}
 
@@ -1403,7 +1144,234 @@ algorithm requires a total of $N (r_1 + r_2)$ operations.
 
 \
 
-\
+\section{Fourier series$\rightarrow$Fourier transformation}
+
+\subsection{From discrete spectrum to continuous spectrum}
+
+The Fourier series discussed above indicates that a periodic function is
+composed of discrete spectrum and is written as
+\begin{equation}
+  \label{9-27-e14} h (t) = \sum_{n = - \infty}^{\infty} c_n \exp \left( i
+  \frac{n 2 \pi}{T} t \right) ,
+\end{equation}
+where $T$ is the period of $h (t)$. The $n$th term of the above Fourier series
+corresponds to a harmonic of frequency
+\begin{equation}
+  \label{9-27-e10} f_n = \frac{n}{T},
+\end{equation}
+and the expansion coefficient $c_n$ is given by
+\begin{equation}
+  \label{9-28-2} c_n = \frac{1}{T} \int_{- T / 2}^{T / 2} h (t) \exp \left( -
+  i \frac{n 2 \pi}{T} t \right) d t.
+\end{equation}
+In terms of $f_n$, the coefficient in Eq. (\ref{9-28-2}) is written
+\begin{equation}
+  \label{9-27-e11} c_n = c (f_n) = \frac{1}{T} \int_{- T / 2}^{T / 2} h (t)
+  \exp (- i 2 \pi f_n t)  d t
+\end{equation}
+In terms of $f_n$, the Fourier series in Eq. (\ref{9-27-e14}) is written
+\begin{eqnarray}
+  h (t) & = & \sum_{n = - \infty}^{\infty} c (f_n) e^{i 2 \pi t f_n}
+  \nonumber\\
+  & = & T \sum_{n = - \infty}^{\infty} c (f_n) e^{i 2 \pi t f_n} \frac{1}{T} 
+  \label{9-28-5}
+\end{eqnarray}
+Note that $c (f_n) e^{i 2 \pi t f_n}$ is the value of function $c (f) e^{i 2
+\pi t f}$ at $f = f_n$. Further note that the interval between $f_n$ and $f_{n
++ 1}$ is $1 / T$. Thus the above summation is the rectangular formula for
+numerically calculating the integration $\int_{- \infty}^{\infty} c (f) e^{i 2
+\pi t f} d f$. Therefore, equation (\ref{9-28-5}) can be approximately written
+as
+\begin{equation}
+  h (t) \approx T \int_{- \infty}^{\infty} c (f) e^{i 2 \pi t f} d f,
+\end{equation}
+which will become exact when the interval $1 / T \rightarrow 0$, i.e., $T
+\rightarrow \infty$. Therefore, for the case $T \rightarrow \infty$, the
+Fourier series exactly becomes
+\begin{equation}
+  \label{9-28-6} h (t) = T \int_{- \infty}^{\infty} c (f) e^{i 2 \pi t f} d f,
+\end{equation}
+where $c (f)$ is given by Eq. (\ref{9-27-e11}), i.e.,
+\begin{equation}
+  \label{9-28-7} c (f) = \frac{1}{T} \int_{- T / 2}^{T / 2} h (t) e^{- i 2 \pi
+  t f} d t.
+\end{equation}
+Note that the function $h (t)$ given in Eq. (\ref{9-28-6}) is proportional to
+$T c (f)$ while the function $c (f)$ given in Eq. (\ref{9-28-7}) is
+proportional to $1 / T$. Since $T \rightarrow \infty$, it is desired to
+eliminate the $T$ and $1 / T$ factors in Eqs. (\ref{9-28-6}) and
+(\ref{9-28-7}), which can be easily achieved by defining a new function
+\begin{equation}
+  H (f) = T c (f) .
+\end{equation}
+Then equations (\ref{9-28-6}) and (\ref{9-28-7}) are written as
+\begin{equation}
+  \label{9-28-10} h (t) = \int_{- \infty}^{\infty} H (f) e^{i 2 \pi t f} d f,
+\end{equation}
+\begin{equation}
+  \label{9-28-11} H (f) = \int_{- T / 2}^{T / 2} h (t) e^{- i 2 \pi t f} d t =
+  \int_{- \infty}^{\infty} h (t) e^{- i 2 \pi t f} d t,
+\end{equation}
+Equations (\ref{9-28-10}) and (\ref{9-28-11}) are the Fourier transformation
+pairs discussed in the next section.
+
+\subsection{Fourier transformation}
+
+As discussed above, the Fourier transformation of a function $h (t)$ is given
+by
+\begin{equation}
+  \label{10-3-e1} H (f) = \int_{- \infty}^{\infty} h (t) e^{i 2 \pi f t} d t.
+\end{equation}
+Once the Fourier transformation $H (f)$ is known, the original function $h
+(t)$ can be reconstructed via
+\begin{equation}
+  \label{10-11-3} h (t) = \int_{- \infty}^{\infty} H (f) e^{- i 2 \pi f t} d
+  f.
+\end{equation}
+
+
+[Note that the signs in the exponential of Eq. (\ref{9-28-10}) and
+(\ref{9-28-11}) are opposite. Which one should be minus or positive is
+actually a matter of convention because a trivial variable substitution $f' =
+- f$ can change the sign between minus and positive. Proof. In terms of $f'$,
+Eq. \ (\ref{10-11-3}) is written
+\begin{eqnarray}
+  h (t) & = & \int_{\infty}^{- \infty} H (- f') e^{i 2 \pi t f'} d (- f'),
+  \nonumber\\
+  & = & \int_{- \infty}^{\infty} H (- f') e^{i 2 \pi t f'} d f', 
+  \label{9-28-23}
+\end{eqnarray}
+Define
+\begin{eqnarray}
+  \overline{H} (f') & \equiv & H (- f') \nonumber\\
+  & = & \int_{- \infty}^{\infty} h (t) e^{- i 2 \pi t f'} d t. 
+  \label{9-28-20}
+\end{eqnarray}
+Then Eq. (\ref{9-28-23}) is written
+\begin{equation}
+  \label{9-28-21} h (t) = \int_{- \infty}^{\infty} \overline{H} (f') e^{i 2
+  \pi t f'} d f'
+\end{equation}
+The signs in the exponential of Eqs. (\ref{9-28-20}) and (\ref{9-28-21}) are
+opposite to Eqs. (\ref{10-3-e1}) and (\ref{10-11-3}), respectively.]
+
+[Some physicists prefer to use the angular frequency $\omega \equiv 2 \pi f$
+rather than the frequency $f$ to represent the Fourier transformation. Using
+$\omega$, equations. (\ref{10-3-e1}) and (\ref{10-11-3}) are written,
+respectively, as
+\begin{equation}
+  H (\omega) = \int_{- \infty}^{\infty} h (t) e^{i \omega t} d t,
+\end{equation}
+\begin{equation}
+  h (t) = \frac{1}{2 \pi} \int_{- \infty}^{\infty} H (\omega) e^{- i \omega t}
+  d \omega,
+\end{equation}
+where we see that the asymmetry between the Fourier transformation and its
+inverse is more severe in this representation: besides the opposite-sign in
+the exponents, there is also a $1 / 2 \pi$ factor difference between the
+Fourier transformation and its inverse. Whether the $1 / 2 \pi$ factor appears
+at the forward transformation or inverse one is actually a matter of
+convention. The only requirement is that the product of the two factors in the
+forward and inverse transformation is equal to $1 / 2 \pi$. To obtain a more
+symmetric pair, one can adopt a factor $1 / \sqrt{2 \pi}$ at both the forward
+and inverse transformation. The representation in Eqs. (\ref{10-3-e1}) and
+(\ref{10-11-3}) is adopted in this note. But we should know how to change to
+the $\omega$ representation when needed.]
+
+[
+\begin{equation}
+  \int_{- \infty}^{\infty} \frac{d h (t)}{d t} e^{- i 2 \pi t f} d t = h (t)
+  e^{- i 2 \pi t f} |_{- \infty}^{+ \infty} \nobracket - \int_{-
+  \infty}^{\infty} h (t) \frac{d e^{- i 2 \pi t f}}{d t} d t = - \int_{-
+  \infty}^{\infty} h (t) \frac{d e^{- i 2 \pi t f}}{d t} d t = i 2 \pi f
+  \int_{- \infty}^{\infty} h (t) e^{- i 2 \pi t f} d t = i 2 \pi f H (f)
+\end{equation}
+]
+
+\subsection{Numerical computation of Fourier transformation}
+
+Next, consider how to numerically compute the Fourier transformation of a
+function $h (t)$. A simple way is to use the rectangle formula to approximate
+the integration in Eq. (\ref{10-3-e1}), i.e.,
+\begin{equation}
+  \label{10-3-e2} H (f) \approx \Delta \sum_{j = - \infty}^{\infty} h_j \exp
+  (i 2 \pi f j \Delta),
+\end{equation}
+where $h_j = h (t_j)$ and $t_j = j \Delta$ with $j = \ldots, - 2, - 1, 0, 1,
+2, \ldots$. Note Eq. (\ref{10-3-e2}) is an approximation, which will become
+exact if $\Delta \rightarrow 0$. In practice, we can sample $h (t)$ only with
+a nonzero $\Delta$. Therefore Eq. (\ref{10-3-e2}) is usually an approximation.
+Do we have some rules to choose a suitable $\Delta$ so that Eq.
+(\ref{10-3-e2}) can become a good approximation or even an exact relation?
+This important question is answered by the sampling theorem, which sates that
+a suitable $\Delta$ to make Eq. (\ref{10-3-e2}) exact is given by $\Delta
+\leqslant 1 / (2 f_c)$, where $f_c$ is the largest frequency contained in $h
+(t)$ (i.e., $H (f) = 0$ for $|f| > f_c$).
+
+\subsection{Sampling theorem}
+
+In computational and experimental work, we know only a list of values $h
+(t_j)$ sampled at discrete values of $t_j$. Let us suppose that $h (t)$ is
+sampled with uniform interval between consecutive points:
+\begin{equation}
+  h_j = h (t_j), t_j = j \Delta, j = \ldots, - 2, - 1, 0, 1, 2, \ldots
+\end{equation}
+The sampling rate is defined by $f_s = 1 / \Delta$. The sampling theorem
+states that: If the Fourier transformation of function $h (t)$, $H (f)$, has
+the following property
+\begin{equation}
+  \label{8-28-3} H (f) = 0 \tmop{for} |f| \geqslant f_c
+\end{equation}
+then sampling $h (t)$ with the sampling rate $f_s \geqslant 2 f_c$ (i.e.,
+$\Delta \leqslant 1 / (2 f_c)$) will completely determine $h (t)$, which is
+given explicitly by the formula
+\begin{equation}
+  \label{8-28-4} h (t) = \Delta \sum_{j = - \infty}^{\infty} h_j \frac{\sin [2
+  \pi f_c (t - j \Delta)]}{\pi (t - j \Delta)} .
+\end{equation}
+We will not concern us here with the proof of the sampling theorem and simply
+start working with Eq. (\ref{8-28-4}) to derive the concrete expression for
+the Fourier transformation of $h (t)$. Substituting the expression
+(\ref{8-28-4}) for $h (t)$ into the Fourier transformation (\ref{10-3-e1}), we
+obtain the explicit form of the Fourier transformation of $h (t)$:
+\begin{eqnarray}
+  H (f) & \equiv & \int_{- \infty}^{\infty} h (t) \exp (i 2 \pi f t) d t,
+  \nonumber\\
+  & = & \Delta \sum_{j = - \infty}^{\infty} h_j \int_{- \infty}^{\infty}
+  \frac{\sin [2 \pi f_c (t - j \Delta)]}{\pi (t - j \Delta)} \exp (i 2 \pi f
+  t) d t, \nonumber\\
+  & = & \Delta \sum_{j = - \infty}^{\infty} h_j \exp (i 2 \pi f j \Delta)
+  \int_{- \infty}^{\infty} \frac{\sin [2 \pi f_c (t - j \Delta)]}{\pi (t - j
+  \Delta)} \exp [i 2 \pi f (t - j \Delta)] d t, \nonumber\\
+  & = & \Delta \sum_{j = - \infty}^{\infty} h_j \exp (i 2 \pi f j \Delta)
+  \int_{- \infty}^{\infty} \frac{\sin [2 \pi f_c \tau]}{\pi \tau} \exp [i 2
+  \pi f \tau] d \tau .  \label{8-28-1}
+\end{eqnarray}
+With the help of Wolfram Mathematica, the integration in Eq. (\ref{8-28-1}) is
+evaluated analytically, giving
+\begin{equation}
+  \int_{- \infty}^{\infty} \frac{\sin [2 \pi f_c \tau]}{\pi \tau} \exp (i 2
+  \pi f \tau) d \tau = \left\{ \begin{array}{l}
+    0 \tmop{For} |f| > f_c\\
+    1 \tmop{For} |f| < f_c
+  \end{array} . \right.
+\end{equation}
+Using this, \ Eq. (\ref{8-28-1}) is written
+\begin{equation}
+  \label{8-28-5} H (f) = \left\{ \begin{array}{l}
+    0 \tmop{for} |f| > f_c\\
+    \Delta \sum_{j = - \infty}^{\infty} h_j \exp (i 2 \pi f j \Delta)
+    \tmop{for} |f| \leqslant f_c
+  \end{array}, \right.
+\end{equation}
+which shows that $H (f) = 0$ for $|f| > f_c$, which is consistent with the
+assumption of sampling theorem, i.e., $H (f)$ has the property given in Eq.
+(\ref{8-28-3}). The second line of Eq. (\ref{8-28-5}) is identical to Eq.
+(\ref{10-3-e2}) except that Eq. (\ref{8-28-5}) in this case is exact while Eq.
+(\ref{10-3-e2}) is only approximate. In other words, if $\Delta \leqslant 1 /
+(2 f_c)$, then the Fourier transformation is exactly given by Eq.
+(\ref{8-28-5}), where $f_c$ is the largest frequency contained in $h (t)$
+(i.e., $H (f) = 0$ for $|f| > f_c$).
 
 \section{Multi-dimensional Fourier series}
 

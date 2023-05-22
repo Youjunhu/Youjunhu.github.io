@@ -4,74 +4,408 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Evaluate the reconstructed function at discrete points</title> 
+<head><title>Deﬁne DST via DFT</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 723--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 756--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu13.html" >next</a>] [<a 
 href="fourier_analysissu11.html" >prev</a>] [<a 
 href="fourier_analysissu11.html#tailfourier_analysissu11.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu12.html">tail</a>] [<a 
-href="fourier_analysisse5.html#fourier_analysissu12.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">5.2   </span> <a 
- id="x18-170005.2"></a>Evaluate the reconstructed function at discrete points</h4>
-<!--l. 725--><p class="noindent" >Evaluate <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">t</span>) given by Eq. (<a 
-href="fourier_analysissu11.html#x17-16004r74">74<!--tex4ht:ref: 11-9-1 --></a>) at the discrete point <span 
-class="cmmi-10">t </span>= <span 
-class="cmmi-10">j</span>Δ, yielding </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="fourier_analysis76x.png" alt="             ⌊N∑∕2      (       )    N∑−1       (             )⌋
-h(jΔ )  =  -1 ⌈   Hn exp  − in2πj +      Hn exp  − i(n−-N-)2πj ⌉ .
-          N   n=0           N      n=N∕2              N
-             ⌊N∕2      (       )    N−1       (        )⌋
-          -1 ⌈∑            n2πj-    ∑             n2πj- ⌉
-       =  N      Hn exp  − i N   +      Hn exp  − i N     .
-             [n=0                  n=N∕2         ]
-          -1  N∑−1      (   n2πj-)
-       =  N      Hn exp  − i N   + HN ∕2exp(− iπj) .         (75)
-              n=0
-" class="math-display"  /></center>
-</div>Drop the blue term (which is negligible if <span 
-class="cmmi-10">h </span>satisﬁes the sampling theorem), then
-<span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">j</span>Δ) is written as
-   <table 
-class="equation"><tr><td><a 
- id="x18-17002r76"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis77x.png" alt="           N∑−1      (        )
-h (jΔ ) ≈-1    Hn exp  − in2πj .
-        N  n=0           N
-" class="math-display"  /></center></td><td class="equation-label">(76)</td></tr></table>
+href="fourier_analysisse6.html#fourier_analysissu12.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">6.2   </span> <a 
+ id="x19-180006.2"></a>Deﬁne DST via DFT</h4>
+<!--l. 758--><p class="noindent" >Let us introduce the Discrete Sine Transform (DST) by odd extending a given real
+number sequence and then using the DFT of the extended data to deﬁne DST. There
+are several slightly diﬀerent way of odd extending a given sequence and thus diﬀerent
+types of DST. Given a <span 
+class="cmmi-10">n </span>= 3 real number sequence (<span 
+class="cmmi-10">a,b,c</span>), one frequently adopted
+odd extension is (0<span 
+class="cmmi-10">,a,b,c,</span>0<span 
+class="cmmi-10">,</span><span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">a,</span><span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">b,</span><span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">c,</span>0). This odd extension is illustrated in Fig.
+<a 
+href="#x19-180016">6<!--tex4ht:ref: 18-1-11-e1 --></a>.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
                                                                   
 
                                                                   
-<!--l. 742--><p class="nopar" >
-The right-hand side of Eq. (<a 
-href="#x18-17002r76">76<!--tex4ht:ref: 11-9-3 --></a>) turns out to be the inverse DFT discussed in Sec.
 <a 
-href="fourier_analysissu13.html#x19-180005.3">5.3<!--tex4ht:ref: 11-9-2 --></a>.
+ id="x19-180016"></a>
+                                                                  
+
+                                                                  
+<!--l. 766--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/odd_extension/t-1.png" alt="pict"  
+ width="313.17pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 6: </span><span  
+class="content">A frequently used way of deﬁning the odd extension of a sequence of
+real numbers . The black points are original data (with index 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,n</span><span 
+class="cmsy-10">−</span>1). The
+blue points are newly introduced, together with the original points, generating
+an odd periodic sequence of numbers with index 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,.,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span>, where <span 
+class="cmmi-10">N </span>= 2(<span 
+class="cmmi-10">n</span>+1).
+The points used in the DFT are 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1. The period of these data is 2<span 
+class="cmmi-10">L</span>
+with <span 
+class="cmmi-10">L </span>= (<span 
+class="cmmi-10">n </span>+ 1)Δ, where Δ is the spacing between points.</span></div><!--tex4ht:label?: x19-180016 -->
+                                                                  
+
+                                                                  
+   </div><hr class="endfigure" />
+<!--l. 776--><p class="indent" >   As illustrated in Fig. <a 
+href="#x19-180016">6<!--tex4ht:ref: 18-1-11-e1 --></a>, after the old extension, the total number of points is
+<span 
+class="cmmi-10">N </span>+ 1 with <span 
+class="cmmi-10">N </span>= 2(<span 
+class="cmmi-10">n </span>+ 1). Then DFT use the <span 
+class="cmmi-10">N </span>points with index <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1
+as input. Since the input are real and odd symmetric sequence, the output of this
+DFT is an odd sequence of purely imaginary numbers. Next, let us prove this. The
+DFT in this case is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18002r60"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis63x.png" alt="     N∑−1      (  2πkj )
+Hk =     h′jexp  − i-N-- ,
+      j=0
+" class="math-display"  /></center></td><td class="equation-label">(60)</td></tr></table>
+<!--l. 784--><p class="nopar" >
+where <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>is the odd extension of the original data <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>. For <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,n</span>, the relation
+between <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>and <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18003r61"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis64x.png" alt=" ′
+hj = hj− 1,
+" class="math-display"  /></center></td><td class="equation-label">(61)</td></tr></table>
+<!--l. 789--><p class="nopar" >
+For <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">n </span>+ 2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1, the relation is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18004r62"></a>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="fourier_analysis65x.png" alt=" ′
+hj= − h2n+1− j.
+" class="math-display"  /></center></td><td class="equation-label">(62)</td></tr></table>
+<!--l. 793--><p class="nopar" >
+Noting that <span 
+class="cmmi-10">h</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmsy-10">′ </span>= 0 and <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub><span 
+class="cmsy-10">′ </span>= 0, then expression (<a 
+href="#x19-18002r60">60<!--tex4ht:ref: 18-1-12-a1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18005r63"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis66x.png" alt="         ∑n      (  2πi  )       N∑−1       (  2πi  )
+Hk = 0 +    h′jexp  −-N-kj  + 0+      h′jexp  − N--kj .
+         j=1                     j=n+2
+" class="math-display"  /></center></td><td class="equation-label">(63)</td></tr></table>
+<!--l. 800--><p class="nopar" >
+Using <span 
+class="cmmi-10">N </span>= 2(<span 
+class="cmmi-10">n </span>+ 1), the above expression is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18006r64"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis67x.png" alt="      n      (           )   2n+1      (          )
+H  = ∑  h′exp  − --πi--kj +  ∑   h′ exp  − --πi--kj
+ k   j=1 j       (n + 1)     j=n+2 j       (n+ 1)
+" class="math-display"  /></center></td><td class="equation-label">(64)</td></tr></table>
+                                                                  
+
+                                                                  
+<!--l. 806--><p class="nopar" >
+Using the relations (<a 
+href="#x19-18003r61">61<!--tex4ht:ref: 18-1-12-a2 --></a>) and (<a 
+href="#x19-18004r62">62<!--tex4ht:ref: 18-1-12-a3 --></a>) to replace <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>by <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub>, the above expression is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18007r65"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis68x.png" alt="                (          )                  (          )
+     ∑n            --πi--      2∑n+1              --πi--
+Hk =    hj−1exp  − (n + 1)kj  −      h2n+1−j exp  − (n+ 1)kj  .
+     j=1                      j=n+2
+" class="math-display"  /></center></td><td class="equation-label">(65)</td></tr></table>
+<!--l. 813--><p class="nopar" >
+Change the deﬁnition of the dummy index <span 
+class="cmmi-10">j </span>in the above summation to
+make it in the conventional range [0 : <span 
+class="cmmi-10">n </span><span 
+class="cmsy-10">− </span>1], the above expression is written
+as
+</p>
+   <table 
+class="equation-star"><tr><td>
+<span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span></sub> = <span 
+class="cmex-10">∑</span>
+  <sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">=0</span></sub><sup><span 
+class="cmmi-7">n</span><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup><span 
+class="cmmi-10">h</span><sub>
+<span 
+class="cmmi-7">j</span></sub> exp<img 
+src="fourier_analysis69x.png" alt="(               )
+ − --πi--k(j + 1)
+   (n+ 1)"  class="left" align="middle" /><span 
+class="cmsy-10">−</span><span 
+class="cmex-10">∑</span>
+  <sub><span 
+class="cmmi-7">j</span><span 
+class="cmr-7">=0</span></sub><sup><span 
+class="cmmi-7">n</span><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup><span 
+class="cmmi-10">h</span><sub>
+<span 
+class="cmmi-7">n</span><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span><span 
+class="cmsy-7">−</span><span 
+class="cmmi-7">j</span></sub> exp<img 
+src="fourier_analysis70x.png" alt="(                   )
+  − --πi--k(j + n+ 2)
+    (n + 1)"  class="left" align="middle" /><span 
+class="cmmi-10">.</span>
+</td></tr></table>
+<!--l. 818--><p class="nopar" >
+Deﬁning <span 
+class="cmmi-10">j</span><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">n </span><span 
+class="cmsy-10">− </span>1 <span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">j </span>to replace the dummy index in the second summation, the
+above expression is written as </p><div class="eqnarray">
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="fourier_analysis71x.png" alt="        n∑−1     (               )    ∑0        (                    )
+Hk  =      hjexp  −--πi--k (j + 1)  −       hj′ exp − --πi--k(2n + 1− j′) .
+        j=0         (n + 1)          j′=n−1          (n + 1)
+        n∑−1     (               )   n∑−1      (                   )
+    =      hjexp  −--πi--k (j + 1)  −    hjexp  − --πi--k(2n+ 1− j)  .
+        j=0         (n + 1)          j=0         (n + 1)
+        n∑−1     (               )   n∑−1      (                )
+    =      hjexp  −--πi--k (j + 1)  −    hjexp  − --πi--k(− j − 1) .
+        j=0         (n + 1)          j=0         (n + 1)
+           n∑−1     (              )
+    =   − 2i  hjsin  --π---k(j + 1) ,                              (66)
+           j=0       (n + 1)
+" class="math-display"  /><a 
+ id="x19-18008r66"></a></center>
+</div>which is a purely imaginary number. Expression (<a 
+href="#x19-18008r66">66<!--tex4ht:ref: 18-1-12-a6 --></a>) also indicates <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span></sub> has the
+following symmetry
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18009r67"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis72x.png" alt="HN −k = − Hk,
+" class="math-display"  /></center></td><td class="equation-label">(67)</td></tr></table>
+<!--l. 838--><p class="nopar" >
+i.e. odd symmetry. Therefore only half of the data for <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span></sub> with <span 
+class="cmmi-10">k </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1 need
+to be stored, namely <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span></sub> with <span 
+class="cmmi-10">k </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N∕</span>2. Expression (<a 
+href="#x19-18008r66">66<!--tex4ht:ref: 18-1-12-a6 --></a>) indicates that <span 
+class="cmmi-10">H</span><sub><span 
+class="cmr-7">0</span></sub> and
+<span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">N∕</span><span 
+class="cmr-7">2</span></sub> are deﬁnitely zero and thus do not need to be stored. Then the remaining data
+to be stored are <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span></sub> with <span 
+class="cmmi-10">k </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">N∕</span>2 <span 
+class="cmsy-10">− </span>1, i.e. <span 
+class="cmmi-10">k </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,n</span>. Following the
+convention of making the index of <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span></sub> in the range [0 : <span 
+class="cmmi-10">n</span><span 
+class="cmsy-10">− </span>1], we deﬁne <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span></sub><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">k</span><span 
+class="cmr-7">+1</span></sub>.
+Then
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18010r68"></a>
+                                                                  
+
+                                                                  
+   <center class="math-display" >
+<img 
+src="fourier_analysis73x.png" alt="         n− 1     (                  )
+H ′= − 2i∑  hjsin  ---π--(k +1)(j + 1)
+  k      j=0       (n +1)
+" class="math-display"  /></center></td><td class="equation-label">(68)</td></tr></table>
+<!--l. 849--><p class="nopar" >
+with <span 
+class="cmmi-10">k </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">n</span><span 
+class="cmsy-10">− </span>1, which is the index that we prefer. Finally, the so-called type-I
+Discrete Sine Transform (DST-I) is deﬁned based on Eq. (<a 
+href="#x19-18010r68">68<!--tex4ht:ref: 18-1-12-a10 --></a>) via
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x19-18011r69"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis74x.png" alt="     H ′    n−∑ 1     (   π              )
+Yk = −-ki = 2   hjsin  (n-+1)(k + 1)(j + 1) ,
+            j=0
+" class="math-display"  /></center></td><td class="equation-label">(69)</td></tr></table>
+<!--l. 856--><p class="nopar" >
+with <span 
+class="cmmi-10">k </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,n </span><span 
+class="cmsy-10">− </span>1. This is the RODFT00 transform deﬁned in the FFTW
+library.
                                                                   
 
                                                                   
 </p>
-   <!--l. 746--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 860--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu13.html" >next</a>] [<a 
 href="fourier_analysissu11.html" >prev</a>] [<a 
 href="fourier_analysissu11.html#tailfourier_analysissu11.html" >prev-tail</a>] [<a 
 href="fourier_analysissu12.html" >front</a>] [<a 
-href="fourier_analysisse5.html#fourier_analysissu12.html" >up</a>] </p></div>
-<!--l. 746--><p class="indent" >   <a 
+href="fourier_analysisse6.html#fourier_analysissu12.html" >up</a>] </p></div>
+<!--l. 860--><p class="indent" >   <a 
  id="tailfourier_analysissu12.html"></a> </p> 
 </body></html> 

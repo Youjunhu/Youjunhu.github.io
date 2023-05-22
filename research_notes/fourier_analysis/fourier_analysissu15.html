@@ -4,137 +4,42 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Deﬁnition of the Discrete Sine Transform (DST)</title> 
+<head><title>Nonlinear process</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,3,charset=utf-8,html --> 
 <meta name="src" content="fourier_analysis.tex" /> 
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 965--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 949--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu16.html" >next</a>] [<a 
 href="#tailfourier_analysissu15.html">tail</a>] [<a 
 href="fourier_analysisse7.html#fourier_analysissu15.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
- id="x23-220007.1"></a>Deﬁnition of the Discrete Sine Transform (DST)</h4>
-<!--l. 967--><p class="noindent" >Figure (<a 
-href="#x23-220015">5<!--tex4ht:ref: 18-8-15-p3 --></a>) illustrates the grids used in the following discussion.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                  
-
-                                                                  
-<a 
- id="x23-220015"></a>
-                                                                  
-
-                                                                  
-<!--l. 971--><p class="noindent" > <img 
-src="my_figure/home/yj/theory/figures/sin_expansion/grids-2.png" alt="pict"  
- width="283.0575pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 5:  </span><span  
-class="content">Grid  indexes  start  from  0  and  ends  at  <span 
-class="cmmi-10">N</span>.  <span 
-class="cmmi-10">h</span><sub><span 
-class="cmr-7">0</span></sub>  =  <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">N</span></sub>  =  0,  i.e.,
-<span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + <span 
-class="cmmi-10">L</span>) = 0.</span></div><!--tex4ht:label?: x23-220015 -->
-                                                                  
-
-                                                                  
-   </div><hr class="endfigure" />
-<!--l. 976--><p class="indent" >   There are several slightly diﬀerent types of Discrete Sine Transforms (DST). One
-form I saw in W. Press’s numerical recipe book is given by
+ id="x23-230007.1"></a>Nonlinear process</h4>
+<!--l. 951--><p class="noindent" >The trigonometric identity
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x23-22002r87"></a>
+ id="x23-23001r78"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis91x.png" alt="     N∑−1     (kπj )
-Hk =     hjsin  -N-- ,
-      j=0
-" class="math-display"  /></center></td><td class="equation-label">(87)</td></tr></table>
-<!--l. 981--><p class="nopar" >
-where <span 
-class="cmmi-10">h</span><sub><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">N</span></sub> = 0 are assumed. This form can be formally obtained by replacing
-DFT’s exponential function exp(2<span 
-class="cmmi-10">πikj∕N</span>) by sin(<span 
-class="cmmi-10">πkj∕N</span>). The inverse sine
-transformation is given by (I did not derive this, but had numerically veriﬁed that
-this transform recovers the original data if applied after the sine transform (<a 
-href="#x23-22002r87">87<!--tex4ht:ref: 18-1-11-a2 --></a>) (code
-at /home/yj/project_new/test_space/sine_expansion/t2.f90))
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x23-22003r88"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis92x.png" alt="       N−1      (    )
-h =  2-∑   H sin  kπj- ,
- j   N k=0  k     N
-" class="math-display"  /></center></td><td class="equation-label">(88)</td></tr></table>
-<!--l. 993--><p class="nopar" >
-which is identical with the forward sine transformation except for the normalization
-factor 2<span 
-class="cmmi-10">∕N</span>. (The elements with index of zero can also be excluded from the
-summation (<a 
-href="#x23-22002r87">87<!--tex4ht:ref: 18-1-11-a2 --></a>) and (<a 
-href="#x23-22003r88">88<!--tex4ht:ref: 18-8-15-p1 --></a>) since these elements are zero). Replacing <span 
-class="cmmi-10">j∕N </span>in Eq. (<a 
-href="#x23-22003r88">88<!--tex4ht:ref: 18-8-15-p1 --></a>)
-by (<span 
-class="cmmi-10">x </span><span 
-class="cmsy-10">− </span><span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>)<span 
-class="cmmi-10">∕L </span>, we obtain the reconstructing function
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x23-22004r89"></a>
-                                                                  
-
-                                                                  
-   <center class="math-display" >
-<img 
-src="fourier_analysis93x.png" alt="         N−1      (          )
-h(x) = 2-∑  Hk sin  kπ(x−-x0)- .
-       N k=0           L
-" class="math-display"  /></center></td><td class="equation-label">(89)</td></tr></table>
-<!--l. 1002--><p class="nopar" >
-</p><!--l. 1005--><p class="indent" >    
-</p><!--l. 1007--><p class="indent" >   We need a fast method of computing the above DST. All fast methods for this
-ﬁnally need to make use of the fast method used in the computation of DFT. To
-conveniently use the fast method of DFT, we need to deﬁne the DST in a way that
-the DST can be easily connected to the DFT so that the DFT fast method can be
-easily applied to compute the DST. A standard way of making this easy is to deﬁne
-the DST via the DFT of an odd extension of the original data. Next, let us discuss
-this.
+src="fourier_analysis85x.png" alt="2cos2(ωt) = 1+ cos(2ωt),
+" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
+<!--l. 954--><p class="nopar" >
+indicates that nonlinear interaction between two waves of the same frequency
+generates zero frequency component and its second harmonic. The process of
+generating of second-harmonic is also called frequency doubling.
                                                                   
 
                                                                   
 </p>
-   <!--l. 1015--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 959--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu16.html" >next</a>] [<a 
 href="fourier_analysissu15.html" >front</a>] [<a 
 href="fourier_analysisse7.html#fourier_analysissu15.html" >up</a>] </p></div>
-<!--l. 1015--><p class="indent" >   <a 
+<!--l. 959--><p class="indent" >   <a 
  id="tailfourier_analysissu15.html"></a> </p> 
 </body></html> 
