@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Neural network</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,2,charset=utf-8,html --> 
+<meta name="src" content="machine_learning.tex" /> 
+<link rel="stylesheet" type="text/css" href="machine_learning.css" /> 
+</head><body 
+>
+   <!--l. 60--><div class="crosslinks"><p class="noindent">[<a 
+href="machine_learningli1.html" >next</a>] [<a 
+href="machine_learningse1.html" >prev</a>] [<a 
+href="machine_learningse1.html#tailmachine_learningse1.html" >prev-tail</a>] [<a 
+href="#tailmachine_learningse2.html">tail</a>] [<a 
+href="machine_learning.html#machine_learningse2.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x3-20002"></a>Neural network</h3>
+<!--l. 62--><p class="noindent" >Neural networks consists of multiple layers of interconnected nodes (neurons), each having a weight for
+a connection, a bias and activation function. Each layer build upon the previous layer. This progression
+of computations through the network is called forward propagation. Another process called
+backpropagation uses algorithms which moves backwards through the layers to eﬃciently compute the
+partial derivatives of the loss function with respect to the weights and biases. Combining
+the forward and backward propagation, we can calculate errors in predictions and then
+adjusts the weights and biases using the gradient descent method. This process is called
+training.
+</p><!--l. 72--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x3-30002.1"></a> Node (neuron or unit), weight, bias, and activation</h4>
+<!--l. 74--><p class="noindent" >As is shown in Fig. <a 
+href="#x3-30011">1<!--tex4ht:ref: 22-3-13-a1 --></a>, we use <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> to denote the weight for the connection from the <span 
+class="cmmi-10">k</span><sup><span 
+class="cmr-7">th</span></sup> neuron in the
+(<span 
+class="cmmi-10">l </span><span 
+class="cmsy-10">− </span>1)<sup><span 
+class="cmr-7">th</span></sup> layer to the <span 
+class="cmmi-10">j</span><sup><span 
+class="cmr-7">th</span></sup> neuron in the <span 
+class="cmmi-10">l</span><sup><span 
+class="cmr-7">th</span></sup> layer. Use <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> to denote the bias of the <span 
+class="cmmi-10">j</span><sup><span 
+class="cmr-7">th</span></sup> neuron in the <span 
+class="cmmi-10">l</span><sup><span 
+class="cmr-7">th</span></sup>
+layer.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+
+<a 
+ id="x3-30011"></a>
+
+<!--l. 81--><p class="noindent" > <img 
+src="machine_learning-1-.png" alt="PIC"  
+width="266" height="170"  />
+<br /> </p><div class="caption" 
+><span class="id">Figure 1: </span><span  
+class="content">Deﬁnition of layers, neurons, weights, and biases in a neural network. The <span 
+class="cmmi-10">j</span><sup><span 
+class="cmr-7">th</span></sup> neuron
+in the <span 
+class="cmmi-10">l</span><sup><span 
+class="cmr-7">th</span></sup> layer is referred to as neuron (<span 
+class="cmmi-10">l,j</span>)</span></div><!--tex4ht:label?: x3-30011 -->
+
+   </div><hr class="endfigure" />
+<!--l. 87--><p class="indent" >    
+</p><!--l. 89--><p class="indent" >   We use <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> to denote the output (activation) of the <span 
+class="cmmi-10">j</span><sup><span 
+class="cmr-7">th</span></sup> neuron in <span 
+class="cmmi-10">l</span><sup><span 
+class="cmr-7">th</span></sup> layer. A neural network model
+assumes that <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> is related to the <span 
+class="cmmi-10">a</span><sup><span 
+class="cmmi-7">l</span><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup> (output of the previous layer) via
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-3002r1"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning0x.png" alt="      (              )
+ l     ∑    l l−1   l
+aj = σ    w jkak  + bj  ,
+        k
+" class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
+<!--l. 95--><p class="nopar" >
+where the summation is over all neurons in the (<span 
+class="cmmi-10">l </span><span 
+class="cmsy-10">− </span>1)<sup><span 
+class="cmr-7">th</span></sup> layer and <span 
+class="cmmi-10">σ </span>is a function called activation
+function which can take various forms, e.g., step function,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-3003r2"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning1x.png" alt="      { 1ifz ≥ 0
+σ(z) =  0  else  ,
+" class="math-display"  /></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 104--><p class="nopar" >
+rectiﬁed linear unit (ReLU),
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-3004r3"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning2x.png" alt="σ (z) = max(0,z),
+" class="math-display"  /></center></td><td class="equation-label">(3)</td></tr></table>
+<!--l. 108--><p class="nopar" >
+and sigmoid function (“S”-shaped curve, also called logistic function)
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-3005r4"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning3x.png" alt="σ(z) =-----1-----.
+      1 + exp (− z)
+" class="math-display"  /></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 112--><p class="nopar" >
+Deﬁne <span 
+class="cmmi-10">z</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-3006r5"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning4x.png" alt="     ∑
+zlj =    wljkal−k1 + blj,
+      k
+" class="math-display"  /></center></td><td class="equation-label">(5)</td></tr></table>
+<!--l. 116--><p class="nopar" >
+which can be interpreted as an weighted input to the neuron (<span 
+class="cmmi-10">l,j</span>), then Eq. (<a 
+href="#x3-3002r1">1<!--tex4ht:ref: 22-3-9-e2 --></a>) is written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-3007r6"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning5x.png" alt="alj = σ (zlj).
+" class="math-display"  /></center></td><td class="equation-label">(6)</td></tr></table>
+<!--l. 121--><p class="nopar" >
+In matrix form, Eq. (<a 
+href="#x3-3006r5">5<!--tex4ht:ref: 22-3-9-1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-3008r7"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning6x.png" alt="zl = wlal−1 + bl,
+" class="math-display"  /></center></td><td class="equation-label">(7)</td></tr></table>
+<!--l. 125--><p class="nopar" >
+where <span 
+class="cmmi-10">w</span><sup><span 
+class="cmmi-7">l</span></sup> is a <span 
+class="cmmi-10">J </span><span 
+class="cmsy-10">× </span><span 
+class="cmmi-10">K </span>matrix, <span 
+class="cmmi-10">z</span><sup><span 
+class="cmmi-7">l</span></sup>  and <span 
+class="cmmi-10">b</span><sup><span 
+class="cmmi-7">l</span></sup> are column vectors of length <span 
+class="cmmi-10">J</span>, <span 
+class="cmmi-10">a</span><sup><span 
+class="cmmi-7">l</span><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup> is a column vector of
+length <span 
+class="cmmi-10">K</span>, where <span 
+class="cmmi-10">J </span>and <span 
+class="cmmi-10">K </span>are the number of neurons in the <span 
+class="cmmi-10">l</span><sup><span 
+class="cmr-7">th</span></sup> layer and (<span 
+class="cmmi-10">l </span><span 
+class="cmsy-10">− </span>1)<sup><span 
+class="cmr-7">th</span></sup> layer,
+respectively.
+</p><!--l. 131--><p class="indent" >   The input layer is where data inputs are provided, and the output layer is where the ﬁnal prediction
+is made. The input and output layers of a deep neural network are called visible layers. The layers
+between the input layer and output layer are called hidden layers. Note that the input layer is
+usually not considered as a layer of the network since it does not involve any computation. In
+tensorﬂow, layers refer to the computing layers (i.e., hidden layers and the output layer,
+not including the input layer). The activation function of each layer can be diﬀerent. The
+activation function of the output layer is often chosen as None, ReLU, logistic/tanh, and
+is usually diﬀerent from those used in the hidden layers. Here “None” means activation
+<span 
+class="cmmi-10">σ</span>(<span 
+class="cmmi-10">z</span>) = <span 
+class="cmmi-10">z</span>.
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x3-40002.2"></a>Loss function</h4>
+<!--l. 145--><p class="noindent" >Deﬁne a loss (cost, error) function by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-4001r8"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning7x.png" alt="C(w,b) ≡ 1-∑  ∥y(x)− aL∥2,
+         2n  x
+" class="math-display"  /></center></td><td class="equation-label">(8)</td></tr></table>
+<!--l. 148--><p class="nopar" >
+where <span 
+class="cmmi-10">w </span>and <span 
+class="cmmi-10">b </span>denotes the collection of all weights and biases in the network, <span 
+class="cmmi-10">n </span>is the total number of
+training examples <span 
+class="cmmi-10">x</span>, the summation is over all the training examples, <span 
+class="cmmi-10">y</span>(<span 
+class="cmmi-10">x</span>) is the desired output from
+the network (i.e., correct answer) when <span 
+class="cmmi-10">x </span>is the input, and <span 
+class="cmmi-10">a</span><sup><span 
+class="cmmi-7">L</span></sup> is the actual output from
+the output layer of the network and is a function of <span 
+class="cmmi-10">w,b</span>, and <span 
+class="cmmi-10">x</span>. Note that <span 
+class="cmmi-10">y </span>and <span 
+class="cmmi-10">a</span><sup><span 
+class="cmmi-7">L</span></sup> are
+vectors (with number of elements being the number of neurons in the output layer) and
+<span 
+class="cmsy-10">∥</span><span 
+class="cmmi-10">…</span><span 
+class="cmsy-10">∥ </span>denotes the vector norm. Explicitly writing out the vector norm, Eq. (<a 
+href="#x3-4001r8">8<!--tex4ht:ref: 22-3-9-e1 --></a>) is written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-4002r9"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning8x.png" alt="          1 ∑  N∑L
+C (w, b) ≡ 2n-     (yj(x)− aLj )2,
+             x j=1
+" class="math-display"  /></center></td><td class="equation-label">(9)</td></tr></table>
+<!--l. 160--><p class="nopar" >
+where <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">L</span></sub> is the number of neurons in the output layer.
+</p><!--l. 163--><p class="indent" >   The cost function is the average error of the approximate solution away from the desired exact
+solution. So the goal of a learning algorithm is to ﬁnd weights and biases that minimize the cost
+function. To minimize the cost function over (<span 
+class="cmmi-10">w,b</span>) using the gradient descent method, we need to
+compute the partial derivatives <span 
+class="cmmi-10">∂C∕∂w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> and <span 
+class="cmmi-10">∂C∕∂b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup>. Next we will discuss how to compute
+them.
+</p><!--l. 170--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x3-50002.3"></a>Gradients of loss function</h4>
+<!--l. 172--><p class="noindent" >Note that the loss function involves an average over all the training examples. Denote the loss function
+for a speciﬁc training example by <span 
+class="cmmi-10">C</span><sub><span 
+class="cmmi-7">x</span></sub>, i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-5001r10"></a>
+
+   <center class="math-display" >
+<img 
+src="machine_learning9x.png" alt="     1 N∑L
+Cx = 2   (yj(x)− aLj )2,
+       j=1
+" class="math-display"  /></center></td><td class="equation-label">(10)</td></tr></table>
+<!--l. 177--><p class="nopar" >
+then expression (<a 
+href="#x3-4002r9">9<!--tex4ht:ref: 22-3-9-e1m --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-5002r11"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning10x.png" alt="    1 ∑
+C = --   Cx,
+    n  x
+" class="math-display"  /></center></td><td class="equation-label">(11)</td></tr></table>
+<!--l. 181--><p class="nopar" >
+Then the partial derivatives <span 
+class="cmmi-10">∂C∕∂w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> and <span 
+class="cmmi-10">∂C∕∂b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> can be written as the sum of <span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> and
+<span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup>, i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-5003r12"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning11x.png" alt="         ∑
+-∂Cl-= 1-   -∂Cxl-,
+∂w jk   n  x ∂w jk
+" class="math-display"  /></center></td><td class="equation-label">(12)</td></tr></table>
+<!--l. 188--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-5004r13"></a>
+
+   <center class="math-display" >
+<img 
+src="machine_learning12x.png" alt="∂C    1 ∑  ∂C
+--l = --   --xl-.
+∂bj   n  x ∂bj
+" class="math-display"  /></center></td><td class="equation-label">(13)</td></tr></table>
+<!--l. 193--><p class="nopar" >
+The above formulas indicate that, once <span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> and <span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> are known, obtaining  <span 
+class="cmmi-10">∂C∕∂w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup>
+and <span 
+class="cmmi-10">∂C∕∂b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> is trivial, i.e., just averaging them. Therefore, we will focus on <span 
+class="cmmi-10">C</span><sub><span 
+class="cmmi-7">x</span></sub> (i.e., the
+cost function for a ﬁxed training example) and discuss how to compute <span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> and
+<span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup>.
+</p><!--l. 201--><p class="indent" >   In practice, we do not sum over all the training examples. Instead, we average the derivative over a
+small number (say 16) of training examples (a mini batch) and use these approximate derivatives to
+advance a step. For the next step, we stochastically change to using a diﬀerent mini batch. This is
+called stochastic gradient descent (SGD) method.
+</p><!--l. 207--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.4   </span> <a 
+ id="x3-60002.4"></a>Back-propagating algorithm</h4>
+<!--l. 209--><p class="noindent" >The cost function <span 
+class="cmmi-10">C</span><sub><span 
+class="cmmi-7">x</span></sub> is a function of weights and biases of all neurons (the input <span 
+class="cmmi-10">x </span>and output
+<span 
+class="cmmi-10">y</span>(<span 
+class="cmmi-10">x</span>) are ﬁxed parameters). For a speciﬁc neuron (<span 
+class="cmmi-10">l,j</span>), its weights and biases enter <span 
+class="cmmi-10">C</span><sub><span 
+class="cmmi-7">x</span></sub> via
+the combination <span 
+class="cmmi-10">z</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> = <span 
+class="cmex-10">∑</span>
+  <sub><span 
+class="cmmi-7">k</span></sub><span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup><span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">k</span></sub><sup><span 
+class="cmmi-7">l</span><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup> + <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup>. Then it is useful to deﬁne the following partial
+derivative:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6001r14"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning13x.png" alt="δl≡  ∂Cx,
+ j   ∂zlj
+" class="math-display"  /></center></td><td class="equation-label">(14)</td></tr></table>
+<!--l. 216--><p class="nopar" >
+where the partial derivative are taken with ﬁxed weights and biases for all neurons except neuron (<span 
+class="cmmi-10">l,j</span>).
+Note that the <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">k</span></sub><sup><span 
+class="cmmi-7">l</span><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup> appearing in the expression of <span 
+class="cmmi-10">z</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> does not depend on <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> or <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup>. It only
+depends on the weights and biases in the layers <span 
+class="msam-10">≤ </span>(<span 
+class="cmmi-10">l </span><span 
+class="cmsy-10">− </span>1), which are all ﬁxed when taking the
+derivative in expression (<a 
+href="#x3-6001r14">14<!--tex4ht:ref: 22-3-11-p1 --></a>). <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> deﬁned in expression (<a 
+href="#x3-6001r14">14<!--tex4ht:ref: 22-3-11-p1 --></a>) is often called the error of neuron
+(<span 
+class="cmmi-10">l,j</span>).
+</p><!--l. 225--><p class="indent" >   Using the chain rule,  <span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂w</span><sub><span 
+class="cmmi-7">jk</span></sub><sup><span 
+class="cmmi-7">l</span></sup> and <span 
+class="cmmi-10">∂C</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕∂b</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> can be expressed in terms of <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup>:
+
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6002r15"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning14x.png" alt="∂Cx-  ∂Cx-∂zlj    l
+∂bl = ∂zl ∂bl = δj,
+  j     j   j
+" class="math-display"  /></center></td><td class="equation-label">(15)</td></tr></table>
+<!--l. 230--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6003r16"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning15x.png" alt="∂Cx    ∂Cx  ∂zlj
+∂wl--= ∂zl-∂wl--= δljalk−1.
+  jk     j   jk
+" class="math-display"  /></center></td><td class="equation-label">(16)</td></tr></table>
+<!--l. 235--><p class="nopar" >
+Therefore, if <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> is known, it is trivial to compute the gradients needed in the gradient descent
+method.
+</p><!--l. 241--><p class="indent" >    
+</p><!--l. 243--><p class="indent" >    <img 
+src="machine_learning-2-.png" alt="PIC"  
+width="286" height="170"  />
+</p><!--l. 245--><p class="indent" >    
+</p><!--l. 247--><p class="indent" >    
+</p><!--l. 249--><p class="indent" >    
+</p><!--l. 251--><p class="indent" >   For the output layer (<span 
+class="cmmi-10">L</span><sup><span 
+class="cmr-7">th</span></sup> layer), <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> deﬁned in Eq. (<a 
+href="#x3-6001r14">14<!--tex4ht:ref: 22-3-11-p1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6004r17"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning16x.png" alt=" L   ∂Cx-  ∂Cx-∂aLj-
+δj = ∂zL = ∂aL ∂zL .
+       j     j   j
+" class="math-display"  /></center></td><td class="equation-label">(17)</td></tr></table>
+<!--l. 256--><p class="nopar" >
+The dependence of <span 
+class="cmmi-10">C</span><sub><span 
+class="cmmi-7">x</span></sub> on <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">L</span></sup> is explicitly given by Eq. (<a 
+href="#x3-5001r10">10<!--tex4ht:ref: 22-3-11-a6 --></a>), from which the above expression for <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">L</span></sup> is
+written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6005r18"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning17x.png" alt="δL = (aL− y (x))σ′(zL).
+ j     j   j      j
+" class="math-display"  /></center></td><td class="equation-label">(18)</td></tr></table>
+<!--l. 262--><p class="nopar" >
+Therefore <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">L</span></sup> is easy to compute.
+</p><!--l. 265--><p class="indent" >   Backpropagation is a way of computing <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">j</span></sub><sup><span 
+class="cmmi-7">l</span></sup> for every layer using recurrence relations: the relation
+between <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmmi-7">l</span></sup> and <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmmi-7">l</span><span 
+class="cmr-7">+1</span></sup>. Noting how the error is propagating through the network, we know the following
+identity:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6006r19"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning18x.png" alt="∂Cxdzl = ∑  -∂Cx-dzl+1,
+∂zlJ  J    j ∂zlj+1  j
+" class="math-display"  /></center></td><td class="equation-label">(19)</td></tr></table>
+<!--l. 272--><p class="nopar" >
+with
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6007r20"></a>
+
+   <center class="math-display" >
+<img 
+src="machine_learning19x.png" alt="  l+1    l+1  l
+dzj   = wjJ d(aJ),
+" class="math-display"  /></center></td><td class="equation-label">(20)</td></tr></table>
+<!--l. 276--><p class="nopar" >
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6008r21"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning20x.png" alt="dzl+1 = wl+1σ′(zl)dzl.
+  j     jJ    J   J
+" class="math-display"  /></center></td><td class="equation-label">(21)</td></tr></table>
+<!--l. 280--><p class="nopar" >
+Therefore
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6009r22"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning21x.png" alt="∂Cx-= ∑  -∂Cx-wl+1σ′(zl).
+∂zlJ    j ∂zlj+1 jJ    J
+" class="math-display"  /></center></td><td class="equation-label">(22)</td></tr></table>
+<!--l. 285--><p class="nopar" >
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6010r23"></a>
+
+   <center class="math-display" >
+<img 
+src="machine_learning22x.png" alt=" l   ∑   l+1  l+1 ′  l
+δJ =    δj w jJ σ (zJ).
+      j
+" class="math-display"  /></center></td><td class="equation-label">(23)</td></tr></table>
+<!--l. 290--><p class="nopar" >
+Equation (<a 
+href="#x3-6010r23">23<!--tex4ht:ref: 22-3-14-a1 --></a>) gives the recurrence relations of computing <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmmi-7">l</span></sup> from <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmmi-7">l</span><span 
+class="cmr-7">+1</span></sup>. This is called the
+backpropagation algorithm. Eq. (<a 
+href="#x3-6010r23">23<!--tex4ht:ref: 22-3-14-a1 --></a>) can be written in the matrix form:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x3-6011r24"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning23x.png" alt=" l     l+1 T l+1    ′ l
+δ = ((w  ) δ   )⊙ σ (z ),
+" class="math-display"  /></center></td><td class="equation-label">(24)</td></tr></table>
+<!--l. 296--><p class="nopar" >
+where <span 
+class="cmmi-10">T </span>stands for matrix transpose, <span 
+class="cmsy-10">⊙ </span>is the element-wise product.
+
+</p>
+   <!--l. 299--><div class="crosslinks"><p class="noindent">[<a 
+href="machine_learningli1.html" >next</a>] [<a 
+href="machine_learningse1.html" >prev</a>] [<a 
+href="machine_learningse1.html#tailmachine_learningse1.html" >prev-tail</a>] [<a 
+href="machine_learningse2.html" >front</a>] [<a 
+href="machine_learning.html#machine_learningse2.html" >up</a>] </p></div>
+<!--l. 299--><p class="indent" >   <a 
+ id="tailmachine_learningse2.html"></a>  </p> 
+</body></html> 

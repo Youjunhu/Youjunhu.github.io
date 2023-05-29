@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>Machine learning</title>
+    <meta content="TeXmacs 2.1.2" name="generator"></meta>
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } dt { float:
+      left; min-width: 1.75em; text-align: right; padding-right: 0.75em;
+      font-weight: bold; } dd { margin-left: 2.75em; padding-bottom: 0.25em; }
+      dd p { padding-top: 0em; } .subsup { display: inline; vertical-align:
+      -0.2em } .subsup td { padding: 0px; text-align: left} .fraction {
+      display: inline; vertical-align: -0.8em } .fraction td { padding: 0px;
+      text-align: center } .wide { position: relative; margin-left: -0.4em }
+      .accent { position: relative; margin-left: -0.4em; top: -0.1em }
+      .title-block { width: 100%; text-align: center } .title-block p {
+      margin: 0px } .compact-block p { margin-top: 0px; margin-bottom: 0px }
+      .left-tab { text-align: left } .center-tab { text-align: center }
+      .balloon-anchor { border-bottom: 1px dotted #000000; outline: none;
+      cursor: help; position: relative; } .balloon-anchor [hidden] {
+      margin-left: -999em; position: absolute; display: none; }
+      .balloon-anchor: hover [hidden] { position: absolute; left: 1em; top:
+      2em; z-index: 99; margin-left: 0; width: 500px; display: inline-block; }
+      .balloon-body { } .ornament { border-width: 1px; border-style: solid;
+      border-color: black; display: inline-block; padding: 0.2em; } .right-tab
+      { float: right; position: relative; top: -1em; } .no-breaks {
+      white-space: nowrap; } 
+    </style>
+  </head>
+  <body>
+    <table class="title-block" style="margin-bottom: 2em">
+      <tr>
+        <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
+          <tr>
+            <td><font style="font-size: 168.2%"><strong>Machine learning</strong></font></td>
+          </tr>
+        </table><div class="compact-block" style="margin-top: 1em; margin-bottom: 1em">
+          <table class="title-block">
+            <tr>
+              <td><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                <div style="display: inline">
+                  <span style="margin-left: 0pt"></span>
+                </div>
+                <table style="display: inline-table; vertical-align: middle">
+                  <tbody><tr>
+                    <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                      <p>
+                        <class style="font-variant: small-caps">by Youjun Hu</class>
+                      </p>
+                    </center></td>
+                  </tr></tbody>
+                </table>
+              </p><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                <div style="display: inline">
+                  <span style="margin-left: 0pt"></span>
+                </div>
+                <table style="display: inline-table; vertical-align: middle">
+                  <tbody><tr>
+                    <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                      <p>
+                        yjhu@ipp.cas.cn
+                      </p>
+                    </center></td>
+                  </tr></tbody>
+                </table>
+              </p></td>
+            </tr>
+          </table>
+        </div></td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <h2 id="auto-1">1<span style="margin-left: 1em"></span>Introduction<span style="margin-left: 1em"></span></h2>
+    <p>
+      Artificial intelligence (AI) research has tried many different
+      approaches since its founding. In the first decades of the 21st century,
+      highly mathematical statistical machine learning (ML) has dominated the
+      field, and this technique has proved highly successful, helping to solve
+      many challenging problems in real life.
+    </p>
+    <p>
+      Many problems in AI can be solved theoretically by searching through
+      many possible solutions: Reasoning can be reduced to performing a
+      search. Simple exhaustive searches are rarely sufficient for most
+      real-world problems. The solution, for many problems, is to use
+      &quot;heuristics&quot; or &quot;rules of thumb&quot; that prioritize
+      choices in favor of those more likely to reach a goal. A very different
+      kind of search came to prominence in the 1990s, based on the
+      mathematical theory of optimization. Modern machine learning is based on
+      these methods. Instead, of using detailed explanations to guide the
+      search, it uses a combination of: (a) general architectures; (b) trying
+      trillions of possibilities, guided by simple ideas (like gradient
+      descent) for improvement; and (c) the ability to recognize progress.
+    </p>
+    <p>
+      I am interested in applying machine learning to problems in
+      computational physics problems that traditional numerical methods can
+      not easily handle either because of its computational costs being too
+      high or its algorithms are too complicated to easily implement.
+    </p>
+    <p>
+      Enrico Fermi once criticized the complexity of a model (that contains
+      many free parameters) by quoting Johnny von Neumann &ldquo;With four
+      parameters I can fit an elephant, and with five I can make him wiggle
+      his trunk&rdquo;. 
+    </p>
+    <p>
+      What Fermi implies is that it is easy to fit existing data and what is
+      importan is to have a model with predicting capability (fitting data not
+      seen yet). The artificial neural network method tackles this difficulty
+      by increasing the number of free parameters to millions, in the hope of
+      obtaining predicting capability.
+    </p>
+    <h2 id="auto-2">2<span style="margin-left: 1em"></span>Neural network<span style="margin-left: 1em"></span></h2>
+    <p>
+      Neural networks consists of multiple layers of interconnected nodes
+      (neurons), each having a weight for a connection, a bias and activation
+      function. Each layer build upon the previous layer. This progression of
+      computations through the network is called forward propagation. Another
+      process called backpropagation uses algorithms which moves backwards
+      through the layers to efficiently compute the partial derivatives of the
+      loss function with respect to the weights and biases. Combining the
+      forward and backward propagation, we can calculate errors in predictions
+      and then adjusts the weights and biases using the gradient descent
+      method. This process is called trainning.
+    </p>
+    <h3 id="auto-3">2.1<span style="margin-left: 1em"></span> Node (neuron or unit), weight, bias, and
+    activation<span style="margin-left: 1em"></span></h3>
+    <p>
+      As is shown in Fig. <a href="#22-3-13-a1">1</a>, we use <img src="machine_learning-1.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> to
+      denote the weight for the connection from the <img src="machine_learning-2.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: 0em; height: 0.941915151515152em"></img>
+      neuron in the <img src="machine_learning-3.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0351030303030303em; vertical-align: -0.258569696969697em; height: 1.19015757575758em"></img> layer to the <img src="machine_learning-4.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: -0.201115151515152em; height: 1.12809696969697em"></img>
+      neuron in the <img src="machine_learning-5.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: 0em; height: 0.941915151515152em"></img> layer. Use <img src="machine_learning-6.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>
+      to denote the bias of the <img src="machine_learning-4.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: -0.201115151515152em; height: 1.12809696969697em"></img> neuron in the <img
+      src="machine_learning-5.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: 0em; height: 0.941915151515152em"></img> layer.
+    </p>
+    <div style="margin-top: 1em; margin-bottom: 1em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="text-align: center; padding-left: 0em; padding-right: 0em"><p>
+            <img src="machine_learning-7.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0em; margin-right: -0.0248242424242413em; margin-top: 0.344678787878788em; vertical-align: -6.49643636363636em; height: 17.3702303030303em"></img>
+          </p></td>
+        </tr><tr>
+          <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+        </tr><tr>
+          <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><div class="caption">
+            <font style="font-size: 84.1%"><p>
+              <b>Figure 1. </b><a id="auto-4"></a><a id="22-3-13-a1"></a>Definition of layers,
+              neurons, weights, and biases in a neural network. The <img src="machine_learning-4.png"
+              style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: -0.201115151515152em; height: 1.12809696969697em"></img> neuron in the <img src="machine_learning-5.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: 0em; height: 0.941915151515152em"></img> layer is
+              referred to as neuron <img src="machine_learning-8.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>
+            </p></font>
+          </div></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <p>
+      
+    </p>
+    <p>
+      We use <img src="machine_learning-9.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> to denote the output (activation) of the
+      <img src="machine_learning-4.png" style="margin-left: -0.0496484848484848em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: -0.201115151515152em; height: 1.12809696969697em"></img> neuron in <img src="machine_learning-5.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: 0em; height: 0.941915151515152em"></img> layer. A
+      neural network model assumes that <img src="machine_learning-9.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> is related to
+      the <img src="machine_learning-10.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img> (output of the previous layer) via
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-11.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242431em; margin-top: -0.0331151515151515em; vertical-align: -1.21178181818182em; height: 2.60271515151515em" id="22-3-9-e2"></img></td>
+        <td align="right">(1)</td>
+      </tr>
+    </table>
+    <p>
+      where the summation is over all neurons in the <img src="machine_learning-3.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0351030303030303em; vertical-align: -0.258569696969697em; height: 1.19015757575758em"></img>
+      layer and <img src="machine_learning-12.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242425em; margin-top: -0.0263272727272728em; vertical-align: 0em; height: 0.50889696969697em"></img> is a function called activation
+      function which can take various forms, e.g., step function, 
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-13.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0289939393939393em; margin-right: -0.0248242424242413em; margin-top: -0.0331151515151515em; vertical-align: -1.0249696969697em; height: 2.58681212121212em"></img></td>
+        <td align="right">(2)</td>
+      </tr>
+    </table>
+    <p>
+      rectified linear unit (ReLU),
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-14.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img></td>
+        <td align="right">(3)</td>
+      </tr>
+    </table>
+    <p>
+      and sigmoid function (&ldquo;S&rdquo;-shaped curve, also called logistic
+      function)
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-15.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242413em; margin-top: -0.0409696969696969em; vertical-align: -0.930763636363636em; height: 2.28581818181818em"></img></td>
+        <td align="right">(4)</td>
+      </tr>
+    </table>
+    <p>
+      Define <img src="machine_learning-16.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-17.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242431em; margin-top: -0.0339393939393939em; vertical-align: -1.21178181818182em; height: 2.2432em" id="22-3-9-1"></img></td>
+        <td align="right">(5)</td>
+      </tr>
+    </table>
+    <p>
+      which can be interpreted as an weighted input to the neuron <span class="no-breaks"><img
+      src="machine_learning-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> then Eq. (<a href="#22-3-9-e2">1</a>) is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-19.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img></td>
+        <td align="right">(6)</td>
+      </tr>
+    </table>
+    <p>
+      In matrix form, Eq. (<a href="#22-3-9-1">5</a>) is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-20.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242422em; margin-top: -0.0309333333333334em; vertical-align: -0.201115151515152em; height: 1.12809696969697em"></img></td>
+        <td align="right">(7)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="machine_learning-21.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img> is a <img src="machine_learning-22.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0365090909090909em; margin-right: -0.0648727272727272em; margin-top: -0.0255515151515152em; vertical-align: -0.0861575757575758em; height: 0.781963636363636em"></img> matrix, <img
+      src="machine_learning-23.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img>  and <img src="machine_learning-24.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img> are column vectors of
+      length <span class="no-breaks"><img src="machine_learning-25.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0967272727272728em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.781963636363636em"></img>,</span> <img src="machine_learning-10.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img>
+      is a column vector of length <span class="no-breaks"><img src="machine_learning-26.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0648727272727273em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img>,</span>
+      where <img src="machine_learning-25.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0496484848484848em; margin-right: -0.0967272727272728em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.781963636363636em"></img> and <img src="machine_learning-26.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0648727272727273em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> are the number
+      of neurons in the <img src="machine_learning-5.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: 0em; height: 0.941915151515152em"></img> layer and <img src="machine_learning-3.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0351030303030303em; vertical-align: -0.258569696969697em; height: 1.19015757575758em"></img>
+      layer, respectively.
+    </p>
+    <p>
+      The input layer is where data inputs are provided, and the output layer
+      is where the final prediction is made. The input and output layers of a
+      deep neural network are called visible layers. The layers between the
+      input layer and output layer are called hidden layers. Note that the
+      input layer is usually not considered as a layer of the network since it
+      does not involve any computation. In tensorflow, layers refer to the
+      computing layers (i.e., hidden layers and the output layer, not
+      including the input layer). The activation function of each layer can be
+      different. The activation function of the output layer is often chosen
+      as None, ReLU, logistic/tanh, and is usually different from those used
+      in the hidden layers. Here &ldquo;None&rdquo; means activation <span
+      class="no-breaks"><img src="machine_learning-27.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span>
+    </p>
+    <h3 id="auto-5">2.2<span style="margin-left: 1em"></span>Loss function<span style="margin-left: 1em"></span></h3>
+    <p>
+      Define a loss (cost, error) function by
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-28.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242413em; margin-top: -0.0409696969696969em; vertical-align: -1.21178181818182em; height: 2.57716363636364em" id="22-3-9-e1"></img></td>
+        <td align="right">(8)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="machine_learning-29.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> and <img src="machine_learning-30.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: 0em; height: 0.781963636363636em"></img> denotes the
+      collection of all weights and biases in the network, <img src="machine_learning-31.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>
+      is the total number of training examples <span class="no-breaks"><img src="machine_learning-32.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>,</span>
+      the summation is over all the training examples, <img src="machine_learning-33.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>
+      is the desired output from the network (i.e., correct answer) when <img
+      src="machine_learning-32.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> is the input, and <img src="machine_learning-34.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0389818181818182em; vertical-align: 0em; height: 0.941915151515152em"></img> is the
+      actual output from the output layer of the network and is a function of
+      <span class="no-breaks"><img src="machine_learning-35.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0223030303030303em; margin-right: -0.0248242424242424em; margin-top: -0.0264727272727273em; vertical-align: -0.201115151515152em; height: 0.968145454545455em"></img>,</span> and <span class="no-breaks"><img src="machine_learning-32.png"
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img>.</span> Note that <img src="machine_learning-36.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0347151515151515em; margin-right: -0.0266181818181818em; margin-top: -0.038739393939394em; vertical-align: -0.201115151515152em; height: 0.71990303030303em"></img> and <img src="machine_learning-34.png"
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0389818181818182em; vertical-align: 0em; height: 0.941915151515152em"></img> are vectors (with number of elements being the number of
+      neurons in the output layer) and <img src="machine_learning-37.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> denotes the
+      vector norm. Explicitly writing out the vector norm, Eq. (<a href="#22-3-9-e1">8</a>)
+      is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-38.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="22-3-9-e1m"></img></td>
+        <td align="right">(9)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="machine_learning-39.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0124121212121212em; margin-right: -0.0248242424242424em; margin-top: -0.0255515151515152em; vertical-align: -0.148363636363636em; height: 0.893090909090909em"></img> is the number of neurons in the output
+      layer.
+    </p>
+    <p>
+      The cost function is the average error of the approximate solution away
+      from the desired exact solution. So the goal of a learning algorithm is
+      to find weights and biases that minimize the cost function. To minimize
+      the cost function over <img src="machine_learning-40.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242426em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> using the gradient
+      descent method, we need to compute the partial derivatives <img src="machine_learning-41.png"
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> and <span class="no-breaks"><img src="machine_learning-42.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242426em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>.</span> Next we
+      will discuss how to compute them.
+    </p>
+    <h3 id="auto-6">2.3<span style="margin-left: 1em"></span>Gradients of loss function<span style="margin-left: 1em"></span></h3>
+    <p>
+      Note that the loss function involves an average over all the training
+      examples. Denote the loss function for a specific training example by
+      <span class="no-breaks"><img src="machine_learning-43.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: -0.148363636363636em; height: 0.942739393939394em"></img>,</span> i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-44.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0265696969696969em; vertical-align: -1.35253333333333em; height: 3.18521212121212em" id="22-3-11-a6"></img></td>
+        <td align="right">(10)</td>
+      </tr>
+    </table>
+    <p>
+      then expression (<a href="#22-3-9-e1m">9</a>) is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-45.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242431em; margin-top: -0.0409696969696969em; vertical-align: -1.21178181818182em; height: 2.57716363636364em"></img></td>
+        <td align="right">(11)</td>
+      </tr>
+    </table>
+    <p>
+      Then the partial derivatives <img src="machine_learning-41.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> and <img src="machine_learning-42.png"
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242426em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> can be written as the sum of <img src="machine_learning-46.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> and
+      <span class="no-breaks"><img src="machine_learning-47.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242426em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>,</span> i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-48.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242431em; margin-top: -0.0512969696969696em; vertical-align: -1.21178181818182em; height: 2.63922424242424em" id="22-3-11-a3"></img></td>
+        <td align="right">(12)</td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-49.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363635em; margin-right: -0.0248242424242422em; margin-top: -0.0512969696969696em; vertical-align: -1.21178181818182em; height: 2.63922424242424em" id="22-3-11-a4"></img></td>
+        <td align="right">(13)</td>
+      </tr>
+    </table>
+    <p>
+      The above formulas indicate that, once <img src="machine_learning-46.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> and <img
+      src="machine_learning-47.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242426em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> are known, obtaining  <img src="machine_learning-41.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> and
+      <img src="machine_learning-42.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242426em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> is trivial, i.e., just averaging them.
+      Therefore, we will focus on <img src="machine_learning-43.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: -0.148363636363636em; height: 0.942739393939394em"></img> (i.e., the cost
+      function for a fixed training example) and discuss how to compute <img
+      src="machine_learning-46.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> and <span class="no-breaks"><img src="machine_learning-47.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242426em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>.</span>
+    </p>
+    <p>
+      In practice, we do not sum over all the training examples. Instead, we
+      average the derivative over a small number (say 16) of training examples
+      (a mini batch) and use these approximate derivatives to advance a step.
+      For the next step, we stochastically change to using a different mini
+      batch. This is called stochastic gradient descent (SGD) method.
+    </p>
+    <h3 id="auto-7">2.4<span style="margin-left: 1em"></span>Back-propagating algorithm<span style="margin-left: 1em"></span></h3>
+    <p>
+      The cost function <img src="machine_learning-43.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: -0.148363636363636em; height: 0.942739393939394em"></img> is a function of weights and
+      biases of all neurons (the input <img src="machine_learning-32.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.038739393939394em; vertical-align: 0em; height: 0.521309090909091em"></img> and output <img
+      src="machine_learning-33.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242424em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img> are fixed parameters). For a specific neuron <span
+      class="no-breaks"><img src="machine_learning-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span> its weights and biases enter <img
+      src="machine_learning-43.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: -0.148363636363636em; height: 0.942739393939394em"></img> via the combination <span class="no-breaks"><img src="machine_learning-50.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363637em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.3584em; height: 1.38681212121212em"></img>.</span>
+      Then it is useful to define the following partial derivative:
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-51.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242422em; margin-top: -0.0512969696969696em; vertical-align: -1.13444848484848em; height: 2.55767272727273em" id="22-3-11-p1"></img></td>
+        <td align="right">(14)</td>
+      </tr>
+    </table>
+    <p>
+      where the partial derivative are taken with fixed weights and biases for
+      all neurons except neuron <span class="no-breaks"><img src="machine_learning-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span>
+      Note that the <img src="machine_learning-52.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.234860606060606em; height: 1.26327272727273em"></img> appearing in the expression of
+      <img src="machine_learning-16.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> does not depend on <img src="machine_learning-53.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> or
+      <span class="no-breaks"><img src="machine_learning-54.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>.</span> It only depends on the
+      weights and biases in the layers <span class="no-breaks"><img src="machine_learning-55.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>,</span>
+      which are all fixed when taking the derivative in expression (<a href="#22-3-11-p1">14</a>).
+      <img src="machine_learning-56.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242425em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> defined in expression (<a href="#22-3-11-p1">14</a>) is often
+      called the error of neuron <span class="no-breaks"><img src="machine_learning-18.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242422em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>.</span>
+    </p>
+    <p>
+      Using the chain rule,  <img src="machine_learning-46.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333333em; vertical-align: -0.332557575757576em; height: 1.31369696969697em"></img> and <img src="machine_learning-47.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242426em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>
+      can be expressed in terms of <span class="no-breaks"><img src="machine_learning-56.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242425em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>:</span>
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-57.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333335em; vertical-align: -1.13444848484848em; height: 2.79864242424242em"></img></td>
+        <td align="right">(15)</td>
+      </tr>
+    </table>
+    <p>
+      and
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-58.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242413em; margin-top: -0.0309333333333335em; vertical-align: -1.14608484848485em; height: 2.81027878787879em"></img></td>
+        <td align="right">(16)</td>
+      </tr>
+    </table>
+    <p>
+      Therefore, if <img src="machine_learning-56.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242425em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> is known, it is trivial to compute
+      the gradients needed in the gradient descent method.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <img src="machine_learning-59.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0em; margin-right: -0.0248242424242413em; margin-top: 0.344678787878788em; vertical-align: -6.49643636363636em; height: 17.3702303030303em"></img>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      For the output layer (<img src="machine_learning-60.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0351030303030303em; vertical-align: 0em; height: 0.92950303030303em"></img> layer), <img src="machine_learning-56.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242425em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img>
+      defined in Eq. (<a href="#22-3-11-p1">14</a>) is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-61.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0389818181818182em; vertical-align: -1.1264em; height: 2.79059393939394em"></img></td>
+        <td align="right">(17)</td>
+      </tr>
+    </table>
+    <p>
+      The dependence of <img src="machine_learning-43.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0503757575757576em; vertical-align: -0.148363636363636em; height: 0.942739393939394em"></img> on <img src="machine_learning-62.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0389818181818181em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> is
+      explicitly given by Eq. (<a href="#22-3-11-a6">10</a>), from which the above
+      expression for <img src="machine_learning-63.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0389818181818181em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> is written as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-64.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0389818181818181em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img></td>
+        <td align="right">(18)</td>
+      </tr>
+    </table>
+    <p>
+      Therefore <img src="machine_learning-65.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242424em; margin-top: -0.0389818181818181em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> is easy to compute.
+    </p>
+    <p>
+      Backpropagation is a way of computing <img src="machine_learning-56.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242425em; margin-top: -0.0309333333333333em; vertical-align: -0.326739393939394em; height: 1.30206060606061em"></img> for every
+      layer using recurrence relations: the relation between <img src="machine_learning-66.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img>
+      and <span class="no-breaks"><img src="machine_learning-67.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img>.</span> Noting how the error is
+      propagating through the network, we know the following identity:
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-68.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242413em; margin-top: -0.0512969696969696em; vertical-align: -1.35253333333333em; height: 2.77575757575758em"></img></td>
+        <td align="right">(19)</td>
+      </tr>
+    </table>
+    <p>
+      with
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-69.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333334em; vertical-align: -0.371587878787879em; height: 1.39175757575758em"></img></td>
+        <td align="right">(20)</td>
+      </tr>
+    </table>
+    <p>
+      i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-70.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242413em; margin-top: -0.0309333333333334em; vertical-align: -0.371587878787879em; height: 1.39175757575758em"></img></td>
+        <td align="right">(21)</td>
+      </tr>
+    </table>
+    <p>
+      Therefore
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-71.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0512969696969696em; vertical-align: -1.35253333333333em; height: 2.77575757575758em"></img></td>
+        <td align="right">(22)</td>
+      </tr>
+    </table>
+    <p>
+      i.e.,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-72.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0330181818181818em; margin-right: -0.0248242424242431em; margin-top: -0.0372363636363636em; vertical-align: -1.35253333333333em; height: 2.37973333333333em" id="22-3-14-a1"></img></td>
+        <td align="right">(23)</td>
+      </tr>
+    </table>
+    <p>
+      Equation (<a href="#22-3-14-a1">23</a>) gives the recurrence relations of computing
+      <img src="machine_learning-66.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img> from <span class="no-breaks"><img src="machine_learning-67.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0372363636363636em; margin-right: -0.0248242424242424em; margin-top: -0.0309333333333334em; vertical-align: 0em; height: 0.941915151515152em"></img>.</span>
+      This is called the backpropagation algorithm. Eq. (<a href="#22-3-14-a1">23</a>) can
+      be written in the matrix form:
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="machine_learning-73.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0309333333333334em; vertical-align: -0.258569696969697em; height: 1.19015757575758em"></img></td>
+        <td align="right">(24)</td>
+      </tr>
+    </table>
+    <p>
+      where <img src="machine_learning-74.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.140315151515152em; margin-top: -0.0255515151515152em; vertical-align: 0em; height: 0.757139393939394em"></img> stands for matrix transpose, <img src="machine_learning-75.png"
+      style="margin-left: -0.0248242424242424em; margin-bottom: -0.0255515151515151em; margin-right: -0.0248242424242424em; margin-top: -0.0296727272727272em; vertical-align: -0.0861575757575758em; height: 0.744727272727273em"></img> is the element-wise product.
+    </p>
+    <h2 id="auto-8">3<span style="margin-left: 1em"></span>miscs<span style="margin-left: 1em"></span></h2>
+    <p>
+      
+    </p>
+    <p>
+      Ref: http://neuralnetworksanddeeplearning.com/
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <center>
+      <img src="machine_learning-76.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0269090909090909em; margin-right: -0.0248242424242431em; margin-top: -0.0310787878787879em; vertical-align: -0.258569696969697em; height: 1.09226666666667em"></img>
+    </center>
+  </body>
+</html>
