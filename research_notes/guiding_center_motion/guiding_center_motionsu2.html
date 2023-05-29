@@ -4,795 +4,98 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Equation of guding-center motion in ﬁeld-line-following coordinates</title> 
+<head><title>Initial conditions</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="guiding_center_motion.tex" /> 
-<meta name="date" content="2019-01-05 20:39:00" /> 
 <link rel="stylesheet" type="text/css" href="guiding_center_motion.css" /> 
 </head><body 
 >
-   <!--l. 174--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 734--><div class="crosslinks"><p class="noindent">[<a 
 href="guiding_center_motionsu3.html" >next</a>] [<a 
-href="guiding_center_motionsu1.html" >prev</a>] [<a 
-href="guiding_center_motionsu1.html#tailguiding_center_motionsu1.html" >prev-tail</a>] [<a 
 href="#tailguiding_center_motionsu2.html">tail</a>] [<a 
-href="guiding_center_motionse1.html#guiding_center_motionsu2.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
- id="x4-30001.2"></a>Equation of guding-center motion in ﬁeld-line-following coordinates</h4>
-<!--l. 176--><p class="noindent" >This section documents what I did when developing the fully kinetic ions and drift-kinetic electrons
-module in GEM code which uses ﬁeld-line-folloiwng coordinates. In ﬁeld-line-following coordinates
+href="guiding_center_motionse4.html#guiding_center_motionsu2.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x7-80004.1"></a>Initial conditions</h4>
+<!--l. 736--><p class="noindent" >The initial conditions of the particle are given by specifying the initial location (<span 
+class="cmmi-10">R,ϕ,Z</span>), initial parallel
+velocity <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>, and the magnetic moment <span 
+class="cmmi-10">μ </span>(which acts as a parameter since <span 
+class="cmmi-10">μ </span>is exactly conserved). In
+some cases, we prefer to specify the initial velocity in terms of the initial kinetic energy <span 
+class="cmmi-10">𝜀 </span>and the initial
+pitch angle <span 
+class="cmmi-10">𝜃 </span>(the include angle between velocity and the local magnetic ﬁeld). The relation between
 (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>), the equation of guiding-center drift is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3001r13"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion12x.png" alt="d&psi;-= vd &sdot;&nabla;-&psi;,
-dt
-" class="math-display"  /></center></td><td class="equation-label">(13)</td></tr></table>
-<!--l. 183--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3002r14"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion13x.png" alt="d𝜃 = vd &sdot;&nabla;-𝜃,
-dt
-" class="math-display"  /></center></td><td class="equation-label">(14)</td></tr></table>
-<!--l. 187--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3003r15"></a>
-                                                                                  
-                                                                                  
-   <center class="math-display" >
-<img 
-src="guiding_center_motion14x.png" alt="d&alpha;-= v-&sdot;&nabla;-&alpha;,
-dt    d
-" class="math-display"  /></center></td><td class="equation-label">(15)</td></tr></table>
-<!--l. 192--><p class="nopar" >
-where <span 
-class="cmmi-10">&alpha; </span>is the generalized toroidal angle deﬁned by (refer to my notes on tokamak equilibrium) <span 
-class="cmmi-10">&alpha; </span>= <span 
-class="cmmi-10">ϕ</span><span 
-class="cmsy-10">&minus;</span><span class="overline"><span 
-class="cmmi-10">&delta;</span></span>
-with <span class="overline"><span 
-class="cmmi-10">&delta;</span></span> = <span 
-class="cmex-10">&int;</span>
- <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span></sup><img 
-src="guiding_center_motion15x.png" alt="ˆq"  class="circ"  /> <span 
-class="cmmi-10">d𝜃 </span>and <img 
-src="guiding_center_motion16x.png" alt="ˆq"  class="circ"  /> = <span 
-class="cmbx-10">B </span><span 
-class="cmsy-10">&sdot;&nabla;</span><span 
-class="cmmi-10">ϕ∕</span>(<span 
-class="cmbx-10">B </span><span 
-class="cmsy-10">&sdot;&nabla;</span><span 
-class="cmmi-10">𝜃</span>), which is the local safety factor. Using the expression of <span class="overline"><span 
-class="cmbx-10">v</span></span><sub><span 
-class="cmmi-7">d</span></sub>
-given by Eq. (<a 
-href="guiding_center_motionsu1.html#x3-2002r9">9<!--tex4ht:ref: 18-3-29-p1 --></a>), the right-hand-sides of Eqs. (<a 
-href="#x4-3001r13">13<!--tex4ht:ref: 17-8-21-p1 --></a>)-(<a 
-href="#x4-3003r15">15<!--tex4ht:ref: 17-8-21-p3 --></a>) to can be written as (presently dropping the <span 
-class="cmbx-10">E</span><span 
-class="cmsy-10">×</span><span 
-class="cmbx-10">B</span>
-drift): </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="guiding_center_motion17x.png" alt="                      ----
---  --      -       Z|Z|v2∥&pi;&nabla; × b       --    Z            &mu;-           1 -- ---- --
-vd &sdot;&nabla;&psi;  =   v∥--(----Z--v∥---------)-&sdot;&nabla; &psi; + |Z-|--(----Z-- v∥-------)--2-B ×&nabla; B &sdot;&nabla;(&psi;1,6)
-              B  1+ |Z|2&pi;Bb &sdot;&nabla; × b           2&pi; 1 + |Z |2&pi;B b&sdot;&nabla; × b  B
-" class="math-display"  /></center>
-</div>
-   <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="guiding_center_motion18x.png" alt="                 --     v∥-
--- --      - ----B-+-Z|Z|2&pi;&nabla;-×-b----- --   Z------------&mu;-----------1---  ---- --
-vd &sdot;&nabla; 𝜃 =  v∥B-(1+  Z--v∥b &sdot;&nabla;-× b) &sdot;&nabla;𝜃 + |Z |2&pi;(1 + Z--v∥b &sdot;&nabla;-× b) B2B × &nabla; B &sdot;&nabla;(𝜃1,7)
-                    |Z|2&pi;B                          |Z|2&pi;B
-" class="math-display"  /></center>
-</div>
-   <div class="eqnarray">
-                                                                                  
-                                                                                  
-   <center class="math-display" >
-<img 
-src="guiding_center_motion19x.png" alt="                      ----
---  --      -       Z|Z|v2∥&pi;&nabla; × b        --   Z            &mu;-           1--  ---- --
-vd &sdot;&nabla;&alpha;  =   v∥--(----Z--v∥---------)-&sdot;&nabla;&alpha; + |Z-|--(----Z--v∥--------)--2B × &nabla; B &sdot;&nabla;(&alpha;1.8)
-              B  1+ |Z|2&pi;Bb &sdot;&nabla; × b           2&pi; 1 + |Z|2&pi;B-b&sdot;&nabla; × b  B
-" class="math-display"  /></center>
-</div>where use has been made of <span 
-class="cmbx-10">B </span><span 
-class="cmsy-10">&sdot;&nabla;</span><span 
-class="cmmi-10">&psi; </span>= 0 and <span 
-class="cmbx-10">B </span><span 
-class="cmsy-10">&sdot;&nabla;</span><span 
-class="cmmi-10">&alpha; </span>= 0. The parallel acceleration equation is written as
-(presently dropping the electric ﬁeld acceleration term)
-   <table 
-class="equation"><tr><td><a 
- id="x4-3007r19"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion20x.png" alt="            --     ---
-dv∥    --   B + Z|Z-|2v∥&pi;&nabla; × b      ---
-dt-= &minus; &mu;--(----Z--v∥--------)-&sdot;&nabla;B
-        B  1 + |Z|2&pi;Bb &sdot;&nabla; × b
-" class="math-display"  /></center></td><td class="equation-label">(19)</td></tr></table>
-<!--l. 255--><p class="nopar" >
-For a general tokamak magnetic conﬁguration specifed numerically, all the above 2D equilibrium quantitis
-are computed by interpolating pre-computed numerical tables. We deﬁne the following numerical
-tables:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3008r20"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion21x.png" alt="W1(&psi;,𝜃) = 1b &sdot;&nabla;-× b,
-          B
-" class="math-display"  /></center></td><td class="equation-label">(20)</td></tr></table>
-                                                                                  
-                                                                                  
-<!--l. 262--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3009r21"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion22x.png" alt="          -- --
-W2(&psi;,𝜃) = B-&sdot;&nabla;𝜃,
-          B
-" class="math-display"  /></center></td><td class="equation-label">(21)</td></tr></table>
-<!--l. 266--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3010r22"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion23x.png" alt="          --
-W3(&psi;,𝜃) = &nabla;-×-b&sdot;&nabla;-&psi;,
-           B
-" class="math-display"  /></center></td><td class="equation-label">(22)</td></tr></table>
-<!--l. 270--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3011r23"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion24x.png" alt="          --     --
-W4(&psi;,𝜃) = &nabla;-×-b-&sdot;&nabla;𝜃,
-            B
-" class="math-display"  /></center></td><td class="equation-label">(23)</td></tr></table>
-<!--l. 274--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3012r24"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion25x.png" alt="            --          --          --
-W5 (&psi;,𝜃,&alpha;) = &nabla;-×-b-&sdot;&nabla;&alpha; = &nabla;-×-b-&sdot;&nabla;-ϕ&minus; &nabla;-×-b-&sdot;&nabla;-&delta;
-              B           B           B
-" class="math-display"  /></center></td><td class="equation-label">(24)</td></tr></table>
-<!--l. 281--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3013r25"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion26x.png" alt="            --  ---- --
-W6(&psi;,𝜃) = 12B × &nabla; B &sdot;&nabla;&psi;,
-          B
-" class="math-display"  /></center></td><td class="equation-label">(25)</td></tr></table>
-<!--l. 286--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3014r26"></a>
-                                                                                  
-                                                                                  
-   <center class="math-display" >
-<img 
-src="guiding_center_motion27x.png" alt="W (&psi;,𝜃) = 1-B-× &nabla;B--&sdot;&nabla;𝜃,
- 7        B2
-" class="math-display"  /></center></td><td class="equation-label">(26)</td></tr></table>
-<!--l. 291--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3015r27"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion28x.png" alt="W8 (&psi;,𝜃,&alpha;) = 1-B-× &nabla;B--&sdot;&nabla;&alpha; = -1-B-× &nabla;B-&sdot;&nabla;-ϕ&minus; -1-B-× &nabla;B--&sdot;&nabla;-&delta;
-             B2              B2              B2
-" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
-<!--l. 299--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3016r28"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion29x.png" alt="          --
-W  (&psi;,𝜃) = B &sdot;&nabla;B,-
-  9       B
-" class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
-<!--l. 304--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3017r29"></a>
-                                                                                  
-                                                                                  
-   <center class="math-display" >
-<img 
-src="guiding_center_motion30x.png" alt="           --
-           &nabla;-×-b- ---
-W10 (&psi;,𝜃) =   B-  &sdot;&nabla;B.
-" class="math-display"  /></center></td><td class="equation-label">(29)</td></tr></table>
-<!--l. 309--><p class="nopar" >
-Next, let us disscuss the <span 
-class="cmmi-10">E </span><span 
-class="cmsy-10">× </span><span 
-class="cmmi-10">B </span>drift:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3018r30"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion31x.png" alt="--          -1----  -- --
-vE×B &sdot;&nabla; &psi; = BB-⋆∥E × B &sdot;&nabla;&psi;
-" class="math-display"  /></center></td><td class="equation-label">(30)</td></tr></table>
-<!--l. 315--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3019r31"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion32x.png" alt="--          -1----  -- --
-vE ×B &sdot;&nabla; 𝜃 = BB-⋆∥E × B &sdot;&nabla;𝜃
-" class="math-display"  /></center></td><td class="equation-label">(31)</td></tr></table>
-<!--l. 321--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x4-3020r32"></a>
-                                                                                  
-                                                                                  
-   <center class="math-display" >
-<img 
-src="guiding_center_motion33x.png" alt="v-   &sdot;&nabla; &alpha; = -1--E-× B-&sdot;&nabla;&alpha;
- E×B        BB ⋆∥
-" class="math-display"  /></center></td><td class="equation-label">(32)</td></tr></table>
-<!--l. 327--><p class="nopar" >
-Using <span 
-class="cmmi-10">&delta;</span><span class="overline"><span 
-class="cmbx-10">E</span></span> = <span 
-class="cmmi-10">&delta;</span><span class="overline"><span 
-class="cmmi-10">E</span></span><sub><span 
+class="cmmi-10">𝜀,𝜃</span>) and (<span 
+class="cmmi-10">v</span><sub><span 
 class="cmsy-7">∥</span></sub><span 
-class="cmbx-10">b </span>+ <span 
-class="cmmi-10">&delta;</span><span class="overline"><span 
-class="cmmi-10">E</span></span><sub><span 
-class="cmmi-7">x</span></sub><span class="overline"><span 
-class="cmsy-10">&nabla;</span></span><span 
-class="cmmi-10">x </span>+ <span 
-class="cmmi-10">&delta;</span><span class="overline"><span 
-class="cmmi-10">E</span></span><sub><span 
-class="cmmi-7">y</span></sub><span class="overline"><span 
-class="cmsy-10">&nabla;</span></span><span 
-class="cmmi-10">y</span>, the above drifts are written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="guiding_center_motion34x.png" alt="vE×B &sdot;&nabla;x   =  --1⋆(&delta;Ex &nabla;x + &delta;Ey &nabla;y )× B-&sdot;&nabla;x
-              B B∥
-                 1    ----    ----    --  --
-           =  &minus; ---⋆(&delta;Ex&nabla;x + &delta;Ey&nabla;y )× &nabla;x &sdot;B
-                BB ∥
-           =  &minus; -1-⋆(&delta;Ey&nabla;y )× &nabla;x &sdot;B-
-                BB ∥
-                1   -- --   --  --
-           =  ---⋆(&delta;Ey )&nabla;x × &nabla;y &sdot;B
-              B B∥      --
-              --1-  -- -B- --
-           =  BB-⋆∥(&delta;Ey )&Psi;-&prime; &sdot;B                              (33)
-" class="math-display"  /></center>
-</div><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="guiding_center_motion35x.png" alt="--              1   -- --   -- --    -- --
-vE×B &sdot;&nabla;y   =  BB-⋆(&delta;Ex &nabla;x + &delta;Ey &nabla;y )× B &sdot;&nabla;y
-                 ∥
-           =  &minus; -1-⋆(&delta;Ex&nabla;x + &delta;Ey&nabla;y )× &nabla;y &sdot;B-
-                BB ∥
-                 1    ----    --  --
-           =  &minus; BB-⋆(&delta;Ex&nabla;x )× &nabla;y &sdot;B
-                   ∥     --
-           =  &minus; -1--(&delta;E-)B--&sdot;B-                            (34)
-                BB ⋆∥   x &Psi;&prime;
-" class="math-display"  /></center>
-</div>
-   <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="guiding_center_motion36x.png" alt="v-   &sdot;&nabla;𝜃  =   -1--(&delta;E-&nabla;-&psi; +&delta;E- &nabla;&alpha; )× B-&sdot;&nabla;𝜃
- E×B          BB ⋆∥   x        y
-                 1   -- -- --   --    ---- --   --
-          =   &minus;---⋆ (&delta;Ex B &sdot;&nabla;&psi; × &nabla;𝜃 + &delta;EyB &sdot;&nabla; &alpha;× &nabla; 𝜃).           (35)
-               B B∥
-" class="math-display"  /><a 
- id="x4-3023r35"></a></center>
-</div>The two terms in expression (<a 
-href="#x4-3023r35">35<!--tex4ht:ref: 18-10-17-p1 --></a>) and be written as
-   <table 
-class="equation"><tr><td><a 
- id="x4-3024r36"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion37x.png" alt="                 |             |
--- --    --   -- || e&part;R&psi;  eϕ  e&part;Z&psi;  ||  -- (&part;&psi;  &part;𝜃   &part;&psi; &part;𝜃)
-B &sdot;(&nabla; &psi; × &nabla;𝜃) = B &sdot;|| &part;R  0  &part;Z- ||= Bϕ  &part;Z-&part;R- &minus; &part;R-&part;Z- &equiv; W14
-                 | &part;&part;𝜃R-  0  &part;&part;𝜃Z- |
-" class="math-display"  /></center></td><td class="equation-label">(36)</td></tr></table>
-                                                                                  
-                                                                                  
-<!--l. 388--><p class="nopar" >
+class="cmmi-10">,μ</span>) is given by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x4-3025r37"></a>
+ id="x7-8001r53"></a>
    <center class="math-display" >
 <img 
-src="guiding_center_motion38x.png" alt="               || e    e    e  ||     (         )    (               )     (          )
-B&sdot;(&nabla;&alpha;× &nabla;𝜃) = B&sdot;|| &part;R&alpha;- 1-ϕ&part;&alpha;  &part;Z&alpha;-||= B-   1-&part;&alpha;-&part;𝜃- +B-   &part;&alpha;-&part;𝜃-&minus; &part;-&alpha;-&part;𝜃 +B--  &minus; 1-&part;&alpha;-&part;𝜃-  &equiv; W
-               || &part;&part;R𝜃- R &part;ϕ  &part;&part;Z𝜃-||    R  R &part;ϕ &part;Z     ϕ  &part;Z &part;R   &part;R &part;Z      Z   R &part;ϕ &part;R      15
-                 &part;R   0    &part;Z
-" class="math-display"  /></center></td><td class="equation-label">(37)</td></tr></table>
-<!--l. 406--><p class="nopar" >
-</p><!--l. 409--><p class="indent" >    
-</p><!--l. 412--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">1.2.1   </span> <a 
- id="x4-40001.2.1"></a>Periodic conditions of particle trajactory in ﬁeld-line-following coordinates</h5>
-<!--l. 414--><p class="noindent" >Note that <span 
-class="cmmi-10">𝜃</span>(<span 
-class="cmbx-10">r</span>) and <span 
-class="cmmi-10">ϕ</span>(<span 
-class="cmbx-10">r</span>) are multi-valued functions, while <span 
-class="cmsy-10">&nabla;</span><span 
-class="cmmi-10">𝜃</span>(<span 
-class="cmbx-10">r</span>) and <span 
-class="cmsy-10">&nabla;</span><span 
-class="cmmi-10">ϕ</span>(<span 
-class="cmbx-10">r</span>) happens to be a single-valued
-function. However <span 
-class="cmsy-10">&nabla;</span><span 
-class="cmmi-10">&alpha;</span>(<span 
-class="cmbx-10">r</span>) and <span 
-class="cmsy-10">&nabla;</span><span class="overline"><span 
-class="cmmi-10">&delta;</span></span>(<span 
-class="cmbx-10">r</span>) are still multi-valued functions. [It is ready to see this point by
-examing the special case that <span 
-class="cmmi-10">𝜃 </span>is a straight-ﬁeld line poloidal angle, in which <span 
-class="cmex-10">&int;</span>
- <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span></sup><img 
-src="guiding_center_motion39x.png" alt="ˆq"  class="circ"  /> <span 
-class="cmmi-10">d𝜃 </span>is simpliﬁed to <span 
-class="cmmi-10">q𝜃</span>.
-Then <span 
-class="cmsy-10">&nabla;</span><span class="overline"><span 
-class="cmmi-10">&delta;</span></span> is written as
+src="guiding_center_motion67x.png" alt="    mv2⊥   mv2-  2    𝜀-   2
+μ =  2B  = 2B  sin 𝜃 = B sin  𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(53)</td></tr></table>
+<!--l. 747--><p class="nopar" >
+and
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x4-4001r38"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion40x.png" alt="  -
-&nabla; &delta; = 𝜃&nabla;q + q&nabla; 𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(38)</td></tr></table>
-                                                                                  
-                                                                                  
-<!--l. 424--><p class="nopar" >
-where the ﬁrst term <span 
-class="cmmi-10">𝜃</span><span 
-class="cmsy-10">&nabla;</span><span 
-class="cmmi-10">q </span>is a multi-valued function since <span 
-class="cmmi-10">𝜃 </span>is multi-valued.] For multi-valued functions, if a
-single branch is chosen, then there will be discontinuity at the the branch cut.
-</p><!--l. 429--><p class="indent" >   In numerically constructing the coordinates (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>), the principal value of <span 
-class="cmmi-10">𝜃 </span>is chosen in the range
-[<span 
-class="cmsy-10">&minus;</span><span 
-class="cmmi-10">&pi; </span>: <span 
-class="cmmi-10">&pi;</span>] and the branch cut for <span 
-class="cmmi-10">𝜃 </span>is chosen on the high-ﬁeld-side midplane. The toroidal shift
-<span class="overline"><span 
-class="cmmi-10">&delta;</span></span> = <span 
-class="cmex-10">&int;</span>
- <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span></sup><img 
-src="guiding_center_motion41x.png" alt="ˆq"  class="circ"  /> <span 
-class="cmmi-10">d𝜃 </span>can be considered as a derived angle based on <span 
-class="cmmi-10">𝜃 </span>and thus its principal value and
-branch cut are determined by those of <span 
-class="cmmi-10">𝜃</span>. Speciﬁcly, the principal value of <span class="overline"><span 
-class="cmmi-10">&delta;</span></span> is in the range
-[<span 
-class="cmsy-10">&minus;</span><span 
-class="cmmi-10">&pi;q </span>: <span 
-class="cmmi-10">&pi;q</span>] for up-down symmetrical equilibria and the branch cut is also on the high-ﬁeld-side
-midplane.
-</p><!--l. 439--><p class="indent" >   The (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>) coordinates of a particle change continously when they are evolved by using Eqs.
-(<a 
-href="#x4-3001r13">13<!--tex4ht:ref: 17-8-21-p1 --></a>)-(<a 
-href="#x4-3003r15">15<!--tex4ht:ref: 17-8-21-p3 --></a>), during which <span 
-class="cmmi-10">𝜃 </span>can move beyond [<span 
-class="cmsy-10">&minus;</span><span 
-class="cmmi-10">&pi;,&pi;</span>]. When a particle&#x2019;s <span 
-class="cmmi-10">𝜃 </span>moves beyong the range [<span 
-class="cmsy-10">&minus;</span><span 
-class="cmmi-10">&pi; </span>: <span 
-class="cmmi-10">&pi;</span>],
-one or multiple <span 
-class="cmsy-10">±</span>2<span 
-class="cmmi-10">&pi; </span>shifts are imposed on <span 
-class="cmmi-10">𝜃 </span>until <span 
-class="cmmi-10">𝜃 </span>are within [<span 
-class="cmsy-10">&minus;</span><span 
-class="cmmi-10">&pi; </span>: <span 
-class="cmmi-10">&pi;</span>]. Note that a cooresponding shift in
-<span 
-class="cmmi-10">&alpha; </span>is needed to keep the particle at the same spatial location when doing the <span 
-class="cmmi-10">𝜃 </span>shift. This is because,
-although (<span 
-class="cmmi-10">&psi;,𝜃,ϕ</span>) and (<span 
-class="cmmi-10">&psi;,𝜃 </span><span 
-class="cmsy-10">&minus; </span>2<span 
-class="cmmi-10">&pi;,ϕ</span>) correspond to the same spatial location, points (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>) and
-(<span 
-class="cmmi-10">&psi;,𝜃 </span><span 
-class="cmsy-10">&minus; </span>2<span 
-class="cmmi-10">&pi;,&alpha;</span>) do not. Speciﬁcly, the usual toroidal angle <span 
-class="cmmi-10">ϕ </span>of point (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>) is <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">1</span></sub> = <span 
-class="cmmi-10">&alpha; </span>+ <span 
-class="cmex-10">&int;</span>
- <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span></sup><img 
-src="guiding_center_motion42x.png" alt="ˆq"  class="circ"  /> <span 
-class="cmmi-10">d𝜃 </span>while <span 
-class="cmmi-10">ϕ </span>of
-point (<span 
-class="cmmi-10">&psi;,𝜃 </span><span 
-class="cmsy-10">&minus; </span>2<span 
-class="cmmi-10">&pi;,&alpha;</span>) is <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">2</span></sub> = <span 
-class="cmmi-10">&alpha; </span>+ <span 
-class="cmex-10">&int;</span>
- <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span><span 
-class="cmsy-7">&minus;</span><span 
-class="cmr-7">2</span><span 
-class="cmmi-7">&pi;</span></sup><img 
-src="guiding_center_motion43x.png" alt="ˆq"  class="circ"  /> <span 
-class="cmmi-10">d𝜃</span>. The diﬀerence between <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">1</span></sub> and <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">2</span></sub> is <span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">2</span></sub> <span 
-class="cmsy-10">&minus; </span><span 
-class="cmmi-10">ϕ</span><sub><span 
-class="cmr-7">1</span></sub> = <span 
-class="cmsy-10">&minus;</span>2<span 
-class="cmmi-10">&pi;q</span>. This
-indicates that, to keep the point at the same spatial location when shifting <span 
-class="cmmi-10">𝜃 </span>by <span 
-class="cmsy-10">&minus;</span>2<span 
-class="cmmi-10">&pi;</span>, <span 
-class="cmmi-10">&alpha; </span>should be
-shifted by +2<span 
-class="cmmi-10">&pi;q</span>, i.e., the new coordinates of the point should be (<span 
-class="cmmi-10">&psi;,𝜃 </span><span 
-class="cmsy-10">&minus; </span>2<span 
-class="cmmi-10">&pi;,&alpha; </span>+ 2<span 
-class="cmmi-10">&pi;q</span>). This
-process is illustrated in Fig. <a 
-href="#x4-40021">1<!--tex4ht:ref: 17-11-4-1 --></a> and a typical evolution of (<span 
-class="cmmi-10">𝜃,&alpha;</span>) involving shifting is shown in Fig.
-(<a 
-href="#x4-40032">2<!--tex4ht:ref: 18-2-4-p1 --></a>).
-</p><!--l. 459--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                  
-                                                                                  
-<a 
- id="x4-40021"></a>
-                                                                                  
-                                                                                  
-<!--l. 462--><p class="noindent" > <img 
-src="my_figure/home/yj/theory/guiding_center_motion/figures/fig1/shift-1.png" alt="pict"  
- width="265.99374pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 1: </span><span  
-class="content">To keep the point at the same spatial location when shifting <span 
-class="cmmi-10">𝜃 </span>by <span 
-class="cmsy-10">&minus;</span>2<span 
-class="cmmi-10">&pi;</span>, <span 
-class="cmmi-10">&alpha; </span>should be
-shifted by +2<span 
-class="cmmi-10">&pi;q</span>. Here <span 
-class="cmmi-10">A </span>and <span 
-class="cmmi-10">C </span>correspond to the same spatial location, but <span 
-class="cmmi-10">B </span>is at a diﬀerent
-location.</span></div><!--tex4ht:label?: x4-40021 -->
-                                                                                  
-                                                                                  
-   </div><hr class="endfigure" />
-<!--l. 469--><p class="indent" >    
-</p><!--l. 471--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                  
-                                                                                  
-<a 
- id="x4-40032"></a>
-                                                                                  
-                                                                                  
-<!--l. 474--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2018-2-3e1/f.png" alt="pict"  
- width="524.96124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 2: </span><span  
-class="content">Temporal evolution of (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>) of a passing electron. The range of <span 
-class="cmmi-10">𝜃 </span>is chosen to be
-[<span 
-class="cmsy-10">&minus;</span><span 
-class="cmmi-10">&pi; </span>: <span 
-class="cmmi-10">&pi;</span>] and the range of <span 
-class="cmmi-10">&alpha; </span>and <span 
-class="cmmi-10">ϕ </span>is [0 : 2<span 
-class="cmmi-10">&pi;</span>]. When <span 
-class="cmmi-10">𝜃 </span>exeed the range, a 2<span 
-class="cmmi-10">&pi; </span>shift is imposed, which
-generate the jump of <span 
-class="cmmi-10">𝜃 </span>in (b) and also the corresponding jump of <span 
-class="cmmi-10">&alpha; </span>in (c). Note that when a jump
-in (<span 
-class="cmmi-10">𝜃,&alpha;</span>) ocurs, no jump in <span 
-class="cmmi-10">ϕ</span>, which is what we expect, otherwise there must be something wrong.
-Also note that there are also jumps of <span 
-class="cmmi-10">ϕ </span>shown in (c), which is due to <span 
-class="cmmi-10">ϕ </span>exceeding the range [0 : 2<span 
-class="cmmi-10">&pi;</span>]
-and a 2<span 
-class="cmmi-10">&pi; </span>shift being imposed and this jump has nothing to do with the jump in <span 
-class="cmmi-10">𝜃 </span>or <span 
-class="cmmi-10">&alpha; </span>and usually
-occur at diﬀerent time (one jump of <span 
-class="cmmi-10">ϕ </span>is near the jump of <span 
-class="cmmi-10">&alpha;</span>, which is only a coincidence). Here <span 
-class="cmmi-10">ϕ </span>is
-computed using <span 
-class="cmmi-10">ϕ </span>= <span 
-class="cmmi-10">&alpha; </span>+<span class="overline"> <span 
-class="cmmi-10">&delta;</span></span>, where <span class="overline"><span 
-class="cmmi-10">&delta;</span></span> is obtained by interpolating the 2D numerical table of <span class="overline"><span 
-class="cmmi-10">&delta;</span></span>(<span 
-class="cmmi-10">&psi;,𝜃</span>).
-DIID-D cyclone base case</span></div><!--tex4ht:label?: x4-40032 -->
-                                                                                  
-                                                                                  
-   </div><hr class="endfigure" />
-<!--l. 492--><p class="indent" >    
-</p><!--l. 494--><p class="indent" >   (When <span 
-class="cmmi-10">&alpha; </span>of a particle moves beyong the range [0 : 2<span 
-class="cmmi-10">&pi;</span>], one or multiple <span 
-class="cmsy-10">±</span>2<span 
-class="cmmi-10">&pi; </span>shifts are imposed
-on <span 
-class="cmmi-10">&alpha; </span>until <span 
-class="cmmi-10">&alpha; </span>are within [0 : 2<span 
-class="cmmi-10">&pi;</span>]. Since, for ﬁxed <span 
-class="cmmi-10">&psi; </span>and <span 
-class="cmmi-10">𝜃</span>, the generalized toroidal angle <span 
-class="cmmi-10">&alpha; </span>is
-equivalent to the usual toroidal angle <span 
-class="cmmi-10">ϕ</span>. No complication like the case of <span 
-class="cmmi-10">𝜃 </span>arises when doing the <span 
-class="cmmi-10">&alpha;</span>
-shift.)
-</p><!--l. 500--><p class="indent" >   One way of avoiding the subtle (<span 
-class="cmmi-10">𝜃,&alpha;</span>) shift problem is to evolve particles&#x2019; <span 
-class="cmmi-10">ϕ</span>, instead of <span 
-class="cmmi-10">&alpha;</span>. In this case,
-we have
-</p>
-   <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="guiding_center_motion44x.png" alt="        --            --  v∥--         --            --           --  ------
-dϕ-= vd &sdot;&nabla; ϕ =  v∥--(-B-+-2&pi;&nabla;-×-b---) &sdot;&nabla;ϕ + --(------&mu;--------)-12B × &nabla; B &sdot;&nabla; ϕ(,39)
-dt                B  1 + 2v∥&pi;Bb &sdot;&nabla; × b        2&pi; 1 + 2v∥&pi;Bb &sdot;&nabla; × b B
-" class="math-display"  /></center>
-</div>After geting <span 
-class="cmmi-10">ϕ</span>, we use <span 
-class="cmmi-10">&alpha; </span>= <span 
-class="cmmi-10">ϕ </span><span 
-class="cmsy-10">&minus;</span><span class="overline"><span 
-class="cmmi-10">&delta;</span></span>(<span 
-class="cmmi-10">&psi;,𝜃</span>) to get particles&#x2019; <span 
-class="cmmi-10">&alpha;</span>, where <span class="overline"><span 
-class="cmmi-10">&delta;</span></span> is obtained by interpolating the
-numerical table in (<span 
-class="cmmi-10">&psi;,𝜃</span>) plane. I have tested the two ways of computing evolution of <span 
-class="cmmi-10">&alpha;</span>, which indicates
-their results agree with each other. In the ﬁnal codes, I use the (<span 
-class="cmmi-10">𝜃,&alpha;</span>) shift method, because this methods
-involve less interpolation and thus more eﬃcient.
-   <h5 class="subsubsectionHead"><span class="titlemark">1.2.2   </span> <a 
- id="x4-50001.2.2"></a>Benchmarking cases</h5>
-<!--l. 526--><p class="noindent" >To verify code implementation, two methods are used to compute the guiding-center orbits. The ﬁrst
-method uses the cylindrical coordinates and then interpolate the orbits into magnetic coordinates using
-pre-computed mapping table between the cylindrical and magnetic coordinates. The second method
-directly uses the magnetic coordinates in pushing the orbits. The following ﬁgures compare the results
-obtained by these two methods, which indicates they agree with each other. This provdies conﬁdence on
-the correctness of the numerical implementation.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                  
-                                                                                  
-<a 
- id="x4-50013"></a>
-                                                                                  
-                                                                                  
-<!--l. 536--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig2018-2-3e1/figb/f.png" alt="pict"  
- width="518.93875pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 3: </span><span  
-class="content">Comparison between the temporal evolution of (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>) of a passing electron computed
-by two methods: the blue lines are the results computed directly in (<span 
-class="cmmi-10">&psi;,𝜃,&alpha;</span>) ﬁeld-line-following
-coordinates, the red lines are results computed in cylindrical coordinates and then interpolated to
-the ﬁeld-line-following coordinates. There is sysmetical discrepancy between <span 
-class="cmmi-10">&psi; </span>computed by the
-two methods. The results are actually very close to each other and the diﬀerebce becomes obvious
-because the variation of <span 
-class="cmmi-10">&psi; </span>is very small for a passing electron. The results of <span 
-class="cmmi-10">&alpha; </span>from the two methods
-also agree with each other. The discrepancy near <span 
-class="cmmi-10">t</span>&Omega;<sub><span 
-class="cmmi-7">i</span></sub> = 400 is due to that <span 
-class="cmmi-10">&alpha; </span>is close to 2<span 
-class="cmmi-10">&pi;</span>, and one
-result becomes zero, which is equivalent to 2<span 
-class="cmmi-10">&pi;</span>. equilibrium is the DIID-D cyclone base case</span></div><!--tex4ht:label?: x4-50013 -->
-                                                                                  
-                                                                                  
-   </div><hr class="endfigure" />
-<!--l. 552--><p class="indent" >    
-</p><!--l. 554--><p class="indent" >    
-</p><!--l. 556--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                  
-                                                                                  
-<a 
- id="x4-50024"></a>
-                                                                                  
-                                                                                  
+ id="x7-8002r54"></a>
+                                                                                
 
-<!--l. 559--><p class="noindent" ><img 
-src="my_figure/home/yj/project_new/lorentz_ions/figures/fig2e/p.png" alt="pict"  
- width="102.38249pt" /> <img 
-src="my_figure/home/yj/project_new/lorentz_ions/figures/fig2/p.png" alt="pict"  
- width="218.8175pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 4: </span><span  
-class="content">Left: orbit on poloidal plane. Right: <span 
-class="cmmi-10">&alpha; </span>is deﬁned by <span 
-class="cmmi-10">&alpha; </span>= <span 
-class="cmmi-10">ϕ </span><span 
-class="cmsy-10">&minus;</span><span 
-class="cmex-10">&int;</span>
- <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span></sup><img 
-src="guiding_center_motion45x.png" alt="ˆq"  class="circ"  /> <span 
-class="cmmi-10">d𝜃, </span>where <span 
-class="cmmi-10">ϕ </span>is the
-usual cylindrical toroidal angle.</span></div><!--tex4ht:label?: x4-50024 -->
-                                                                                  
-                                                                                  
-   </div><hr class="endfigure" />
-<!--l. 565--><p class="indent" >    
-</p><!--l. 567--><p class="indent" >    
-</p><!--l. 569--><p class="indent" >    
+                                                                                
+   <center class="math-display" >
+<img 
+src="guiding_center_motion68x.png" alt="            ∘ ---
+v∥ = vsin 𝜃 =  2𝜀 cos𝜃.
+              m
+" class="math-display"  /></center></td><td class="equation-label">(54)</td></tr></table>
+<!--l. 751--><p class="nopar" >
+The relation between (<span 
+class="cmmi-10">𝜀,𝜃</span>) and the normalized quantities (<span class="overline"><span 
+class="cmmi-10">μ</span></span><span 
+class="cmmi-10">,</span><span class="overline"><span 
+class="cmmi-10">v</span></span><sub><span 
+class="cmsy-7">∥</span></sub>) is given by
 </p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                  
-                                                                                  
-<a 
- id="x4-50035"></a>
-                                                                                  
-                                                                                  
-<!--l. 572--><p class="noindent" > 
-</p><!--l. 574--><p class="noindent" ><img 
-src="my_figure/home/yj/project_new/lorentz_ions/figures/fig2c/p.png" alt="pict"  
- width="221.82875pt" /> <img 
-src="my_figure/home/yj/project_new/lorentz_ions/figures/fig2f/p.png" alt="pict"  
- width="222.8325pt" />
-</p><!--l. 576--><p class="noindent" ><img 
-src="my_figure/home/yj/project_new/lorentz_ions/figures/fig2b/p.png" alt="pict"  
- width="218.8175pt" /> <img 
-src="my_figure/home/yj/project_new/lorentz_ions/figures/fig2d/p.png" alt="pict"  
- width="218.8175pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 5: </span><span  
-class="content">The evolutions of the poloidal angles <span 
-class="cmmi-10">𝜃 </span>and generalized toroidal anglecal <span 
-class="cmmi-10">&alpha; </span>culated by
-the two methods agree with each other.   <span 
-class="cmmi-10">r </span>= <img 
-src="guiding_center_motion46x.png" alt="∘ ------
-  &Psi;&Psi;&minus;b&Psi;&minus;0&Psi;0"  class="sqrt"  /></span></div><!--tex4ht:label?: x4-50035 -->
-                                                                                  
-                                                                                  
-   </div><hr class="endfigure" />
-<!--l. 582--><p class="indent" >    
-                                                                                  
-                                                                                  
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8003r55"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion69x.png" alt="μ-= -μ-= -𝜀sin2𝜃---12----= --𝜀---sin2𝜃,
+    μn   B      mv n∕Bn   mv2nB
+" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
+<!--l. 758--><p class="nopar" >
+and
 </p>
-   <!--l. 584--><div class="crosslinks"><p class="noindent">[<a 
+   <table 
+class="equation"><tr><td><a 
+ id="x7-8004r56"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion70x.png" alt="    ∘ -----
+v =    -2𝜀--cos𝜃.
+ ∥     mv2n
+" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 763--><p class="nopar" >
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 765--><div class="crosslinks"><p class="noindent">[<a 
 href="guiding_center_motionsu3.html" >next</a>] [<a 
-href="guiding_center_motionsu1.html" >prev</a>] [<a 
-href="guiding_center_motionsu1.html#tailguiding_center_motionsu1.html" >prev-tail</a>] [<a 
 href="guiding_center_motionsu2.html" >front</a>] [<a 
-href="guiding_center_motionse1.html#guiding_center_motionsu2.html" >up</a>] </p></div>
-<!--l. 584--><p class="indent" >   <a 
- id="tailguiding_center_motionsu2.html"></a>  </p> 
+href="guiding_center_motionse4.html#guiding_center_motionsu2.html" >up</a>] </p></div>
+<!--l. 765--><p class="indent" >   <a 
+ id="tailguiding_center_motionsu2.html"></a> </p> 
 </body></html> 

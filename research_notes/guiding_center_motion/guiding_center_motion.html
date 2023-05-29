@@ -7,19 +7,20 @@
 <head>
    <title>Guiding center motion in tokamaks</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,2,charset=utf-8,html --> 
 <meta name="src" content="guiding_center_motion.tex" /> 
-<meta name="date" content="2019-01-05 20:39:00" /> 
 <link rel="stylesheet" type="text/css" href="guiding_center_motion.css" /> 
 </head><body 
 >
    <div class="maketitle">
-                                                                                  
-                                                                                  
-                                                                                  
-                                                                                  
+                                                                                
+
+                                                                                
+                                                                                
+
+                                                                                
 
 <h2 class="titleHead">Guiding center motion in tokamaks</h2>
                       <div class="author" > <span 
@@ -29,7 +30,7 @@ class="cmr-12">Institute of plasma physics, Chinese Academy of Sciences</span>
 <br />                <span 
 class="cmr-12">Email: yjhu@ipp.cas.cn </span></div><br />
 <div class="date" ><span 
-class="cmr-12">January 5, 2019</span></div>
+class="cmr-12">May 29, 2023</span></div>
    </div>
    <div 
 class="abstract" 
@@ -40,21 +41,21 @@ class="abstract"
 </p><!--l. 28--><p class="noindent" ><span 
 class="cmbx-9">Abstract</span></p></div>
      <!--l. 29--><p class="indent" >    <span 
-class="cmr-9">This note discusses numerical computation of guiding center orbits in tokamaks using the</span>
+class="cmr-9">This note discusses numerical computation of guiding center orbits in tokamaks using</span>
      <span 
-class="cmr-9">cylindrical coordinates and several magnetic coordinates. Some subtle things involved in using</span>
+class="cmr-9">cylindrical coordinates and several magnetic coordinates. Some subtle things involved in</span>
      <span 
-class="cmr-9">a particlular kind of magnetic coordinates called ﬁeld-line-following coordinates are discussed</span>
+class="cmr-9">using a particlular kind of magnetic coordinates called ﬁeld-line-following coordinates are</span>
      <span 
-class="cmr-9">(I am using this kind of coordinates in developing a new module in GEM code). We assume a</span>
+class="cmr-9">discussed (I am using this kind of coordinates in developing a new module in GEM code).</span>
      <span 
-class="cmr-9">general tokamak magnetic ﬁeld specciﬁed numerically (provided by the EFIT G-ﬁle). This note</span>
+class="cmr-9">We assume a general tokamak magnetic ﬁeld specciﬁed numerically (provided by the EFIT</span>
      <span 
-class="cmr-9">is evolving, begining with my ﬁrst try of computing guiding-center motion in Solovev analytical</span>
+class="cmr-9">G-ﬁle). This note is evolving, begining with my ﬁrst try of computing guiding-center motion</span>
      <span 
-class="cmr-9">equilibrium using cylindrical coordinates, and then extending to general numerical magnetic</span>
+class="cmr-9">in Solovev analytical equilibrium using cylindrical coordinates, and then extending to general</span>
      <span 
-class="cmr-9">ﬁeld, and later using magnetic coordinates.</span>
+class="cmr-9">numerical magnetic ﬁeld, and later using magnetic coordinates.</span>
 </p>
 </div>
 <!--l. 41--><p class="indent" >    
@@ -63,50 +64,60 @@ class="cmr-9">ﬁeld, and later using magnetic coordinates.</span>
    <span class="sectionToc" >1 <a 
 href="guiding_center_motionse1.html#x2-10001" id="QQ2-2-1">Equations of guiding-center motion</a></span>
 <br />    <span class="subsectionToc" >1.1 <a 
-href="guiding_center_motionsu1.html#x3-20001.1" id="QQ2-3-2">Deﬁne new units</a></span>
-<br />    <span class="subsectionToc" >1.2 <a 
-href="guiding_center_motionsu2.html#x4-30001.2" id="QQ2-4-3">Equation of guding-center motion in ﬁeld-line-following coordinates</a></span>
-<br />    <span class="subsectionToc" >1.3 <a 
-href="guiding_center_motionsu3.html#x5-60001.3" id="QQ2-5-11">Equations of guiding-center motion in cylindrical coordinates</a></span>
-<br />    <span class="subsectionToc" >1.4 <a 
-href="guiding_center_motionsu4.html#x6-70001.4" id="QQ2-6-12">Equilibrium magnetic ﬁeld in tokamak</a></span>
-<br />    <span class="subsectionToc" >1.5 <a 
-href="guiding_center_motionsu5.html#x7-90001.5" id="QQ2-7-14">Initial conditions</a></span>
-                                                                                  
-                                                                                  
+href="guiding_center_motionse1.html#x2-20001.1" id="QQ2-2-2">Deﬁne new units</a></span>
 <br />   <span class="sectionToc" >2 <a 
-href="guiding_center_motionse2.html#x8-100002" id="QQ2-8-15">Benchmark of the code</a></span>
-<br />    <span class="subsectionToc" >2.1 <a 
-href="guiding_center_motionsu6.html#x9-110002.1" id="QQ2-9-17">Trapped and circulating particles</a></span>
-<br />    <span class="subsectionToc" >2.2 <a 
-href="guiding_center_motionsu7.html#x10-120002.2" id="QQ2-10-22">Analytical estimation of bounce frequency of deeply trapped particles</a></span>
-<br />    <span class="subsectionToc" >2.3 <a 
-href="guiding_center_motionsu8.html#x11-130002.3" id="QQ2-11-23">Methods of determining drift orbits</a></span>
-<br />    <span class="subsectionToc" >2.4 <a 
-href="guiding_center_motionsu9.html#x12-140002.4" id="QQ2-12-30">Toroidal procession</a></span>
-<br />    <span class="subsectionToc" >2.5 <a 
-href="guiding_center_motionsu10.html#x13-150002.5" id="QQ2-13-32">Radial drift –check!!</a></span>
-<br />    <span class="subsectionToc" >2.6 <a 
-href="guiding_center_motionsu11.html#x14-160002.6" id="QQ2-14-33">Width of guiding center orbit</a></span>
-<br />    <span class="subsectionToc" >2.7 <a 
-href="guiding_center_motionsu12.html#x15-170002.7" id="QQ2-15-35">3D trajectory of guiding-center</a></span>
-<br />    <span class="subsectionToc" >2.8 <a 
-href="guiding_center_motionsu13.html#x16-180002.8" id="QQ2-16-37">Trapped particle fraction</a></span>
+href="guiding_center_motionse2.html#x3-30002" id="QQ2-3-3">Equation of guding-center motion in ﬁeld-line-following coordinates</a></span>
 <br />   <span class="sectionToc" >3 <a 
-href="guiding_center_motionse3.html#x17-190003" id="QQ2-17-38">Numerical results of prompt loss of fast ions</a></span>
+href="guiding_center_motionse3.html#x4-60003" id="QQ2-4-11">Equations of motion in cylindrical coordinates</a></span>
 <br />   <span class="sectionToc" >4 <a 
-href="guiding_center_motionse4.html#x18-200004" id="QQ2-18-40">Use constants of motion to determine orbit loss</a></span>
+href="guiding_center_motionse4.html#x5-70004" id="QQ2-5-12">Code Benchmarking</a></span>
 <br />    <span class="subsectionToc" >4.1 <a 
-href="guiding_center_motionsu14.html#x19-210004.1" id="QQ2-19-41">Critical velocity for ions loss</a></span>
+href="guiding_center_motionse4.html#x5-80004.1" id="QQ2-5-13">Initial conditions</a></span>
 <br />    <span class="subsectionToc" >4.2 <a 
-href="guiding_center_motionsu15.html#x20-220004.2" id="QQ2-20-42">Large aspect ratio equilibrium</a></span>
+href="guiding_center_motionse4.html#x5-90004.2" id="QQ2-5-14">Costants of motion</a></span>
 <br />   <span class="sectionToc" >5 <a 
-href="guiding_center_motionse5.html#x21-230005" id="QQ2-21-44">Equations of guiding-center motion—outdated, will be deleted</a></span>
+href="guiding_center_motionse5.html#x6-100005" id="QQ2-6-16">Orbit classifcation</a></span>
 <br />    <span class="subsectionToc" >5.1 <a 
-href="guiding_center_motionsu16.html#x22-240005.1" id="QQ2-22-45">Equations of guiding center motion in cylindrical coordinates-old, will be deleted</a></span>
+href="guiding_center_motionse5.html#x6-110005.1" id="QQ2-6-21">Numerically testing orbit types</a></span>
+                                                                                
+
+                                                                                
+<br />    <span class="subsectionToc" >5.2 <a 
+href="guiding_center_motionse5.html#x6-120005.2" id="QQ2-6-24">Trapped passing boundary in the zero-orbit-width limit</a></span>
+<br />    <span class="subsectionToc" >5.3 <a 
+href="guiding_center_motionse5.html#x6-130005.3" id="QQ2-6-29">Trapped particle fraction</a></span>
+<br />    <span class="subsectionToc" >5.4 <a 
+href="guiding_center_motionse5.html#x6-150005.4" id="QQ2-6-31">Bounce frequency of deeply trapped particles</a></span>
+<br />    <span class="subsectionToc" >5.5 <a 
+href="guiding_center_motionse5.html#x6-160005.5" id="QQ2-6-32">Bounce frequency of barely trapped particles</a></span>
+<br />    <span class="subsectionToc" >5.6 <a 
+href="guiding_center_motionse5.html#x6-170005.6" id="QQ2-6-33">Methods of determining drift orbits</a></span>
+<br />    <span class="subsectionToc" >5.7 <a 
+href="guiding_center_motionse5.html#x6-180005.7" id="QQ2-6-41">Toroidal procession</a></span>
+<br />    <span class="subsectionToc" >5.8 <a 
+href="guiding_center_motionse5.html#x6-190005.8" id="QQ2-6-43">Radial drift –check!!</a></span>
+<br />    <span class="subsectionToc" >5.9 <a 
+href="guiding_center_motionse5.html#x6-200005.9" id="QQ2-6-44">Width of guiding center orbit</a></span>
+<br />    <span class="subsectionToc" >5.10 <a 
+href="guiding_center_motionse5.html#x6-210005.10" id="QQ2-6-46">3D trajectory of guiding-center</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="guiding_center_motionse6.html#x7-220006" id="QQ2-7-48">Numerical results of prompt loss of fast ions</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="guiding_center_motionse7.html#x8-230007" id="QQ2-8-50">Use constants of motion to determine orbit loss</a></span>
+<br />    <span class="subsectionToc" >7.1 <a 
+href="guiding_center_motionse7.html#x8-240007.1" id="QQ2-8-51">Critical velocity for ions to touch a boundary</a></span>
+<br />    <span class="subsectionToc" >7.2 <a 
+href="guiding_center_motionse7.html#x8-250007.2" id="QQ2-8-52">Large aspect ratio equilibrium</a></span>
+<br />   <span class="sectionToc" >8 <a 
+href="guiding_center_motionse8.html#x9-260008" id="QQ2-9-54">Equations of guiding-center motion—outdated, will be deleted</a></span>
+<br />    <span class="subsectionToc" >8.1 <a 
+href="guiding_center_motionse8.html#x9-270008.1" id="QQ2-9-55">Equilibrium magnetic ﬁeld in tokamak</a></span>
 <br />   <span class="likesectionToc" ><a 
-href="guiding_center_motionli1.html#x23-250005.1" id="QQ2-23-46">References</a></span>
+href="guiding_center_motionli1.html#x10-290008.1.1" id="QQ2-10-57">References</a></span>
    </div>
+
+
+
 
 
 
@@ -114,6 +125,6 @@ href="guiding_center_motionli1.html#x23-250005.1" id="QQ2-23-46">References</a><
  
 </body></html> 
 
-                                                                                  
+                                                                                
 
 

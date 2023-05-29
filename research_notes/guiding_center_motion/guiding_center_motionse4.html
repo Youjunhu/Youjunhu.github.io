@@ -4,77 +4,255 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Use constants of motion to determine orbit loss</title> 
+<head><title>Code Benchmarking</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,2,charset=utf-8,html --> 
 <meta name="src" content="guiding_center_motion.tex" /> 
-<meta name="date" content="2019-01-05 20:39:00" /> 
 <link rel="stylesheet" type="text/css" href="guiding_center_motion.css" /> 
 </head><body 
 >
-   <!--l. 1566--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="guiding_center_motionse5.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse3.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse3.html#tailguiding_center_motionse3.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="#tailguiding_center_motionse4.html"><span 
-class="ecrm-1000">tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motion.html#guiding_center_motionse4.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-   <h3 class="sectionHead"><span class="titlemark"><span 
-class="ecrm-1000">4   </span></span> <a 
- id="x18-200004"></a><span 
-class="ecrm-1000">Use constants of motion to determine orbit loss</span></h3>
-<!--l. 1568--><p class="noindent" ><span 
-class="ecrm-1000">This section discusses determining the prompt loss of ions by using the constants of motion. This work</span>
-<span 
-class="ecrm-1000">was motivated by Dr. Chengkang Pan, who shares an oﬃce with me and recently (2014) published a NF</span>
-<span 
-class="ecrm-1000">paper discussing this topic.</span>
-</p><!--l. 1573--><p class="noindent" >
+   <!--l. 732--><div class="crosslinks"><p class="noindent">[<a 
+href="guiding_center_motionse5.html" >next</a>] [<a 
+href="guiding_center_motionse3.html" >prev</a>] [<a 
+href="guiding_center_motionse3.html#tailguiding_center_motionse3.html" >prev-tail</a>] [<a 
+href="#tailguiding_center_motionse4.html">tail</a>] [<a 
+href="guiding_center_motion.html#guiding_center_motionse4.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x5-70004"></a>Code Benchmarking</h3>
+<!--l. 734--><p class="noindent" >
 </p>
-   <div class="subsectionTOCS">
-   <span 
-class="ecrm-1000"> </span><span class="subsectionToc" ><span 
-class="ecrm-1000">4.1 </span><a 
-href="guiding_center_motionsu14.html#x19-210004.1"><span 
-class="ecrm-1000">Critical velocity for ions loss</span></a></span>
-<br />   <span 
-class="ecrm-1000"> </span><span class="subsectionToc" ><span 
-class="ecrm-1000">4.2 </span><a 
-href="guiding_center_motionsu15.html#x20-220004.2"><span 
-class="ecrm-1000">Large aspect ratio equilibrium</span></a></span>
-   </div>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x5-80004.1"></a>Initial conditions</h4>
+<!--l. 736--><p class="noindent" >The initial conditions of the particle are given by specifying the initial location (<span 
+class="cmmi-10">R,ϕ,Z</span>), initial parallel
+velocity <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>, and the magnetic moment <span 
+class="cmmi-10">μ </span>(which acts as a parameter since <span 
+class="cmmi-10">μ </span>is exactly conserved). In
+some cases, we prefer to specify the initial velocity in terms of the initial kinetic energy <span 
+class="cmmi-10">𝜀 </span>and the initial
+pitch angle <span 
+class="cmmi-10">𝜃 </span>(the include angle between velocity and the local magnetic ﬁeld). The relation between
+(<span 
+class="cmmi-10">𝜀,𝜃</span>) and (<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,μ</span>) is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-8001r53"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion67x.png" alt="    mv2⊥   mv2-  2    𝜀-   2
+μ =  2B  = 2B  sin 𝜃 = B sin  𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(53)</td></tr></table>
+<!--l. 747--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-8002r54"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion68x.png" alt="            ∘ 2𝜀-
+v∥ = vsin 𝜃 =  m- cos𝜃.
+" class="math-display"  /></center></td><td class="equation-label">(54)</td></tr></table>
+                                                                                
 
-                                                                                  
-                                                                                  
-   <!--l. 1835--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="guiding_center_motionse5.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse3.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse3.html#tailguiding_center_motionse3.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse4.html" ><span 
-class="ecrm-1000">front</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motion.html#guiding_center_motionse4.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-<!--l. 1835--><p class="indent" >   <a 
- id="tailguiding_center_motionse4.html"></a> </p> 
+                                                                                
+<!--l. 751--><p class="nopar" >
+The relation between (<span 
+class="cmmi-10">𝜀,𝜃</span>) and the normalized quantities (<span class="overline"><span 
+class="cmmi-10">μ</span></span><span 
+class="cmmi-10">,</span><span class="overline"><span 
+class="cmmi-10">v</span></span><sub><span 
+class="cmsy-7">∥</span></sub>) is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-8003r55"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion69x.png" alt="μ-= -μ-= -𝜀sin2𝜃---1----= --𝜀---sin2𝜃,
+    μn   B      mv2n∕Bn   mv2nB
+" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
+<!--l. 758--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-8004r56"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion70x.png" alt="    ∘ -----
+-       2𝜀
+v∥ =   mv2-cos𝜃.
+         n
+" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 763--><p class="nopar" >
+</p><!--l. 765--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x5-90004.2"></a>Costants of motion</h4>
+<!--l. 767--><p class="noindent" >There are three constants of motion for the guiding center motion, namdely, the canonical toroidal
+angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub>, the magnetic moment <span 
+class="cmmi-10">μ</span>, and the total kinetic energey <span 
+class="cmmi-10">𝜀</span>. Examining how well
+the kinetic energy <span 
+class="cmmi-10">𝜀 </span>and the toroidal angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub>are conserved provides a way to evaluate
+the accuracy of the numerical code. The kinetic energy <span 
+class="cmmi-10">𝜀 </span>and toroidal angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub> are
+deﬁned by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-9001r57"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="guiding_center_motion71x.png" alt="    1      1
+𝜀 = -mv2 = -mv2∥ + B μ
+    2      2
+" class="math-display"  /></center></td><td class="equation-label">(57)</td></tr></table>
+<!--l. 776--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-9002r58"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion72x.png" alt="       g(Ψ )
+Pϕ = m -B--v∥ + ZeΨ,
+" class="math-display"  /></center></td><td class="equation-label">(58)</td></tr></table>
+<!--l. 779--><p class="nopar" >
+Deﬁne <span 
+class="cmmi-10">𝜀</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmmi-7">n</span></sub><sup><span 
+class="cmr-7">2</span></sup> and <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕn</span></sub> = <span 
+class="cmmi-10">ZeB</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">n</span></sub><sup><span 
+class="cmr-7">2</span></sup>, then the normalized forms of <span 
+class="cmmi-10">𝜀 </span>and <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub> are written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-9003r59"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion73x.png" alt="-    𝜀     1-2  ---
+𝜀 ≡ mv2-=  2v∥ + μB
+       n
+" class="math-display"  /></center></td><td class="equation-label">(59)</td></tr></table>
+<!--l. 785--><p class="nopar" >
+</p><div class="eqnarray">
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="guiding_center_motion74x.png" alt="--      P ϕ
+Pϕ  ≡   P---
+         ϕnv    --
+    =   1-g-∥-+ Ψ                            (60)
+        2π  B
+" class="math-display"  /></center>
+</div>Figure <a 
+href="#x5-90056">6<!--tex4ht:ref: 8-10-e1 --></a> plots the time evolution of the kinetic energy <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and toroidal angular momentum <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> for an
+energetic ion in EAST magnetic conﬁguration. The results shows that <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> are conserved to
+acceptable accuracy for 100 poloidal periods of the orbit.
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x5-90056"></a>
+                                                                                
+
+                                                                                
+<!--l. 798--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31b/p.png" alt="pict"  
+ width="218.8175pt" />                     <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31/p.png" alt="pict"  
+ width="218.8175pt" />                     <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31c/p.png" alt="pict"  
+ width="152.57pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 6: </span><span  
+class="content">Time evolution of the kinetic energy <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> (a) and toroidal angular momentum <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> (b)
+for a Deuteron of 20keV launched at the low-ﬁeld-side midplane (<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">ini</span></sub> = 2<span 
+class="cmmi-10">.</span>15<span 
+class="cmmi-10">m,Z</span><sub><span 
+class="cmr-7">ini</span></sub> = 0<span 
+class="cmmi-10">m</span>) with
+pitch angle <span 
+class="cmmi-10">𝜃 </span>= 75<sup><span 
+class="cmsy-7">∘</span></sup>. The results shows that <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> are conserved to acceptable accuracy
+(<span class="overline"><span 
+class="cmmi-10">𝜀</span></span><sub><span 
+class="cmmi-7">k</span></sub> decreased by 1<span 
+class="cmmi-10">.</span>8 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">5</span></sup>  and <span class="bar-css"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> by 3<span 
+class="cmmi-10">.</span>2 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">4</span></sup>  during the time of 100 poloidal periods).
+The corresponding poloidal orbit is plotted in (c). Fourth-order Runge-Kutta time advancing
+scheme is used in integrating the orbit with a time step of 1<span 
+class="cmmi-10">∕</span>183 poloidal period. The magnetic
+equilibrium is from EAST discharge #62585@2.8s (gﬁle provided by ZhengZheng).</span></div><!--tex4ht:label?: x5-90056 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+                                                                                
+
+                                                                                
+   <!--l. 814--><div class="crosslinks"><p class="noindent">[<a 
+href="guiding_center_motionse5.html" >next</a>] [<a 
+href="guiding_center_motionse3.html" >prev</a>] [<a 
+href="guiding_center_motionse3.html#tailguiding_center_motionse3.html" >prev-tail</a>] [<a 
+href="guiding_center_motionse4.html" >front</a>] [<a 
+href="guiding_center_motion.html#guiding_center_motionse4.html" >up</a>] </p></div>
+<!--l. 814--><p class="indent" >   <a 
+ id="tailguiding_center_motionse4.html"></a>  </p> 
 </body></html> 

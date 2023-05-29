@@ -4,235 +4,172 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Equations of guiding-center motion in cylindrical coordinates</title> 
+<head><title>Costants of motion</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <!-- xhtml,4,charset=utf-8,html --> 
 <meta name="src" content="guiding_center_motion.tex" /> 
-<meta name="date" content="2019-01-05 20:39:00" /> 
 <link rel="stylesheet" type="text/css" href="guiding_center_motion.css" /> 
 </head><body 
 >
-   <!--l. 584--><div class="crosslinks"><p class="noindent">[<a 
-href="guiding_center_motionsu4.html" >next</a>] [<a 
+   <!--l. 765--><div class="crosslinks"><p class="noindent">[<a 
 href="guiding_center_motionsu2.html" >prev</a>] [<a 
 href="guiding_center_motionsu2.html#tailguiding_center_motionsu2.html" >prev-tail</a>] [<a 
 href="#tailguiding_center_motionsu3.html">tail</a>] [<a 
-href="guiding_center_motionse1.html#guiding_center_motionsu3.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a 
- id="x5-60001.3"></a>Equations of guiding-center motion in cylindrical coordinates</h4>
-<!--l. 586--><p class="noindent" >In this section, all quantities are in the normalized form given in Sec. <a 
-href="guiding_center_motionsu1.html#x3-20001.1">1.1<!--tex4ht:ref: 5-17-1 --></a>. For notational simplicity, the
-overbars of the notation are ommitted. In cylindrical coordinates (<span 
-class="cmmi-10">R,ϕ,Z</span>), the location vector is written
-as <span 
-class="cmbx-10">X </span>= <span 
-class="cmmi-10">R</span><img 
-src="guiding_center_motion47x.png" alt="ˆe"  class="circ"  /><sub><span 
-class="cmmi-7">R</span></sub> + <span 
-class="cmmi-10">Z</span><img 
-src="guiding_center_motion48x.png" alt="ˆe"  class="circ"  /><sub><span 
-class="cmmi-7">Z</span></sub>. Using this, we obtain
+href="guiding_center_motionse4.html#guiding_center_motionsu3.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x8-90004.2"></a>Costants of motion</h4>
+<!--l. 767--><p class="noindent" >There are three constants of motion for the guiding center motion, namdely, the canonical toroidal
+angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub>, the magnetic moment <span 
+class="cmmi-10">μ</span>, and the total kinetic energey <span 
+class="cmmi-10">𝜀</span>. Examining how well
+the kinetic energy <span 
+class="cmmi-10">𝜀 </span>and the toroidal angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub>are conserved provides a way to evaluate
+the accuracy of the numerical code. The kinetic energy <span 
+class="cmmi-10">𝜀 </span>and toroidal angular momentum <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub> are
+deﬁned by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-6001r40"></a>
+ id="x8-9001r57"></a>
    <center class="math-display" >
 <img 
-src="guiding_center_motion49x.png" alt="dX-= dR-ˆeR + Rdϕ-ˆeϕ + dZ-ˆeZ
-dt    dt       dt     dt
-" class="math-display"  /></center></td><td class="equation-label">(40)</td></tr></table>
-<!--l. 594--><p class="nopar" >
-Substituting this into Eq. (<a 
-href="guiding_center_motionse1.html#x2-1001r1">1<!--tex4ht:ref: 5-15-p2 --></a>) gives
+src="guiding_center_motion71x.png" alt="    1   2  1   2
+𝜀 = 2mv  = 2mv ∥ + B μ
+" class="math-display"  /></center></td><td class="equation-label">(57)</td></tr></table>
+<!--l. 776--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-6002r41"></a>
+ id="x8-9002r58"></a>
    <center class="math-display" >
 <img 
-src="guiding_center_motion50x.png" alt="                         ⋆
-dRˆeR + R dϕˆeϕ + dZ-ˆeZ = B--v∥ +---&mu;--B × &nabla;B  + -1--E × B,
-dt       dt     dt     B ⋆∥    2&pi;BB ⋆          BB ⋆∥
-" class="math-display"  /></center></td><td class="equation-label">(41)</td></tr></table>
-<!--l. 602--><p class="nopar" >
-from which we obtain the following component equations:
+src="guiding_center_motion72x.png" alt="       g(Ψ )
+Pϕ = m -B--v∥ + ZeΨ,
+" class="math-display"  /></center></td><td class="equation-label">(58)</td></tr></table>
+<!--l. 779--><p class="nopar" >
+Deﬁne <span 
+class="cmmi-10">𝜀</span><sub><span 
+class="cmmi-7">n</span></sub> = <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmmi-7">n</span></sub><sup><span 
+class="cmr-7">2</span></sup> and <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕn</span></sub> = <span 
+class="cmmi-10">ZeB</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">n</span></sub><sup><span 
+class="cmr-7">2</span></sup>, then the normalized forms of <span 
+class="cmmi-10">𝜀 </span>and <span 
+class="cmmi-10">P</span><sub><span 
+class="cmmi-7">ϕ</span></sub> are written
+as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-6003r42"></a>
-                                                                                  
-                                                                                  
+ id="x8-9003r59"></a>
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="guiding_center_motion51x.png" alt="     [                                 ]
-dR     B⋆       &mu;              1
-dt-=   B⋆v∥ + 2&pi;BB-⋆B × &nabla;B + BB--⋆E× B  &sdot;ˆeR
-        ∥          ∥            ∥
-" class="math-display"  /></center></td><td class="equation-label">(42)</td></tr></table>
-<!--l. 609--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6004r43"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion52x.png" alt="     [  ⋆                              ]
-dZ-=  B-⋆v∥ +---&mu;-⋆-B ×&nabla;B  + --1⋆E × B  &sdot;ˆeZ,
-dt    B ∥    2&pi;BB ∥          BB ∥
-" class="math-display"  /></center></td><td class="equation-label">(43)</td></tr></table>
-<!--l. 615--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6005r44"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion53x.png" alt="       [                                 ]
-dϕ-  1- B-⋆    ---&mu;---         --1-
-dt = R  B ⋆∥v∥ + 2&pi;BB ∥⋆B × &nabla;B + BB ⋆∥E × B &sdot;ˆeϕ,
-" class="math-display"  /></center></td><td class="equation-label">(44)</td></tr></table>
-<!--l. 622--><p class="nopar" >
-In the cylindrical coordinates, the terms <span 
-class="cmsy-10">&nabla;× </span><span 
-class="cmbx-10">b</span>, <span 
-class="cmbx-10">b </span><span 
-class="cmsy-10">&sdot;&nabla;× </span><span 
-class="cmbx-10">b</span>, and <span 
-class="cmbx-10">B </span><span 
-class="cmsy-10">×&nabla;</span><span 
-class="cmmi-10">B </span>can be written, respectively, as
+src="guiding_center_motion73x.png" alt="-    𝜀     1-   ---
+𝜀 ≡ ---2=  -v2∥ + μB
+    mv n   2
+" class="math-display"  /></center></td><td class="equation-label">(59)</td></tr></table>
+<!--l. 785--><p class="nopar" >
 </p><div class="eqnarray">
-                                                                                  
-                                                                                  
    <center class="math-display" >
 <img 
-src="guiding_center_motion54x.png" alt="          (            )     (          )     (                 )
-&nabla; × b  =    1-&part;bZ-&minus; &part;bϕ  ˆe +   &part;bR-&minus; &part;bZ- ˆe +   1-&part;(Rbϕ)&minus; -1&part;bR- ˆe     (45)
-            R &part;ϕ    &part;z    R    &part;Z    &part;R    ϕ    R  &part;R     R  &part;ϕ   Z
+src="guiding_center_motion74x.png" alt="--      P-ϕ-
+Pϕ  ≡   Pϕn
+        1  v    --
+    =   --g-∥-+ Ψ                            (60)
+        2π  B
 " class="math-display"  /></center>
-</div>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6007r46"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion55x.png" alt="            (            )     (          )     (                 )
-b&sdot;&nabla; × b = b   1-&part;bZ-&minus; &part;bϕ  + b   &part;bR-&minus; &part;bZ-  + b   1-&part;(Rb-ϕ)&minus; 1-&part;bR- .
-           R  R &part;ϕ    &part;z      ϕ  &part;Z    &part;R     Z   R  &part;R     R  &part;ϕ
-" class="math-display"  /></center></td><td class="equation-label">(46)</td></tr></table>
-<!--l. 641--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6008r47"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion56x.png" alt="         |               |
-         || ˆeR    ˆeϕ    ˆeZ ||
-B × &nabla;B = || BR   B ϕ   BZ ||
-         | &part;&part;BR-  1R&part;&part;Bϕ-  &part;&part;BZ-|
-" class="math-display"  /></center></td><td class="equation-label">(47)</td></tr></table>
-<!--l. 649--><p class="nopar" >
-Using <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">R</span></sub> = <img 
-src="guiding_center_motion57x.png" alt="BRB-"  class="frac" align="middle" />, <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">Z</span></sub> = <img 
-src="guiding_center_motion58x.png" alt="BBZ-"  class="frac" align="middle" />, and <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">ϕ</span></sub> = <img 
-src="guiding_center_motion59x.png" alt="BBϕ-"  class="frac" align="middle" />, we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6009r48"></a>
-                                                                                  
-                                                                                  
-   <center class="math-display" >
-<img 
-src="guiding_center_motion60x.png" alt="                                              (
-(|  &part;bR-  -&part;B&part;RR-B&minus; &part;&part;BRBR     (|  &part;bZ-  -&part;B&part;ZR-B&minus; &part;&part;BRBZ   ||  &part;bϕ-  -&part;B&part;ϕR B-&minus; &part;&part;BRBϕ
-|{  &part;R =  &part;BR-BB&minus;2 &part;BB       |{  &part;R =  &part;BZ-BB&minus;2 &part;BB     |{  &part;R =  &part;Bϕ-B2&part;B
-|  &part;&part;bRZ-= -&part;Z--B&part;2Z--R     |  &part;&part;bZZ-= -&part;Z--B&part;2Z--Z   |  &part;&part;bϕZ-= -&part;Z BB&minus;2&part;ZBϕ
-|(  &part;bR-= -&part;B&part;Rϕ-B&minus; &part;&part;BϕBR     |(  &part;bZ-= -&part;B&part;Zϕ-B&minus; &part;&part;BϕBZ   ||(  &part;bϕ-  -&part;B&part;ϕϕ B-&minus; &part;&part;BϕBϕ
-   &part;ϕ        B2            &part;ϕ        B2          &part;ϕ =     B2
-" class="math-display"  /></center></td><td class="equation-label">(48)</td></tr></table>
-<!--l. 676--><p class="nopar" >
-The equation for <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> is given by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6010r49"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion61x.png" alt="dv      B ⋆         B ⋆
---∥= &minus; &mu;--⋆&sdot;&nabla;B  + 2&pi;--⋆&sdot;E.
-dt      B ∥         B∥
-" class="math-display"  /></center></td><td class="equation-label">(49)</td></tr></table>
-<!--l. 682--><p class="nopar" >
-The ﬁrst term on the left-hand-side of the above equation is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6011r50"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion62x.png" alt="  ⋆         ⋆      B ⋆         ⋆
-B-⋆ &sdot;&nabla;B  = B-R⋆ &part;B-+ -ϕ⋆1-&part;B-+ B-Z⋆&part;B-
-B ∥        B∥ &part;R   B∥ R &part;ϕ   B ∥&part;Z
-" class="math-display"  /></center></td><td class="equation-label">(50)</td></tr></table>
-<!--l. 690--><p class="nopar" >
-                                                                                  
-                                                                                  
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6012r51"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion63x.png" alt="           v ( 1 &part;b    &part;b )
-B ⋆R = BR + -∥- ----Z-&minus; --ϕ
-           2&pi;  R &part;ϕ    &part;z
-" class="math-display"  /></center></td><td class="equation-label">(51)</td></tr></table>
-<!--l. 695--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6013r52"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion64x.png" alt="          v  ( 1&part;(Rb )   1 &part;b )
-B⋆Z = BZ + -∥- ------ϕ- &minus; ----R-
-          2&pi;  R   &part;R     R &part; ϕ
-" class="math-display"  /></center></td><td class="equation-label">(52)</td></tr></table>
-<!--l. 701--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-6014r53"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion65x.png" alt="          v  (&part;b    &part;b  )
-B ⋆ϕ = B ϕ +-∥ --R-&minus; --Z-
-          2&pi;   &part;Z    &part;R
-" class="math-display"  /></center></td><td class="equation-label">(53)</td></tr></table>
-                                                                                  
-                                                                                  
-<!--l. 705--><p class="nopar" >
-                                                                                  
-                                                                                  
-</p>
-   <!--l. 708--><div class="crosslinks"><p class="noindent">[<a 
-href="guiding_center_motionsu4.html" >next</a>] [<a 
+</div>Figure <a 
+href="#x8-90056">6<!--tex4ht:ref: 8-10-e1 --></a> plots the time evolution of the kinetic energy <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and toroidal angular momentum <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> for an
+energetic ion in EAST magnetic conﬁguration. The results shows that <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> are conserved to
+acceptable accuracy for 100 poloidal periods of the orbit.
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-90056"></a>
+                                                                                
+
+                                                                                
+<!--l. 798--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31b/p.png" alt="pict"  
+ width="218.8175pt" />                     <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31/p.png" alt="pict"  
+ width="218.8175pt" />                     <img 
+src="my_figure/home/yj/project_new/guiding_center_motion/fig31c/p.png" alt="pict"  
+ width="152.57pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 6: </span><span  
+class="content">Time evolution of the kinetic energy <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> (a) and toroidal angular momentum <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> (b)
+for a Deuteron of 20keV launched at the low-ﬁeld-side midplane (<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">ini</span></sub> = 2<span 
+class="cmmi-10">.</span>15<span 
+class="cmmi-10">m,Z</span><sub><span 
+class="cmr-7">ini</span></sub> = 0<span 
+class="cmmi-10">m</span>) with
+pitch angle <span 
+class="cmmi-10">𝜃 </span>= 75<sup><span 
+class="cmsy-7">∘</span></sup>. The results shows that <span class="overline"><span 
+class="cmmi-10">𝜀</span></span> and <span class="overline"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> are conserved to acceptable accuracy
+(<span class="overline"><span 
+class="cmmi-10">𝜀</span></span><sub><span 
+class="cmmi-7">k</span></sub> decreased by 1<span 
+class="cmmi-10">.</span>8 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">5</span></sup>  and <span class="bar-css"><span 
+class="cmmi-10">P</span></span><sub><span 
+class="cmmi-7">ϕ</span></sub> by 3<span 
+class="cmmi-10">.</span>2 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">4</span></sup>  during the time of 100 poloidal periods).
+The corresponding poloidal orbit is plotted in (c). Fourth-order Runge-Kutta time advancing
+scheme is used in integrating the orbit with a time step of 1<span 
+class="cmmi-10">∕</span>183 poloidal period. The magnetic
+equilibrium is from EAST discharge #62585@2.8s (gﬁle provided by ZhengZheng).</span></div><!--tex4ht:label?: x8-90056 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+                                                                                
+
+                                                                                
+   <!--l. 814--><div class="crosslinks"><p class="noindent">[<a 
 href="guiding_center_motionsu2.html" >prev</a>] [<a 
 href="guiding_center_motionsu2.html#tailguiding_center_motionsu2.html" >prev-tail</a>] [<a 
 href="guiding_center_motionsu3.html" >front</a>] [<a 
-href="guiding_center_motionse1.html#guiding_center_motionsu3.html" >up</a>] </p></div>
-<!--l. 708--><p class="indent" >   <a 
+href="guiding_center_motionse4.html#guiding_center_motionsu3.html" >up</a>] </p></div>
+<!--l. 814--><p class="indent" >   <a 
  id="tailguiding_center_motionsu3.html"></a> </p> 
 </body></html> 

@@ -4,130 +4,240 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Numerical results of prompt loss of fast ions</title> 
+<head><title>Equations of motion in cylindrical coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,2,charset=utf-8,html --> 
 <meta name="src" content="guiding_center_motion.tex" /> 
-<meta name="date" content="2019-01-05 20:39:00" /> 
 <link rel="stylesheet" type="text/css" href="guiding_center_motion.css" /> 
 </head><body 
 >
-   <!--l. 1525--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="guiding_center_motionse4.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse2.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse2.html#tailguiding_center_motionse2.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="#tailguiding_center_motionse3.html"><span 
-class="ecrm-1000">tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motion.html#guiding_center_motionse3.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-   <h3 class="sectionHead"><span class="titlemark"><span 
-class="ecrm-1000">3   </span></span> <a 
- id="x17-190003"></a><span 
-class="ecrm-1000">Numerical results of prompt loss of fast ions</span></h3>
-<!--l. 1527--><p class="noindent" ><span 
-class="ecrm-1000">The initial distribtuion function of fast ions are assumed to take the following form:</span>
+   <!--l. 604--><div class="crosslinks"><p class="noindent">[<a 
+href="guiding_center_motionse4.html" >next</a>] [<a 
+href="guiding_center_motionse2.html" >prev</a>] [<a 
+href="guiding_center_motionse2.html#tailguiding_center_motionse2.html" >prev-tail</a>] [<a 
+href="#tailguiding_center_motionse3.html">tail</a>] [<a 
+href="guiding_center_motion.html#guiding_center_motionse3.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x4-60003"></a>Equations of motion in cylindrical coordinates</h3>
+<!--l. 606--><p class="noindent" >In this section, all quantities are in the normalized form given in Sec. <a 
+href="guiding_center_motionse1.html#x2-20001.1">1.1<!--tex4ht:ref: 5-17-1 --></a>. For notational simplicity, the
+overbars of the notation are ommitted. In cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>), the location vector is
+written as <span 
+class="cmbx-10">X </span>= <span 
+class="cmmi-10">R</span><img 
+src="guiding_center_motion48x.png" alt="ˆe"  class="circ"  /><sub><span 
+class="cmmi-7">R</span></sub>(<span 
+class="cmmi-10">ϕ</span>) + <span 
+class="cmmi-10">Z</span><img 
+src="guiding_center_motion49x.png" alt="ˆe"  class="circ"  /><sub><span 
+class="cmmi-7">Z</span></sub>. Using this, we obtain </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="guiding_center_motion50x.png" alt="dX-  =   dRˆeR + R dˆeR(ϕ)+ dZ-ˆeZ
+ dt      dt         dt     dt
+     =   dRˆeR + R dϕˆeϕ + dZ-ˆeZ.                      (39)
+         dt       dt     dt
+" class="math-display"  /></center>
+</div>Substituting this into Eq. (<a 
+href="guiding_center_motionse1.html#x2-1001r1">1<!--tex4ht:ref: 5-15-p2 --></a>) gives
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6002r40"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion51x.png" alt="dR       dϕ     dZ      B ⋆      μ              1
+dt ˆeR + R dtˆeϕ +-dt ˆeZ = B-⋆v∥ + 2πBB-⋆B × ∇B + BB-⋆E × B,
+                        ∥                        ∥
+" class="math-display"  /></center></td><td class="equation-label">(40)</td></tr></table>
+<!--l. 625--><p class="nopar" >
+from which we obtain the following component equations:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x17-19001r112"></a>
-   <center class="math-display" >
-<img 
-src="guiding_center_motion139x.png" alt="               (    &psi;  )    1    1    (v &minus; vbirth)    (  (&lambda; &minus; &lambda;0)2)
-f(&psi;,v,&lambda;) = C exp &minus;&psi;----  v3 +-v3-2 erfc---&Delta;----  exp  &minus;---&Delta;2---  ,
-                    scale       crit           v               &lambda;
-" class="math-display"  /></center></td><td class="equation-label">(112)</td></tr></table>
-<!--l. 1534--><p class="nopar" >
-<span 
-class="ecrm-1000">where the constant </span><span 
-class="cmmi-10">C </span><span 
-class="ecrm-1000">is set to achieve desired stored energy of energetic particles. Figure </span><a 
-href="#x17-1900220"><span 
-class="ecrm-1000">20</span><!--tex4ht:ref: 16-5-25-2 --></a> <span 
-class="ecrm-1000">plots the time</span>
-<span 
-class="ecrm-1000">evolution of the loss fraction due to the prompt loss (also called ﬁrst orbit loss) in EAST#48916 at</span>
-<span 
-class="ecrm-1000">4.6s.</span>
-</p><!--l. 1540--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
-</p><!--l. 1542--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
-</p><!--l. 1544--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                  
-                                                                                  
-<a 
- id="x17-1900220"></a>
-                                                                                  
-                                                                                  
+ id="x4-6003r41"></a>
+                                                                                
 
-<!--l. 1547--><p class="noindent" ><img 
-src="my_figure/home/yj/project_new/guiding_center_motion/fig23b/p.png" alt="pict"  
- width="236.88501pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 20: </span><span  
-class="content">Time evolution of fast ions loss fraction in EAST discharge #48916 at 4.6s. Fast ions
-distribution function is given by Eq. (<a 
-href="#x17-19001r112">112<!--tex4ht:ref: 16-5-25-1 --></a>).</span></div><!--tex4ht:label?: x17-1900220 -->
-                                                                                  
-                                                                                  
-   </div><hr class="endfigure" />
-   <center class="par-math-display" >
+                                                                                
+   <center class="math-display" >
 <img 
-src="guiding_center_motion140x.png" alt="                        B
-d&Gamma; = dVsdVv = RdRdZd ϕ2&pi;--dv&prime;∥d&mu;
-                        m
-" class="par-math-display"  /></center>
-<!--l. 1555--><p class="nopar" >
+src="guiding_center_motion52x.png" alt="     [  ⋆                              ]
+dR-=  B--v∥ +---μ---B × ∇B + --1- E× B  ⋅ˆeR
+dt    B ⋆∥    2πBB  ⋆∥         BB ⋆∥
+" class="math-display"  /></center></td><td class="equation-label">(41)</td></tr></table>
+<!--l. 632--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x17-19003r113"></a>
+ id="x4-6004r42"></a>
    <center class="math-display" >
 <img 
-src="guiding_center_motion141x.png" alt="                                           --
--d&Gamma;--= RdRdZd-ϕ2&pi; -B--dv&prime;d&mu; = RdRdZd-ϕ2 &pi;---B---dv&prime;d&mu; = RdRdZd-ϕ2&pi;Bdv-&prime;d&mu;-
-L3nv3n              mv2n   ∥               mv2n∕Bn   ∥                   ∥
-" class="math-display"  /></center></td><td class="equation-label">(113)</td></tr></table>
-<!--l. 1563--><p class="nopar" >
-<span 
-class="ecrm-1000">Marker&#x2019;s phase-space volume </span><span 
-class="cmmi-10">V</span> <sub><span 
-class="cmmi-7">j</span></sub>
-                                                                                  
-                                                                                  
+src="guiding_center_motion53x.png" alt="     [                                 ]
+dZ-   B-⋆    ---μ---         --1-
+dt =  B ⋆v∥ + 2πBB ⋆B × ∇B + BB ⋆E × B  ⋅ˆeZ,
+        ∥         ∥             ∥
+" class="math-display"  /></center></td><td class="equation-label">(42)</td></tr></table>
+<!--l. 638--><p class="nopar" >
 </p>
-   <!--l. 1566--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="guiding_center_motionse4.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse2.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse2.html#tailguiding_center_motionse2.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motionse3.html" ><span 
-class="ecrm-1000">front</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="guiding_center_motion.html#guiding_center_motionse3.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-<!--l. 1566--><p class="indent" >   <a 
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6005r43"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion54x.png" alt="dϕ   1 [B ⋆       μ              1       ]
+---= -- --⋆v∥ +-----⋆-B ×∇B  + ---⋆E × B  ⋅ˆeϕ,
+dt   R  B ∥    2πBB ∥          BB ∥
+" class="math-display"  /></center></td><td class="equation-label">(43)</td></tr></table>
+<!--l. 645--><p class="nopar" >
+In the cylindrical coordinates, the terms <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">B</span>, <span 
+class="cmsy-10">∇× </span><span 
+class="cmbx-10">b</span>, and <span 
+class="cmbx-10">b </span><span 
+class="cmsy-10">⋅∇× </span><span 
+class="cmbx-10">b </span>are written, respectively,
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6006r44"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="guiding_center_motion55x.png" alt="          ||               ||
+          || ˆeR    ˆeϕ   ˆeZ  ||
+B × ∇B  = ||BR∂B-- 1Bϕ∂B- B∂ZB- ||,
+            ∂R  R ∂ϕ  ∂Z
+" class="math-display"  /></center></td><td class="equation-label">(44)</td></tr></table>
+<!--l. 656--><p class="nopar" >
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="guiding_center_motion56x.png" alt="          ( 1 ∂bZ   ∂bϕ )     (∂bR   ∂bZ )     ( 1∂(Rbϕ)   1 ∂bR)
+∇ ×b   =    R-∂ϕ-− -∂z  ˆeR +  -∂Z-− -∂R-  ˆeϕ +  R---∂R-- − R-∂ϕ-- ˆeZ,  (45)
+" class="math-display"  /></center>
+</div>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6008r46"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion57x.png" alt="            ( 1 ∂bZ   ∂bϕ)     (∂bR   ∂bZ )     ( 1∂ (Rb ϕ)  1 ∂bR)
+b⋅∇ × b = bR  R-∂ϕ--− ∂z-  + bϕ  -∂Z-− -∂R-  +bZ  R---∂R-- − R-∂-ϕ- .
+" class="math-display"  /></center></td><td class="equation-label">(46)</td></tr></table>
+<!--l. 672--><p class="nopar" >
+Using <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">R</span></sub> = <img 
+src="guiding_center_motion58x.png" alt="BR-
+ B"  class="frac" align="middle" />, <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">Z</span></sub> = <img 
+src="guiding_center_motion59x.png" alt="BZ-
+B"  class="frac" align="middle" />, and <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">ϕ</span></sub> = <img 
+src="guiding_center_motion60x.png" alt="Bϕ-
+B"  class="frac" align="middle" />, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6009r47"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="guiding_center_motion61x.png" alt="(        ∂BR-  ∂B       (         ∂BZ-  ∂B      (       ∂Bϕ   ∂B
+||{  ∂∂bRR-= -∂R-BB−2∂RBR-    ||{   ∂∂bZR-= -∂R-BB−2∂RBZ-   |||{  ∂∂bϕR-= -∂R BB−2∂RBϕ
+   ∂bR-= -∂B∂RZ-B− ∂∂BZBR        ∂bZ-= -∂B∂ZZ-B− ∂∂BZBZ      ∂bϕ-= ∂B∂ϕZ B-− ∂∂BZBϕ
+||(  ∂Z    ∂BR-BB2− ∂BBR    ||(   ∂Z    ∂BZ-BB2− ∂BBZ   |||  ∂Z   ∂BϕBB2− ∂BB
+   ∂∂bRϕ-= -∂ϕ-B2∂ϕ---        ∂∂bZϕ-= -∂ϕ-B2∂ϕ---   (  ∂∂bϕϕ-= -∂ϕ-B2∂ϕ-ϕ
+" class="math-display"  /></center></td><td class="equation-label">(47)</td></tr></table>
+<!--l. 699--><p class="nopar" >
+The equation for <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> is given by Eq. (<a 
+href="guiding_center_motionse1.html#x2-2003r11">11<!--tex4ht:ref: 23-5-26-p1 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6010r48"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion62x.png" alt="dv∥= − μB-⋆⋅∇B  + 2π B⋆-⋅E.
+dt      B∥⋆         B⋆∥
+" class="math-display"  /></center></td><td class="equation-label">(48)</td></tr></table>
+<!--l. 705--><p class="nopar" >
+The ﬁrst term on the left-hand-side is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6011r49"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion63x.png" alt="B-⋆       BR⋆∂B-   B⋆ϕ-1∂B-   B⋆Z-∂B-
+B ⋆∥ ⋅∇B = B ⋆∥∂R +  B⋆∥R  ∂ϕ + B∥⋆∂Z ,
+" class="math-display"  /></center></td><td class="equation-label">(49)</td></tr></table>
+<!--l. 713--><p class="nopar" >
+where
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6012r50"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="guiding_center_motion64x.png" alt="          v  ( 1∂b    ∂b )
+B⋆R = BR + -∥- ----Z-− --ϕ  ,
+          2π  R  ∂ϕ    ∂z
+" class="math-display"  /></center></td><td class="equation-label">(50)</td></tr></table>
+<!--l. 719--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6013r51"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion65x.png" alt="           v ( 1 ∂(Rb )   1∂b  )
+B ⋆Z = BZ + -∥- ------ϕ-− ----R-  ,
+           2π  R  ∂R     R  ∂ϕ
+" class="math-display"  /></center></td><td class="equation-label">(51)</td></tr></table>
+<!--l. 725--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x4-6014r52"></a>
+   <center class="math-display" >
+<img 
+src="guiding_center_motion66x.png" alt="          v ( ∂b    ∂b )
+B⋆ϕ = Bϕ + -∥- --R-− --Z- ,
+          2π  ∂Z    ∂R
+" class="math-display"  /></center></td><td class="equation-label">(52)</td></tr></table>
+<!--l. 729--><p class="nopar" >
+and <span 
+class="cmmi-10">B</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmmi-7">⋆</span></sup> is given by Eq. (<a 
+href="guiding_center_motionse1.html#x2-2005r13">13<!--tex4ht:ref: 23-5-26-p3 --></a>).
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 732--><div class="crosslinks"><p class="noindent">[<a 
+href="guiding_center_motionse4.html" >next</a>] [<a 
+href="guiding_center_motionse2.html" >prev</a>] [<a 
+href="guiding_center_motionse2.html#tailguiding_center_motionse2.html" >prev-tail</a>] [<a 
+href="guiding_center_motionse3.html" >front</a>] [<a 
+href="guiding_center_motion.html#guiding_center_motionse3.html" >up</a>] </p></div>
+<!--l. 732--><p class="indent" >   <a 
  id="tailguiding_center_motionse3.html"></a> </p> 
 </body></html> 
