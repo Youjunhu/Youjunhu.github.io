@@ -1,0 +1,2116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>Programming in Fortran</title>
+    <meta content="TeXmacs 2.1.2" name="generator"></meta>
+    <link href="https://www.texmacs.org/css/tmdoc.css" type="text/css" rel="stylesheet"></link>
+    <script src="https://www.texmacs.org/javascript/texmacs_functions.js" language="javascript"></script>
+  </head>
+  <body>
+    <div class="tmdoc-body">
+      <table class="title-block" style="margin-bottom: 2em">
+        <tr>
+          <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
+            <tr>
+              <td><font style="font-size: 168.2%"><strong>Programming in
+              Fortran</strong></font></td>
+            </tr>
+          </table><div class="compact-block" style="margin-top: 1em; margin-bottom: 1em">
+            <table class="title-block">
+              <tr>
+                <td><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <div style="display: inline">
+                    <span style="margin-left: 0pt"></span>
+                  </div>
+                  <table style="display: inline-table; vertical-align: middle">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          <class style="font-variant: small-caps">by Youjun Hu</class>
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                  <div style="display: inline">
+                    <span style="margin-left: 0pt"></span>
+                  </div>
+                  <table style="display: inline-table; vertical-align: middle">
+                    <tbody><tr>
+                      <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                        <p>
+                          Institute of Plasma Physics, Chinese Academy of
+                          Sciences
+                        </p>
+                        <p>
+                          Email: yjhu@ipp.cas.cn
+                        </p>
+                      </center></td>
+                    </tr></tbody>
+                  </table>
+                </p></td>
+              </tr>
+            </table>
+          </div></td>
+        </tr>
+      </table>
+      <div style="margin-top: 2em; margin-bottom: 0.5em; margin-left: 60px; margin-right: 60px">
+        <p style="margin-bottom: 0.5em">
+          <font style="font-size: 84.1%"><strong>Abstract</strong></font>
+        </p>
+      </div>
+      <div style="margin-bottom: 1em; margin-left: 60px; margin-right: 60px">
+        <p>
+          <font style="font-size: 84.1%">As a computational physicist using Fortran for decades,
+          I summarize what I know about Fortran and what features are
+          frequently used in practical programming.</font>
+        </p>
+      </div>
+      <h2 id="auto-1">1.<span style="margin-left: 1em"></span>Why Fortran?<span style="margin-left: 1em"></span></h2>
+      <p>
+        Higher level programming languages (than Fortran) allow higher
+        abstraction and provide more facilities that allow programmers to try
+        and explore more algorithms. But there are still research areas where
+        the algorithms are conventional and what is needed is just efficient
+        float-point operation on objects of simple data structure. Those areas
+        are where Fortran prevails.
+      </p>
+      <p>
+        Fortran is a language tailored to the specific task of numerical
+        computation. Most programming languages will have a flavor of Fortran
+        if they are used in writing numerical programs. Fundamental support
+        for multi-dimensional arrays in Fortran makes it convenient to write
+        efficient numerical programs, where arrays are often the only data
+        structure needed. Practical reasons why a computational physicist
+        should learn Fortran include (1) Fortran is dominant in parallel
+        computing (only C can compete with Fortran in this regard since MPI
+        only supports C and Fortran). Fortran programs are using most of the
+        resources of the largest supercomputers in the world. This is a strong
+        indicator that Fortran is dominant in the high performance computing
+        area; (2) Fortran is still the most widely used programming language
+        in the computational physics community so that one can not totally
+        avoid reading or revising Fortran codes if one wants to efficiently
+        collaborate/communicate with people in this community.
+      </p>
+      <h2 id="auto-2">2.<span style="margin-left: 1em"></span>Compiler options help find bugs<span
+      style="margin-left: 1em"></span></h2>
+      <p>
+        For debug purpose, I primarily use open source compiler
+        <code>gfortran</code>. The compiler options mentioned below will be
+        for <code>gfortran</code> by default. The following are some useful
+        <code>gfortran</code> compiler options that can help find bugs:
+      </p>
+      <p>
+        <code><code>-fimplicit-none</code> -std=f2008 -fcheck=all -Wall 
+        -Wextra -fbounds-check</code> 
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        <code>-static</code> Allocate all local variables statically, not
+        dynamically on the stack.
+      </p>
+      <h2 id="auto-3">3.<span style="margin-left: 1em"></span>Basic syntax<span style="margin-left: 1em"></span></h2>
+      <p>
+        Fortran is case-insensitive (this is different from most popular
+        languages).
+      </p>
+      <p>
+        Use either newline or semicolon to complete a statement (this is
+        different from C which neglects newline). For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+int i
+real j</pre>
+      <p>
+        is equivalent to
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+int i; real j</pre>
+      <p>
+        Use exclamation mark (<code>!</code>) for one line comment, which
+        tells the compiler to discard everything from where the mark is found
+        up to the end of the same line. Fortran does not have a keyword for
+        defining block comment (multi-line comment) similar to C (<code>/*
+        */</code>).
+      </p>
+      <h2 id="auto-4">4.<span style="margin-left: 1em"></span>Fortran keywords<span style="margin-left: 1em"></span></h2>
+      <p>
+        The following keywords are defined in FORTRAN 77:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+call, close, continue, dimension, do, else, else if, end, endif, external, intrinsic, format, function, goto, if,
+implicit, open, parameter, print, program,
+read, return,  stop, subroutine, then, write</pre>
+      <p>
+        The following keywords are also defined in FORTRAN 77 but I never or
+        seldom use:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+assign, backspace, block data, data, common, endfile, entry, equivalence, inquire,
+pause, rewind, rewrite, save</pre>
+      <p>
+        The following keywords were added in Fortran 90:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+allocatable, allocate, deallocate,
+contains, use, module, only, 
+intent, optional result,
+namelist, cycle, exit, while, where, select, case,
+include, interface, nullify, operator,  elsewhere, 
+pointer, private, procedure, public, recursive, sequence, target </pre>
+      <p>
+        The following keywords were added in Fortran 95:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+elemental, forall, pure</pre>
+      <p>
+        The following features were added in Fortran 2003:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+abstract, associate, asynchronous, bind, class, deferred, enum, enumerator, extends, final,
+flush, generic, import, non_overridable, nopass, pass, protected, value, volatile, wait.</pre>
+      <p>
+        The following keywords were added in Fortran 2008:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+block, codimension, do concurrent, contiguous, critical, error stop, submodule, sync all, sync images, sync memory, lock, unlock.</pre>
+      <h2 id="auto-5">5.<span style="margin-left: 1em"></span>Program units<span style="margin-left: 1em"></span></h2>
+      <p>
+        The recommended way of organizing Fortran code is as follows. Use only
+        two top units: <code>program</code> and <code>module</code>. And place
+        <code>function</code>/<code>subroutine</code> in <code>modules</code>.
+        One advantage of puting procedures in modules is that Fortran
+        standards require that compilers generate explicit interfaces to
+        procedures defined in modules, and this interface is available to a
+        calling unit that use the module. This makes it possible for compilers
+        to check argument match at compiling time. This helps to find all bugs
+        related to argument mismatch before actually running the code.
+      </p>
+      <p>
+        Note that these interfaces are called explicit to contrast with
+        implicit interfaces which is what procedures which are not defined
+        inside modules have.  You can, of course, write explicit interfaces
+        for such procedures, but it's almost always easier and safer to let
+        the compiler do it for you.
+      </p>
+      <p>
+        A <code>function</code>/<code>subroutine</code> can have a single
+        level of nested subroutines and functions using <code>contians</code>.
+      </p>
+      <p>
+        A procedure CONTAINed within a program unit also has an explicit
+        interfaces available to the host unit.
+      </p>
+      <h3 id="auto-6">5.1.<span style="margin-left: 1em"></span>Main program<span style="margin-left: 1em"></span></h3>
+      <pre class="verbatim" xml:space="preserve">
+program a_name
+  use your_modules
+  implicit none
+  real :: x
+  x = 1.0 !assignment, this is a comment
+  call some_subroutine
+end program a_name</pre>
+      <h3 id="auto-7">5.2.<span style="margin-left: 1em"></span>Functions and subroutines<span style="margin-left: 1em"></span></h3>
+      <p>
+        Define subroutines:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+subroutine p(arg1, arg2, more_arguments)
+  some codes here
+end subroutine p</pre>
+      <p>
+        Use keyword <code>call</code> to invoke a subroutine:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+call p(arg1, arg2, more_arguments)</pre>
+      <p>
+        Define functions:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+function myfunc(arg1, arg2, more_arguments) result (myval)
+  some codes here
+end function myfunc</pre>
+      <p>
+        Functions can be used in all expressions, e.g.,
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+a = myfunc(1,2)*1.0</pre>
+      <p>
+        Fortran pass arguments by reference (not by values). A subroutine or
+        function knows the <strong>memory location</strong> of the actual
+        arguments passed to them via the argument list. Generally no copying
+        in and copying out of an array, but sometimes, copying in and copying
+        out may be involved (e.g. for the case where the actual argument array
+        is not continuous in memory).
+      </p>
+      <h3 id="auto-8">5.3.<span style="margin-left: 1em"></span>Module<span style="margin-left: 1em"></span></h3>
+      <p>
+        A module contains specifications and definitions that can be accessed
+        from other program units. These definitions include data object
+        definitions, namelist groups, derived-type definitions, procedure
+        definitions, and procedure interface blocks. For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+module mod_name
+  use some_module
+  implicit none
+  real:: x
+contains !the following must be subroutine/function
+  subroutine p(arg1,&hellip;)
+     some_codes_here
+  end subroutine p
+end module mod_name</pre>
+      <p>
+        As mentioned above, placing
+        <code>function</code>/<code>subroutine</code> in <code>modules</code>
+        (by using keyword <code>contains</code>) can make the full interfaces
+        of the procedures available to a calling unit and thus makes it
+        possible for compilers to check argument match at compiling time. This
+        helps to find all bugs related to argument mismatch before actually
+        running the code.
+      </p>
+      <p>
+        All variables in a modules are assumed by most fortran compilers to
+        have <code>save</code> attribute, but this is not required by the
+        fortran standard. An alternative way to gurantee that all variables in
+        a module retain their values throughout the runtime is to
+        <code>use</code> that module in the main program, so that the module
+        never goes out of scope and thus the values of the variables are
+        retained throughout the runtime.
+      </p>
+      <h2 id="auto-9">6.<span style="margin-left: 1em"></span>Control flow<span style="margin-left: 1em"></span></h2>
+      <h3 id="auto-10">6.1.<span style="margin-left: 1em"></span><code>if</code> construct<span style="margin-left: 1em"></span></h3>
+      <pre class="verbatim" xml:space="preserve">
+if (logical_expression1) then
+   some_codes
+elseif (logical_expression2) then
+   some_codes
+else
+   some_codes
+endif</pre>
+      <p>
+        where <code>elseif</code> and <code>else</code> clauses can be absent.
+        A single branch <code>if</code> construct can be simplified as
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve">if (logical expr)  one_statement</pre></pre>
+      <p>
+        Table <a href="#19-5-18-1">1</a> summarizes the relation operators and logical
+        operators used in forming logical expressions:
+      </p>
+      <div style="margin-top: 1em; margin-bottom: 1em">
+        <table style="width: 100%">
+          <tbody><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em"><table style="display: inline-table; vertical-align: middle">
+              <tbody><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-top: 1px solid">Operator</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-top: 1px solid">Syntax 1</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-top: 1px solid">Syntax 2</td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Equals</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a == b</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a .eq. b</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Not equals</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a /= b</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a .ne. b</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Less than</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a &lt;  b</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a .lt. b</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Less than or equal to</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a &lt;= b</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a .le. b</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Greater than</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a &gt;<span style="margin-left: 1em"></span>b</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a .gt. b</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Greater than or equal to</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a &gt;= b</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>a .ge. b</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Logical and</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>c .and. d</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Logical or</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>c .or. d</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">Logical negation</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>.not. c</code></td>
+              </tr></tbody>
+            </table></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><div class="caption">
+              <font style="font-size: 84.1%"><p>
+                <b>Table 1. </b><a id="auto-11"></a><a id="19-5-18-1"></a>Relation and logical
+                operators in Fortran. Here <code>a</code> and <code>b</code>
+                are of number type; <code>c</code> and <code>d</code> are of
+                logical type.
+              </p></font>
+            </div></td>
+          </tr></tbody>
+        </table>
+      </div>
+      <h3 id="auto-12">6.2.<span style="margin-left: 1em"></span>Loop structure<span style="margin-left: 1em"></span></h3>
+      <p>
+        Fortran <code>Do</code> loop:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+do i = nstart, nfinal, stride
+   print *, 'i=', i
+enddo</pre>
+      <p>
+        If you change the value of the loop index <code>i</code> inside the
+        above loop structure, e.g. <code>i=i+1</code>, the compiler will
+        complain:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+Error: Variable 'i' at (1) cannot be redefined inside loop beginning at (2)</pre>
+      <p>
+        The above loop is similar to the <code>for</code> loop in C. For
+        comparison, consider the following <code>for</code> loop of C:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+  for(j=0;j&lt;10;j=j+1){
+    printf(&quot;hello,%d\n&quot;,j);
+    j=j+1;  }</pre>
+      <p>
+        where we also modify the value of loop index variable <code>j</code>
+        inside the loop and this is allowed by C compilers. This comparison
+        indicates that C is flexible and, as a side effect, more prone to
+        possible bugs.
+      </p>
+      <p>
+        Another loop structure using <code>while</code>:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+do while(i&lt;10)
+   write(*,*) 'i=',i
+   i=i+1
+enddo</pre>
+      <p>
+        The above <code>while</code> loop can also be implemented by using
+        <code>if</code> and <code>goto</code>:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+10 if (i&lt;10) then
+   write(*,*) 'i=',i
+   i=i+1
+   goto 10
+endif</pre>
+      <p>
+        The <code>while</code> loop can also be implemented by using
+        <code>do</code> and <code>exit</code>:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+do
+   write(*,*) 'i=',i
+   i=i+1
+   if(i&gt;=10) exit
+enddo</pre>
+      <p>
+        Here, after the <code>exit</code> statement has been executed, control
+        is passed to the first statement after the loop. In passing, we note
+        that there is a <code>cycle</code> statement that transfer control
+        back to the beginning of the loop to allow the next iteration of the
+        loop to begin.
+      </p>
+      <h2 id="auto-13">7.<span style="margin-left: 1em"></span>Basic data type<span style="margin-left: 1em"></span></h2>
+      <p>
+        Fortran is a statically typed language, which means that the type of
+        values that a variable can take is fixed at compile time and does not
+        change during runtime. Fortran does not have the type inference
+        capability available in some languages such as haskell, which means
+        that we need to manually declare the type of all variables used in a
+        program. The <code>implicit</code> rule that enables us to omit type
+        declaration is &ldquo;syntactic sugar&rdquo; that we should avoid
+        using in practice because it is bug-prone. To totally avoid the
+        problematic &ldquo;implicit rules&rdquo; of fortran, using either
+        <code>implicit none</code> or the compiler option
+        <code>-fimplicit-none</code>, or using both for safety.
+      </p>
+      <p>
+        Fortran has five basic data types, namely <code>integer</code>, <img
+        src="fortran-1.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0135757575757576em; margin-right: -0.0248242424242422em; margin-top: -0.0287515151515152em; vertical-align: -0.0112484848484848em; height: 0.707490909090909em"></img>, <code>complex</code>, <code>logical</code> and
+        <code>character</code>.
+      </p>
+      <div style="margin-top: 1em; margin-bottom: 1em">
+        <table style="width: 100%">
+          <tbody><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em"><p>
+              <table style="display: inline-table; vertical-align: middle">
+                <tbody><tr>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-top: 1px solid">Type</td>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid; border-top: 1px solid">Example values</td>
+                </tr><tr>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">integer</td>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid"><code>1</code>, <code>0</code>, 
+                  <code>-2</code></td>
+                </tr><tr>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">real</td>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid"><code>1.25</code>, 2.1e8</td>
+                </tr><tr>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">complex</td>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid"><code>(1.0, 2.0)</code></td>
+                </tr><tr>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">character</td>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid"> <code>&ldquo;hello&rdquo;</code></td>
+                </tr><tr>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid">logical</td>
+                  <td style="border-right: 1px solid; border-bottom: 1px solid"><code>.true.</code> <code>.false.</code></td>
+                </tr></tbody>
+              </table>
+            </p><p>
+              
+            </p></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><div class="caption">
+              <font style="font-size: 84.1%"><p>
+                <b>Table 2. </b><a id="auto-14"></a>Built-in types of Fortran.
+              </p></font>
+            </div></td>
+          </tr></tbody>
+        </table>
+      </div>
+      <p>
+        Each data type has some attributes that can be further specified. For
+        example, the length of a <code>character</code> variable is an
+        attribute, which can be specified by using
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+character (len = 40) :: name </pre>
+      <p>
+        Without specifying the value of <code>len</code> parameter, the length
+        of a character variable is default to one.
+      </p>
+      <p>
+        To specify the number of bytes for storing a <code>real</code>
+        variable, we can use the <code>kind</code> parameter:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve"><code>real(kind=4) :: xs    ! 4  byte float
+real(kind=8) :: xd    ! 8  byte float
+real(kind=16) :: xq   ! 16 byte float</code></pre></pre>
+      <p>
+        However the meaning of the value of the <code>kind</code> parameter
+        depends on the compiler. For example, some compilers may use the
+        following scheme:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve"><code>real(kin=1) :: xs    ! 4  byte float
+real(kind=2) :: xd   ! 8  byte float
+real(kind=3) :: xq   ! 16 byte float</code></pre></pre>
+      <p>
+        I often use
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+integer,parameter:: p_=kind(1.0d0) !return the kind value of a constant
+real(kind=p_) :: xd !use this value as the kind value</pre>
+      <p>
+        to define a double-precision variable (8 byte float). However, a more
+        convenient way is NOT to specify the <code>kind</code> value of
+        <code>real</code> variable in source code and use compiler options to
+        specify the precision we want. For example, we write in the code:
+        <code>real :: abc</code> and then compile the code by using the
+        compiling option <code>-fdefault-real-8</code> (for
+        <code>gfortran</code>) to specify a 8 byte float number. For
+        <code>ifort</code>, the corresponding option is <code>-r8</code>.
+      </p>
+      <h2 id="auto-15">8.<span style="margin-left: 1em"></span>Array<span style="margin-left: 1em"></span></h2>
+      <p>
+        Scientific computing often deals with simple data structures with
+        homogeneous elements, such as arrays, which are often the only data
+        structure used in a numerical code. Derived types are not so
+        frequently needed in HPC programms. We first discuss arrays. Derived
+        types are discussed later.
+      </p>
+      <p>
+        Use <code>dimension</code> to declare arrays. For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+real, dimension(0:2, 1:4, -1:3) :: A</pre>
+      <p>
+        which defines a <code>real</code>-type array <code>A</code> with
+        <strong>dimensionality</strong> being <img src="fortran-2.png" style="margin-left: -0.0248242424242424em; margin-bottom: -4.84848484848498e-5em; margin-right: -0.0248242424242424em; margin-top: -0.0372363636363636em; vertical-align: -0.0247757575757576em; height: 0.769551515151515em"></img>; the
+        <strong>lower bound</strong> and <strong>upper bound</strong> of the
+        1st dimension are <code>0</code> and <code>2</code>, respectively; the
+        <strong>extent</strong> along each dimension is equal to
+        <code>upper_bound-lower_bound+1</code>, and for this case, is 3, 4,
+        and 5, respectively. The dimensionality of an array is often called as
+        &ldquo;<strong>rank</strong>&rdquo; in Fortran (analogy to the rank of
+        a tensor, not be confused with the rank of a matrix in linear algebra,
+        which corresponds to the maximal number of linearly independent
+        columns of a matrix).
+      </p>
+      <p>
+        The combination of the <strong>rank</strong> and corresponding
+        <strong>extents</strong>, is called the <strong>shape</strong> of an
+        array. In the above case the shape of the array is <img src="fortran-3.png" style="margin-left: 0em; margin-bottom: 0.0496em; margin-right: 0em; margin-top: -0.0248242424242424em; vertical-align: -0.173721212121212em; height: 0.868848484848485em"></img>.
+        Two arrays are conforming with each other if they have the same shape.
+      </p>
+      <p>
+        The following is a shortcut of defining an array (which omits the
+        <code>dimension</code> keyword):
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+real :: A(0:2, 1:4, 2:6)</pre>
+      <p>
+        We need specify <strong>bounds</strong> in each dimension in order to
+        completely specify a multidimensional array. If we do not specify the
+        <strong>lower bound</strong> of the array, lower bound of array in
+        Fortran is by default <img src="fortran-4.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0248242424242424em; margin-right: -0.0248242424242424em; margin-top: -0.0248242424242424em; vertical-align: 0em; height: 0.769551515151515em"></img>. The following
+        declaration:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+real :: B(1:3, 1:4, 1:6)</pre>
+      <p>
+        can be simplified as
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+real :: B(3, 4, 6)</pre>
+      <p>
+        In summary:
+      </p>
+      <ul>
+        <li>
+          <p>
+            <strong>Rank</strong> is the number of indexes needed to adress an
+            element
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Extent</strong> is the number of elements along a
+            direction
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Shape</strong> is the combination of <strong>rank</strong>
+            and <strong>extents</strong>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Bound</strong> is the upper or lower index along a
+            direction
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Size</strong> is the total number of elements in an array,
+            or along a direction of an array
+          </p>
+        </li>
+      </ul>
+      <p>
+        
+      </p>
+      <p>
+        size vs. dimension, rank
+      </p>
+      <p>
+        Dimension is a standard terminology in the study of vector spaces,
+        where dimension is the number of basis vectors needed to span a vector
+        space. Note that dimension is defined for a vector space, not for a
+        vector. In this sense, it is incorrect to say &quot;an <img src="fortran-5.png"
+        style="margin-left: -0.0248242424242424em; margin-bottom: -0.0124606060606061em; margin-right: -0.0248242424242424em; margin-top: 0em; vertical-align: -0.0123636363636364em; height: 0.521309090909091em"></img> dimensional vector&quot;. The correct words should be
+        &quot;a vector in <img src="fortran-5.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0124606060606061em; margin-right: -0.0248242424242424em; margin-top: 0em; vertical-align: -0.0123636363636364em; height: 0.521309090909091em"></img> dimensional vector
+        space&quot;.
+      </p>
+      <p>
+        (Is the number of elements in a vector always equal to the dimension
+        of the vector space of which the vector is a member?)
+      </p>
+      <p>
+        Outside this research field, people will interpret
+        &quot;dimension&quot; as the number of index needed to refer to an
+        element in a container.
+      </p>
+      <p>
+        &quot;dimension&quot; we use in ordinary settings is actually the rank
+        of a tensor. But it seems that &quot;rank&quot; is rarely used outside
+        mathematical community. Besides this usage, rank of a matrix in linear
+        algebra refers to the maximal number of linearly independent columns
+        of a matrix.
+      </p>
+      <p>
+        It is common that different communities use different words to define
+        the same concept. It is also common that the same word is used in
+        different research areas but referring to different concepts.
+      </p>
+      <h3 id="auto-16">8.1.<span style="margin-left: 1em"></span>Access array elements<span style="margin-left: 1em"></span></h3>
+      <p>
+        Using index to access single element of an array. For example
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+B(1,2,1) = 1.0</pre>
+      <p>
+        Use the index range (start:end:sride) to access multiple elements of
+        an array (sub-array or array-slice). For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+write(*,*) B(1:2, 1:5:2, 3)</pre>
+      <p>
+        When referring to an array slice, both lower bound and upper bound can
+        be omitted and they defaul to the declared array bounds . For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+write(*,*) B(:, :, 3)</pre>
+      <h3 id="auto-17">8.2.<span style="margin-left: 1em"></span>Memory layout of multi-dimensional
+      array<span style="margin-left: 1em"></span></h3>
+      <p>
+        Since memory is laid out in one-dimension (each location has a single
+        address index, not a set of indices), a compiler must decide how to
+        map multi-dimensional arrays to memory locations. Different language
+        use different conventions. In Fortran, elements of an array are stored
+        in such a way: when traversing memory continuously, the first index of
+        an array is the fastest changing, the second index is the second
+        fastest changing, and so on. For a 2D array, this layout is often
+        refered as stored &ldquo;by column&rdquo; (i.e., column elements are
+        in contiguous memory) since conventionally a 2D array is visually
+        displayed as a matrix whose first index changing corresponds to a
+        &ldquo;column&rdquo;).
+      </p>
+      <p>
+        The &ldquo;by column&rdquo; store layout is illustrated in Fig. <a
+        href="#19-5-18-p3">1</a>.
+      </p>
+      <div style="margin-top: 1em; margin-bottom: 1em">
+        <table style="width: 100%">
+          <tbody><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img src="fortran-6.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 19.0034909090909em"></img></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><div class="caption">
+              <font style="font-size: 84.1%"><p>
+                <b>Figure 1. </b><a id="auto-18"></a><a id="19-5-18-p3"></a>2D Fortran arrays are
+                stored in memory &ldquo;by column&rdquo;. This layout is often
+                called &ldquo;column-major order&rdquo;. As a comparison, C
+                and Python use the &ldquo;row-major order&rdquo; layout, which
+                puts each row of a matrix in contiguous memory.
+              </p></font>
+            </div></td>
+          </tr></tbody>
+        </table>
+      </div>
+      <p>
+        Why do we care the memory layout of an array? There are many cases
+        where knowing the memory layout is important. For example, in MPI, we
+        need to know the memory layout in order to correctly merge arrays
+        gathered from multiple processors.
+      </p>
+      <p>
+        Firstly, knowing the layout enables us to calculate the memory offset
+        of an array element. For example, for an array declared with
+        <code>real(kind=8) :: a(m,n)</code>, the memory distance of an element
+        <code>a(i,j)</code> from <code>a(1,1)</code> is <img src="fortran-7.png" style="margin-left: 0em; margin-bottom: 0.0371878787878788em; margin-right: -0.0248242424242413em; margin-top: -0.0248242424242424em; vertical-align: -0.285430303030303em; height: 0.992969696969697em"></img>
+        bytes if the layout is the column-major order. The distance would be
+        <img src="fortran-8.png" style="margin-left: 0em; margin-bottom: 0.0371878787878788em; margin-right: -0.0248242424242413em; margin-top: -0.0248242424242424em; vertical-align: -0.285430303030303em; height: 0.992969696969697em"></img> bytes if the layout was the row-major order.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        Secondly, the array layout is important to CPU cache and thus to code
+        performance. A CPU views the memory as in 1D layout. When a CPU
+        fetches an element from memory to operate on, it will guess that
+        future operations may need some elements near that memory location.
+        Therefore, a CPU will load a contiguous memory block near that
+        location to CPU cache in order to make it comparatively quick to
+        access elements potentially needed in future operations.
+      </p>
+      <p>
+        Thirdly,  <strong>vectorized instructions</strong> of modern CPUs also
+        requires consecutive access. (The vector processing can either be done
+        with intrinsics, syntax hints of a language, or by relying on the
+        compiler's auto-vectorizer.)
+      </p>
+      <p>
+        So, to get good code performance, when possible, traverse data in the
+        order they are laid out in memory.
+      </p>
+      <p>
+        Layout of multi-dimensional arrays in memory is just a logical
+        abstraction of the 1D linear memory. Different choices of layout can
+        be simply considered as personal preference of the designers of a
+        language. The personal preference of a language designer is related to
+        the data structure and the type of operation on the data frequently
+        used in his/her routine work. Here I try to find some specific reasons
+        that a language prefers one layout over the another. For Fortran, I
+        guess the reason is related to multiplication of a matrix with a
+        vector, which can be arranged as
+      </p>
+      <p>
+        <img src="fortran-9.png" style="margin-left: 0em; margin-bottom: 0em; margin-right: 0em; margin-top: 0em; vertical-align: 0em; height: 6.26293333333333em"></img>
+      </p>
+      <p>
+        In this form, it is an operation over individual columns of the
+        matrix. Then it is beneficial to store a column in contiguous memory.
+        Section <a href="#20-5-21-1">B.1</a> provides a real life Fortran example, which
+        clearly demonstrates the performance improvement thanks to the spatial
+        locality in memory access patterns.
+      </p>
+      <p>
+        For C and Python, which choose the &ldquo;row-major order&rdquo;
+        layout (the rightmost index changes the fastest when scanning the 1D
+        memory), I believe the reason is related to the perspective that a
+        multi-dimensional array is an analogy of a nested list. Using Python
+        list as an example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+In [3]: mylist = [[1,2,3], [4,5,6]]</pre>
+      <p>
+        To refer to an elment, we use <code>mylist[i][j]</code>, which is the
+        <img src="fortran-10.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0496em; margin-right: -0.0248242424242424em; margin-top: 0em; vertical-align: -0.297842424242424em; height: 0.992969696969697em"></img> element of the outer list
+        <code>mylist[i]</code>. Then it is natural to store elements of the
+        innermost list in contiguous memory (list elements are not necessary
+        in continuous memory, here we assume that a 1D list is a 1D array).
+        That is the right most index changes the fastest when scanning the 1D
+        memeory.
+      </p>
+      <h3 id="auto-19">8.3.<span style="margin-left: 1em"></span>Static arrays<span style="margin-left: 1em"></span></h3>
+      <p>
+        Static arrays are arrays whose shape and bounds are known at compile
+        time, i.e., fully-declared-at-compile-time arrays. It also means that,
+        without modifying and re-compiling the source code, we can not change
+        the shape and bounds of a static array.
+      </p>
+      <p>
+        If a static array is declared in a local scope, typically in a
+        <code>subroutine/function</code>, its values are not retained between
+        different calls to the <code>subroutine/function</code> (i.e., the
+        array is automatically deallocated when the procedure returns, as
+        automatic arrays (discussed later) would be). To retain the value, we
+        can specify <code>save</code> attribute when declaring the array.
+        (Static arrays with <code>save</code> attribute are not allocated on
+        the stack. They actually exist in neither the stack nor the heap. They
+        are part of what's called the &ldquo;data segment&rdquo;. Similar
+        situation applies to the <code>static</code> variables in
+        <code>C</code>.)
+      </p>
+      <p>
+        Static arrays without <code>save</code> attribute are sometime
+        allocated on stack. However the size of stack is limited, large arrays
+        have to be allocated in heap in order to avoid the stack overflow
+        (this can be achieved by declaring an array as allocatable and
+        allocating it manually, which usually imply that the allocation
+        happens on the heap. However the Fortran standard has no concept of
+        stack and heap, so this will be implementation (i.e. compiler)
+        dependent.)
+      </p>
+      <h3 id="auto-20">8.4.<span style="margin-left: 1em"></span>Dynamic arrays<span style="margin-left: 1em"></span></h3>
+      <p>
+        A dynamic array is an array whose bounds are not fully known at
+        compiling time (the rank is always known). This includes two cases:
+        (1) bounds are not specified, which corresponds to an allocatable
+        array or (2) the low and/or upper bounds is specified with variables,
+        which corresponds to an automatic array. (Note that a dummy array in a
+        subroutine just refer to an actual array passed in; they are not
+        considered as dynamics arrays and will be discussed later.)
+      </p>
+      <p>
+        The rank of a dynamic array is always known at compile time since
+        Fortran (before 2018) does not provide a way of defining an array of
+        unspecified rank.
+      </p>
+      <p>
+        Dynamic arrays are created at particular run times (by programmers
+        explicitly or by runtime-library implicitly) with sizes determined by
+        computed (or input) values. Fortran 90 has three varieties of dynamic
+        arrays, namely:
+      </p>
+      <ul>
+        <li>
+          <p>
+            (manually) allocatable arrays
+          </p>
+        </li>
+        <li>
+          <p>
+            automatic arrays
+          </p>
+        </li>
+        <li>
+          <p>
+            pointer arrays
+          </p>
+        </li>
+      </ul>
+      <p>
+        In high performance computing (HPC), it is usually recommended that we
+        avoid using pointer arrays because they may prevent possible
+        optimization by the compiler.
+      </p>
+      <h4 id="auto-21">8.4.1.<span style="margin-left: 1em"></span>Allocatable arrays<span style="margin-left: 1em"></span></h4>
+      <p>
+        Allocatable arrays are arrays whose bounds along each dimension are
+        unknown at compile time (the rank is known), with their
+        creation/deletion and their bounds being controlled by programmers at
+        runtime. Use keyword <code>allocatable</code> to declare a allocatable
+        array. In this case, only the rank needs to be specified. For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+real, allocatable :: A(:,:) </pre>
+      <p>
+        Note that no bounds can be specified when defining. This is different
+        from the (dummy) assumed-shape arrays discussed later, where the low
+        bound can be specified (default to 1 if not specified).
+      </p>
+      <p>
+        To allocate a dynamic array:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+allocate(A(-1:3,4))</pre>
+      <font color="blue"><p>
+        [Besides using <code>allocate</code> statement, there is another way
+        in which an allocatable array will get (re-)allocated: assigning an
+        array or array slice to an allocatable array name (rather than its
+        slice). For example:
+      </p><pre class="verbatim" xml:space="preserve">
+real, allocatable :: A(:,:)
+real              :: B(3,4), C(5,6)
+A = B  !A will get allocated, with the same shape and bounds as B
+write(*,*) size(A,1), size(A,2), lbound(A,1)
+A=C !A is de-allocated and then re-allocated to the same shape and bounds as C
+write(*,*) size(A,1), size(A,2), lbound(A,1)</pre><p>
+        This is informally called &ldquo;(re-)allocation on assignment&rdquo;,
+        which makes dynamic arrays looks more like a variables in a
+        dynamically typed language. However, there is overhead here because
+        lots of checks/actions need to be done at runtime (e.g., is the
+        allocatable array already allocated?, if allocated, is the shape and
+        bounds are the same as the right-hand side array? if they differ, the
+        allocated array will be de-allocated and then re-allocated to the same
+        shape and bounds of the right-hand side). Therefore, I usually try to
+        avoid using this kind of automatic (re-)allocation on assignment. One
+        can always suppress the (re-)allocation is by using an array section
+        (rather than an array name) in an assignment:
+      </p><pre class="verbatim" xml:space="preserve">
+A(:,:) = B</pre><p>
+        In this case, if the allocatable array <code>A</code> is not allocated
+        or already allocated but its shape does not match <code>B</code>,
+        runtime error will appear.]
+      </p></font>
+      <p>
+        To de-allocate a dynamic array:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+deallocate(A)</pre>
+      <p>
+        The creation and deletion of dynamic arrays are under full control of
+        a programmer, with one exception that a dynamic array without
+        <code>save</code> attribute will be automatically deleted if the
+        declaration of the dynamic array goes out of scope. For example, an
+        allocatable array without <code>save</code> attribute defined in a
+        subroutine will be automatically deleted when the subroutine returns
+        (i.e., the allocatable array goes out of scope). The automatic
+        deletion of dynamic array can be prevented by specifying
+        <code>save</code> attribute when declaring the array. For most fortran
+        compilers, dynamic arrays declared in a <code>module</code> are
+        assumed to have <code>save</code> attribute by default. 
+      </p>
+      <p>
+        Once an allocatable array has been allocated, its size cannot be
+        altered, except by deallocating the array and then allocating it
+        again.
+      </p>
+      <h4 id="auto-22">8.4.2.<span style="margin-left: 1em"></span>Automatic arrays<span style="margin-left: 1em"></span></h4>
+      <p>
+        An <strong>automatic array</strong> is a <strong>local</strong> array
+        (not a dummy argument) of a <code>subroutine/function/block</code> and
+        its definition involves variables whose values are unknown at compile
+        time. Automatic arrays can not be delcared directly in
+        <code>program</code> or <code>module</code> units.
+      </p>
+      <p>
+        This kind of arrays are called automatic arrays because their
+        allocation and de-allocation are automatically handled without
+        explicit instructions from programmers. Specifically, an automatic
+        array will be allocated automatically on entry to the
+        subroutine/function, and will be de-allocated automatically when it
+        goes out of scope. Therefore we can not use <code>save</code>
+        attribute to an automatic array. If we did, we will get compiling
+        errors such as follows:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+Error: Automatic object cannot have the SAVE attribute</pre>
+      <p>
+        If we really want to have a persitent arary, we should use
+        <strong>allocatable arrays</strong> or <strong>static arrays</strong>,
+        for which a <code>save</code> attribute is allowed. Note that an
+        allocatable array (not a dummy argument) defined in a
+        <code>subroutine/function</code> without the <code>save</code>
+        attribute will be automatically deallocated upon
+        <code>subroutine/function</code> return, which is the same as an
+        automatic array. (As a general rule, if an  array/scalar is local to
+        the routine, memory is allocated on entry to the routine and
+        deallocated on return to the caller.)
+      </p>
+      <p>
+        <font color="blue">Automatic arrays are usually allocated on the stack
+        whereas allocatable arrays are allocated on the heap. But this
+        behavior is not specified in the Fortran standard, and can depend on
+        specific implementations. Does this difference between automatic
+        arrays and allocatable arrays results in any difference in
+        performance? (need to be examined)</font>
+      </p>
+      <p>
+        Since automatic arrays can have different sizes between different
+        calling to the <code>subroutine/function</code>, they are sometimes
+        called adjustable arrays.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        The specification of an automatic array is allowed to contain function
+        calls, which can be either built-in or user-defined functions, with
+        the only requirement that the functions must be <code>pure</code>,
+        i.e., no side effects. One often used function in this case is the
+        built-in inquiry function <code>size</code>, which is used to query
+        the size of other arrays. For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+real :: myarray(size(a,1), size(a,2))</pre>
+      <p>
+        Local non-constant variables in a subroutine are not allowed to appear
+        in the specification expression of automatic arrays. The reason is
+        that an automatic arry needes to be allocated at the begining of the
+        procedure, but a local variable does not have a defined value just on
+        entry to the routine. Even if we initialize the value of the local
+        variable when declaring it, this value is available only when the
+        first executable statment in the procedure is executed because
+        initialization is an assignment (an executable statement), which is
+        not a pure function.
+      </p>
+      <p>
+        The specification expression of automatic arrys is allowed to use
+        dummy arguments of the procedure, and variables from modules
+        (including its host module if the subroutine is contained in a
+        module). (It is user's responsibility to make sure the module
+        variables have got correct values before they are used in the 
+        specification expression of automatic arrys.)
+      </p>
+      <p>
+        These rules are also applicable to the dummy argument arrays discussed
+        in Sec. <a href="#19-5-25-1">8.5</a>.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        Automatic arrays can be seen as a restricted kind of allocatable
+        arrays, which are allocated automatically on entry to the
+        subroutine/function, and are de-allocated automatically when they go
+        out of scope. For a general allocatable arrays defined in a
+        subroutine, a programmer can allocate/deallocate it at arbitrary
+        locations, rather than only on the entry and return location. The
+        limitation of automatic arrays can also be seen in the following
+        senario: If the values of variables needed in defining arrays are only
+        available later in the subroutine, then an automatic arrays can not be
+        defined in this case.
+      </p>
+      <h3 id="auto-23"><a id="19-5-25-1"></a>8.5.<span style="margin-left: 1em"></span>Dummy argument arrays<span
+      style="margin-left: 1em"></span></h3>
+      <p>
+        If a dummy argument of a procedure is declared as an array, then
+        generally no array is actually allocated on entry to the procedure: it
+        just refers to the actual argument arrays passed in from the calling
+        unit. So dummy argument arrays are not new type of arrays, but the
+        syntax of declaring them may be different from that of declaring
+        actual arrays. And the syntax is used to infer what information of the
+        actual argument array is passed in from the calling units. There are
+        four syntaxes of declaring a dummy argument array:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+real :: a(m,n) !explicit shape array
+real :: b(m,*)   !assumed size array, not recomended now.
+real :: c(:,:) !assumed shape array
+real, allocatable :: d(:,:) !allocatable (dummy argument) array</pre>
+      <p>
+        For the assumed shape array and allocatable (dummy argument) array, an
+        explicit interface must be available to the calling unit. (The way to
+        get the explicit interface is to place the procedures in a module and
+        use this module at the calling site.)
+      </p>
+      <p>
+        Let us discuss these four types in turn.
+      </p>
+      <h4 id="auto-24">8.5.1.<span style="margin-left: 1em"></span>Explicit-shape array<span style="margin-left: 1em"></span></h4>
+      <p>
+        In the first two cases, i.e., <code>explicit shape array</code> and
+        <code>assumed size array</code>, usually just a pointer to the first
+        element of the actual argument array is passed in. Since only a
+        pointer is available with no stride being available, the compiler has
+        to assume that the stride is 1, i.e., the array is contiguous in
+        memory. If we pass an array slice that is not contiguous in memory to
+        a dummy argument declared as an <code>explicit shape array/assumed
+        size array</code>, a temporary array will be created and the data of
+        the array slice is copied in (and copied out when the subroutine
+        returns) in order to guarantee that the resulting array is contiguous
+        in memory so that the subroutine is doing right to the actual argument
+        array. For this case, <code>gfortran</code> will give the following
+        warning:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+Fortran runtime warning: An array temporary was created for argument 'a' of procedure 'p'</pre>
+      <p>
+        If the dummy array is declared as an explicit shape array, rank
+        mismatch between actual array and dummy array is allowed. However,
+        this kind of use is often not the intent of programmers, i.e., may be
+        a bug. Most time we prefer that the actual and dummy array have the
+        same shape.
+      </p>
+      <p>
+        In the above example, the variables <code>m,n</code> appearing in the
+        specification expression of the explicit shape array can be dummy
+        argument variables or module variables, but can not be a local
+        variable of the procedure (because a local varialbe is not initialized
+        at this point and thus its value is not available).
+      </p>
+      <p>
+        The following is an example of <strong>explicit array</strong>:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+subroutine p(u,m)
+ use some_module, only : n
+ real :: u(m,n) !explicit shape array
+end</pre>
+      <p>
+        A common bug when using explicit array is that the rank/extent/bound
+        declared in a procedure are different from those of the actual
+        argument array. As mentioned above, this mismatch is allowed by the
+        compiler. If the mismatch is not intended by the programmer (i.e., the
+        programmer made a mistake in the declaration), then the code may not
+        work correctly.
+      </p>
+      <h4 id="auto-25">8.5.2.<span style="margin-left: 1em"></span>Assumed-size array<span style="margin-left: 1em"></span></h4>
+      <p>
+        An <b>assumed-size array</b> is an array that is a dummy argument and
+        has an asterisk as the upper bound of the last dimension:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve">subroutine p( A, B, C ) 
+ Integer :: A(*), B(5, *) !lower-bound of the last dimension default to 1
+ Integer :: C(0:1, 2:*) !explicitly specify the lower-bound of the last dimension
+end</pre></pre>
+      <p>
+        The extent of the last dimension does not need to be specified because
+        it is not needed (by the compiler) in calculating the memory address
+        offset of an array element with respect to the first element. The
+        assumed-size array is introduced to Fortran in order to reduce the
+        burden of the user of a subroutine by not requiring the user to
+        provide the extent of the last dimension of an actual argument array.
+      </p>
+      <p>
+        I prefer to use explicit-shape arrays over assumed-sized array since
+        it is not a big deal to just omit a single bound. Omitting the last
+        upper bound also makes bounds checking difficult since the last upper
+        bound is not defined in the subroutine.
+      </p>
+      <h4 id="auto-26">8.5.3.<span style="margin-left: 1em"></span>Assumed-shape array<span style="margin-left: 1em"></span></h4>
+      <p>
+        If we leave all the upper bounds unspecified in a dummy array
+        defintion, then we says this array is an <code>assumed shape
+        array</code>. The upper bounds will be automatically inferred during
+        runtime from the length in each dimension of the actual array passed
+        in.
+      </p>
+      <p>
+        The following are examples of <strong>assumed shape array</strong>:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+subroutine p1(A, B)
+ real :: A(0:,2:) !upper bounds will be inferred from the actual array
+ real :: B(:,:)   !lower bounds are not specified and default to 1
+end</pre>
+      <p>
+        When calling a subroutine that uses <code>assumed shape array</code>,
+        an array descriptor structure of the actual array will be passed in,
+        which contains  information on the length of each dimension and
+        stride, as well as the pointer to the first element of the actual
+        argument array.
+      </p>
+      <p>
+        As is mentioned above, if the dummy array is declared as an explicit
+        shape array and we pass in an array slice that is not contiguous in
+        memory, an array temporary will be created and the data of the array
+        slice is copied in and then copied out. On the other hand, if the
+        dummy array is declared as an assumed shape array, no array temporary
+        will be created. (However, this does not mean the performance will be
+        better than the case of using explicit shape array, where an temporary
+        array is created and data be copied in and out. This is because the
+        latter case can improve spatial locality in memory access pattern,
+        although involving additional allocations and copying in and out
+        operations. Therefore, which methods will be more efficient depends on
+        specific applications.)
+      </p>
+      <p>
+        If the dummy array is declared as an assumed shape array, the compiler
+        will check agreement between the the rank of actual array and dummy
+        array, giving error information if they mismatch. This kind of
+        mismatch is allowed if explicit shape array is used, as is mentioned
+        above.
+      </p>
+      <p>
+        Mixed explicit-shape and assumed-shape array is not allowed, i.e., the
+        upper bound along each dimensions must be unspecified in the
+        defintion. For example <code>real:: a(1:3,1:)</code> is illigal
+        because the upper bound of the first dimension is fully specified.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        Summary: we have two choices in declaring a dummy array in a
+        subroutine. One choice is to declare it as an <code>explicit shape
+        array</code> (using formal argument variables, module variables, or
+        constants to specify the shape of the array). Another choice is to
+        define <code>assumed shape array</code>, for which we specify only the
+        rank and lower bound (the lower bound is 1 if not specified) of the
+        array and we do not specify the upper bounds along each dimension. The
+        unspecified upper bound will be inferred automatically from the length
+        along each dimension of the  actual argument array during runtime.
+      </p>
+      <p>
+        The motivation of introducing assumed-shape arrays is to ease the
+        burden of subroutine users, by alowing users to pass in only array
+        names, instead of the array names plus their shape information. The
+        burden is then imposed on the author of the subroutine: the author
+        need figure out the shape information of the actual argument array (by
+        using inqury functions) and use this information to define some
+        variables to facililate the computation in the subroutine. While
+        making the subroutine usage more user friendly (increasing the
+        possibility of re-use of the subroutine), this often makes subroutines
+        a little tedious, and add a little computational overhead (calling for
+        inqury functions, assignments, etc.). Considering the practice in most
+        numerical simulations that subroutines are written and used by the
+        same programmer, the fortran77 style of explicit-shaped arrays may be
+        more appealing to most programers for writing numerical codes.
+      </p>
+      <p>
+        Does using assumed shap array help reduce bugs for you? If yes, use it
+        as often as possible.
+      </p>
+      <h4 id="auto-27">8.5.4.<span style="margin-left: 1em"></span>Allocatable dummy argument array<span
+      style="margin-left: 1em"></span></h4>
+      <p>
+        For the fourth case, an dummy argument is declared as an allocatable
+        array. In this case, the corresponding actual argument must also be an
+        allocatable array, otherwise <code>gfortran</code> will raise
+        <code>Error: Actual argument for &lsquo;a' must be ALLOCATABLE at
+        (1).</code>
+      </p>
+      <p>
+        The actual argument allocatable array passed in can be already
+        allocated, or not allocated yet and it can be allocated in the
+        subroutine. One can use inquiry function <code>allocated()</code> to
+        get the allocation status of an allocatable array passed in. If a dumy
+        allocatable array of a subroutine is declared as
+        <code>intent(out)</code>, then it will be automatically deallocated on
+        the entry to the subroutine. This makes good sense since all the
+        status of an <code>intent(out)</code> unit can be destroyed.
+      </p>
+      <h2 id="auto-28">9.<span style="margin-left: 1em"></span>Pure function and subroutine<span style="margin-left: 1em"></span></h2>
+      <p>
+        We use the keyword <code>pure</code> to define a pure function
+        (functions with no side effects). For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+pure function f(x) result(z)
+ integer, intent(in):: x
+ integer :: z
+ z=x*2
+end function f</pre>
+      <p>
+        All dummy argument variables of a pure function must be
+        <code>intent(in)</code>. Pure subroutines can be defined in a similar
+        way, except that the dummy argument variables can have
+        <code>intent(out)</code>.
+      </p>
+      <p>
+        Since pure procedures do not allow side effects (i.e., do not change
+        the state of the outer world), the compiler will raise error if we try
+        to modify the value of a variable of a <code>module</code> that is
+        used in this procedure:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+Error: Variable 'tmp' can not appear in a variable definition context (assignment) in PURE procedure</pre>
+      <p>
+        Fortran pure functions can use module variables as (invisible) input,
+        which can change between function invocations. Therefore fortran pure
+        functions can not guarantee &ldquo;same argument, same result&rdquo;.
+        This is different from the pure function concept in funtional
+        programming languages, e.g. Haskell, where &ldquo;same argument, same
+        result&rdquo; is guaranteed.
+      </p>
+      <p>
+        Local variables within the scope of a <code>pure</code> procedure
+        cannot have the <code>save</code> attribute, which implies that they
+        cannot be initialized when declared, or by a DATA statement.
+      </p>
+      <p>
+        No external I/O operations may occur within a PURE procedure since
+        these change the stae of the outer world, i.e., side effects.
+      </p>
+      <p>
+        Any procedures that are invoked from a <code>pure</code> procedure
+        must be <code>pure</code>.
+      </p>
+      <h2 id="auto-29">10.<span style="margin-left: 1em"></span>Elemental function<span style="margin-left: 1em"></span></h2>
+      <p>
+        <code>Elemental</code> functions are pure functions defined with a
+        single scalar dummy argument and a scalar return value, but they can
+        be invoked with arrays as actual arguments, in which case the function
+        will be applied element-wise, with a conforming array return value.
+        This kind of function is indicated with the <code>elemental</code>
+        prefix. Since it is implied that an elemental function is also pure,
+        the <code>pure</code> prefix is not necessary.
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+<pre class="verbatim" xml:space="preserve">module test_mod
+contains
+  elemental real function square(x)
+     real, intent(in) :: x
+     square = x*x
+  end function
+end module</pre></pre>
+      <p>
+        Elemental subroutines may be defined in a similar way
+        (<code>intent(out)</code> or <code>intent(inout)</code> arguments are
+        allowed). The main benefit of elemental procedures is just for syntax
+        convenience, it does not have semantics that lend themselves to
+        effective parallelization.
+      </p>
+      <h2 id="auto-30">11.<span style="margin-left: 1em"></span>Variable scope and lifetime<span style="margin-left: 1em"></span></h2>
+      <p>
+        Not all variables are accessible from all parts of our program, and
+        not all variables exist for the same amount of time. Where a variable
+        is accessible and how long it exists depend on how it is defined. We
+        call the part of a program where a variable is accessible its
+        <em>scope</em>, and the duration for which the variable exists its
+        <em>lifetime</em>.
+      </p>
+      <h3 id="auto-31">11.1.<span style="margin-left: 1em"></span>Scope of variables: global and local
+      variables<span style="margin-left: 1em"></span></h3>
+      <p>
+        The scope of a variable, more accurately the scope of a naming binding
+        (an association of a name to an entity) is the region of a computer
+        program where the binding is valid: where the name can be used to
+        refer to a value. Such a region is referred to as a scope block. In
+        other parts of the program the name may refer to a different entity,
+        or to nothing at all (i.e., unbound).
+      </p>
+      <p>
+        The scope of a binding is also known as the visibility of an entity.
+        In other words, which parts of your program can see or use it. In
+        practice, for most programming languages, &ldquo;part of a
+        program&rdquo; refers to &ldquo;part of the source code&rdquo;, and is
+        known as <b>lexical scope</b> (another kind of scope called <b>dynamic
+        scope</b> will be discussed later). The lexical scope for a set of
+        bindings in practice largely corresponds to a block, a function, or a
+        file, depending on languages and types of entity.
+      </p>
+      <p>
+        Unlike C/C++, Fortran before 2008 standard does not have source code
+        blocks where new variables can be defined. Fortran 2008 introduces the
+        keyword <code>block</code> to define blocks, where local variables can
+        be declared. For examples, the following code defines two nested
+        blocks in which local variables <img src="fortran-11.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0135757575757576em; margin-right: -0.0248242424242422em; margin-top: -0.0512969696969697em; vertical-align: -0.0112484848484848em; height: 0.707490909090909em"></img> and
+        <code>res2</code> are defined.
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+PROGRAM foo
+implicit none
+  INTEGER :: a
+  a=3.0
+  write(*,*) 'a=',a
+  BLOCK            
+    INTEGER :: res1
+    res1 = a + 1
+    write(*,*)  'res1=',res1
+    BLOCK
+      INTEGER :: res2
+      res2 = res1 + 1
+      write(*,*)  'res2=',res2,'res1=',res1
+    ENDBLOCK
+  ENDBLOCK
+END PROGRAM foo    </pre>
+      <p>
+        In summary, the <code>block</code> creates its own namespace.
+      </p>
+      <p>
+        I use <code>block</code> to add temporary diagnostic codes to existing
+        programs. Doing this way allow all temporary local variables to be
+        gathered together near the diagnostic codes and thus easy to read and
+        easy to remove. This is more convenient than adding and calling new
+        external diagnostic subroutines. In passing, adding diagnostic
+        internal subroutines using <code>contains</code> is as convenient as
+        using <code>block</code> and may be more elegant.
+      </p>
+      <p>
+        In C/C++, variables defined outside of all functions are global
+        variables. Fortran does not have such kind of global variables. To
+        pass information between subroutines, besides using subroutine
+        parameter lists, one way is to use variables in a <code>module</code>
+        which can be shared between subroutines.
+      </p>
+      <h3 id="auto-32">11.2.<span style="margin-left: 1em"></span>Local variables with <code>save</code>
+      attribute<span style="margin-left: 1em"></span></h3>
+      <p>
+        A local variable defined in a procedure can have the <code>save</code>
+        attribute, which will make the local variable retain its value between
+        different procedure calls. These variables are called persistent
+        variables. For example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+function f()
+integer, save :: i=1
+i = i+1
+print *, i
+end function</pre>
+      <p>
+        However, for multiple-thread applications, this kind of local variable
+        will be shared among different threads, which means that racing
+        problem will appear if the procedure is called in multiple threads.
+        Considering this situation, computer guys often say that this kind of
+        local variables are &ldquo;thread unsafe&rdquo;.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        A local variables with <code>save</code> attribute is hidden input to
+        the procedure in which the variable is defined.
+      </p>
+      <h3 id="auto-33">11.3.<span style="margin-left: 1em"></span>Lifetime of variables<span style="margin-left: 1em"></span></h3>
+      <p>
+        Variables with <code>save</code> attribute will be alive from their
+        creation to the end of the program, i.e., they are not automatically
+        destroyed when they go out of scope. As a result, if the variables
+        with <code>save</code> attribute is a local variable defined in a
+        subroutine, then its value will be retained between different
+        revocations of the subroutine. In contrast, local variables without
+        <code>save</code> attribute will be automatically destroyed when they
+        go out of scope. As a result, their values can not be retained between
+        different revocations of the subroutine.
+      </p>
+      <p>
+        Lifetime refers to when a variable is allocated and deallocated during
+        program execution. Usually we think of <strong>static
+        allocation</strong> (variable will persist through the entire duration
+        of the program, making it useful for storing the same information
+        across several function calls) versus <strong>automatic
+        allocation</strong> (variable only persists during a single call to a
+        function, making it useful for storing information that is only used
+        during your function and can be discarded once you are done) versus
+        <strong>manual allocation</strong>.
+      </p>
+      <p>
+        
+      </p>
+      <h3 id="auto-34">11.4.<span style="margin-left: 1em"></span>Global variables (shared
+      variables)<span style="margin-left: 1em"></span></h3>
+      <p>
+        In C language, variables declared outside functions are global
+        variables, which can be assessed from any functions. Fortran does not
+        have this kind of global variables, but variables in
+        <code>modules</code> are accessible to other program units if the
+        modules are imported to that unit. In principle, a variable defined in
+        a <code>module</code> is a local variable to that module, and will be
+        destroyed when the program unit that uses the <code>module</code>
+        returns. However, two situations (often appear in practice) can make
+        the module variables not be destroyed during the entire runtime: (1)
+        the <code>module</code> is used in the main program and thus never
+        goes out of scope during the runtime, (2) <code>save</code> attribute
+        is used for the variables in the <code>module</code>, so they retain
+        their values. Most fortran compilers will treat variables defined in a
+        <code>module</code> as with <code>save</code> attribute even if no
+        <code>save</code> attribute is specified. But for safety, we should
+        specify <code>save</code> attribute for variables in a
+        <code>module</code> if we want their values to be retained when they
+        go out of scope.
+      </p>
+      <p>
+        The above practice makes <code>module</code> variables look like
+        global variables. For this reason, we often simply say that modules
+        define global data.
+      </p>
+      <p>
+        Due to the global nature of <code>module</code> variables, they are
+        shared across threads and are therefore thread-unsafe. To make an
+        application thread-safe, we must declare the global data as
+        THREADPRIVATE or THREADLOCAL.
+      </p>
+      <p>
+        shared by procedures
+      </p>
+      <p>
+        shared by threads
+      </p>
+      <p>
+        nothing can be shared by processes, message passing is a must.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        Where does FORTRAN store local variables?
+      </p>
+      <p>
+        Storage methods are not part of the language standard. Old FORTRAN
+        compilers (FORTRAN 77 and earlier) frequently stored all variables
+        statically. The language requires that you use &quot;SAVE&quot; for
+        variables for which the values should be retained across calls to the
+        procedure. But many programmers ignored this requirement and relied on
+        the behavior that all variables retained their values because of the
+        typical design of compilers in the FORTRAN 77 era.
+      </p>
+      <p>
+        Modern Fortran compilers typically use memory differently and local
+        variables of procedures do not always retain their values if SAVE is
+        omitted. This frequently causes bugs when old programs are compiled
+        with current compilers. Compilers typically provide an option to
+        restore the old behavior. Otherwise it could be a great deal of work
+        to identify all variables in a large legacy program that needed to
+        have the SAVE attribute added to their declaration.
+      </p>
+      <p>
+        
+      </p>
+      <h2 id="auto-35">12.<span style="margin-left: 1em"></span>Co-arrays<span style="margin-left: 1em"></span></h2>
+      <p>
+        A Fortran program containing co-arrays is interpreted as if it were
+        replicated a fixed number of times and all copies were executed
+        asynchronously. Each copy has its own set of data objects and is
+        called an image. The array syntax of Fortran is extended with
+        additional trailing subscripts in square brackets to give a clear and
+        straightforward representation of access to data on other images.
+        References without square brackets are to local data, so code that can
+        run independently is uncluttered. Only where there are square
+        brackets, or where there is a procedure call and the procedure
+        contains square brackets, is communication between images involved.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        The extension includes intrinsic procedures to synchronize images, to
+        return the number of images, to return the index of the current image,
+        and to perform collective actions.
+      </p>
+      <p>
+        Ref.: https://wg5-fortran.org/N1601-N1650/N1642.pdf
+      </p>
+      <h2 id="auto-36">13.<span style="margin-left: 1em"></span>Writing/reading files<span style="margin-left: 1em"></span></h2>
+      <p>
+        After Fortran 2008, the recommended way of opening file is as follows:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+integer :: u
+open(newunit=u, file='myfile.txt')
+write(u, *) 'hello world'
+close(u)</pre>
+      <p>
+        Here <code>newunit</code> is an <code>intent(out)</code> keyword
+        argument of <code>open</code>, which returns an available unit number.
+        This method is better than the old method of manually specifying a
+        unit number.
+      </p>
+      <h2 id="auto-37">Appendix A.<span style="margin-left: 1em"></span>Intel Compiler Debugging
+      Options</h2>
+      <p>
+        For <code>ifort</code> and <code>mpiifort</code>:
+      </p>
+      <div style="margin-top: 1em; margin-bottom: 1em">
+        <table style="width: 100%">
+          <tbody><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em"><table style="display: inline-table; vertical-align: middle">
+              <tbody><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-top: 1px solid">Options</td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-top: 1px solid">what it does</td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid"><code>-O{0,1,2,3}</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><code>-O0</code> disables optimizations. Default is
+                <code>-O2</code></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid"><code>-g</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><p>
+                  Produces symbolic debug information in object file
+                </p><p>
+                  (implies <code>-O0</code> when another optimization option
+                  is not explicitly set)
+                </p></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid"><code>-traceback</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><p>
+                  Tells the compiler to generate extra information in the
+                  object file 
+                </p><p>
+                  to provide source file traceback information when a severe
+                  error occurs at runtime
+                </p><p>
+                  Specifying <code>-traceback</code> will increase the size of
+                  the executable program,
+                </p><p>
+                  but has no impact on runtime execution speeds.
+                </p></td>
+              </tr><tr>
+                <td style="border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid"><code>-check bounds</code></td>
+                <td style="border-right: 1px solid; border-bottom: 1px solid"><p>
+                  Alternate syntax: -CB. Generates code to perform runtime
+                  checks on array subscript
+                </p><p>
+                  and character substring expressions. Fortran only.
+                </p></td>
+              </tr></tbody>
+            </table></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
+          </tr><tr>
+            <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><div class="caption">
+              <font style="font-size: 84.1%"><p>
+                <b>Table 3. </b><a id="auto-38"></a>
+              </p></font>
+            </div></td>
+          </tr></tbody>
+        </table>
+      </div>
+      <h2 id="auto-39">Appendix B.<span style="margin-left: 1em"></span>Tips for improving
+      performance</h2>
+      <p>
+        New syntaxes in a language seldom benefit performance. That is,
+        &ldquo;code with new syntax&rdquo; doesn't imply &ldquo;better
+        compiler optimizations&quot;, and even F77 is a &ldquo;high
+        level&rdquo; language. Efficient Fortran codes should stick to F77
+        features at their core for high performance, most of newer features
+        would usually result in less efficient executables. F90 and newer
+        would be mainly useful for readablity, maintainability and
+        extensibility of the code
+      </p>
+      <p>
+        Do you have some strong evidence to support such statements?
+      </p>
+      <p>
+        Well, yes, there is evidence for this strategy. I do not claim, that
+        all newer features have a negative impact on performance, or that you
+        should not use them at all. Just in the very kernel, the F77 style is
+        generally a good guide to produce efficient code. (Staying away from
+        pointer and target attributes, do not use fine-grained derived
+        datatypes, there was even a time when array syntax statements are
+        slower than explicit do-loops, though compilers seem to have much
+        improved). I am actually using F2003 features heavily, my point is
+        just in the very kernel, there is probably little benefit.
+      </p>
+      <p>
+        Vectorization, if by this you mean the F90+ array syntax, is mostly a
+        programmer convenience issue rather than allowing faster code. A
+        competent compiler will vectorize the equivalent DO loop just as well.
+      </p>
+      <p>
+        There is one major reason why Fortran 77 programs might be faster:
+        Allocated arrays (Fortran 90) are much slower than
+        declared-at-compile-time arrays. Both are not put at the same place in
+        memory (stack vs heap). The difference in memory management of stack
+        and heap in Fortran can change the performance. The Fortran standard
+        has no concept of stack and heap, so this will be implementation (i.e.
+        compiler) dependent.
+      </p>
+      <h3 id="auto-40"><a id="20-5-21-1"></a>B.1.<span style="margin-left: 1em"></span>performance improvement due
+      to the spatial locality in memory access patterns<span style="margin-left: 1em"></span></h3>
+      <p>
+        Let us see a real example in Fortran, which clearly demonstrates the
+        performance improvement thanks to the spatial locality in memory
+        access patterns:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+program main
+  implicit none
+  integer, parameter:: m=10000, n=30000
+  real :: a(m,n), b(n), c1(m), c2(m)
+  integer :: i, j
+  real:: tarray(3) !record the cputime
+  CALL RANDOM_NUMBER(a)
+  CALL RANDOM_NUMBER(b)
+  call cpu_time(tarray(1)) !f95 intrinsic subroutine returning the cpu clock
+
+  c1=0.0
+  do i=1,m !switching the two loops can improve the efficiency
+     do j=1,n
+        c1(i)=c1(i)+a(i,j)*b(j)
+     enddo
+  enddo
+  call cpu_time(tarray(2))
+  write (*,*) 'CPU time used (seconds) in inefficent algorithm', tarray(2)-tarray(1)
+
+  c2=0.0
+  do j=1,n
+     c2(:)=c2(:)+a(:,j)*b(j)
+  enddo
+  call cpu_time(tarray(3))
+  write (*,*) 'CPU time used (seconds) in efficient algorithm', tarray(3)-tarray(2)
+end program main</pre>
+      <p>
+        The above code multiplies a matrix by a vector. Two methods are
+        implemented, one is the naive way, another is using operation over
+        individual columns of the matrix, as discussed above. Compile and run
+        the code:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+$ gfortran  c_r.f90  &amp;&amp; ./a.out 
+ CPU time used (seconds) in inefficent algorithm   1.08469510    
+ CPU time used (seconds) in efficient algorithm  0.208189011  </pre>
+      <p>
+        There is a factor of 5 performance gain due to the spatial locality in
+        memory access patterns. In this example, the spatial locality help
+        both cache and vectorized instructions, since we use Fortran array
+        slice syntax, which usually enables vector processing. In the naive
+        method, if we switch the order of the two loops, then we obtain
+        spatial locality in memory access patterns, but the vector processing
+        may not be enabled because we do not provide sufficient syntax hints
+        to the compiler. In this case, the result is as follows:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+$ gfortran  c_r.f90  &amp;&amp; ./a.out 
+ CPU time used (seconds) in inefficent algorithm  0.621351004    
+ CPU time used (seconds) in efficient algorithm  0.207148075  </pre>
+      <p>
+        The performance of the naive method improves but still 3 factor slower
+        than the vectorized version. Let us add <code>-O3</code> optimization,
+        which may try to vectorize any codes than can be vectorized. The
+        result is as follows:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+$ gfortran -O3 c_r.f90  &amp;&amp; ./a.out                                                         
+CPU time used (seconds) in inefficent algorithm   7.00249672E-02
+CPU time used (seconds) in efficient algorithm   7.00830221E-02</pre>
+      <p>
+        Finally, we obtain the same performance.
+      </p>
+      <p>
+        In passing, I would like to mention another important tip that can
+        improve spatial locality of memory access and hence code performance:
+        avoid using fine-grained derived datatypes or many small arrays,
+        instead, try to gather them together into an array to improve locality
+        in memory access. To demonstrate this, let us consider a famous
+        example in particle simulations, where each particle has three spatial
+        coordinates, say <img src="fortran-12.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0371878787878788em; margin-right: -0.0248242424242422em; margin-top: 0em; vertical-align: -0.285430303030303em; height: 0.744727272727273em"></img>. The intuitive method would
+        use three arrays, <code>x(n),y(n),z(n)</code>, to store these
+        coordinates for each particle, where <code>n</code> is the total
+        particle number, which is usual a large number, e.g. <img src="fortran-13.png" style="margin-left: -0.0248242424242424em; margin-bottom: -4.84848484848498e-5em; margin-right: -0.0248242424242424em; margin-top: 0em; vertical-align: -0.0247757575757576em; height: 0.935030303030303em"></img>.
+        The jth elements of the three arrays will be frequently used together
+        in a computation, for example <code>s=x(j)**2+y(j)**2+z(j)**2</code>.
+        In this case, a better way of organizing the data is to combine the
+        three arrays into one array, e.g., <code>cor(3,n)</code>, with the
+        first index of the 1st dimension corresponding to <img src="fortran-14.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0124606060606061em; margin-right: -0.0248242424242424em; margin-top: 0em; vertical-align: -0.0123636363636364em; height: 0.521309090909091em"></img>,
+        second index to <img src="fortran-15.png" style="margin-left: -0.0248242424242424em; margin-bottom: 0.0371878787878788em; margin-right: -0.0372363636363636em; margin-top: 0em; vertical-align: -0.285430303030303em; height: 0.744727272727273em"></img>, and third to <img src="fortran-16.png" style="margin-left: -0.0248242424242424em; margin-bottom: -0.0124606060606061em; margin-right: -0.0248242424242425em; margin-top: 0em; vertical-align: -0.0123636363636364em; height: 0.521309090909091em"></img>.
+        Then the above expression would be
+        <code>s=cor(1,j)**2+cor(2,j)**2+cor(3,j)**2</code>, where the three
+        elements are contiguous in memory and thus can help the cache and
+        speedup the computation.
+      </p>
+      <p>
+        
+      </p>
+      <h2 id="auto-41">Appendix C.<span style="margin-left: 1em"></span>Object-oriented programming in
+      Fortran</h2>
+      <p>
+        Object-oriented programming style is not often used in numerical
+        codes. Here I discuss this just for my curiosity.
+      </p>
+      <p>
+        Fortran, the oldest high-level programming language, was designed and
+        used mainly for the purpose of numerical computation. Although Fortran
+        is also claimed as a general-purpose programming language, it lies
+        behind other popular general-purpose Language, such as C/C++ and
+        Python, in some aspects. One of these aspects is the support to the
+        object-oriented programming.
+      </p>
+      <p>
+        Why is the object-oriented programming not widely adopted in
+        scientific computing? Scientific computing often deal with simple data
+        structures with homogeneous elements, such as arrays, which are often
+        the only data structure used in a numerical code. This makes derived
+        types not so frequently needed. Derived types are generalization of
+        arrays and can contain inhomogeneous elements, which provide a more
+        powerful organizing capability than arrays. Classes in object-oriented
+        programming are a special kind of derived types that have procedures
+        bound to.
+      </p>
+      <p>
+        Fortran's <code>module</code> can contain both data and procedures.
+        But we can not use the name of a module to define an object. On the
+        other hand, <code>module</code> can contain derived type definition
+        and this derived type can be used to define an object. Therefore a
+        Fortran <code>module</code> containing both derived type definitions
+        and procedures can be used as the counterpart of <code>class</code> in
+        object-oriented languages. However the binding between a derived type
+        object and its procedures must be implemented manually by programmers
+        before Fortran 2003. The following is a Fortran 95 example emulating
+        object-oriented programming style.
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+module class_point
+  implicit none
+  type, public :: point
+     real :: x, y
+  end type point
+contains
+  function distance(this) result(z) !distance from origin
+    type(point), intent(in) :: this
+    real :: z
+    z = sqrt((this%x)**2+(this%y)**2)
+  end function distance
+
+  subroutine add(this,another,my_sum) 
+    type(point), intent(in) :: this, another
+    type(point) :: my_sum
+    my_sum%x=this%x+another%x
+    my_sum%y=this%y+another%y
+  end subroutine add
+  
+  subroutine print_point(this)
+    type(point), intent(in) :: this
+    real :: tmp
+    tmp = distance(this)  
+    print *, 'Point: (x,y) = ', this%x, this%y, ' distance from orig = ', tmp
+  end subroutine print_point
+end module class_point
+
+program point_test
+  use class_point,only: point, distance,add, print_point
+  implicit none
+  type(point) :: p1,p2,p3    ! Declare variables of type point.
+  p1 = point(3.0,4.0)   ! Use the implicit constructor
+  call print_point(p1)       !pass the object to the procedure via a argument
+  p2 = point(1.0,0.5)   ! Use the implicit constructor
+  call add(p1,p2,p3)
+  call print_point(p3)
+end program point_test</pre>
+      <p>
+        The above is not real object-oriented programming because the
+        procedures are not actually bound to the object. Fortran 2003 provides
+        type-bound procedures: those procedures that appear in the definition
+        of the derived type. The following is a revised version of the above
+        program.
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+module my_module
+  implicit none
+  type :: point
+     real :: x, y
+   contains
+     procedure :: distance, printp, add, add_func
+  end type point
+contains
+  function distance(this) result(z) !distance from origin
+    class(point), intent(in) :: this
+    real :: z
+    z = sqrt((this%x)**2+(this%y)**2)
+  end function distance
+
+  subroutine add(this,another,my_sum) 
+    class(point), intent(in) :: this
+    type(point), intent(in) :: another
+    type(point), intent(out):: my_sum
+    my_sum%x=this%x+another%x
+    my_sum%y=this%y+another%y
+  end subroutine add
+
+  function add_func(this,another)  result(my_sum)
+    class(point), intent(in) :: this 
+    type(point), intent(in):: another
+    type(point):: my_sum
+    my_sum%x=this%x+another%x
+    my_sum%y=this%y+another%y
+  end function add_func
+
+  subroutine printp(this)
+    class(point), intent(in) :: this
+    real :: tmp
+    tmp = this%distance()  ! Call the type-bound function
+    print *, 'Point: (x,y) = ', this%x, this%y, ' distance from orig = ', tmp
+  end subroutine printp
+end module my_module
+
+program test
+  use my_module, only: point
+  implicit none
+  type(point) :: p1,p2,p3     ! Declare a variable of type point.
+  p1 = point(3.0,4.0)   !Use the implicit constructor
+  call p1%printp()         !Call the type-bound subroutine
+  p2 = point(1.0,0.5)   ! Use the implicit constructor
+  call p2%printp()
+  call p1%add(p2,p3)
+  call p3%printp()
+  print *, p1%add_func(p2)
+end program test</pre>
+      <p>
+        Three things need to be noted. First, two <code>contains</code> appear
+        here, one of which bounds the procedures names to the derived type and
+        another gives the definition of the procedures. Second, in the
+        definition of the procedure, the first argument must be of the same
+        type of the derived type and the declaration using the
+        <code>class</code> keyword, instead of the <code>type</code> keyword.
+        This a fundamental requirement for type-bound procedures. If declared
+        using <code>type</code>, gfortran compiler would raise the following
+        error: Non-polymorphic passed-object dummy argument. This is required
+        by compilers to consider this procedure as a type-bound procedure
+        rather than an ordinary one. Third, when calling the type-bound
+        procedure, the object is passed to the procedure in the
+        object-oriented way, e.g., <code>p1%print_point</code> rather than
+        <code>print_point(p1)</code>. (Most OOP languages use the dot
+        notation, i.e., <code>p1.print_point</code>, rather than the
+        <code>%</code> notation adopted by Fortran.)
+      </p>
+      <p>
+        The code which modifies a given data structure should be localized or
+        confined to one location in the program and not spread throughout the
+        program. This property is a kind of encapsulation. In a sense, it is a
+        generalization of the familiar notion of a function or subroutine.
+      </p>
+      <p>
+        Ref.: Viktor K. Decyk's paper on this.
+      </p>
+      <p>
+        http://www.cs.rpi.edu/~szymansk/OOF90/F90_Objects.html
+      </p>
+      <h2 id="auto-42">Appendix D.<span style="margin-left: 1em"></span>Fortran best practice</h2>
+      <p>
+        It is a good practice to place procedures in modules (instead of
+        internal procedures or external procedures) as it helps the compiler
+        to detect programming errors and to optimize the code.
+      </p>
+      <p>
+        Subroutines should be kept reasonably short (e.g. about 50 lines
+        (usually difficult) so that they can fill in one screen and thus are
+        easy to read).
+      </p>
+      <p>
+        We now usually do not need to worry about the start up overheads
+        involved in calling a subroutine, because some short subroutines can
+        be &ldquo;inlined&rdquo; by compilers so that the inefficiency is
+        generally not a problem.
+      </p>
+      <p>
+        Each <code>module</code> should be in a separate file.
+      </p>
+      <p>
+        Any code that introduces new physics to a code should have a switch to
+        enable it to be turned off. This makes it possible to run the model in
+        a configuration that is identical to the model before the new physics
+        went in, in order to check that nothing unexpected has been broken.
+      </p>
+      <p>
+        Code should be accompanied by technical documentation describing the
+        physical processes that the additional code is intended to model and
+        how this is achieved. Any equations used should be documented (in
+        their continuous form where appropriate) along with the methods used
+        to discretise these equations.
+      </p>
+      <p>
+        Always bear in mind that somebody will have to maintain your code in
+        the future. That person could be you several years later. Commenting
+        the source lines that are not obvious from common senses. But do not
+        make too extensive/detailed/specific comments because the details have
+        good chance to become out-dated when codes are updated, which will
+        make the comments inconsistent with the codes, causing confusion
+        rather than clarification to code maintainers. It is the code itself
+        rather than the comment that is the final and absolute definition of
+        what is exactly done in the code (i.e., every source code is
+        self-documenting if you understand it). Therefore rather than
+        investing much time in writing comments, we should spend more time in
+        making the algorithm and code easy to understand even if there is no
+        comment. Comments should be used to state the <strong>reason</strong>
+        for doing something, instead of repeating the Fortran logic in words.
+      </p>
+      <p>
+        The goal of all these practice is to reduce the chance of introducing
+        bugs.
+      </p>
+      <p>
+        All routines and documentation must be written using SI units.
+        Standard SI prefixes may be used. Where relevant, the units used must
+        be clearly stated in both code and documentation.
+      </p>
+      <p>
+        Try to find some ways to test your code. Do not ignore compiler
+        warnings, as they may point you to potential problems.
+      </p>
+      <p>
+        We tend to criticize other's coding style when we see a messy code.
+        But think twice before criticizing.
+      </p>
+      <p>
+        At first glance of a code, your judgment of its readability is often
+        false because it is based on the simple appearance of the code, i.e.,
+        whether the code is neat enough rather than whether its logical is
+        clear/straightforward or not, ==&gt;psychological reasons.
+      </p>
+      <p>
+        But we should realize that work and life seem to be always in a hurry.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        Ref: 
+      </p>
+      <p>
+        https://www.phy.ornl.gov/csep/pl/node1.html<span style="margin-left: 1em"></span>(this
+        is very good)
+      </p>
+      <p>
+        http://annefou.github.io/Fortran/modules/modules.html
+      </p>
+      <p>
+        http://jules-lsm.github.io/coding_standards/guidelines/best_practices.html
+      </p>
+      <h2 id="auto-43">Appendix E.<span style="margin-left: 1em"></span>Stack vs Heap Memory
+      allocation</h2>
+      <p>
+        Where are the stack and heap stored? They are both stored in the
+        computer's RAM (Random Access Memory). Using RAM is faster than using
+        virtual memory (paging file/swap file).
+      </p>
+      <p>
+        Stack frame access is easier than the heap frame as the stack
+        allocation happens on contiguous blocks of memory and hence is cache
+        friendly, but in case of heap frames which are dispersed throughout
+        the memory so it cause more cache misses. Note that the above being
+        continugous or dispersed in memory refers to the storage of different
+        variables, For a single array, all the data element are gauranteed to
+        be continous in memory regardless they are on stack or heap.
+      </p>
+      <p>
+        In a stack, the allocation and deallocation is automatically done,
+        whereas, in heap, it needs to be done by the programmer manually.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        a compiler may sometimes break these conventions if it wants as long
+        as behavior is correct. For instance, due to optimization a local
+        variable may only exist in a register or be removed entirely, even
+        though most local variables exist in the stack. You are free to
+        implement a compiler that doesn't even use a stack or a heap, but
+        instead some other storage mechanisms (rarely done, since stacks and
+        heaps are great for this).
+      </p>
+      <p>
+        In the context of lifetime, &ldquo;static&rdquo; <em>always</em> means
+        the variable is allocated at program start and deallocated when
+        program exits.
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        The value of a local scalar can be retained between different calls to
+        the <code>subroutine/function</code> (by using <code>save</code>
+        keyword or compiler option to save all local variables) but automatic
+        arrays can not have the <code>save</code> attribute.
+      </p>
+      <p>
+        The dynamic data segment is also referred to as the heap, the place
+        dynamically allocated memory (such as from malloc() and new) comes
+        from.
+      </p>
+      <p>
+        
+      </p>
+      <h2 id="auto-44">14.<span style="margin-left: 1em"></span>Submodule<span style="margin-left: 1em"></span></h2>
+      <p>
+        Submodules are a feature of Fortran 2008 which allow a module
+        procedure to have its interface defined in a module while having the
+        body of the procedure defined in a separate unit, a submodule. An
+        example:
+      </p>
+      <pre class="verbatim" xml:space="preserve">
+module points
+  type :: point
+     real :: x, y
+  end type point
+
+  interface
+     module function point_dist(a, b) result(distance)
+       type(point), intent(in) :: a, b
+       real :: distance
+     end function point_dist
+  end interface
+end module points
+
+submodule (points) points_a
+contains
+  module procedure point_dist
+    distance = sqrt((a%x - b%x)**2 + (a%y - b%y)**2)
+  end procedure point_dist
+end submodule points_a
+
+program main
+use points, only : point, point_dist
+  implicit none
+  type(point) ::  a, b
+  a%x=0
+  a%y=0
+  b%x=1
+  b%y=2
+  write(*, *)  point_dist(a, b)**2
+end program main</pre>
+      <p>
+        A submodule can itself be further extended by other
+        &ldquo;descendant&rdquo; submodules.
+      </p>
+      <p>
+        Entities in a submodule have access to the all entities and components
+        of their ancestor module/submodules by host association, just as if
+        they were physically present inside the source code of their
+        ancestors.
+      </p>
+      <p>
+        Depending on the Fortran processor in use, splitting a module into
+        submodules may also reduce the time it takes to compile the entire
+        program, by avoiding so called compilation cascades. Ordinarily,
+        changes to source code in the body of a module procedure require
+        recompilation of the module hosting the procedure. For most build
+        systems recompilation of a module then triggers recompilation of all
+        program units that use that module, even if there has been no change
+        in the things that the module &ldquo;provides&rdquo; to the program
+        units that use it. When the recompiled program units are themselves
+        modules, a cascade results.
+      </p>
+      <p>
+        If the body of the procedure is moved into a submodule, then any
+        subsequent changes to the body will typically only require
+        recompilation of the submodule and its descendants. The information in
+        the source code of a submodule is typically not used to compile its
+        ancestors or any program units that use its ancestor module.
+      </p>
+      <p>
+        Use of submodules also allows information hiding within the scope of a
+        module. Sibling submodules of a module cannot access the entities
+        defined local to each other.
+      </p>
+      <p>
+        
+      </p>
+    </div>
+  </body>
+</html>
