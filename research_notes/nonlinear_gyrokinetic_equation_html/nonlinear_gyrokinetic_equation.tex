@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[english]{babel}
-\usepackage{geometry,amsmath,graphicx,xcolor}
+\usepackage{geometry,amsmath,graphicx,hyperref,xcolor}
 \geometry{a4paper}
 
 %%%%%%%%%% Start TeXmacs macros
@@ -9,10 +9,10 @@
 \newcommand{\tmaffiliation}[1]{\\ #1}
 \newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
 \newcommand{\tmem}[1]{{\em #1\/}}
-\newcommand{\codestar}[1]{\texttt{#1}}
 \newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
 \newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
 \newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+\newcommand{\tmtexttt}[1]{\text{{\ttfamily{#1}}}}
 %%%%%%%%%% End TeXmacs macros
 
 \begin{document}
@@ -331,7 +331,7 @@ The parallel direction is fully determined by $\mathbf{B}_0 (\mathbf{x})$, but
 there are degrees of freedom in choosing one of the two perpendicular basis
 vectors. In order to make the azimuthal angle $\alpha$ fully defined, we need
 to choose a way to define one of the two perpendicular directions. In
-{\codestar{GEM}} simulations, one of the perpendicular direction is chosen as
+\tmtexttt{GEM} simulations, one of the perpendicular direction is chosen as
 the direction perpendicular to the magnetic surface, which is fully determined
 at each spatial point. (We need to define the perpendicular direction at each
 spatial location to make $\partial \alpha / \partial \mathbf{x} |_{\mathbf{v}}
@@ -1901,9 +1901,10 @@ equation (\ref{19-1-4-e1}) is written as
   \cdot \nabla B_0)] \frac{\partial F_0}{\partial \varepsilon}, 
   \label{19-1-4-5}
 \end{eqnarray}
-which agrees with the so-called $p_{\parallel}$ formulation given in GEM code
-manual (the first line of Eq. 28), which uses $p_{\parallel} = v_{\parallel} +
-q \langle A_{\parallel} \rangle_{\alpha} / m$ as an independent variable.
+which agrees with the so-called $p_{\parallel}$ formulation given in
+\tmtexttt{GEM} code manual (the first line of Eq. 28), which uses
+$p_{\parallel} = v_{\parallel} + q \langle A_{\parallel} \rangle_{\alpha} / m$
+as an independent variable.
 
 In simulations, I use Eq. (\ref{19-1-4-5}) and set $\delta A_{\parallel}$ to
 zero to get the electrostatic version, rather than using \ Eq.
@@ -2113,7 +2114,7 @@ makes the cancellation less accurate.
 obtained by neglecting the FLR effect. Because the ion adiabatic current is
 less than the electron adiabatic current by a factor of $m_e / m_i$, its
 accuracy is not important, and is approximated by the drift-kinetic limit in
-{\codestar{GEM}}. And the cancellation error is not a problem and hence can be
+\tmtexttt{GEM}. And the cancellation error is not a problem and hence can be
 neglected. In this case, equation (\ref{19-3-21-p1}) is simplified as
 \begin{eqnarray}
   &  & - \nabla^2_{\perp} \delta A_{\parallel}^{(n + 1)} - \mu_0
@@ -2202,9 +2203,9 @@ the right-hand side, the above equation is written as
 \subsubsection{special case of $\epsilon_g = 1$}
 
 For the special case of $\epsilon_g = 1$ (the default and most used case in
-GEM code, Yang Chen said $\epsilon_g < 1$ cases are sometimes not accurate, so
-he gave up using it since 2009), equation (\ref{19-1-10-7}) can be simplified
-as:
+\tmtexttt{GEM} code, Yang Chen said $\epsilon_g < 1$ cases are sometimes not
+accurate, so he gave up using it since 2009), equation (\ref{19-1-10-7}) can
+be simplified as:
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
@@ -2235,7 +2236,7 @@ For $\epsilon_g = 1$, $\delta F$ is written as
 \end{eqnarray}
 where the adiabatic term will be moved to the left-hand side of the Poisson's
 equation. The descretization of this term is much easier than the polarization
-density. This term is already in {\codestar{GEM}}.
+density. This term is already in \tmtexttt{GEM}.
 
 Equation (\ref{19-1-10-7m2}) actually goes back to the original Frieman-Chen
 equation. The only difference is that $\frac{q}{m} \langle \mathbf{v} \cdot
@@ -2345,10 +2346,10 @@ is a right-handed system.
   \includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1.pdf}
   \caption{Poloidal grid for equilibrium quantities used in my code and GEM
   code. My array index starts from 1 whereas GEM array index starts from $0$.
-  Hence {\codestar{mpol=nth+1}}. {\codestar{nth}} is denoted by
-  {\codestar{ntheta}} in GEM. The array starts at $\theta = - \pi$ and ends at
-  $\theta = + \pi$ ($\theta = \pm \pi$ is chosen to be at the high-field side
-  in both the codes)
+  Hence \tmtexttt{mpol=nth+1}. \tmtexttt{nth} is denoted by \tmtexttt{ntheta}
+  in GEM. The array starts at $\theta = - \pi$ and ends at $\theta = + \pi$
+  ($\theta = \pm \pi$ is chosen to be at the high-field side in both the
+  codes)
   I do not need to make connection with GEM's equilibrium poloidal array
   because there is no coupling of equilibrium quantities between the code
   written by me and the original code in GEM.
@@ -2368,16 +2369,16 @@ is a right-handed system.
 \begin{figure}[h]
   \resizebox{0.9\columnwidth}{!}{\includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.eps}}
   \caption{Radial grid used in my code. Two radial arrays are used in the
-  code, {\codestar{radcor\_1d\_array(1:nt)}} and
-  {\codestar{radcor\_1d\_array2(1:n)}}, respctively corresponding to the
+  code, \tmtexttt{radcor\_1d\_array(1:nt)} and
+  \tmtexttt{radcor\_1d\_array2(1:n)}, respctively corresponding to the
   $\tmop{nt}$ points and $n$ points indicated in the figure. Here $\tmop{nt} =
   n + 2 m$ and $m$ is the number of grid points in one of the two buffer
   regions (regions in blue color). The index of the two arrays both begin at 1
-  (rather than 0). In the code $n$ is denoted by {\codestar{nflux2}} and
-  $\tmop{nt}$ is denoted by {\codestar{nflux}}, $m$ is denoted by
-  {\codestar{points\_in\_buffer}}. In {\codestar{GEM}} the radial array does
-  no include the buffer regions and the index starts at {\codestar{0}} and
-  ends at {\codestar{imx}}. Hence {\codestar{n=imx+1}}.}
+  (rather than 0). In the code $n$ is denoted by \tmtexttt{nflux2} and
+  $\tmop{nt}$ is denoted by \tmtexttt{nflux}, $m$ is denoted by
+  \tmtexttt{points\_in\_buffer}. In \tmtexttt{GEM} the radial array does no
+  include the buffer regions and the index starts at \tmtexttt{0} and ends at
+  \tmtexttt{imx}. Hence \tmtexttt{n=imx+1}.}
 \end{figure}
 
 \begin{figure}[h]
@@ -2385,9 +2386,9 @@ is a right-handed system.
   \caption{Toroidal grid used in my code and GEM code. My array index starts
   at 1 whereas GEM array index starts from $0$. The last grid is at $\phi = 2
   \pi / \tmop{nseq}$ and is indexed as mtor+1 in my grid system. The last grid
-  point for density and potential arrays in my code is at {\codestar{mtor}}
-  rather than {\codestar{mtor+1}}. {\codestar{GEM}} array ends at
-  {\codestar{jm}}. It follows that {\codestar{mtor=jm}}.}
+  point for density and potential arrays in my code is at \tmtexttt{mtor}
+  rather than \tmtexttt{mtor+1}. \tmtexttt{GEM} array ends at \tmtexttt{jm}.
+  It follows that \tmtexttt{mtor=jm}.}
 \end{figure}
 
 \
@@ -2883,10 +2884,9 @@ $n_p$ in expression (\ref{18-9-23-p1}) can be written as
   \mathbf{x}) \frac{k_{\perp}^2 \rho^2}{1 + k_{\perp}^2 \rho^2}
   \frac{d\mathbf{k}}{(2 \pi)^3} .  \label{19-1-23-p6}
 \end{eqnarray}
-(Pad{\'e} approximate is the ``best'' approximation of a function by a
-rational function of given order -- under this technique, the approximant's
-power series agrees with the power series of the function it is
-approximating.)
+(Pade approximate is the ``best'' approximation of a function by a rational
+function of given order -- under this technique, the approximant's power
+series agrees with the power series of the function it is approximating.)
 
 \subsubsection{Long wavelength approximation of the polarization density}
 
@@ -3114,9 +3114,20 @@ where $\Delta \mathbf{\rho}_{i j}$ is a function of $(\mathbf{x}, v_{\perp},
   \label{22-11-8-1}
 \end{eqnarray}
 The guiding-center transform and its inverse involved in the above are
-illustrated in Fig. \ref{21-8-22-a1}, which also shows how to evaluate the
-double gyro-angle integration using the discrete values of $\delta \Phi_{i
-j}$.
+illustrated in Fig. \ref{21-8-22-a1}. Then the double gyro-angle integral
+appearing in the polarization density is approximated as
+
+
+\begin{equation}
+  \label{21-9-2-a1} \int_0^{2 \pi} d \alpha \left( \int_0^{2 \pi} \delta \Phi
+  (\mathbf{x}) d \alpha' \right) \approx \frac{(2 \pi)^2}{N_1 N_2}  \sum_{i =
+  1}^{N_1} \sum_{j = 1}^{N_2} \delta \Phi (\mathbf{x}_{i j}),
+\end{equation}
+where $N_1 = 4, N_2 = 4$ for the case shown \ in Fig. \ref{21-8-22-a1}. This
+gives how to evaluate the double gyro-angle integration using the discrete
+values of $\delta \Phi_{i j}$.
+
+\
 
 \
 
@@ -3131,12 +3142,7 @@ j}$.
   guiding-center transform to calculate points on the corresponding gyro-ring
   (four points are shown for each guiding-center $\mathbf{X}_i$ in this case,
   namely $\mathbf{x}_{i j}$ with $j = 1, 2, 3, 4$, corresponding gyro angle
-  $\alpha_j'$ with $j = 1, 2, 3, 4$.) Then the double gyro-angle integral
-  appearing in the polarization density is approximated as
-  $\label{21-9-2-a1} \int_0^{2 \pi} d \alpha \left( \int_0^{2 \pi} \delta \Phi
-  (\mathbf{x}) d \alpha' \right) \approx \frac{(2 \pi)^2}{N_1 N_2}  \sum_{i =
-  1}^{N_1} \sum_{j = 1}^{N_2} \delta \Phi (\mathbf{x}_{i j}),$
-  where $N_1 = 4, N_2 = 4$ for the case shown here.}
+  $\alpha_j'$ with $j = 1, 2, 3, 4$.)}
 \end{figure}
 
 The spatial points $\mathbf{x}_{i j}$ appearing in Eq. (\ref{21-9-2-a1}) are
@@ -4932,13 +4938,13 @@ side of Eq. (\ref{18-9-11-p3}) is written as
 
 \
 
-\part{Modern view of gyrokinetic equation**wrong**}
+\section{Modern view of gyrokinetic equation **wrong**}
 
 The modern form of the nonlinear gyrokinetic equation is in the total-f form.
-The modern way of deriving the gyrokinetic equation is to use transformation
-methods to eliminate gyro-phase dependence of the total distribution function
-and thus obtain an equation for the resulting gyro-phase independent
-distribution function (called gyro-center distribution function).
+This way of deriving the gyrokinetic equation is to use transformation methods
+to eliminate gyro-phase dependence of the total distribution function and thus
+obtain an equation for the resulting gyro-phase independent distribution
+function (called gyro-center distribution function).
 
 The resulting equation for the gyro-center distribution function is given by
 (see Baojian's paper)
@@ -4969,9 +4975,7 @@ transformation gives rise to the polarization density term.
 (phase-space-Lagrangian Lie perturbation method (Littlejohn, 1982a, 1983), I
 need to read these two papers.).
 
-\
-
-\
+\section{About this document}
 
 These notes were initially written when I visited University of Colorado at
 Boulder (Sept.-Nov. 2016), where I worked with Dr. Yang Chen, who pointed out
@@ -4980,7 +4984,11 @@ gyrokinetic equation. Therefore a careful re-derivation of the equation to
 know the gyrokinetic orderings and physics included in the model is highly
 desirable, which motivates me to write this note.
 
-\
+This document was written by using TeXmacs{\cite{texmacs}}, a structured
+wysiwyw (what you see is what you want) editor for scientists. The HTML
+version of this document is generated by first converting the TeXmacs file to
+TeX format and then using \tmtexttt{htlatex} to convert the TeX file to HTML
+format.
 
 \begin{thebibliography}{1}
   \bibitem[1]{Catto1978}P~J Catto. {\newblock}Linearized gyro-kinetics.
@@ -4994,6 +5002,11 @@ desirable, which motivates me to write this note.
   gyrokinetic equations for low-frequency electromagnetic waves in general
   plasma equilibria. {\newblock}\tmtextit{Physics of Fluids}, 25(3):502--508,
   1982.{\newblock}
+  
+  \bibitem[4]{texmacs}Joris van der~Hoeven. {\newblock}Gnu texmacs, a
+  structured wysiwyw (what you see is what you want) editor for scientists.
+  {\newblock}\url{http://www.texmacs.org/}, 2007.
+  {\newblock}[Online].{\newblock}
 \end{thebibliography}
 
 \end{document}

@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 2408--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2409--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse8.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse6.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse6.html#tailnonlinear_gyrokinetic_equationse6.html" >prev-tail</a>] [<a 
@@ -21,7 +21,7 @@ href="#tailnonlinear_gyrokinetic_equationse7.html">tail</a>] [<a
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse7.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
  id="x8-420007"></a>Poisson’s equation and polarization density</h3>
-<!--l. 2410--><p class="noindent" >Poisson’s equation is written as
+<!--l. 2411--><p class="noindent" >Poisson’s equation is written as
 </p>
    <table 
 class="equation"><tr><td><a 
@@ -30,7 +30,7 @@ class="equation"><tr><td><a
 <img 
 src="nonlinear_gyrokinetic_equation199x.png" alt="− 𝜀0∇2δΦ = qiδni + qeδne,
 " class="math-display"  /></center></td><td class="equation-label">(188)</td></tr></table>
-<!--l. 2414--><p class="nopar" >
+<!--l. 2415--><p class="nopar" >
 where <span 
 class="cmsy-10">−</span><span 
 class="cmmi-10">𝜀</span><sub><span 
@@ -70,7 +70,7 @@ class="equation"><tr><td><a
 src="nonlinear_gyrokinetic_equation200x.png" alt="     2
 − 𝜀0∇⊥δΦ = qiδni + qeδne.
 " class="math-display"  /></center></td><td class="equation-label">(189)</td></tr></table>
-<!--l. 2423--><p class="nopar" >
+<!--l. 2424--><p class="nopar" >
 This approximation eliminates the parallel plasma oscillation from the system. The perpendicular
 plasma oscillations seem to be only partially eliminated in the system consisting of gyrokinetic ions and
 drift-kinetic electrons. There are the so-called Ω<sub><span 
@@ -89,7 +89,7 @@ class="cmmi-10">∕ρ</span><sub><span
 class="cmmi-7">s</span></sub>)<span 
 class="cmmi-10">ω</span><sub><span 
 class="cmmi-7">pe</span></sub>.
-</p><!--l. 2432--><p class="indent" >   Using expression (<a 
+</p><!--l. 2433--><p class="indent" >   Using expression (<a 
 href="nonlinear_gyrokinetic_equationse5.html#x6-35002r160">160<!--tex4ht:ref: 19-1-3-e2 --></a>), the perturbed number density <span 
 class="cmmi-10">δn </span>is written as </p><div class="eqnarray">
                                                                                 
@@ -129,7 +129,7 @@ src="nonlinear_gyrokinetic_equation202x.png" alt="        ∫  q           ∂F
 δnp(x ) =  --(δΦ − ⟨δΦ ⟩α)---0dv,
           m             ∂𝜀
 " class="math-display"  /></center></td><td class="equation-label">(191)</td></tr></table>
-<!--l. 2452--><p class="nopar" >
+<!--l. 2453--><p class="nopar" >
 which has an explicit dependence on <span 
 class="cmmi-10">δ</span>Φ and is usually moved to the left hand of Poisson’s equation
 when constructing the numerical solver of the Poisson equation, i.e., equation (<a 
@@ -148,7 +148,7 @@ src="nonlinear_gyrokinetic_equation203x.png" alt="             ∫  q           
                                                                                 
 
                                                                                 
-<!--l. 2461--><p class="nopar" >
+<!--l. 2462--><p class="nopar" >
 where <span 
 class="cmmi-10">δn</span><sub><span 
 class="cmmi-7">i</span></sub><span 
@@ -178,11 +178,11 @@ class="cmsy-10">∇</span><sub><span
 class="cmsy-7">⊥</span></sub><sup><span 
 class="cmr-7">2</span></sup><span 
 class="cmmi-10">δ</span>Φ.
-</p><!--l. 2470--><p class="noindent" >
+</p><!--l. 2471--><p class="noindent" >
 </p>
    <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
  id="x8-430007.1"></a>Discussion on cancellation scheme</h4>
-<!--l. 2472--><p class="noindent" >The polarization density is part of the perturbed density that is extracted from the source term and
+<!--l. 2473--><p class="noindent" >The polarization density is part of the perturbed density that is extracted from the source term and
 moved to the left-hand side of the Poisson equation. The polarization density will be evaluated without
 using Monte-Carlo markers, whereas the remained density on the right-hand side will be
 evaluated using Mote-Carlo markers. The two diﬀerent methods of evaluating two parts of
@@ -199,21 +199,21 @@ and are still evaluated by using markers, which hopefully avoids the possible ca
 problem. This strategy is often called a cancellation scheme. Since unknown perturbed
 electromagnetic ﬁelds appear on the right-hand side, iteration is needed to solve the ﬁeld
 equation.
-</p><!--l. 2492--><p class="indent" >   Note that two things appear here: What motivates us to move parts of the distribution function to
+</p><!--l. 2493--><p class="indent" >   Note that two things appear here: What motivates us to move parts of the distribution function to
 the left? It is the goal of hopefully making the left-hand side matrix more well-behaved (such as good
 condition number, etc.) Why do we need the cancellation scheme? Because we want to avoid the
 numerical inaccuracy that appears when large terms cancels each other. Note that iteration is needed
 when the cancellation scheme is used because the right-hand side explicitly contains unknown
 electromagnetic ﬁelds.
-</p><!--l. 2500--><p class="indent" >   It turns out that the cancellation scheme is not necessary for Eq. (<a 
+</p><!--l. 2501--><p class="indent" >   It turns out that the cancellation scheme is not necessary for Eq. (<a 
 href="#x8-42005r192">192<!--tex4ht:ref: 19-1-12-e4 --></a>), but for the ﬁeld solver for
 Ampere’s equation (discussed later), this cancellation scheme is necessary in order to obtain stable
 results.
-</p><!--l. 2505--><p class="noindent" >
+</p><!--l. 2506--><p class="noindent" >
 </p>
    <h4 class="subsectionHead"><span class="titlemark">7.2   </span> <a 
  id="x8-440007.2"></a>Adiabatic electron response ** need to check the derivation</h4>
-<!--l. 2507--><p class="noindent" >Assume that the total electron density satisﬁes the Boltzmann distribution in the presence of the
+<!--l. 2508--><p class="noindent" >Assume that the total electron density satisﬁes the Boltzmann distribution in the presence of the
 perturbed potential, i.e.,
 </p>
    <table 
@@ -228,7 +228,7 @@ src="nonlinear_gyrokinetic_equation204x.png" alt="          (      )      (     
              qeδΦ            qeδΦ
 ne = Ne exp − Te   ≈ Ne  1 −  Te   ,
 " class="math-display"  /></center></td><td class="equation-label">(193)</td></tr></table>
-<!--l. 2512--><p class="nopar" >
+<!--l. 2513--><p class="nopar" >
 where <span 
 class="cmmi-10">N</span><sub><span 
 class="cmmi-7">e</span></sub> is a radial function. Note that this does not that imply the equilibrium density is <span 
@@ -239,7 +239,7 @@ class="cmmi-10">N</span><sub><span
 class="cmmi-7">e</span></sub> at the location where <span 
 class="cmmi-10">δ</span>Φ = 0, which can still be diﬀerent from the
 equilibrium density).
-</p><!--l. 2518--><p class="indent" >   Further assume that the magnetic surface average of <span 
+</p><!--l. 2519--><p class="indent" >   Further assume that the magnetic surface average of <span 
 class="cmmi-10">δn</span><sub><span 
 class="cmmi-7">e</span></sub> = <span 
 class="cmmi-10">n</span><sub><span 
@@ -256,7 +256,7 @@ class="equation"><tr><td><a
 <img 
 src="nonlinear_gyrokinetic_equation205x.png" alt="⟨ne − ne0⟩ = 0,
 " class="math-display"  /></center></td><td class="equation-label">(194)</td></tr></table>
-<!--l. 2522--><p class="nopar" >
+<!--l. 2523--><p class="nopar" >
 where <span 
 class="cmmi-10">n</span><sub><span 
 class="cmmi-7">e</span><span 
@@ -273,7 +273,7 @@ src="nonlinear_gyrokinetic_equation206x.png" alt="                      (       
 Ne = ne0----1----≈ ne0  1+ qe⟨δΦ-⟩ .
         1−  qe⟨TδΦe⟩-            Te
 " class="math-display"  /></center></td><td class="equation-label">(195)</td></tr></table>
-<!--l. 2529--><p class="nopar" >
+<!--l. 2530--><p class="nopar" >
 Then <span 
 class="cmmi-10">n</span><sub><span 
 class="cmmi-7">e</span></sub> in expression (<a 
@@ -291,7 +291,7 @@ src="nonlinear_gyrokinetic_equation207x.png" alt="        (    q⟨δΦ⟩) (   
 ne = ne0 1 + -e----   1− -e--  ≈ ne0  1+ -e----− -e--
               Te          Te               Te     Te
 " class="math-display"  /></center></td><td class="equation-label">(196)</td></tr></table>
-<!--l. 2536--><p class="nopar" >
+<!--l. 2537--><p class="nopar" >
 Then <span 
 class="cmmi-10">δn</span><sub><span 
 class="cmmi-7">e</span></sub> = <span 
@@ -311,12 +311,12 @@ src="nonlinear_gyrokinetic_equation208x.png" alt="         q (δΦ − ⟨δΦ�
 δne = − n0e-e---------.
               Te
 " class="math-display"  /></center></td><td class="equation-label">(197)</td></tr></table>
-<!--l. 2541--><p class="nopar" >
-</p><!--l. 2543--><p class="noindent" >
+<!--l. 2542--><p class="nopar" >
+</p><!--l. 2544--><p class="noindent" >
 </p>
    <h4 class="subsectionHead"><span class="titlemark">7.3   </span> <a 
  id="x8-450007.3"></a>Poisson’s equation with adiabatic electron response</h4>
-<!--l. 2545--><p class="noindent" >Pluging expression (<a 
+<!--l. 2546--><p class="noindent" >Pluging expression (<a 
 href="#x8-44005r197">197<!--tex4ht:ref: 23-3-10-1 --></a>) into the Poisson equation (<a 
 href="#x8-42005r192">192<!--tex4ht:ref: 19-1-12-e4 --></a>), we get
 </p>
@@ -332,7 +332,7 @@ src="nonlinear_gyrokinetic_equation209x.png" alt="             ∫
                                                                                 
 
                                                                                 
-<!--l. 2555--><p class="nopar" >
+<!--l. 2556--><p class="nopar" >
 When solving the Poisson equation, the equation is Fourier expanded in toroidal harmonics and each
 harmonic is independent of each other, so that they can be solved independently. For <span 
 class="cmmi-10">n</span><span 
@@ -361,7 +361,7 @@ src="nonlinear_gyrokinetic_equation210x.png" alt="             ∫
 − 𝜀 ∇2 δΦ′ − q -qi(δΦ ′ − ⟨δΦ ′⟩ )∂Fi0dv = qδn′,
   0  ⊥      i  mi           α  ∂𝜀       i i
 " class="math-display"  /></center></td><td class="equation-label">(199)</td></tr></table>
-<!--l. 2570--><p class="nopar" >
+<!--l. 2571--><p class="nopar" >
 (i.e., Eq. (<a 
 href="#x8-45001r198">198<!--tex4ht:ref: 23-2-13-3 --></a>) with electron term dropped), and then take the magnetic surface average of the solution
 <span 
@@ -386,12 +386,12 @@ term.
 
                                                                                 
 </p>
-   <!--l. 2578--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2579--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse8.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse6.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse6.html#tailnonlinear_gyrokinetic_equationse6.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse7.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse7.html" >up</a>] </p></div>
-<!--l. 2578--><p class="indent" >   <a 
+<!--l. 2579--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse7.html"></a>  </p> 
 </body></html> 

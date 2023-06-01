@@ -65,9 +65,6 @@ class="equation"><tr><td><a
 <img 
 src="nonlinear_gyrokinetic_equation2x.png" alt="∂f-+ v ⋅ ∂f-+ q-(E+ v × B) ⋅ ∂f-= 0,
 ∂t      ∂x   m             ∂v
-                                                                                
-
-                                                                                
 " class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
 <!--l. 76--><p class="nopar" >
 where <span 
@@ -173,8 +170,8 @@ src="nonlinear_gyrokinetic_equation6x.png" alt="∂∂fv"  class="frac" align="m
    <center class="math-display" >
 <img 
 src="nonlinear_gyrokinetic_equation7x.png" alt="                               (                        )
--q(v× B )⋅ ∂f  =  -q(v⊥e1 × B )⋅ ∂f-e1 + ∂f-ez +-1-∂feα
-m         ∂v      m              ∂v⊥     ∂v∥    v⊥ ∂α
+-q(v× B )⋅ ∂f  =  -q(v e × B )⋅  ∂f-e +  ∂f-e + -1-∂fe
+m         ∂v      m   ⊥ 1        ∂v⊥ 1   ∂v∥ z  v⊥ ∂α α
                    q           ( 1 ∂f   )
                =  m-(v⊥e1 × B )⋅ v⊥∂α-eα
                   B  q∂f
@@ -182,9 +179,6 @@ m         ∂v      m              ∂v⊥     ∂v∥    v⊥ ∂α
                    m (∂α )
                =  − Ω  ∂f- ,                                      (3)
                        ∂α
-                                                                                
-
-                                                                                
 " class="math-display"  /></center>
 </div>where Ω = <span 
 class="cmmi-10">B</span><sub><span 
@@ -207,8 +201,9 @@ class="equation"><tr><td><a
  id="x2-3005r5"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation9x.png" alt="∂f-+ v ∂f-+ v cosα ∂f-+ v sin α∂f-− Ω ∂f-= 0.
-∂t    ∥∂z    ⊥     ∂x   ⊥     ∂y     ∂α
+src="nonlinear_gyrokinetic_equation9x.png" alt="∂f     ∂f          ∂f         ∂f     ∂f
+---+ v∥---+ v⊥cosα ---+ v⊥ sin α---− Ω ---= 0.
+∂t     ∂z          ∂x         ∂y     ∂α
 " class="math-display"  /></center></td><td class="equation-label">(5)</td></tr></table>
 <!--l. 135--><p class="nopar" >
 Deﬁne the following coordinates transform (guiding-center transform):
@@ -216,17 +211,19 @@ Deﬁne the following coordinates transform (guiding-center transform):
    <table 
 class="equation"><tr><td><a 
  id="x2-3006r6"></a>
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation10x.png" alt="                                   (
-(|  x′ = x + v⊥sinα,                 || x = x′ − v′⊥sinα′,
-||||  y′ = y − v⊥-Ωcosα,                 |||| y = y′ + v′⊥Ωcosα′,
-|||{  z′ = z,   Ω                     |||{ z = z′,    Ω
-   α′ = α,              itsinverse ⇒   α = α′,
-|||  v′= v∥,                         ||| v  = v′,
-||||  v∥′ = v ,                        ||||  ∥    ∥
-|(  t⊥′ = t ⊥                        ||( v⊥ =′v⊥′,
-                                     t = t
+src="nonlinear_gyrokinetic_equation10x.png" alt="(   ′      v sinα                   (      ′  v′⊥sinα′
+|||  x′= x + v⊥Ωcosα,                  |||| x = x − -′Ω--′,
+||||  y′= y − ⊥-Ω--,                  |||| y = y′ + v⊥cΩosα-,
+|{  z′= z,                          |{ z = z′,
+|  α′= α,               itsinverse ⇒ | α = α′,
+||||  v∥ = v∥,                        |||| v∥ = v′∥,
+|||(  v′⊥ = v⊥,                        |||| v⊥ = v⊥′,
+   t′ = t                          ( t = t′
 " class="math-display"  /></center></td><td class="equation-label">(6)</td></tr></table>
 <!--l. 156--><p class="nopar" >
 Then the partial derivative <span 
@@ -255,9 +252,10 @@ class="equation"><tr><td><a
  id="x2-3007r7"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation11x.png" alt="∂f ||           ∂f ∂x    ∂f ∂y   ∂f ∂α
---′||         = ------′ +-----′ +-----′
-∂α x′,y′,z′,v′∥,v⊥′  ∂x ∂α    ∂y ∂α   ∂α ∂α
+src="nonlinear_gyrokinetic_equation11x.png" alt="   |
+∂f-||         = ∂f-∂x- + ∂f-∂y-+ ∂f-∂α-
+∂α′|x′,y′,z′,v′,v⊥′  ∂x ∂α ′  ∂y ∂α′  ∂α ∂α′
+         ∥
 " class="math-display"  /></center></td><td class="equation-label">(7)</td></tr></table>
 <!--l. 166--><p class="nopar" >
 Note that in the new coordinate system, Ω depends on <span 
@@ -281,24 +279,23 @@ href="#x2-3007r7">7<!--tex4ht:ref: 22-12-6-3 --></a>) is written as
 </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation12x.png" alt="∂f ||                ∂f 1          ∂f 1          ∂f
---′||           =  − ----v′⊥ cosα ′ −----v′⊥ sinα′ + ---
-∂α x′,y′,z′,v∥′,v⊥′       ∂xΩ           ∂yΩ           ∂α
-                    ∂f-1         ∂f-1-        -∂f
-               =  − ∂xΩ v⊥ cosα − ∂y Ωv⊥ sin α+ ∂ α.            (8)
+src="nonlinear_gyrokinetic_equation12x.png" alt="   |
+∂f-||           =  − ∂f-1v′ cosα ′ − ∂f-1v′ sinα′ + ∂f
+∂α′|x′,y′,z′,v∥′,v⊥′       ∂xΩ  ⊥        ∂yΩ  ⊥        ∂α
+                    ∂f 1         ∂f 1          ∂f
+               =  − ----v⊥ cosα − ----v⊥ sin α+ ---.            (8)
+                    ∂xΩ          ∂y Ω         ∂ α
 " class="math-display"  /><a 
  id="x2-3008r8"></a></center>
 </div>Similarly, we get
-                                                                                
-
-                                                                                
    <table 
 class="equation"><tr><td><a 
  id="x2-3009r9"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation13x.png" alt="∂f- = ∂f-,
-∂v′∥   ∂v∥
+src="nonlinear_gyrokinetic_equation13x.png" alt="∂f    ∂f
+∂v′ = ∂v-,
+  ∥     ∥
 " class="math-display"  /></center></td><td class="equation-label">(9)</td></tr></table>
 <!--l. 187--><p class="nopar" >
 and
@@ -308,8 +305,8 @@ class="equation"><tr><td><a
  id="x2-3010r10"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation14x.png" alt="∂f-  ∂f-
-∂t′ = ∂t.
+src="nonlinear_gyrokinetic_equation14x.png" alt="∂f   ∂f
+∂t′-= ∂t.
 " class="math-display"  /></center></td><td class="equation-label">(10)</td></tr></table>
 <!--l. 192--><p class="nopar" >
 Use expressions (<a 
@@ -323,6 +320,9 @@ as
 class="equation"><tr><td><a 
  id="x2-3011r11"></a>
    <center class="math-display" >
+                                                                                
+
+                                                                                
 <img 
 src="nonlinear_gyrokinetic_equation15x.png" alt="              (   )
 ∂f-   ′∂f-     ∂f-
@@ -336,9 +336,6 @@ original coordinate system, namely, <span
 class="cmmi-10">∂f∕∂x</span>, <span 
 class="cmmi-10">∂f∕∂y</span>, and <span 
 class="cmmi-10">∂f∕∂α</span>.)
-                                                                                
-
-                                                                                
 </p><!--l. 206--><p class="indent" >   Deﬁne gyro-phase averaging operator
 </p>
    <table 
@@ -373,15 +370,15 @@ outside of the gyro-angle integration, giving
    <table 
 class="equation"><tr><td><a 
  id="x2-3014r14"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation18x.png" alt="∂⟨f⟩α    ′∂⟨f⟩α        −1∫ 2π( ∂f )
---∂t′- + v∥-∂z′-− Ω(2π)        ∂α′  dα = 0.
-                         0
-" class="math-display"  /></center></td><td class="equation-label">(14)</td></tr></table>
                                                                                 
 
                                                                                 
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation18x.png" alt="                        ∫ 2π(    )
+∂⟨f⟩′α + v′∥∂⟨f⟩α′-− Ω(2π)−1      ∂f′  dα = 0.
+  ∂t       ∂z            0    ∂α
+" class="math-display"  /></center></td><td class="equation-label">(14)</td></tr></table>
 <!--l. 226--><p class="nopar" >
 Peforming the integration, we get
 </p>
@@ -390,8 +387,8 @@ class="equation"><tr><td><a
  id="x2-3015r15"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation19x.png" alt="∂⟨f⟩α-   ′∂⟨f⟩α       − 1   ′          ′
- ∂t′ + v∥ ∂z′  − Ω (2π) [f(α = 2π)− f(α = 0)] = 0.
+src="nonlinear_gyrokinetic_equation19x.png" alt="∂⟨f⟩α′-+ v′∥∂⟨f⟩′α − Ω (2π)− 1[f(α′ = 2π)− f(α′ = 0)] = 0.
+ ∂t       ∂z
 " class="math-display"  /></center></td><td class="equation-label">(15)</td></tr></table>
 <!--l. 232--><p class="nopar" >
 Since <span 
@@ -407,8 +404,8 @@ class="equation"><tr><td><a
  id="x2-3016r16"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation20x.png" alt="∂-⟨f⟩α    ′∂⟨f⟩α
-  ∂t′ + v∥ ∂z′ = 0,
+src="nonlinear_gyrokinetic_equation20x.png" alt="∂-⟨f⟩α′ + v′∥∂⟨f⟩′α= 0,
+  ∂t       ∂z
 " class="math-display"  /></center></td><td class="equation-label">(16)</td></tr></table>
 <!--l. 239--><p class="nopar" >
 which is an equation for the gyro-angle independent part of the distribution function.
@@ -425,6 +422,9 @@ class="cmbx-10">B</span><sub><span
 class="cmr-7">0</span></sub> depends on <span 
 class="cmmi-10">α</span><span 
 class="cmsy-10">′</span>, i.e., grad-B and curvature
+                                                                                
+
+                                                                                
 drift.
                                                                                 
 
