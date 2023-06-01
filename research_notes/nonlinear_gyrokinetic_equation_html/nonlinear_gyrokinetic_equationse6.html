@@ -4,278 +4,202 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Summary</title> 
+<head><title>Coordinate system and grid in TEK code</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
-<!-- xhtml,4,charset=utf-8,html --> 
+<!-- xhtml,2,charset=utf-8,html --> 
 <meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 2742--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="nonlinear_gyrokinetic_equationse7.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse5.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse5.html#tailnonlinear_gyrokinetic_equationse5.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="#tailnonlinear_gyrokinetic_equationse6.html"><span 
-class="ecrm-1000">tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse6.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-   <h3 class="sectionHead"><span class="titlemark"><span 
-class="ecrm-1000">6   </span></span> <a 
- id="x32-520006"></a><span 
-class="ecrm-1000">Summary</span></h3>
-<!--l. 2744--><p class="noindent" ><span 
-class="ecrm-1000">Equations (</span><a 
-href="nonlinear_gyrokinetic_equationsu19.html#x25-33004r142"><span 
-class="ecrm-1000">142</span><!--tex4ht:ref: 19-1-4-e1 --></a><span 
-class="ecrm-1000">) and (</span><a 
-href="nonlinear_gyrokinetic_equationsu24.html#x30-48004r210"><span 
-class="ecrm-1000">210</span><!--tex4ht:ref: 18-9-23-p1 --></a><span 
-class="ecrm-1000">) are the primary results derived in this note. For reference ease, let us</span>
+   <!--l. 2330--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse7.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html#tailnonlinear_gyrokinetic_equationse5.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationse6.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse6.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x7-410006"></a>Coordinate system and grid in TEK code</h3>
+<!--l. 2332--><p class="noindent" >In the magnetic coordinates (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) used in TEK code, <span 
+class="cmmi-10">ψ </span>is the normalized poloidal magnetic ﬂux,
+which is increasing from the magnetic axis to the plasma boundary, <span 
+class="cmmi-10">𝜃 </span>is increasing along the
+anti-clockwise direction when viewed along <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ϕ </span>direction, <span 
+class="cmmi-10">ϕ </span>is the toroidal angle of the right-handed
+cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>). In this convention the Jacobian of the (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system,
 <span 
-class="ecrm-1000">summarize the results. The total distribution function </span><span 
-class="cmmi-10">F </span><span 
-class="ecrm-1000">is split as</span>
+class="cmsy-10">𝒥 </span>= (<span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ϕ</span>) is negative, i.e., (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) is a left-handed system. The ﬁeld-line-following
+coordinate system (<span 
+class="cmmi-10">ψ,𝜃,α</span>) is also a left-handed system. The coordinate system (<span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">ψ,y </span>= <span 
+class="cmmi-10">α,z </span>= <span 
+class="cmmi-10">𝜃</span>) is
+a right-handed system.
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52001r223"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation247x.png" alt="F = F  +δF,
-     0
-" class="math-display"  /></center></td><td class="equation-label">(223)</td></tr></table>
-<!--l. 2749--><p class="nopar" >
-<span 
-class="ecrm-1000">where </span><span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub> <span 
-class="ecrm-1000">and </span><span 
-class="cmmi-10">δF </span><span 
-class="ecrm-1000">are the equilibrium part and perturbed part of the distribution function, respectively.</span>
-<span 
-class="cmmi-10">δF </span><span 
-class="ecrm-1000">is further split as</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52002r224"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation248x.png" alt="         q            ∂F0   q         ∂F0
-δF = δh + m-(δΦ− ⟨δΦ⟩α)-∂𝜀-+ m-⟨v⋅δA ⟩α ∂𝜀-,
-" class="math-display"  /></center></td><td class="equation-label">(224)</td></tr></table>
-<!--l. 2757--><p class="nopar" >
-<span 
-class="ecrm-1000">where </span><span 
-class="cmmi-10">δh </span>= <span 
-class="cmmi-10">δh</span>(<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,𝜀,t</span>) <span 
-class="ecrm-1000">satisﬁes the following nonlinear gyrokinetic equation (</span><a 
-href="nonlinear_gyrokinetic_equationsu19.html#x25-33004r142"><span 
-class="ecrm-1000">142</span><!--tex4ht:ref: 19-1-4-e1 --></a><span 
-class="ecrm-1000">), i.e.,</span>
-</p><div class="eqnarray">
+   <hr class="figure" /><div class="figure" 
+>
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation249x.png" alt="  [ ∂                        ]
-   -- +(v∥e∥ + VD + δVD )⋅∇X  δh
-   ∂t
-= − δVD ⋅∇XF0
-− q-[(v∥e∥ + VD )⋅∇X (⟨v ⋅δA − δΦ ⟩α)]∂F0.               (225)
-  m                                ∂𝜀
-" class="math-display"  /><a 
- id="x32-52003r225"></a></center>
-</div><span 
-class="ecrm-1000">where </span><span 
-class="cmbx-10">V</span><sub><span 
-class="cmmi-7">D</span></sub> <span 
-class="ecrm-1000">is the equilibrium guiding-center drift velocity and </span><span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">V</span><sub><span 
-class="cmmi-7">D</span></sub> <span 
-class="ecrm-1000">is the perturbed drift velocity given</span>
-<span 
-class="ecrm-1000">by (</span><a 
-href="nonlinear_gyrokinetic_equationse4.html#x21-29005r122"><span 
-class="ecrm-1000">122</span><!--tex4ht:ref: 19-1-3-1 --></a><span 
-class="ecrm-1000">), i.e.,</span>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52004r226"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation250x.png" alt="       q                   e
-δVD  = --∇X ⟨v ⋅δA − δΦ⟩α × -∥.
-       m                   Ω
-" class="math-display"  /></center></td><td class="equation-label">(226)</td></tr></table>
-<!--l. 2777--><p class="nopar" >
-<span 
-class="ecrm-1000">Here the independent variables for the distribution functions </span><span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub> <span 
-class="ecrm-1000">and </span><span 
-class="cmmi-10">δh </span><span 
-class="ecrm-1000">are </span>(<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,𝜀</span>) <span 
-class="ecrm-1000">with </span><span 
-class="cmbx-10">X </span><span 
-class="ecrm-1000">being the</span>
-<span 
-class="ecrm-1000">guiding-center position, </span><span 
-class="cmmi-10">μ </span>= <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">∕</span>(2<span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub>)<span 
-class="ecrm-1000">, and </span><span 
-class="cmmi-10">𝜀 </span>= <span 
-class="cmmi-10">v</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">∕</span>2<span 
-class="ecrm-1000">. In the above, </span><span 
-class="cmmi-10">δΦ </span><span 
-class="ecrm-1000">and </span><span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">A </span><span 
-class="ecrm-1000">is the</span>
-<span 
-class="ecrm-1000">perturbed electric potential and vector potential, </span><span 
-class="cmsy-10">⟨</span><span 
-class="cmmi-10">…</span><span 
-class="cmsy-10">⟩</span><sub><span 
-class="cmmi-7">α</span></sub> <span 
-class="ecrm-1000">is the gyro-averaging operator over the</span>
-<span 
-class="ecrm-1000">gyro-phase </span><span 
-class="cmmi-10">α</span><span 
-class="ecrm-1000">, </span><span 
-class="ecrm-1000"> </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub> = <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="ecrm-1000">, </span><span 
-class="cmmi-10">Ω </span>= <span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">q∕m </span><span 
-class="ecrm-1000">with </span><span 
-class="cmmi-10">q </span><span 
-class="ecrm-1000">and </span><span 
-class="cmmi-10">m </span><span 
-class="ecrm-1000">being the particle charge and mass,</span>
-<span 
-class="ecrm-1000">respectively.</span>
-</p><!--l. 2787--><p class="indent" >   <span 
-class="ecrm-1000">When integrated in velocity space, the red term in expression (</span><a 
-href="#x32-52002r224"><span 
-class="ecrm-1000">224</span><!--tex4ht:ref: 19-1-3-e2m --></a><span 
-class="ecrm-1000">) gives rise to the polarization</span>
-<span 
-class="ecrm-1000">density </span><span 
-class="cmmi-10">n</span><sub><span 
-class="cmmi-7">p</span></sub><span 
-class="ecrm-1000">, i.e.,</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52005r227"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation251x.png" alt="    ∫
-np =   q-(δΦ − ⟨δΦ ⟩α )∂F0-dv,
-       m            ∂𝜀
+<a 
+ id="x7-410011"></a>
                                                                                 
 
                                                                                 
-" class="math-display"  /></center></td><td class="equation-label">(227)</td></tr></table>
-<!--l. 2792--><p class="nopar" >
-<span 
-class="ecrm-1000">which, for Maxwellian equilibrium distribution, can be written in wave-number space as</span>
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x32-52006r228"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation252x.png" alt="         ∫
-n = − qn0   δΦ exp(ik ⋅x)[1 − Γ ]-dk-,
- p     T      k              0(2π)3
-" class="math-display"  /></center></td><td class="equation-label">(228)</td></tr></table>
-<!--l. 2798--><p class="nopar" >
-<span 
-class="ecrm-1000">where </span><span 
-class="cmmi-10">Γ</span><sub><span 
-class="cmr-7">0</span></sub> = exp(<span 
+<!--l. 2345--><p class="noindent" > <img 
+src="/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1-.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure 1: </span><span  
+class="content">Poloidal grid for equilibrium quantities used in my code and GEM code. My array
+index starts from 1 whereas GEM array index starts from 0. Hence <span 
+class="cmtt-10">mpol=nth+1</span>. <span 
+class="cmtt-10">nth </span>is denoted
+by <span 
+class="cmtt-10">ntheta </span>in GEM. The array starts at <span 
+class="cmmi-10">𝜃 </span>= <span 
 class="cmsy-10">−</span><span 
-class="cmmi-10">b</span>)<span 
-class="cmmi-10">I</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmmi-10">b</span>)<span 
-class="ecrm-1000">, </span><span 
-class="cmmi-10">b </span>= <span 
-class="cmmi-10">k</span><sub><span 
-class="cmsy-7">⊥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">v</span><sub><span 
-class="cmmi-7">t</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">∕Ω</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="ecrm-1000">, and </span><span 
-class="cmmi-10">I</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmmi-10">b</span>) <span 
-class="ecrm-1000">is the zeroth modiﬁed Bessel function of the ﬁrst</span>
+class="cmmi-10">π </span>and ends at <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π </span>(<span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">±</span><span 
+class="cmmi-10">π </span>is chosen to be at
+the high-ﬁeld side in both the codes) I do not need to make connection with GEM’s equilibrium
+poloidal array because there is no coupling of equilibrium quantities between the code written
+by me and the original code in GEM. The coupling happens for the perturbed quanties, whose
+poloidal grids need to be consistent. Poloidal grid-points for perturbation are indexed as 0:mpol2
+with the index 0 corresponding to <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>and the index mpol2 corresponding to <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π</span>.
+Field equation is solved at 0 : mpol2 <span 
+class="cmsy-10">− </span>1, and the ﬁeld at mpol2, i.e., <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π</span>, is obtained by
+inerpolating the ﬁeld at <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π</span>. mpol2 is determined by mpol2=numproc/ntube. mpol and
+mpol2 must be chosen in a way that makes (mpol-1)/mpol2 be an integer.</span></div><!--tex4ht:label?: x7-410011 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 2366--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x7-410022"></a>
+                                                                                
+
+                                                                                
+<!--l. 2369--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.png" alt="pict"  
+ width="366.36874pt" />
+<br />  </p><div class="caption" 
+><span class="id">Figure 2:  </span><span  
+class="content">Radial  grid  used  in  my  code.  Two  radial  arrays  are  used  in  the  code,
 <span 
-class="ecrm-1000">kind. This expression is useful for gyrokinetic simulations that use spectral methods in solving the</span>
-<span 
-class="ecrm-1000">Poisson equation.</span>
-</p><!--l. 2804--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
-</p><!--l. 2806--><p class="indent" >   <span 
-class="ecrm-1000"> </span>
+class="cmtt-10">radcor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array(1:nt) </span>and  <span 
+class="cmtt-10">radcor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array2(1:n)</span>,  respctively  corresponding  to  the  nt
+points and <span 
+class="cmmi-10">n </span>points indicated in the ﬁgure. Here nt = <span 
+class="cmmi-10">n</span>+2<span 
+class="cmmi-10">m </span>and <span 
+class="cmmi-10">m </span>is the number of grid points
+in one of the two buﬀer regions (regions in blue color). The index of the two arrays both begin at
+1 (rather than 0). In the code <span 
+class="cmmi-10">n </span>is denoted by <span 
+class="cmtt-10">nflux2 </span>and nt is denoted by <span 
+class="cmtt-10">nflux</span>, <span 
+class="cmmi-10">m </span>is denoted
+by <span 
+class="cmtt-10">points</span><span 
+class="cmtt-10">_in</span><span 
+class="cmtt-10">_buffer</span>. In <span 
+class="cmtt-10">GEM </span>the radial array does no include the buﬀer regions and the index
+starts at <span 
+class="cmtt-10">0 </span>and ends at <span 
+class="cmtt-10">imx</span>. Hence <span 
+class="cmtt-10">n=imx+1</span>.</span></div><!--tex4ht:label?: x7-410022 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x7-410033"></a>
+                                                                                
+
+                                                                                
+<!--l. 2384--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/toroidal_grids/a-1.png" alt="pict"  
+ width="247.92624pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 3: </span><span  
+class="content">Toroidal grid used in my code and GEM code. My array index starts at 1 whereas
+GEM array index starts from 0. The last grid is at <span 
+class="cmmi-10">ϕ </span>= 2<span 
+class="cmmi-10">π∕</span>nseq and is indexed as mtor+1 in
+my grid system. The last grid point for density and potential arrays in my code is at <span 
+class="cmtt-10">mtor </span>rather
+than <span 
+class="cmtt-10">mtor+1</span>. <span 
+class="cmtt-10">GEM </span>array ends at <span 
+class="cmtt-10">jm</span>. It follows that <span 
+class="cmtt-10">mtor=jm</span>.</span></div><!--tex4ht:label?: x7-410033 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 2393--><p class="indent" >    
+</p><!--l. 2395--><p class="indent" >    
+</p><!--l. 2397--><p class="indent" >    
+</p><!--l. 2399--><p class="indent" >    
+</p><!--l. 2401--><p class="indent" >    
+</p><!--l. 2403--><p class="indent" >   My array index system is bad and GEM array index system is good because my system is not
+consistent: sometimes I use 0-based index and sometimes I use 1-based index, sometimes the index ends
+at n and sometimes ends at n+1. It is important to know accurately the transformation between the
+two systems.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 2808--><div class="crosslinks"><p class="noindent"><span 
-class="ecrm-1000">[</span><a 
-href="nonlinear_gyrokinetic_equationse7.html" ><span 
-class="ecrm-1000">next</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse5.html" ><span 
-class="ecrm-1000">prev</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse5.html#tailnonlinear_gyrokinetic_equationse5.html" ><span 
-class="ecrm-1000">prev-tail</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equationse6.html" ><span 
-class="ecrm-1000">front</span></a><span 
-class="ecrm-1000">] [</span><a 
-href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse6.html" ><span 
-class="ecrm-1000">up</span></a><span 
-class="ecrm-1000">] </span></p></div>
-<!--l. 2808--><p class="indent" >   <a 
+   <!--l. 2408--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse7.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html#tailnonlinear_gyrokinetic_equationse5.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse6.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse6.html" >up</a>] </p></div>
+<!--l. 2408--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse6.html"></a> </p> 
 </body></html> 
