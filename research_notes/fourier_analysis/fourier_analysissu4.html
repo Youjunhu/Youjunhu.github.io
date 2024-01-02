@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Deﬁnition of DFT</title> 
+<head><title>Deﬁnition</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,84 +13,107 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 318--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 343--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu5.html" >next</a>] [<a 
 href="#tailfourier_analysissu4.html">tail</a>] [<a 
 href="fourier_analysisse3.html#fourier_analysissu4.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
- id="x8-70003.1"></a>Deﬁnition of DFT</h4>
-<!--l. 320--><p class="noindent" >The summation in Eq. (<a 
-href="fourier_analysissu3.html#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>),
+ id="x8-70003.1"></a>Deﬁnition</h4>
+<!--l. 345--><p class="noindent" >Denote the summation in Eq. (<a 
+href="fourier_analysissu3.html#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) by <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">n</span></sub>:
 </p>
    <table 
 class="equation"><tr><td><a 
  id="x8-7001r34"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis32x.png" alt="     N∑−1      (  2π   )
-Hn ≡     hjexp  − i--nj ,
+src="fourier_analysis34x.png" alt="     N∑−1      (  2π   )
+Hn ≡     hjexp  − i--nj .
       j=0          N
 " class="math-display"  /></center></td><td class="equation-label">(34)</td></tr></table>
-<!--l. 324--><p class="nopar" >
-is called the <span 
-class="cmbx-10">Discrete Fourier transformation (DFT)</span>, where <span 
-class="cmmi-10">n </span>= <span 
+<!--l. 349--><p class="nopar" >
+Then <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">n</span></sub> with <span 
+class="cmmi-10">n </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">N </span><span 
+class="cmsy-10">− </span>1 is called the <span 
+class="cmbx-10">Discrete Fourier transformation</span>
+<span 
+class="cmbx-10">(DFT) </span>of <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">j</span></sub> with <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N </span><span 
+class="cmsy-10">− </span>1. (The eﬃcient algorithm of computing the DFT
+is discussed in Appendix <a 
+href="fourier_analysisse8.html#x26-26000A">A<!--tex4ht:ref: 18-1-28-a1 --></a>.)
+</p><!--l. 355--><p class="indent" >   Why do we choose <span 
+class="cmmi-10">n </span>to be in the positive range [0 : <span 
+class="cmmi-10">N </span><span 
+class="cmsy-10">− </span>1]? This is to make
+the tranform pair symmetric: both <span 
+class="cmmi-10">j </span>and <span 
+class="cmmi-10">n </span>are in the same range. This
+symmetry is helpful in making the transform pair easy to remember. This
+does not mean we only need the positive frequency components. In fact, we
+usually need <span 
+class="cmmi-10">n </span>in the range [<span 
 class="cmsy-10">−</span><span 
 class="cmmi-10">N∕</span>2<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,</span>0<span 
-class="cmmi-10">,</span><span 
-class="cmmi-10">…</span><span 
-class="cmmi-10">,N∕</span>2
-(we consider only the case that <span 
-class="cmmi-10">N </span>is an even number). The Fourier expansion
-coeﬃcients <span 
+class="cmmi-10">,N∕</span>2]. This will be discussed in the next
+                                                                  
+
+                                                                  
+section.
+</p><!--l. 372--><p class="indent" >   In terms of <span 
+class="cmmi-10">H</span><sub><span 
+class="cmmi-7">n</span></sub>, the Fourier expansion coeﬃcients <span 
 class="cmmi-10">c</span><sub><span 
 class="cmmi-7">n</span></sub> in Eq. (<a 
-href="fourier_analysissu3.html#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) is then written as
+href="fourier_analysissu3.html#x6-5003r33">33<!--tex4ht:ref: 10-3-e2m --></a>) is written
+as
 </p>
    <table 
 class="equation"><tr><td><a 
  id="x8-7002r35"></a>
-                                                                  
-
-                                                                  
    <center class="math-display" >
 <img 
-src="fourier_analysis33x.png" alt="     1
-cn =--Hn.
-    N
+src="fourier_analysis35x.png" alt="c = -1H  .
+ n  N   n
 " class="math-display"  /></center></td><td class="equation-label">(35)</td></tr></table>
-<!--l. 331--><p class="nopar" >
-The corresponding frequency corresponding to the <span 
-class="cmmi-10">c</span><sub><span 
-class="cmmi-7">n</span></sub> term is
+<!--l. 372--><p class="nopar" >
+The corresponding frequency is
 </p>
    <table 
 class="equation"><tr><td><a 
  id="x8-7003r36"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis34x.png" alt="       n-
-fn = fsN ,
+src="fourier_analysis36x.png" alt="fn = n-= -n--= fs n-.
+     T   ΔN      N
 " class="math-display"  /></center></td><td class="equation-label">(36)</td></tr></table>
-<!--l. 335--><p class="nopar" >
-where <span 
+<!--l. 372--><p class="nopar" >
+Here <span 
 class="cmmi-10">f</span><sub><span 
-class="cmmi-7">s</span></sub> = 1<span 
-class="cmmi-10">∕</span>Δ is called sampling frequency.
-</p><!--l. 338--><p class="indent" >   The eﬃcient algorithm of computing the DFT is discussed in Appendix
-<a 
-href="fourier_analysisse8.html#x26-26000A">A<!--tex4ht:ref: 18-1-28-a1 --></a>.
+class="cmr-7">1</span></sub> is called the fundamental frequency (spacing in the frequency domain).
+</p><!--l. 374--><p class="indent" >    
                                                                   
 
                                                                   
 </p>
-   <!--l. 341--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 376--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu5.html" >next</a>] [<a 
 href="fourier_analysissu4.html" >front</a>] [<a 
 href="fourier_analysisse3.html#fourier_analysissu4.html" >up</a>] </p></div>
-<!--l. 341--><p class="indent" >   <a 
+<!--l. 376--><p class="indent" >   <a 
  id="tailfourier_analysissu4.html"></a> </p> 
 </body></html> 

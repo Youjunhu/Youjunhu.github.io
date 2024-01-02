@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Sine transform and Cosine transform</title> 
+<head><title>Discrete sine transform and cosine transform</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,15 +13,15 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 636--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 620--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse7.html" >next</a>] [<a 
 href="fourier_analysisse5.html" >prev</a>] [<a 
 href="fourier_analysisse5.html#tailfourier_analysisse5.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysisse6.html">tail</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse6.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
- id="x17-160006"></a>Sine transform and Cosine transform</h3>
-<!--l. 638--><p class="noindent" >We mentioned (without giving proof) that the set of functions cos(<span 
+ id="x17-160006"></a>Discrete sine transform and cosine transform</h3>
+<!--l. 622--><p class="noindent" >We mentioned (without giving proof) that the set of functions cos(<span 
 class="cmmi-10">n</span>2<span 
 class="cmmi-10">π</span>(<span 
 class="cmmi-10">x</span><span 
@@ -96,11 +96,11 @@ class="cmr-7">0</span></sub><span
 class="cmmi-10">,x</span><sub><span 
 class="cmr-7">0</span></sub> + 2<span 
 class="cmmi-10">L</span>). Note that the argument of the basis functions used in the Fourier
-expansion diﬀer from those used in the sine (or cosine) expansion by a factor of
+expansion diﬀer from those used in the sine/cosine expansion by a factor of
 two.
-</p><!--l. 652--><p class="indent" >   The ﬁrst ﬁve basis functions used in Fourier expansion, sine expansion, and cosine
+</p><!--l. 636--><p class="indent" >   The ﬁrst ﬁve basis functions used in Fourier expansion, sine expansion, and cosine
 expansion are plotted in Fig. <a 
-href="#x17-160013">3<!--tex4ht:ref: 18-1-10-e1 --></a>.
+href="#x17-160012">2<!--tex4ht:ref: 18-1-10-e1 --></a>.
 </p>
    <hr class="figure" /><div class="figure" 
 >
@@ -108,15 +108,15 @@ href="#x17-160013">3<!--tex4ht:ref: 18-1-10-e1 --></a>.
 
                                                                   
 <a 
- id="x17-160013"></a>
+ id="x17-160012"></a>
                                                                   
 
                                                                   
-<!--l. 656--><p class="noindent" > <img 
+<!--l. 640--><p class="noindent" > <img 
 src="my_figure/home/yj/project_new/test_space/sin_transform/f.png" alt="pict"  
  width="334.24875pt" />
 <br /> </p><div class="caption" 
-><span class="id">Figure 3: </span><span  
+><span class="id">Figure 2: </span><span  
 class="content">The ﬁrst ﬁve basis functions used in Fourier expansion (upper), sine
 expansion (middle), and cosine expansion (lower) in the interval [<span 
 class="cmmi-10">x</span><sub><span 
@@ -127,13 +127,13 @@ class="cmmi-10">L</span>]
 with <span 
 class="cmmi-10">x</span><sub><span 
 class="cmr-7">0</span></sub> = 0 and <span 
-class="cmmi-10">L </span>= 1.</span></div><!--tex4ht:label?: x17-160013 -->
+class="cmmi-10">L </span>= 1.</span></div><!--tex4ht:label?: x17-160012 -->
                                                                   
 
                                                                   
    </div><hr class="endfigure" />
-<!--l. 662--><p class="indent" >    
-</p><!--l. 664--><p class="indent" >   The basis function <span 
+<!--l. 646--><p class="indent" >    
+</p><!--l. 648--><p class="indent" >   The basis function <span 
 class="cmmi-10">b</span><sub><span 
 class="cmmi-7">k</span></sub>(<span 
 class="cmmi-10">x</span>) used in the Fourier expansion have the properties
@@ -168,7 +168,7 @@ class="cmmi-10">L </span>but having discontinuity points at
 the interval boundary. It is well known that Gibbs oscillations appear near
 discontinuity points, which can be inner points in the interval or at the interval
 boundaries.
-</p><!--l. 673--><p class="indent" >   The basis functions <span 
+</p><!--l. 657--><p class="indent" >   The basis functions <span 
 class="cmmi-10">b</span><sub><span 
 class="cmmi-7">k</span></sub>(<span 
 class="cmmi-10">x</span>) used in the sine expansion have the properties
@@ -181,7 +181,7 @@ class="cmmi-10">b</span><sub><span
 class="cmmi-7">k</span></sub>(<span 
 class="cmmi-10">x</span><sub><span 
 class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0. Therefore since expansion works best for functions that
+class="cmmi-10">L</span>) = 0. Therefore this expansion works best for functions that
 satisfy <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">x</span><sub><span 
@@ -190,38 +190,9 @@ class="cmmi-10">h</span>(<span
 class="cmmi-10">x</span><sub><span 
 class="cmr-7">0</span></sub> + 2<span 
 class="cmmi-10">L</span>) = 0. For functions that do not satisﬁes this condition,
-there will be Gibbs oscillations near the interval boundary when approximated by
-using the sine expansion. Examples are shown in Fig. <a 
-href="#x17-160024">4<!--tex4ht:ref: 18-1-11-a1 --></a>.
-</p><!--l. 680--><p class="indent" >   The basis functions <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub>(<span 
-class="cmmi-10">x</span>) used in the cosine expansion have the properties
-<span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub><span 
-class="cmsy-10">′</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">k</span></sub><span 
-class="cmsy-10">′</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0. Therefore cosine expansion works best for functions that
-satisfy <span 
-class="cmmi-10">h</span><span 
-class="cmsy-10">′</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">h</span><span 
-class="cmsy-10">′</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
-class="cmmi-10">L</span>) = 0. For functions that do not satisﬁes this
-condition, there will be Gibbs oscillations near the interval boundary when
-approximated by using the cosine expansion (to be veriﬁed numerically by
-me).
+there will be Gibbs oscillations near the boundaries when approximated by using the
+sine expansion. Examples are shown in Fig. <a 
+href="#x17-160023">3<!--tex4ht:ref: 18-1-11-a1 --></a>.
 </p>
    <hr class="figure" /><div class="figure" 
 >
@@ -229,17 +200,17 @@ me).
 
                                                                   
 <a 
- id="x17-160024"></a>
+ id="x17-160023"></a>
                                                                   
 
                                                                   
-<!--l. 688--><p class="noindent" > <img 
+<!--l. 665--><p class="noindent" > <img 
 src="my_figure/home/yj/project_new/test_space/sin_transform/fig2/p.png" alt="pict"  
  width="218.8175pt" /> <img 
 src="my_figure/home/yj/project_new/test_space/sin_transform/fig3/p.png" alt="pict"  
  width="218.8175pt" />
 <br /> </p><div class="caption" 
-><span class="id">Figure 4: </span><span  
+><span class="id">Figure 3: </span><span  
 class="content">Left: constant function <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">x</span>) = 1 approximated by using the sine
@@ -257,21 +228,21 @@ class="cmmi-10">x</span><sub><span
 class="cmr-7">0</span></sub>) = <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + 2<span 
+class="cmr-7">0</span></sub> + <span 
 class="cmmi-10">L</span>) = 0 (<span 
 class="cmmi-10">x</span><sub><span 
 class="cmr-7">0</span></sub> = 0 and <span 
-class="cmmi-10">L </span>= 1 for this case).
+class="cmmi-10">L </span>= 2 for this case).
 The expansion coeﬃcients <span 
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">k</span></sub> are obtained via the discrete sine transform (<a 
-href="fourier_analysissu11.html#x18-17002r57">57<!--tex4ht:ref: 18-1-11-a2 --></a>)
+href="fourier_analysissu11.html#x18-17001r55">55<!--tex4ht:ref: 18-1-11-a2 --></a>)
 with number of sampling point <span 
 class="cmmi-10">N </span>= 50. The reconstruction formula is given by
 <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">x</span>) = <img 
-src="fourier_analysis58x.png" alt="2-
+src="fourier_analysis59x.png" alt="2-
 N"  class="frac" align="middle" /> <span 
 class="cmex-10">∑</span>
    <sub><span 
@@ -282,25 +253,86 @@ class="cmsy-7">−</span><span
 class="cmr-7">1</span></sup><span 
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">k</span></sub> sin(<img 
-src="fourier_analysis59x.png" alt="kπx
- 2L"  class="frac" align="middle" />).</span></div><!--tex4ht:label?: x17-160024 -->
+src="fourier_analysis60x.png" alt="kπx
+ L"  class="frac" align="middle" />).</span></div><!--tex4ht:label?: x17-160023 -->
                                                                   
 
                                                                   
    </div><hr class="endfigure" />
-<!--l. 700--><p class="indent" >    
-</p><!--l. 702--><p class="indent" >    
-</p><!--l. 704--><p class="indent" >   Next, let us discuss the sine and cosine transformation.
+<!--l. 675--><p class="indent" >   Similarly, the basis functions <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">k</span></sub>(<span 
+class="cmmi-10">x</span>) used in the cosine expansion have the
+properties <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">k</span></sub><span 
+class="cmsy-10">′</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub>) = <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">k</span></sub><span 
+class="cmsy-10">′</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub> + 2<span 
+class="cmmi-10">L</span>) = 0. Therefore this expansion works best for
+functions that satisfy <span 
+class="cmmi-10">h</span><span 
+class="cmsy-10">′</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub>) = <span 
+class="cmmi-10">h</span><span 
+class="cmsy-10">′</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub> + 2<span 
+class="cmmi-10">L</span>) = 0. For functions that do not satisﬁes
+this condition, there will be Gibbs oscillations near the boundaries when
+approximated by using the cosine expansion (to be veriﬁed numerically).
+</p><!--l. 682--><p class="indent" >   Next, let us discuss the sine and cosine transformation. Figure <a 
+href="#x17-160034">4<!--tex4ht:ref: 18-8-15-p3 --></a> illustrates the
+grids used in the following discussion.
 </p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                  
+
+                                                                  
+<a 
+ id="x17-160034"></a>
+                                                                  
+
+                                                                  
+<!--l. 686--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/sin_expansion/grids-2.png" alt="pict"  
+ width="283.0575pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 4:  </span><span  
+class="content">Grid  indexes  start  from  0  and  ends  at  <span 
+class="cmmi-10">N</span>.  <span 
+class="cmmi-10">h</span><sub><span 
+class="cmr-7">0</span></sub>  =  <span 
+class="cmmi-10">h</span><sub><span 
+class="cmmi-7">N</span></sub>  =  0,  i.e.,
+<span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub>) = <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub> + <span 
+class="cmmi-10">L</span>) = 0.</span></div><!--tex4ht:label?: x17-160034 -->
+                                                                  
+
+                                                                  
+   </div><hr class="endfigure" />
    <div class="subsectionTOCS">
     <span class="subsectionToc" >6.1 <a 
-href="fourier_analysissu11.html#x18-170006.1">Deﬁnition of the Discrete Sine Transform (DST)</a></span>
+href="fourier_analysissu11.html#x18-170006.1">Traditional deﬁntion of discrete Sine Transform (DST)</a></span>
 <br />    <span class="subsectionToc" >6.2 <a 
 href="fourier_analysissu12.html#x19-180006.2">Deﬁne DST via DFT</a></span>
 <br />    <span class="subsectionToc" >6.3 <a 
 href="fourier_analysissu13.html#x20-190006.3">Reconstruct original function using DST</a></span>
 <br />     <span class="subsubsectionToc" >6.3.1 <a 
-href="fourier_analysissu13.html#x20-200006.3.1" id="QQ2-20-26">Inverse DST</a></span>
+href="fourier_analysissu13.html#x20-200006.3.1" id="QQ2-20-25">Inverse DST</a></span>
 <br />    <span class="subsectionToc" >6.4 <a 
 href="fourier_analysissu14.html#x21-210006.4">Discrete Cosine transform</a></span>
    </div>
@@ -310,12 +342,12 @@ href="fourier_analysissu14.html#x21-210006.4">Discrete Cosine transform</a></spa
                                                                   
 
                                                                   
-   <!--l. 947--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 919--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysisse7.html" >next</a>] [<a 
 href="fourier_analysisse5.html" >prev</a>] [<a 
 href="fourier_analysisse5.html#tailfourier_analysisse5.html" >prev-tail</a>] [<a 
 href="fourier_analysisse6.html" >front</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse6.html" >up</a>] </p></div>
-<!--l. 947--><p class="indent" >   <a 
+<!--l. 919--><p class="indent" >   <a 
  id="tailfourier_analysisse6.html"></a> </p> 
 </body></html> 

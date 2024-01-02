@@ -4,7 +4,9 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>2D Fourier series using trigonometric functions cosine and sine</title> 
+<head><title>2D real-valued Fourier series derived directly from real-valued trigonometric
+functions expansion– to be deleted, because there is an easier way to do this, as is
+given by the above section</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,17 +15,18 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1447--><div class="crosslinks"><p class="noindent">[<a 
-href="fourier_analysissu24.html" >next</a>] [<a 
+   <!--l. 1445--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu22.html" >prev</a>] [<a 
 href="fourier_analysissu22.html#tailfourier_analysissu22.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu23.html">tail</a>] [<a 
 href="fourier_analysisse10.html#fourier_analysissu23.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">C.2   </span> <a 
- id="x34-34000C.2"></a>2D Fourier series using trigonometric functions cosine and sine</h4>
-<!--l. 1449--><p class="noindent" >We see that the extension of Fourier series from one-dimension case to two-dimension
-case is straightforward when expressed in terms of the complex exponential function
-<span 
+ id="x34-34000C.2"></a>2D real-valued Fourier series derived directly from real-valued
+trigonometric functions expansion– to be deleted, because there is an easier way to
+do this, as is given by the above section</h4>
+<!--l. 1447--><p class="noindent" >We see that the extension of Fourier series from one-dimension case to two-dimension
+case is straightforward when expressed in terms of the complex exponential
+function <span 
 class="cmmi-10">e</span><sup><span 
 class="cmmi-7">inπx∕L</span></sup>. However, if we use sin(<span 
 class="cmmi-10">mπx∕L</span><sub><span 
@@ -31,31 +34,30 @@ class="cmmi-7">x</span></sub>), cos(<span
 class="cmmi-10">mπx∕L</span><sub><span 
 class="cmmi-7">x</span></sub>), sin(<span 
 class="cmmi-10">nπy∕L</span><sub><span 
-class="cmmi-7">y</span></sub>), and
-cos(<span 
+class="cmmi-7">y</span></sub>),
+and cos(<span 
 class="cmmi-10">nπy∕L</span><sub><span 
-class="cmmi-7">y</span></sub>) as basis functions, the derivation of the two-dimensional Fourier series
-of <span 
+class="cmmi-7">y</span></sub>) as basis functions, the derivation of the two-dimensional
+Fourier series of <span 
 class="cmmi-10">G</span>(<span 
-class="cmmi-10">x,y</span>) is a little complicated (product-to-sum trigonometric identities are involved
-to simplify the results).
-</p><!--l. 1457--><p class="indent" >   In this section, we derive the two-dimensional Fourier series using cosine and sine
-as basis functions. A two-dimensional function <span 
+class="cmmi-10">x,y</span>) is a little complicated (product-to-sum trigonometric
+identities are involved to simplify the results). Let’s see the derivation. A
+two-dimensional function <span 
 class="cmmi-10">G</span>(<span 
-class="cmmi-10">x,y</span>) can be ﬁrst expanded as
-Fourier series about <span 
+class="cmmi-10">x,y</span>) can be ﬁrst expanded as Fourier series about
+<span 
 class="cmmi-10">x</span>,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x34-34001r125"></a>
+ id="x34-34001r127"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis135x.png" alt="         ∞∑          ( m π )   ∑∞         ( mπ  )
+src="fourier_analysis140x.png" alt="         ∞∑          ( m π )   ∑∞         ( mπ  )
 G (x,y) =    am (y)cos  ---x  +    bm (y)sin  ---x  ,
          m=1          Lx      m=1          Lx
-" class="math-display"  /></center></td><td class="equation-label">(125)</td></tr></table>
-<!--l. 1464--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(127)</td></tr></table>
+<!--l. 1460--><p class="nopar" >
 (the zero-frequency component is dropped, will take it back later) and then the two
 coeﬃcients <span 
 class="cmmi-10">a</span><sub><span 
@@ -69,152 +71,154 @@ class="cmmi-10">y</span>,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x34-34002r126"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis136x.png" alt="        ∞∑   (a)   ( nπ- )  ∑∞  (a)   (nπ- )
-am (y) =    amn cos  Ly y +     bmn sin  Ly y  ,
-        n=1               n=1
-" class="math-display"  /></center></td><td class="equation-label">(126)</td></tr></table>
-<!--l. 1472--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x34-34003r127"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis137x.png" alt="        ∞∑        ( nπ )   ∑∞        (nπ  )
-bm (y) =    a(bm)ncos  --y  +    b(mb)n sin  ---y ,
-        n=1        Ly     n=1        Ly
-" class="math-display"  /></center></td><td class="equation-label">(127)</td></tr></table>
-<!--l. 1477--><p class="nopar" >
-(the zero-frequency component is dropped, will take it back later) Substituting Eq.
-(<a 
-href="#x34-34002r126">126<!--tex4ht:ref: 10-23-1 --></a>) and (<a 
-href="#x34-34003r127">127<!--tex4ht:ref: 10-23-2 --></a>) into Eq. (<a 
-href="#x34-34001r125">125<!--tex4ht:ref: 10-23-3 --></a>), we obtain </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="fourier_analysis138x.png" alt="            ∞∑  [∑∞        (    )   ∑∞       (    ) ]   (     )
-G (x,y) =          a(man)cos  nπy  +    b(ma)n sin  nπy   cos  mπ-x
-            m=1 n=1         Ly     n=1        Ly         Lx
-            ∞∑  [∑∞        (    )   ∑∞       (    ) ]   (     )
-        +          a(mbn)cos  nπy  +    b(mb)n sin  nπy   sin  mπ-x(1.28)
-            m=1 n=1         Ly     n=1        Ly         Lx
-" class="math-display"  /><a 
- id="x34-34004r128"></a></center>
-</div>Using the product-to-sum trigonometric identities, equation (<a 
-href="#x34-34004r128">128<!--tex4ht:ref: 10-23-4 --></a>) is written
-<div class="eqnarray">
+ id="x34-34002r128"></a>
                                                                   
 
                                                                   
    <center class="math-display" >
 <img 
-src="fourier_analysis139x.png" alt="            1 ∞∑  ∑∞     [   (m π    nπ  )     ( m π    nπ )]
-G (x,y) =   -       a(man) cos ---x + ---y + cos  ---x−  --y
-            2m=1 n=1          Lx    Ly          Lx     Ly
-            1 ∞∑  ∑∞  (a) [  ( m π    nπ )      (m π    nπ ) ]
-        +   2       bmn  sin  L--x + L-y  + sin  -L-x − L-y
-             m=1 n=1    [   (  x     y )      (  x     y  )]
-            1 ∞∑  ∑∞  (b)      m-π    nπ-        m-π    nπ-
-        +   2       amn  sin  Lx x + Lyy  − sin   Lx x − Ly y
-             m=∞1 n=∞1    [   (          )      (           )]
-        +   1 ∑  ∑  b(b)  cos m-πx − nπy  − cos  mπ-x+ n-πy
+src="fourier_analysis141x.png" alt="        ∞∑        (     )  ∑∞        (    )
+am (y) =    a(am)n cos  nπ-y +     b(man)sin  nπ-y  ,
+        n=1        Ly     n=1        Ly
+" class="math-display"  /></center></td><td class="equation-label">(128)</td></tr></table>
+<!--l. 1468--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x34-34003r129"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis142x.png" alt="        ∞        (    )    ∞        (    )
+        ∑   (b)     nπ-    ∑   (b)     nπ-
+bm (y) = n=1amncos  Lyy  + n=1bmn sin  Ly y ,
+" class="math-display"  /></center></td><td class="equation-label">(129)</td></tr></table>
+<!--l. 1473--><p class="nopar" >
+(the zero-frequency component is dropped, will take it back later) Substituting Eq.
+(<a 
+href="#x34-34002r128">128<!--tex4ht:ref: 10-23-1 --></a>) and (<a 
+href="#x34-34003r129">129<!--tex4ht:ref: 10-23-2 --></a>) into Eq. (<a 
+href="#x34-34001r127">127<!--tex4ht:ref: 10-23-3 --></a>), we obtain </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis143x.png" alt="               [                                   ]
+            ∞∑   ∑∞  (a)   ( nπ )   ∑∞  (a)   ( nπ )     ( mπ  )
+G (x,y) =          amn cos  Lyy  +    bmn sin  Lyy   cos  Lx-x
+            m=1[n=1       (    )   n=1      (    ) ]   (     )
+            ∞∑   ∑∞  (b)     nπ-    ∑∞  (b)     nπ-        mπ-
+        +          amn cos  Lyy  +    bmn sin  Lyy   sin  Lx x(1.30)
+            m=1 n=1                n=1
+" class="math-display"  /><a 
+ id="x34-34004r130"></a></center>
+                                                                  
+
+                                                                  
+</div>Using the product-to-sum trigonometric identities, equation (<a 
+href="#x34-34004r130">130<!--tex4ht:ref: 10-23-4 --></a>) is written
+<div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis144x.png" alt="                        [   (           )     (           )]
+            1 ∞∑  ∑∞  (a)     m-π    nπ-         m-π    nπ-
+G (x,y) =   2       amn  cos  Lx x + Ly y + cos Lx x−  Lyy
+             m=∞1 n=∞1    [  (           )      (          ) ]
+        +   1 ∑  ∑  b(a)  sin  m-πx + nπy  + sin  m-πx − nπy
             2m=1 n=1 mn      Lx     Ly          Lx    Ly
+              ∞∑  ∑∞     [   (          )      (           )]
+        +   1       a(mb)n  sin  m-πx + nπy  − sin  m-πx − nπ-y
+            2m=1 n=1         Lx     Ly          Lx    Ly
+            1 ∞∑  ∑∞  (b) [   (m π    nπ )      ( mπ    n π )]
+        +   2       bmn  cos L--x − L-y  − cos  L--x+ L--y
+             m=1 n=1           x     y           x      y
 " class="math-display"  /></center>
 </div>which can be organized as <div class="eqnarray">
    <center class="math-display" >
 <img 
-src="fourier_analysis140x.png" alt="                                (           )
-           ∑∞ ∑∞  1 (a)   (b)      mπ-   n-π
-G(x,y) =          2[amn − bmn]cos  Lx x+  Lyy
-           m=∞1n=∞1               (           )
-       +   ∑  ∑   1[b(a)+ a(b)]sin  mπ-x+ nπ-y
-           m=1n=1 2 mn    mn      Lx    Ly
-           ∑∞ ∑∞                (           )
-       +          1[a(man)+ b(mb)n]cos  mπ-x− n-πy
+src="fourier_analysis145x.png" alt="           ∑∞ ∑∞                (           )
+G(x,y) =          1[a(man)− b(mb)n]cos  mπ-x+ n-πy
            m=1n=1 2               Lx     Ly
            ∑∞ ∑∞  1             ( mπ    nπ  )
-       +          2[b(man)− a(mb)n]sin  L--x− L--y       (129)
-           m=1n=1                  x      y
-" class="math-display"  /><a 
- id="x34-34006r129"></a></center>
-</div>The coeﬃcients appearing above are written as
-   <table 
-class="equation"><tr><td><a 
- id="x34-34007r130"></a>
+       +          2[b(man)+ a(mb)n]sin  L--x+ L--y
+           m=1n=1               (  x      y )
+           ∑∞ ∑∞  1 (a)   (b)      mπ-   n-π
+       +          2[amn + bmn]cos  Lx x−  Lyy
+           m=∞1n=∞1               (           )
+       +   ∑  ∑   1[b(a)− a(b)]sin  mπ-x− nπ-y       (131)
+           m=1n=1 2 mn    mn      Lx    Ly
                                                                   
 
                                                                   
+" class="math-display"  /><a 
+ id="x34-34006r131"></a></center>
+</div>The coeﬃcients appearing above are written as
+   <table 
+class="equation"><tr><td><a 
+ id="x34-34007r132"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis141x.png" alt="           ∫ −Lx         (     )
-am (y) =-1-     G (x,y)cos  m-πx  dx
-        Lx  −Lx            Lx
-" class="math-display"  /></center></td><td class="equation-label">(130)</td></tr></table>
+src="fourier_analysis146x.png" alt="                         (     )
+        -1-∫ −Lx           m-π
+am (y) = Lx −L  G (x,y)cos  Lx x  dx
+              x
+" class="math-display"  /></center></td><td class="equation-label">(132)</td></tr></table>
+<!--l. 1523--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x34-34008r133"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis147x.png" alt="        1 ∫ −Lx         ( mπ  )
+bm (y) = Lx     G (x,y)sin  Lx-x  dx
+           −Lx
+" class="math-display"  /></center></td><td class="equation-label">(133)</td></tr></table>
 <!--l. 1527--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x34-34008r131"></a>
+ id="x34-34009r134"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis142x.png" alt="          ∫ −Lx         (     )
-bm (y) =-1-     G (x,y)sin  mπ-x  dx
-       Lx  −Lx            Lx
-" class="math-display"  /></center></td><td class="equation-label">(131)</td></tr></table>
-<!--l. 1531--><p class="nopar" >
+src="fourier_analysis148x.png" alt="            ∫    ∫              (     )   (    )
+a(a)= -1--1-  −Ly  −Lx G(x,y)cos m-πx  cos  nπy  dxdy
+ mn   Lx Ly  −Ly  −Lx             Lx        Ly
+" class="math-display"  /></center></td><td class="equation-label">(134)</td></tr></table>
+<!--l. 1533--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x34-34009r132"></a>
+ id="x34-34010r135"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis143x.png" alt="            ∫ −Ly∫ −Lx          (     )   (    )
-a(man)= -1--1-           G(x,y)cos m-πx  cos  nπy  dxdy
-      Lx Ly  −Ly  −Lx             Lx        Ly
-" class="math-display"  /></center></td><td class="equation-label">(132)</td></tr></table>
-<!--l. 1537--><p class="nopar" >
-</p>
-                                                                  
-
-                                                                  
-   <table 
-class="equation"><tr><td><a 
- id="x34-34010r133"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis144x.png" alt="            ∫    ∫              (     )   (    )
+src="fourier_analysis149x.png" alt="            ∫    ∫              (     )   (    )
 a(b)= -1--1-  −Ly  −Lx G(x,y)cos m-π x sin  nπy  dxdy
  mn   Lx Ly  −Ly  − Lx            Lx        Ly
-" class="math-display"  /></center></td><td class="equation-label">(133)</td></tr></table>
-<!--l. 1542--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(135)</td></tr></table>
+<!--l. 1538--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x34-34011r134"></a>
+ id="x34-34011r136"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis145x.png" alt="            ∫    ∫              (    )    (    )
-b(a)= -1--1-  −Ly  −Lx G(x,y)sin  m-πx  cos  nπy  dxdy
+src="fourier_analysis150x.png" alt="            ∫ −L ∫ −L           (    )    (    )
+b(a)= -1--1-    y    x G(x,y)sin  m-πx  cos  nπy  dxdy
  mn   Lx Ly  −Ly  −Lx            Lx         Ly
-" class="math-display"  /></center></td><td class="equation-label">(134)</td></tr></table>
-<!--l. 1547--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(136)</td></tr></table>
+<!--l. 1543--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x34-34012r135"></a>
-   <center class="math-display" >
-<img 
-src="fourier_analysis146x.png" alt="           ∫    ∫              (    )    (    )
-(b)   1--1-  −Ly  −Lx           m-π       n-π
-bmn =  LxLy  −Ly  − Lx G(x,y)sin   Lx x sin  Ly y  dxdy
+ id="x34-34012r137"></a>
                                                                   
 
                                                                   
-" class="math-display"  /></center></td><td class="equation-label">(135)</td></tr></table>
-<!--l. 1552--><p class="nopar" >
+   <center class="math-display" >
+<img 
+src="fourier_analysis151x.png" alt="           ∫ −Ly∫ −Lx          (    )    (    )
+b(mbn)=  1--1-           G(x,y)sin  m-πx  sin  n-πy  dxdy
+      LxLy  −Ly  − Lx            Lx       Ly
+" class="math-display"  /></center></td><td class="equation-label">(137)</td></tr></table>
+<!--l. 1548--><p class="nopar" >
 Noting that <span 
 class="cmmi-10">b</span><sub><span 
 class="cmmi-7">m,</span><span 
@@ -243,69 +247,55 @@ class="cmr-7">(</span><span
 class="cmmi-7">b</span><span 
 class="cmr-7">)</span></sup> and sin(0) = 0, then Eq.
 (<a 
-href="#x34-34006r129">129<!--tex4ht:ref: 11-9-4 --></a>) can be written as </p><div class="eqnarray">
+href="#x34-34006r131">131<!--tex4ht:ref: 11-9-4 --></a>) can be written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="fourier_analysis147x.png" alt="                                   (           )
-            ∑∞  ∑∞   1 (a)   (b)      mπ-   nπ-
-G (x,y) =            2[amn − bmn]cos  Lx x+ Ly y
-            m=∞1n=−∞ ∞               (           )
-        +   ∑   ∑    1[b(a)+ a(b)]sin  m-πx + nπ-y .
-            m=1n=− ∞ 2 mn    mn      Lx    Ly
+src="fourier_analysis152x.png" alt="            ∑∞  ∑∞                 (           )
+G (x,y) =            1[a(man)− b(bm)n]cos  mπ-x+ nπ-y
+            m=1n=− ∞ 2               Lx    Ly
+            ∑∞  ∑∞   1             (m π    nπ  )
+        +            -[b(man)+ a(bm)n]sin  ---x + ---y .    (138)
+            m=1n=− ∞ 2               Lx    Ly
 " class="math-display"  /></center>
 </div>
-<!--l. 1565--><p class="indent" >   The coeﬃcients can be further written as </p><div class="eqnarray">
+<!--l. 1561--><p class="indent" >   The coeﬃcients can be further written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="fourier_analysis148x.png" alt="c    ≡   1[a(a)− b(b)]
- mn      2 mn    mn             [   (     )    (    )     (     )   (    ) ]
-         1-1-1-∫ −Ly ∫ −Lx            m-π       nπ-         mπ-       nπ-
-     =   2Lx Ly − Ly  −Lx G (x,y) cos  Lx x  cos Ly y  − sin  Lx x  sin  Lyy   dxdy
+src="fourier_analysis153x.png" alt="cmn  ≡   1[a(man)− b(bm)n]
+         2     ∫     ∫          [   (     )    (    )     (     )   (    ) ]
+     =   1-1-1-- −Ly   −LxG (x,y) cos  m-πx  cos nπ-y  − sin  mπ-x  sin  nπy   dxdy
+         2Lx Ly − Ly  −Lx             Lx        Ly          Lx        Ly
                ∫ −Ly ∫ −Lx         (           )
-     =   1-1-1--          G (x,y)cos  m-πx+  nπy  dxdy.                      (136)
+     =   1-1-1--          G (x,y)cos  m-πx+  nπy  dxdy.                      (139)
          2Lx Ly − Ly  −Lx            Lx     Ly
 " class="math-display"  /></center>
 </div>
    <div class="eqnarray">
-                                                                  
-
-                                                                  
    <center class="math-display" >
 <img 
-src="fourier_analysis149x.png" alt="         1 (a)   (b)
-smn  ≡   2[bmn + amn]
-         1 1 1 ∫ − Ly∫ −Lx      [   ( mπ  )   ( nπ  )     ( m π )   ( nπ  )]
-     =   -------          G (x,y) sin  ---x  cos  ---y + cos  ---x  sin  ---y  dxdy
-         2Lx Ly∫ −Ly ∫−Lx          (  Lx       )Ly          Lx        Ly
-         1-1-1-- − Ly  −Lx           mπ-   n-π
-     =   2Lx Ly  −Ly  −Lx G (x,y)sin  Lx x+  Lyy  dxdy.                      (137)
+src="fourier_analysis154x.png" alt="         1
+smn  ≡   -[b(man)+ a(bm)n]
+         2     ∫ − Ly∫ −Lx      [   (     )   (     )     (     )   (     )]
+     =   1-1-1--          G (x,y) sin  mπ-x  cos  nπ-y + cos  m-πx  sin  nπ-y  dxdy
+         2Lx Ly  −Ly  −Lx             Lx        Ly          Lx        Ly
+         1 1 1 ∫ − Ly∫ −Lx         ( mπ    n π )
+     =   2Lx-Ly-          G (x,y)sin  Lx-x+ -Lyy  dxdy.                      (140)
+                 −Ly  −Lx
 " class="math-display"  /></center>
 </div>
-<!--l. 1589--><p class="indent" >   Then comes the drudgery to handle the special cases of <span 
+<!--l. 1585--><p class="indent" >   Then comes the drudgery to handle the special cases of <span 
 class="cmmi-10">m </span>= 0 and/or <span 
-class="cmmi-10">n </span>= 0,
-which I do not enjoy. I ﬁnally give up doing this. And I decide to stick to using
-expression (<a 
-href="fourier_analysissu22.html#x33-33007r124">124<!--tex4ht:ref: 23-3-31-p1 --></a>) for 2D real-valued function, which can be obtained simply by taking
-the real part of expression (<a 
-href="fourier_analysissu22.html#x33-33004r122">122<!--tex4ht:ref: 10-22-e1 --></a>). We see that allowing the index runing from <span 
-class="cmsy-10">−∞ </span>to
-+<span 
-class="cmsy-10">∞ </span>has the advantage of making the expression more uniform, and thus avoiding
-tedious work.
-</p><!--l. 1596--><p class="indent" >    
-</p><!--l. 1598--><p class="indent" >    
-</p><!--l. 1600--><p class="indent" >    
-                                                                  
-
-                                                                  
+class="cmmi-10">n </span>= 0. The
+ﬁnal results are identical to Eqs. (<a 
+href="fourier_analysissu22.html#x33-33004r123">123<!--tex4ht:ref: 23-10-17-2 --></a>)-(<a 
+href="fourier_analysissu22.html#x33-33007r126">126<!--tex4ht:ref: 23-10-17-3 --></a>). This kind of derivation is also discussed
+in my notes on mega code.
 </p>
-   <!--l. 1602--><div class="crosslinks"><p class="noindent">[<a 
-href="fourier_analysissu24.html" >next</a>] [<a 
+   <!--l. 1589--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu22.html" >prev</a>] [<a 
 href="fourier_analysissu22.html#tailfourier_analysissu22.html" >prev-tail</a>] [<a 
 href="fourier_analysissu23.html" >front</a>] [<a 
 href="fourier_analysisse10.html#fourier_analysissu23.html" >up</a>] </p></div>
-<!--l. 1602--><p class="indent" >   <a 
+<!--l. 1589--><p class="indent" >   <a 
  id="tailfourier_analysissu23.html"></a> </p> 
 </body></html> 

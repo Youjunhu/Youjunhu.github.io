@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Deﬁnition of the Discrete Sine Transform (DST)</title> 
+<head><title>Traditional deﬁntion of discrete Sine Transform (DST)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,128 +13,89 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 706--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 691--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu12.html" >next</a>] [<a 
 href="#tailfourier_analysissu11.html">tail</a>] [<a 
 href="fourier_analysisse6.html#fourier_analysissu11.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">6.1   </span> <a 
- id="x18-170006.1"></a>Deﬁnition of the Discrete Sine Transform (DST)</h4>
-<!--l. 708--><p class="noindent" >Figure (<a 
-href="#x18-170015">5<!--tex4ht:ref: 18-8-15-p3 --></a>) illustrates the grids used in the following discussion.
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                  
-
-                                                                  
-<a 
- id="x18-170015"></a>
-                                                                  
-
-                                                                  
-<!--l. 712--><p class="noindent" > <img 
-src="my_figure/home/yj/theory/figures/sin_expansion/grids-2.png" alt="pict"  
- width="283.0575pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 5:  </span><span  
-class="content">Grid  indexes  start  from  0  and  ends  at  <span 
-class="cmmi-10">N</span>.  <span 
-class="cmmi-10">h</span><sub><span 
-class="cmr-7">0</span></sub>  =  <span 
-class="cmmi-10">h</span><sub><span 
-class="cmmi-7">N</span></sub>  =  0,  i.e.,
-<span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub>) = <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span><sub><span 
-class="cmr-7">0</span></sub> + <span 
-class="cmmi-10">L</span>) = 0.</span></div><!--tex4ht:label?: x18-170015 -->
-                                                                  
-
-                                                                  
-   </div><hr class="endfigure" />
-<!--l. 717--><p class="indent" >   There are several slightly diﬀerent types of Discrete Sine Transforms (DST). One
+ id="x18-170006.1"></a>Traditional deﬁntion of discrete Sine Transform (DST)</h4>
+<!--l. 693--><p class="noindent" >There are several slightly diﬀerent types of Discrete Sine Transforms (DST). One
 form I saw in W. Press’s numerical recipe book is given by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x18-17002r57"></a>
+ id="x18-17001r55"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis60x.png" alt="     N∑−1     (kπj )
-Hk =     hjsin  -N-- ,
-      j=0
-" class="math-display"  /></center></td><td class="equation-label">(57)</td></tr></table>
-<!--l. 722--><p class="nopar" >
+src="fourier_analysis61x.png" alt="     N∑−1     (    )
+Hk =     hjsin  kπj- ,
+      j=0        N
+" class="math-display"  /></center></td><td class="equation-label">(55)</td></tr></table>
+<!--l. 698--><p class="nopar" >
 where <span 
 class="cmmi-10">h</span><sub><span 
 class="cmr-7">0</span></sub> = <span 
 class="cmmi-10">h</span><sub><span 
-class="cmmi-7">N</span></sub> = 0 are assumed. This form can be formally obtained by replacing
-DFT’s exponential function exp(2<span 
+class="cmmi-7">N</span></sub> = 0 are assumed. This form can be obtained by replacing DFT’s
+exponential function exp(2<span 
 class="cmmi-10">πikj∕N</span>) by sin(<span 
-class="cmmi-10">πkj∕N</span>). The inverse sine
-transformation is given by (I did not derive this, but had numerically veriﬁed that
-this transform recovers the original data if applied after the sine transform (<a 
-href="#x18-17002r57">57<!--tex4ht:ref: 18-1-11-a2 --></a>) (code
-at /home/yj/project_new/test_space/sine_expansion/t2.f90))
+class="cmmi-10">πkj∕N</span>). The inverse sine transformation is
+given by (I did not derive this, but had numerically veriﬁed that this transform
+recovers the original data if applied after the sine transform (<a 
+href="#x18-17001r55">55<!--tex4ht:ref: 18-1-11-a2 --></a>) (code at
+/home/yj/project_new/test_space/sine_expansion/t2.f90))
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x18-17003r58"></a>
+ id="x18-17002r56"></a>
    <center class="math-display" >
+                                                                  
+
+                                                                  
 <img 
-src="fourier_analysis61x.png" alt="       N−1      (    )
-h =  2-∑   H sin  kπj- ,
- j   N k=0  k     N
-" class="math-display"  /></center></td><td class="equation-label">(58)</td></tr></table>
-<!--l. 734--><p class="nopar" >
+src="fourier_analysis62x.png" alt="     2 N∑−1      ( kπj)
+hj = N-    Hksin  N--- ,
+       k=0
+" class="math-display"  /></center></td><td class="equation-label">(56)</td></tr></table>
+<!--l. 708--><p class="nopar" >
 which is identical with the forward sine transformation except for the normalization
 factor 2<span 
-class="cmmi-10">∕N</span>. (The elements with index of zero can also be excluded from the
-summation (<a 
-href="#x18-17002r57">57<!--tex4ht:ref: 18-1-11-a2 --></a>) and (<a 
-href="#x18-17003r58">58<!--tex4ht:ref: 18-8-15-p1 --></a>) since these elements are zero). Replacing <span 
+class="cmmi-10">∕N</span>. (The terms of index 0 in both Eq. () and () can be dropped since they
+are zero. They are kept to make the representation look more similar to the DFT,
+where the index begin from zero.) Replacing <span 
 class="cmmi-10">j∕N </span>in Eq. (<a 
-href="#x18-17003r58">58<!--tex4ht:ref: 18-8-15-p1 --></a>)
-by (<span 
+href="#x18-17002r56">56<!--tex4ht:ref: 18-8-15-p1 --></a>) by (<span 
 class="cmmi-10">x </span><span 
 class="cmsy-10">− </span><span 
 class="cmmi-10">x</span><sub><span 
 class="cmr-7">0</span></sub>)<span 
-class="cmmi-10">∕L </span>, we obtain the reconstructing function
+class="cmmi-10">∕L </span>, we
+obtain the reconstructing function
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x18-17004r59"></a>
-                                                                  
-
-                                                                  
+ id="x18-17003r57"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis62x.png" alt="         N−1      (          )
+src="fourier_analysis63x.png" alt="         N−1      (          )
 h(x) = 2-∑  Hk sin  kπ(x−-x0)- .
        N k=0           L
-" class="math-display"  /></center></td><td class="equation-label">(59)</td></tr></table>
-<!--l. 743--><p class="nopar" >
-</p><!--l. 746--><p class="indent" >    
-</p><!--l. 748--><p class="indent" >   We need a fast method of computing the above DST. All fast methods for this
-ﬁnally need to make use of the fast method used in the computation of DFT. To
-conveniently use the fast method of DFT, we need to deﬁne the DST in a way that
-the DST can be easily connected to the DFT so that the DFT fast method can be
-easily applied to compute the DST. A standard way of making this easy is to deﬁne
-the DST via the DFT of an odd extension of the original data. Next, let us discuss
-this.
+" class="math-display"  /></center></td><td class="equation-label">(57)</td></tr></table>
+<!--l. 718--><p class="nopar" >
+</p><!--l. 721--><p class="indent" >   We need a fast method for computing the above DST. All fast methods ﬁnally
+need to make use of the fast method used in the computation of DFT, i.e., FFT. To
+make use of FFT, we need to deﬁne the DST in a way that the DST can be easily
+connected to the DFT so that FFT can be easily applied. A standard way of making
+this easy is to deﬁne the DST via the DFT of an odd extension of the original data.
+Next, let us discuss this.
                                                                   
 
                                                                   
 </p>
-   <!--l. 756--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 728--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu12.html" >next</a>] [<a 
 href="fourier_analysissu11.html" >front</a>] [<a 
 href="fourier_analysisse6.html#fourier_analysissu11.html" >up</a>] </p></div>
-<!--l. 756--><p class="indent" >   <a 
+<!--l. 728--><p class="indent" >   <a 
  id="tailfourier_analysissu11.html"></a> </p> 
 </body></html> 

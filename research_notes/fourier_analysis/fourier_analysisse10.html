@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Multi-dimensional Fourier series</title> 
+<head><title>2D Fourier series</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,38 +13,122 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1376--><div class="crosslinks"><p class="noindent">[<a 
-href="fourier_analysisli1.html" >next</a>] [<a 
+   <!--l. 1348--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysisse11.html" >next</a>] [<a 
 href="fourier_analysisse9.html" >prev</a>] [<a 
 href="fourier_analysisse9.html#tailfourier_analysisse9.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysisse10.html">tail</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse10.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">C   </span> <a 
- id="x32-32000C"></a>Multi-dimensional Fourier series</h3>
-<!--l. 1378--><p class="noindent" >
+ id="x32-32000C"></a>2D Fourier series</h3>
+<!--l. 1350--><p class="noindent" >Compared with Eq. (<a 
+href="fourier_analysissu1.html#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>) that uses the trigonometric functions, Fourier series (<a 
+href="fourier_analysissu2.html#x5-4006r15">15<!--tex4ht:ref: 2-25-p6 --></a>) and
+(<a 
+href="fourier_analysissu2.html#x5-4007r16">16<!--tex4ht:ref: 2-25-p7 --></a>), which is expressed in terms of the complex exponential function <span 
+class="cmmi-10">e</span><sup><span 
+class="cmmi-7">inπx∕L</span></sup>, is
+more compact. The convenience introduced by the complex exponential function is
+more obvious when we deal with multiple-dimensional cases. For example, a
+two-dimensional function <span 
+class="cmmi-10">G</span>(<span 
+class="cmmi-10">x,y</span>) can be expanded as Fourier series about
+<span 
+class="cmmi-10">x</span>,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x32-32001r117"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis127x.png" alt="           ∞
+G (x,y) =  ∑   c  (y)eimπx∕Lx,
+         m=−∞  m
+" class="math-display"  /></center></td><td class="equation-label">(117)</td></tr></table>
+<!--l. 1360--><p class="nopar" >
+where 2<span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">x</span></sub> is the period of <span 
+class="cmmi-10">G </span>in <span 
+class="cmmi-10">x </span>direction. The expansion coeﬃcients <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">m</span></sub>(<span 
+class="cmmi-10">y</span>) can be
+further expanded as Fourier series about <span 
+class="cmmi-10">y</span>,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x32-32002r118"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis128x.png" alt="        ∞∑       inπy∕L
+cm (y) =     (cmne      y),
+       n=−∞
+" class="math-display"  /></center></td><td class="equation-label">(118)</td></tr></table>
+                                                                  
+
+                                                                  
+<!--l. 1366--><p class="nopar" >
+where 2<span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">y</span></sub> is the period of <span 
+class="cmmi-10">G </span>in <span 
+class="cmmi-10">y </span>direction, and the coeﬃcients <span 
+class="cmmi-10">c</span><sub><span 
+class="cmmi-7">mn</span></sub> is given by
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="fourier_analysis129x.png" alt="            ∫    [    ∫                    ]
+         -1-- Ly  -1--  Lx       − im πx∕Lx     −inπy∕Ly
+cmn  =   2Ly  −Ly 2Lx  −Lx G(x,y)e       dx  e       dy.
+               ∫ Ly∫ Lx
+     =   --1---         G(x,y)e−im πx∕Lx−inπy∕Lydxdy.      (119)
+         4LxLy  −Ly − Lx
+" class="math-display"  /><a 
+ id="x32-32003r119"></a></center>
+</div>Using Eq. (<a 
+href="#x32-32002r118">118<!--tex4ht:ref: 10-22-p1 --></a>) in Eq. (<a 
+href="#x32-32001r117">117<!--tex4ht:ref: 10-22-p2 --></a>), we obtain
+   <table 
+class="equation"><tr><td><a 
+ id="x32-32004r120"></a>
+   <center class="math-display" >
+<img 
+src="fourier_analysis130x.png" alt="          ∞∑    ∑∞      inπy∕Ly+imπx∕Lx
+G(x,y) =           cmne              ,
+        m= −∞ n=−∞
+" class="math-display"  /></center></td><td class="equation-label">(120)</td></tr></table>
+<!--l. 1380--><p class="nopar" >
+Equations (<a 
+href="#x32-32004r120">120<!--tex4ht:ref: 10-22-e1 --></a>) and (<a 
+href="#x32-32003r119">119<!--tex4ht:ref: 2-4-1 --></a>) give the two-dimensional Fourier series of <span 
+class="cmmi-10">G</span>(<span 
+class="cmmi-10">x,y</span>).
+</p><!--l. 1384--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
     <span class="subsectionToc" >C.1 <a 
-href="fourier_analysissu22.html#x33-33000C.1">2D Fourier series in terms of complex basis functions</a></span>
+href="fourier_analysissu22.html#x33-33000C.1">For 2D real-valued functions</a></span>
 <br />    <span class="subsectionToc" >C.2 <a 
-href="fourier_analysissu23.html#x34-34000C.2">2D Fourier series using trigonometric functions cosine and sine</a></span>
-<br />    <span class="subsectionToc" >C.3 <a 
-href="fourier_analysissu24.html#x35-35000C.3">Details on FFT codes provided by the Numerical recipes book[2]</a></span>
-<br />    <span class="subsectionToc" >C.4 <a 
-href="fourier_analysissu25.html#x36-36000C.4">Computing Fourier integrals using FFT (not ﬁnished, to be deleted)</a></span>
+href="fourier_analysissu23.html#x34-34000C.2">2D real-valued Fourier series derived directly from real-valued trigonometric
+functions expansion– to be deleted, because there is an easier way to do this,
+as is given by the above section</a></span>
+                                                                  
+
+                                                                  
    </div>
 
-
-
                                                                   
 
                                                                   
-   <!--l. 1763--><div class="crosslinks"><p class="noindent">[<a 
-href="fourier_analysisli1.html" >next</a>] [<a 
+   <!--l. 1589--><div class="crosslinks"><p class="noindent">[<a 
+href="fourier_analysisse11.html" >next</a>] [<a 
 href="fourier_analysisse9.html" >prev</a>] [<a 
 href="fourier_analysisse9.html#tailfourier_analysisse9.html" >prev-tail</a>] [<a 
 href="fourier_analysisse10.html" >front</a>] [<a 
 href="fourier_analysis.html#fourier_analysisse10.html" >up</a>] </p></div>
-<!--l. 1763--><p class="indent" >   <a 
+<!--l. 1589--><p class="indent" >   <a 
  id="tailfourier_analysisse10.html"></a> </p> 
 </body></html> 

@@ -13,13 +13,13 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 53--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 58--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu2.html" >next</a>] [<a 
 href="#tailfourier_analysissu1.html">tail</a>] [<a 
 href="fourier_analysisse2.html#fourier_analysissu1.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
  id="x4-30002.1"></a>Fourier series in terms of trigonometric functions</h4>
-<!--l. 55--><p class="noindent" >If <span 
+<!--l. 60--><p class="noindent" >If <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">x</span>) is a function of period 2<span 
 class="cmmi-10">L</span>, then it can be proved that <span 
@@ -36,37 +36,36 @@ src="fourier_analysis0x.png" alt="      ∞∑       ( nπ )   ∞∑       (nπ
 h(x ) =   ancos  L-x  +    bnsin  -L-x ,
       n=0              n=1
 " class="math-display"  /></center></td><td class="equation-label">(1)</td></tr></table>
-<!--l. 60--><p class="nopar" >
-which is called Fourier series. [It is not trivial to prove the above statement (what is
+<!--l. 65--><p class="nopar" >
+which is called Fourier series. It is not trivial to prove the above statement (what is
 needed in the proof is to prove that the set of functions cos(<span 
-class="cmmi-10">nπx∕L</span>) and
-sin(<span 
-class="cmmi-10">nπx∕L</span>) with <span 
+class="cmmi-10">nπx∕L</span>) and sin(<span 
+class="cmmi-10">nπx∕L</span>)
+with <span 
 class="cmmi-10">n </span>= 0<span 
 class="cmmi-10">,</span>1<span 
 class="cmmi-10">,</span><span 
 class="cmmi-10">…</span><span 
 class="cmsy-10">∞ </span>is a “complete set”<span class="cite">[<a 
-href="fourier_analysisli1.html#Xsnieder1994">1</a>]</span>). We will not concern us
-here with this proof and simply start working with the Fourier series in
-Eq. (<a 
-href="#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>).] At this point it is not clear yet what the coeﬃcients <span 
-class="cmmi-10">a</span><sub><span 
-class="cmmi-7">n</span></sub> and <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">n</span></sub>
-are. These can be obtained by taking product of Eq. (<a 
-href="#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>) with cos(<span 
-class="cmmi-10">jπx∕L</span>)
+href="fourier_analysisli1.html#Xsnieder1994">1</a>]</span>). I will ignore this proof and simply start
+with Eq. (<a 
+href="#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>).
                                                                   
 
                                                                   
-and sin(<span 
-class="cmmi-10">jπx∕L</span>), respectively, and then integrating form <span 
+</p><!--l. 72--><p class="indent" >   At this point it is not clear what the coeﬃcients <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> and <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">n</span></sub> are. These can be
+obtained by taking product of Eq. (<a 
+href="#x4-3001r1">1<!--tex4ht:ref: 2-25-1 --></a>) with cos(<span 
+class="cmmi-10">jπx∕L</span>) and sin(<span 
+class="cmmi-10">jπx∕L</span>), respectively,
+and then integrating form <span 
 class="cmsy-10">−</span><span 
 class="cmmi-10">L </span>to <span 
-class="cmmi-10">L</span>, which
-gives
+class="cmmi-10">L</span>, which gives
 </p>
    <table 
 class="equation"><tr><td><a 
@@ -76,7 +75,7 @@ class="equation"><tr><td><a
 src="fourier_analysis1x.png" alt="     1-∫ L
 a0 = 2L − Lh(x)dx,
 " class="math-display"  /></center></td><td class="equation-label">(2)</td></tr></table>
-<!--l. 72--><p class="nopar" >
+<!--l. 78--><p class="nopar" >
 and, for <span 
 class="cmmi-10">j </span><span 
 class="msam-10">≥ </span>1,
@@ -90,7 +89,7 @@ src="fourier_analysis2x.png" alt="     1 ∫ L       ( jπ )
 aj = L-    h(x )cos  L-x  dx,
         −L
 " class="math-display"  /></center></td><td class="equation-label">(3)</td></tr></table>
-<!--l. 77--><p class="nopar" >
+<!--l. 83--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
@@ -101,8 +100,12 @@ src="fourier_analysis3x.png" alt="                (    )
     1-∫ L         jπ-
 bj = L −L h(x )sin  L x  dx.
 " class="math-display"  /></center></td><td class="equation-label">(4)</td></tr></table>
-<!--l. 82--><p class="nopar" >
-Fourier series are often redeﬁned as
+<!--l. 88--><p class="nopar" >
+In order to enable <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> to be uniformly expressed by Eq. (<a 
+href="#x4-3003r3">3<!--tex4ht:ref: 2-25-p1 --></a>), Fourier series are often
+redeﬁned as
 </p>
    <table 
 class="equation"><tr><td><a 
@@ -110,16 +113,12 @@ class="equation"><tr><td><a
    <center class="math-display" >
 <img 
 src="fourier_analysis4x.png" alt="      a0   ∑∞ [     ( nπ )       ( nπ ) ]
-h(x) =-2 +     ancos  L-x  + bn sin  L-x   ,
+h(x) =-2 +     ancos  L-x  + bn sin  L-x   .
            n=1
 " class="math-display"  /></center></td><td class="equation-label">(5)</td></tr></table>
-<!--l. 88--><p class="nopar" >
-in order to enable <span 
-class="cmmi-10">a</span><sub><span 
-class="cmmi-7">n</span></sub> to be uniformly expressed by Eq. (<a 
-href="#x4-3003r3">3<!--tex4ht:ref: 2-25-p1 --></a>). Fourier series (<a 
-href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>) can be
-further written as
+<!--l. 95--><p class="nopar" >
+[Fourier series (<a 
+href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>) can also be written as
 </p>
    <table 
 class="equation"><tr><td><a 
@@ -130,7 +129,7 @@ src="fourier_analysis5x.png" alt="       ∑∞  [      (    )        (    )]
 h(x) =      an-cos nπ-x + bn sin  nπx   ,
       n=−∞   2      L      2     L
 " class="math-display"  /></center></td><td class="equation-label">(6)</td></tr></table>
-<!--l. 95--><p class="nopar" >
+<!--l. 101--><p class="nopar" >
 where <span 
 class="cmmi-10">n </span>ranges from <span 
 class="cmsy-10">−∞ </span>to <span 
@@ -138,7 +137,7 @@ class="cmsy-10">∞</span>, and there is no special treatment for the edge
 case of <span 
 class="cmmi-10">n </span>= 0. In obtaining expression (<a 
 href="#x4-3006r6">6<!--tex4ht:ref: 23-4-3-1 --></a>) from (<a 
-href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>), use has been made of
+href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>) , use has been made of
 <span 
 class="cmmi-10">a</span><sub><span 
 class="cmmi-7">n</span></sub> cos(<span 
@@ -147,7 +146,7 @@ class="cmmi-10">a</span><sub><span
 class="cmsy-7">−</span><span 
 class="cmmi-7">n</span></sub> cos(<span 
 class="cmsy-10">−</span><span 
-class="cmmi-10">nπx∕L</span>), <span 
+class="cmmi-10">nπx∕L</span>) and <span 
 class="cmmi-10">b</span><sub><span 
 class="cmmi-7">n</span></sub> sin(<span 
 class="cmmi-10">nπx∕L</span>) = <span 
@@ -155,34 +154,15 @@ class="cmmi-10">b</span><sub><span
 class="cmsy-7">−</span><span 
 class="cmmi-7">n</span></sub> sin(<span 
 class="cmsy-10">−</span><span 
-class="cmmi-10">nπx∕L</span>), and
-<span 
-class="cmmi-10">b</span><sub><span 
-class="cmr-7">0</span></sub> = 0.
-</p><!--l. 102--><p class="indent" >   If <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span>) is a complex-valued function (the independent variable <span 
-class="cmmi-10">x </span>is still real
-number), then the above Fourier expansion can be applied to its real part and
-imaginary part, respectively. Combining the results, we can see that Eqs. (<a 
-href="#x4-3003r3">3<!--tex4ht:ref: 2-25-p1 --></a>)-(<a 
-href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>) is
+class="cmmi-10">nπx∕L</span>).]
+</p><!--l. 108--><p class="indent" >   Note that sine and cosine are similar to each other: one can be obtained from the
+other by shifting, i.e., they diﬀers only in the “phase”. Using trigonometric identities,
+expression (<a 
+href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>) can be expressed in terms of only cosine:
+</p>
                                                                   
 
                                                                   
-still valid. In this case, <span 
-class="cmmi-10">a</span><sub><span 
-class="cmmi-7">n</span></sub> and <span 
-class="cmmi-10">b</span><sub><span 
-class="cmmi-7">n</span></sub> are complex numbers.
-</p><!--l. 108--><p class="indent" >   Note that sine and cosine are essentially the same function: one can be obtained
-from the other by shifting, i.e., they diﬀers only in the “phase”. For the case that
-<span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">x</span>) is real-valued, using trigonometric identities, expression (<a 
-href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>) can be expressed in
-terms of only cosine/sine functions:
-</p>
    <table 
 class="equation"><tr><td><a 
  id="x4-3007r7"></a>
@@ -192,7 +172,7 @@ src="fourier_analysis6x.png" alt="      a0   ∞∑        (nπ-     )
 h(x) = 2 +    An cos L  x− Φn  ,
            n=1
 " class="math-display"  /></center></td><td class="equation-label">(7)</td></tr></table>
-<!--l. 116--><p class="nopar" >
+<!--l. 115--><p class="nopar" >
 where the amplitude <span 
 class="cmmi-10">A</span><sub><span 
 class="cmmi-7">n</span></sub> is given by
@@ -205,33 +185,49 @@ class="equation"><tr><td><a
 src="fourier_analysis7x.png" alt="     ∘ -2---2-
 An =   an + bn,
 " class="math-display"  /></center></td><td class="equation-label">(8)</td></tr></table>
-<!--l. 120--><p class="nopar" >
+<!--l. 119--><p class="nopar" >
 and the phase Φ<sub><span 
 class="cmmi-7">n</span></sub> is given by
 </p>
    <table 
 class="equation"><tr><td><a 
  id="x4-3009r9"></a>
-                                                                  
-
-                                                                  
    <center class="math-display" >
 <img 
 src="fourier_analysis8x.png" alt="Φn = atan2(bn,an),
 " class="math-display"  /></center></td><td class="equation-label">(9)</td></tr></table>
-<!--l. 124--><p class="nopar" >
+                                                                  
+
+                                                                  
+<!--l. 123--><p class="nopar" >
 where atan2(<span 
-class="cmmi-10">y,x</span>) is a Fortran function computing the poloidal angle of Cartesian
-point (<span 
-class="cmmi-10">x,y</span>), which gives an angle in the correct quadrant.
+class="cmmi-10">y,x</span>) is the 2-argument arctangent, which gives an angle in the correct
+quadrant. Expresion (<a 
+href="#x4-3007r7">7<!--tex4ht:ref: 23-10-6-p1 --></a>) can be stated as: a periodic signal is composed
+of cosine functions of diﬀerent frequencies and phases (we interpret <span 
+class="cmmi-10">x </span>as
+time).
+</p><!--l. 129--><p class="indent" >   If <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">x</span>) is a complex-valued function (the independent variable <span 
+class="cmmi-10">x </span>is still real
+number), then the above Fourier expansion can be applied to its real part and
+imaginary part, respectively. Combining the results, we can see that Eqs. (<a 
+href="#x4-3003r3">3<!--tex4ht:ref: 2-25-p1 --></a>)-(<a 
+href="#x4-3005r5">5<!--tex4ht:ref: 2-25-p3 --></a>) is
+still valid. In this case, <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> and <span 
+class="cmmi-10">b</span><sub><span 
+class="cmmi-7">n</span></sub> are complex numbers.
                                                                   
 
                                                                   
 </p>
-   <!--l. 129--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 135--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu2.html" >next</a>] [<a 
 href="fourier_analysissu1.html" >front</a>] [<a 
 href="fourier_analysisse2.html#fourier_analysissu1.html" >up</a>] </p></div>
-<!--l. 129--><p class="indent" >   <a 
+<!--l. 135--><p class="indent" >   <a 
  id="tailfourier_analysissu1.html"></a> </p> 
 </body></html> 

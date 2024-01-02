@@ -9,10 +9,10 @@
 \newcommand{\tmem}[1]{{\em #1\/}}
 \newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
 \newcommand{\tmstrong}[1]{\textbf{#1}}
-\newcommand{\codestar}[1]{\textbf{#1}}
 \newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
 \newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
 \newenvironment{tmcode}[1][]{\begin{alltt} }{\end{alltt}}
+
 %%%%%%%%%% End TeXmacs macros
 
 \begin{document}
@@ -30,22 +30,27 @@
 \maketitle
 
 \begin{abstract}
-  These notes review the basic theory of Fourier expansion that are necessary
-  for one to use Fourier expansion in numerical codes.
+  This note discusses the Discrete Fourier Transform (DFT) and its variations
+  (e.g., the discrete sine transform).
+  
+  \
+  
+  \ 
 \end{abstract}
 
 \section{Introduction}
 
 This note discusses the Fourier expansion and Discrete Fourier Transform
 (DFT), giving step by step derivation of the definition of DFT and its
-variations such as the discrete sine transform. I also discuss how to relate
-this to the output of some computer libraries (e.g. FFTW).
+variations (e.g., the discrete sine transform). After carefully going through
+these elementary derivations, I feel more comfortable in using Fourier
+expansion in my numerical codes.
 
-The Fast Fourier Transform algorithm (FFT) makes the DFT fast enough to solve
-many real-life problems, which makes FFT be among the top ten algorithms that
-have changed the world. The FFT algorithm remained mysterious to me for many
-years until I read Cooley and Tukey's original paper, which turns out to be a
-very concise paper and very easy to follow (details are discussed in Append.
+(The Fast Fourier Transform algorithm (FFT) makes the DFT fast enough to solve
+many real-life problems, which makes FFT be among the top algorithms that have
+changed the world. The FFT algorithm remained mysterious to me for many years
+until I read Cooley and Tukey's original paper, which turns out to be a very
+concise paper and very easy to follow (details are discussed in Append.
 \ref{23-3-23-p1}).
 
 \section{Fourier series}
@@ -58,15 +63,16 @@ can be expressed as the following series
   \label{2-25-1} h (x) = \sum_{n = 0}^{\infty} a_n \cos \left( \frac{n \pi}{L}
   x \right) + \sum_{n = 1}^{\infty} b_n \sin \left( \frac{n \pi}{L} x \right),
 \end{equation}
-which is called Fourier series. [It is not trivial to prove the above
-statement (what is needed in the proof is to prove that the set of functions
-$\cos (n \pi x / L)$ and $\sin (n \pi x / L)$ with $n = 0, 1, \ldots \infty$
-is a ``complete set''{\cite{snieder1994}}). We will not concern us here with
-this proof and simply start working with the Fourier series in Eq.
-(\ref{2-25-1}).] At this point it is not clear yet what the coefficients $a_n$
-and $b_n$ are. These can be obtained by taking product of Eq. (\ref{2-25-1})
-with $\cos (j \pi x / L)$ and $\sin (j \pi x / L)$, respectively, and then
-integrating form $- L$ to $L$, which gives
+which is called Fourier series. It is not trivial to prove the above statement
+(what is needed in the proof is to prove that the set of functions $\cos (n
+\pi x / L)$ and $\sin (n \pi x / L)$ with $n = 0, 1, \ldots \infty$ is a
+``complete set''{\cite{snieder1994}}). I will ignore this proof and simply
+start with Eq. (\ref{2-25-1}).
+
+At this point it is not clear what the coefficients $a_n$ and $b_n$ are. These
+can be obtained by taking product of Eq. (\ref{2-25-1}) with $\cos (j \pi x /
+L)$ and $\sin (j \pi x / L)$, respectively, and then integrating form $- L$ to
+$L$, which gives
 \begin{equation}
   a_0 = \frac{1}{2 L} \int_{- L}^L h (x) d x,
 \end{equation}
@@ -80,14 +86,14 @@ and, for $j \geqslant 1$,
   \label{2-25-p1m} b_j = \frac{1}{L} \int_{- L}^L h (x) \sin \left( \frac{j
   \pi}{L} x \right) d x.
 \end{equation}
+In order to enable $a_n$ to be uniformly expressed by Eq. (\ref{2-25-p1}),
 Fourier series are often redefined as
 \begin{equation}
   \label{2-25-p3} h (x) = \frac{a_0}{2} + \sum_{n = 1}^{\infty} \left[ a_n
   \cos \left( \frac{n \pi}{L} x \right) + b_n \sin \left( \frac{n \pi}{L} x
-  \right) \right],
+  \right) \right] .
 \end{equation}
-in order to enable $a_n$ to be uniformly expressed by Eq. (\ref{2-25-p1}).
-Fourier series (\ref{2-25-p3}) can be further written as
+[Fourier series (\ref{2-25-p3}) can also be written as
 \begin{equation}
   \label{23-4-3-1} h (x) = \sum_{n = - \infty}^{\infty} \left[ \frac{a_n}{2}
   \cos \left( \frac{n \pi}{L} x \right) + \frac{b_n}{2} \sin \left( \frac{n
@@ -95,24 +101,17 @@ Fourier series (\ref{2-25-p3}) can be further written as
 \end{equation}
 where $n$ ranges from $- \infty$ to $\infty$, and there is no special
 treatment for the edge case of $n = 0$. In obtaining expression
-(\ref{23-4-3-1}) from (\ref{2-25-p3}), use has been made of $a_n \cos (n \pi x
-/ L) = a_{- n} \cos (- n \pi x / L)$, $b_n \sin (n \pi x / L) = b_{- n} \sin
-(- n \pi x / L)$, and $b_0 = 0$.
+(\ref{23-4-3-1}) from (\ref{2-25-p3}) , use has been made of $a_n \cos (n \pi
+x / L) = a_{- n} \cos (- n \pi x / L)$ and $b_n \sin (n \pi x / L) = b_{- n}
+\sin (- n \pi x / L)$.]
 
-If $h (x)$ is a complex-valued function (the independent variable $x$ is still
-real number), then the above Fourier expansion can be applied to its real part
-and imaginary part, respectively. Combining the results, we can see that Eqs.
-(\ref{2-25-p1})-(\ref{2-25-p3}) is still valid. In this case, $a_n$ and $b_n$
-are complex numbers.
-
-Note that sine and cosine are essentially the same function: one can be
-obtained from the other by shifting, i.e., they differs only in the ``phase''.
-For the case that $h (x)$ is real-valued, using trigonometric identities,
-expression (\ref{2-25-p3}) can be expressed in terms of only cosine/sine
-functions:
+Note that sine and cosine are similar to each other: one can be obtained from
+the other by shifting, i.e., they differs only in the ``phase''. Using
+trigonometric identities, expression (\ref{2-25-p3}) can be expressed in terms
+of only cosine:
 \begin{equation}
-  h (x) = \frac{a_0}{2} + \sum_{n = 1}^{\infty} A_n \cos \left( \frac{n
-  \pi}{L} x - \Phi_n \right),
+  \label{23-10-6-p1} h (x) = \frac{a_0}{2} + \sum_{n = 1}^{\infty} A_n \cos
+  \left( \frac{n \pi}{L} x - \Phi_n \right),
 \end{equation}
 where the amplitude $A_n$ is given by
 \begin{equation}
@@ -122,16 +121,23 @@ and the phase $\Phi_n$ is given by
 \begin{equation}
   \label{20-12-19-a1} \Phi_n = \tmop{atan} 2 (b_n, a_n),
 \end{equation}
-where $\tmop{atan} 2 (y, x)$ is a Fortran function computing the poloidal
-angle of Cartesian point $(x, y)$, which gives an angle in the correct
-quadrant.
+where $\tmop{atan} 2 (y, x)$ is the 2-argument arctangent, which gives an
+angle in the correct quadrant. Expresion (\ref{23-10-6-p1}) can be stated as:
+a periodic signal is composed of cosine functions of different frequencies and
+phases (we interpret $x$ as time).
+
+If $h (x)$ is a complex-valued function (the independent variable $x$ is still
+real number), then the above Fourier expansion can be applied to its real part
+and imaginary part, respectively. Combining the results, we can see that Eqs.
+(\ref{2-25-p1})-(\ref{2-25-p3}) is still valid. In this case, $a_n$ and $b_n$
+are complex numbers.
 
 \subsection{Fourier series in terms of basis functions $e^{i n \pi x / L}$}
 
 Fourier series are often expressed in terms of the complex-valued basis
 functions $e^{i n \pi x / L}$. Next, we derive this version of the Fourier
 series, which is the most popular version we see in textbooks and papers (we
-will see the reason why this version is popular).
+will see why this version is popular).
 
 Using Euler's formula (this is a bridge between representations using real
 numbers and complex numbers)
@@ -146,29 +152,24 @@ and
 \end{equation}
 in Eq. (\ref{2-25-p3}), we obtain
 \begin{equation}
-  h (x) = \frac{a_0}{2} + \sum_{n = 1}^{\infty} a_n \frac{e^{i n \pi x / L} +
-  e^{- i n \pi x / L}}{2} + \sum_{n = 1}^{\infty} b_n \frac{e^{i n \pi x / L}
-  - e^{- i n \pi x / L}}{2 i},
-\end{equation}
-which can be organized as
-\begin{equation}
   \label{10-24-e1} h (x) = \frac{a_0}{2} + \sum_{n = 1}^{\infty} \left[ \left(
   \frac{a_n - i b_n}{2} \right) e^{i n \pi x / L} + \left( \frac{a_n + i
   b_n}{2} \right) e^{- i n \pi x / L} \right] .
 \end{equation}
-And this form motivates us to define
+Define
 \begin{equation}
-  \label{2-25-p4} c_n = \frac{a_n - i b_n}{2}, c_{- n} = \frac{a_n + i
-  b_n}{2},
+  \label{2-25-p4} c_n = \frac{a_n - i b_n}{2},
 \end{equation}
-where $n = 0, 1, 2, \ldots$ (note $b_0 = 0$), then Eq. (\ref{10-24-e1}) is
-written
+then, by using $a_{- n} = a_n$ $b_{- n} = - b_n$, we know that
+\begin{equation}
+  c_{- n} = \frac{a_n + i b_n}{2} .
+\end{equation}
+Then Eq. (\ref{10-24-e1}) is written
 \begin{equation}
   \label{2-25-p6} h (x) = \sum_{n = - \infty}^{\infty} c_n e^{i n \pi x / L} .
 \end{equation}
-Furthermore, the expressions of $a_n$ and $b_n$ given by Eq. (\ref{2-25-p1})
-and (\ref{2-25-p1m}) indicate that $c_n$ and $c_{- n}$ in Eq. (\ref{2-25-p4})
-can be uniformly expressed as
+Using the expressions of $a_n$ and $b_n$ given by Eq. (\ref{2-25-p1}) and
+(\ref{2-25-p1m}), $c_n$ is expressed as
 \begin{equation}
   \label{2-25-p7} c_n = \frac{1}{2 L} \int_{- L}^L h (x) e^{- i n \pi x / L} d
   x.
@@ -180,7 +181,7 @@ unlike Eq. (\ref{2-25-1}), where $n$ is from zero to positive infinity. An
 advantage of Eqs. (\ref{2-25-p6}) and (\ref{2-25-p7}) is that no special
 treatment is needed for the edge case of $n = 0$.
 
-Using Eq. (\ref{2-25-p7}) in Eqs. (\ref{2-25-p6}), we obtain
+\tmcolor{blue}{Using Eq. (\ref{2-25-p7}) in Eqs. (\ref{2-25-p6}), we obtain
 \begin{eqnarray}
   h (x) & = & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h
   (x) e^{- i n \pi x / L} d x \right) e^{i n \pi x / L} . \nonumber\\
@@ -202,7 +203,7 @@ Using Eq. (\ref{2-25-p7}) in Eqs. (\ref{2-25-p6}), we obtain
   \cos \left( \frac{n \pi}{L} x \right) \right)  \label{23-4-3-5}
 \end{eqnarray}
 Noting that the $+ n$ terms cancel the $- n$ terms in both line
-(\ref{23-4-3-4}) and line (\ref{23-4-3-5}), then $h (x)$ is written as
+(\ref{23-4-3-4}) and line (\ref{23-4-3-5}), the above expression is reduced to
 \begin{eqnarray}
   h (x) & = & \sum_{n = - \infty}^{\infty} \left( \frac{1}{2 L} \int_{- L}^L h
   (x) \cos \left( \frac{n \pi}{L} x \right) d x \right) \cos \left( \frac{n
@@ -230,6 +231,25 @@ then expression (\ref{23-3-27-1}) is written as
 which recovers expression (\ref{23-4-3-1}). Note that $n \in (- \infty, +
 \infty)$ in this version, which differs from Eq. (\ref{2-25-p3}). Also this
 expression has no edge case that needs special treatment.
+
+As a benchmark, we can start from exression (\ref{23-4-3-1}) to derive the
+complex Fourier expansion: Using the Euler formula in expression
+(\ref{23-4-3-1}), we obtain
+\begin{eqnarray*}
+  h (x) & = & \sum_{n = - \infty}^{\infty} \left[ \left( \frac{a_n}{4} -
+  \frac{i b_n}{4} \right) e^{i n \pi x / L} + \left( \frac{a_n}{4} + \frac{i
+  b_n}{4} \right) e^{- i n \pi x / L} \right]\\
+  & = & \sum_{n = 1}^{\infty} \left( \frac{a_n}{4} - \frac{i b_n}{4} \right)
+  e^{i n \pi x / L} + \sum_{n = - 1}^{- \infty} \left( \frac{a_n}{4} + \frac{i
+  b_n}{4} \right) e^{- i n \pi x / L}\\
+  & + & \sum_{n = - \infty}^0 \left( \frac{a_n}{4} - \frac{i b_n}{4} \right)
+  e^{i n \pi x / L} + \sum_{n = \infty}^0 \left( \frac{a_n}{4} + \frac{i
+  b_n}{4} \right) e^{- i n \pi x / L}
+\end{eqnarray*}
+Noting that \ $a_n = a_{- n}$ and $b_n = - b_{- n}$, the above expresion is
+written as
+\[ h (x) \sum_{n = - \infty}^{\infty} \left( \frac{a_n}{2} - \frac{i b_n}{2}
+   \right) e^{i n \pi x / L} . \]}
 
 Using Eq. (\ref{2-25-p4}), the coefficients $a_n$ and $b_n$ appearing in Eq.
 (\ref{2-25-p3}) can be recovered from $c_n$ by
@@ -274,23 +294,23 @@ used.]
 
 \subsection{Numerical computation of Fourier expansion coefficient}
 
-For a periodic function $h (t)$ with a period of $T$, Fourier series are
-written as
+For a periodic function $h (t)$ with a period of $T$, its Fourier expansion is
+given by
 \begin{equation}
-  h (t) = \sum_{n = - \infty}^{\infty} c_n \exp \left( \frac{i n 2 \pi t}{T}
+  h (t) = \sum_{n = - \infty}^{\infty} c_n \exp \left( i n \frac{2 \pi}{T} t
   \right),
 \end{equation}
 with the coefficient $c_n$ given by
 \begin{equation}
-  \label{19-1-10-1m} c_n = \frac{1}{T} \int_0^T h (t) \exp \left( - \frac{i n
-  2 \pi t}{T} \right) d t.
+  \label{19-1-10-1m} c_n = \frac{1}{T} \int_0^T h (t) \exp \left( - i n
+  \frac{2 \pi}{T} t \right) d t.
 \end{equation}
-How to numerically compute the Fourier expansion coefficient? A simple way is
+How to numerically compute the Fourier expansion coefficients? A simple way is
 to use the rectangle formula to approximate the integration in Eq.
 (\ref{19-1-10-1m}), i.e.,
 \begin{equation}
   \label{10-3-e2m} c_n \approx \frac{\Delta}{T} \sum_{j = 0}^{N - 1} h_j \exp
-  \left( - \frac{i n 2 \pi j \Delta}{T} \right),
+  \left( - i n \frac{2 \pi j \Delta}{T} \right),
 \end{equation}
 where $h_j = h (t_j)$ and $t_j = j \Delta$ with $j = 0, 1, 2, \ldots, N - 1$
 and $\Delta = T / N$, as is shown in Fig. \ref{16-2-25}.
@@ -308,113 +328,77 @@ $\Delta \rightarrow 0$. In practice, we can sample $h (t)$ only with a nonzero
 $\Delta$. Therefore Eq. (\ref{10-3-e2m}) is usually an approximation. Do we
 have some rules to choose a suitable $\Delta$ so that Eq. (\ref{10-3-e2m}) can
 become a good approximation or even an exact relation? This important question
-is answered by the sampling theorem, which sates that a suitable $\Delta$ to
-make Eq. (\ref{10-3-e2m}) exact is given by $\Delta \leqslant 1 / (2 f_c)$,
-where $f_c = N_c / T$ is the largest frequency contained in $h (t)$ (i.e,
-$c_n$ is zero for $| n | \geqslant N_c$).
+is answered by the sampling theorem (will be discussed in Append.
+\ref{23-10-17-1}), which sates that a suitable $\Delta$ to make Eq.
+(\ref{10-3-e2m}) exact is given by $\Delta \leqslant 1 / (2 f_c)$, where $f_c
+= N_c / T$ is the largest frequency contained in $h (t)$ (i.e, $c_n$ is zero
+for $| n | \geqslant N_c$).
+
+$f_s \equiv 1 / \Delta$ is called sampling frequency. Then the above
+condition can be rephrased as: the sampling frequency should be larger than $2
+f_c$.
 
 \section{Discrete Fourier transformation (DFT)}\label{9-29-8}
 
-\subsection{Definition of DFT}
+\subsection{Definition}
 
-The summation in Eq. (\ref{10-3-e2m}),
+Denote the summation in Eq. (\ref{10-3-e2m}) by $H_n$:
 \begin{equation}
   \label{2-26-2} H_n \equiv \sum_{j = 0}^{N - 1} h_j \exp \left( - i \frac{2
-  \pi}{N} n j \right),
+  \pi}{N} n j \right) .
 \end{equation}
-is called the {\tmstrong{Discrete Fourier transformation (DFT)}}, where $n = -
-N / 2, \ldots, 0, \ldots, N / 2$ (we consider only the case that $N$ is an
-even number). The Fourier expansion coefficients $c_n$ in Eq. (\ref{10-3-e2m})
-is then written as
+Then $H_n$ with $n = 0, 1, \ldots N - 1$ is called the {\tmstrong{Discrete
+Fourier transformation (DFT)}} of $h_j$ with $j = 0, 1, \ldots, N - 1$. (The
+efficient algorithm of computing the DFT is discussed in Appendix
+\ref{18-1-28-a1}.)
+
+Why do we choose $n$ to be in the positive range $[0 : N - 1]$? This is to
+make the tranform pair symmetric: both $j$ and $n$ are in the same range. This
+symmetry is helpful in making the transform pair easy to remember. This does
+not mean we only need the positive frequency components. In fact, we usually
+need $n$ in the range $[- N / 2, N / 2]$. This will be discussed in the next
+section.
+
+\tmcolor{blue}{In terms of $H_n$, the Fourier expansion coefficients $c_n$ in
+Eq. (\ref{10-3-e2m}) is written as
 \begin{equation}
   c_n = \frac{1}{N} H_n .
 \end{equation}
-The corresponding frequency corresponding to the $c_n$ term is
+The corresponding frequency is
 \begin{equation}
-  \label{10-26-1} f_n = f_s \frac{n}{N},
+  \label{10-26-1} f_n = \frac{n}{T} = \frac{n}{\Delta N} = f_s \frac{n}{N} .
 \end{equation}
-where $f_s = 1 / \Delta$ is called sampling frequency.
+Here $f_1$ is called the fundamental frequency (spacing in the frequency
+domain).}
 
-The efficient algorithm of computing the DFT is discussed in Appendix
-\ref{18-1-28-a1}.
+\
 
-\subsection{Periodic property of Discrete Fourier transformation}
+\subsection{Periodic property of DFT}
 
-The DFT of time-domain array $h_j$ with $j = 0, 1, \ldots, N - 1$ is given by
-Eq. (\ref{2-26-2}), i.e.,
-\begin{equation}
-  \label{3-25-e3} H_n = \sum_{j = 0}^{N - 1} W^{n j} h_j
-\end{equation}
-with $n = - N / 2, \ldots, N / 2$, where $W = \exp (2 \pi i / N)$.
-
-Note that the subscript of $H_n$ is in the range $n = - N / 2, \ldots, N / 2$
-while the subscript of $h_j$ is in the range $j = 0, 1, \ldots, N - 1$.
-Further note that $H_n$ contains $N + 1$ elements while $h_j$ contains only
-$N$ elements. It is ready to find that the array defined in Eq.
-(\ref{3-25-e3}) has the following periodic property
+We are usually interested in Fourier expansion coefficients in the range $n =
+- N / 2, \ldots, N / 2$ (assume that $N$ is even) since we expect the
+coefficients decay for larger $| n |$ (so we impose a cutoff for a range that
+is symmetric about $n = 0$). Then the subscript range of $H_n$ we care about
+is $n \in \left[ - \frac{N}{2} : \frac{N}{2} \right]$. However, the original
+DFT is for the range $n \in [0 : N - 1]$. How do we reconcile them? The answer
+is that we make use of the periodic property of DFT. It is obvious that $H_n$
+defined in Eq. (\ref{2-26-2}) has the following periodic property:
 \begin{equation}
   \label{3-25-e1} H_{n + N} = H_n .
 \end{equation}
-Using this general property, we obtain $H_{- N / 2} = H_{N / 2}$, i.e., the
-two ending elements of $H_n$, namely $H_{- N / 2}$ and $H_{N / 2}$, are equal
-to each other. Thus only one value is needed to be stored. This can be used to
-reduce the number of elements of $H_n$ that need to be stored by one. Then
-$H_n$ contains only $N$ elements rather than $N + 1$. Furthermore, we prefer
-to make the index of $H_n$ and $h_j$ array have the same range, i.e., $[0, N -
-1]$. This can be done by storing the negative frequency part (i.e., $n = - N /
-2, \ldots, - 1$) of $H_n$ in the locations where the subscripts are
-respectively $n = N / 2, \ldots, N - 1$, as is shown in Fig \ref{4-16-1}. A
-naive method of implementing this in a code is to first calculate the values
-of $H_n$ in the range $n = - N / 2, \ldots, N / 2$, then shift the array to
-achieve the desired storage arrangement, as is shown in Fig \ref{4-16-1}. It
-turns out that we have a better way to achieve the same goal: using again the
-periodic property Eq. (\ref{3-25-e1}), we know that the value of the $H_n$
-array elements with negative subscripts, $n = - N / 2, \ldots, - 1$, happens
-to be equal to the value of the $H_n$ elements with subscripts $n = N / 2,
-\ldots, N - 1$, respectively. Using this, we can simply use Eq.
-(\ref{3-25-e3}) to calculate values of $H_n$ in the range $n = 0, 1, N - 1$
-and the array obtained is exactly in the desired storage arrangement.
-
-\begin{figure}[h]
-  \includegraphics{/home/yj/theory/figures/fft_storage/a-1.eps}
-  \caption{\label{4-16-1}The negative frequency parts of the discrete Fourier
-  transformation are stored at the locations with the array index $n =
-  \frac{N}{2}, \frac{N}{2} + 1, \ldots, N - 1$. Since $H_{- N / 2} = H_{N /
-  2}$, the location $j = N / 2$ of the new array can be considered to be
-  storing both of them.}
-\end{figure}
-
-In practice, we do not use Eq. (\ref{3-25-e3}) directly to calculate $H_n$.
-Instead, the famous Fast Fourier Transformation (FFT) algorithm is used to
-calculate $H_n$ with $n = 0, 1, \ldots, N - 1$. Remember the storage
-arrangement discussed above is important for one to correctly interpret and
-use the output of FFT. For example, what frequency does the element $H_j$ with
-$j > N / 2$ correspond to? The answer is obvious if we know the storage
-arrangement of FFT output: the corresponding frequency of No. $j$th element is
-given by
-\begin{equation}
-  \label{17-10-14-1} f_j = \left\{ \begin{array}{l}
-    j \frac{f_s}{N}, \hspace{3em} \tmop{for} \quad 0 \leqslant j \leqslant
-    \frac{N}{2}\\
-    (j - N) \frac{f_s}{N}, \quad \tmop{for} \quad  \frac{N}{2} < j \leqslant N
-    - 1
-  \end{array} \right.
-\end{equation}
-Define $f_1 = f_s / N = 1 / T$, then Eq. (\ref{17-10-14-1}) can be written as
+Using this, we can infer what we need: the value of each $H_n$ with $n \in
+\left[ - \frac{N}{2} : - 1 \right]$ is equal to $H_n$ with $n \in \left[
+\frac{N}{2}, N - 1 \right]$, respectively. In this scenario, we can associate
+$H_j$ with the following frequency:
 \begin{equation}
   f_j = \left\{ \begin{array}{l}
     j f_1, \hspace{5em} \tmop{for} \quad 0 \leqslant j \leqslant \frac{N}{2}\\
     (j - N) f_1, \qquad \tmop{for} \quad  \frac{N}{2} < j \leqslant N - 1
   \end{array} \right.,
 \end{equation}
-Here $f_1$ is the spacing in the frequency domain and is called frequency
-resolution.
+where $f_1 = 1 / T$.
 
-Q: What is the negative frequency counterpart of the element $H_j$ for $j \neq
-0$ ?
-
-A: The storage arrangement shown in Fig. \ref{4-16-1} indicates that it is the
-element $H_{N - j}$.
+\
 
 \subsection{Frequency resolution and bandwidth}
 
@@ -425,9 +409,9 @@ time-window and is independent of the sampling frequency. If the time-window
 is fixed, increasing the sampling frequency only increase the bandwidth (the
 frequency range of DFT) and the frequency interval between neighbor DFT points
 are still $1 / T$, i.e., the frequency resolution is not changed. In summary,
-{\tmem{Bandwidth}} is the highest frequency that is captured in the Fourier
-transform, equal to half the sampling rate. {\tmem{Frequency Resolution}} is
-$1 / T$, which is the spacing between samples in the frequency domain.
+bandwidth is the highest frequency that is captured in the Fourier transform,
+equal to half the sampling rate. {\tmem{Frequency Resolution}} is $1 / T$,
+which is the spacing between samples in the frequency domain.
 
 \section{Inverse transform}
 
@@ -476,7 +460,7 @@ Evaluate $h (t)$ given by Eq. (\ref{11-9-1}) at the discrete point $t = j
   \pi j}{N} \right) + \tmcolor{blue}{H_{N / 2} \exp (- i \pi j)} \right] . 
 \end{eqnarray}
 Drop \tmcolor{blue}{the blue term} (which is negligible if $h$ satisfies the
-sampling theorem), then $h (j \Delta)$ is written as
+condition requried by the sampling theorem), then $h (j \Delta)$ is written as
 \begin{equation}
   \label{11-9-3} h (j \Delta) \approx \frac{1}{N} \sum_{n = 0}^{N - 1} H_n
   \exp \left( - i \frac{n 2 \pi j}{N} \right) .
@@ -504,12 +488,12 @@ recovers $h_j$ from $H_n$ (i.e., the DFT of $h_j$), and thus is called the
 inverse DFT.
 
 The normalization factor multiplying the DFT and inverse DFT (here $1$ and $1
-/ N$) and the signs of the exponents are merely conventions, and differ in
-some treatments. The only requirements of these conventions are that the DFT
-and inverse DFT have opposite-sign exponents and that the product of their
-normalization factors be $1 / N$. In most FFT computer libraries, the $1 / N$
-factor is omitted. So one must take this factor into account when one wants to
-reproduce the original data after a forward and then a backward transform.
+/ N$) and the signs of the exponents are merely conventions. The only
+requirement is that the DFT and inverse DFT have opposite-sign exponents and
+that the product of their normalization factors be $1 / N$. In most FFT
+computer libraries, the $1 / N$ factor is omitted. So one must take this
+factor into account when one wants to reproduce the original data after a
+forward and then a backward transform.
 
 \subsection{Proof of the inverse DFT}\label{10-7-p5}
 
@@ -591,7 +575,7 @@ use, intrinsic :: iso_c_binding
 implicit none
 include 'fftw3.f03'
 \end{tmcode}
-Here the first line uses {\codestar{iso\_c\_binding}} module to interface with
+Here the first line uses {\texttt{iso\_c\_binding}} module to interface with
 C in which FFTW is written. To use the FFT subroutines in FFTW, we need to
 define some variables of the desired types, such as
 \begin{tmcode}
@@ -628,12 +612,12 @@ routine:
 call fftw_destroy_plan(plan2)
 \end{tmcode}
 (Unless they are local arrays, Fortran does not automatically de-allocate
-arrays allocated by the {\codestar{acllocate()}}, so manually de-allocate all
+arrays allocated by the {\texttt{acllocate()}}, so manually de-allocate all
 allocated arrays is necessary for avoid memory leak)
 
 \
 
-\section{Sine transform and Cosine transform}
+\section{Discrete sine transform and cosine transform}
 
 We mentioned (without giving proof) that the set of functions $\cos (n 2 \pi
 (x - x_0) / (2 L))$ and $\sin (n 2 \pi (x - x_0) / (2 L))$ with $n = 0, 1,
@@ -647,7 +631,7 @@ is a ``complete set'' in expanding any function $h$ in the interval $(x_0, x_0
 (x - x_0) / (2 L))$ with $n = 0, 1, 2, \ldots \infty$ is a ``complete set'' in
 expanding any function $h$ in the interval $(x_0, x_0 + 2 L)$. Note that the
 argument of the basis functions used in the Fourier expansion differ from
-those used in the sine (or cosine) expansion by a factor of two.
+those used in the sine/cosine expansion by a factor of two.
 
 The first five basis functions used in Fourier expansion, sine expansion, and
 cosine expansion are plotted in Fig. \ref{18-1-10-e1}.
@@ -671,18 +655,11 @@ known that Gibbs oscillations appear near discontinuity points, which can be
 inner points in the interval or at the interval boundaries.
 
 The basis functions $b_k (x)$ used in the sine expansion have the properties
-$b_k (x_0) = b_k (x_0 + 2 L) = 0$. Therefore since expansion works best for
+$b_k (x_0) = b_k (x_0 + 2 L) = 0$. Therefore this expansion works best for
 functions that satisfy $h (x_0) = h (x_0 + 2 L) = 0$. For functions that do
 not satisfies this condition, there will be Gibbs oscillations near the
-interval boundary when approximated by using the sine expansion. Examples are
-shown in Fig. \ref{18-1-11-a1}.
-
-The basis functions $b_k (x)$ used in the cosine expansion have the properties
-$b_k' (x_0) = b_k' (x_0 + 2 L) = 0$. Therefore cosine expansion works best for
-functions that satisfy $h' (x_0) = h' (x_0 + 2 L) = 0$. For functions that do
-not satisfies this condition, there will be Gibbs oscillations near the
-interval boundary when approximated by using the cosine expansion (to be
-verified numerically by me).
+boundaries when approximated by using the sine expansion. Examples are shown
+in Fig. \ref{18-1-11-a1}.
 
 \begin{figure}[h]
   \includegraphics{/home/yj/project_new/test_space/sin_transform/fig2/p.eps}\includegraphics{/home/yj/project_new/test_space/sin_transform/fig3/p.eps}
@@ -690,23 +667,20 @@ verified numerically by me).
   by using the sine expansion. Right: linear function $h (x) = x - 1$
   approximated by using the sine expansion. Gibbs oscillation appears near the
   boundaries, where $h (x)$ does not satisfy the condition $h (x_0) = h (x_0 +
-  2 L) = 0$ ($x_0 = 0$ and $L = 1$ for this case). The expansion coefficients
+  L) = 0$ ($x_0 = 0$ and $L = 2$ for this case). The expansion coefficients
   $H_k$ are obtained via the discrete sine transform (\ref{18-1-11-a2}) with
-  number of sampling point $N = 50$. The reconstruction formula is given by $h
-  (x) = \frac{2}{N} \sum_{k = 1}^{N - 1} H_k \sin ( \frac{k \pi x}{2 L}
-  )$.}
+  number of sampling point $N = 50$. The reconstruction formula is given by $h(x) = \frac{2}{N} \sum_{k = 1}^{N - 1} H_k \sin ( \frac{k \pi x}{L})$.}
 \end{figure}
 
-\
+Similarly, the basis functions $b_k (x)$ used in the cosine expansion have the
+properties $b_k' (x_0) = b_k' (x_0 + 2 L) = 0$. Therefore this expansion works
+best for functions that satisfy $h' (x_0) = h' (x_0 + 2 L) = 0$. For functions
+that do not satisfies this condition, there will be Gibbs oscillations near
+the boundaries when approximated by using the cosine expansion (to be verified
+numerically).
 
-\
-
-Next, let us discuss the sine and cosine transformation.
-
-\subsection{Definition of the Discrete Sine Transform (DST)}
-
-Figure (\ref{18-8-15-p3}) illustrates the grids used in the following
-discussion.
+Next, let us discuss the sine and cosine transformation. Figure
+\ref{18-8-15-p3} illustrates the grids used in the following discussion.
 
 \begin{figure}[h]
   \includegraphics{/home/yj/theory/figures/sin_expansion/grids-2.eps}
@@ -714,50 +688,48 @@ discussion.
   = h_N = 0$, i.e., $h (x_0) = h (x_0 + L) = 0$.}
 \end{figure}
 
+\subsection{Traditional defintion of discrete Sine Transform (DST)}
+
 There are several slightly different types of Discrete Sine Transforms (DST).
 One form I saw in W. Press's numerical recipe book is given by
 \begin{equation}
   \label{18-1-11-a2} H_k = \sum_{j = 0}^{N - 1} h_j \sin \left( \frac{k \pi
   j}{N} \right),
 \end{equation}
-where $h_0 = h_N = 0$ are assumed. This form can be formally obtained by
-replacing DFT's exponential function $\exp (2 \pi i k j / N)$ by $\sin (\pi k
-j / N)$. The inverse sine transformation is given by (I did not derive this,
-but had numerically verified that this transform recovers the original data if
-applied after the sine transform (\ref{18-1-11-a2}) (code at
+where $h_0 = h_N = 0$ are assumed. This form can be obtained by replacing
+DFT's exponential function $\exp (2 \pi i k j / N)$ by $\sin (\pi k j / N)$.
+The inverse sine transformation is given by (I did not derive this, but had
+numerically verified that this transform recovers the original data if applied
+after the sine transform (\ref{18-1-11-a2}) (code at
 /home/yj/project\_new/test\_space/sine\_expansion/t2.f90))
-
-
 \begin{equation}
   \label{18-8-15-p1} h_j = \frac{2}{N} \sum_{k = 0}^{N - 1} H_k \sin \left(
   \frac{k \pi j}{N} \right),
 \end{equation}
 which is identical with the forward sine transformation except for the
-normalization factor $2 / N$. (The elements with index of zero can also be
-excluded from the summation (\ref{18-1-11-a2}) and (\ref{18-8-15-p1}) since
-these elements are zero). Replacing $j / N$ in Eq. (\ref{18-8-15-p1}) by $(x -
-x_0) / L$ , we obtain the reconstructing function
+normalization factor $2 / N$. (The terms of index 0 in both Eq. () and () can
+be dropped since they are zero. They are kept to make the representation look
+more similar to the DFT, where the index begin from zero.) Replacing $j / N$
+in Eq. (\ref{18-8-15-p1}) by $(x - x_0) / L$ , we obtain the reconstructing
+function
 \begin{equation}
   h (x) = \frac{2}{N} \sum_{k = 0}^{N - 1} H_k \sin \left( \frac{k \pi (x -
   x_0)}{L} \right) .
 \end{equation}
 
 
-\
-
-We need a fast method of computing the above DST. All fast methods for this
-finally need to make use of the fast method used in the computation of DFT. To
-conveniently use the fast method of DFT, we need to define the DST in a way
-that the DST can be easily connected to the DFT so that the DFT fast method
-can be easily applied to compute the DST. A standard way of making this easy
-is to define the DST via the DFT of an odd extension of the original data.
-Next, let us discuss this.
+We need a fast method for computing the above DST. All fast methods finally
+need to make use of the fast method used in the computation of DFT, i.e., FFT.
+To make use of FFT, we need to define the DST in a way that the DST can be
+easily connected to the DFT so that FFT can be easily applied. A standard way
+of making this easy is to define the DST via the DFT of an odd extension of
+the original data. Next, let us discuss this.
 
 \subsection{Define DST via DFT}
 
 Let us introduce the Discrete Sine Transform (DST) by odd extending a given
 real number sequence and then using the DFT of the extended data to define
-DST. There are several slightly different way of odd extending a given
+DST. There are several slightly different ways of odd extending a given
 sequence and thus different types of DST. Given a $n = 3$ real number sequence
 $(a, b, c)$, one frequently adopted odd extension is $(0, a, b, c, 0, - a, -
 b, - c, 0)$. This odd extension is illustrated in Fig. \ref{18-1-11-e1}.
@@ -1144,7 +1116,7 @@ algorithm requires a total of $N (r_1 + r_2)$ operations.
 
 \
 
-\section{Fourier series$\rightarrow$Fourier transformation}
+\section{Fourier series$\rightarrow$Fourier transformation}\label{23-10-17-1}
 
 \subsection{From discrete spectrum to continuous spectrum}
 
@@ -1373,9 +1345,7 @@ assumption of sampling theorem, i.e., $H (f)$ has the property given in Eq.
 (\ref{8-28-5}), where $f_c$ is the largest frequency contained in $h (t)$
 (i.e., $H (f) = 0$ for $|f| > f_c$).
 
-\section{Multi-dimensional Fourier series}
-
-\subsection{2D Fourier series in terms of complex basis functions}
+\section{2D Fourier series}
 
 Compared with Eq. (\ref{2-25-1}) that uses the trigonometric functions,
 Fourier series (\ref{2-25-p6}) and (\ref{2-25-p7}), which is expressed in
@@ -1411,6 +1381,8 @@ Using Eq. (\ref{10-22-p1}) in Eq. (\ref{10-22-p2}), we obtain
 Equations (\ref{10-22-e1}) and (\ref{2-4-1}) give the two-dimensional Fourier
 series of $G (x, y)$.
 
+\subsection{For 2D real-valued functions}
+
 The formula for expanding a real-valued two-dimensional function $G (x, y)$ in
 terms of basis functions $\cos \left( \frac{m \pi x}{L_x} + \frac{n \pi
 y}{L_y} \right)$ and $\sin \left( \frac{m \pi x}{L_x} + \frac{n \pi y}{L_y}
@@ -1435,16 +1407,42 @@ expression will cancel each other. Therefore, the above expansion is
 simplified to
 \begin{eqnarray}
   G (x, y) & = & \sum_{m = - \infty}^{\infty} \sum_{n = - \infty}^{\infty}
-  \left( \frac{1}{4 L_x L_y} \int_{- L_y}^{L_y} \int_{- L_x}^{L_x} G (x, y)
-  \cos \alpha d x d y \right) \cos \alpha \nonumber\\
-  & + & \sum_{m = - \infty}^{\infty} \sum_{n = - \infty}^{\infty} \left(
-  \frac{1}{4 L_x L_y} \int_{- L_y}^{L_y} \int_{- L_x}^{L_x} G (x, y) \sin
-  \alpha d x d y \right) \sin \alpha .  \label{23-3-31-p1}
+  \nonumber\\
+  &  & [\nobracket \left( \frac{1}{4 L_x L_y} \int_{- L_y}^{L_y} \int_{-
+  L_x}^{L_x} G (x, y) \cos \alpha d x d y \right) \cos \alpha \nonumber\\
+  & + & \left( \frac{1}{4 L_x L_y} \int_{- L_y}^{L_y} \int_{- L_x}^{L_x} G
+  (x, y) \sin \alpha d x d y \right) \sin \alpha \nobracket] . 
+  \label{23-3-31-p1}
 \end{eqnarray}
+This is a compact Fouier expansion for 2D real-valued function. Furthermore,
+noting that $(m, n)$ term is equal to $(- m, - n)$ term, the above expansion
+can be further reduced to
+\begin{eqnarray}
+  G (x, y) & = & \sum_{n = - \infty}^{\infty} \sum_{m = 0}^{\infty} G_{n m}^c
+  \cos \alpha + G^s_{n m} \sin \alpha,  \label{23-10-17-2}
+\end{eqnarray}
+with
+\begin{equation}
+  G^c_{00} = \frac{1}{4 L_x L_y} \int_{- L_y}^{L_y} \int_{- L_x}^{L_x} G (x,
+  y) d x d y.
+\end{equation}
+and the other coefficients given by
+\begin{equation}
+  G^c_{m n} = \frac{1}{2 L_x L_y} \int_{- L_y}^{L_y} \int_{- L_x}^{L_x} G (x,
+  y) \cos \alpha d x d y.
+\end{equation}
+\begin{equation}
+  \label{23-10-17-3} G^s_{m n} = \frac{1}{2 L_x L_y} \int_{- L_y}^{L_y}
+  \int_{- L_x}^{L_x} G (x, y) \sin \alpha d x d y.
+\end{equation}
+Here the range of $m$ is reduced to $[0 : + \infty]$. In this case, we have an
+edge case, $G_{00}^c$, that needs special treatment. We see that allowing the
+index runing from $-{\infty}$ to $+{\infty}$ has the advantage of that there are
+no edge cases that needs special treatment.
 
-
-\subsection{2D Fourier series using trigonometric functions cosine and
-sine}\label{10-23-8}
+\subsection{2D real-valued Fourier series derived directly from real-valued
+trigonometric functions expansion-- to be deleted, because there is an easier
+way to do this, as is given by the above section}\label{10-23-8}
 
 We see that the extension of Fourier series from one-dimension case to
 two-dimension case is straightforward when expressed in terms of the complex
@@ -1452,11 +1450,9 @@ exponential function $e^{i n \pi x / L}$. However, if we use $\sin (m \pi x /
 L_x)$, $\cos (m \pi x / L_x)$, $\sin (n \pi y / L_y)$, and $\cos (n \pi y /
 L_y)$ as basis functions, the derivation of the two-dimensional Fourier series
 of $G (x, y)$ is a little complicated (product-to-sum trigonometric identities
-are involved to simplify the results).
-
-In this section, we derive the two-dimensional Fourier series using cosine and
-sine as basis functions. A two-dimensional function $G (x, y)$ can be first
-expanded as Fourier series about $x$,
+are involved to simplify the results). Let's see the derivation. A
+two-dimensional function $G (x, y)$ can be first expanded as Fourier series
+about $x$,
 \begin{equation}
   \label{10-23-3} G (x, y) = \sum_{m = 1}^{\infty} a_m (y) \cos \left( \frac{m
   \pi}{L_x} x \right) + \sum_{m = 1}^{\infty} b_m (y) \sin \left( \frac{m
@@ -1552,14 +1548,14 @@ The coefficients appearing above are written as
 \end{equation}
 Noting that $b_{m, - n}^{(b)} = - b_{m, n}^{(b)}$, and $a_{m, - n}^{(b)} = -
 a_{m, n}^{(b)}$ and $\sin (0) = 0$, then Eq. (\ref{11-9-4}) can be written as
-\begin{eqnarray*}
+\begin{eqnarray}
   G (x, y) & = & \sum_{m = 1}^{\infty} \sum_{n = - \infty}^{\infty}
   \frac{1}{2} [a_{m n}^{(a)} - b_{m n}^{(b)}] \cos \left( \frac{m \pi}{L_x} x
-  + \frac{n \pi}{L_y} y \right)\\
+  + \frac{n \pi}{L_y} y \right) \nonumber\\
   & + & \sum_{m = 1}^{\infty} \sum_{n = - \infty}^{\infty} \frac{1}{2} [b_{m
   n}^{(a)} + a_{m n}^{(b)}] \sin \left( \frac{m \pi}{L_x} x + \frac{n
-  \pi}{L_y} y \right) .
-\end{eqnarray*}
+  \pi}{L_y} y \right) . 
+\end{eqnarray}
 
 
 The coefficients can be further written as
@@ -1586,20 +1582,11 @@ The coefficients can be further written as
 \end{eqnarray}
 
 
-Then comes the drudgery to handle the special cases of $m = 0$ and/or $n = 0$,
-which I do not enjoy. I finally give up doing this. And I decide to stick to
-using expression (\ref{23-3-31-p1}) for 2D real-valued function, which can be
-obtained simply by taking the real part of expression (\ref{10-22-e1}). We see
-that allowing the index runing from $- \infty$ to $+ \infty$ has the advantage
-of making the expression more uniform, and thus avoiding tedious work.
+Then comes the drudgery to handle the special cases of $m = 0$ and/or $n = 0$.
+The final results are identical to Eqs. (\ref{23-10-17-2})-(\ref{23-10-17-3}).
+This kind of derivation is also discussed in my notes on mega code.
 
-\
-
-\
-
-\
-
-\subsection{Details on FFT codes provided by the Numerical recipes
+\section{Details on FFT codes provided by the Numerical recipes
 book{\cite{press1992}}}
 
 The following is about a specific FFT subroutine provided by the Numerical

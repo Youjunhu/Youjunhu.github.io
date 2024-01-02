@@ -13,14 +13,14 @@
 <link rel="stylesheet" type="text/css" href="fourier_analysis.css" /> 
 </head><body 
 >
-   <!--l. 1014--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 986--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu16.html" >prev</a>] [<a 
 href="fourier_analysissu16.html#tailfourier_analysissu16.html" >prev-tail</a>] [<a 
 href="#tailfourier_analysissu17.html">tail</a>] [<a 
 href="fourier_analysisse7.html#fourier_analysissu17.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">7.3   </span> <a 
  id="x25-250007.3"></a>Relation between Fourier series coeﬃcients and DFTs</h4>
-<!--l. 1016--><p class="noindent" >In the above, we go through the process “Fourier series<span 
+<!--l. 988--><p class="noindent" >In the above, we go through the process “Fourier series<span 
 class="cmsy-10">→</span>Fourier transformation
 <span 
 class="cmsy-10">→</span>DFT”, which corresponds to going from the discrete case (Fourier series) to the
@@ -34,33 +34,33 @@ class="cmmi-7">n</span></sub>. The
 Fourier coeﬃcient of <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) is given by Eq. (<a 
-href="fourier_analysissu18.html#x28-28003r95">95<!--tex4ht:ref: 9-28-2 --></a>), i.e.,
+href="fourier_analysissu18.html#x28-28003r93">93<!--tex4ht:ref: 9-28-2 --></a>), i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-25001r79"></a>
+ id="x25-25001r77"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis86x.png" alt="     1∫ T∕2
+src="fourier_analysis87x.png" alt="     1∫ T∕2
 cn =--     h (t)ein2πt∕Tdt,
     T  −T ∕2
-" class="math-display"  /></center></td><td class="equation-label">(79)</td></tr></table>
-<!--l. 1025--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(77)</td></tr></table>
+<!--l. 997--><p class="nopar" >
 which can be equivalently written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-25002r80"></a>
+ id="x25-25002r78"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis87x.png" alt="         ∫ T∕2
+src="fourier_analysis88x.png" alt="         ∫ T∕2
 c(fn) = 1     h(t)ei2πtfndt,
        T  −T∕2
-" class="math-display"  /></center></td><td class="equation-label">(80)</td></tr></table>
+" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
                                                                   
 
                                                                   
-<!--l. 1030--><p class="nopar" >
+<!--l. 1002--><p class="nopar" >
 where <span 
 class="cmmi-10">f</span><sub><span 
 class="cmmi-7">n</span></sub> = <span 
@@ -81,13 +81,13 @@ written
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x25-25003r81"></a>
+ id="x25-25003r79"></a>
    <center class="math-display" >
 <img 
-src="fourier_analysis88x.png" alt="fn = -n--= n-,
+src="fourier_analysis89x.png" alt="fn = -n--= n-,
      ΔN    T
-" class="math-display"  /></center></td><td class="equation-label">(81)</td></tr></table>
-<!--l. 1037--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(79)</td></tr></table>
+<!--l. 1009--><p class="nopar" >
 which is identical to the frequency to which the Fourier coeﬃcient <span 
 class="cmmi-10">c</span><sub><span 
 class="cmmi-7">n</span></sub> corresponds.
@@ -96,21 +96,21 @@ class="cmmi-10">f</span><sub><span
 class="cmmi-7">n</span></sub> = <span 
 class="cmmi-10">n∕</span>(Δ<span 
 class="cmmi-10">N</span>) in Eq. (<a 
-href="#x25-25002r80">80<!--tex4ht:ref: 9-29-3 --></a>), we obtain </p><div class="eqnarray">
+href="#x25-25002r78">78<!--tex4ht:ref: 9-29-3 --></a>), we obtain </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="fourier_analysis89x.png" alt="           ∫ T∕2       (      )
+src="fourier_analysis90x.png" alt="           ∫ T∕2       (      )
 c(fn)  =  -1      h(t)exp  i2πtn-  dt.
          T  − T∕2          ΔN
           1  N∑−1      ( 2πi   )
-      ≈  --Δ    hj exp  ---nj                 (82)
+      ≈  --Δ    hj exp  ---nj                 (80)
          T   j=0        N
          -1
       =  T ΔHn
          -1
-      =  N Hn                                 (83)
+      =  N Hn                                 (81)
 " class="math-display"  /><a 
- id="x25-25004r82"></a></center>
+ id="x25-25004r80"></a></center>
 </div>i.e., dividing the DFT <span 
 class="cmmi-10">H</span><sub><span 
 class="cmmi-7">n</span></sub> by <span 
@@ -118,24 +118,24 @@ class="cmmi-10">N </span>gives the corresponding Fourier expansion coeﬃcient
 <span 
 class="cmmi-10">c</span><sub><span 
 class="cmmi-7">n</span></sub>. We can further use Eqs. (<a 
-href="fourier_analysissu2.html#x5-4019r29">29<!--tex4ht:ref: 18-2-2p1 --></a>) and (<a 
-href="fourier_analysissu2.html#x5-4020r30">30<!--tex4ht:ref: 18-2-2p2 --></a>) to recover the Fourier coeﬃcients in terms
+href="fourier_analysissu2.html#x5-4020r29">29<!--tex4ht:ref: 18-2-2p1 --></a>) and (<a 
+href="fourier_analysissu2.html#x5-4021r30">30<!--tex4ht:ref: 18-2-2p2 --></a>) to recover the Fourier coeﬃcients in terms
 of trigonometric functions cosine and sine,
                                                                   
 
                                                                   
-<!--l. 1053--><p class="indent" >   Note that the approximation in Eq. (<a 
-href="#x25-25004r82">82<!--tex4ht:ref: 10-6-e1 --></a>) becomes an exact relation if the largest
+<!--l. 1025--><p class="indent" >   Note that the approximation in Eq. (<a 
+href="#x25-25004r80">80<!--tex4ht:ref: 10-6-e1 --></a>) becomes an exact relation if the largest
 frequency contained in <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">t</span>) is less than 1<span 
 class="cmmi-10">∕</span>(2Δ).
 </p>
-   <!--l. 1056--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1028--><div class="crosslinks"><p class="noindent">[<a 
 href="fourier_analysissu16.html" >prev</a>] [<a 
 href="fourier_analysissu16.html#tailfourier_analysissu16.html" >prev-tail</a>] [<a 
 href="fourier_analysissu17.html" >front</a>] [<a 
 href="fourier_analysisse7.html#fourier_analysissu17.html" >up</a>] </p></div>
-<!--l. 1056--><p class="indent" >   <a 
+<!--l. 1028--><p class="indent" >   <a 
  id="tailfourier_analysissu17.html"></a> </p> 
 </body></html> 
