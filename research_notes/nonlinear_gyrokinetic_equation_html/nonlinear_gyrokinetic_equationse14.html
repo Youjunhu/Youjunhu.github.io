@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Drift-kinetic limit</title> 
+<head><title>Implementation of gyrokinetics in particle-in-cell (PIC) codes</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,885 +13,902 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 4346--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3965--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse15.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse13.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse13.html#tailnonlinear_gyrokinetic_equationse13.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationse14.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse14.html" >up</a>] </p></div>
-   <h3 class="sectionHead"><span class="titlemark">E   </span> <a 
- id="x15-73000E"></a>Drift-kinetic limit</h3>
-<!--l. 4348--><p class="noindent" >In the drift-kinetic limit, <span 
-class="cmsy-10">⟨</span><span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmsy-10">⋅</span><span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">E</span><span 
-class="cmsy-10">⟩</span><sub><span 
-class="cmmi-7">α</span></sub> = 0, <span 
-class="cmsy-10">⟨</span><span 
-class="cmmi-10">δB</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmsy-10">⟩</span><sub><span 
-class="cmmi-7">α</span></sub> = 0, and <span 
-class="cmsy-10">⟨</span><span 
-class="cmmi-10">δh</span><span 
-class="cmsy-10">⟩</span><sub><span 
-class="cmmi-7">α</span></sub> = <span 
-class="cmmi-10">δh</span>, where <span 
-class="cmmi-10">δh </span>is an arbitrary ﬁeld
-quantity. Using these, gyrokinetic equation (<a 
-href="nonlinear_gyrokinetic_equationse13.html#x14-72004r321">321<!--tex4ht:ref: 18-8-26-2 --></a>) is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation353x.png" alt="[     (                      )     ]
- -∂ +  v∥e∥ + vD + vE + v∥δB⊥  ⋅∇X  δf
- ∂t (           )         B0 [(                 )    ]
-= −  v  + v δB-⊥  ⋅∇  F  − q-  v e + v  + v δB-⊥  ⋅δE  ∂F0.    (322)
-       E   ∥ B0      X 0   m    ∥ ∥   D    ∥ B0        ∂ 𝜀
-" class="math-display"  /><a 
- id="x15-73001r322"></a></center>
-</div>
-<!--l. 4365--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">F   </span> <a 
+ id="x15-68000F"></a>Implementation of gyrokinetics in particle-in-cell (PIC) codes</h3>
+<!--l. 3968--><p class="noindent" >
 </p>
-   <h4 class="subsectionHead"><span class="titlemark">E.1   </span> <a 
- id="x15-74000E.1"></a>Linear case</h4>
-<!--l. 4367--><p class="noindent" >Neglecting the nonlinear terms, drift-kinetic equation (<a 
-href="#x15-73001r322">322<!--tex4ht:ref: 17-5-14-e1 --></a>) is written </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation354x.png" alt="[                   ]
- ∂-
- ∂t +(v∥e∥ + vD )⋅∇X δf
-    (       δB  )          q               ∂F
-= −  vE + v∥--⊥-  ⋅∇XF0 − --[(v∥e∥ +vD )⋅δE]---0.         (323)
-             B0           m                 ∂𝜀
-" class="math-display"  /><a 
- id="x15-74001r323"></a></center>
-</div>Next let us derive the parallel momentum equation from the linear drift kinetic equation (this is needed
-in my simulation). Multiplying the linear drift kinetic equation (<a 
-href="#x15-74001r323">323<!--tex4ht:ref: 17-5-17-p1 --></a>) by <span 
-class="cmmi-10">qv</span><sub><span 
-class="cmsy-7">∥</span></sub> and then integrating over
+   <h4 class="subsectionHead"><span class="titlemark">F.1   </span> <a 
+ id="x15-69000F.1"></a>Monte-Carlo evaluation of distribution function moment at grid-points</h4>
+<!--l. 3970--><p class="noindent" >Suppose that the 6D guiding-center phase-space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is described by (<span 
+class="cmmi-10">ψ,𝜃,ϕ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>)
+coordinates, where <span 
+class="cmmi-10">α </span>is the gyro-angle. Denote the Jacobian of the coordinate system by
+<span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub>.
+</p><!--l. 3975--><p class="indent" >   Suppose that we sample the 6D phase-space by using a probability function <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">ψ,𝜃,ϕ,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>).
+(Then the eﬀecitive probability function used in rejection method is <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">v</span></sub>.) Note that we will
+sample a distribution function <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) that happens to be independent of the
+gyro-angle <span 
+class="cmmi-10">α</span>. Since <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> is uniform in <span 
+class="cmmi-10">α</span>, it is natural to smaple <span 
+class="cmmi-10">α </span>using a uniform probability
+function, i.e., <span 
+class="cmmi-10">P</span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) can be chosen to be independent of <span 
+class="cmmi-10">α</span>. Then the weight is also
+independent of <span 
+class="cmmi-10">α</span>. In terms of sampling <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub>, there is no need to specify <span 
+class="cmmi-10">α </span>because both <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> and
+marker distribution <span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P </span>are indepedent of <span 
+class="cmmi-10">α</span>. However, sampling <span 
+class="cmmi-10">α </span>is still necessary in
+simulations. From the perspective of programming, it is ready to understand why <span 
+class="cmmi-10">α </span>needs to be
+speciﬁed: when computing density at grid-points, we need to compute particle locations
+from the guiding-center locations which requires us to specify the gyro-angle <span 
+class="cmmi-10">α </span>for each
+marker. Speciﬁcally, markers in guiding-center space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) with ﬁxed (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) but
+diﬀerent values of <span 
+class="cmmi-10">α </span>correspond to markers in particle space with diﬀerent locations (and
+diﬀerent <span 
+class="cmmi-10">α</span><span 
+class="cmsy-10">′</span>). In the PIC method of computing <span 
+class="cmmi-10">δn </span>or <span 
+class="cmmi-10">δj</span><sub><span 
+class="cmsy-7">∥</span></sub> at ﬁxed <span 
+class="cmbx-10">x</span>, the contribution of each
+particle marker to the density is aﬀected by the distance of the particle marker to the ﬁxed <span 
+class="cmbx-10">x</span>.
+Therefore diﬀerent values of <span 
+class="cmmi-10">α </span>contributes diﬀerently to <span 
+class="cmmi-10">δn </span>or <span 
+class="cmmi-10">δj</span><sub><span 
+class="cmsy-7">∥</span></sub>, and thus the resolution of <span 
+class="cmmi-10">α</span>
+matters.
+</p><!--l. 4001--><p class="indent" >   For a marker with coordinators (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>), the corresponding particle position can be calculated
+by using the inverse guiding-center transformation (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6003r29">29<!--tex4ht:ref: 19-1-19-p2 --></a>). Then we can deposit the marker weight to
+grid-points in the same way that we do in conventional PIC simulations. Looping over all markers, we
+build the particle density at grids.
+</p><!--l. 4008--><p class="indent" >   Compared with conventional PIC methods, where particle positions are directly sampled, what is
+the beneﬁt of sampling guiding-center positions and then transform them back to the particle
+positions? More computations are involved since we need to numerically perform the inverse
+guiding-center transformation. The answer lies in the important fact that the distribution function
+<span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) that needs to be numerically evaluated in gyrokinetic simulation is actually
+independent of the gyro-angle <span 
+class="cmmi-10">α</span>. Furthermore, we use a probability density function <span 
+class="cmmi-10">P</span>
+that is independent of <span 
+class="cmmi-10">α </span>to sample the 6D phase space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>). Then the marker
+weight <span 
+class="cmmi-10">w </span><span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>) is independent of <span 
+class="cmmi-10">α</span>, where <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub> is number of markers loaded. This fact
+enable resolution in particle coordinates can be increased in a trivial way, as described
+below.
+</p><!--l. 4022--><p class="indent" >   Suppose we have a concrete sampling of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> in the 6D phase-space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>), i.e.,
+(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">j</span></sub>) with <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub>, then we can do the inverse guiding-center transform and then
                                                                                 
 
                                                                                 
-velocity space, we obtain <div class="eqnarray">
+deposit particles to the grids to obtain a moment (e.g. density).
+</p><!--l. 4028--><p class="indent" >   Since <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> is independent of <span 
+class="cmmi-10">α</span>, the sampling <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> with <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub> are uniform distributed
+random numbers. Therefore we can generate another sampling of <span 
+class="cmmi-10">α </span>(denoted by <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>with <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub>)
+using random number generators and combine <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>with the old sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) to obtain a new
+sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span>).  The values of <span 
+class="cmmi-10">w </span>at the new sampling points are equal to the original
+values, i.e., <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> since the particle weight <span 
+class="cmmi-10">w </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>) is independent of <span 
+class="cmmi-10">α</span>.  Using the new
+sampling and following the same procedures given above, we can estimate values of the moment at
+grid-points again, which will diﬀer from the estimation obtained using the old sampling
+because the resulting sampling of <span 
+class="cmbx-10">x </span>and <span 
+class="cmmi-10">α</span><span 
+class="cmsy-10">′ </span>for <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> is diﬀerent. Taking the average of the two
+estimations will give a more accurate estimation because the resolution in <span 
+class="cmbxti-10">x </span>and <span 
+class="cmmi-10">α</span><span 
+class="cmsy-10">′ </span>for <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> is
+increased.
+</p><!--l. 4044--><p class="indent" >   [Note that even if <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> is dependent on <span 
+class="cmmi-10">α </span>due to the possible dependence of <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> on <span 
+class="cmmi-10">α</span>, we still can
+easily generate a new set of sampling which diﬀers from the old sampling only in <span 
+class="cmmi-10">α</span>. Speciﬁcally, in the
+rejection method, we use the old sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) for each reject step and only adjust <span 
+class="cmmi-10">α </span>to
+satisfy the acceptance criteria.]
+</p><!--l. 4051--><p class="indent" >   We can also construct a new sampling by replacing <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> with <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> + Δ, where Δ is a constant. Then
+the new set of sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub> + Δ<span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">j</span></sub>) with <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub> is still a consistent set of
+sampling.
+</p><!--l. 4056--><p class="indent" >   In doing the deposition, each marker has a single gyro-angle. Due to the independence of the weight
+(<span 
+class="cmmi-10">w </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>)) of the gyro-angle, the particle phase space resolution can be increased in a way that
+there can be several gyro-angles for a single (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>). This gives the wrong impression that the
+gyro-angle of a guiding-center marker is arbitrary. The correct understanding is that given
+above, i.e., we do several (say 4) separate sampling of the phase space and then average the
+results.
+</p><!--l. 4065--><p class="indent" >   In the code, the gyro-angle is deﬁned relative to the direction <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ∕</span><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">ψ</span><span 
+class="cmsy-10">| </span>at the guiding-center
+position. Speciﬁcally, the gyro-angle is deﬁned as the included angle between <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ∕</span><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">ψ</span><span 
+class="cmsy-10">| </span>and
+<span 
+class="cmsy-10">−</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">× </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">∕</span>Ω(<span 
+class="cmbx-10">x</span>), where <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">∕</span>Ω(<span 
+class="cmbx-10">x</span>) is approximated by the value at the guiding-center
+location.
+</p><!--l. 4072--><p class="indent" >    
+</p><!--l. 4074--><p class="indent" >   Then (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) can be evolved by using the guiding-center motion equation. (It is
+obvious how to evalute the gyro-averaging of the electromagnetic ﬁelds needed in pusing
+markers.)
+</p><!--l. 4079--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">F.2   </span> <a 
+ id="x15-70000F.2"></a>Monte-Carlo sampling of 6D guiding-center phase-space </h4>
+<!--l. 4081--><p class="noindent" >Suppose that the 6D guiding-center phase-space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is described by (<span 
+class="cmmi-10">ψ,𝜃,ϕ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α</span>) coordinates.
+The Jacobian of the coordinate system is given by <span 
+class="cmsy-10">𝒥 </span>= <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub>, where <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub> = <span 
+class="cmsy-10">𝒥 </span>(<span 
+class="cmmi-10">ψ,𝜃</span>) is the Jacobian of
+the coordinates (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>). Suppose that we sample the 6D phase-space by using the following probability
+density function:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-70001r316"></a>
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation355x.png" alt="            ∫
-∂δj∥  =  − q  dvv (ve  + v )⋅∇  δf
- ∂t              ∥(  ∥∥    D  ) X
-          ∫              δB⊥-          -q  ∫                    ∂F0-
-      −  q  dvv ∥ vE + v∥ B0   ⋅∇XF0 − m q   dvv∥[(v∥e∥ + vD )⋅δE]∂𝜀 . (324)
-" class="math-display"  /><a 
- id="x15-74002r324"></a></center>
-</div>Equation (<a 
-href="#x15-74002r324">324<!--tex4ht:ref: 17-7-20-1 --></a>) involve <span 
-class="cmsy-10">∇</span><sub><span 
-class="cmmi-7">X</span></sub><span 
-class="cmmi-10">δf </span>and this should be avoided in particle methods whose goal is to avoid
-directly evaluating the derivatives of <span 
-class="cmmi-10">δf </span>over phase-space coordinates. On the other hand, the partial
-derivatives of velocity moment of <span 
-class="cmmi-10">δf </span>are allowed. Therefore, we would like to make the velocity
-integration of <span 
-class="cmmi-10">δf </span>appear. Note that <span 
-class="cmsy-10">∇</span><sub><span 
-class="cmmi-7">X</span></sub><span 
-class="cmmi-10">δf </span>here is taken by holding (<span 
-class="cmmi-10">𝜀,μ</span>) constant and thus <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>
-is not a constant and thus can not be moved inside <span 
-class="cmsy-10">∇</span><sub><span 
-class="cmmi-7">X</span></sub>. Next, to facilitate performing
-the integration over <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>, we transform the linear drift kinetic equation (<a 
-href="#x15-74001r323">323<!--tex4ht:ref: 17-5-17-p1 --></a>) into variable
+src="nonlinear_gyrokinetic_equation357x.png" alt="                                 [            ]
+                   1 ( m  )3∕2      m(v2∥ + v2⊥ )
+P(ψ,𝜃,ϕ,v∥,v⊥, α) = Vr 2πT-    exp − ---2T----- ,
+" class="math-display"  /></center></td><td class="equation-label">(316)</td></tr></table>
+<!--l. 4092--><p class="nopar" >
+where <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">r</span></sub> is the volume of the spatial simulation box, <span 
+class="cmmi-10">T </span>is a constant temperature. <span 
+class="cmmi-10">P </span>given above is
+independent of <span 
+class="cmmi-10">ψ,𝜃,ϕ </span>and <span 
+class="cmmi-10">α</span>. It is ready to verify that the above <span 
+class="cmmi-10">P </span>satisﬁes the following normalization
+condition:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-70002r317"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation358x.png" alt="∫  ∫           ∫  ∫ +∞ ∫ ∞∫ 2π
+      PdvdX =                  Pv⊥dαdv⊥dv ∥𝒥rd ψd𝜃dϕ = 1.
+ Vr             Vr  −∞   0   0
+" class="math-display"  /></center></td><td class="equation-label">(317)</td></tr></table>
+<!--l. 4101--><p class="nopar" >
+I use the rejection method to numerically generate <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub> markers that satisfy the above probability
+density function. [The eﬀective probability density function actually used in the rejection method is <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">′</span>,
+which is related to <span 
+class="cmmi-10">P </span>by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-70003r318"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation359x.png" alt=" ′
+P = |𝒥r𝒥v|P = |𝒥r (ψ,𝜃)|v⊥P
+" class="math-display"  /></center></td><td class="equation-label">(318)</td></tr></table>
+<!--l. 4109--><p class="nopar" >
+Note that <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">′ </span>does not depend on the gyro-angle <span 
+class="cmmi-10">α</span>.]
+</p><!--l. 4112--><p class="indent" >   Then the weight of a marker sampling <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-70004r319"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation360x.png" alt="    δf (ψ,𝜃,ϕ,v ,v )
+w = --g-------∥--⊥-.
+         NpP
+" class="math-display"  /></center></td><td class="equation-label">(319)</td></tr></table>
+<!--l. 4116--><p class="nopar" >
+Since both <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> and <span 
+class="cmmi-10">P </span>are independent of the gyro-angle <span 
+class="cmmi-10">α</span>, <span 
+class="cmmi-10">w </span>is also independent of <span 
+class="cmmi-10">α</span>.
+</p><!--l. 4120--><p class="indent" >   The numerical representation of <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-70005r320"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation361x.png" alt="           Np
+δf˜ = --1--∑  w δ(ψ− ψ )δ(𝜃− 𝜃 )δ(ϕ − ϕ )δ(v − v  )δ(v  − v  )δ(α − α ).
+  g   𝒥rv⊥  j  j       j      j       j   ∥   ∥j   ⊥    ⊥j       j
+" class="math-display"  /></center></td><td class="equation-label">(320)</td></tr></table>
+<!--l. 4126--><p class="nopar" >
+Although the distribution function <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> to be sampled is independent of the gyro-angle <span 
+class="cmmi-10">α</span>,
+we still need to specify the gyro-angle because we need to use the inverse guiding-center
+transformation, which needs the gyro-angle. Each marker needs to have a speciﬁc gyro-angle value <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub>
+so that we know how to transform its <span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub> to <span 
+class="cmbx-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> and then do the charge deposition in <span 
+class="cmbx-10">x</span>
+space.
+</p><!--l. 4134--><p class="indent" >   To increase the resolution over the gyro-angle (the quantity of intest to us, e.g., density, is the
+integration of the particle distribution function at ﬁxed spatial location, and the distribution at the
+ﬁxed location is not uniform in the gyro-angle. So the resolution over <span 
+class="cmmi-10">α </span>matters), we need to load more
+markers. However, thanks to the fact that both sampling probability density function <span 
+class="cmmi-10">P </span>and
+<span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> are independent of <span 
+class="cmmi-10">α</span>, the resolution over the gyro-angle can be increased in a simple
+way.
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-70006r321"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation362x.png" alt="       n1(x-)+-n2(x-)+-n3(x-)+-n4(x-)
+n(x) =             4             .
+" class="math-display"  /></center></td><td class="equation-label">(321)</td></tr></table>
+<!--l. 4144--><p class="nopar" >
+This corresponds to sampling the 6D phase-space 4 separate times (each time with identical
+sampling points in (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>) but diﬀerent sampling points in <span 
+class="cmmi-10">α</span>) and then using the averaging
+of the 4 Monte-Carlo integrals to estimate the exact value. This estimation can also be
+(roughly) considered as a Monte-Carlo estimation using 4 times larger number of markers
+as that is originally used (the Monte-Carlo estimation using truly 4 time larger number
+of markers is more accurate than the result we obtained above because the former also
+increase the resolution of (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>) while the latter keeps the resolution of (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>)
+unchanged.)
+</p><!--l. 4156--><p class="indent" >   In numerical implementation, we choose <span 
+class="cmmi-10">N </span>sampling points that are evenly distributed on the
+gyro-ring (<span 
+class="cmmi-10">N </span>is usually 4 as a compromise between eﬃciency and accuracy). And the weight is evenly
+split by the <span 
+class="cmmi-10">N </span>sub-markers on the gyro-ring. Therefore each sub-marker have a Monte-Carlo weight
+<span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">∕N</span>, where <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> is the weight of the <span 
+class="cmmi-10">j</span> th marker. Then calculating the integration (<a 
+href="#x15-72003r327">327<!--tex4ht:ref: 19-1-19-p1 --></a>) at a grid
+corresponds to depositing all the <span 
+class="cmmi-10">N </span>sub-markers associated with each guiding-center marker to the grid,
+as is illustrated in Fig. <a 
+href="#x15-700076">6<!--tex4ht:ref: 19-1-19-p4 --></a>. However, interpreting in this way is confusing to me because: why can you
+split a single sampling into <span 
+class="cmmi-10">N </span>diﬀerent samplings? I prefer the above interpretation that the 6D
+phase space is sampled 4 separate times and thus we get 4 estimations and ﬁnally we take
+the averaging of these 4 estimations. It took a long time for me to ﬁnally ﬁnd this way of
+understanding.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x15-700076"></a>
+                                                                                
+
+                                                                                
+<!--l. 4171--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/grids_cells/grids-3.png" alt="pict"  
+ width="182.6825pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 6: </span><span  
+class="content">The spatial grid in the plane perpendicular to the equilibrium magnetic ﬁeld, a
+guiding-center marker <span 
+class="cmmi-10">C</span>, and its gyro-ring with 4 sampling points (sub-markers) on it. The 4
+sub-markers are calculated by using the transformation (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6003r29">29<!--tex4ht:ref: 19-1-19-p2 --></a>) (inverse guiding-center transform).
+Assume that Monte-Carlo weight of the guiding-center marker <span 
+class="cmmi-10">C</span> is <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub>. Then The Monte-Carlo
+weight of each sub-marker is <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">∕</span>4. The value of integration (<a 
+href="#x15-72003r327">327<!--tex4ht:ref: 19-1-19-p1 --></a>) at a grid point is approximated
+by  <span 
+class="cmmi-10">I∕</span>Δ<span 
+class="cmmi-10">V </span>,  where  <span 
+class="cmmi-10">I  </span>is  the  Monte-Carlo  integration  of  all  sub-markers  (associated  with  all
+guiding-center markers) in the cell, Δ<span 
+class="cmmi-10">V </span>is the cell volume. The cell associated with a grid-point
+(e.g., <span 
+class="cmmi-10">A</span>) is indicated by the dashed rectangle (this is for the 2D projection, the cell is 3D and
+it is a cube). If the Dirac delta function is used as the shape function of the sub-markers,
+then calculating the contribution of a sub-marker to a grid corresponds to the nearest-point
+interpolation (for example, the 4 sub-markers will contribute nothing to grid point <span 
+class="cmmi-10">B </span>since no-sub
+marker is located within the cell). In practice, the ﬂat-top shape function with its support equal
+to the cell size is often used, then the depositing corresponds to linearly interpolating the weight
+of each sub-marker to the nearby grids.</span></div><!--tex4ht:label?: x15-700076 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 4194--><p class="indent" >    
+</p><!--l. 4196--><p class="indent" >   In summary, the phase-space to be sampled in gyrokinetic simulations are still 6D rather than
+5D. In this sense, the statement that gyrokinetic simulation works in a 5D phase space is
+misleading. We are still working in the 6D phase-space. The only subtle thing is that the sixth
+dimension, i.e., gyro-angle, can be sampled in an easy way that is independent of the other 5
+variables.
+</p><!--l. 4203--><p class="indent" >   In numerical implementation, the gyro-angle may not be explicitly used. We just try to ﬁnd 4
+arbitrary points on the gyro-ring that are easy to calculate. Some codes (e.g. ORB5) introduces a
+random variable to rotate these 4 points for diﬀerent markers so that the gyro-angle can be sampled
+less biased.
+</p><!--l. 4209--><p class="indent" >   From the view of particle simulations, the gyrokinetic model can be considered as a noise reduction
+method, where the averaging over the gyro-angle is equivalent to a time averaging over a gyro-period,
+which reduces the ﬂuctuation level (in both time and space) associated with evaluating the
+Monte-Carlo phase integration. Here the averaging in gyrokinetic particle simulation refers to taking
+several points on a gyro-ring when depositing markers to spatial grids to obtain the density and current
+on the grids. (Another gyro-averaging appears in evaluating the guiding-center drift.) In gyrokinetic
+particle simulation, even a step size smaller than a gyro-period is taken, the quantities used
+in the model is still the ones averaged over one gyro-period. In this sense, a gyrokinetic
+simulation is only meaningful when the time step size is larger than one gyro-period. [**Some
+authors may disagree with that the gyro-averaging is a time-averaging. They may consider the
+gyro-averaging as the phase-space integration over the gyro-angle coordinate. This view
+seems to be right in Euler simulations but seems to be wrong in particle simulations. The
+reason is as follows. For each marker, choose a random gyro-phase and then do the inverse
+transformation to obtain particle position, and sum over all markers (this corresponds to phase-space
+Monte-Carlo integration, which include the gyro-angle integration, so no further gyro-angle
+integration is needed); choose another random gyro-phase and repeat the above procedure
+(this can be interpreted as do the phase-space Monte-Carlo integration at another time),
+choose further random gyro-phase for each marker and repeat. Finally averaging all the
+above values to obtain the ﬁnal estimation of the phase-space integration. This amounts to
+a time-averaging over a gyro-motion. In summary, sampling several times with diﬀerent
+gyro-phases for each marker and taking the average amounts to the time averaging over
+gyro-motion**]
+</p><!--l. 4237--><p class="indent" >   When doing the time-average over the ion cyclotron motion, the time variation of the low-frequency
+mode is negligible and only the spatial variation of the modes is important. For the gyro-motion, only
+the gyro-angle is changing and all the other variables, (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub>),  are approximately constant. As a
+result, this time averaging ﬁnally reduces to a gyro-averaging.
+</p><!--l. 4244--><p class="indent" >    
+</p><!--l. 4246--><p class="indent" >   I prefer to reason in terms of particle position and velocity, and consider the guiding-center location
+as an image of the particle position. When working in the guiding-center coordinates, I prefer to reason
+by transforming back to the particle position. This reasoning is clear and help me avoid some
+confusions I used to have.
+</p><!--l. 4252--><p class="indent" >    
+</p><!--l. 4254--><p class="indent" >    
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">F.3   </span> <a 
+ id="x15-71000F.3"></a>Distribution function transform**check</h4>
+<!--l. 4258--><p class="noindent" >In the above, we assume that <span 
+class="cmbx-10">X </span>and <span 
+class="cmbx-10">x </span>are related to each other by the guiding-center transformation
+                                                                                
+
+                                                                                
+(<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6001r27">27<!--tex4ht:ref: 16-9-21-1 --></a>) or (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6003r29">29<!--tex4ht:ref: 19-1-19-p2 --></a>) , i.e., <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">X </span>are not independent. For some cases, it may be convenient to treat <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">X</span>
+as independent variables and express the guiding-center transformation via an integral of the Dirac
+delta function. For example,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-71001r322"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation363x.png" alt="         ∫
+f (x,v) =  f (X,v)δ3(X − x+ ρ)dX,
+ p          g
+" class="math-display"  /></center></td><td class="equation-label">(322)</td></tr></table>
+<!--l. 4267--><p class="nopar" >
+where <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">X </span>are considered as independent variables, <span 
+class="cmmib-10">ρ</span> is the gyroradius evaluated at <span 
+class="cmbx-10">x</span>,
+<span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x </span><span 
+class="cmsy-10">− </span><span 
+class="cmbx-10">X </span><span 
+class="cmsy-10">−</span> <span 
+class="cmmib-10">ρ</span>) is the three-dimensional Dirac delta function. [In terms of general coordinates
+(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">3</span></sub>), the three-dimensional Dirac delta function is deﬁned via the 1D Dirac delta function as
+follows:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-71002r323"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation364x.png" alt="δ3(x) = -1-δ(x1)δ(x2)δ(x3),
+       |𝒥 |
+" class="math-display"  /></center></td><td class="equation-label">(323)</td></tr></table>
+<!--l. 4277--><p class="nopar" >
+where <span 
+class="cmsy-10">𝒥 </span>is the the Jacobian of the general coordinate system. The Jacobian is included in order to
+make <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x</span>) satisfy the normalization condition <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">x </span>= <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmsy-10">|𝒥|</span><span 
+class="cmmi-10">dx</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">dx</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">dx</span><sub><span 
+class="cmr-7">3</span></sub> = 1.]
+</p><!--l. 4283--><p class="indent" >   Expression (<a 
+href="#x15-71001r322">322<!--tex4ht:ref: 19-1-20-e1 --></a>) can be considered as a transformation that transforms an arbitrary function from
+the guiding-center coordinates to the particle coordinates. Similarly,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-71003r324"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation365x.png" alt="          ∫
+fg(X,v) =   fp(x,v)δ3(x − X − ρ )dx,
+" class="math-display"  /></center></td><td class="equation-label">(324)</td></tr></table>
+<!--l. 4289--><p class="nopar" >
+is a transformation that transforms an arbitrary function from the the particle coordinates to the
+guiding-center coordinates.
+</p><!--l. 4294--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">F.4   </span> <a 
+ id="x15-72000F.4"></a>Moments of distribution function expressed as integration over guiding-center
+variables</h4>
+<!--l. 4296--><p class="noindent" >In terms of particle variables (<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>), it is straightforward to calculate the moment of the distribution
+function. For example, the number density <span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-72001r325"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation366x.png" alt="      ∫
+n(x) =  fp(x,v)dv.
+" class="math-display"  /></center></td><td class="equation-label">(325)</td></tr></table>
+<!--l. 4302--><p class="nopar" >
+However, it is a little diﬃcult to calculate <span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) at real space location <span 
+class="cmbx-10">x </span>by using the guiding-center
+variables (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>). This is because holding <span 
+class="cmbx-10">x </span>constant and changing <span 
+class="cmbx-10">v</span>, which is required by the
+integration in Eq. (<a 
+href="#x15-72001r325">325<!--tex4ht:ref: 18-12-26-p1 --></a>), means the guiding-center variable <span 
+class="cmbx-10">X </span>is changing according to Eq. (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6001r27">27<!--tex4ht:ref: 16-9-21-1 --></a>). Using
+Eq. (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-9001r34">34<!--tex4ht:ref: 17-8-19-p1 --></a>), expression (<a 
+href="#x15-72001r325">325<!--tex4ht:ref: 18-12-26-p1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x15-72002r326"></a>
+   <center class="math-display" >
+                                                                                
+
+                                                                                
+<img 
+src="nonlinear_gyrokinetic_equation367x.png" alt="      ∫
+n(x) =   f (X (x,v),v )dv,
+          g
+" class="math-display"  /></center></td><td class="equation-label">(326)</td></tr></table>
+<!--l. 4313--><p class="nopar" >
+As is mentioned above, the <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>integration in Eq. (<a 
+href="#x15-72002r326">326<!--tex4ht:ref: 18-12-26-p2 --></a>) should be performed by holding <span 
+class="cmbx-10">x </span>constant and
+changing <span 
+class="cmbx-10">v</span>, which means the guiding-center variable <span 
+class="cmbx-10">X </span>= <span 
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is changing. This means that, in
 (<span 
 class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub>).
-<!--l. 4404--><p class="noindent" >
-</p>
-   <h4 class="subsectionHead"><span class="titlemark">E.2   </span> <a 
- id="x15-75000E.2"></a>Transform from (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,𝜀</span>) to (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub>) coordinates</h4>
-<!--l. 4406--><p class="noindent" >The kinetic equation given above is written in terms of variable (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,𝜀</span>). Next, we transform it into
-coordinates (<span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,μ</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub>) which is deﬁned by
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) space, the above integration is a (generalized) curve integral along the the curve
+ <span 
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">v</span>) = <span 
+class="cmbx-10">x </span><span 
+class="cmsy-10">−</span><span 
+class="cmmib-10">ρ</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) with <span 
+class="cmbx-10">x </span>being constant. Treating <span 
+class="cmbx-10">X </span>and <span 
+class="cmbx-10">x </span>as independent variables and using the
+Dirac delta function <span 
+class="cmmi-10">δ</span>, this curve integral can be written as the following double integration over the
+independent variables <span 
+class="cmbx-10">X </span>and <span 
+class="cmbx-10">v</span>:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x15-75001r325"></a>
+ id="x15-72003r327"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation356x.png" alt=" ′
-X (X,μ,𝜀) = X,
-" class="math-display"  /></center></td><td class="equation-label">(325)</td></tr></table>
-<!--l. 4411--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-75002r326"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation357x.png" alt=" ′
-μ (X,μ,𝜀) = μ,
-" class="math-display"  /></center></td><td class="equation-label">(326)</td></tr></table>
-<!--l. 4414--><p class="nopar" >
-and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-75003r327"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation358x.png" alt="v(X, μ,𝜀) = ∘2-(𝜀-−-μB-(X-)).
- ∥                  0
+src="nonlinear_gyrokinetic_equation368x.png" alt="      ∫  ∫
+n(x) =     f (X, v)δ3(X − x + ρ)dvdX.
+            g
 " class="math-display"  /></center></td><td class="equation-label">(327)</td></tr></table>
-<!--l. 4419--><p class="nopar" >
-Use this, we have </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation359x.png" alt="                ′         ′
-∂δG0-|μ,𝜀 =   ∂X--∂δG0-+ ∂μ-∂δG0-+ ∂v∥ ∂δG0-
- ∂X          ∂X  ∂X ′   ∂X  ∂μ′    ∂X  ∂v∥
-             ∂δG0-       ∂δG0-  μ-∂B0-∂δG0-
-         =    ∂X′ |μ,v∥ + 0 ∂μ′ − v∥ dX  ∂v∥ ,             (328)
-" class="math-display"  /></center>
-</div>and <div class="eqnarray">
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation360x.png" alt="∂F0      ∂F0 ∂μ′  ∂F0 ∂v∥
--∂𝜀-  =  ∂μ-′∂𝜀-+ -∂v--∂𝜀
-                     ∥
-      =  0∂F0-+ ∂F0-∂v∥
-          ∂μ ′  ∂v∥ ∂𝜀
-         ∂F0-1-
-      =  ∂v∥ v∥                                 (329)
-" class="math-display"  /></center>
-</div>Then, in terms of variable (<span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub>), equation (<a 
-href="#x15-74001r323">323<!--tex4ht:ref: 17-5-17-p1 --></a>) is written <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation361x.png" alt="∂δf-+ (v e + v  )⋅∇ δf − e ⋅μ∇B ∂δf-
- ∂t    ∥ ∥    D         ∥      ∂v∥
-   (        δB⊥ )       ( vE   δB ⊥)       ∂F0   q [(     vD)     ] ∂F0
-= −  vE + v∥B---  ⋅∇F0  +  v--+ -B--  ⋅μ∇B  ∂v-−  m-  e∥ + v-- ⋅δE  ∂v(3,30)
-              0            ∥     0           ∥             ∥         ∥
-" class="math-display"  /><a 
- id="x15-75006r330"></a></center>
-</div>where <span 
-class="cmsy-10">∇≡ </span><span 
-class="cmmi-10">∂∕∂</span><span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′|</span><sub><span 
-class="cmmi-7">μ,v</span><sub><span 
-class="cmsy-5">∥</span></sub></sub>.
-<!--l. 4462--><p class="noindent" >
-</p>
-   <h4 class="subsectionHead"><span class="titlemark">E.3   </span> <a 
- id="x15-76000E.3"></a>Parallel momentum equation</h4>
-<!--l. 4464--><p class="noindent" >Multiplying the linear drift kinetic equation (<a 
-href="#x15-75006r330">330<!--tex4ht:ref: 17-5-14-e3 --></a>) by <span 
-class="cmmi-10">qv</span><sub><span 
-class="cmsy-7">∥</span></sub> and then integrating over velocity space, we
-obtain </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation362x.png" alt="        ∫                         ∫
-∂δj∥ + q  dvv (ve  + v )⋅∇  δf − q  dvv e  ⋅μ ∇B ∂δf-
- ∂t          ∥  ∥∥    D    X           ∥ ∥      ∂v∥
-     ∫     (       δB ⊥)           ∫     ( vE   δB ⊥)       ∂F0
-= − q  dvv∥  vE +v∥-B0-  ⋅∇XF0  + q  dvv∥  v--+ -B0-  ⋅μ∇B  ∂v--
-     ∫     [(        )    ]                 ∥                 ∥
-− q-q  dvv∥   e∥ + vD  ⋅δE  ∂F0.                                 (331)
-  m                v∥       ∂v∥
-" class="math-display"  /><a 
- id="x15-76001r331"></a></center>
-</div>Consider the simple case that <span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub> does not carry current, i.e., <span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub>) is an even function about <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>.
-Then it is obvious that the integration of the terms in red in Eq. (<a 
-href="#x15-76001r331">331<!--tex4ht:ref: 17-5-18-1 --></a>) are all zero. Among the rest
-terms, only the following term
-   <table 
-class="equation"><tr><td><a 
- id="x15-76002r332"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation363x.png" alt="     ∫
-− q-q  dvv∥[(v∥e∥)⋅δE ]∂F0-1-
-  m                   ∂v∥v∥
-" class="math-display"  /></center></td><td class="equation-label">(332)</td></tr></table>
-<!--l. 4492--><p class="nopar" >
-explicitly depends on <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">E</span>. Using <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v </span>= 2<span 
-class="cmmi-10">πBdv</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">dμ</span>, the integration in the above expression can be
-analytically performed, giving </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation364x.png" alt="     ∫
-− q-q  dvv∥[(v∥e∥)⋅δE]∂F0-1-
-  m                  ∂v∥ v∥
-    q2∫               ∂F0
-= − m-  2πBdv ∥dμv∥δE∥∂v∥-
-     2∫           ∫
-= − q-  2πBd μδE∥   v∥∂F0dv∥
-    m             (   ∂v∥    )
-    q2∫               ∫
-= − m   2πBd μδE∥  0−   F0dv∥
-  q2
-= --δE ∥n0.                                       (333)
-  m
-" class="math-display"  /></center>
-</div>Using these results, the parallel momentum equation (<a 
-href="#x15-76001r331">331<!--tex4ht:ref: 17-5-18-1 --></a>) is written <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation365x.png" alt="∂δj∥     q2         ∫                         ∫             ∂δf-
- ∂t   =  m δE ∥n0 − q  dvv∥(v∥e∥ + vD )⋅∇X δf + q dvv ∥e∥ ⋅μ∇B ∂v∥
-            ∫     (       )         ∫     (     )
-         − q  dvv∥  v∥δB⊥-  ⋅∇F0  +q   dvv∥  δB⊥-  ⋅μ∇B ∂F0-,       (334)
-                      B0                     B0        ∂v∥
-" class="math-display"  /><a 
- id="x15-76004r334"></a></center>
-</div>where the explicit dependence on <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">E </span>is via the ﬁrst term <span 
-class="cmmi-10">q</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">n</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">δE</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">∕m</span>, with all the the other terms
-being explicitly independent of <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">E </span>(<span 
-class="cmmi-10">δf </span>and <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">B </span>implicitly depend on <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">E</span>).
-<!--l. 4529--><p class="indent" >   Equation (<a 
-href="#x15-76004r334">334<!--tex4ht:ref: 17-5-18-p3 --></a>) involve derivatives of <span 
-class="cmmi-10">δf </span>with respect to space and <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> and these should be avoided in
-the particle method whose goal is to avoid directly evaluating these derivatives. Using integration by
-parts, the terms involving <span 
-class="cmmi-10">∂∕∂v</span><sub><span 
-class="cmsy-7">∥</span></sub> can be simpliﬁed, yielding </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation366x.png" alt="                     ∫                                 ∫
-∂δj∥  =   q2δE n − q   dvv (ve  + v )⋅∇  δf − q(e  ⋅∇B )   μδfdv
- ∂t       m   ∥ 0         ∥ ∥ ∥    D    X       ∥     0
-            ∫      (  δB-⊥)         ( δB⊥-)       ∫
-          − q  dvv∥ v∥ B0   ⋅∇F0 − q   B0   ⋅(∇B0 )   μF0dv,        (335)
-" class="math-display"  /></center>
-</div>Deﬁne <span 
-class="cmmi-10">p</span><sub><span 
-class="cmsy-7">⊥</span><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">mv</span><sub><span 
-class="cmsy-7">⊥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕</span>2<span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v </span>and <span 
-class="cmmi-10">δp</span><sub><span 
-class="cmsy-7">⊥</span></sub> = <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">mv</span><sub><span 
-class="cmsy-7">⊥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">δf∕</span>2<span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v</span>, then the above equation is written
-<div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation367x.png" alt="                    ∫
-∂δj∥      q2-                                           -δp⊥-
- ∂t   =   m δE ∥n0 − q  dvv∥(v∥e∥ + vD )⋅∇X δf − q(e∥ ⋅∇B0 )mB0
-            ∫      (  δB⊥ )         ( δB⊥ )       p⊥0
-         − q  dvv∥  v∥-B--  ⋅∇F0 − q  B--- ⋅(∇B0 )mB--,          (336)
-                        0               0            0
-" class="math-display"  /><a 
- id="x15-76006r336"></a></center>
-</div>Next, we try to eliminate the spatial gradient of <span 
-class="cmmi-10">δf </span>by changing the order of integration. The second
-term on the right-hand side of Eq. (<a 
-href="#x15-76006r336">336<!--tex4ht:ref: 17-5-18-p8 --></a>) is written <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation368x.png" alt="   ∫
-
-− q  dvv∥(v∥e∥)⋅∇X δf,
-     ∫           2
-= − q  2πB0dv∥dμv∥e∥ ⋅∇X δf
-               ∫
-= − q2πB0e ∥ ⋅∇X  v2∥δfdv∥dμ
-             (     ∫         )
-= − qB0e ∥ ⋅∇X -1--   mv2∥δfdv
-             ( mB0 )
-               δp∥-
-= − qB0e ∥ ⋅∇X mB0   ,                           (337)
-" class="math-display"  /></center>
-</div>where <span 
-class="cmmi-10">δp</span><sub><span 
-class="cmsy-7">∥</span></sub> = <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">mv</span><sub><span 
-class="cmsy-7">∥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">δfd</span><span 
-class="cmbx-10">v</span>. Similarly, the term <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">q</span> <span 
-class="cmex-10">∫</span>
- <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v</span><span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><img 
-src="nonlinear_gyrokinetic_equation369x.png" alt="(     )
- v∥δB⊥-
-    B0"  class="left" align="middle" /><span 
-class="cmsy-10">⋅∇</span><sub><span 
-class="cmmi-7">X</span></sub><span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub> is written as
-                                                                                
-
-                                                                                
-<div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation370x.png" alt="   ∫     (       )
-− q  dvv   v δB⊥-  ⋅∇  F
-        ∥   ∥ B0     X  0
-     ∫           ( 2δB-⊥)
-= − q  2πB0dv∥dμ  v∥ B0   ⋅∇XF0
-     ( δB  )       ∫
-= − q  --⊥- ⋅B0 ∇X   (v2∥F02 πdv∥dμ )
-     ( B0  )       [  ∫          ]
-= − q  δB⊥- ⋅B  ∇   -1  (mv2F  dv)
-       B0      0 X  B       ∥ 0
-             ( p∥0-)
-= − qδB⊥ ⋅∇X   mB0                                 (338)
-" class="math-display"  /></center>
-</div>where <span 
-class="cmmi-10">p</span><sub><span 
-class="cmsy-7">∥</span><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmex-10">∫</span>
-  <span 
-class="cmmi-10">mv</span><sub><span 
-class="cmsy-7">∥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">F</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v</span>. Similarly, the term <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">q</span> <span 
-class="cmex-10">∫</span>
- <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v</span><span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmbx-10">v</span><sub><span 
-class="cmmi-7">D</span></sub> <span 
-class="cmsy-10">⋅∇</span><sub><span 
-class="cmmi-7">X</span></sub><span 
-class="cmmi-10">δf </span>can be written as the gradient of
-moments of <span 
-class="cmmi-10">δf</span>. Let us work on this. The drift <span 
-class="cmbx-10">v</span><sub><span 
-class="cmmi-7">D</span></sub> is given by
-   <table 
-class="equation"><tr><td><a 
- id="x15-76009r339"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation371x.png" alt="      B0v∥∇ × b      μ
-vD =  --ΩB-⋆---v∥ + ΩB-⋆B0 ×∇B0.
-           ∥           ∥
-" class="math-display"  /></center></td><td class="equation-label">(339)</td></tr></table>
-<!--l. 4599--><p class="nopar" >
-where <span 
-class="cmmi-10">B</span><sub><span 
-class="cmsy-7">∥</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> = <span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub><img 
-src="nonlinear_gyrokinetic_equation372x.png" alt="(    v∥-       )
- 1 + Ωb ⋅∇ × b"  class="left" align="middle" /> (refer to my another notes).  Using <span 
-class="cmbx-10">b </span><span 
-class="cmsy-10">⋅∇× </span><span 
-class="cmbx-10">b </span><span 
-class="cmsy-10">≈ </span>0, we obtain
-<span 
-class="cmmi-10">B</span><sub><span 
-class="cmsy-7">∥</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> <span 
-class="cmsy-10">≈ </span><span 
-class="cmmi-10">B</span>. Then <span 
-class="cmbx-10">v</span><sub><span 
-class="cmmi-7">D</span></sub> is written
-</p>
-   <table 
-class="equation-star"><tr><td>
-                                                                                
-
-                                                                                
-                           <span 
-class="cmbx-10">v</span><sub><span 
-class="cmmi-7">D</span></sub> = <img 
-src="nonlinear_gyrokinetic_equation373x.png" alt="v2∥
-Ω-"  class="frac" align="middle" /><span 
-class="cmsy-10">∇× </span><span 
-class="cmbx-10">b </span>+ <img 
-src="nonlinear_gyrokinetic_equation374x.png" alt="μ
-Ω-"  class="frac" align="middle" /><span 
-class="cmbx-10">b </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">.</span>
-</td></tr></table>
-<!--l. 4605--><p class="nopar" >
-Using this and <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v </span>= 2<span 
-class="cmmi-10">πB</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">dv</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">dμ</span>, the term <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">q</span> <span 
-class="cmex-10">∫</span>
- <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v</span><span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmbx-10">v</span><sub><span 
-class="cmmi-7">D</span></sub> <span 
-class="cmsy-10">⋅∇</span><sub><span 
-class="cmmi-7">X</span></sub><span 
-class="cmmi-10">δf </span>is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation375x.png" alt="                                       (                    )
-  ∫                       ∫              v2∥        μ-
-− q  dvv∥vD ⋅∇X δf  =  − q  2πB0dv∥dμv∥  Ω ∇ × b + Ωb × ∇B0   ⋅∇X δf
-                                           ∫                                 ∫
-                    =  − q2πB0 1-(∇ × b )⋅∇X  v3∥δfdv∥dμ− q2πB0 1-(b × ∇B0 )⋅∇X   v∥μδfdv∥dμ
-                              Ω          (   ∫        )       Ω             (    ∫        )
-                    =  − qB 1-(∇ × b) ⋅∇   -1-   v3δfdv  − qB  1(b × ∇B  )⋅∇    1--  v μδfdv  ,
-                           0Ω          X  B0    ∥           0Ω        0   X   B0    ∥
-                                     (  1 ∫  3    )                  (  1 ∫        )
-                    =  − m (∇ × b)⋅∇X  B--  v∥δfdv  − m (b × ∇B0 )⋅∇X   B--  v∥μδfdv  ,  (340)
-                                         0                              0
-" class="math-display"  /></center>
-</div>which are the third order moments of <span 
-class="cmmi-10">δf </span>and may be neglect-able (a guess, not veriﬁed). Using the
-above results, the linear parallel momentum equation is ﬁnally written <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation376x.png" alt="∂δj∥      e2ne0-              ( δp∥-)            δp⊥-
- ∂t   =    m  δE ∥ + eB0b ⋅∇X  mB0   + e(b ⋅∇B0 )mB0
-                    (  p  )    ( δB  )       p
-         +e δB⊥ ⋅∇X   --∥0-  + e  --⊥- ⋅(∇B0 )-⊥0-.
-                      mB0(   ∫    B0  )       mB0        (   ∫         )
-         − m (∇ × b) ⋅∇X   1--  v3δfdv  − m (b× ∇B0 )⋅∇X   -1-  v μδfdv  (341)
-                          B0   ∥                         B0    ∥
-" class="math-display"  /><a 
- id="x15-76011r341"></a></center>
-</div>Deﬁne
-   <table 
-class="equation"><tr><td><a 
- id="x15-76012r342"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation377x.png" alt="       ( p   )  ∇B   p
-D0 = ∇  --∥0  + ---0 -⊥0-,
-        mB0      B0  mB0
-" class="math-display"  /></center></td><td class="equation-label">(342)</td></tr></table>
-<!--l. 4648--><p class="nopar" >
-which, for the isotropic case (<span 
-class="cmmi-10">p</span><sub><span 
-class="cmsy-7">∥</span><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmmi-10">p</span><sub><span 
-class="cmsy-7">⊥</span><span 
-class="cmr-7">0</span></sub> = <span 
-class="cmmi-10">p</span><sub><span 
-class="cmr-7">0</span></sub>), is simpliﬁed to
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-76013r343"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation378x.png" alt="     ∇p
-D0 = ---0.
-     mB0
-" class="math-display"  /></center></td><td class="equation-label">(343)</td></tr></table>
-<!--l. 4653--><p class="nopar" >
-then Eq. (<a 
-href="#x15-76011r341">341<!--tex4ht:ref: 17-5-19-2 --></a>) is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation379x.png" alt="∂δj∥      e2n0
--∂t- =   -m--δE∥ + eδB ⊥ ⋅D0
-                  ( δp∥ )            δp
-     +   eB0b ⋅∇X   ----  + e(b ⋅∇B0 )--⊥-
-                    mB0(   ∫        ) mB0              (   ∫         )
-     −   m (∇ × b) ⋅∇X  -1-   v3δfdv  − m (b× ∇B0 )⋅∇X   -1-  v∥μδfdv  .(344)
-                       B0    ∥                         B0
-" class="math-display"  /></center>
-</div>
-                                                                                
-
-                                                                                
-<!--l. 4669--><p class="noindent" >
-</p>
-   <h4 class="subsectionHead"><span class="titlemark">E.4   </span> <a 
- id="x15-77000E.4"></a>Special case in uniform magnetic ﬁeld</h4>
-<!--l. 4671--><p class="noindent" >In the case of uniform magnetic ﬁeld, the parallel momentum equation (<a 
-href="#x15-76011r341">341<!--tex4ht:ref: 17-5-19-2 --></a>) is written
-as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-77001r345"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation380x.png" alt="∂δj∥   q-                       δB⊥-
- ∂t  = m qE∥ne0 − qe∥ ⋅∇X (δp∥)− q B0 ⋅∇Xp ∥0.
-" class="math-display"  /></center></td><td class="equation-label">(345)</td></tr></table>
-<!--l. 4678--><p class="nopar" >
-</p><!--l. 4680--><p class="noindent" >
-</p>
-   <h4 class="subsectionHead"><span class="titlemark">E.5   </span> <a 
- id="x15-78000E.5"></a>Electron perpendicular ﬂow</h4>
-<!--l. 4682--><p class="noindent" >Using the gyrokinetic theory and taking the drift-kinetic limit, the perturbed perpendicular electron
-ﬂow, <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">V</span><sub><span 
-class="cmmi-7">e</span><span 
-class="cmsy-7">⊥</span></sub>, is written (see Sec. <a 
-href="nonlinear_gyrokinetic_equationse11.html#x12-66000B">B<!--tex4ht:ref: 17-9-26-1 --></a> or Appendix in Yang Chen’s paper<span class="cite">[<a 
-href="nonlinear_gyrokinetic_equationli1.html#Xychen2009">2</a>]</span>)
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-78001r346"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation381x.png" alt="          ne0         1
-ne0δVe ⊥ = B0-δE ×b − eB0b × ∇ δp⊥e
-          ◟--◝◜---◞  ◟----◝◜-----◞
-           E×B ﬂow     diamagneticﬂow
-" class="math-display"  /></center></td><td class="equation-label">(346)</td></tr></table>
-<!--l. 4690--><p class="nopar" >
-where <span 
-class="cmmi-10">n</span><sub><span 
-class="cmmi-7">e</span><span 
-class="cmr-7">0</span></sub> is the equilibrium electron number density, <span 
-class="cmmi-10">δp</span><sub><span 
-class="cmmi-7">e</span><span 
-class="cmsy-7">⊥</span></sub> is the perturbed perpendicular pressure of
-electrons.
-</p><!--l. 4694--><p class="indent" >    
-</p><!--l. 4696--><p class="indent" >    
-                                                                                
-
-                                                                                
-</p><!--l. 4698--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">E.5.1   </span> <a 
- id="x15-79000E.5.1"></a>Drift kinetic equation</h5>
-<!--l. 4700--><p class="noindent" >Drift kinetic equation is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-79001r347"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation382x.png" alt="     (                 )
-∂f-      ˜       δE-×-b        (  e-       ˜    ) ∂f-
- ∂t +  v∥b + vD +   B0    ⋅∇f +  − m δE∥ − μb ⋅∇B  ∂v∥ = 0,
-" class="math-display"  /></center></td><td class="equation-label">(347)</td></tr></table>
-<!--l. 4707--><p class="nopar" >
-where <span 
-class="cmmi-10">f </span>= <span 
-class="cmmi-10">f</span>(<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,t</span>), <span 
-class="cmmi-10">μ </span>= <span 
-class="cmmi-10">mv</span><sub><span 
-class="cmsy-7">⊥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">∕B</span><sub><span 
-class="cmr-7">0</span></sub> is the magnetic moment, <img 
-src="nonlinear_gyrokinetic_equation383x.png" alt="˜b"  class="tilde"  /> = <span 
-class="cmbx-10">b </span>+ <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">B</span><sub><span 
-class="cmsy-7">⊥</span></sub><span 
-class="cmmi-10">∕B</span><sub><span 
-class="cmr-7">0</span></sub>, <span 
-class="cmbx-10">b </span>= <span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕B</span><sub><span 
-class="cmr-7">0</span></sub> is the
-unit vector along the equilibrium magnetic ﬁeld, <span 
-class="cmbx-10">v</span><sub><span 
-class="cmmi-7">D</span></sub> = <span 
-class="cmbx-10">v</span><sub><span 
-class="cmmi-7">D</span></sub>(<span 
-class="cmbx-10">x</span><span 
-class="cmmi-10">,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub>) is the guiding-center drift in the
-equilibrium magnetic ﬁeld. <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">E </span>and <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">B </span>are the perturbed electric ﬁeld and magnetic ﬁeld,
-respectively.
-</p><!--l. 4716--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">E.5.2   </span> <a 
- id="x15-80000E.5.2"></a>Parallel momentum equation</h5>
-<!--l. 4718--><p class="noindent" >Multiplying the drift kinetic equation () by <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> and then integrating over velocity space, we
-obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-80001r348"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation384x.png" alt="∫           ∫   (                 )          ∫
-  ∂fev∥            ˜        δE-×-b               (  e-       ˜    ) ∂fe
-    ∂t dv +   v∥  v∥b + vD +   B0    ⋅∇fedv +   v∥ − m δE∥ − μ b⋅∇B  ∂v∥dv = 0,
-" class="math-display"  /></center></td><td class="equation-label">(348)</td></tr></table>
-<!--l. 4727--><p class="nopar" >
-which can be written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-80002r349"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation385x.png" alt="∂J∥e   ∫   (           δE × e∥)         ∫    (  e             ) ∂fe
-∂t--+   v∥  v∥b˜+ vD + --B----  ⋅∇fedv +   v∥ − m-δE ∥ − μ˜b ⋅∇B  ∂v-dv = 0,
-                          0                                      ∥
-" class="math-display"  /></center></td><td class="equation-label">(349)</td></tr></table>
-<!--l. 4736--><p class="nopar" >
-Using <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">v </span>= <span 
-class="cmmi-10">B</span><sup><span 
-class="cmsy-7">−</span><span 
-class="cmr-7">1</span></sup>2<span 
-class="cmmi-10">πmdv</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">dμ</span>, the last term on the RHS of the above equation is written
-</p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation386x.png" alt="∫ ∫   (  e-       ˜    ) ∂fe
-    v∥ − m δE∥ − μ b⋅∇B  ∂v∥dv
-  ∫ ∫   (  e             ) ∂f    B
-=     v∥ − --δE∥ − μ ˜b⋅∇B  --e2π--dv∥dμ
-           m ∫ ∫           ∂v∥  m         ∫  ∫
-= −-eδE ∥2π B-    v∥∂fe dv∥dμ − (˜b⋅∇B )2πB-   μ   v∥ ∂fedv∥dμ
-   m       m       ∂v∥                 m          ∂v∥
-    e      B ∫ (     +∞   ∫      )              B  ∫  (     +∞   ∫      )
-= −m-δE ∥2π m-    v∥fe|−∞ −   fedv∥ dμ − (˜b⋅∇B )2πm-   μ  v∥fe|−∞ −   fedv∥ dμ
-  e      B ∫  ∫                    B ∫  ∫
-= --δE∥2π--     fedv∥dμ + (˜b⋅∇B )2π--   μ   fedv∥dμ
-  m      m ∫ ∫                    m
-= e-δE∥ne +     μ(˜b⋅∇B )fedv                                           (350)
-  m
-≈ e-δE∥ne
-  m
-" class="math-display"  /></center>
-</div>
-   <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation387x.png" alt="∫ ∫
-     v∥(v∥˜b)⋅∇fedv
-  ∫ ∫
-=      ˜b⋅∇ (v2f )dv
-            ∥ e
-  ∫ ∫  ˜     2    B-
-=      b⋅∇ (v∥fe)2πm dv∥dμ
-       (∫ ∫        1     )
-= ˜b ⋅∇       v2∥fe2π--dv∥dμ  B0
-       (   )      m
-= ˜b ⋅∇  -p∥-  B0
-       (B0      )
-  ˜     p∥0 +-δp∥
-= b ⋅∇     B0     B0
-       (p∥0)          ( δp∥ )
-= ˜b ⋅∇  ---  B0 +b˜⋅∇   --- B0
-       (B0 )            B0(   )          (    )
-≈ b ⋅∇  p∥0  B0 + δB⊥-⋅∇   p∥0- B0 + b⋅∇   δp∥  B0
-        B0        B0       B0             B0
-             δB⊥-
-≈ b ⋅∇(p∥0)+  B0 ⋅∇ (p∥0)+ b ⋅∇ (δp∥)                       (351)
-  δB-⊥
-=  B0  ⋅∇(p∥0)+ b⋅∇ (δp∥)
-" class="math-display"  /></center>
-</div>where use has been made of <span 
-class="cmbx-10">b </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">p</span><sub><span 
-class="cmsy-7">∥</span><span 
-class="cmr-7">0</span></sub> = 0.
-   <table 
-class="equation"><tr><td><a 
- id="x15-80005r352"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation388x.png" alt="∂-δJe∥     e-       δB-⊥
-  ∂t  = − m δE ∥ne − B0  ⋅∇(p∥0)− b⋅∇ (δp∥)
-" class="math-display"  /></center></td><td class="equation-label">(352)</td></tr></table>
-<!--l. 4797--><p class="nopar" >
-Using Eq. () in Eq. (), we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-80006r353"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation389x.png" alt="                                [                        ]
-   e-                            δB-⊥
-μ0em δE∥ne + b ⋅∇ × ∇ × δE = − μ0e B0  ⋅∇(pe∥0) +b ⋅∇ (δpe∥)
-" class="math-display"  /></center></td><td class="equation-label">(353)</td></tr></table>
-<!--l. 4804--><p class="nopar" >
-</p><!--l. 4807--><p class="indent" >    
-</p><!--l. 4809--><p class="indent" >   ————–
-</p><!--l. 4811--><p class="indent" >    
-</p><!--l. 4813--><p class="indent" >    
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x15-80007r354"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation390x.png" alt="                      (                                      )
-                          δB⊥-         -q
-− b⋅∇ × ∇ × δE = − μ0e − qB0  ⋅∇Xp ∥0 + m qE∥ne0 − qe∥ ⋅∇X (δp∥) .
-" class="math-display"  /></center></td><td class="equation-label">(354)</td></tr></table>
-<!--l. 4821--><p class="nopar" >
-</p><!--l. 4824--><p class="indent" >    
-</p><!--l. 4826--><p class="indent" >   ddddd </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation391x.png" alt="∫ ∫   (                 )
-    v   v˜b + v  + δE-×-b  ⋅∇f dv
-     ∥  ∥     D     B0       e
-  ∫ ∫ (  ˜        δE-×-b)
-=      v∥b + vD +   B0    ⋅∇(v∥fe)dv
-  ∫ ∫                 ∫ ∫                ∫ ∫  δE× b
-=     v∥˜b⋅∇ (v∥fe)dv +     vD ⋅∇ (v∥fe)dv+      ------⋅∇ (v∥fe)dv
-  ∫ ∫               ∫ ∫                ∫  ∫     B0
-=     ˜b ⋅∇(v2∥fe)dv +     vD ⋅∇ (v∥fe)dv+      δE-×-b ⋅∇ (v∥fe)dv
-  ∫ ∫                      ∫ ∫                B0     ∫ ∫
-=     ˜b ⋅∇(v2fe)2π B-dvdμ +     vD ⋅∇ (v fe)2πB-dv dμ+      δE-×-b⋅∇ (v fe)2πB-dv dμ
-  ∫     (   ∥     m  ∥)     ∫ ∫       ∥     m   ∥      ∫ ∫  B0       ∥    m   ∥
-    ˜      2    1-                           B-            δE-×-b           B-
-=   b⋅∇   v∥fe2π m dv∥dμ  B +      vD ⋅∇ (v∥fe)2πm dv∥dμ +      B0   ⋅∇(v∥fe)2π m dv∥dμ
-      (p∥ )    ∫ ∫              B        ∫  ∫ δE × b           B
-= ˜b⋅∇  -B  B +     vD ⋅∇ (v∥fe)2πm-dv∥dμ+      --B--- ⋅∇ (v∥fe)2πm-dv∥dμ
-      (p  )    ∫ ∫                               0  ∫ ∫
-= ˜b⋅∇  -∥  B +      -1-b× (μ∇B ) ⋅∇ (v∥fe)2πB-dv∥dμ +     -1--b× (mv2∥κ )⋅∇(v∥fe)2π B-dv∥dμ
- ∫  ∫   B           mΩ                    m             m Ω                     m
-+     δE-×-b ⋅∇(v∥fe)2π Bdv∥dμ
-        B0             m
-" class="math-display"  /></center>
-</div>
-<!--l. 4868--><p class="indent" >    
+<!--l. 4328--><p class="nopar" >
+Another perspective of interpreting Eq. (<a 
+href="#x15-72003r327">327<!--tex4ht:ref: 19-1-19-p1 --></a>) is that we are ﬁrst using the transformation (<a 
+href="#x15-71001r322">322<!--tex4ht:ref: 19-1-20-e1 --></a>) to
+transform <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> to <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> and then integrating <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> in the velocity space.
+</p><!--l. 4333--><p class="indent" >    
+</p><!--l. 4335--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 4870--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4337--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse15.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse13.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse13.html#tailnonlinear_gyrokinetic_equationse13.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse14.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse14.html" >up</a>] </p></div>
-<!--l. 4870--><p class="indent" >   <a 
- id="tailnonlinear_gyrokinetic_equationse14.html"></a>   </p> 
+<!--l. 4337--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse14.html"></a>  </p> 
 </body></html> 

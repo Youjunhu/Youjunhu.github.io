@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Transform gyrokinetic equation from (X,μ,𝜀,α) to (X,μ,v∥,α) coordinates</title> 
+<head><title>Coordinate system and grid in TEK code</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,344 +13,220 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 3825--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3714--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse13.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html#tailnonlinear_gyrokinetic_equationse11.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationse12.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse12.html" >up</a>] </p></div>
-   <h3 class="sectionHead"><span class="titlemark">C   </span> <a 
- id="x13-67000C"></a>Transform gyrokinetic equation from (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,𝜀,α</span>) to (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α</span>) coordinates</h3>
-<!--l. 3827--><p class="noindent" >The gyrokinetic equation given above is written in terms of variables (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,𝜀,α</span>), where <span 
-class="cmmi-10">α</span>
-is the gyro-phase. Next, we transform it into coordinates (<span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,μ</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>) which is deﬁned
-by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x13-67001r284"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation316x.png" alt="(    ′
-||{  X′(X,μ,𝜀,α) = X
-   μ′(X, μ,𝜀,α) = μ
-||(  α (X, μ,𝜀,α) = α ∘-------------
-   v∥(X, μ,𝜀,α) = ±  2(𝜀 − μB0 (X))
-" class="math-display"  /></center></td><td class="equation-label">(284)</td></tr></table>
-<!--l. 3839--><p class="nopar" >
-Use this deﬁnition and the chain rule, the gradient operators in (<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ,𝜀,α</span>) variables are written, in
-terms of (<span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,μ</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>) variables, as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation317x.png" alt="   ||           ′      ||         ′    ||        ∂v     ||          ′    ||
--∂-||     =   ∂X--⋅-∂-′||     + ∂μ- -∂′||      + --∥ -∂-||      + ∂α- -∂′||
-∂X μ,𝜀,α      ∂X   ∂X  μ′,v∥,α′  ∂X  ∂μ  X′,v∥,α′  ∂X  ∂v∥ X′,μ′,α′  ∂X  ∂α  X′,μ′,v∥
-             -∂--   -∂-  -μ ∂B0-∂-    -∂-
-         =   ∂X′ +0 ∂μ′ − v∥ ∂X ∂v∥ + 0∂α′                               (285)
-" class="math-display"  /><a 
- id="x13-67002r285"></a></center>
-</div>and <div class="eqnarray">
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation318x.png" alt=" ∂ ||         ∂X ′ ∂    ∂μ′ ∂    ∂v∥ ∂    ∂α′ ∂
-∂-𝜀||     =   -∂𝜀-∂X-′ + ∂𝜀-∂μ′ + ∂𝜀-∂v + ∂𝜀-∂α′
-   X,μ,α                              ∥
-         =   0-∂--+ 0-∂-+  1--∂-+ 0 ∂--                    (286)
-              ∂X ′   ∂μ′   v∥∂v∥    ∂α′
-" class="math-display"  /></center>
-</div>Then, in terms of independent variable (<span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,μ</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>), equation (<a 
-href="nonlinear_gyrokinetic_equationse5.html#x6-31001r142">142<!--tex4ht:ref: 16-10-16-2 --></a>) is written <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation319x.png" alt="[                          ]
- ∂-+ (v∥e∥ + VD +δVD ) ⋅-∂-- δG0 − (v∥e∥ + VD + δVD )⋅ μ-∂B0-∂δG0-
- ∂t      (              ∂X′)                          v∥dX  ∂v∥
-          ∂F0-  -μ ∂B0∂F0-    q-∂⟨δL⟩α∂F0-1-
-= − δVD ⋅ ∂X ′ − v∥ dX ∂v∥  − m   ∂t  ∂v∥ v∥,                    (287)
-" class="math-display"  /><a 
- id="x13-67004r287"></a></center>
-</div>where <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">V</span><sub><span 
-class="cmmi-7">D</span></sub> and <span 
-class="cmsy-10">⟨</span><span 
-class="cmmi-10">δL</span><span 
-class="cmsy-10">⟩</span><sub><span 
-class="cmmi-7">α</span></sub> involve the gyro-averaging operator <span 
-class="cmsy-10">⟨</span><span 
-class="cmmi-10">…</span><span 
-class="cmsy-10">⟩</span><sub><span 
-class="cmmi-7">α</span></sub>. The gyro-averaging operator in
-(<span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,μ</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>) coordinates is similar to that in the old coordinates since the perpendicular velocity
-variable <span 
-class="cmmi-10">μ </span>is identical between the two coordinate systems. Also note that the perturbed guiding-center
-velocity <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">V</span><sub><span 
-class="cmmi-7">D</span></sub> is given by
-   <table 
-class="equation"><tr><td><a 
- id="x13-67005r288"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation320x.png" alt="       e∥ ×∇X ⟨δϕ⟩α     ⟨δB ⊥⟩α
-δVD  = -----B0----- + v∥--B0--,
-" class="math-display"  /></center></td><td class="equation-label">(288)</td></tr></table>
-<!--l. 3898--><p class="nopar" >
-where <span 
-class="cmmi-10">∂∕∂</span><span 
-class="cmbx-10">X </span>(rather than <span 
-class="cmmi-10">∂∕∂</span><span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span>) is used. Since <span 
-class="cmmi-10">δϕ</span>(<span 
-class="cmbx-10">x</span>) = <span 
-class="cmmi-10">δϕ</span><sub><span 
-class="cmmi-7">g</span></sub>(<span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">,μ</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>), which is independent of <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>,
-then Eq. (<a 
-href="#x13-67002r285">285<!--tex4ht:ref: 19-1-2-e1 --></a>) indicates that <span 
-class="cmmi-10">∂δϕ∕∂</span><span 
-class="cmbx-10">X </span>= <span 
-class="cmmi-10">∂δϕ∕∂</span><span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span>.
-                                                                                
-
-                                                                                
-</p><!--l. 3905--><p class="indent" >   Dropping terms of order higher than <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">2</span></sup>), equation (<a 
-href="#x13-67004r287">287<!--tex4ht:ref: 18-12-17-3 --></a>) is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation321x.png" alt="[                           ]
-  ∂-+ (ve  + V  + δV  )⋅-∂-- δG  − e ⋅μ∇B  ∂δG0-
-  ∂t    ∥∥    D      D  ∂X ′    0   ∥     0 ∂v∥
-         ( ∂F0)   (              q∂ ⟨δL ⟩α ) ∂F0 1
-= − δVD ⋅  ∂X-′ +  δVD  ⋅μ∇B0 − m----∂t-   ∂v-v-,         (289)
-                                             ∥ ∥
-" class="math-display"  /></center>
-</div>Similarly, in terms of independent variable (<span 
-class="cmbx-10">X</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,μ</span><span 
-class="cmsy-10">′</span><span 
-class="cmmi-10">,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α</span><span 
-class="cmsy-10">′</span>), equation (<a 
-href="nonlinear_gyrokinetic_equationse5.html#x6-32004r147">147<!--tex4ht:ref: 17-5-13-p2 --></a>) is written as
-   <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation322x.png" alt="[ ∂                     -∂-]             ∂δf-
- ∂t + (v∥e∥ + VD + δVD )⋅ ∂X′ δf − e∥ ⋅μ∇B0 ∂v ∥
-        (     )        (          )
-= − δVD ⋅ ∂F0′ + δVD  ⋅ -μ∇B0 ∂F0-
-   [      ∂X      (     v∥     ∂v∥     )         ]
- -q   ∂⟨v-⋅δA⟩α                 ⟨δB-⊥⟩α            ∂F0-1-
-−m   −    ∂t    −  v∥e∥ + VD + v∥ B0     ⋅∇X ⟨δϕ ⟩α  ∂v∥ v∥,    (290)
-" class="math-display"  /><a 
- id="x13-67007r290"></a></center>
-</div>The guiding-center velocity in the macroscopic (equilibrium) ﬁeld is given by
-   <table 
-class="equation"><tr><td><a 
- id="x13-67008r291"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation323x.png" alt="           -B⋆0-    --μ--           --1---
-v∥e∥ + VD = B ⋆∥0v∥ + ΩB ⋆∥0B0 × ∇B0 + B0B ⋆∥0 E0 × B0
-                                                                                
-
-                                                                                
-" class="math-display"  /></center></td><td class="equation-label">(291)</td></tr></table>
-<!--l. 3946--><p class="nopar" >
-where
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x13-67009r292"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation324x.png" alt="B⋆0 = B0 + B0 v∥∇ × b,
-            Ω
-" class="math-display"  /></center></td><td class="equation-label">(292)</td></tr></table>
-<!--l. 3951--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x13-67010r293"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation325x.png" alt="               (   v∥        )
-B ⋆∥ ≡ b ⋅B⋆ = B 1+ --b ⋅∇ × b ,
-                   Ω
-" class="math-display"  /></center></td><td class="equation-label">(293)</td></tr></table>
-<!--l. 3956--><p class="nopar" >
-Using <span 
-class="cmmi-10">B</span><sub><span 
-class="cmsy-7">∥</span><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">⋆</span></sup> <span 
-class="cmsy-10">≈ </span><span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub>, then expression (<a 
-href="#x13-67008r291">291<!--tex4ht:ref: 18-12-17-1 --></a>) is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x13-67011r294"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation326x.png" alt="                  v2
-v∥e ∥ + VD = v∥b + -∥∇ × b + --μ-B0 × ∇B0 + -12E0 × B0,
-                  Ω◟--◝◜--◞   Ω◟B0---◝◜----◞  B◟-0-◝◜---◞
-                 curvaturedrift     ∇B drift       E×B drift
-                                                                                
-
-                                                                                
-" class="math-display"  /></center></td><td class="equation-label">(294)</td></tr></table>
-<!--l. 3966--><p class="nopar" >
-where the curvature drift, <span 
+   <h3 class="sectionHead"><span class="titlemark">D   </span> <a 
+ id="x13-65000D"></a>Coordinate system and grid in TEK code</h3>
+<!--l. 3716--><p class="noindent" >In the magnetic coordinates (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) used in <span 
+class="cmtt-10">TEK</span> code, <span 
+class="cmmi-10">ψ </span>is the normalized poloidal magnetic ﬂux,
+<span 
+class="cmmi-10">ψ </span>= (Ψ <span 
+class="cmsy-10">− </span>Ψ<sub><span 
+class="cmr-7">axis</span></sub>)<span 
+class="cmmi-10">∕</span>(Ψ<sub><span 
+class="cmr-7">lcfs</span></sub> <span 
+class="cmsy-10">− </span>Ψ<sub><span 
+class="cmr-7">axis</span></sub>), <span 
+class="cmmi-10">𝜃 </span>is increasing along the anti-clockwise direction when viewed along <span 
 class="cmsy-10">∇</span><span 
-class="cmmi-10">B </span>drift, and <span 
-class="cmbx-10">E</span><sub><span 
-class="cmr-7">0</span></sub> <span 
-class="cmsy-10">× </span><span 
-class="cmbx-10">B</span><sub><span 
-class="cmr-7">0</span></sub> drift can be identiﬁed. Note that the perturbed
-guiding-center velocity <span 
-class="cmmi-10">δ</span><span 
-class="cmbx-10">V</span><sub><span 
-class="cmmi-7">D</span></sub> is given by (refer to Sec. <a 
-href="nonlinear_gyrokinetic_equationse13.html#x14-71000D.3">D.3<!--tex4ht:ref: 19-3-28-e1 --></a>)
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x13-67012r295"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation327x.png" alt="       e∥-×∇X-⟨δϕ⟩α     ⟨δB-⊥⟩α-
-δVD  =      B0      + v∥  B0  .
-" class="math-display"  /></center></td><td class="equation-label">(295)</td></tr></table>
-<!--l. 3974--><p class="nopar" >
-Using the above results, equation (<a 
-href="#x13-67007r290">290<!--tex4ht:ref: 17-5-13-p2m --></a>) is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation328x.png" alt="[                          ]
- ∂-+ (v e + V  + δV  )⋅ -∂--δf − e ⋅μ∇B  ∂δf-
- ∂t    ∥ ∥    D     D   ∂X′       ∥     0∂v ∥
-        ( ∂F0 )  ( e∥ × ∇X ⟨δϕ⟩α   ⟨δB ⊥⟩α)  ( μ    ∂F0 )
-= − δVD ⋅ ∂X-′ +   -----B------+ v∥--B----  ⋅ v-∇B0 -∂v-
-    [             (      02            0       ∥       ∥               )         ]
- -q   ∂⟨v-⋅δA⟩α          v∥        -μ--           -1-           ⟨δB-⊥⟩α            ∂F0-1
-−m   −    ∂t    −  v∥e∥ + Ω ∇ ×b + ΩB0 B0 × ∇B0 + B20E0 × B0 + v∥ B0     ⋅∇X ⟨δϕ⟩α  ∂v(∥2v9∥6,)
-" class="math-display"  /></center>
-</div>Collecting coeﬃcients before <span 
-class="cmmi-10">∂F</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕∂v</span><sub><span 
-class="cmsy-7">∥</span></sub>, we ﬁnd that the two terms involving <span 
+class="cmmi-10">ϕ</span>
+direction, <span 
+class="cmmi-10">ϕ </span>is the toroidal angle of the right-handed cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>). In this
+convention the Jacobian of the (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system, <span 
+class="cmsy-10">𝒥 </span>= (<span 
 class="cmsy-10">∇</span><span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub> (terms in blue and
-red) cancel each other, yielding <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation329x.png" alt="[                          ]
- ∂-+ (v e + V  + δV  )⋅ -∂--δf − e ⋅μ∇B  ∂δf-
- ∂t    ∥ ∥    D     D   ∂X′       ∥     0∂v ∥
-        ( ∂F0 )
-= − δVD ⋅ ∂X-′
-    [                                (       2                             )         ]
-+-q  m-v ⟨δB-⊥⟩α-⋅(μ ∇B ) + ∂⟨v⋅δA-⟩α+   vb + v∥∇ × b + -1-E × B  + v ⟨δB⊥-⟩α-  ⋅∇   ⟨δϕ⟩   ∂F0(219,7)
- m   q  ∥  B0         0      ∂t         ∥   Ω         B20  0    0   ∥  B0       X    α  ∂v∥v∥
-" class="math-display"  /><a 
- id="x13-67014r297"></a></center>
-</div>This equation agrees with Eq. (8) in I. Holod’s 2009 pop paper (gyro-averaging is wrongly
-omitted in that paper) and W. Deng’s 2011 NF paper. Equation (<a 
-href="#x13-67014r297">297<!--tex4ht:ref: 18-9-18-e1 --></a>) drops all terms higher
-than <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">2</span></sup>) and as a result the coeﬃcient before <span 
-class="cmmi-10">∂δf∕∂v</span><sub><span 
-class="cmsy-7">∥</span></sub> contains only the mirror force,
-i.e.,
-   <table 
-class="equation"><tr><td><a 
- id="x13-67015r298"></a>
-   <center class="math-display" >
-<img 
-src="nonlinear_gyrokinetic_equation330x.png" alt="dv∥
-dt = − e∥ ⋅μ∇B0,
-" class="math-display"  /></center></td><td class="equation-label">(298)</td></tr></table>
-<!--l. 4025--><p class="nopar" >
-which is independent of any perturbations.
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ϕ</span>) is negative,
+i.e., (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) is a left-handed system. The ﬁeld-line-following coordinate system (<span 
+class="cmmi-10">ψ,𝜃,α</span>) is
+also a left-handed system. The coordinate system (<span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">ψ,y </span>= <span 
+class="cmmi-10">α,z </span>= <span 
+class="cmmi-10">𝜃</span>) is a right-handed
+system.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x13-650013"></a>
+                                                                                
+
+                                                                                
+<!--l. 3729--><p class="noindent" > <img 
+src="/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1-.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure 3: </span><span  
+class="content">Poloidal grid for equilibrium quantities used in <span 
+class="cmtt-10">TEK</span> and <span 
+class="cmtt-10">GEM</span> code. The array starts at
+<span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>and ends at <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π </span>(<span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">±</span><span 
+class="cmmi-10">π </span>is chosen to be at the high-ﬁeld side midplane in both the
+codes). <span 
+class="cmtt-10">TEK</span> array index starts from 1 whereas GEM array index starts from 0. Hence <span 
+class="cmtt-10">mpol=nth+1</span>.
+<span 
+class="cmtt-10">nth</span> is denoted by <span 
+class="cmtt-10">ntheta</span> in GEM. I do not need to make connection with GEM’s equilibrium
+poloidal array because there is no coupling of equilibrium quantities between the code written
+by me and the original code in GEM. The coupling happens for the perturbed quanties, whose
+poloidal grids need to be consistent.   TEK poloidal grid-points for perturbation are indexed
+as <span 
+class="cmtt-10">0:mpol2</span> with the index <span 
+class="cmtt-10">0</span> corresponding to <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>and the index <span 
+class="cmtt-10">mpol2</span> corresponding to
+<span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π</span>. Field equation is solved at 0 : mpol2 <span 
+class="cmsy-10">− </span>1. (The ﬁeld at <span 
+class="cmtt-10">mpol2</span>, i.e., <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π</span>, is obtained
+by inerpolating the ﬁeld at <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π</span>.) <span 
+class="cmtt-10">mpol2</span> is determined by <span 
+class="cmtt-10">mpol2=numproc/ntube</span>, i.e., <span 
+class="cmtt-10">mpol2</span>
+is the total number of cells along the <span 
+class="cmmi-10">𝜃 </span>direction use for MPI parallelation. <span 
+class="cmtt-10">mpol</span> and <span 
+class="cmtt-10">mpol2</span> must
+be chosen in a way that makes <span 
+class="cmtt-10">(mpol-1)/mpol2</span> be an integer, which can be larger than 1, i.e.,
+one simulation cell can span several equilibrium cells.</span></div><!--tex4ht:label?: x13-650013 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3753--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x13-650024"></a>
+                                                                                
+
+                                                                                
+<!--l. 3756--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.png" alt="pict"  
+ width="366.36874pt" />
+<br />  </p><div class="caption" 
+><span class="id">Figure 4:   </span><span  
+class="content">Radial   grid   used   in   <span 
+class="cmtt-10">TEK</span>.   Two   radial   arrays   are   used   in   the   code,
+<span 
+class="cmtt-10">radcor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array(1:nt)</span> and <span 
+class="cmtt-10">radcor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array2(1:n)</span>, equilibrium is deﬁned on the former
+grid, and perturbations are deﬁned on the latter grid. Here nt = <span 
+class="cmmi-10">n </span>+ 2<span 
+class="cmmi-10">m</span>, <span 
+class="cmmi-10">m </span>is the number of
+grid points in one of the two buﬀer regions (regions in blue color).
+In  the  code  <span 
+class="cmmi-10">n  </span>is  denoted  by  <span 
+class="cmtt-10">nflux2</span> and  nt  is  denoted  by  <span 
+class="cmtt-10">nflux</span>,  <span 
+class="cmmi-10">m  </span>is  denoted  by
+<span 
+class="cmtt-10">points</span><span 
+class="cmtt-10">_in</span><span 
+class="cmtt-10">_buffer</span>. In <span 
+class="cmtt-10">GEM</span> the radial array does no include the buﬀer regions and the index
+starts at <span 
+class="cmtt-10">0</span> and ends at <span 
+class="cmtt-10">imx</span>. Hence <span 
+class="cmtt-10">n=imx+1</span>.</span></div><!--tex4ht:label?: x13-650024 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x13-650035"></a>
+                                                                                
+
+                                                                                
+<!--l. 3772--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/toroidal_grids/a-1.png" alt="pict"  
+ width="247.92624pt" />
+<br /> </p><div class="caption" 
+><span class="id">Figure 5: </span><span  
+class="content">Toroidal grid used in <span 
+class="cmtt-10">TEK</span> and GEM. TEK array index starts at 1 whereas GEM array
+index starts from 0. In TEK, the toroidal array is <span 
+class="cmtt-10">tor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array(1:mtor+1)</span>. source terms, <span 
+class="cmmi-10">δn</span>
+and <span 
+class="cmmi-10">δj</span><sub><span 
+class="cmsy-7">∥</span></sub>, are deﬁned at <span 
+class="cmtt-10">1:mtor</span>; EM ﬁelds are deﬁned at <span 
+class="cmtt-10">1:mtor+1</span>. <span 
+class="cmtt-10">GEM</span> array ends at <span 
+class="cmtt-10">jm</span>. It
+follows that <span 
+class="cmtt-10">mtor=jm</span>.</span></div><!--tex4ht:label?: x13-650035 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3782--><p class="indent" >    
+</p><!--l. 3784--><p class="indent" >    
+</p><!--l. 3786--><p class="indent" >   GEM array index system is better than TEK’s because my system is not consistent: sometimes I
+use 0-based index and sometimes I use 1-based index, sometimes the index ends at n and
+sometimes ends at n+1. It is important to know accurately the transformation between the two
+systems.
+</p><!--l. 3791--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 4028--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3793--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse13.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html#tailnonlinear_gyrokinetic_equationse11.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse12.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse12.html" >up</a>] </p></div>
-<!--l. 4028--><p class="indent" >   <a 
+<!--l. 3793--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse12.html"></a> </p> 
 </body></html> 

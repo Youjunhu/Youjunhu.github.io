@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Characteristic curves of Frieman-Chen nonlinear gyrokinetic equation</title> 
+<head><title>Gyrokinetic equation in forms amenable to numerical computation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,353 +13,1399 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 1527--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1615--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse5.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse3.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse3.html#tailnonlinear_gyrokinetic_equationse3.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationse4.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse4.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
- id="x5-290004"></a>Characteristic curves of Frieman-Chen nonlinear gyrokinetic equation</h3>
-<!--l. 1529--><p class="noindent" >The Frieman-Chen nonlinear gyrokinetic equation takes the following form: </p><div class="eqnarray">
+ id="x5-300004"></a>Gyrokinetic equation in forms amenable to numerical computation</h3>
+<!--l. 1618--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x5-310004.1"></a>Eliminate <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>term on the right-hand side of Eq. (136)</h4>
+<!--l. 1620--><p class="noindent" >Note that the coeﬃcient before <span 
+class="cmmi-10">∂F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕∂𝜀</span> in Eq. (<a 
+href="nonlinear_gyrokinetic_equationse3.html#x4-29001r136">136<!--tex4ht:ref: 16-10-16-2 --></a>) involves the time derivative of <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>, which is
+problematic if treated by using explicit ﬁnite diﬀerence in particle simulations (I test the algorithm that
+treats this term by implicit scheme, the result roughly agrees with the standard method discussed in
+Sec. <a 
+href="nonlinear_gyrokinetic_equationse6.html#x7-380006">6<!--tex4ht:ref: 19-1-4-1 --></a>). It turns out that <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δ</span>Φ<span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>can be eliminated by deﬁning another gyro-phase independent
+function <span 
+class="cmmi-10">δf </span>by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-31001r139"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation135x.png" alt="       (                        e )
-∂δG0-+  v∥e∥ + VD − q-∇X ⟨δL ⟩α × -∥  ⋅∇X δG0
- ∂t(               ) m           Ω
-=  -q∇X ⟨δL⟩α × e∥ ⋅∇XFg0 −  q-∂⟨δL⟩α∂Fg0 − q-Sl2,         (127)
-   m            Ω            m   ∂t   ∂𝜀    m
-" class="math-display"  /><a 
- id="x5-29001r127"></a></center>
-</div>where <span 
-class="cmmi-10">S</span><sub><span 
-class="cmmi-7">l</span><span 
-class="cmr-7">2</span></sub> is due to the <span 
-class="cmmi-10">μ </span>dependence of <span 
+src="nonlinear_gyrokinetic_equation147x.png" alt="     q-     ∂F0-
+δf = m ⟨δΦ ⟩α ∂𝜀  +δG0.
+" class="math-display"  /></center></td><td class="equation-label">(139)</td></tr></table>
+<!--l. 1631--><p class="nopar" >
+Substituting this into Eq. (<a 
+href="nonlinear_gyrokinetic_equationse3.html#x4-29001r136">136<!--tex4ht:ref: 16-10-16-2 --></a>), we obtain the equation for <span 
+class="cmmi-10">δf</span>: </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation148x.png" alt="[                          ]
+ -∂ + (ve  + V  + δV  )⋅∇   δf
+ ∂t    ∥ ∥    D      D    X
+  q-∂F0-[ ∂                        ]
+− m  ∂𝜀  ∂t + (v∥e∥ + VD + δVD ) ⋅∇X ⟨δΦ⟩α
+  q      [ ∂                        ] ∂F
+− --⟨δΦ ⟩α -- + (v∥e∥ + VD + δVD )⋅∇X  ---0
+  m       ∂t                          ∂𝜀
+= − δVD ⋅∇XF0  − q-∂⟨δL⟩α∂F0-.                        (140)
+                 m   ∂t   ∂𝜀
+" class="math-display"  /></center>
+</div>Noting that <span 
+class="cmmi-10">∂F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕∂t </span>= 0, <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⋅∇</span><span 
 class="cmmi-10">F</span><sub><span 
-class="cmmi-7">g</span><span 
-class="cmr-7">0</span></sub>, which is not considered in this note. Dropping <span 
-class="cmmi-10">S</span><sub><span 
-class="cmmi-7">l</span><span 
-class="cmr-7">2</span></sub> term,
-equation (<a 
-href="#x5-29001r127">127<!--tex4ht:ref: 16-10-11-1 --></a>) agrees with Eq. (<a 
-href="nonlinear_gyrokinetic_equationse3.html#x4-28001r124">124<!--tex4ht:ref: 17-5-4-e4 --></a>) derived above.
-<!--l. 1545--><p class="indent" >   Examining the left-hand side of Eq. (<a 
-href="#x5-29001r127">127<!--tex4ht:ref: 16-10-11-1 --></a>), it is ready to ﬁnd that the characteristic curves of this
-equation are given by the following equations:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-29002r128"></a>
+class="cmr-7">0</span></sub> = 0, <span 
+class="cmmi-10">∂F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕∂𝜀 </span><span 
+class="cmsy-10">≈−</span><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">m∕T</span>, we ﬁnd that the third line of the above
+equation is of order <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">λ</span><sup><span 
+class="cmr-7">3</span></sup>) (after both sides being divided by <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>Ω). Therefore the third line can be
+dropped. Moving the second line to the right-hand side and noting that <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δL</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub> = <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δϕ </span><span 
+class="cmsy-10">− </span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>, the
+above equation is written as <div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation136x.png" alt="dX               q           e∥
-dt-= v∥e∥ + VD − m-∇X ⟨δL ⟩α × Ω-,
-" class="math-display"  /></center></td><td class="equation-label">(128)</td></tr></table>
-<!--l. 1552--><p class="nopar" >
+src="nonlinear_gyrokinetic_equation149x.png" alt="[ ∂                       ]
+ --+ (v∥e∥ + VD + δVD )⋅∇X  δf
+ ∂t
+= − δ[VD ⋅∇XF0                               ]
+−-q − ∂⟨v-⋅δA⟩α − (v e + VD  + δVD )⋅∇X ⟨δΦ ⟩α ∂F0-,        (141)
+ m        ∂t       ∥ ∥                        ∂𝜀
+" class="math-display"  /><a 
+ id="x5-31003r141"></a></center>
+</div>where two <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">ϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>terms cancel each other. Note that the right-hand side of Eq. (<a 
+href="#x5-31003r141">141<!--tex4ht:ref: 17-5-13-p2 --></a>) contains a
+nonlinear term <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">V</span><sub><span 
+class="cmmi-7">D</span></sub> <span 
+class="cmsy-10">⋅∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δ</span>Φ<span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>. This is diﬀerent from the original Frieman-Chen equation, where all
+nonlinear terms appear on the left-hand side. For the electrostatic limit, this term disappears because
+<span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">V</span><sub><span 
+class="cmmi-7">D</span></sub> is perpendicular to <span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δ</span>Φ<span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>.
+<!--l. 1678--><p class="indent" >   [Equation (<a 
+href="#x5-31003r141">141<!--tex4ht:ref: 17-5-13-p2 --></a>) corresponds to Eq. (A8) in Yang Chen’s paper<span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#Xychen2009">2</a>]</span> (where the ﬁrst minus on the
+right-hand side is wrong and should be replaced with <span 
+class="cmmi-10">q∕m</span>; one <span 
+class="cmmi-10">q </span>is missing before <span 
+class="cmmi-10">∂</span>(<span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span>)<span 
+class="cmmi-10">∕∂t </span>in
+A9).]
+</p><!--l. 1683--><p class="indent" >    
+</p><!--l. 1687--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x5-320004.2"></a>Eliminate <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>term on the right-hand side of GK equation</h4>
+<!--l. 1689--><p class="noindent" >Similar to the method of eliminating <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t</span>, we deﬁne another gyro-phase independent function
+by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-29003r129"></a>
+ id="x5-32001r142"></a>
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation137x.png" alt="d𝜀
---= 0,
-dt
-" class="math-display"  /></center></td><td class="equation-label">(129)</td></tr></table>
-<!--l. 1555--><p class="nopar" >
+src="nonlinear_gyrokinetic_equation150x.png" alt="          q        ∂F
+δh = δf −--⟨v ⋅δA ⟩α--0-.
+         m          ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(142)</td></tr></table>
+<!--l. 1696--><p class="nopar" >
+Most gyrokinetic simulations approximate the vector potential as <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A </span><span 
+class="cmsy-10">≈ </span><span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>. Let us simplify Eq.
+(<a 
+href="#x5-32006r147">147<!--tex4ht:ref: 19-1-4-e1 --></a>) for this case. Then <span 
+class="cmsy-10">⟨</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub> is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-29004r130"></a>
+ id="x5-32002r143"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation138x.png" alt="dμ
-dt = 0.
-" class="math-display"  /></center></td><td class="equation-label">(130)</td></tr></table>
-<!--l. 1558--><p class="nopar" >
-(It is instructive to notice that the kinetic energy <span 
-class="cmmi-10">𝜀 </span>is conserved along the characteristic curves while
-the real kinetic energy of a particle is usually not conserved in a perturbed electromagnetic ﬁeld. This
-may be an indication that Frieman-Chen equation neglects the velocity space nonlinearity.) For
-notation ease, we denote the perturbed drift by <span 
+src="nonlinear_gyrokinetic_equation151x.png" alt="⟨v ⋅δA⟩α ≈ ⟨v∥δA ∥⟩α.
+" class="math-display"  /></center></td><td class="equation-label">(143)</td></tr></table>
+<!--l. 1705--><p class="nopar" >
+Then expression (<a 
+href="#x5-32001r142">142<!--tex4ht:ref: 23-11-15-1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-32003r144"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation152x.png" alt="         -q        ∂F0-
+δh = δf − m ⟨v∥δA∥⟩α ∂𝜀 .
+" class="math-display"  /></center></td><td class="equation-label">(144)</td></tr></table>
+<!--l. 1710--><p class="nopar" >
+Then Eq. (<a 
+href="#x5-31003r141">141<!--tex4ht:ref: 17-5-13-p2 --></a>) is written in terms of <span 
+class="cmmi-10">δh </span>as </p><div class="eqnarray">
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation153x.png" alt="[ ∂                        ]
+ ∂t + (v∥e∥ + VD +δVD ) ⋅∇X δh
+       [(                     )    ]
++-q ∂F0-  ∂-+ v∥e∥ + VD + δVD   ⋅∇X   ⟨v∥δA ∥⟩α
+ m  ∂𝜀    ∂t                (    )
+ -q                          ∂F0-
++m ⟨v∥δA∥⟩α[(VD  + δVD )⋅∇X ]  ∂𝜀
+= − δVD ⋅∇XF0
+  q [ ∂ ⟨v∥δA∥⟩α                             ] ∂F
+−--  −--------- − (v∥e∥ +VD  + δVD )⋅∇X ⟨δΦ⟩α ---0,        (145)
+ m        ∂t                                  ∂𝜀
+" class="math-display"  /></center>
+</div>where use has been made of that <span 
+class="cmmi-10">∂F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕∂t </span>= 0 and <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> = 0. Further noting that <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">∼ </span><span 
+class="cmmi-10">δ</span>Φ,
+<span 
+class="cmmi-10">qδ</span>Φ<span 
+class="cmmi-10">∕T </span><span 
+class="cmsy-10">∼ </span><span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">λ</span><sup><span 
+class="cmr-7">1</span></sup>), <span 
+class="cmmi-10">∂F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕∂𝜀 </span><span 
+class="cmsy-10">∼−</span><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">m∕T</span>, and <span 
+class="cmmi-10">ρ</span><span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> <span 
+class="cmsy-10">∼ </span><span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">λ</span><sup><span 
+class="cmr-7">1</span></sup>)<span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>, we ﬁnd that the red term of the above
+equation (after divided by Ω<span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>) is of order <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">λ</span><sup><span 
+class="cmr-7">3</span></sup>) and hence can be dropped. Move the second line to
+the right-hand side, giving <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation154x.png" alt="[ ∂                        ]
+ ∂t +(v∥e∥ + VD + δVD )⋅∇X  δh
+= − δV  ⋅∇  F
+      D   X  0
++ q-[(v∥e∥ + VD + δVD )⋅∇X (⟨δΦ − v∥δA ∥⟩α)]∂F0,           (146)
+  m                                    ∂ 𝜀
+" class="math-display"  /><a 
+ id="x5-32005r146"></a></center>
+</div>where <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>terms cancel each other. Further note that <span 
 class="cmmi-10">δ</span><span 
 class="cmbx-10">V</span><sub><span 
-class="cmmi-7">D</span></sub>, i.e.,
+class="cmmi-7">D</span></sub> (given by Eq. (<a 
+href="nonlinear_gyrokinetic_equationse3.html#x4-29003r138">138<!--tex4ht:ref: 19-1-3-1 --></a>)) is
+perpendicular to <span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δ</span>Φ <span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>. Therefore the blue term in Eq. (<a 
+href="#x5-32005r146">146<!--tex4ht:ref: 19-1-3-e1 --></a>) is zero, then Eq. (<a 
+href="#x5-32005r146">146<!--tex4ht:ref: 19-1-3-e1 --></a>)
+simpliﬁes to <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation155x.png" alt="[                         ]
+ ∂-+ (v e + V  + δV  )⋅∇    δh
+ ∂t    ∥ ∥    D     D    X
+= − δVD ⋅∇XF0
+ -q                             ∂F0-
++m [(v∥e∥ +VD ) ⋅∇X ⟨δΦ − v∥δA∥⟩α]∂𝜀 .               (147)
+" class="math-display"  /><a 
+ id="x5-32006r147"></a></center>
+</div>Note that in terms of (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,𝜀,μ,α,σ</span>) coordinates, <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> is written as
+   <table 
+class="equation"><tr><td><a 
+ id="x5-32007r148"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation156x.png" alt="      ∘ ---------
+v∥ = σ  2𝜀− 2μB0,
+" class="math-display"  /></center></td><td class="equation-label">(148)</td></tr></table>
+<!--l. 1768--><p class="nopar" >
+where <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">x</span>) = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">X </span>+ <span 
+class="cmmib-10">ρ</span>) with <span 
+class="cmmib-10">ρ</span> = <span 
+class="cmmib-10">ρ</span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,𝜀,μ,α</span>). Since the scale length of <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub> is much larger than the
+thermal Larmor radius, <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">x</span>) <span 
+class="cmsy-10">≈ </span><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">X</span>) and hence <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> can be approximated as a constant when
+gyro-angle <span 
+class="cmmi-10">α </span>changes. Then <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> can be taken out of the gyro-averaging in expression (<a 
+href="#x5-32002r143">143<!--tex4ht:ref: 19-3-26-e1 --></a>),
+yielding
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-29005r131"></a>
+ id="x5-32008r149"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation139x.png" alt="        -q           e∥
-δVD  = −m ∇X ⟨δL⟩α × Ω ,
-" class="math-display"  /></center></td><td class="equation-label">(131)</td></tr></table>
-<!--l. 1568--><p class="nopar" >
-(this drift can be written as expression (<a 
-href="nonlinear_gyrokinetic_equationse13.html#x14-71007r315">315<!--tex4ht:ref: 21-8-5-p1 --></a>)), and the total guiding-center velocity by <span 
+src="nonlinear_gyrokinetic_equation157x.png" alt="⟨v∥δA∥⟩α ≈ v∥⟨δA ∥⟩α.
+" class="math-display"  /></center></td><td class="equation-label">(149)</td></tr></table>
+<!--l. 1779--><p class="nopar" >
+Using this, the term related to <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> in (<a 
+href="#x5-32006r147">147<!--tex4ht:ref: 19-1-4-e1 --></a>) can be further written as </p><div class="eqnarray">
+   <center class="math-display" >
+                                                                                
+
+                                                                                
+<img 
+src="nonlinear_gyrokinetic_equation158x.png" alt="(v∥e∥ + VD )⋅∇X ⟨v∥δA ∥⟩α =   (v∥e∥ + VD )⋅∇X (v∥⟨δA∥⟩α)
+                        =   ⟨δA ∥⟩α(v∥e∥ + VD ) ⋅∇X (v∥)+ v∥(v∥e∥ + VD )⋅∇X ⟨δA∥(⟩1α5.0)
+" class="math-display"  /></center>
+</div>Using expression (<a 
+href="#x5-32007r148">148<!--tex4ht:ref: 19-3-27-1 --></a>), (<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub> + <span 
 class="cmbx-10">V</span><sub><span 
-class="cmmi-7">G</span></sub>,
+class="cmmi-7">D</span></sub>) <span 
+class="cmsy-10">⋅∇</span><sub><span 
+class="cmmi-7">X</span></sub>(<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>) is written as <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation159x.png" alt="⟨δA ⟩ (ve  + V  )⋅∇  (v )  ≈  ⟨δA ⟩ (v e )⋅∇  (v )
+   ∥ α ∥ ∥    D    X  ∥         ∥ α  ∥ ∥   X (∥∘ ---------)
+                          =  ⟨δA∥⟩α(v∥e∥)⋅∇X  σ  2𝜀− 2μB0
+                                              (∘ ---------)
+                          =  ⟨δA∥⟩ασ(v∥e∥)⋅∇X    2𝜀− 2μB0
+                                      − 2μe∥ ⋅∇XB0
+                          =  ⟨δA∥⟩ασv∥-2√2𝜀-−-2μB---
+                                                 0
+                          =  ⟨δA∥⟩αv∥−-2μe∥ ⋅∇XB0-
+                                          2v∥
+                          =  − ⟨δA ∥⟩α μe∥ ⋅∇XB0.                  (151)
+" class="math-display"  /></center>
+</div>(We can also obtain <span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub>(<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>) = <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">μ</span>(<span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>)<span 
+class="cmmi-10">∕v</span><sub><span 
+class="cmsy-7">∥</span></sub> by using Eq. (<a 
+href="nonlinear_gyrokinetic_equationse16.html#x17-74002r341">341<!--tex4ht:ref: 19-1-2-e1 --></a>)). Using the above results, equation
+(<a 
+href="#x5-32006r147">147<!--tex4ht:ref: 19-1-4-e1 --></a>) is written as <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation160x.png" alt="[                          ]
+ -∂ + (v∥e∥ + VD + δVD )⋅∇X  δh
+ ∂t
+= − δVD ⋅∇XF0
+  q-                     ∂F0-
++ m [(v∥e∥ + VD )⋅∇X ⟨δΦ⟩α]∂ 𝜀 ,
+  q-                                         ∂F0-
+− m [v∥(v∥e∥ + VD )⋅∇X ⟨δA∥⟩α− ⟨δA∥⟩αμe∥ ⋅∇XB0 ]∂𝜀 ,       (152)
+" class="math-display"  /><a 
+ id="x5-32011r152"></a></center>
+                                                                                
+
+                                                                                
+</div>which agrees with the so-called <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span></sub> formulation given in <span 
+class="cmtt-10">GEM</span> code manual (the ﬁrst line of Eq. 28). (It is
+said that <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span></sub> formulation uses <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span></sub> = <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> + <span 
+class="cmmi-10">q</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕m </span>as an independent variable, but I can not relate this
+explanation to my derivation given above.)
+<!--l. 1837--><p class="indent" >    
+</p><!--l. 1839--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">4.2.1   </span> <a 
+ id="x5-330004.2.1"></a>Mixed variable pullback method<span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#XMISHCHENKO2019194">4</a>]</span></h5>
+<!--l. 1841--><p class="noindent" >Deﬁne <span 
+class="cmmi-10">δf</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup> by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33001r153"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation161x.png" alt="  (h)       q-     (h)  ∂F0-
+δf   = δf − m ⟨v∥δA ∥ ⟩α∂ 𝜀 ,
+" class="math-display"  /></center></td><td class="equation-label">(153)</td></tr></table>
+<!--l. 1846--><p class="nopar" >
+where <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup> is a part of <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub>:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33002r154"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation162x.png" alt="δA  = δA(s)+ δA (h),
+  ∥     ∥      ∥
+" class="math-display"  /></center></td><td class="equation-label">(154)</td></tr></table>
+<!--l. 1851--><p class="nopar" >
+with <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup> determined by an evolution equation:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33003r155"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation163x.png" alt="   (s)
+∂δA∥--= 0,
+  ∂t
+" class="math-display"  /></center></td><td class="equation-label">(155)</td></tr></table>
+<!--l. 1856--><p class="nopar" >
+or
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33004r156"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation164x.png" alt="∂δA (s∥)
+--∂t-- = − b ⋅∇δΦ.
+" class="math-display"  /></center></td><td class="equation-label">(156)</td></tr></table>
+<!--l. 1861--><p class="nopar" >
+Following the same procedure as the above, we obtain an evoluation equation for <span 
+class="cmmi-10">δf</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup>:
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation165x.png" alt="[ ∂                       ]   (h)
+ ∂t + (v∥e∥ + VD + δVD )⋅∇X δf
+                q                            ∂F
+= − δVD ⋅∇XF0 + --[(v∥e∥ + VD + δVD )⋅∇X ⟨δΦ ⟩α ]--0,
+  q             m                             ∂𝜀       ∂F
+−--[v∥(v∥e∥ + VD + δVD )⋅∇X ⟨δA (h∥)⟩α − ⟨δA(∥h)⟩α(μe∥ ⋅∇XB0 )]--0,   (157)
+ m                                                      ∂𝜀
+" class="math-display"  /><a 
+ id="x5-33005r157"></a></center>
+</div>if we adopt Eq. (<a 
+href="#x5-33003r155">155<!--tex4ht:ref: 23-11-16-1 --></a>) for <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup>; or <div class="eqnarray">
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation166x.png" alt="[ ∂                        ]
+ ∂t + (v∥e∥ + VD +δVD ) ⋅∇X  δf(h)
+
+= − δVD ⋅∇XF0 + -q[(VD  + δVD )⋅∇X ⟨δΦ⟩α]∂F0-,
+                m                       ∂𝜀
+−-q[v∥(v∥e∥ + VD + δVD )⋅∇X ⟨δA(∥h)⟩α − ⟨δA(∥h)⟩α(μe∥ ⋅∇XB0 )]∂F0-,  (158)
+ m                                                      ∂𝜀
+" class="math-display"  /></center>
+</div>if we adopt Eq. (<a 
+href="#x5-33004r156">156<!--tex4ht:ref: 23-11-16-2 --></a>) for <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup>.simulations, disappear on the right-hand side of the evolution equation
+of <span 
+class="cmmi-10">δf</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup>.
+<!--l. 1896--><p class="indent" >   In terms of <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup>, the Ampere’s law is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33007r159"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation167x.png" alt="(     2      )
+ ∑   ωps− ∇2   δA(h) = μ0∑  δJ(h)+ ∇2 δA(s),
+  s  c2    ⊥     ∥       s   ||s    ⊥   ∥
+" class="math-display"  /></center></td><td class="equation-label">(159)</td></tr></table>
+<!--l. 1901--><p class="nopar" >
+where <span 
+class="cmmi-10">δJ</span><sub><span 
+class="cmsy-7">||</span><span 
+class="cmmi-7">s</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup> is the parallel current carried by the distrbution funciton <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">s</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup>, where <span 
+class="cmmi-10">s </span>is species index.
+Here <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup> has been moved to the right-hand side since its value is already known when we solve the
+Ampere’s law for <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup>.
+</p><!--l. 1908--><p class="indent" >   Compared with the <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span></sub> formulation, the improvement of the above procedure is that a part of <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> is
+solved from an evolution equation (user’s choice) and the remainder is solved from the Ampere’s law.
+We hope that the former is the dominant part of <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> so that the remainder solved from the Ampere’s
+law is small and hence the cancellation problem of the Ampere’s law become less signiﬁcant.
+While a wise choice of the evolution equation for <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup> may help ensure that <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup> remain
+dominant over the entire simulation duration, we have a simple and eﬃcient way to make
+<span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup> remain dominant: collect both <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup> and <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup> into <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">s</span><span 
+class="cmr-7">)</span></sup> at the end of each time
+step:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33008r160"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation168x.png" alt="   (s)      (s)     (h)
+δA ∥new = δA∥old + δA∥old.
+" class="math-display"  /></center></td><td class="equation-label">(160)</td></tr></table>
+<!--l. 1923--><p class="nopar" >
+Then, to make <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> untouched (so that electromagnetic ﬁeld remain unchanged), we need set <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup> to
+zero:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33009r161"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation169x.png" alt="δA (h)  = 0.
+  ∥new
+" class="math-display"  /></center></td><td class="equation-label">(161)</td></tr></table>
+<!--l. 1928--><p class="nopar" >
+Here “old” and “new” refers to before and after the re-spliting, respectively. Note that this re-spliting is
+made at the end of each time step and does not correspond to any time evolution. This re-splitting
+keeps the value of <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> untouched and hence does not inﬂuence the electromagnetic ﬁeld.
+Meanwhile, the deﬁnition of Eq. (<a 
+href="#x5-33001r153">153<!--tex4ht:ref: 23-11-16-p1 --></a>) indicates that, for a given <span 
+class="cmmi-10">δf</span>, the re-splitting will make the
+value of <span 
+class="cmmi-10">δf</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup> increase by Δ = <img 
+src="nonlinear_gyrokinetic_equation170x.png" alt="qm-"  class="frac" align="middle" /><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmr-7">old</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup><span 
+class="cmsy-10">⟩</span><sub>
+<span 
+class="cmmi-7">α</span></sub><img 
+src="nonlinear_gyrokinetic_equation171x.png" alt="∂F∂0𝜀"  class="frac" align="middle" /> since <span 
+class="cmmi-10">δA</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup> is reduced by <span 
+class="cmmi-10">δA</span><sub>
+<span 
+class="cmr-7">old</span></sub><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup>. In
+other words, to keep <span 
+class="cmmi-10">δf </span>unchanged, which is what we need to ensure, we must add Δ to
+<span 
+class="cmmi-10">δf</span><sup><span 
+class="cmr-7">(</span><span 
+class="cmmi-7">h</span><span 
+class="cmr-7">)</span></sup>:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33010r162"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation172x.png" alt="δf(h) = δf(h) + q-⟨v δA (h)⟩ ∂F0-.
+  new     old   m  ∥   ∥old α ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(162)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 1945--><p class="nopar" >
+After the operations in (<a 
+href="#x5-33008r160">160<!--tex4ht:ref: 23-11-16-p3 --></a>) (<a 
+href="#x5-33009r161">161<!--tex4ht:ref: 23-11-16-p4 --></a>) and (<a 
+href="#x5-33010r162">162<!--tex4ht:ref: 23-11-16-p5 --></a>), both the electromagnetic ﬁeld and the distribution
+function <span 
+class="cmmi-10">δf </span>remain unchanged. Therefore we do not change any physical process of the system. Hence
+the above operations can only have eﬀects on numerical round-oﬀ errors. As mentioned above, we hope
+the numerical eﬀects will reduce the cancellation errors.
+</p><!--l. 1953--><p class="indent" >   Deﬁne
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33011r163"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation173x.png" alt=" --  q δΦ  -(h)  quvuδA(∥h)  -(s)   quvuδA (s∥)  -(h)   δJ(∥ss)
+δΦ = -u--,δA∥  = ---------,δA∥  = --------,δJ||s = -------,
+      Tu            Tu               Tu           nuquvns
+" class="math-display"  /></center></td><td class="equation-label">(163)</td></tr></table>
+<!--l. 1960--><p class="nopar" >
+where <span 
+class="cmmi-10">q</span><sub><span 
+class="cmmi-7">u</span></sub><span 
+class="cmmi-10">,n</span><sub><span 
+class="cmmi-7">u</span></sub><span 
+class="cmmi-10">,T</span><sub><span 
+class="cmmi-7">u</span></sub><span 
+class="cmmi-10">,m</span><sub><span 
+class="cmmi-7">u</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmmi-7">u</span></sub> are chosen units, <span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">ns</span></sub> is a velocity unit, whose value is diﬀerent among diﬀerent
+species. Then the Ampere’s law (<a 
+href="#x5-33007r159">159<!--tex4ht:ref: 23-12-4-1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33012r164"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation174x.png" alt="(∑    2      )           2   2 ∑
+     ωps− ∇2⊥  δA(∥h)= -ω-pu--vu    vnsδJ(|h|s)+ ∇2⊥δA-(s∥),
+  s  c2               Tu∕mu c2  s vu
+" class="math-display"  /></center></td><td class="equation-label">(164)</td></tr></table>
+<!--l. 1969--><p class="nopar" >
+where use has been made of <span 
+class="cmmi-10">μ</span><sub><span 
+class="cmr-7">0</span></sub> = 1<span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">c</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">𝜀</span><sub><span 
+class="cmr-7">0</span></sub>) and <span 
+class="cmmi-10">ω</span><sub><span 
+class="cmmi-7">pu</span></sub><sup><span 
+class="cmr-7">2</span></sup> = <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">u</span></sub><span 
+class="cmmi-10">q</span><sub><span 
+class="cmmi-7">u</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">m</span><sub><span 
+class="cmmi-7">u</span></sub><span 
+class="cmmi-10">𝜀</span><sub><span 
+class="cmr-7">0</span></sub>).
+</p><!--l. 1973--><p class="indent" >   <span 
+class="cmmi-10">δf </span>pullback: </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation175x.png" alt="                             (   )
+δf(nhe)w  =  δf(ohld)+ q-⟨v∥δA (h∥o)ld⟩α  − m- F0
+           (h)  qm    (h)       T
+       =  fold − T-⟨v∥δA∥old⟩αF0
+           (h)  q - vn  -(h)
+       =  fold − --v∥v-⟨δA∥old⟩αF0
+                T    u
+" class="math-display"  /></center>
+</div>In terms of units used in TEK, Eq. (<a 
+href="#x5-33004r156">156<!--tex4ht:ref: 23-11-16-2 --></a>) is written as
+   <table 
+class="equation-star"><tr><td>
+                         <img 
+src="nonlinear_gyrokinetic_equation176x.png" alt="  --
+∂δA(∥s)
+--∂t--"  class="frac" align="middle" /><img 
+src="nonlinear_gyrokinetic_equation177x.png" alt=" Tu
+quvni-"  class="frac" align="middle" /><img 
+src="nonlinear_gyrokinetic_equation178x.png" alt=" 1
+tni"  class="frac" align="middle" /> = <span 
+class="cmsy-10">−</span><img 
+src="nonlinear_gyrokinetic_equation179x.png" alt=" Tu
+quLn-"  class="frac" align="middle" /><span 
+class="cmbx-10">b </span><span 
+class="cmsy-10">⋅</span><span class="overline"><span 
+class="cmsy-10">∇</span></span><span 
+class="cmmi-10">δ</span>Φ<span 
+class="cmmi-10">,</span>
+</td></tr></table>
+<!--l. 1989--><p class="nopar" >
+where <span 
+class="cmmi-10">v</span><sub><span 
+class="cmmi-7">ni</span></sub> and <span 
+class="cmmi-10">t</span><sub><span 
+class="cmmi-7">ni</span></sub> are units of velocity and time for the main ion species. Then the above equation is
+written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-33014r165"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation180x.png" alt="∂δA-(s)       --
+----∥- = − b ⋅∇δΦ,
+  ∂t
+" class="math-display"  /></center></td><td class="equation-label">(165)</td></tr></table>
+<!--l. 1995--><p class="nopar" >
 i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-29006r132"></a>
+ id="x5-33015r166"></a>
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation140x.png" alt="      dX
-VG  = ---= v∥e∥ + VD + δVD.
-      dt
-" class="math-display"  /></center></td><td class="equation-label">(132)</td></tr></table>
-<!--l. 1574--><p class="nopar" >
-The characteristic curve equations (<a 
-href="#x5-29002r128">128<!--tex4ht:ref: 16-10-11-3 --></a>)-(<a 
-href="#x5-29004r130">130<!--tex4ht:ref: 16-10-12-2 --></a>), however, is not in the form that can be readily evolved
-numerically because there is no time evolution equation for <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>, which appears explicitly in Eq. (<a 
-href="#x5-29002r128">128<!--tex4ht:ref: 16-10-11-3 --></a>). It
-is ready to realize that the equation for <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> is implicitly contained in the combination of the equations
-for <span 
-class="cmmi-10">𝜀 </span>and <span 
-class="cmmi-10">μ</span>. Next, we derive the equation for <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>.
-</p><!--l. 1583--><p class="noindent" >
+src="nonlinear_gyrokinetic_equation181x.png" alt="  --(s)
+∂δA-∥- = − (b⋅∇z )∂δΦ-.
+  ∂t              ∂z
+" class="math-display"  /></center></td><td class="equation-label">(166)</td></tr></table>
+<!--l. 2001--><p class="nopar" >
+</p><!--l. 2003--><p class="noindent" >
 </p>
-   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
- id="x5-300004.1"></a>Time evolution equation for <span 
-class="cmbx-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub></h4>
-<!--l. 1585--><p class="noindent" >Using the deﬁnition <span 
-class="cmmi-10">μ </span>= <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">⊥</span></sub><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">∕</span>(2<span 
-class="cmmi-10">B</span><sub><span 
-class="cmr-7">0</span></sub>), equation (<a 
-href="#x5-29004r130">130<!--tex4ht:ref: 16-10-12-2 --></a>), i.e., <span 
-class="cmmi-10">dμ∕dt </span>= 0, is written as
+   <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x5-340004.3"></a>Discretizing Laplacian operator </h4>
+<!--l. 2005--><p class="noindent" >The Laplacian operator is approximated as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-30001r133"></a>
+ id="x5-34001r167"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation141x.png" alt="   (  2 )
--d  -v⊥-  = 0,
-dt  2B0
-" class="math-display"  /></center></td><td class="equation-label">(133)</td></tr></table>
-<!--l. 1589--><p class="nopar" >
-which is written as
+src="nonlinear_gyrokinetic_equation182x.png" alt="         ∂2δA∥       ∂2δA ∥       ∂2δA∥
+∇2⊥ δA∥ ≈ -∂2x-|∇x|2 +-∂2y--|∇y |2 + ∂x∂y-2∇x ⋅∇y.
+" class="math-display"  /></center></td><td class="equation-label">(167)</td></tr></table>
+<!--l. 2012--><p class="nopar" >
+To approximate <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> of zero boundary condition <span 
+class="cmmi-10">A</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmmi-10">x </span>= 0) = <span 
+class="cmmi-10">A</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">x</span></sub>) = 0, the sine expansion can
+be adopted. In the <span 
+class="cmmi-10">y </span>direction, full Fourier expansion is needed. Then, at each value of <span 
+class="cmmi-10">z</span>, <span 
+class="cmmi-10">A</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmmi-10">x,y,z</span>) is
+approximated by the following two-dimensional expansion:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-30002r134"></a>
+ id="x5-34002r168"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation142x.png" alt="-1-d(v2)+ v2 d-( 1-) = 0,
-B dt  ⊥    ⊥ dt B0
-" class="math-display"  /></center></td><td class="equation-label">(134)</td></tr></table>
-<!--l. 1594--><p class="nopar" >
-which can be further written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-30003r135"></a>
+src="nonlinear_gyrokinetic_equation183x.png" alt="              N∑y∕2     (  2π  )Nx∑−1          ( m π       )
+δA ∥(x,y,z) ≈       exp  in--y       Am,n(z)sin  ---(x− x0) ,
+            n=− Ny∕2       Ly    m=1            Lx
+" class="math-display"  /></center></td><td class="equation-label">(168)</td></tr></table>
+<!--l. 2022--><p class="nopar" >
+Using this expression, Eq. (<a 
+href="#x5-34001r167">167<!--tex4ht:ref: 23-12-16-3 --></a>) is written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation143x.png" alt="-d(v2) = 2μ d-(B ).
-dt  ⊥      dt  0
-" class="math-display"  /></center></td><td class="equation-label">(135)</td></tr></table>
-<!--l. 1598--><p class="nopar" >
-Using the deﬁnition of the characteristics, the right-hand side of the above equation can be expanded,
-giving
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-30004r136"></a>
+src="nonlinear_gyrokinetic_equation184x.png" alt="                       (      )
+   2          Ny∑∕2        -2π   N∑x−1
+− ∇ ⊥δA∥ =          exp inLy y      δAm,n(z)
+             n{=[−Ny∕2            m=1       ]                                                     }
+               ( m-π)2    2  (  2π-)2    2    (m-π       )     2π-( mπ-)           ( mπ-       )
+         ×       Lx    |∇x | +  nLy   |∇y|  sin   Lx (x − x0) − inLy   Lx  2∇x ⋅∇y cos  Lx (x − x0)
+" class="math-display"  /></center>
+</div>At <span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub>, with <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> <span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">j</span>Δ and <span 
+class="cmmi-10">L</span><sub><span 
+class="cmmi-7">x</span></sub><span 
+class="cmmi-10">∕</span>Δ = <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">x</span></sub>, the above expression is written as <div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation144x.png" alt="           (                                 )
-d-(v2) = 2μ ∂B0-+ dX- ⋅∇  B + d𝜀 ∂B0-+ dμ-∂B0- ,
-dt  ⊥        ∂t    dt   X  0   dt ∂𝜀   dt ∂μ
-" class="math-display"  /></center></td><td class="equation-label">(136)</td></tr></table>
-<!--l. 1606--><p class="nopar" >
-where <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">∕dt</span>, <span 
-class="cmmi-10">d𝜀∕dt</span>, and <span 
-class="cmmi-10">dμ∕dt </span>are given by Eq. (<a 
-href="#x5-29002r128">128<!--tex4ht:ref: 16-10-11-3 --></a>), (<a 
-href="#x5-29003r129">129<!--tex4ht:ref: 16-10-12-1 --></a>), and (<a 
-href="#x5-29004r130">130<!--tex4ht:ref: 16-10-12-2 --></a>), respectively. Using Eqs.
-(<a 
-href="#x5-29002r128">128<!--tex4ht:ref: 16-10-11-3 --></a>)-(<a 
-href="#x5-29004r130">130<!--tex4ht:ref: 16-10-12-2 --></a>) and <span 
-class="cmmi-10">∂B</span><sub><span 
-class="cmr-7">0</span></sub><span 
-class="cmmi-10">∕∂t </span>= 0, equation (<a 
-href="#x5-30004r136">136<!--tex4ht:ref: 16-10-12-p5 --></a>) is reduced to
-</p>
+src="nonlinear_gyrokinetic_equation185x.png" alt="              Ny∑∕2     (      ) N∑x−1
+− ∇2⊥δA∥ =          exp in-2πy      δAm,n(z)
+             n=−Ny∕2      Ly    m=1
+             {[(    )2       (     )2     ]   (    )        (    )           (     )}
+         ×       m-π   |∇x |2 +  n2π-  |∇y|2 sin  jm-π  − in2π-  mπ- 2∇x ⋅∇y cos  jmπ(169,)
+                 Lx             Ly              Nx       Ly   Lx               Nx
+" class="math-display"  /><a 
+ id="x5-34004r169"></a></center>
+</div>where <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x </span>and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">y </span>are evaluated at <span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">j</span></sub>. Plugging the DST coeﬃcients
    <table 
 class="equation"><tr><td><a 
- id="x5-30005r137"></a>
-   <center class="math-display" >
+ id="x5-34005r170"></a>
                                                                                 
 
                                                                                 
-<img 
-src="nonlinear_gyrokinetic_equation145x.png" alt="          (          )
-d- 2        dX-
-dt(v⊥ ) = 2μ dt ⋅∇XB0   .
-" class="math-display"  /></center></td><td class="equation-label">(137)</td></tr></table>
-<!--l. 1614--><p class="nopar" >
-On the other hand, equation (<a 
-href="#x5-29003r129">129<!--tex4ht:ref: 16-10-12-1 --></a>), i.e., <span 
-class="cmmi-10">d𝜀∕dt </span>= 0, is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-30006r138"></a>
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation146x.png" alt="d-(v2) = 0,
-dt
-" class="math-display"  /></center></td><td class="equation-label">(138)</td></tr></table>
-<!--l. 1619--><p class="nopar" >
-which can be further written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-30007r139"></a>
+src="nonlinear_gyrokinetic_equation186x.png" alt="             Nx− 1           (     )
+δA   (z) =-2- ∑   A (x ′,z)sin  j′m-π- ,
+  m,n     Nx  j′=1  n  j        Nx
+" class="math-display"  /></center></td><td class="equation-label">(170)</td></tr></table>
+<!--l. 2051--><p class="nopar" >
+into expression (<a 
+href="#x5-34004r169">169<!--tex4ht:ref: 23-12-16-1 --></a>) gives </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation147x.png" alt="d-(v2) = −-d(v2).
-dt ∥     dt  ⊥
-" class="math-display"  /></center></td><td class="equation-label">(139)</td></tr></table>
-<!--l. 1623--><p class="nopar" >
-Using Eq. (<a 
-href="#x5-30005r137">137<!--tex4ht:ref: 16-10-12-5 --></a>), the above equation is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x5-30008r140"></a>
+src="nonlinear_gyrokinetic_equation187x.png" alt="              Ny∑∕2     (   2π ) N∑x−1 2 Nx∑−1            (j′mπ )
+− ∇2⊥δA∥ =          exp in---y      ---     An(xj′,z)sin  -----
+             n=−Ny∕2      Ly    m=1 Nx  j′=1              Nx
+             {[( m π)2       (  2π )2     ]   (jm π)     2π ( mπ )           ( jmπ )}
+         ×       ---   |∇x |2 +  n---  |∇y|2 sin  ----  − in---  --- 2∇x ⋅∇y cos  ----
+                 Lx             Ly              Nx       Ly   Lx               Nx
+" class="math-display"  /></center>
+</div>For a single toroidal harmonic, the above expression reduces to <div class="eqnarray">
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation148x.png" alt="            (          )
-d-        μ-  dX-
-dt(v∥) = − v∥  dt ⋅∇XB0   ,
-" class="math-display"  /></center></td><td class="equation-label">(140)</td></tr></table>
-<!--l. 1629--><p class="nopar" >
-which is the equation for the time evolution of <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>. This equation involves <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">∕dt</span>, i,e., the guiding-center
-drift, which is given by Eq. (<a 
-href="#x5-29002r128">128<!--tex4ht:ref: 16-10-11-3 --></a>). Equation (<a 
-href="#x5-30008r140">140<!--tex4ht:ref: 16-10-12-p1 --></a>) for <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub> can be simpliﬁed by noting that the
-Frieman-Chen equation is correct only to the second order, <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">2</span></sup>), and thus the characteristics need to
-be correct only to the ﬁrst order <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span>) and higher order terms can be dropped. Note that, in the
-guiding-center drift <span 
-class="cmmi-10">d</span><span 
-class="cmbx-10">X</span><span 
-class="cmmi-10">∕dt </span>given by Eq. (<a 
-href="#x5-29002r128">128<!--tex4ht:ref: 16-10-11-3 --></a>), only the <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub> term in  is of order <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">0</span></sup>), all the
-other terms are of <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">1</span></sup>). Using this, accurate to order <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">1</span></sup>), equation (<a 
-href="#x5-30008r140">140<!--tex4ht:ref: 16-10-12-p1 --></a>) is written
+src="nonlinear_gyrokinetic_equation188x.png" alt="    Nx−1   Nx−1            (     )
+    ∑   -2- ∑   A (x ′,z)sin  j′mπ-
+    m=1 Nx  j′=1  n  j        Nx
+    {[(    )2       (     )2     ]   (    )        (    )           (     )}
+×       m-π   |∇x |2 +  n2π-  |∇y|2 sin  jm-π  − in2π-  mπ- 2∇x ⋅∇y cos  jmπ(171)
+        Lx             Ly              Nx       Ly   Lx               Nx
+" class="math-display"  /><a 
+ id="x5-34007r171"></a></center>
+</div>Deﬁne <div class="eqnarray">
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation189x.png" alt="          Nx∑− 1      ( ′   )
+Mjj′,n  ≡       -2-sin  j-mπ-
+           m=1 Nx      Nx
+          { [( mπ )2       (  2π)2     ]    (jm π)     2π (m π)            (jm π) }
+       ×       ---  |∇x|2 +  n---  |∇y |2 sin  ----  − in--- ---  2∇x ⋅∇y cos ----
+               Lx             Ly              Nx       Ly   Lx               Nx
+" class="math-display"  /></center>
+</div>then expression (<a 
+href="#x5-34007r171">171<!--tex4ht:ref: 23-12-27-e1 --></a>) is written as
+   <table 
+class="equation"><tr><td><a 
+ id="x5-34009r172"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation190x.png" alt="Nx∑ −1
+  ′  Mjj′,nAn (xj′,z).
+ j=1
+" class="math-display"  /></center></td><td class="equation-label">(172)</td></tr></table>
+<!--l. 2087--><p class="nopar" >
+</p><!--l. 2090--><p class="indent" >    
+</p><!--l. 2092--><p class="indent" >    
+</p><!--l. 2094--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
+ id="x5-350004.4"></a>Summary of distribution function split</h4>
+<!--l. 2096--><p class="noindent" >In simulations, the seemingly trivial thing on how to split the distribution function is often considered
+to be a big deal. Separating the perturbation from the total distribution function gets the famous name
+“<span 
+class="cmmi-10">δf </span>particle method”, in contrast to the conventional particle method which is now called full-f particle
+method.
+</p><!--l. 2102--><p class="indent" >   In the above, the perturbed part of the distribution function, <span 
+class="cmmi-10">δF</span>, is split at least three times in
+order to (1) simplify the gyrokinetic equation by splitting out the adiabatic response; (2) eliminate
+the time derivatives, <span 
+class="cmmi-10">∂δϕ∕∂t</span>, and (3) <span 
+class="cmmi-10">∂δ</span><span 
+class="cmbx-10">A</span><span 
+class="cmmi-10">∕∂t</span>, on the right-hand. To avoid confusion, I
+summarize the split of the distribution function here. The total distribution function <span 
+class="cmmi-10">F </span>is split
 as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x5-30009r141"></a>
+ id="x5-35001r173"></a>
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="nonlinear_gyrokinetic_equation149x.png" alt="d-(v) = − μe ⋅∇  B ,
-dt  ∥      ∥   X  0
-" class="math-display"  /></center></td><td class="equation-label">(141)</td></tr></table>
-<!--l. 1644--><p class="nopar" >
-which is the time evolution equation ready to be used for numerically advancing <span 
-class="cmmi-10">v</span><sub><span 
-class="cmsy-7">∥</span></sub>. Note that only the
-mirror force <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">μ</span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">B </span>appears in Eq. (<a 
-href="#x5-30009r141">141<!--tex4ht:ref: 16-10-11-p24 --></a>) and there is no parallel acceleration term <span 
-class="cmmi-10">qv</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">δE</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">∕m </span>in
-Eq. (<a 
-href="#x5-30009r141">141<!--tex4ht:ref: 16-10-11-p24 --></a>). This is because <span 
-class="cmmi-10">δE</span><sub><span 
-class="cmsy-7">∥</span></sub> = <span 
-class="cmsy-10">−</span><span 
-class="cmbx-10">b </span><span 
-class="cmsy-10">⋅∇</span><span 
+src="nonlinear_gyrokinetic_equation191x.png" alt="F = F0 +δF,
+" class="math-display"  /></center></td><td class="equation-label">(173)</td></tr></table>
+<!--l. 2111--><p class="nopar" >
+where <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> is the equilibrium distribution function and <span 
+class="cmmi-10">δF </span>is the perturbed part of the total distribution
+function. <span 
+class="cmmi-10">δF </span>is further split as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-35002r174"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation192x.png" alt="          q-           ∂F0-  q-        ∂F0-
+δF = δh + m (δΦ− ⟨δΦ⟩α) ∂𝜀 + m ⟨v⋅δA ⟩α∂ 𝜀 ,
+" class="math-display"  /></center></td><td class="equation-label">(174)</td></tr></table>
+<!--l. 2120--><p class="nopar" >
+where <span 
+class="cmmi-10">δh </span>satisﬁes the gyrokinetic equation (<a 
+href="#x5-32006r147">147<!--tex4ht:ref: 19-1-4-e1 --></a>) or (<a 
+href="#x5-32011r152">152<!--tex4ht:ref: 19-1-4-5 --></a>). In PIC simulations, <span 
+class="cmmi-10">δh </span>is evolved by using
+markers and its moment in the phase-space is evaluated via Monte-Carlo integration.
+</p><!--l. 2125--><p class="indent" >    
+</p><!--l. 2127--><p class="indent" >   The integration of the red and blue terms can be approximated analytically in terms of <span 
+class="cmmi-10">δ</span>Φ and <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span>.
+But this can also be evaluated using markers, i.e., using Monte-Carlo method, to avoid
+the inaccurate cancellation between the integration of these parts and the integration of
+<span 
+class="cmmi-10">δh</span>.
+</p><!--l. 2133--><p class="indent" >    
+</p><!--l. 2135--><p class="indent" >   Another issue is how to accurately solve for <span 
+class="cmmi-10">δ</span>Φ from the Poisson equation and <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A </span>from the
+Ampere’s law. To make the solution accurate, one need to have a large term that is explictly dependent
+on <span 
+class="cmmi-10">δ</span>Φ and <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A </span>to appear on the left-hand side of the equations and small terms appear on the
+right-hand side.
+</p><!--l. 2141--><p class="indent" >   The red term in expression (<a 
+href="#x5-35002r174">174<!--tex4ht:ref: 19-1-3-e2 --></a>) gives “the polarization density” when integrated in the velocity
+space (discussed in Sec. <a 
+href="nonlinear_gyrokinetic_equationse6.html#x7-380006">6<!--tex4ht:ref: 19-1-4-1 --></a>). The reason for the name “polarization” is that (<span 
 class="cmmi-10">δ</span>Φ <span 
-class="cmsy-10">− </span><span 
-class="cmmi-10">∂δA</span><sub><span 
+class="cmsy-10">−⟨</span><span 
+class="cmmi-10">δ</span>Φ<span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>) is the
+diﬀerence between the local value and the averaged value on a gyro-ring, expressing a kind of
+“separation”.
+</p><!--l. 2148--><p class="indent" >    
+</p><!--l. 2150--><p class="indent" >   are also needed to be evaluated using Monte-Carlo markers.
+</p><!--l. 2152--><p class="indent" >    
+</p><!--l. 2154--><p class="indent" >   This term is moved to the left-hand side of the Poisson equation and is utilized in solving the
+Poisson equation. The blue term also has an explicit dependence on <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span>, which, however, will cause
+numerical problems in particle simulations if it is moved to the left-hand side of the Ampere
+                                                                                
+
+                                                                                
+equation. This is the “cancellation problem” in gyrokinetic simulations discussed in Sec.
+<a 
+href="#x5-350004.4">4.4<!--tex4ht:ref: 2023-10-31-p1 --></a>.
+</p><!--l. 2161--><p class="indent" >    
+</p><!--l. 2163--><p class="indent" >   The blue and red terms in the above expression explicitly depends on the perturbed ﬁeld. The
+velocity integrations of these two terms can be performed analytically. However, in some cases, the
+phase space integration of the blue terms must be evaluated using markers, i.e., using Monte-Carlo
+method, to avoid the inaccurate cancellation between the integration of these parts and the
+integration of <span 
+class="cmmi-10">δh </span>(the latter is computed using Monte-Carlo method). When will the inaccurate
+cancellation is signiﬁcant depends on the problem being investigated and thus can only be
+determined by actual numerical experiments. Electromagnetic particle simulation experiments
+indicate that the parallel current carried by the blue term must be evaluated via Monte-Carlo
+method, otherwise inaccurate cancellation between this term and <span 
+class="cmmi-10">δh </span>will give rise to numerical
+instabilities.
+</p><!--l. 2178--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.5   </span> <a 
+ id="x5-360004.5"></a>Velocity space moment of <img 
+src="nonlinear_gyrokinetic_equation193x.png" alt="-q
+m"  class="frac" align="middle" /><span 
+class="cmsy-10">⟨</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><img 
+src="nonlinear_gyrokinetic_equation194x.png" alt="∂F0
+∂𝜀"  class="frac" align="middle" /></h4>
+<!--l. 2180--><p class="noindent" >Consider the approximation <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A </span><span 
+class="cmsy-10">≈ </span><span 
+class="cmmi-10">δA</span><sub><span 
 class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">∕∂t </span>is of order <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">2</span></sup>) and (**check** the terms
-involving <span 
-class="cmmi-10">E</span><sub><span 
-class="cmsy-7">∥</span></sub> are of <span 
-class="cmmi-10">O</span>(<span 
-class="cmmi-10">λ</span><sup><span 
-class="cmr-7">3</span></sup>) or higher and thus have been dropped in deriving Frieman-Chen
-equation.)
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>, then the blue term in Eq. (<a 
+href="#x5-35002r174">174<!--tex4ht:ref: 19-1-3-e2 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36001r175"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation195x.png" alt="q         ∂F0
+m-⟨v∥δA ∥⟩α ∂𝜀-.
+" class="math-display"  /></center></td><td class="equation-label">(175)</td></tr></table>
+<!--l. 2186--><p class="nopar" >
+Notice that <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> can be taken out of the gyro-averaging. Then the above equation is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36002r176"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation196x.png" alt="q         ∂F0
+m-v∥⟨δA ∥⟩α ∂𝜀-.
+" class="math-display"  /></center></td><td class="equation-label">(176)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 2192--><p class="nopar" >
+If we neglect the FLR eﬀect, then the above expression is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36003r177"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation197x.png" alt="-qv δA ∂F0-.
+m  ∥  ∥ ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(177)</td></tr></table>
+<!--l. 2197--><p class="nopar" >
+The zeroth order moment (number density) is then written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36004r178"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation198x.png" alt="           ∫
+δn = q-δA    v ∂F0dv,
+     m   ∥    ∥∂ 𝜀
+" class="math-display"  /></center></td><td class="equation-label">(178)</td></tr></table>
+<!--l. 2202--><p class="nopar" >
+which is zero if <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> is Maxwellian. Next, consider the parallel current carried by distribution (<a 
+href="#x5-36003r177">177<!--tex4ht:ref: 19-2-20-5 --></a>),
+which is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36005r179"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation199x.png" alt="           ∫
+δj = q2δA    v2∂F0-dv.
+  ∥  m    ∥   ∥ ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(179)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 2208--><p class="nopar" >
+If <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> is a Maxwellian distribution given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36006r180"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation200x.png" alt="                   (     )
+      ( -m--)3∕2       mv2-
+F0 = n0 2πT    exp  − 2T   .
+" class="math-display"  /></center></td><td class="equation-label">(180)</td></tr></table>
+<!--l. 2213--><p class="nopar" >
+then
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36007r181"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation201x.png" alt="∂F0-   m-
+∂𝜀  = −T F0.
+" class="math-display"  /></center></td><td class="equation-label">(181)</td></tr></table>
+<!--l. 2217--><p class="nopar" >
+Then expression (<a 
+href="#x5-36005r179">179<!--tex4ht:ref: 19-2-20-1 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36008r182"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation202x.png" alt="                        ∫       (     )
+       q2   (-m--)3∕2       2       mv2-
+δj∥ = − T n0 2πT    δA ∥  v∥exp  − 2T   dv.
+" class="math-display"  /></center></td><td class="equation-label">(182)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 2223--><p class="nopar" >
+Working in the spherical coordinates, then <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> = <span 
+class="cmmi-10">v</span> cos<span 
+class="cmmi-10">𝜃 </span>and <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>= <span 
+class="cmmi-10">v</span><sup><span 
+class="cmr-7">2</span></sup> sin<span 
+class="cmmi-10">𝜃dvd𝜃dϕ</span>. Then expression (<a 
+href="#x5-36008r182">182<!--tex4ht:ref: 19-2-20-4 --></a>)
+is written </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation203x.png" alt="              (    )      ∫            (      )
+δj  =   − q2-n  -m-- 3∕2δA    v2cos2𝜃 exp − mv2- v2 sin𝜃dvd𝜃dϕ
+  ∥       T  0 2πT       ∥                 2T
+          q2   ( m  )3∕2   4π ∫  4   (   mv2)
+    =   − T-n0 2πT-    δA∥-3-  v exp  − 2T-- dv
+          2   (  )3∕2         ∫
+    =   − q-n0 -1    2T-δA 4π-  x4exp(− x2)dx
+          T    π      m   ∥ 3
+          q2   ( 1)3∕2 2T   4π 3√π-
+    =   − T-n0 π-    -m-δA∥-3--8--
+          2
+    =   − q-n0δA ∥.                                               (183)
+          m
+" class="math-display"  /></center>
+</div>Using <span 
+class="cmmi-10">c </span>= 1<span 
+class="cmmi-10">∕</span><img 
+src="nonlinear_gyrokinetic_equation204x.png" alt="√----
+ μ0𝜀0"  class="sqrt"  /> and <span 
+class="cmmi-10">ω</span><sub><span 
+class="cmmi-7">p</span></sub><sup><span 
+class="cmr-7">2</span></sup> = <span 
+class="cmmi-10">n</span><sub>
+<span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">q</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">m𝜀</span><sub>
+<span 
+class="cmr-7">0</span></sub>), the above expression can be written as
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36010r184"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation205x.png" alt="          2
+μ0δj∥ = − ωpδA ∥,
+         c2
+" class="math-display"  /></center></td><td class="equation-label">(184)</td></tr></table>
+<!--l. 2246--><p class="nopar" >
+where the <span 
+class="cmmi-10">c∕ω</span><sub><span 
+class="cmmi-7">ps</span></sub> is often called the skin depth of species “s”. The skin current can also be written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x5-36011r185"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation206x.png" alt="         β
+μ0δj∥ = −-2δA ∥,
+         ρ
+" class="math-display"  /></center></td><td class="equation-label">(185)</td></tr></table>
+<!--l. 2251--><p class="nopar" >
+where <span 
+class="cmmi-10">ρ </span>= <img 
+src="nonlinear_gyrokinetic_equation207x.png" alt="∘ -----
+  2T∕m"  class="sqrt"  /><span 
+class="cmmi-10">∕</span>Ω is the thermal Larmor radius.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1655--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2254--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse5.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse3.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse3.html#tailnonlinear_gyrokinetic_equationse3.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse4.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse4.html" >up</a>] </p></div>
-<!--l. 1655--><p class="indent" >   <a 
+<!--l. 2254--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse4.html"></a>  </p> 
 </body></html> 

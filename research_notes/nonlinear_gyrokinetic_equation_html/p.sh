@@ -1,8 +1,8 @@
 mainfilename=nonlinear_gyrokinetic_equation
 #texmacs -c ../${mainfilename}.tm ${mainfilename}.pdf -quit 
 #texmacs -c ../${mainfilename}.tm ${mainfilename}.tex -quit 
-#pdflatex ${mainfilename}.tex
-#pdflatex ${mainfilename}.tex
+#pdflatex -shell-escape ${mainfilename}.tex
+#pdflatex -shell-escape ${mainfilename}.tex
 
 htlatex ${mainfilename}.tex "myconfig, xhtml,2, charset=utf-8" " -cunihtf -utf8"
 cp ${mainfilename}.html index.html

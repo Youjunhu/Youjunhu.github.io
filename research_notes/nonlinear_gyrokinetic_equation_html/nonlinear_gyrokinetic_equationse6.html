@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Coordinate system and grid in TEK code</title> 
+<head><title>Poisson’s equation and polarization density</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,193 +13,212 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 2331--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2367--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse7.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse5.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse5.html#tailnonlinear_gyrokinetic_equationse5.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationse6.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse6.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
- id="x7-410006"></a>Coordinate system and grid in TEK code</h3>
-<!--l. 2333--><p class="noindent" >In the magnetic coordinates (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) used in TEK code, <span 
-class="cmmi-10">ψ </span>is the normalized poloidal magnetic ﬂux,
-which is increasing from the magnetic axis to the plasma boundary, <span 
-class="cmmi-10">𝜃 </span>is increasing along the
-anti-clockwise direction when viewed along <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ϕ </span>direction, <span 
-class="cmmi-10">ϕ </span>is the toroidal angle of the right-handed
-cylindrical coordinates (<span 
-class="cmmi-10">R,ϕ,Z</span>). In this convention the Jacobian of the (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system,
-<span 
-class="cmsy-10">𝒥 </span>= (<span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">𝜃 </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">ϕ</span>) is negative, i.e., (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) is a left-handed system. The ﬁeld-line-following
-coordinate system (<span 
-class="cmmi-10">ψ,𝜃,α</span>) is also a left-handed system. The coordinate system (<span 
-class="cmmi-10">x </span>= <span 
-class="cmmi-10">ψ,y </span>= <span 
-class="cmmi-10">α,z </span>= <span 
-class="cmmi-10">𝜃</span>) is
-a right-handed system.
+ id="x7-380006"></a>Poisson’s equation and polarization density</h3>
+<!--l. 2369--><p class="noindent" >Poisson’s equation is written as
 </p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x7-410011"></a>
-                                                                                
-
-                                                                                
-<!--l. 2346--><p class="noindent" > <img 
-src="/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1-.png" alt="PIC"  
- />
-<br /> </p><div class="caption" 
-><span class="id">Figure 1: </span><span  
-class="content">Poloidal grid for equilibrium quantities used in my code and GEM code. My array
-index starts from 1 whereas GEM array index starts from 0. Hence <span 
-class="cmtt-10">mpol=nth+1</span>. <span 
-class="cmtt-10">nth</span> is denoted
-by <span 
-class="cmtt-10">ntheta</span> in GEM. The array starts at <span 
-class="cmmi-10">𝜃 </span>= <span 
+   <table 
+class="equation"><tr><td><a 
+ id="x7-38001r192"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation214x.png" alt="− 𝜀0∇2δΦ = qiδni + qeδne,
+" class="math-display"  /></center></td><td class="equation-label">(192)</td></tr></table>
+<!--l. 2373--><p class="nopar" >
+where <span 
 class="cmsy-10">−</span><span 
-class="cmmi-10">π </span>and ends at <span 
-class="cmmi-10">𝜃 </span>= +<span 
-class="cmmi-10">π </span>(<span 
-class="cmmi-10">𝜃 </span>= <span 
-class="cmsy-10">±</span><span 
-class="cmmi-10">π </span>is chosen to be at
-the high-ﬁeld side in both the codes) I do not need to make connection with GEM’s equilibrium
-poloidal array because there is no coupling of equilibrium quantities between the code written
-by me and the original code in GEM. The coupling happens for the perturbed quanties, whose
-poloidal grids need to be consistent. Poloidal grid-points for perturbation are indexed as 0:mpol2
-with the index 0 corresponding to <span 
-class="cmmi-10">𝜃 </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">π </span>and the index mpol2 corresponding to <span 
-class="cmmi-10">𝜃 </span>= +<span 
-class="cmmi-10">π</span>.
-Field equation is solved at 0 : mpol2 <span 
-class="cmsy-10">− </span>1, and the ﬁeld at mpol2, i.e., <span 
-class="cmmi-10">𝜃 </span>= +<span 
-class="cmmi-10">π</span>, is obtained by
-inerpolating the ﬁeld at <span 
-class="cmmi-10">𝜃 </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">π</span>. mpol2 is determined by mpol2=numproc/ntube. mpol and
-mpol2 must be chosen in a way that makes (mpol-1)/mpol2 be an integer.</span></div><!--tex4ht:label?: x7-410011 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2367--><p class="indent" >    
+class="cmmi-10">𝜀</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmsy-10">∇</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δ</span>Φ is called the space-charge term. Since we consider modes with <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">≪ </span><span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">⊥</span></sub>, the
+space-charge term is approximated as <span 
+class="cmsy-10">∇</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δ</span>Φ <span 
+class="cmsy-10">≡∇</span><sub><span 
+class="cmsy-7">⊥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δ</span>Φ + <span 
+class="cmsy-10">∇</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δ</span>Φ <span 
+class="cmsy-10">≈∇</span><sub><span 
+class="cmsy-7">⊥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δ</span>Φ. Then Eq. (<a 
+href="#x7-38001r192">192<!--tex4ht:ref: 18-10-5-p4 --></a>) is written
+as
 </p>
-   <hr class="figure" /><div class="figure" 
->
+   <table 
+class="equation"><tr><td><a 
+ id="x7-38002r193"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation215x.png" alt="     2
+− 𝜀0∇⊥δΦ = qiδni + qeδne.
+" class="math-display"  /></center></td><td class="equation-label">(193)</td></tr></table>
+<!--l. 2382--><p class="nopar" >
+This approximation eliminates the parallel plasma oscillation from the system. The perpendicular
+plasma oscillations seem to be only partially eliminated in the system consisting of gyrokinetic ions and
+drift-kinetic electrons. There are the so-called Ω<sub><span 
+class="cmmi-7">H</span></sub> modes (also called electrostatic shear Alfven wave)
+that appear in the gyrokinetic system which have some similarity with the plasma oscillations but with
+a much smaller frequency, Ω<sub><span 
+class="cmmi-7">H</span></sub> <span 
+class="cmsy-10">∼ </span>(<span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕k</span><sub><span 
+class="cmsy-7">⊥</span></sub>)(<span 
+class="cmmi-10">λ</span><sub><span 
+class="cmmi-7">D</span></sub><span 
+class="cmmi-10">∕ρ</span><sub><span 
+class="cmmi-7">s</span></sub>)<span 
+class="cmmi-10">ω</span><sub><span 
+class="cmmi-7">pe</span></sub>.
+</p><!--l. 2391--><p class="indent" >   Using expression (<a 
+href="nonlinear_gyrokinetic_equationse4.html#x5-35002r174">174<!--tex4ht:ref: 19-1-3-e2 --></a>), the perturbed number density <span 
+class="cmmi-10">δn </span>is written as </p><div class="eqnarray">
                                                                                 
 
                                                                                 
-<a 
- id="x7-410022"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation216x.png" alt="       ∫
+δn  =     δFdv
+       ∫        ∫ [                 ]     ∫ [              ]
+    =     δhdv+     q-(δΦ − ⟨δΦ⟩α)∂F0- dv+    -q⟨v ⋅δA⟩α∂F0- dv,    (194)
+                    m            ∂𝜀          m          ∂𝜀
+" class="math-display"  /><a 
+ id="x7-38003r194"></a></center>
+</div>where the blue term is approximately zero for isotropic <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> and this term is usually dropped in
+simulations that assume isotropic <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> and approximate <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A </span>as <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>. The red term in expression (<a 
+href="#x7-38003r194">194<!--tex4ht:ref: 19-1-12-e1 --></a>)
+is the so-called the polarization density <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">p</span></sub>, i.e.,
+   <table 
+class="equation"><tr><td><a 
+ id="x7-38004r195"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation217x.png" alt="        ∫  q           ∂F
+δnp(x ) =  --(δΦ − ⟨δΦ ⟩α)---0dv,
+          m             ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(195)</td></tr></table>
+<!--l. 2411--><p class="nopar" >
+which has an explicit dependence on <span 
+class="cmmi-10">δ</span>Φ and is usually moved to the left hand of Poisson’s equation
+when constructing the numerical solver of the Poisson equation, i.e., equation (<a 
+href="#x7-38002r193">193<!--tex4ht:ref: 19-1-12-e2 --></a>) is written
+as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x7-38005r196"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation218x.png" alt="             ∫  q            ∂F
+− 𝜀0∇2⊥δΦ − qi  -i-(δΦ − ⟨δΦ⟩α)--i0dv = qiδn′i + qeδne,
+               mi             ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(196)</td></tr></table>
                                                                                 
 
                                                                                 
-<!--l. 2370--><p class="noindent" > <img 
-src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.png" alt="pict"  
- width="366.36874pt" />
-<br />  </p><div class="caption" 
-><span class="id">Figure 2:  </span><span  
-class="content">Radial  grid  used  in  my  code.  Two  radial  arrays  are  used  in  the  code,
-<span 
-class="cmtt-10">radcor</span><span 
-class="cmtt-10">_1d</span><span 
-class="cmtt-10">_array(1:nt)</span> and  <span 
-class="cmtt-10">radcor</span><span 
-class="cmtt-10">_1d</span><span 
-class="cmtt-10">_array2(1:n)</span>,  respctively  corresponding  to  the  nt
-points and <span 
-class="cmmi-10">n </span>points indicated in the ﬁgure. Here nt = <span 
-class="cmmi-10">n</span>+2<span 
-class="cmmi-10">m </span>and <span 
-class="cmmi-10">m </span>is the number of grid points
-in one of the two buﬀer regions (regions in blue color). The index of the two arrays both begin at
-1 (rather than 0). In the code <span 
-class="cmmi-10">n </span>is denoted by <span 
-class="cmtt-10">nflux2</span> and nt is denoted by <span 
-class="cmtt-10">nflux</span>, <span 
-class="cmmi-10">m </span>is denoted
-by <span 
-class="cmtt-10">points</span><span 
-class="cmtt-10">_in</span><span 
-class="cmtt-10">_buffer</span>. In <span 
-class="cmtt-10">GEM</span> the radial array does no include the buﬀer regions and the index
-starts at <span 
-class="cmtt-10">0</span> and ends at <span 
-class="cmtt-10">imx</span>. Hence <span 
-class="cmtt-10">n=imx+1</span>.</span></div><!--tex4ht:label?: x7-410022 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x7-410033"></a>
-                                                                                
-
-                                                                                
-<!--l. 2385--><p class="noindent" > <img 
-src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/toroidal_grids/a-1.png" alt="pict"  
- width="247.92624pt" />
-<br /> </p><div class="caption" 
-><span class="id">Figure 3: </span><span  
-class="content">Toroidal grid used in my code and GEM code. My array index starts at 1 whereas
-GEM array index starts from 0. The last grid is at <span 
-class="cmmi-10">ϕ </span>= 2<span 
-class="cmmi-10">π∕</span>nseq and is indexed as mtor+1 in
-my grid system. The last grid point for density and potential arrays in my code is at <span 
-class="cmtt-10">mtor</span> rather
-than <span 
-class="cmtt-10">mtor+1</span>. <span 
-class="cmtt-10">GEM</span> array ends at <span 
-class="cmtt-10">jm</span>. It follows that <span 
-class="cmtt-10">mtor=jm</span>.</span></div><!--tex4ht:label?: x7-410033 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2394--><p class="indent" >    
-</p><!--l. 2396--><p class="indent" >    
-</p><!--l. 2398--><p class="indent" >    
-</p><!--l. 2400--><p class="indent" >    
-</p><!--l. 2402--><p class="indent" >    
-</p><!--l. 2404--><p class="indent" >   My array index system is bad and GEM array index system is good because my system is not
-consistent: sometimes I use 0-based index and sometimes I use 1-based index, sometimes the index ends
-at n and sometimes ends at n+1. It is important to know accurately the transformation between the
-two systems.
+<!--l. 2420--><p class="nopar" >
+where <span 
+class="cmmi-10">δn</span><sub><span 
+class="cmmi-7">i</span></sub><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">δn</span><sub><span 
+class="cmmi-7">i</span></sub> <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">δn</span><sub><span 
+class="cmmi-7">pi</span></sub> = <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">δh</span><sub><span 
+class="cmmi-7">i</span></sub><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span>, which is evaluated by using Monte-Carlo markers. Since some parts
+depending on <span 
+class="cmmi-10">δ</span>Φ are moved from the right-hand side to the left-hand side of the ﬁeld equation,
+numerical solvers (for <span 
+class="cmmi-10">δ</span>Φ) based on the left-hand side of Eq. (<a 
+href="#x7-38005r196">196<!--tex4ht:ref: 19-1-12-e4 --></a>) probably behaves better than the
+one that is based on the left-hand side of Eq. (<a 
+href="#x7-38002r193">193<!--tex4ht:ref: 19-1-12-e2 --></a>), i.e., <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">𝜀</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmsy-10">∇</span><sub><span 
+class="cmsy-7">⊥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δ</span>Φ.
+</p><!--l. 2429--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">6.1   </span> <a 
+ id="x7-390006.1"></a>Discussion on cancellation scheme</h4>
+<!--l. 2431--><p class="noindent" >The polarization density is part of the perturbed density that is extracted from the source term and
+moved to the left-hand side of the Poisson equation. The polarization density will be evaluated without
+using Monte-Carlo markers, whereas the remained density on the right-hand side will be
+evaluated using Mote-Carlo markers. The two diﬀerent methods of evaluating two parts of
+the total perturbed density can possibly introduce signiﬁcant errors if the two terms are
+expected to cancel each other and give a small quantity that is much smaller than either of
+the two terms. This is one pitfall for PIC simulations that extract some parts from the
+source term and move them to the left-hand side. To remedy this, rather than directly
+moving a part of the distribution function to the left-hand side, we subtract an (approximate)
+analytic expression from both sides of Eq. (<a 
+href="#x7-38002r193">193<!--tex4ht:ref: 19-1-12-e2 --></a>). The analytical expressions on both sides are
+evaluated based on grid values of perturbed electromagnetic ﬁelds and are independent of
+makers. All the original parts of the distribution functions are kept on the right-hand side
+and are still evaluated by using markers, which hopefully avoids the possible cancellation
+problem. This strategy is often called a cancellation scheme. Since unknown perturbed
+electromagnetic ﬁelds appear on the right-hand side, iteration is needed to solve the ﬁeld
+equation.
+</p><!--l. 2451--><p class="indent" >   Note that two things appear here: What motivates us to move parts of the distribution function to
+the left? It is the goal of hopefully making the left-hand side matrix more well-behaved (such as good
+condition number, etc.) Why do we need the cancellation scheme? Because we want to avoid the
+numerical inaccuracy that appears when large terms cancels each other. Note that iteration is needed
+when the cancellation scheme is used because the right-hand side explicitly contains unknown
+electromagnetic ﬁelds.
+</p><!--l. 2459--><p class="indent" >   It turns out that the cancellation scheme is not necessary for Eq. (<a 
+href="#x7-38005r196">196<!--tex4ht:ref: 19-1-12-e4 --></a>), but for the ﬁeld solver for
+Ampere’s equation (discussed later), this cancellation scheme is necessary in order to obtain stable
+results.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 2409--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2464--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse7.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse5.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse5.html#tailnonlinear_gyrokinetic_equationse5.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse6.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse6.html" >up</a>] </p></div>
-<!--l. 2409--><p class="indent" >   <a 
- id="tailnonlinear_gyrokinetic_equationse6.html"></a> </p> 
+<!--l. 2464--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse6.html"></a>  </p> 
 </body></html> 
