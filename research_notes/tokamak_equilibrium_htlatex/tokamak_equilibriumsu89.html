@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Grad-Shafranov equation in (r,𝜃,ϕ) coordinates</title> 
+<head><title>Radial coordinate to be deleted</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,44 +13,178 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 6805--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 6701--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu90.html" >next</a>] [<a 
 href="tokamak_equilibriumsu88.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu88.html#tailtokamak_equilibriumsu88.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu89.html">tail</a>] [<a 
 href="tokamak_equilibriumse15.html#tokamak_equilibriumsu89.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">A.13   </span> <a 
- id="x105-134000A.13"></a>Grad-Shafranov equation in (<span 
-class="cmmi-10">r,𝜃,ϕ</span>) coordinates</h4>
-   <h5 class="subsubsectionHead"><a 
- id="x105-135000A.13"></a>Deﬁnition of (<span 
-class="cmmi-10">r,𝜃,ϕ</span>) coordinates</h5>
-<!--l. 6809--><p class="noindent" >Deﬁne (<span 
-class="cmmi-10">r,𝜃,ϕ</span>) coordinates by
+   <h4 class="subsectionHead"><span class="titlemark">A.11   </span> <a 
+ id="x105-132000A.11"></a>Radial coordinate to be deleted</h4>
+<!--l. 6703--><p class="noindent" >We know that the toroidal ﬂux <span 
+class="cmmi-10">ψ</span><sub><span 
+class="cmmi-7">t</span></sub>, safety factor <span 
+class="cmmi-10">q</span>, and the <span 
+class="cmmi-10">Ψ </span>in the GS equation are related by the
+following equations:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x105-135001r567"></a>
+ id="x105-132001r556"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium724x.png" alt="R = R0 + rcos𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(567)</td></tr></table>
-<!--l. 6812--><p class="nopar" >
+src="tokamak_equilibrium702x.png" alt="dψt = 2πqdΨ
+" class="math-display"  /></center></td><td class="equation-label">(556)</td></tr></table>
+<!--l. 6707--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x105-135002r568"></a>
+ id="x105-132002r557"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium725x.png" alt="Z = rsin 𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(568)</td></tr></table>
-<!--l. 6815--><p class="nopar" >
-where (<span 
-class="cmmi-10">R,ϕ,Z</span>) are the cylindrical coordinates and <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub> is a constant. The above transformation is shown
-graphically in Fig. <a 
-href="#x105-13500340">40<!--tex4ht:ref: 7-9-1 --></a>.
+src="tokamak_equilibrium703x.png" alt="          ∫ Ψ
+=⇒  ψt = 2π   qdΨ
+            0
+" class="math-display"  /></center></td><td class="equation-label">(557)</td></tr></table>
+<!--l. 6710--><p class="nopar" >
+Deﬁne:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x105-132003r558"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium704x.png" alt="   ∘ ---
+ρ ≡  ψt
+      π
+" class="math-display"  /></center></td><td class="equation-label">(558)</td></tr></table>
+<!--l. 6714--><p class="nopar" >
+(In the Toray_ga code, the radial coordinate <span 
+class="cmmi-10">ρ </span>is deﬁned as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x105-132004r559"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium705x.png" alt="    ∘ -ψt--
+ρ ≡   πB--,
+         t0
+" class="math-display"  /></center></td><td class="equation-label">(559)</td></tr></table>
+<!--l. 6718--><p class="nopar" >
+where <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">t</span><span 
+class="cmr-7">0</span></sub> is a constant factor.<span 
+class="cmmi-10">ρ </span>deﬁned this way is of length dimension, which is an eﬀective geometry
+radius obtained by approximating the ﬂux surface as circular.)
+</p><!--l. 6723--><p class="indent" >    
+</p><!--l. 6725--><p class="indent" >   I use Eq. (<a 
+href="#x105-132003r558">558<!--tex4ht:ref: 5-26-1 --></a>) to deﬁne <span 
+class="cmmi-10">ρ</span>. Then we have
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x105-132005r560"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium706x.png" alt="ψt = πρ2
+" class="math-display"  /></center></td><td class="equation-label">(560)</td></tr></table>
+<!--l. 6728--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x105-132006r561"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium707x.png" alt="    dψt
+=⇒  -dρ = 2πρ
+" class="math-display"  /></center></td><td class="equation-label">(561)</td></tr></table>
+<!--l. 6731--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x105-132007r562"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium708x.png" alt="=⇒  dψtdψ-= 2πρ
+    dψ dρ
+" class="math-display"  /></center></td><td class="equation-label">(562)</td></tr></table>
+<!--l. 6734--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x105-132008r563"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium709x.png" alt="       dψ
+=⇒  2πqdρ-= 2πρ
+" class="math-display"  /></center></td><td class="equation-label">(563)</td></tr></table>
+<!--l. 6737--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x105-132009r564"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium710x.png" alt="    dψ    ρ
+= ⇒ ---=  -
+    dρ    q
+" class="math-display"  /></center></td><td class="equation-label">(564)</td></tr></table>
+<!--l. 6740--><p class="nopar" >
+Eq. (<a 
+href="#x105-132009r564">564<!--tex4ht:ref: 5-26-2 --></a>) is used to transform between <span 
+class="cmmi-10">ψ </span>and <span 
+class="cmmi-10">ρ</span>.
+</p>
+   <table 
+class="equation-star"><tr><td>
+             <span 
+class="cmmi-10">dρ </span>= <img 
+src="tokamak_equilibrium711x.png" alt="∘---1-----
+  Φ∕πR20B0"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium712x.png" alt="1
+2"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium713x.png" alt="--1---
+πB0R20"  class="frac" align="middle" /><span 
+class="cmmi-10">dΦ </span>= <img 
+src="tokamak_equilibrium714x.png" alt="1
+ρ"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium715x.png" alt="1
+2"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium716x.png" alt="---1--
+πB0R20"  class="frac" align="middle" />2<span 
+class="cmmi-10">πqdψ </span>= <img 
+src="tokamak_equilibrium717x.png" alt="1
+ρ"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium718x.png" alt="--1--
+B0R20"  class="frac" align="middle" /><span 
+class="cmmi-10">qdψ</span>
+</td></tr></table>
+<!--l. 6744--><p class="nopar" >
+</p>
+   <table 
+class="equation-star"><tr><td>
+                              <span 
+class="cmsy-10">⇒ </span><span 
+class="cmmi-10">dψ </span>= <img 
+src="tokamak_equilibrium719x.png" alt="ρB0R20-
+  q"  class="frac" align="middle" /><span 
+class="cmmi-10">dρ</span>(<span 
+class="cmmi-10">πa</span><sup><span 
+class="cmr-7">2</span></sup>)
+</td></tr></table>
+<!--l. 6745--><p class="nopar" >
+</p><!--l. 6748--><p class="indent" >    
 </p>
    <hr class="figure" /><div class="figure" 
 >
@@ -58,354 +192,39 @@ href="#x105-13500340">40<!--tex4ht:ref: 7-9-1 --></a>.
 
                                                                                 
 <a 
- id="x105-13500340"></a>
+ id="x105-13201039"></a>
                                                                                 
 
                                                                                 
-<!--l. 6820--><p class="noindent" > <img 
-src="my_figure/home/yj/theory/tokamak_equilibrium/figures/r_theta_coordinates-1.png" alt="pict"  
- width="256.95999pt" />
+<!--l. 6751--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/fig_lorentz/fig3/p.png" alt="pict"  
+ width="262.9825pt" />
 <br /> </p><div class="caption" 
-><span class="id">Fig. 40: </span><span  
-class="content">The relation between coordinates (<span 
-class="cmmi-10">r,𝜃</span>) and (<span 
-class="cmmi-10">R,Z</span>).</span></div><!--tex4ht:label?: x105-13500340 -->
+><span class="id">Fig. 39: </span><span  
+class="content">to be delted, Isosurface of <span 
+class="cmmi-10">α </span>= 2<span 
+class="cmmi-10">π∕</span>8. The surface is made of a family of contours of
+<span 
+class="cmmi-10">α </span>= 2<span 
+class="cmmi-10">π∕</span>8, which are all magnetic ﬁeld lines. These ﬁeld lines are traced by starting from a series
+of points on the low-ﬁeld-side midplane (<span 
+class="cmmi-10">𝜃 </span>= 0) at diﬀerent radial locations and the ﬁeld lines
+are followed by a complete poloidal loop. Magnetic ﬁeld from EAST discharge #59954@3.03s.</span></div><!--tex4ht:label?: x105-13201039 -->
                                                                                 
 
                                                                                 
    </div><hr class="endfigure" />
-<!--l. 6825--><p class="indent" >   The Jacobian of (<span 
-class="cmmi-10">r,𝜃,ϕ</span>) coordinates can be calculated using the deﬁnition. Using <span 
-class="cmmi-10">x </span>= <span 
-class="cmmi-10">R</span> cos<span 
-class="cmmi-10">ϕ</span>,
-<span 
-class="cmmi-10">y </span>= <span 
-class="cmmi-10">R</span> sin<span 
-class="cmmi-10">ϕ</span>, and <span 
-class="cmmi-10">z </span>= <span 
-class="cmmi-10">Z</span>, the Jacobian (with respect to the Cartesian coordinates (<span 
-class="cmmi-10">x,y,z</span>)) is written as
-</p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium726x.png" alt="    |        |  |                   |
-    ||∂∂xr ∂∂x𝜃 ∂∂xϕ||  ||∂R∂corsϕ ∂Rc∂o𝜃sϕ-∂R∂coϕsϕ||
-𝒥 = ||∂y ∂y ∂y||= ||∂R-sinϕ ∂Rsinϕ-∂R-sinϕ||
-    ||∂∂rz ∂∂𝜃z ∂∂ϕz||  ||  ∂∂rZ-    ∂∂Z𝜃-   ∂∂ϕZ- ||
-    |∂r ∂𝜃 ∂ϕ      ∂r     ∂𝜃    ∂|ϕ
-    ||cos𝜃cosϕ − rsin𝜃cosϕ − R sin ϕ||
-  = ||cos𝜃sinϕ − rsin𝜃sinϕ R cosϕ ||
-    |  sin𝜃     r cos 𝜃      0   |
-  = sin 𝜃(− Rr sin𝜃 cos2ϕ − Rrsin𝜃sin2ϕ)
-  + rcos𝜃(− R sin2 ϕcos𝜃− R cos2ϕcos𝜃)
-           2        2
-  = − Rrsin 𝜃− Rr cos𝜃
-  = − Rr.                                             (569)
-" class="math-display"  /></center>
-</div>
-   <h5 class="subsubsectionHead"><a 
- id="x105-136000A.13"></a>Toroidal elliptic operator <span 
-class="cmmi-10">Δ</span><sup><span 
-class="cmmi-7">⋆</span></sup><span 
-class="cmmi-10">Ψ </span>in (<span 
-class="cmmi-10">r,𝜃,ϕ</span>) coordinate system</h5>
-<!--l. 6859--><p class="noindent" >Next, we transform the GS equation from (<span 
-class="cmmi-10">R,Z</span>) coordinates to (<span 
-class="cmmi-10">r,𝜃</span>) coordinates. Using the relations
-<span 
-class="cmmi-10">R </span>= <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub> + <span 
-class="cmmi-10">r</span> cos<span 
-class="cmmi-10">𝜃 </span>and <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">r</span> sin<span 
-class="cmmi-10">𝜃</span>, we have
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136001r570"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium727x.png" alt="    ∘--------------   ∂r   Z
-r =  (R − R0)2 + Z2 ⇒ ---= --= sin𝜃
-                      ∂Z    r
-" class="math-display"  /></center></td><td class="equation-label">(570)</td></tr></table>
-<!--l. 6865--><p class="nopar" >
-</p>
-                                                                                
-
-                                                                                
-   <table 
-class="equation"><tr><td><a 
- id="x105-136002r571"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium728x.png" alt="      -------Z-------        ∂𝜃-  r−-Z-Zr-
-sin 𝜃 = ∘ (R-−-R-)2 +-Z2-⇒ cos𝜃 ∂Z =  r2   .
-              0
-" class="math-display"  /></center></td><td class="equation-label">(571)</td></tr></table>
-<!--l. 6869--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136003r572"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium729x.png" alt="   ∂𝜃     r− ZZ-    1− sin2 𝜃   cos2𝜃
-⇒  ∂Z-= r(R-−-Rr) = -R-−-R--=  R-− R--
-               0          0         0
-" class="math-display"  /></center></td><td class="equation-label">(572)</td></tr></table>
-<!--l. 6875--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136004r573"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium730x.png" alt="∂ sin𝜃   r − ZZ-   1− sin2𝜃   cos2𝜃
-------= ---2-r-=  --------= -----
-  ∂Z       r         r        r
-" class="math-display"  /></center></td><td class="equation-label">(573)</td></tr></table>
-<!--l. 6879--><p class="nopar" >
-The GS equation in (<span 
-class="cmmi-10">R,Z</span>) coordinates is given by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136005r574"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium731x.png" alt=" 2         (     )
-∂-Ψ2 + R ∂- -1∂-Ψ  = − μ0R2dP-− -dgg(Ψ).
-∂Z      ∂R  R ∂R           dΨ   dΨ
-" class="math-display"  /></center></td><td class="equation-label">(574)</td></tr></table>
-<!--l. 6885--><p class="nopar" >
-The term <span 
-class="cmmi-10">∂Ψ∕∂Z </span>is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium732x.png" alt="∂ Ψ   ∂Ψ ∂r   ∂Ψ ∂ 𝜃
---- = ------+ ------
-∂Z    ∂r ∂Z    ∂𝜃∂Z  2
-    = ∂Ψ-sin 𝜃+ ∂Ψ--cos-𝜃.                       (575)
-      ∂r       ∂ 𝜃R − R0
-" class="math-display"  /><a 
- id="x105-136006r575"></a></center>
-</div>Using Eq. (<a 
-href="#x105-136006r575">575<!--tex4ht:ref: 8-6-p1 --></a>), <span 
-class="cmmi-10">∂</span><sup><span 
-class="cmr-7">2</span></sup><span 
-class="cmmi-10">Ψ∕∂Z</span><sup><span 
-class="cmr-7">2</span></sup> is written as <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium733x.png" alt="∂2Ψ    ∂ ( ∂Ψ     )   ∂  (∂Ψ  cos2 𝜃 )
---2-= ---  ---sin 𝜃 +  --- ----------
-∂Z    ∂Z   ∂r(   )    ∂Z  ∂ 𝜃R − R0         (    )         (       )
-    = sin 𝜃 ∂-  ∂Ψ- + ∂Ψ--∂-(sin𝜃)+  cos2𝜃--∂-  ∂Ψ- +  ∂Ψ-∂-  -cos2-𝜃-
-          ∂Z   ∂r    ∂r ∂Z         R− R0 ∂Z   ∂𝜃     ∂𝜃∂Z   R − R0
-          (∂2Ψ        ∂2Ψ  cos2 𝜃)   ∂Ψ cos2𝜃   cos2𝜃 ( ∂2Ψ        ∂2Ψ cos2𝜃 )
-    = sin 𝜃 -∂r2 sin𝜃+ ∂r∂𝜃R-−-R0- + -∂r--r-- + R-−-R0- ∂𝜃∂r-sin𝜃 + ∂𝜃2-R-− R0-
-                            2
-    − ∂Ψ----1--2 cos𝜃sin 𝜃 cos-𝜃-                                          (576)
-      ∂ 𝜃R − R0          R − R0
-" class="math-display"  /><a 
- id="x105-136007r576"></a></center>
-</div>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136008r577"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium734x.png" alt="         ∘ --------------
--∂r = -∂-  (R − R0)2 + Z2 = R-−-R0-= cos𝜃
-∂R    ∂R                     r
-" class="math-display"  /></center></td><td class="equation-label">(577)</td></tr></table>
-<!--l. 6921--><p class="nopar" >
-</p>
-   <table 
-class="equation-star"><tr><td>
-                             sin<span 
-class="cmmi-10">𝜃 </span>= <img 
-src="tokamak_equilibrium735x.png" alt="∘------Z--------
-  (R − R0)2 + Z2"  class="frac" align="middle" /><span 
-class="cmmi-10">.</span>
-</td></tr></table>
-<!--l. 6922--><p class="nopar" >
-</p>
-   <table 
-class="equation-star"><tr><td>
-                              cos<span 
-class="cmmi-10">𝜃</span><img 
-src="tokamak_equilibrium736x.png" alt="∂𝜃
----
-∂R"  class="frac" align="middle" /> = <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">Z</span><img 
-src="tokamak_equilibrium737x.png" alt="R − R
----3-0-
-  r"  class="frac" align="middle" />
-</td></tr></table>
-<!--l. 6923--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136009r578"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium738x.png" alt="∂𝜃-= − Z-.
-∂R     r2
-" class="math-display"  /></center></td><td class="equation-label">(578)</td></tr></table>
-<!--l. 6926--><p class="nopar" >
-</p>
-   <table 
-class="equation-star"><tr><td>
-                             cos<span 
-class="cmmi-10">𝜃 </span>= <img 
-src="tokamak_equilibrium739x.png" alt="    R − R0
-∘--------2----2-
-  (R − R0 ) +Z"  class="frac" align="middle" />
-</td></tr></table>
-<!--l. 6927--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136010r579"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium740x.png" alt=" ∂        r− R−R0(R − R0)   1− cos2𝜃   sin2𝜃
----cos𝜃 = -----r-2--------= -------- = -----
-∂R              r               r        r
-" class="math-display"  /></center></td><td class="equation-label">(579)</td></tr></table>
-<!--l. 6932--><p class="nopar" >
-</p>
-   <div class="eqnarray">
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium741x.png" alt="     (     )        [  (               )]
-R-∂-  1-∂Ψ-  = R ∂-- 1-  ∂Ψ-∂r-+ ∂Ψ-∂𝜃-
- ∂R   R ∂R       ∂R [R ( ∂r ∂R   ∂𝜃 ∂R )]
-             = R ∂-- 1-  ∂Ψ-cos𝜃 − ∂Ψ-Z-
-                 ∂R  R   ∂r       ∂𝜃 r2
-                ∂ ( ∂Ψ       ∂Ψ Z )     (∂Ψ        ∂Ψ Z )(   1 )
-             = ∂R-  ∂r-cos𝜃− -∂𝜃r2  + R  -∂r cos𝜃 − ∂𝜃-r2  − R2-
-               (  2        2     )                   (  2         2     )           (   )     (               )
-             =   ∂-Ψ2-∂r + ∂-Ψ--∂𝜃  cos𝜃+ ∂Ψ--∂-cos𝜃−   ∂-Ψ--∂r-+ ∂-Ψ2-∂𝜃- -Z2 − ∂Ψ--∂-  Z2  − 1- ∂Ψ-cos𝜃 − ∂Ψ-Z2
-               ( ∂r ∂R    ∂r∂𝜃∂R )       ∂r ∂R     (   ∂𝜃∂r ∂R   ∂𝜃  ∂R)  r    ∂𝜃 ∂R   r     R(   ∂r       ∂𝜃 r)
-                 ∂2Ψ-      ∂2Ψ--Z        ∂-Ψsin2𝜃    ∂2Ψ--      ∂2Ψ-Z-  Z-  ∂Ψ-  1-       -1  ∂Ψ-      ∂-Ψ-Z
-             =   ∂r2 cos𝜃 − ∂r∂𝜃r2 cos𝜃+  ∂r  r  −   ∂𝜃∂r cos 𝜃− ∂𝜃2 r2  r2 + ∂𝜃Z r32cos𝜃− R   ∂r cos𝜃−  ∂𝜃r2
-               ∂2Ψ        ∂2Ψ sin2 𝜃    ∂2Ψ Z       ∂ Ψsin2𝜃   ∂Ψ  1
-             = --2-cos2𝜃+ ---2--2--− 2------2 cos𝜃+-------- + --Z -32cos𝜃                                  (580)
-               ∂r(        ∂ 𝜃  r    ) ∂r∂𝜃 r        ∂r  r     ∂𝜃  r
-             − 1-  ∂Ψ-cos𝜃− ∂Ψ-1 sin𝜃                                                                       (581)
-               R   ∂r       ∂ 𝜃r
-" class="math-display"  /><a 
- id="x105-136011r580"></a></center>
-</div>Summing the the right-hand-side of Eq. (<a 
-href="#x105-136007r576">576<!--tex4ht:ref: 9-17-e1 --></a>) and the expression on line (<a 
-href="#x105-136011r580">580<!--tex4ht:ref: 9-17-e3 --></a>) yields
-   <table 
-class="equation"><tr><td><a 
- id="x105-136012r582"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium742x.png" alt="∂2Ψ-  ∂Ψ-1   1-∂2Ψ-
-∂r2 +  ∂rr + r2∂ 𝜃2 .
-" class="math-display"  /></center></td><td class="equation-label">(582)</td></tr></table>
-<!--l. 6981--><p class="nopar" >
-Using these, the GS equation is written as
-</p>
-   <table 
-class="equation-star"><tr><td>
-                                                                                
-
-                                                                                
-<img 
-src="tokamak_equilibrium743x.png" alt="∂2Ψ-
- ∂r2"  class="frac" align="middle" />+<img 
-src="tokamak_equilibrium744x.png" alt="∂Ψ-
-∂r"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium745x.png" alt="1
-r"  class="frac" align="middle" />+<img 
-src="tokamak_equilibrium746x.png" alt="-1
-r2"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium747x.png" alt="∂2Ψ-
- ∂𝜃2"  class="frac" align="middle" /><span 
-class="cmsy-10">−</span><img 
-src="tokamak_equilibrium748x.png" alt="----1-----
-R0 + rcos𝜃"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium749x.png" alt="(                  )
-  ∂Ψ-      ∂Ψ-1
-  ∂r cos𝜃− ∂𝜃 r sin𝜃"  class="left" align="middle" /> = <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">μ</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub>+<span 
-class="cmmi-10">r</span> cos<span 
-class="cmmi-10">𝜃</span>)<sup><span 
-class="cmr-7">2</span></sup><img 
-src="tokamak_equilibrium750x.png" alt="dP-
-dΨ"  class="frac" align="middle" /><span 
-class="cmsy-10">−</span><img 
-src="tokamak_equilibrium751x.png" alt="dg-
-dΨ"  class="frac" align="middle" /><span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">Ψ</span>)<span 
-class="cmmi-10">,</span>
-</td></tr></table>
-<!--l. 6988--><p class="nopar" >
-which can be arranged in the form
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x105-136013r583"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium752x.png" alt="(              2)              (                   )
- 1 ∂-r-∂-+ 1--∂-  Ψ− -----1----  ∂Ψ-cos𝜃− ∂-Ψ1 sin 𝜃 = − μ0(R0+r cos 𝜃)2dP-− dgg(Ψ),
- r ∂r ∂r   r2∂𝜃2     R0 + rcos𝜃  ∂r        ∂𝜃r                       dΨ   dΨ
-" class="math-display"  /></center></td><td class="equation-label">(583)</td></tr></table>
-<!--l. 6997--><p class="nopar" >
-which agrees with Eq. (3.6.2) in Wessson’s book<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xwesson2004">27</a>]</span>, where <span 
-class="cmmi-10">f </span>is deﬁned by <span 
-class="cmmi-10">f </span>= <span 
-class="cmmi-10">RB</span><sub><span 
-class="cmmi-7">ϕ</span></sub><span 
-class="cmmi-10">∕μ</span><sub><span 
-class="cmr-7">0</span></sub>, which is
-diﬀerent from <span 
-class="cmmi-10">g </span><span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">RB</span><sub><span 
-class="cmmi-7">ϕ</span></sub> by a 1<span 
-class="cmmi-10">∕μ</span><sub><span 
-class="cmr-7">0</span></sub> factor.
+<!--l. 6760--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 7002--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 6762--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu90.html" >next</a>] [<a 
 href="tokamak_equilibriumsu88.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu88.html#tailtokamak_equilibriumsu88.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu89.html" >front</a>] [<a 
 href="tokamak_equilibriumse15.html#tokamak_equilibriumsu89.html" >up</a>] </p></div>
-<!--l. 7002--><p class="indent" >   <a 
- id="tailtokamak_equilibriumsu89.html"></a>  </p> 
+<!--l. 6762--><p class="indent" >   <a 
+ id="tailtokamak_equilibriumsu89.html"></a> </p> 
 </body></html> 

@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Relation between Jacobian and poloidal angle 𝜃</title> 
+<head><title>Global safety factor</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,98 +13,119 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1873--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1824--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu33.html" >next</a>] [<a 
 href="tokamak_equilibriumsu31.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu31.html#tailtokamak_equilibriumsu31.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu32.html">tail</a>] [<a 
 href="tokamak_equilibriumse6.html#tokamak_equilibriumsu32.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">6.2   </span> <a 
- id="x39-470006.2"></a>Relation between Jacobian and poloidal angle <span 
-class="cmmi-10">𝜃</span></h4>
-<!--l. 1875--><p class="noindent" >Given the deﬁnition of a magnetic surface coordinate system (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>), the Jacobian of this system is
-fully determined. On the other hand, given the deﬁnition of <span 
-class="cmmi-10">ψ</span>, <span 
-class="cmmi-10">ϕ</span>, and the Jacobian, the deﬁnition of <span 
-class="cmmi-10">𝜃</span>
-is fully determined (can have some trivial shifting freedoms). Next, let us discuss how to calculate <span 
-class="cmmi-10">𝜃 </span>in
-this case. In (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates, a line element is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x39-47001r165"></a>
+ id="x39-460006.2"></a>Global safety factor</h4>
+<!--l. 1826--><p class="noindent" >The global safety factor deﬁned in Eq. (<a 
+href="tokamak_equilibriumsu10.html#x12-13004r37">37<!--tex4ht:ref: 9-5-e1 --></a>) is actually the poloidal average of the local safety factor,
+i.e., </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium220x.png" alt="dl =-∂rdψ + ∂rd𝜃 + ∂rdϕ
-    ∂ψ      ∂𝜃     ∂ϕ
-" class="math-display"  /></center></td><td class="equation-label">(165)</td></tr></table>
-<!--l. 1885--><p class="nopar" >
-The line element that lies on a magnetic surface (i.e., <span 
-class="cmmi-10">dψ </span>= 0) and in a poloidal plane (i.e., <span 
-class="cmmi-10">dϕ </span>= 0) is
-then written </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium221x.png" alt="     ∂r
-dℓp =---d𝜃
-     ∂ 𝜃
-   = 𝒥 ∇ϕ × ∇ ψd𝜃.                          (166)
-" class="math-display"  /></center>
-</div>We use the convention that <span 
+src="tokamak_equilibrium216x.png" alt="          ∫ 2π
+q(ψ) ≡ -1-    ˆqd𝜃                              (159)
+       2π  0
+         1 g ∫ 2π 𝒥
+     = −2π-Ψ′  0  R2d𝜃.                        (160)
+" class="math-display"  /><a 
+ id="x39-46001r159"></a><a 
+ id="x39-46001r160"></a></center>
+</div>Note that <span 
+class="cmmi-10">q </span>and <img 
+src="tokamak_equilibrium217x.png" alt="ˆq"  class="circ"  /> deﬁned this way can be negative, which depends on the choice of the positive
+direction of <span 
+class="cmmi-10">ϕ </span>and <span 
+class="cmmi-10">𝜃 </span>coordinates (note that the safety factor given in G-eqdsk ﬁle is always positive, i.e.
+it is the absolute value of the safety factor deﬁned here).
+<!--l. 1839--><p class="indent" >   Next, let us transform the <span 
+class="cmmi-10">𝜃 </span>integration in expression (<a 
+href="#x39-46001r160">160<!--tex4ht:ref: 7-11-p1 --></a>) to a curve integral in the
+poloidal plane. Using the relation <span 
 class="cmmi-10">dℓ</span><sub><span 
 class="cmmi-7">p</span></sub> and <span 
-class="cmmi-10">d𝜃 </span>take the same sign, i.e.,
-   <table 
-class="equation"><tr><td><a 
- id="x39-47003r167"></a>
+class="cmmi-10">d𝜃 </span>[Eq. (<a 
+href="tokamak_equilibriumsu33.html#x40-47004r168">168<!--tex4ht:ref: 5-30-p1 --></a>)], expression (<a 
+href="#x39-46001r160">160<!--tex4ht:ref: 7-11-p1 --></a>) is further written
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium218x.png" alt="        1--g ∮        -dℓp--
+q(ψ) = − 2πΨ ′ sign(𝒥 )R|∇ψ |
+        1   sign(𝒥) ∮  dℓ
+    = − --g------′   ---p--.                     (161)
+        2π sign(Ψ )   R |∇ Ψ|
+" class="math-display"  /><a 
+ id="x39-46002r161"></a></center>
+</div>Expression (<a 
+href="#x39-46002r161">161<!--tex4ht:ref: 7-12-a1 --></a>) is used in the GTAW code to numerically calculate the value of <span 
+class="cmmi-10">q </span>on magnetic surfaces
+(as a benchmarking of the <span 
+class="cmmi-10">q </span>proﬁle speciﬁed in the G-eqdsk ﬁle). Expression (<a 
+href="#x39-46002r161">161<!--tex4ht:ref: 7-12-a1 --></a>) can also be
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium222x.png" alt="dℓp = |𝒥 ∇ϕ × ∇ψ |d𝜃.
-" class="math-display"  /></center></td><td class="equation-label">(167)</td></tr></table>
-<!--l. 1896--><p class="nopar" >
-Using the fact that <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span>and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ϕ </span>are orthogonal and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ϕ </span>= <img 
-src="tokamak_equilibrium223x.png" alt="ˆϕ"  class="circ"  /><span 
-class="cmmi-10">∕R</span>, the above equation is written
-as
-</p>
+considered as a relation between <span 
+class="cmmi-10">q </span>and <span 
+class="cmmi-10">g</span>. In the equilibrium problem where <span 
+class="cmmi-10">q </span>is given (ﬁxed-q
+equilibrium), we can use expression (<a 
+href="#x39-46002r161">161<!--tex4ht:ref: 7-12-a1 --></a>) to obtain the corresponding <span 
+class="cmmi-10">g </span>(which explicitly appears in the
+GS equation):
    <table 
 class="equation"><tr><td><a 
- id="x39-47004r168"></a>
+ id="x39-46003r162"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium224x.png" alt="     --R---
-d𝜃 = |𝒥 ∇ ψ|dlp
-" class="math-display"  /></center></td><td class="equation-label">(168)</td></tr></table>
-<!--l. 1901--><p class="nopar" >
-Given <span 
-class="cmsy-10">|𝒥∇</span><span 
-class="cmmi-10">ψ</span><span 
-class="cmsy-10">|</span>, Eq. (<a 
-href="#x39-47004r168">168<!--tex4ht:ref: 5-30-p1 --></a>) can be integrated to determine the <span 
-class="cmmi-10">𝜃 </span>coordinate of points on a magnetic
-surface.
+src="tokamak_equilibrium219x.png" alt="        ( ∮ --dℓp--)−1 sign(Ψ′)
+g = − 2πq   R |∇ Ψ|    sign(𝒥 ).
+" class="math-display"  /></center></td><td class="equation-label">(162)</td></tr></table>
+<!--l. 1858--><p class="nopar" >
+We note that expression (<a 
+href="#x39-46003r162">162<!--tex4ht:ref: 20-4-7-p1 --></a>) involves magnetic surface averaging, which is unknown before we know
+<span 
+class="cmmi-10">Ψ</span>. Therefore iteration is usually needed in solving the ﬁxed-q equilibrium (i.e., we guess the unknown
+<span 
+class="cmmi-10">Ψ</span>, so that the magnetic surface averaging in expression (<a 
+href="#x39-46003r162">162<!--tex4ht:ref: 20-4-7-p1 --></a>) can be performed, yielding the values of
+<span 
+class="cmmi-10">g</span>.)
+</p><!--l. 1865--><p class="indent" >   Using <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">p</span></sub> = <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">∕R </span>and <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">ϕ</span></sub> = <span 
+class="cmmi-10">g∕R</span>,  the absolute value of <span 
+class="cmmi-10">q </span>in expression (<a 
+href="#x39-46002r161">161<!--tex4ht:ref: 7-12-a1 --></a>) is written
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium220x.png" alt="        ∮
+|q| =-1-g  --dℓp-.                           (163)
+    2π    R |∇ Ψ|
+     1 ∮  1|Bϕ|
+  = 2π-  R--Bp-dℓp                          (164)
+" class="math-display"  /></center>
+</div>which is the familiar formula we see in textbooks.
                                                                                 
 
                                                                                 
-</p>
-   <!--l. 1905--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1873--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu33.html" >next</a>] [<a 
 href="tokamak_equilibriumsu31.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu31.html#tailtokamak_equilibriumsu31.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu32.html" >front</a>] [<a 
 href="tokamak_equilibriumse6.html#tokamak_equilibriumsu32.html" >up</a>] </p></div>
-<!--l. 1905--><p class="indent" >   <a 
+<!--l. 1873--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu32.html"></a> </p> 
 </body></html> 

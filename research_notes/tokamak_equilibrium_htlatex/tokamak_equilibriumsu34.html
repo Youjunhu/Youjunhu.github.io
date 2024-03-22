@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Finding magnetic surfaces</title> 
+<head><title>Calculating poloidal angle</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,262 +13,559 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 2276--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu35.html" >next</a>] [<a 
+   <!--l. 1906--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu33.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu33.html#tailtokamak_equilibriumsu33.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu34.html">tail</a>] [<a 
-href="tokamak_equilibriumse7.html#tokamak_equilibriumsu34.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
- id="x42-580007.1"></a>Finding magnetic surfaces</h4>
-<!--l. 2278--><p class="noindent" >Two-dimensional data <span 
-class="cmmi-10">Ψ</span>(<span 
-class="cmmi-10">R,Z</span>) on a rectangular grids (<span 
-class="cmmi-10">R,Z</span>) is read from the G_EQDSK ﬁle (G-ﬁle) of
-EFIT code. Based on the 2D array data, I use 2D cubic spline interpolation to construct a interpolating
-function <span 
-class="cmmi-10">Ψ </span>= <span 
-class="cmmi-10">Ψ</span>(<span 
-class="cmmi-10">R,Z</span>). To construct a magnetic surface coordinate system, I need to ﬁnd the contours
-of <span 
-class="cmmi-10">Ψ</span>, i.e., magnetic surfaces. The values of <span 
-class="cmmi-10">Ψ </span>on the magnetic axis, <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmr-7">0</span></sub>, and the value of <span 
-class="cmmi-10">Ψ </span>on the last
-closed ﬂux surface (LCFS), <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub>, are given in G-ﬁle. Using these two values, I construct a
-1D array “psival” with value of elements changing uniform from <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmr-7">0</span></sub> to <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub>. Then I try to
-ﬁnd the contours of <span 
-class="cmmi-10">Ψ </span>with contour level value ranging from <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmr-7">0</span></sub> to <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub>. This is done in the
-following way: construct a series of straight line (in the poloidal plane) that starts from the
-location of the magnetic axis and ends at one of the points on the LCFS. Combine the
-straight line equation, <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>), with the interpolating function <span 
-class="cmmi-10">Ψ</span>(<span 
-class="cmmi-10">R,Z</span>), we obtain a
-one variable function <span 
-class="cmmi-10">h </span>= <span 
-class="cmmi-10">Ψ</span>(<span 
-class="cmmi-10">R,Z</span>(<span 
-class="cmmi-10">R</span>)). Then ﬁnding the location where <span 
-class="cmmi-10">Ψ </span>is equal to a
-speciﬁed value <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">i</span></sub>, is reduced to ﬁnding the root of the equation <span 
-class="cmmi-10">Ψ</span>(<span 
-class="cmmi-10">R,Z</span>(<span 
-class="cmmi-10">R</span>)) <span 
-class="cmsy-10">− </span><span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">i</span></sub> = 0.
-Since this is a one variable equation, the root can be easily found by using simple root
-ﬁnding scheme, such as bisection method (bisection method is used in GTAW code). After
-ﬁnding the roots for each value in the array “psival” on each straight lines, the process of
-ﬁnding the contours of <span 
-class="cmmi-10">Ψ </span>is ﬁnished. The contours of <span 
-class="cmmi-10">Ψ </span>found this way are plotted in Fig.
-<a 
-href="#x42-580017">7<!--tex4ht:ref: 4-3-p2 --></a>.
-</p><!--l. 2301--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x42-580017"></a>
-                                                                                
-
-                                                                                
-<!--l. 2304--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig1/contour.png" alt="pict"  
- width="180.67499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Fig. 7: </span><span  
-class="content">Veriﬁcation of the numerical code that calculates the contours of the poloidal ﬂux <span 
-class="cmmi-10">Ψ</span>. The
-bold line in the ﬁgure indicates the LCFS. The contour lines (solid lines) given by the gnuplot
-program agrees well with the results I calculate by using interpolation and root-ﬁnding method
-(the two sets of contours are indistinguishable in this scale). My code only calculate the contour
-lines within the LCFS, while those given by gnuplot contains additional contour lines below the
-X point and on the left top in the ﬁgure. Eqdisk ﬁle of the equilibrium was provided by Dr.
-Guoqiang Li (ﬁlename: g013606.07104).</span></div><!--tex4ht:label?: x42-580017 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2316--><p class="indent" >    
-</p><!--l. 2318--><p class="indent" >   In the above, we mentioned that the point of magnetic axis and points on the LCFS are needed to
-construct the straight lines. In G-ﬁle, points on LCFS are given explicitly in an array. The location of
-magnetic axis is also explicitly given in G-ﬁle. It is obvious that some of the straight lines <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>)
-that pass through the location of magnetic axis and points on the LCFS will have very large or even
-inﬁnite slope. On these lines, ﬁnding the accurate root of the equation <span 
-class="cmmi-10">Ψ</span>(<span 
-class="cmmi-10">R,Z</span>(<span 
-class="cmmi-10">R</span>)) <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">i</span></sub> = 0 is diﬃcult
-or even impossible. The way to avoid this situation is obvious: switch to use function <span 
-class="cmmi-10">R </span>= <span 
-class="cmmi-10">R</span>(<span 
-class="cmmi-10">Z</span>)
-instead of <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>) when the slope of <span 
-class="cmmi-10">Z </span>= <span 
-class="cmmi-10">Z</span>(<span 
-class="cmmi-10">R</span>) is large (the switch condition I used is
-<span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">dZ∕dR</span><span 
-class="cmsy-10">| </span><span 
-class="cmmi-10">&#x003E; </span>1).
-</p><!--l. 2329--><p class="indent" >   In constructing the ﬂux surface coordinate with desired Jacobian, we will need the absolute value of
-the gradient of <span 
-class="cmmi-10">Ψ</span>, <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">|</span>, on some speciﬁed spatial points. To achieve this, we need to construct a
-interpolating function for <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">|</span>. The <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">| </span>can be written as
+href="tokamak_equilibriumse6.html#tokamak_equilibriumsu34.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">6.4   </span> <a 
+ id="x41-480006.4"></a>Calculating poloidal angle</h4>
+<!--l. 1908--><p class="noindent" >Once <span 
+class="cmsy-10">|𝒥∇</span><span 
+class="cmmi-10">ψ</span><span 
+class="cmsy-10">| </span>is known, the value of <span 
+class="cmmi-10">𝜃 </span>of a point can be obtained by integrating expression (<a 
+href="tokamak_equilibriumsu33.html#x40-47004r168">168<!--tex4ht:ref: 5-30-p1 --></a>),
+i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x42-58002r199"></a>
+ id="x41-48001r169"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium271x.png" alt="       ∘ ----------------
-         (∂ Ψ)2   (∂ Ψ)2
-|∇Ψ | =   ---   +  ---  ,
-          ∂R       ∂Z
-" class="math-display"  /></center></td><td class="equation-label">(199)</td></tr></table>
-<!--l. 2337--><p class="nopar" >
-By using the center diﬀerence scheme to evaluate the partial derivatives with respect to <span 
-class="cmmi-10">R </span>and <span 
-class="cmmi-10">Z </span>in the
-above equation (using one side diﬀerence scheme for the points on the rectangular boundary), we can
-obtain an 2D array for the value of <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">| </span>on the rectangular (<span 
-class="cmmi-10">R,Z</span>) grids. Using this 2D array,
-we can construct an interpolating function for <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">Ψ </span>by using the cubic spline interpolation
-scheme.
+src="tokamak_equilibrium226x.png" alt="           ∫ xi,j
+𝜃i,j = 𝜃ref,j +     --R--dlp,
+            xref,j |𝒥 ∇ψ |
+" class="math-display"  /></center></td><td class="equation-label">(169)</td></tr></table>
+<!--l. 1914--><p class="nopar" >
+where the curve integration is along the contour <span 
+class="cmmi-10">Ψ </span>= <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">j</span></sub>, <span 
+class="cmbx-10">x</span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub> is a reference point on the contour,
+where value of the poloidal angle is chosen as <span 
+class="cmmi-10">𝜃</span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub>. The choice of the positive direction of <span 
+class="cmmi-10">𝜃 </span>is up to
+users. Depending on the positive direction chosen, the sign of the Jacobian of the constructed
+coordinates can have a sign diﬀerence from the <span 
+class="cmsy-10">𝒥 </span>appearing in Eq. (<a 
+href="#x41-48001r169">169<!--tex4ht:ref: 12-31-1 --></a>). Denote the Jacobian of the
+constructed coordinates by <span 
+class="cmsy-10">𝒥′</span>, then
 </p>
-   <hr class="figure" /><div class="figure" 
->
+   <table 
+class="equation"><tr><td><a 
+ id="x41-48002r170"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium227x.png" alt="𝒥′ = ± 𝒥
+" class="math-display"  /></center></td><td class="equation-label">(170)</td></tr></table>
+<!--l. 1925--><p class="nopar" >
+This sign can be determined after the radial coordinate and the positive direction of the poloidal angle
+are chosen. In <span 
+class="cmtt-10">GTAW </span>code, I choose the positive direction of <span 
+class="cmmi-10">𝜃 </span>to be in anticlockwise direction when
+observers look along the direction of <img 
+src="tokamak_equilibrium228x.png" alt="ˆϕ"  class="circ"  />. To achieve this, the line integration in Eq. (<a 
+href="#x41-48001r169">169<!--tex4ht:ref: 12-31-1 --></a>) should be
+along the anticlockwise direction. (I use the determination of the direction matrix, a well known
                                                                                 
 
                                                                                 
-<a 
- id="x42-580038"></a>
+method in graphic theory, to determine the direction from a given set of discrete points on a magnetic
+surface.)
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x41-490006.4"></a>Normalized poloidal angle</h5>
+<!--l. 1937--><p class="noindent" >The span of <span 
+class="cmmi-10">𝜃 </span>deﬁned by Eq. (<a 
+href="#x41-48001r169">169<!--tex4ht:ref: 12-31-1 --></a>) is usually not 2<span 
+class="cmmi-10">π </span>in one poloidal loop. This poloidal angle can be
+scaled by <span 
+class="cmmi-10">s</span>(<span 
+class="cmmi-10">ψ</span>) to deﬁne a new poloidal coordinate <span class="overline"><span 
+class="cmmi-10">𝜃</span></span>, whose span is 2<span 
+class="cmmi-10">π </span>in one poloidal loop, where <span 
+class="cmmi-10">s</span>(<span 
+class="cmmi-10">ψ</span>)
+is a magnetic surface function given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-49001r171"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium229x.png" alt="s(ψ) = ∮--2π----.
+        |𝒥R∇ψ|dlp
+" class="math-display"  /></center></td><td class="equation-label">(171)</td></tr></table>
+<!--l. 1943--><p class="nopar" >
+Then <span class="overline"><span 
+class="cmmi-10">𝜃</span></span> is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium230x.png" alt="𝜃i,j = s(ψj)𝜃i,j
+          (       ∫ xi,j        )
+   = s(ψj) 𝜃ref,j +     --R---dlp
+                   xref,j|𝒥∇ ψ|
+     -          ∫ xi,j   R
+   = 𝜃ref,j + s(ψj)      |𝒥-∇ψ-|dlp,                     (172)
+                 xref,j
+" class="math-display"  /><a 
+ id="x41-49002r172"></a></center>
+</div>where <span class="overline"><span 
+class="cmmi-10">𝜃</span></span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub> = <span 
+class="cmmi-10">s</span>(<span 
+class="cmmi-10">ψ</span><sub><span 
+class="cmmi-7">j</span></sub>)<span 
+class="cmmi-10">𝜃</span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub>. Sine we have modiﬁed the deﬁnition of the poloidal angle, the Jacobian of the
+new coordinates (<span 
+class="cmmi-10">ψ,</span><span class="overline"><span 
+class="cmmi-10">𝜃</span></span><span 
+class="cmmi-10">,ϕ</span>) is diﬀerent from that of (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>). The Jacobian <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub> of the new coordinates
+(<span 
+class="cmmi-10">ψ,</span><span class="overline"><span 
+class="cmmi-10">𝜃</span></span><span 
+class="cmmi-10">,ϕ</span>) is written as
+   <div class="eqnarray">
                                                                                 
 
                                                                                 
-<!--l. 2346--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig2/plt.png" alt="pict"  
- width="180.67499pt" /> <img 
-src="my_figure/home/yj/project_new/read_gfile/fig40/plt.png" alt="pict"  
- width="180.67499pt" />
-<br /> </p><div class="caption" 
-><span class="id">Fig. 8: </span><span  
-class="content">Grid points (the intersecting points of two curves in the ﬁgure) corresponding to uniform
-poloidal ﬂux and uniform poloidal arc length for EAST equilibrium shot 13606 at 7.1s (left)
-(G-ﬁle name: g013606.07104) and shot 38300 at 3.9s (right) (G-ﬁle name: g038300.03900).</span></div><!--tex4ht:label?: x42-580038 -->
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium231x.png" alt="             1
+𝒥new ≡ --------------
+       (∇ ψ × ∇𝜃)⋅∇ ϕ
+    =  --------1----------
+       {∇ψ × ∇[s(ψ)𝜃]}⋅∇ ϕ
+       -1--------1-------
+    =  s(ψ )(∇ψ × ∇𝜃)⋅∇ ϕ
+        1   ′
+    =  s(ψ-)𝒥
+         1
+    = ± ----𝒥                                   (173)
+        s(ψ)
+" class="math-display"  /><a 
+ id="x41-49003r173"></a></center>
+</div>The Jacobian <span 
+class="cmsy-10">𝒥 </span>can be set to various forms to achieve various poloidal coordinates, which will be
+discussed in the next section. After the Jacobian and the radial coordinate <span 
+class="cmmi-10">ψ </span>is chosen, all the
+quantities on the right-hand side of Eq. (<a 
+href="#x41-49002r172">172<!--tex4ht:ref: 10-25-p1 --></a>) are known and the integration can be performed to
+obtain the value of <span class="overline"><span 
+class="cmmi-10">𝜃</span></span><sub><span 
+class="cmmi-7">i,j</span></sub> of each point on each ﬂux surface.
+<!--l. 1978--><p class="indent" >   [The reference points <span 
+class="cmbx-10">x</span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub> and the values of poloidal angle at these points can be chosen by users.
+One choice of the reference points <span 
+class="cmbx-10">x</span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub> are those points on the horizontal ray in the midplane that
+starts from the magnetic axis and points to the low ﬁled side of the device and <span class="overline"><span 
+class="cmmi-10">𝜃</span></span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub> at these
+points is chosen as zero (this is my choice in the <span 
+class="cmtt-10">GTAW </span>code). In the <span 
+class="cmtt-10">TEK </span>code, the reference
+points are chosen at the high-ﬁeld side of the midplane and <span class="overline"><span 
+class="cmmi-10">𝜃</span></span><sub><span 
+class="cmr-7">ref</span><span 
+class="cmmi-7">,j</span></sub> = <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>at the reference
+points.]
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x41-500006.4"></a>Jacobian for equal-arc-length poloidal angle</h5>
+<!--l. 1990--><p class="noindent" >If the Jacobian <span 
+class="cmsy-10">𝒥 </span>is chosen to be of the following form
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-50001r174"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium232x.png" alt="      R
+𝒥 = ---- .
+    |∇ ψ|
+" class="math-display"  /></center></td><td class="equation-label">(174)</td></tr></table>
                                                                                 
 
                                                                                 
-   </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x42-580049"></a>
-                                                                                
-
-                                                                                
-<!--l. 2354--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/p2.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Fig. 9: </span><span  
-class="content"><span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">| </span>as a function of the poloidal angle. The diﬀerent lines corresponds to the values
+<!--l. 1993--><p class="nopar" >
+Then <span class="overline"><span 
+class="cmmi-10">𝜃</span></span><sub><span 
+class="cmmi-7">i,j</span></sub> in Eq. (<a 
+href="#x41-49002r172">172<!--tex4ht:ref: 10-25-p1 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-50002r175"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium233x.png" alt="-     -      2π  ∫ xi,j
+𝜃i,j = 𝜃ref,j + ∮-dl     dlp.
+               p  xref,j
+" class="math-display"  /></center></td><td class="equation-label">(175)</td></tr></table>
+<!--l. 1999--><p class="nopar" >
+and the Jacobian of new coordinates (<span 
+class="cmmi-10">ψ,</span><span class="overline"><span 
+class="cmmi-10">𝜃</span></span><span 
+class="cmmi-10">,ϕ</span>), <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub>, which is given by Eq. (<a 
+href="#x41-49003r173">173<!--tex4ht:ref: 10-25-p7 --></a>), now takes the
+form
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-50003r176"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium234x.png" alt="        ∮            ∮
+𝒥new = ±--dlp--R--= ± --dlp--R--dΨ-.
+         2π  |∇ ψ|     2π  |∇ Ψ|dψ
+" class="math-display"  /></center></td><td class="equation-label">(176)</td></tr></table>
+<!--l. 2007--><p class="nopar" >
+Equation (<a 
+href="#x41-50002r175">175<!--tex4ht:ref: 7-18-e2 --></a>) indicates a set of poloidal points with equal arc intervals corresponds to a set
+of uniform <span 
+class="cmmi-10">𝜃</span><sub><span 
+class="cmmi-7">i</span></sub> points. Therefore this choice of the Jacobian is called the equal-arc-length
+Jacobian. Note that Eq. (<a 
+href="#x41-50002r175">175<!--tex4ht:ref: 7-18-e2 --></a>) does not involve the radial coordinate <span 
+class="cmmi-10">ψ</span>. Therefore the values
 of <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">| </span>on diﬀerent magnetic surfaces. The stars correspond to the values on the boundary
-magnetic surface while the plus signs correspond to the value on the innermost magnetic surface
-(the magnetic surface adjacent to the magnetic axis). The equilibrium is for EAST shot 38300
-at 3.9s.</span></div><!--tex4ht:label?: x42-580049 -->
+class="cmmi-10">𝜃 </span>of points on any magnetic surface can be determined before the radial coordinate is
+chosen.
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x41-510006.4"></a>Jacobian for equal-volume poloidal angle (Hamada coordinate)</h5>
+<!--l. 2017--><p class="noindent" >The volume element in (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates is given by <span 
+class="cmmi-10">dV </span>= <span 
+class="cmsy-10">|𝒥|</span><span 
+class="cmmi-10">d𝜃dϕdψ</span>. If we choose a Jacobian that
+is independent of <span 
+class="cmmi-10">𝜃</span>, then uniform <span 
+class="cmmi-10">𝜃 </span>grids will correspond to grids with uniform volume interval. In this
+case, <span 
+class="cmsy-10">𝒥 </span>is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-51001r177"></a>
                                                                                 
 
                                                                                 
-   </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium235x.png" alt="𝒥 = h (ψ ),
+" class="math-display"  /></center></td><td class="equation-label">(177)</td></tr></table>
+<!--l. 2023--><p class="nopar" >
+where <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">ψ</span>) is a function independent of <span 
+class="cmmi-10">𝜃</span>. Then <span class="overline"><span 
+class="cmmi-10">𝜃</span></span><sub><span 
+class="cmmi-7">i,j</span></sub> in Eq. (<a 
+href="#x41-49002r172">172<!--tex4ht:ref: 10-25-p1 --></a>) is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-51002r178"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium236x.png" alt="-    -        2π    ∫ xi,j  R
+𝜃i,j = 𝜃ref,j + ∮-R----      ----dlp
+             |∇ψ|dlp  xref,j|∇ψ|
+" class="math-display"  /></center></td><td class="equation-label">(178)</td></tr></table>
+<!--l. 2030--><p class="nopar" >
+and the Jacobian of the new coordinates (<span 
+class="cmmi-10">ψ,</span><span class="overline"><span 
+class="cmmi-10">𝜃</span></span><span 
+class="cmmi-10">,ϕ</span>), <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub>,  is given by Eq. (<a 
+href="#x41-49003r173">173<!--tex4ht:ref: 10-25-p7 --></a>), which now takes the
+following form:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-51003r179"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium237x.png" alt="         1 ∮   R
+𝒥new = ± ---  ----dlp.
+         2π   |∇ ψ|
+" class="math-display"  /></center></td><td class="equation-label">(179)</td></tr></table>
+<!--l. 2037--><p class="nopar" >
+Note that both <span class="overline"><span 
+class="cmmi-10">𝜃</span></span><sub><span 
+class="cmmi-7">i,j</span></sub> and <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub> are independent of the function <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">ψ</span>) introduced in Eq. (<a 
+href="#x41-51001r177">177<!--tex4ht:ref: 17-10-19-1 --></a>). (<span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">ψ</span>) is
+eliminated by the normalization procedure speciﬁed in Sec. <a 
+href="#x41-490006.4">6.4<!--tex4ht:ref: 17-10-19-2 --></a> due to the fact that <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">ψ</span>) is constant
+on a magnetic surface.) The equal-volume poloidal angle is also called Hamada poloidal
+angle.
                                                                                 
 
                                                                                 
-<a 
- id="x42-5800510"></a>
+</p><!--l. 2045--><p class="indent" >   The equal-volume poloidal angle is useful in achieving loading balance for parallel particle
+simulations. Assume that markers are loaded uniform in space and the poloidal angle is domain
+decomposed and assigned to diﬀerent MPI process. Then the equal-volume poloidal angle can
+make marker number in each MPI process be equal to each other and thus work loading to
+each process be equal. (**check**If the domain decomposition is also applied to the radial
+direction, to achieve loading balance, then the radial coordinate <span 
+class="cmmi-10">ψ </span>should be chosen in a way
+that makes <span 
+class="cmex-10">∮</span>
+ (<span 
+class="cmmi-10">R∕</span><span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ</span>)<span 
+class="cmmi-10">dl</span><sub><span 
+class="cmmi-7">p</span></sub> be independent of <span 
+class="cmmi-10">ψ</span>, so that <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub> in Eq. (<a 
+href="#x41-51003r179">179<!--tex4ht:ref: 19-4-11-p3 --></a>) is constant in
+space.**)
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x41-520006.4"></a>Jacobian of Boozer’s poloidal angle</h5>
+<!--l. 2058--><p class="noindent" >If the Jacobian <span 
+class="cmsy-10">𝒥 </span>is chosen to be of the Boozer form:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-52001r180"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium238x.png" alt="         h(ψ)
+𝒥(ψ,𝜃) = --2-.
+          B
+" class="math-display"  /></center></td><td class="equation-label">(180)</td></tr></table>
+<!--l. 2061--><p class="nopar" >
+then the poloidal angle in Eq. (<a 
+href="#x41-49002r172">172<!--tex4ht:ref: 10-25-p1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-52002r181"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium239x.png" alt="               2π   ∫ xi,j B2R
+𝜃i,j = 𝜃ref,j + ∮-B2Rdl      |∇-ψ|dlp.
+              |∇ ψ| p xref,j
+" class="math-display"  /></center></td><td class="equation-label">(181)</td></tr></table>
+<!--l. 2067--><p class="nopar" >
+The ﬁnal Jacobian is given by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-52003r182"></a>
                                                                                 
 
                                                                                 
-<!--l. 2364--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/p3.png" alt="pict"  
- width="251.94124pt" />                             <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/p4.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Fig. 10: </span><span  
-class="content">The Poloidal magnetic ﬁeld <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">p</span></sub> = <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">|</span><span 
-class="cmmi-10">∕R </span>(left) and toroidal magnetic ﬁeld <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">ϕ</span></sub> = <span 
-class="cmmi-10">g∕R</span>
-(right) as a function of the poloidal angle. The diﬀerent lines corresponds to the values on diﬀerent
-magnetic surfaces. The stars correspond to the values on the boundary magnetic surface while
-the plus signs correspond to the value on the innermost magnetic surface (the magnetic surface
-adjacent to the magnetic axis). The equilibrium is for EAST shot 38300 at 3.9s.</span></div><!--tex4ht:label?: x42-5800510 -->
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium240x.png" alt="        ∮  2
+        --B|∇-Rψ|dlp-1-
+𝒥new = ±   2π   B2 .
+" class="math-display"  /></center></td><td class="equation-label">(182)</td></tr></table>
+<!--l. 2072--><p class="nopar" >
+The usefullness of Boozer poloidal angle will be further discussed in Sec. <a 
+href="tokamak_equilibriumsu46.html#x57-7200010.8">10.8<!--tex4ht:ref: 23-12-26-1 --></a> after we introduce a
+gneralized toroidal angle.
+</p><!--l. 2076--><p class="indent" >    
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x41-530006.4"></a>Jacobian for PEST poloidal angle (straight-ﬁeld-line poloidal angle)</h5>
+<!--l. 2081--><p class="noindent" >If the Jacobian <span 
+class="cmsy-10">𝒥 </span>is chosen to be of the following form
+</p>
+   <table 
+class="equation-star"><tr><td>
+                                  <span 
+class="cmsy-10">𝒥 </span>(<span 
+class="cmmi-10">ψ,𝜃</span>) = <span 
+class="cmmi-10">R</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">,</span>
+</td></tr></table>
+<!--l. 2082--><p class="nopar" >
+then Eq. (<a 
+href="tokamak_equilibriumsu31.html#x38-45002r156">156<!--tex4ht:ref: 12-25-1 --></a>) implies that the local safety factor, <img 
+src="tokamak_equilibrium241x.png" alt="ˆq"  class="circ"  /> (<span 
+class="cmmi-10">ψ,𝜃</span>) = <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">g∕Ψ</span><span 
+class="cmsy-10">′</span>, is a magnetic surface function, i.e.,
+the magnetic ﬁeld lines are straight in (<span 
+class="cmmi-10">ψ,𝜃</span>) plane. Then the poloidal angle in Eq. (<a 
+href="#x41-49002r172">172<!--tex4ht:ref: 10-25-p1 --></a>) is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-53001r183"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium242x.png" alt="                     ∫
+-    -      ∮--2π----  xi,j --1---
+𝜃i,j = 𝜃ref,j + R1|∇-ψ|dlp xref,j R|∇ψ |dlp,
+" class="math-display"  /></center></td><td class="equation-label">(183)</td></tr></table>
+<!--l. 2092--><p class="nopar" >
+The Jacobian <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub> given by Eq. (<a 
+href="#x41-49003r173">173<!--tex4ht:ref: 10-25-p7 --></a>) now takes the form
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-53002r184"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium243x.png" alt="          ∮ --1--dl
+𝒥new = ±R2 --R|∇ψ|-p.
+             2π
+" class="math-display"  /></center></td><td class="equation-label">(184)</td></tr></table>
+<!--l. 2098--><p class="nopar" >
+Let us denote an arbitrary poloidal angle by <span 
+class="cmmi-10">𝜃 </span>and the above straight-ﬁeld-line poloidal angle by <span 
+class="cmmi-10">𝜗</span>,
+then it is ready to ﬁnd the following relation between <span 
+class="cmmi-10">𝜃 </span>and <span 
+class="cmmi-10">𝜗</span>:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-53003r185"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium244x.png" alt="           1∫ 𝜃
+𝜗 = 𝜗ref,j + q 𝜃  qˆd𝜃,
+              ref,j
+" class="math-display"  /></center></td><td class="equation-label">(185)</td></tr></table>
+<!--l. 2105--><p class="nopar" >
+where <img 
+src="tokamak_equilibrium245x.png" alt="ˆq"  class="circ"  /> is the local safety factor corresponding to the arbitrary poloidal angle <span 
+class="cmmi-10">𝜃</span>, i.e.,
+<img 
+src="tokamak_equilibrium246x.png" alt="ˆq"  class="circ"  /> = <span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">ϕ∕</span>(<span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃</span>). [Proof: Using <span 
+class="cmmi-10">d𝜃 </span>= <img 
+src="tokamak_equilibrium247x.png" alt="--R--
+|𝒥∇ψ |"  class="frac" align="middle" /><span 
+class="cmmi-10">dl</span><sub><span 
+class="cmmi-7">p</span></sub>, the poloidal angle <span 
+class="cmmi-10">𝜗 </span>given in Eq. (<a 
+href="#x41-53001r183">183<!--tex4ht:ref: 18-9-27-p1 --></a>) is written as
+</p><div class="eqnarray">
+   <center class="math-display" >
                                                                                 
 
                                                                                 
-   </div><hr class="endfigure" />
-<!--l. 2374--><p class="indent" >    
-</p><!--l. 2376--><p class="indent" >    
+<img 
+src="tokamak_equilibrium248x.png" alt="                    ∫ x
+𝜗 = 𝜗ref,j + ∮--2π---    i,j--1---dlp
+            R|1∇ψ|dlp  xref,jR |∇ ψ|
+                2π      ∫ xi,j   1   |𝒥 ∇ψ |
+  = 𝜗ref,j + ∮--1--|𝒥∇ψ|--      -----------d𝜃
+            R|∇ψ|  R  d𝜃 xref,j R|∇ψ |  R
+          --2π---∫ xi,j|𝒥-|
+  = 𝜗ref,j + ∮ |𝒥|d𝜃 xref,j R2 d𝜃.                           (186)
+            R2
+" class="math-display"  /></center>
+</div>Using <img 
+src="tokamak_equilibrium249x.png" alt="ˆq"  class="circ"  /> = <span 
+class="cmsy-10">−</span><img 
+src="tokamak_equilibrium250x.png" alt="g-
+R2"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium251x.png" alt="𝒥-
+Ψ′"  class="frac" align="middle" />, where <span 
+class="cmsy-10">𝒥 </span>is the Jacobian of (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates, then the above <span 
+class="cmmi-10">𝜗 </span>is reduced to
+expression (<a 
+href="#x41-53003r185">185<!--tex4ht:ref: 18-9-27-p4 --></a>).]
+<!--l. 2127--><p class="indent" >   Note that Boozer poloidal angle is very close to the poloidal angel disccused here because the two
+Jacobians are very similar:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-53005r187"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium252x.png" alt="     -1-   2
+𝒥  = B2 ∼ R .
+" class="math-display"  /></center></td><td class="equation-label">(187)</td></tr></table>
+<!--l. 2131--><p class="nopar" >
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x41-540006.4"></a>Comparison between diﬀerent types of poloidal angle</h5>
+<!--l. 2136--><p class="noindent" > 
+</p><!--l. 2138--><p class="indent" >   All Jacobians introduced above can be written in a general form:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-54001r188"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium253x.png" alt="     --Ri----
+𝒥  = |∇ ψ|jBk,
+" class="math-display"  /></center></td><td class="equation-label">(188)</td></tr></table>
+<!--l. 2141--><p class="nopar" >
+The choice of (<span 
+class="cmmi-10">i </span>= 2<span 
+class="cmmi-10">,j </span>= <span 
+class="cmmi-10">k </span>= 0) gives the PEST coordinate, (<span 
+class="cmmi-10">i </span>= <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,k </span>= 2) give the Boozer
+coordinate, (<span 
+class="cmmi-10">i </span>= <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,k </span>= 0) gives the equal-arc coordinate, (<span 
+class="cmmi-10">i </span>= <span 
+class="cmmi-10">j </span>= <span 
+class="cmmi-10">k </span>= 0) gives the Hammada
+coordinate.
+</p><!--l. 2146--><p class="indent" >    
+</p><!--l. 2148--><p class="indent" >   Figure <a 
+href="#x41-540026">6<!--tex4ht:ref: 8-23-1 --></a> compares the equal-arc-poloidal angle and the straight-line poloidal angle, which shows
+that the resolution of the straight-line poloidal angle is not good near the low-ﬁeld-side midplane. Since
+ballooning modes take larger amplitude near the low-ﬁeld-side midplane, better resolution is desired
+there. This is one reason that I often avoid using the straight-line poloidal angle in my numerical
+codes.
 </p>
    <hr class="figure" /><div class="figure" 
 >
@@ -276,89 +573,271 @@ adjacent to the magnetic axis). The equilibrium is for EAST shot 38300 at 3.9s.<
 
                                                                                 
 <a 
- id="x42-5800611"></a>
+ id="x41-540026"></a>
                                                                                 
 
                                                                                 
-<!--l. 2379--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig41/tmp.png" alt="pict"  
- width="251.94124pt" />
+<!--l. 2156--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig161/out1.png" alt="pict"  
+ width="113.42375pt" /> <img 
+src="my_figure/home/yj/project_new/read_gfile/fig161/out2.png" alt="pict"  
+ width="113.42375pt" />
 <br /> </p><div class="caption" 
-><span class="id">Fig. 11: </span><span  
-class="content">Equal-arc Jacobian as a function of the poloidal angle on diﬀerent magnetic surfaces.
-The dotted line corresponds to the values of Jacobian on the boundary magnetic surface. The
-equilibrium is for EAST shot 38300 at 3.9s.</span></div><!--tex4ht:label?: x42-5800611 -->
+><span class="id">Fig. 6: </span><span  
+class="content">The equal-arc poloidal angle (left) and the straight-line poloidal angle (right) for EAST
+equilibrium #38300@3.9s. The blue lines correspond to the equal-<span 
+class="cmmi-10">𝜃 </span>lines, with uniform <span 
+class="cmmi-10">𝜃 </span>interval
+between neighbour lines. The red lines correspond to the magnetic surfaces, which start from
+<img 
+src="tokamak_equilibrium254x.png" alt="∘ Ψ--
+    t"  class="sqrt"  /> = 0<span 
+class="cmmi-10">.</span>01714 (the innermost magnetic surface) and end at <img 
+src="tokamak_equilibrium255x.png" alt="∘ Ψ--
+    t"  class="sqrt"  />  = 0<span 
+class="cmmi-10">.</span>9851 (the boundary
+magnetic surface), and are equally spaced in <img 
+src="tokamak_equilibrium256x.png" alt="∘ ---
+  Ψt"  class="sqrt"  />.</span></div><!--tex4ht:label?: x41-540026 -->
                                                                                 
 
                                                                                 
    </div><hr class="endfigure" />
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x42-5800712"></a>
-                                                                                
-
-                                                                                
-<!--l. 2387--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig32/tmp.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Fig. 12: </span><span  
-class="content"><span 
+   <h5 class="subsubsectionHead"><a 
+ id="x41-550006.4"></a>Veriﬁcation of Jacobian</h5>
+<!--l. 2169--><p class="noindent" >After the magnetic coordinates are constructed, we can evaluate the Jacobian <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub> by using directly
+the deﬁnition of the Jacobian, i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-55001r189"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium257x.png" alt="       ------1-------
+𝒥new = (∇ψ × ∇ 𝜃) ⋅∇ϕ ,
+" class="math-display"  /></center></td><td class="equation-label">(189)</td></tr></table>
+<!--l. 2175--><p class="nopar" >
+which can be further written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-55002r190"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium258x.png" alt="𝒥new = R (R 𝜃Zψ − RψZ𝜃),
+" class="math-display"  /></center></td><td class="equation-label">(190)</td></tr></table>
+<!--l. 2180--><p class="nopar" >
+where the partial diﬀerential can be evaluated by using numerical diﬀerential schemes. The results
+obtained by this way should agree with results obtained from the analytical form of the Jacobian. This
+consistency check provide a veriﬁcation for the correctness of the theory derivation and numerical
+implementation. In evaluating the Jacobian by using the analytical form, we may need to evaluate <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ</span>,
+which ﬁnally reduces to evaluating <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">Ψ</span>. The value of <span 
 class="cmsy-10">|∇</span><span 
 class="cmmi-10">Ψ</span><span 
-class="cmsy-10">| </span>as a function of the poloidal angle. The diﬀerent lines corresponds to values of
+class="cmsy-10">| </span>is obtained numerically based on the
+numerical data of <span 
+class="cmmi-10">Ψ </span>given in cylindrical coordinate grids. Then the cubic spline interpolating
+formula is used to obtain the value of <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>at desired points. (<span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub> calculated by the second
+method (i.e. using analytic form) is used in the GTAW code; the ﬁrst methods are also
+implemented in the code for the benchmark purpose.) In the following sections, for notation
+ease, the Jacobiban of the constructed coordinate system will be denoted by <span 
+class="cmsy-10">𝒥 </span>, rather than
 <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">| </span>on diﬀerent magnetic surfaces. The stars correspond to the values of <span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">| </span>on the boundary
-magnetic surface while the plus signs correspond to the value on the innermost magnetic surface
-(the magnetic surface adjacent to the magnetic axis). The equilibrium is a Solovev equilibrium.</span></div><!--tex4ht:label?: x42-5800712 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2396--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x42-5800813"></a>
-                                                                                
-
-                                                                                
-<!--l. 2399--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/read_gfile/fig29/tmp.png" alt="pict"  
- width="251.94124pt" />
-<br /> </p><div class="caption" 
-><span class="id">Fig. 13:  </span><span  
-class="content">Jacobian  on  diﬀerent  magnetic  surfaces  as  a  function  of  the  poloidal  angle.  The
-equilibrium  is  a  Solovev  equilibrium  and  the  Jacobian  is  an  equal-arc  Jacobian.  The  stars
-correspond to the values of Jacobian on the boundary magnetic surface while the plus signs
-correspond to the value on the innermost magnetic surface (the magnetic surface adjacent to the
-magnetic axis).</span></div><!--tex4ht:label?: x42-5800813 -->
-                                                                                
-
-                                                                                
-   </div><hr class="endfigure" />
-<!--l. 2408--><p class="indent" >    
+class="cmsy-10">𝒥</span><sub><span 
+class="cmr-7">new</span></sub>.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 2410--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu35.html" >next</a>] [<a 
+   <h5 class="subsubsectionHead"><a 
+ id="x41-560006.4"></a>Radial coordinate</h5>
+<!--l. 2199--><p class="noindent" >The radial coordinate <span 
+class="cmmi-10">ψ </span>can be chosen to be various surface function, e.g., volume, poloidal or toroidal
+magnetic ﬂux within a magnetic surface. The frequently used radial coordinates include <span class="overline"><span 
+class="cmmi-10">Ψ</span></span>, and <img 
+src="tokamak_equilibrium259x.png" alt="√ Ψ-"  class="sqrt"  />,
+where <span class="overline"><span 
+class="cmmi-10">Ψ</span></span> is deﬁned by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56001r191"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium260x.png" alt="--  Ψ-−-Ψ0-
+Ψ = Ψa − Ψ0,
+" class="math-display"  /></center></td><td class="equation-label">(191)</td></tr></table>
+<!--l. 2205--><p class="nopar" >
+where <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">0</span></sub> and <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">a</span></sub> are the values of <span 
+class="cmmi-10">Ψ </span>at the magnetic axis and LCFS, respectively. Other choices of the
+radial coordinates: the toroidal magnetic ﬂux and its square root, <span class="overline"><span 
+class="cmmi-10">Ψ</span></span><sub><span 
+class="cmmi-7">t</span></sub>, and <img 
+src="tokamak_equilibrium261x.png" alt="∘ ---
+  Ψt"  class="sqrt"  />, where <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">t</span></sub> and <span class="overline"><span 
+class="cmmi-10">Ψ</span></span><sub><span 
+class="cmmi-7">t</span></sub> are
+deﬁned by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56002r192"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium262x.png" alt="dΨt
+dΨ- = 2πq,Ψt(0) = 0
+" class="math-display"  /></center></td><td class="equation-label">(192)</td></tr></table>
+<!--l. 2213--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56003r193"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium263x.png" alt="Ψ-=  -Ψt-,
+ t   Ψt(1)
+" class="math-display"  /></center></td><td class="equation-label">(193)</td></tr></table>
+<!--l. 2217--><p class="nopar" >
+respectively, where <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">t</span></sub>(0) and <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">t</span></sub>(1) are the values of <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">t</span></sub> at the magnetic axis and LCFS,
+respectively.
+</p><!--l. 2221--><p class="indent" >   If <span 
+class="cmmi-10">ψ </span>= <img 
+src="tokamak_equilibrium264x.png" alt="  ---
+∘ Ψt"  class="sqrt"  />, then
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56004r194"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium265x.png" alt="dΨ   dΨ dΨ     1 dΨ     1  dΨ dΨ-    1
+---= -----t = ------t= ------t--t-= ---Ψt(1)2ψ
+dψ   dΨtdψ    2πq dψ   2πq dΨtdψ    2πq
+" class="math-display"  /></center></td><td class="equation-label">(194)</td></tr></table>
+<!--l. 2227--><p class="nopar" >
+The cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>) is a right-hand system, with the positive direction
+of <span 
+class="cmmi-10">Z </span>pointing vertically up. In GTAW code, the positive direction of <span 
+class="cmmi-10">𝜃 </span>is chosen in the
+anticlockwise direction when observers look along the direction of <img 
+src="tokamak_equilibrium266x.png" alt="ˆ
+ϕ"  class="circ"  />. Then the deﬁnition
+<span 
+class="cmsy-10">𝒥</span><sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup> = <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">ϕ </span>indicates that (1) <span 
+class="cmsy-10">𝒥 </span>is negative if <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span>points from the magnetic axis to LCFS;
+(2) <span 
+class="cmsy-10">𝒥 </span>is positive if <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span>points from the LCFS to the magnetic axis. This can be used to
+determine the sign of Jacobian after using the analytical formula to obtain the absolute value of
+Jacobian.
+</p><!--l. 2239--><p class="indent" >   If <span 
+class="cmmi-10">ψ </span>=<span class="overline"> <span 
+class="cmmi-10">Ψ</span></span> or <span 
+class="cmmi-10">ψ </span>= <img 
+src="tokamak_equilibrium267x.png" alt="√ --
+  Ψ"  class="sqrt"  />, <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span>points from the magnetic axis to LCFS.
+</p><!--l. 2242--><p class="indent" >   The volume between magnetic surfaces can also be used as a radial coordinate. The diﬀerential
+volume element is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56005r195"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium268x.png" alt="d3V = 𝒥 dψd𝜃dϕ.
+" class="math-display"  /></center></td><td class="equation-label">(195)</td></tr></table>
+<!--l. 2246--><p class="nopar" >
+Integrating over the toroidal angle, we obtain
+                                                                                
+
+                                                                                
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56006r196"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium269x.png" alt=" 2
+d V = 2π𝒥dψd 𝜃
+" class="math-display"  /></center></td><td class="equation-label">(196)</td></tr></table>
+<!--l. 2250--><p class="nopar" >
+Further integrating over the poloidal angle, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56007r197"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium270x.png" alt=" 1         ∮
+d V = 2πdψ   𝒥 d𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(197)</td></tr></table>
+<!--l. 2254--><p class="nopar" >
+i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x41-56008r198"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium271x.png" alt="d1V      ∮
+----= 2π   𝒥 d𝜃.
+ dψ
+" class="math-display"  /></center></td><td class="equation-label">(198)</td></tr></table>
+<!--l. 2258--><p class="nopar" >
+In codes I wrote, I stick to using <span class="overline"><span 
+class="cmmi-10">Ψ</span></span> as the radial coordinate when doing computation, and transform to
+other radial coordinates when presenting the results if needed.
+                                                                                
+
+                                                                                
+</p><!--l. 2263--><p class="indent" >    
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 2265--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu33.html" >prev</a>] [<a 
+href="tokamak_equilibriumsu33.html#tailtokamak_equilibriumsu33.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu34.html" >front</a>] [<a 
-href="tokamak_equilibriumse7.html#tokamak_equilibriumsu34.html" >up</a>] </p></div>
-<!--l. 2410--><p class="indent" >   <a 
- id="tailtokamak_equilibriumsu34.html"></a> </p> 
+href="tokamak_equilibriumse6.html#tokamak_equilibriumsu34.html" >up</a>] </p></div>
+<!--l. 2265--><p class="indent" >   <a 
+ id="tailtokamak_equilibriumsu34.html"></a>  </p> 
 </body></html> 

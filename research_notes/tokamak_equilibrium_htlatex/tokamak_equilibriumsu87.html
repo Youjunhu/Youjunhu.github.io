@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Radial coordinate to be deleted</title> 
+<head><title>Discussion about the poloidal current function, check!</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,218 +13,151 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 6723--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 6559--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu88.html" >next</a>] [<a 
 href="tokamak_equilibriumsu86.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu86.html#tailtokamak_equilibriumsu86.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu87.html">tail</a>] [<a 
 href="tokamak_equilibriumse15.html#tokamak_equilibriumsu87.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">A.11   </span> <a 
- id="x103-132000A.11"></a>Radial coordinate to be deleted</h4>
-<!--l. 6725--><p class="noindent" >We know that the toroidal ﬂux <span 
-class="cmmi-10">ψ</span><sub><span 
-class="cmmi-7">t</span></sub>, safety factor <span 
-class="cmmi-10">q</span>, and the <span 
-class="cmmi-10">Ψ </span>in the GS equation are related by the
-following equations:
+   <h4 class="subsectionHead"><span class="titlemark">A.9   </span> <a 
+ id="x103-130000A.9"></a>Discussion about the poloidal current function, check!</h4>
+<!--l. 6561--><p class="noindent" >Note that, on both an irrational surface and a rational surface, there are inﬁnite number of magnetic
+ﬁeld lines that are not connected with each other (it is wrong to say there is only one magnetic ﬁeld
+line on a irrational surface). Consider a ﬁeld <span 
+class="cmmi-10">f </span>that satisﬁes <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">f </span>= 0, the value <span 
+class="cmmi-10">f </span>is a
+constant along any one of the magnetic ﬁeld lines. Now comes the question: whether the
+values of <span 
+class="cmmi-10">f </span>on diﬀerent ﬁeld lines are equal to each other? To answer this question, we
+can choose a direction diﬀerent from <span 
+class="cmbx-10">B </span>on the magnetic surface and examine whether <span 
+class="cmmi-10">Ψ</span>
+is constant or not along this direction, i.e, whether <span 
+class="cmbx-10">k </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">f </span>equals zero or not, where <span 
+class="cmbx-10">k </span>is
+the chosen direction. For axsiymmetric magnetic surfaces, it is ready to see that <span 
+class="cmbx-10">k </span>= <img 
+src="tokamak_equilibrium694x.png" alt="ˆϕ"  class="circ"  />
+is a direction in the magnetic surface and it is usually not identical with <span 
+class="cmbx-10">B</span><span 
+class="cmmi-10">∕B</span>. Then we
+obtain
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x103-132001r556"></a>
+ id="x103-130001r551"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium704x.png" alt="dψt = 2πqdΨ
-" class="math-display"  /></center></td><td class="equation-label">(556)</td></tr></table>
-<!--l. 6729--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132002r557"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium705x.png" alt="          ∫ Ψ
-=⇒  ψt = 2π   qdΨ
-            0
-" class="math-display"  /></center></td><td class="equation-label">(557)</td></tr></table>
-<!--l. 6732--><p class="nopar" >
-Deﬁne:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132003r558"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium706x.png" alt="   ∘ ---
-ρ ≡  ψt
-      π
-" class="math-display"  /></center></td><td class="equation-label">(558)</td></tr></table>
-<!--l. 6736--><p class="nopar" >
-(In the Toray_ga code, the radial coordinate <span 
-class="cmmi-10">ρ </span>is deﬁned as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132004r559"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium707x.png" alt="    ∘ -ψt--
-ρ ≡   πB--,
-         t0
-" class="math-display"  /></center></td><td class="equation-label">(559)</td></tr></table>
-<!--l. 6740--><p class="nopar" >
-where <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">t</span><span 
-class="cmr-7">0</span></sub> is a constant factor.<span 
-class="cmmi-10">ρ </span>deﬁned this way is of length dimension, which is an eﬀective geometry
-radius obtained by approximating the ﬂux surface as circular.)
-</p><!--l. 6745--><p class="indent" >    
-</p><!--l. 6747--><p class="indent" >   I use Eq. (<a 
-href="#x103-132003r558">558<!--tex4ht:ref: 5-26-1 --></a>) to deﬁne <span 
-class="cmmi-10">ρ</span>. Then we have
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132005r560"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium708x.png" alt="ψt = πρ2
-" class="math-display"  /></center></td><td class="equation-label">(560)</td></tr></table>
-<!--l. 6750--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132006r561"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium709x.png" alt="    dψt
-=⇒  -dρ = 2πρ
-" class="math-display"  /></center></td><td class="equation-label">(561)</td></tr></table>
-<!--l. 6753--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132007r562"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium710x.png" alt="=⇒  dψtdψ-= 2πρ
-    dψ dρ
-" class="math-display"  /></center></td><td class="equation-label">(562)</td></tr></table>
-<!--l. 6756--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132008r563"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium711x.png" alt="       dψ
-=⇒  2πqdρ-= 2πρ
-" class="math-display"  /></center></td><td class="equation-label">(563)</td></tr></table>
-<!--l. 6759--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x103-132009r564"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium712x.png" alt="    dψ    ρ
-= ⇒ ---=  -
-    dρ    q
-" class="math-display"  /></center></td><td class="equation-label">(564)</td></tr></table>
-<!--l. 6762--><p class="nopar" >
-Eq. (<a 
-href="#x103-132009r564">564<!--tex4ht:ref: 5-26-2 --></a>) is used to transform between <span 
-class="cmmi-10">ψ </span>and <span 
-class="cmmi-10">ρ</span>.
-</p>
-   <table 
-class="equation-star"><tr><td>
-             <span 
-class="cmmi-10">dρ </span>= <img 
-src="tokamak_equilibrium713x.png" alt="∘---1-----
-  Φ∕πR20B0"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium714x.png" alt="1
-2"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium715x.png" alt="--1---
-πB0R20"  class="frac" align="middle" /><span 
-class="cmmi-10">dΦ </span>= <img 
-src="tokamak_equilibrium716x.png" alt="1
-ρ"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium717x.png" alt="1
-2"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium718x.png" alt="---1--
-πB0R20"  class="frac" align="middle" />2<span 
-class="cmmi-10">πqdψ </span>= <img 
-src="tokamak_equilibrium719x.png" alt="1
-ρ"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium720x.png" alt="--1--
-B0R20"  class="frac" align="middle" /><span 
-class="cmmi-10">qdψ</span>
-</td></tr></table>
-<!--l. 6766--><p class="nopar" >
-</p>
-   <table 
-class="equation-star"><tr><td>
-                              <span 
-class="cmsy-10">⇒ </span><span 
-class="cmmi-10">dψ </span>= <img 
-src="tokamak_equilibrium721x.png" alt="ρB0R20-
-  q"  class="frac" align="middle" /><span 
-class="cmmi-10">dρ</span>(<span 
-class="cmmi-10">πa</span><sup><span 
-class="cmr-7">2</span></sup>)
-</td></tr></table>
-<!--l. 6767--><p class="nopar" >
-</p><!--l. 6770--><p class="indent" >    
-</p>
-   <hr class="figure" /><div class="figure" 
->
-                                                                                
-
-                                                                                
-<a 
- id="x103-13201039"></a>
-                                                                                
-
-                                                                                
-<!--l. 6773--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/fig_lorentz/fig3/p.png" alt="pict"  
- width="262.9825pt" />
-<br /> </p><div class="caption" 
-><span class="id">Fig. 39: </span><span  
-class="content">to be delted, Isosurface of <span 
-class="cmmi-10">α </span>= 2<span 
-class="cmmi-10">π∕</span>8. The surface is made of a family of contours of
+src="tokamak_equilibrium695x.png" alt="                1 ∂f
+k ⋅∇f = ˆϕ ⋅∇f = -----.
+                R ∂ϕ
+" class="math-display"  /></center></td><td class="equation-label">(551)</td></tr></table>
+<!--l. 6577--><p class="nopar" >
+If <span 
+class="cmmi-10">f </span>is independent of <span 
+class="cmmi-10">ϕ</span>, then <span 
+class="cmbx-10">k</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">Ψ </span>= 0. Combining with the fact that <span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">f </span>= 0 and the fact that <span 
+class="cmbx-10">B</span>
+and <span 
+class="cmbx-10">k </span>are two diﬀerent directions on the magnetic surfaces, we know that <span 
+class="cmmi-10">f </span>is constant on the surface,
+i.e., the values of <span 
+class="cmmi-10">f </span>on diﬀerent ﬁeld lines are equal to each other. If <span 
+class="cmmi-10">f </span>is non-axisymmetric, then we
+know the values of <span 
+class="cmmi-10">f </span>on diﬀerent magnetic ﬁeld lines on the same magnetic surface are not equal to
+each other.
+</p><!--l. 6586--><p class="indent" >   This reasoning is for the case of axsiymmetric magnetic surfaces. It is ready to do the same
+reasoning for non-axisymmetrica magnetic surface after we ﬁnd a convenient direction <span 
+class="cmbx-10">k </span>on the
+magnetic surface.
+</p><!--l. 6590--><p class="indent" >   [check***As discussed in Sec. <a 
+href="tokamak_equilibriumsu15.html#x19-220003.2">3.2<!--tex4ht:ref: 3-14-p1 --></a>, the force balance equation of axisymmetric plasma requires that
 <span 
-class="cmmi-10">α </span>= 2<span 
-class="cmmi-10">π∕</span>8, which are all magnetic ﬁeld lines. These ﬁeld lines are traced by starting from a series
-of points on the low-ﬁeld-side midplane (<span 
-class="cmmi-10">𝜃 </span>= 0) at diﬀerent radial locations and the ﬁeld lines
-are followed by a complete poloidal loop. Magnetic ﬁeld from EAST discharge #59954@3.03s.</span></div><!--tex4ht:label?: x103-13201039 -->
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">g </span>= 0. From this and the fact <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">Ψ </span>= 0, we conclude that <span 
+class="cmmi-10">g </span>is a function of <span 
+class="cmmi-10">Ψ</span>, i.e., <span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>).
+However, this reasoning is not rigorous. Note the concept of a function requires that a function can not
+be a one-to-more map. This means that <span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>) indicates that the values of <span 
+class="cmmi-10">g </span>must be equal on two
+diﬀerent magnetic ﬁeld lines that have the same value of <span 
+class="cmmi-10">Ψ</span>. However, the two equations <span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">g </span>= 0 and
+<span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">Ψ </span>= 0 do not require this constraint. To examine whether this constraint removes some equilibria
+from all the possible ones, we consider a system with an <span 
+class="cmmi-10">X </span>point. Inside one of the magnetic islands, we
+use
+</p>
                                                                                 
 
                                                                                 
-   </div><hr class="endfigure" />
-<!--l. 6782--><p class="indent" >    
+   <table 
+class="equation"><tr><td><a 
+ id="x103-130002r552"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium696x.png" alt="g = Ψ 2∕(B0R30),
+" class="math-display"  /></center></td><td class="equation-label">(552)</td></tr></table>
+<!--l. 6604--><p class="nopar" >
+and inside the another, we use
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x103-130003r553"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium697x.png" alt="g = Ψ 3∕(B20R50),
+" class="math-display"  /></center></td><td class="equation-label">(553)</td></tr></table>
+<!--l. 6608--><p class="nopar" >
+Then solve the two GS equations respectively within the boundary of the two islands. It is easy to
+obtain two magnetic surfaces that have the same value of <span 
+class="cmmi-10">Ψ </span>respectively inside the two
+islands. Equations (<a 
+href="#x103-130002r552">552<!--tex4ht:ref: 11-2-p1 --></a>) and (<a 
+href="#x103-130003r553">553<!--tex4ht:ref: 11-2-p2 --></a>) indicate that the values of <span 
+class="cmmi-10">g </span>on the two magnetic surfaces
+are diﬀerent from each other. It is obvious the resulting equilibrium that contain the two
+islands can not be recovered by directly solving a single GS equation with a given function
+<span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>).**check]
+</p><!--l. 6617--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 6784--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 6619--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu88.html" >next</a>] [<a 
 href="tokamak_equilibriumsu86.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu86.html#tailtokamak_equilibriumsu86.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu87.html" >front</a>] [<a 
 href="tokamak_equilibriumse15.html#tokamak_equilibriumsu87.html" >up</a>] </p></div>
-<!--l. 6784--><p class="indent" >   <a 
+<!--l. 6619--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu87.html"></a> </p> 
 </body></html> 

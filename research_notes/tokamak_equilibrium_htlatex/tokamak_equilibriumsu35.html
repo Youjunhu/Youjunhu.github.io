@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Expression of metric elements of magnetic coordinates (ψ,𝜃,ϕ)</title> 
+<head><title>Finding magnetic surfaces</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,301 +13,352 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 2411--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu34.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu34.html#tailtokamak_equilibriumsu34.html" >prev-tail</a>] [<a 
+   <!--l. 2281--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu36.html" >next</a>] [<a 
 href="#tailtokamak_equilibriumsu35.html">tail</a>] [<a 
 href="tokamak_equilibriumse7.html#tokamak_equilibriumsu35.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">7.2   </span> <a 
- id="x43-590007.2"></a>Expression of metric elements of magnetic coordinates (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>)</h4>
-<!--l. 2413--><p class="noindent" >Metric elements of the (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates, e.g., <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">𝜃</span>, are often needed in practical calculations.
-Next, we express these metric elements in terms of the cylindrical coordinates (<span 
-class="cmmi-10">R,Z</span>) and their partial
-derivatives with respect to <span 
-class="cmmi-10">ψ </span>and <span 
-class="cmmi-10">𝜃</span>. Note that, in this case, the coordinate system is (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) while <span 
-class="cmmi-10">R</span>
-and <span 
-class="cmmi-10">Z </span>are functions of <span 
-class="cmmi-10">ψ </span>and <span 
-class="cmmi-10">𝜃</span>, i.e.,
+   <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
+ id="x43-580007.1"></a>Finding magnetic surfaces</h4>
+<!--l. 2283--><p class="noindent" >Two-dimensional data <span 
+class="cmmi-10">Ψ</span>(<span 
+class="cmmi-10">R,Z</span>) on a rectangular grids (<span 
+class="cmmi-10">R,Z</span>) is read from the G_EQDSK ﬁle (G-ﬁle) of
+EFIT code. Based on the 2D array data, I use 2D cubic spline interpolation to construct a interpolating
+function <span 
+class="cmmi-10">Ψ </span>= <span 
+class="cmmi-10">Ψ</span>(<span 
+class="cmmi-10">R,Z</span>). To construct a magnetic surface coordinate system, I need to ﬁnd the contours
+of <span 
+class="cmmi-10">Ψ</span>, i.e., magnetic surfaces. The values of <span 
+class="cmmi-10">Ψ </span>on the magnetic axis, <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">0</span></sub>, and the value of <span 
+class="cmmi-10">Ψ </span>on the last
+closed ﬂux surface (LCFS), <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub>, are given in G-ﬁle. Using these two values, I construct a
+1D array “psival” with value of elements changing uniform from <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">0</span></sub> to <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub>. Then I try to
+ﬁnd the contours of <span 
+class="cmmi-10">Ψ </span>with contour level value ranging from <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">0</span></sub> to <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub>. This is done in the
+following way: construct a series of straight line (in the poloidal plane) that starts from the
+location of the magnetic axis and ends at one of the points on the LCFS. Combine the
+straight line equation, <span 
+class="cmmi-10">Z </span>= <span 
+class="cmmi-10">Z</span>(<span 
+class="cmmi-10">R</span>), with the interpolating function <span 
+class="cmmi-10">Ψ</span>(<span 
+class="cmmi-10">R,Z</span>), we obtain a
+one variable function <span 
+class="cmmi-10">h </span>= <span 
+class="cmmi-10">Ψ</span>(<span 
+class="cmmi-10">R,Z</span>(<span 
+class="cmmi-10">R</span>)). Then ﬁnding the location where <span 
+class="cmmi-10">Ψ </span>is equal to a
+speciﬁed value <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">i</span></sub>, is reduced to ﬁnding the root of the equation <span 
+class="cmmi-10">Ψ</span>(<span 
+class="cmmi-10">R,Z</span>(<span 
+class="cmmi-10">R</span>)) <span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">i</span></sub> = 0.
+Since this is a one variable equation, the root can be easily found by using simple root
+ﬁnding scheme, such as bisection method (bisection method is used in GTAW code). After
+ﬁnding the roots for each value in the array “psival” on each straight lines, the process of
+ﬁnding the contours of <span 
+class="cmmi-10">Ψ </span>is ﬁnished. The contours of <span 
+class="cmmi-10">Ψ </span>found this way are plotted in Fig.
+<a 
+href="#x43-580017">7<!--tex4ht:ref: 4-3-p2 --></a>.
+</p><!--l. 2306--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x43-580017"></a>
+                                                                                
+
+                                                                                
+<!--l. 2309--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig1/contour.png" alt="pict"  
+ width="180.67499pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 7: </span><span  
+class="content">Veriﬁcation of the numerical code that calculates the contours of the poloidal ﬂux <span 
+class="cmmi-10">Ψ</span>. The
+bold line in the ﬁgure indicates the LCFS. The contour lines (solid lines) given by the gnuplot
+program agrees well with the results I calculate by using interpolation and root-ﬁnding method
+(the two sets of contours are indistinguishable in this scale). My code only calculate the contour
+lines within the LCFS, while those given by gnuplot contains additional contour lines below the
+X point and on the left top in the ﬁgure. Eqdisk ﬁle of the equilibrium was provided by Dr.
+Guoqiang Li (ﬁlename: g013606.07104).</span></div><!--tex4ht:label?: x43-580017 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 2321--><p class="indent" >    
+</p><!--l. 2323--><p class="indent" >   In the above, we mentioned that the point of magnetic axis and points on the LCFS are needed to
+construct the straight lines. In G-ﬁle, points on LCFS are given explicitly in an array. The location of
+magnetic axis is also explicitly given in G-ﬁle. It is obvious that some of the straight lines <span 
+class="cmmi-10">Z </span>= <span 
+class="cmmi-10">Z</span>(<span 
+class="cmmi-10">R</span>)
+that pass through the location of magnetic axis and points on the LCFS will have very large or even
+inﬁnite slope. On these lines, ﬁnding the accurate root of the equation <span 
+class="cmmi-10">Ψ</span>(<span 
+class="cmmi-10">R,Z</span>(<span 
+class="cmmi-10">R</span>)) <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">i</span></sub> = 0 is diﬃcult
+or even impossible. The way to avoid this situation is obvious: switch to use function <span 
+class="cmmi-10">R </span>= <span 
+class="cmmi-10">R</span>(<span 
+class="cmmi-10">Z</span>)
+instead of <span 
+class="cmmi-10">Z </span>= <span 
+class="cmmi-10">Z</span>(<span 
+class="cmmi-10">R</span>) when the slope of <span 
+class="cmmi-10">Z </span>= <span 
+class="cmmi-10">Z</span>(<span 
+class="cmmi-10">R</span>) is large (the switch condition I used is
+<span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">dZ∕dR</span><span 
+class="cmsy-10">| </span><span 
+class="cmmi-10">&#x003E; </span>1).
+</p><!--l. 2334--><p class="indent" >   In constructing the ﬂux surface coordinate with desired Jacobian, we will need the absolute value of
+the gradient of <span 
+class="cmmi-10">Ψ</span>, <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">|</span>, on some speciﬁed spatial points. To achieve this, we need to construct a
+interpolating function for <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">|</span>. The <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>can be written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x43-59001r200"></a>
+ id="x43-58002r199"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium272x.png" alt="R = R (ψ,𝜃),
-" class="math-display"  /></center></td><td class="equation-label">(200)</td></tr></table>
-<!--l. 2421--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59002r201"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium273x.png" alt="Z = R (ψ,𝜃).
-" class="math-display"  /></center></td><td class="equation-label">(201)</td></tr></table>
-<!--l. 2424--><p class="nopar" >
-Then <span 
-class="cmsy-10">∇</span><span 
+src="tokamak_equilibrium272x.png" alt="       ∘ ----------------
+         (∂ Ψ)2   (∂ Ψ)2
+|∇Ψ | =   ---   +  ---  ,
+          ∂R       ∂Z
+" class="math-display"  /></center></td><td class="equation-label">(199)</td></tr></table>
+<!--l. 2342--><p class="nopar" >
+By using the center diﬀerence scheme to evaluate the partial derivatives with respect to <span 
 class="cmmi-10">R </span>and <span 
+class="cmmi-10">Z </span>in the
+above equation (using one side diﬀerence scheme for the points on the rectangular boundary), we can
+obtain an 2D array for the value of <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>on the rectangular (<span 
+class="cmmi-10">R,Z</span>) grids. Using this 2D array,
+we can construct an interpolating function for <span 
 class="cmsy-10">∇</span><span 
-class="cmmi-10">Z </span>are written as
+class="cmmi-10">Ψ </span>by using the cubic spline interpolation
+scheme.
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59003r202"></a>
+   <hr class="figure" /><div class="figure" 
+>
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium274x.png" alt="      ˆ
-∇R  = R = Rψ∇ ψ + R𝜃∇ 𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(202)</td></tr></table>
-<!--l. 2429--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59004r203"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium275x.png" alt="∇Z  = ˆZ = Zψ∇ ψ + Z𝜃∇𝜃,
-" class="math-display"  /></center></td><td class="equation-label">(203)</td></tr></table>
-<!--l. 2433--><p class="nopar" >
-wehre <span 
-class="cmmi-10">R</span><sub><span 
-class="cmmi-7">ψ</span></sub> <span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">∂R∕∂ψ</span>, etc. Equations (<a 
-href="#x43-59003r202">202<!--tex4ht:ref: 4-19-e10 --></a>) and (<a 
-href="#x43-59004r203">203<!--tex4ht:ref: 4-19-e11 --></a>) can be solved to give
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59005r204"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium276x.png" alt="           1
-∇ψ =  R-Z--−-Z-R--(Z 𝜃Rˆ − R 𝜃ˆZ),
-       ψ 𝜃    ψ 𝜃
-" class="math-display"  /></center></td><td class="equation-label">(204)</td></tr></table>
-<!--l. 2439--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59006r205"></a>
+<a 
+ id="x43-580038"></a>
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium277x.png" alt="     -----1------    ˆ     ˆ
-∇𝜃 = ZψR 𝜃 − R ψZ𝜃(ZψR − R ψZ).
-" class="math-display"  /></center></td><td class="equation-label">(205)</td></tr></table>
-<!--l. 2443--><p class="nopar" >
-Using the above expressions, the Jacobian of (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates, <span 
-class="cmsy-10">𝒥 </span>, is written as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium278x.png" alt="  −1
-𝒥    = ∇ψ × ∇𝜃 ⋅∇ϕ
-     = −-------1-------(Z  R ˆϕ − R Z  ˆϕ)× ϕˆ
-        (RψZ 𝜃 − ZψR 𝜃)2 𝜃 ψ     𝜃 ψ     R
-               1
-     = −(Z𝜃R-ψ −-R-𝜃Z-ψ)R,                                (206)
-" class="math-display"  /></center>
-</div>i.e.,
-   <table 
-class="equation"><tr><td><a 
- id="x43-59008r207"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium279x.png" alt="𝒥 = R (R 𝜃Zψ − R ψZ𝜃).
-" class="math-display"  /></center></td><td class="equation-label">(207)</td></tr></table>
-<!--l. 2457--><p class="nopar" >
-Using this, Expressions (<a 
-href="#x43-59005r204">204<!--tex4ht:ref: 4-19-e2 --></a>) and (<a 
-href="#x43-59006r205">205<!--tex4ht:ref: 4-19-e3 --></a>) are written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59009r208"></a>
+<!--l. 2351--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig2/plt.png" alt="pict"  
+ width="180.67499pt" /> <img 
+src="my_figure/home/yj/project_new/read_gfile/fig40/plt.png" alt="pict"  
+ width="180.67499pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 8: </span><span  
+class="content">Grid points (the intersecting points of two curves in the ﬁgure) corresponding to uniform
+poloidal ﬂux and uniform poloidal arc length for EAST equilibrium shot 13606 at 7.1s (left)
+(G-ﬁle name: g013606.07104) and shot 38300 at 3.9s (right) (G-ﬁle name: g038300.03900).</span></div><!--tex4ht:label?: x43-580038 -->
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium280x.png" alt="        R
-∇ ψ = − 𝒥 (Z 𝜃Rˆ− R 𝜃ˆZ)
-" class="math-display"  /></center></td><td class="equation-label">(208)</td></tr></table>
-<!--l. 2462--><p class="nopar" >
-and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59010r209"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium281x.png" alt="∇𝜃 = R-(ZψRˆ− R ψˆZ).
-     𝒥
-" class="math-display"  /></center></td><td class="equation-label">(209)</td></tr></table>
-<!--l. 2467--><p class="nopar" >
-Then the elements of the metric matrix are written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59011r210"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium282x.png" alt="        R2
-|∇ψ|2 = 𝒥2(Z2𝜃 + R2𝜃),
-" class="math-display"  /></center></td><td class="equation-label">(210)</td></tr></table>
-<!--l. 2472--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59012r211"></a>
+   </div><hr class="endfigure" />
+   <hr class="figure" /><div class="figure" 
+>
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium283x.png" alt="|∇ 𝜃|2 = R2-(Z2 +R2 ),
-       𝒥 2  ψ    ψ
-" class="math-display"  /></center></td><td class="equation-label">(211)</td></tr></table>
-<!--l. 2476--><p class="nopar" >
-and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59013r212"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium284x.png" alt="            2
-∇ψ ⋅∇ 𝜃 = − R-(Z 𝜃Z ψ + R 𝜃Rψ).
-           𝒥2
-" class="math-display"  /></center></td><td class="equation-label">(212)</td></tr></table>
-<!--l. 2481--><p class="nopar" >
-Equations (<a 
-href="#x43-59011r210">210<!--tex4ht:ref: 4-19-e7 --></a>), (<a 
-href="#x43-59012r211">211<!--tex4ht:ref: 4-19-e8 --></a>), and (<a 
-href="#x43-59013r212">212<!--tex4ht:ref: 4-19-e9 --></a>) are the expressions of the metric elements in terms of <span 
-class="cmmi-10">R</span>, <span 
-class="cmmi-10">R</span><sub><span 
-class="cmmi-7">ψ</span></sub>, <span 
-class="cmmi-10">R</span><sub><span 
-class="cmmi-7">𝜃</span></sub>, <span 
-class="cmmi-10">Z</span><sub><span 
-class="cmmi-7">ψ</span></sub>,
-and <span 
-class="cmmi-10">Z</span><sub><span 
-class="cmmi-7">𝜃</span></sub>. [Combining the above results, we obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59014r213"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium285x.png" alt="∇ψ ⋅∇ 𝜃    Z Z  + R R
------2-= − -𝜃--ψ2---𝜃2-ψ.
- |∇ ψ|         Z𝜃 + R 𝜃
-" class="math-display"  /></center></td><td class="equation-label">(213)</td></tr></table>
-<!--l. 2489--><p class="nopar" >
-Equation (<a 
-href="#x43-59013r212">212<!--tex4ht:ref: 4-19-e9 --></a>) is used in GTAW code. Using the above results, <span 
-class="cmmi-10">h</span><sup><span 
-class="cmmi-7">αβ</span></sup> = <img 
-src="tokamak_equilibrium286x.png" alt="𝒥-
-R2"  class="frac" align="middle" /><span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">α </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">β </span>are written
-as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59015r214"></a>
+<a 
+ id="x43-580049"></a>
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium287x.png" alt="       𝒥         1
-hψ ψ =--2|∇ψ|2 = -(Z2𝜃 + R2𝜃)
-      R          𝒥
-" class="math-display"  /></center></td><td class="equation-label">(214)</td></tr></table>
-<!--l. 2496--><p class="nopar" >
+<!--l. 2359--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig41/p2.png" alt="pict"  
+ width="251.94124pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 9: </span><span  
+class="content"><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>as a function of the poloidal angle. The diﬀerent lines corresponds to the values
+of <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>on diﬀerent magnetic surfaces. The stars correspond to the values on the boundary
+magnetic surface while the plus signs correspond to the value on the innermost magnetic surface
+(the magnetic surface adjacent to the magnetic axis). The equilibrium is for EAST shot 38300
+at 3.9s.</span></div><!--tex4ht:label?: x43-580049 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x43-5800510"></a>
+                                                                                
+
+                                                                                
+<!--l. 2369--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig41/p3.png" alt="pict"  
+ width="251.94124pt" />                             <img 
+src="my_figure/home/yj/project_new/read_gfile/fig41/p4.png" alt="pict"  
+ width="251.94124pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 10: </span><span  
+class="content">The Poloidal magnetic ﬁeld <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">p</span></sub> = <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">∕R </span>(left) and toroidal magnetic ﬁeld <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">ϕ</span></sub> = <span 
+class="cmmi-10">g∕R</span>
+(right) as a function of the poloidal angle. The diﬀerent lines corresponds to the values on diﬀerent
+magnetic surfaces. The stars correspond to the values on the boundary magnetic surface while
+the plus signs correspond to the value on the innermost magnetic surface (the magnetic surface
+adjacent to the magnetic axis). The equilibrium is for EAST shot 38300 at 3.9s.</span></div><!--tex4ht:label?: x43-5800510 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 2379--><p class="indent" >    
+</p><!--l. 2381--><p class="indent" >    
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59016r215"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium288x.png" alt="      𝒥         1
-h𝜃𝜃 = -2|∇ 𝜃|2 = -(Z2ψ + R2ψ ),
-      R         𝒥
-" class="math-display"  /></center></td><td class="equation-label">(215)</td></tr></table>
-<!--l. 2500--><p class="nopar" >
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x43-5800611"></a>
+                                                                                
+
+                                                                                
+<!--l. 2384--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig41/tmp.png" alt="pict"  
+ width="251.94124pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 11: </span><span  
+class="content">Equal-arc Jacobian as a function of the poloidal angle on diﬀerent magnetic surfaces.
+The dotted line corresponds to the values of Jacobian on the boundary magnetic surface. The
+equilibrium is for EAST shot 38300 at 3.9s.</span></div><!--tex4ht:label?: x43-5800611 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x43-5800712"></a>
+                                                                                
+
+                                                                                
+<!--l. 2392--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig32/tmp.png" alt="pict"  
+ width="251.94124pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 12: </span><span  
+class="content"><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>as a function of the poloidal angle. The diﬀerent lines corresponds to values of
+<span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>on diﬀerent magnetic surfaces. The stars correspond to the values of <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">| </span>on the boundary
+magnetic surface while the plus signs correspond to the value on the innermost magnetic surface
+(the magnetic surface adjacent to the magnetic axis). The equilibrium is a Solovev equilibrium.</span></div><!--tex4ht:label?: x43-5800712 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 2401--><p class="indent" >    
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x43-59017r216"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium289x.png" alt="      𝒥             1
-hψ𝜃 = R2-∇ψ ⋅∇ 𝜃 = − 𝒥-(Z 𝜃Z ψ + R 𝜃Rψ)
-" class="math-display"  /></center></td><td class="equation-label">(216)</td></tr></table>
-<!--l. 2504--><p class="nopar" >
-As a side product of the above results, we can calculate the arc length in the poloidal plane along a
-constant <span 
-class="cmmi-10">ψ </span>surface, <span 
-class="cmmi-10">dℓ</span><sub><span 
-class="cmmi-7">p</span></sub>, which is expressed as </p><div class="eqnarray">
+   <hr class="figure" /><div class="figure" 
+>
                                                                                 
 
                                                                                 
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium290x.png" alt="     ∘ ----2------2
-dℓp = ∘ (dR)-+-(dZ)------------------
-   =   (Rψdψ + R𝜃d𝜃)2 + (Zψdψ + Z𝜃d𝜃)2.
-" class="math-display"  /></center>
-</div>Note that <span 
-class="cmmi-10">dψ </span>= 0 since we are considering the arc length along a constant <span 
-class="cmmi-10">ψ </span>surface in (<span 
-class="cmmi-10">R,Z</span>) plane.
-Then the above expression is reduced to <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium291x.png" alt="dℓ  = ∘(R--d𝜃)2-+(Z-d𝜃)2
-  p   ∘---𝜃---    𝜃
-    =  R2𝜃 + Z2𝜃d𝜃
-
-    = |𝒥-∇-ψ|d𝜃,                                (217)
-        R
-" class="math-display"  /><a 
- id="x43-59019r217"></a></center>
-</div>which agrees with Eq. (<a 
-href="tokamak_equilibriumsu32.html#x39-47004r168">168<!--tex4ht:ref: 5-30-p1 --></a>).]
+<a 
+ id="x43-5800813"></a>
                                                                                 
 
                                                                                 
-   <!--l. 2524--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu34.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu34.html#tailtokamak_equilibriumsu34.html" >prev-tail</a>] [<a 
+<!--l. 2404--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/read_gfile/fig29/tmp.png" alt="pict"  
+ width="251.94124pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 13:  </span><span  
+class="content">Jacobian  on  diﬀerent  magnetic  surfaces  as  a  function  of  the  poloidal  angle.  The
+equilibrium  is  a  Solovev  equilibrium  and  the  Jacobian  is  an  equal-arc  Jacobian.  The  stars
+correspond to the values of Jacobian on the boundary magnetic surface while the plus signs
+correspond to the value on the innermost magnetic surface (the magnetic surface adjacent to the
+magnetic axis).</span></div><!--tex4ht:label?: x43-5800813 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 2413--><p class="indent" >    
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 2415--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu36.html" >next</a>] [<a 
 href="tokamak_equilibriumsu35.html" >front</a>] [<a 
 href="tokamak_equilibriumse7.html#tokamak_equilibriumsu35.html" >up</a>] </p></div>
-<!--l. 2524--><p class="indent" >   <a 
+<!--l. 2415--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu35.html"></a> </p> 
 </body></html> 

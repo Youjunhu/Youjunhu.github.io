@@ -13,80 +13,74 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 978--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 977--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu21.html" >next</a>] [<a 
 href="tokamak_equilibriumsu19.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu19.html#tailtokamak_equilibriumsu19.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu20.html">tail</a>] [<a 
 href="tokamak_equilibriumse3.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">3.7   </span> <a 
- id="x24-310003.7"></a>Free boundary equilibrium problem</h4>
-<!--l. 980--><p class="noindent" >Free boundary equilibrium problem refers to the case where the value of <span 
-class="cmmi-10">Ψ </span>on the boundary of the
-computational box is unknown and must be determined from the current from both the plasma and
-external coils. Suppose the computational box is a rectangle in (<span 
-class="cmmi-10">R,Z</span>) plane. If all the current
-perpendicular to (<span 
-class="cmmi-10">R,Z</span>) plane is known, the value of <span 
-class="cmmi-10">Ψ </span>at any point can be uniquely determined by
-using the Green function method, which gives
+ id="x24-300003.7"></a>Free boundary equilibrium problem</h4>
+<!--l. 979--><p class="noindent" >If the value of <span 
+class="cmmi-10">Ψ </span>on the boundary of the computational box is unknown, how do you sovle the GS
+equation?
+</p><!--l. 982--><p class="indent" >   Suppose the boundary is a rectangle in (<span 
+class="cmmi-10">R,Z</span>) plane. To numerically solve the GS equation within
+this boundary, we need the value of <span 
+class="cmmi-10">Ψ </span>on the boundary. Therefore we need to adopt some initial guess,
+then solve the GS equation to get the value of <span 
+class="cmmi-10">Ψ </span>within the computational box. Using the
+computed <span 
+class="cmmi-10">Ψ</span>, we can calculate <span 
+class="cmmi-10">J</span><sub><span 
+class="cmmi-7">ϕ</span></sub> through Eq. (<a 
+href="tokamak_equilibriumsu13.html#x16-19003r54">54<!--tex4ht:ref: 6-9-a1 --></a>). After this, all the current (current
+in the plasma and in the external coils) perpendicular to the poloidal plane is known, we
+can calculate the value of <span 
+class="cmmi-10">Ψ </span>on the boundary of the box, <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub>, by using the Green function
+formulation:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x24-31001r73"></a>
+ id="x24-30001r73"></a>
    <center class="math-display" >
 <img 
 src="tokamak_equilibrium108x.png" alt="          ∫                        Nc
 Ψ(R′,Z′) =   G(R,Z;R ′,Z ′)J dRdZ + ∑  G (Rc ,Zc;R′,Z ′)I .
            P              ϕ       i=1    i  i       ϕ
 " class="math-display"  /></center></td><td class="equation-label">(73)</td></tr></table>
-<!--l. 989--><p class="nopar" >
-In solving the equilibrium problem, the current in external coils is given and known while the current
-carried by the plasma is unknown, which need to be determined by foce balance constraint and
-external/internal measurements. Therefore, solving the equilibrium problem actually corresponds to
-determining the toroidal current density.
-</p><!--l. 996--><p class="indent" >    
-</p><!--l. 998--><p class="indent" >    
-</p><!--l. 1000--><p class="indent" >   To numerically solve GS equation within the computational box, we need the value of <span 
+<!--l. 994--><p class="nopar" >
+Note that <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmmi-7">b</span></sub> calculated this way usually diﬀers from the initial guess of the value of <span 
 class="cmmi-10">Ψ </span>on the
-boundary of the box as a boundary condition. Thus we need to adopt some initial guess of the value of
-<span 
-class="cmmi-10">Ψ </span>on the boundary, then solve the GS equation to get the value of <span 
-class="cmmi-10">Ψ </span>within the computational box.
-Using the computed <span 
-class="cmmi-10">Ψ</span>, we can calculate the value of the plasma current perpendicular to
-the (<span 
-class="cmmi-10">R,Z</span>) plane through Eq. (<a 
-href="tokamak_equilibriumsu13.html#x16-20003r54">54<!--tex4ht:ref: 6-9-a1 --></a>). After this, all the current (current in the plasma and
-in the external coils) perpendicular to the poloidal plane is known, we can calculate the
-value of <span 
-class="cmmi-10">Ψ </span>on the boundary of the box, <span 
+boundary. Thus, we need to use the <span 
 class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub>, by using the Green function formulation Eq.
-(<a 
-href="#x24-31001r73">73<!--tex4ht:ref: 10-31-1 --></a>). Note that <span 
+class="cmmi-7">b</span></sub> calculated this way as a new guess value of <span 
+class="cmmi-10">Ψ </span>on the
+computational boundary and repeat the above procedures. The process is repeated until <span 
 class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> calculated this way usually diﬀers from the initial guess of the value
-of <span 
-class="cmmi-10">Ψ </span>on the boundary. Thus, we need to use the <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> calculated this way as a new guess
-value of <span 
-class="cmmi-10">Ψ </span>on the computational boundary and repeat the above procedures. The process is
-repeated until <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> obtained in two successive iterations agrees with each other to a prescribed
-tolerance.
+class="cmmi-7">b</span></sub> obtained in
+two successive iterations agrees with each other to a prescribed tolerance.
+</p><!--l. 1002--><p class="indent" >    
+</p><!--l. 1004--><p class="indent" >   In solving the equilibrium problem, the current in external coils is given and known while the
+current distribution in the plasma is unknown. Therefore, solving the equilibrium problem actually
+corresponds to determining <span 
+class="cmmi-10">J</span><sub><span 
+class="cmmi-7">ϕ</span></sub>.
+</p><!--l. 1009--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1016--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1011--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu21.html" >next</a>] [<a 
 href="tokamak_equilibriumsu19.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu19.html#tailtokamak_equilibriumsu19.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu20.html" >front</a>] [<a 
 href="tokamak_equilibriumse3.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
-<!--l. 1016--><p class="indent" >   <a 
+<!--l. 1011--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu20.html"></a> </p> 
 </body></html> 

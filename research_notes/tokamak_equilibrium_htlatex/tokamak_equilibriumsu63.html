@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Pressure and toroidal ﬁeld function proﬁle</title> 
+<head><title>Special treatment at coordinate origin, wrong! to be deleted</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,246 +13,102 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 5077--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4975--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu64.html" >next</a>] [<a 
 href="tokamak_equilibriumsu62.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu62.html#tailtokamak_equilibriumsu62.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu63.html">tail</a>] [<a 
 href="tokamak_equilibriumse13.html#tokamak_equilibriumsu63.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">13.4   </span> <a 
- id="x77-10300013.4"></a>Pressure and toroidal ﬁeld function proﬁle</h4>
-<!--l. 5079--><p class="noindent" >The function <span 
-class="cmmi-10">p</span>(<span 
-class="cmmi-10">Ψ</span>) and <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">Ψ</span>) in the GS equation are free functions which must be speciﬁed by users
-before solving the GS equation. Next, we discuss one way to specify the free functions. Following Ref.
-<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xjardin2010">16</a>]</span>,  we take <span 
-class="cmmi-10">P</span>(<span 
-class="cmmi-10">Ψ</span>) and <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">Ψ</span>) to be of the forms
+   <h4 class="subsectionHead"><span class="titlemark">13.3   </span> <a 
+ id="x77-10100013.3"></a>Special treatment at coordinate origin, wrong! to be deleted</h4>
+   <table 
+class="equation"><tr><td><a 
+ id="x77-101001r407"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium534x.png" alt="Ψ ≈ a00 + a10R + a01Z + a11RZ + a20R2 + a02Z2.
+" class="math-display"  /></center></td><td class="equation-label">(407)</td></tr></table>
+<!--l. 4980--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x77-103001r414"></a>
+ id="x77-101002r408"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium546x.png" alt="P(Ψ) = P0 − (P0 − Pb)ˆp(Ψ),
-" class="math-display"  /></center></td><td class="equation-label">(414)</td></tr></table>
-<!--l. 5085--><p class="nopar" >
+src="tokamak_equilibrium535x.png" alt="           ∘ --
+R = R0 + b11 ψ cos𝜃
+" class="math-display"  /></center></td><td class="equation-label">(408)</td></tr></table>
+<!--l. 4983--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x77-103002r415"></a>
+ id="x77-101003r409"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium547x.png" alt="1       1         --
-2g2(Ψ) = 2 g20(1 − γ ˆg(Ψ )),
-" class="math-display"  /></center></td><td class="equation-label">(415)</td></tr></table>
-<!--l. 5089--><p class="nopar" >
-with <img 
-src="tokamak_equilibrium548x.png" alt="ˆp"  class="circ"  /> and <span 
-class="cmmi-10">ĝ</span> chosen to be of polynomial form:
+src="tokamak_equilibrium536x.png" alt="            --
+Z = Z0 + c11∘ ψ sin 𝜃
+" class="math-display"  /></center></td><td class="equation-label">(409)</td></tr></table>
+<!--l. 4986--><p class="nopar" >
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium537x.png" alt="            (       ∘ --   )        ∘ --        (       ∘ --    )  ∘ --         (       ∘ --   )2      (  ∘ --   )2
+Ψ ≈ a00 + a10  R0 + b11 ψcos𝜃  + a01c11  ψsin 𝜃+ a11 R0 + b11  ψ cos𝜃 c11 ψ sin 𝜃+ a20 R0 + b11  ψ cos𝜃   + a02 c11  ψ sin𝜃
+                     ∘ --           ∘ --             ∘--            ∘ --  ∘ --                                       ∘ --
+  = a00 + a10R0 + a10b11  ψcos𝜃 + a01c11  ψsin 𝜃+ a11R0c11 ψ sin 𝜃+ 1a11b11 ψc11  ψ sin2𝜃 +2a20R20 + a20(b11)2ψ cos2𝜃 + 2a20R0b11 ψ cos𝜃 + a02(c11)2ψ sin2𝜃
+          ∘ --       ∘ --                                     2
+  = d0 + d1 ψcos𝜃+ d2  ψ sin𝜃 + d3ψsin 2𝜃+ d4ψ cos2𝜃 + d5ψ sin2 𝜃
+" class="math-display"  /></center>
+</div>
+   <table 
+class="equation-star"><tr><td>
+                          <span 
+class="cmmi-10">Ψ </span>= <span 
+class="cmmi-10">d</span><sub><span 
+class="cmr-7">0</span></sub> + <span 
+class="cmmi-10">d</span><sub><span 
+class="cmr-7">1</span></sub><img 
+src="tokamak_equilibrium538x.png" alt="∘ --
+  ψ"  class="sqrt"  />cos<span 
+class="cmmi-10">𝜃 </span>+ <span 
+class="cmmi-10">d</span><sub><span 
+class="cmr-7">2</span></sub><img 
+src="tokamak_equilibrium539x.png" alt="∘ --
+  ψ"  class="sqrt"  />sin<span 
+class="cmmi-10">𝜃</span>
+</td></tr></table>
+<!--l. 5004--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x77-103003r416"></a>
-                                                                                
-
-                                                                                
+ id="x77-101005r410"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium549x.png" alt="ˆp(Ψ) = Ψ-α,
-" class="math-display"  /></center></td><td class="equation-label">(416)</td></tr></table>
-<!--l. 5093--><p class="nopar" >
+src="tokamak_equilibrium540x.png" alt="R = R  +b11∘ ψcos𝜃 + b12∘ ψ-cos2𝜃 + b21( ∘ψ-)2cos𝜃+ b22(∘ ψ)2 cos2𝜃
+     0
+" class="math-display"  /></center></td><td class="equation-label">(410)</td></tr></table>
+<!--l. 5010--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x77-103004r417"></a>
+ id="x77-101006r411"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium550x.png" alt="  --  --β
-ˆg(Ψ) = Ψ ,
-" class="math-display"  /></center></td><td class="equation-label">(417)</td></tr></table>
-<!--l. 5096--><p class="nopar" >
-where
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x77-103005r418"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium551x.png" alt="--  Ψ − Ψa
-Ψ ≡ Ψ-−-Ψ--,
-     b    a
-" class="math-display"  /></center></td><td class="equation-label">(418)</td></tr></table>
-<!--l. 5100--><p class="nopar" >
-with <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> the value of <span 
-class="cmmi-10">Ψ </span>on the boundary, <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">a</span></sub> the value of <span 
-class="cmmi-10">Ψ </span>on the magnetic axis, <span 
-class="cmmi-10">α</span>, <span 
-class="cmmi-10">β</span>, <span 
-class="cmmi-10">γ</span>, <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">0</span></sub>, <span 
-class="cmmi-10">P</span><sub><span 
-class="cmmi-7">b</span></sub>, and
-<span 
-class="cmmi-10">g</span><sub><span 
-class="cmr-7">0</span></sub> are free parameters. Using the proﬁles of <span 
-class="cmmi-10">P </span>and <span 
-class="cmmi-10">g </span>given by Eqs. (<a 
-href="#x77-103001r414">414<!--tex4ht:ref: 4-28-p1 --></a>) and (<a 
-href="#x77-103002r415">415<!--tex4ht:ref: 4-28-p2 --></a>), we
-obtain
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x77-103006r419"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium552x.png" alt="dP-(Ψ-)= − 1-(P − P )αΨα−1
-  dΨ      Δ   0   b
-" class="math-display"  /></center></td><td class="equation-label">(419)</td></tr></table>
-<!--l. 5108--><p class="nopar" >
-where <span 
-class="cmmi-10">Δ </span>= <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> <span 
-class="cmsy-10">− </span><span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">a</span></sub>, and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x77-103007r420"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium553x.png" alt="                --
-g dg-= − 1g20γ 1-βΨβ−1.
-  dΨ     2   Δ
-" class="math-display"  /></center></td><td class="equation-label">(420)</td></tr></table>
-<!--l. 5113--><p class="nopar" >
-Then the term on the r.h.s (nonlinear source term) of the GS equation is written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x77-103008r421"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium554x.png" alt="      dP    dg        [ 1          -α−1]   1   1  -β−1
-− μ0R2--- − --g = μ0R2  --(P0 − Pb)α Ψ    +  -g20γ--βΨ   .
-       dΨ   dΨ          Δ                  2   Δ
-" class="math-display"  /></center></td><td class="equation-label">(421)</td></tr></table>
-<!--l. 5121--><p class="nopar" >
-The value of parameters <span 
-class="cmmi-10">P</span><sub><span 
-class="cmr-7">0</span></sub>, <span 
-class="cmmi-10">P</span><sub><span 
-class="cmmi-7">b</span></sub>, and <span 
-class="cmmi-10">g</span><sub><span 
-class="cmr-7">0</span></sub> in Eqs. (<a 
-href="#x77-103001r414">414<!--tex4ht:ref: 4-28-p1 --></a>) and (<a 
-href="#x77-103002r415">415<!--tex4ht:ref: 4-28-p2 --></a>), and the value of <span 
-class="cmmi-10">α </span>and <span 
-class="cmmi-10">β </span>in Eqs. (<a 
-href="#x77-103003r416">416<!--tex4ht:ref: 1-2-1 --></a>)
-and (<a 
-href="#x77-103004r417">417<!--tex4ht:ref: 1-2-2 --></a>) can be chosen arbitrarily. The parameter <span 
-class="cmmi-10">γ </span>is used to set the value of the total toroidal
-current. The toroidal current density is given by Eq. (<a 
-href="tokamak_equilibriumsu84.html#x100-129001r545">545<!--tex4ht:ref: 4-10-1 --></a>), i.e.,
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x77-103009r422"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium555x.png" alt="Jϕ = RdP- + 1-dg-g-,
-      dΨ    μ0dΨ R
-" class="math-display"  /></center></td><td class="equation-label">(422)</td></tr></table>
-<!--l. 5130--><p class="nopar" >
-which can be integrated over the poloidal cross section within the boundary magnetic surface to give
-the total toroidal current, </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium556x.png" alt="    ∫
-Iϕ =   JϕdS
-    ∫  (  dP   1  dgg )
-  =     R ---+ -------  dRdZ
-    ∫  [ (dΨ  )μ0dΨ R                        ]
-  =     R  −-1  (P0 − Pb)ˆp′(Ψ) −-1--1g2γ 1-ˆg′(Ψ) dRdZ          (423)
-            Δ                  μ0R 2 0 Δ
-" class="math-display"  /><a 
- id="x77-103010r423"></a></center>
-</div>Using
-   <table 
-class="equation"><tr><td><a 
- id="x77-103011r424"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium557x.png" alt="        1
-dRdZ = --𝒥 dψd𝜃,
-       R
-" class="math-display"  /></center></td><td class="equation-label">(424)</td></tr></table>
-<!--l. 5144--><p class="nopar" >
-Eq. (<a 
-href="#x77-103010r423">423<!--tex4ht:ref: 9-28-1 --></a>) is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x77-103012r425"></a>
-                                                                                
-
-                                                                                
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium558x.png" alt="    ∫ [(   1)           --    1  1    1   --]
-Iϕ =      −--  (P0 − Pb)ˆp′(Ψ)− ---2- g02γ --ˆg′(Ψ) 𝒥 dψd𝜃,
-          Δ                  μ0R 2    Δ
-" class="math-display"  /></center></td><td class="equation-label">(425)</td></tr></table>
-<!--l. 5151--><p class="nopar" >
-from which we solve for <span 
-class="cmmi-10">γ</span>, giving
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x77-103013r426"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium559x.png" alt="                    ∫ ′ --
-γ = −-ΔIϕ1− (P0∫ [−1Pb)-[pˆ](Ψ)]𝒥-dψd𝜃.
-        2μ0g20   R2ˆg′(Ψ) 𝒥dψd 𝜃
-" class="math-display"  /></center></td><td class="equation-label">(426)</td></tr></table>
-<!--l. 5158--><p class="nopar" >
-If the total toroidal current <span 
-class="cmmi-10">I</span><sub><span 
-class="cmmi-7">ϕ</span></sub> is given, Eq. (<a 
-href="#x77-103013r426">426<!--tex4ht:ref: 9-28-2 --></a>) can be used to determine the value of
-<span 
-class="cmmi-10">γ</span>.
+src="tokamak_equilibrium541x.png" alt="                                    (    )          (   )
+Z = Z  + c11∘ ψ-sin𝜃 + c12∘ ψ-sin2𝜃 + c21 ∘ ψ- 2sin 𝜃+ c22  ∘ ψ-2sin2𝜃
+      0
+" class="math-display"  /></center></td><td class="equation-label">(411)</td></tr></table>
+<!--l. 5015--><p class="nopar" >
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 5162--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 5017--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu64.html" >next</a>] [<a 
 href="tokamak_equilibriumsu62.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu62.html#tailtokamak_equilibriumsu62.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu63.html" >front</a>] [<a 
 href="tokamak_equilibriumse13.html#tokamak_equilibriumsu63.html" >up</a>] </p></div>
-<!--l. 5162--><p class="indent" >   <a 
+<!--l. 5017--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu63.html"></a> </p> 
 </body></html> 

@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Poloidal plasma current</title> 
+<head><title>Solovev equilibrium</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,162 +13,430 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 6298--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 6094--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu80.html" >next</a>] [<a 
-href="tokamak_equilibriumsu78.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu78.html#tailtokamak_equilibriumsu78.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu79.html">tail</a>] [<a 
 href="tokamak_equilibriumse15.html#tokamak_equilibriumsu79.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">A.3   </span> <a 
- id="x95-124000A.3"></a>Poloidal plasma current</h4>
-<!--l. 6300--><p class="noindent" >As is discussed in Sec. <a 
-href="tokamak_equilibriumsu15.html#x19-230003.2">3.2<!--tex4ht:ref: 3-14-p1 --></a>, to satisfy the force balance, <span 
-class="cmmi-10">g </span><span 
-class="cmsy-10">≡ </span><span 
-class="cmmi-10">RB</span><sub><span 
-class="cmmi-7">ϕ</span></sub> must be a magnetic surface function,
-i.e., <span 
-class="cmmi-10">g </span>= <span 
+   <h4 class="subsectionHead"><span class="titlemark">A.1   </span> <a 
+ id="x95-122000A.1"></a>Solovév equilibrium</h4>
+<!--l. 6096--><p class="noindent" >For most choices of <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">Ψ</span>) and <span 
 class="cmmi-10">g</span>(<span 
-class="cmmi-10">Ψ</span>). Using this, expression (<a 
-href="tokamak_equilibriumsu12.html#x15-19001r50">50<!--tex4ht:ref: 5-2-a2 --></a>) and (<a 
-href="tokamak_equilibriumsu12.html#x15-19002r51">51<!--tex4ht:ref: 5-2-a1 --></a>) are written
+class="cmmi-10">Ψ</span>), the GS equation (<a 
+href="tokamak_equilibriumsu15.html#x19-25005r66">66<!--tex4ht:ref: 7-1-p1 --></a>) has to be solved numerically. For the
+particular choice of <span 
+class="cmmi-10">P </span>and <span 
+class="cmmi-10">g </span>proﬁles given by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x95-124001r527"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium670x.png" alt="μ J  = − 1-dg-∂Ψ-= dg-B ,
- 0 R     R dΨ ∂Z   dΨ  R
-" class="math-display"  /></center></td><td class="equation-label">(527)</td></tr></table>
-<!--l. 6306--><p class="nopar" >
-and
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x95-124002r528"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium671x.png" alt="        1dg ∂Ψ    dg
-μ0JZ = R-dΨ-∂R-=  dΨBz,
-" class="math-display"  /></center></td><td class="equation-label">(528)</td></tr></table>
-<!--l. 6311--><p class="nopar" >
-respectively. The above two equations imply that
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x95-124003r529"></a>
+ id="x95-122001r508"></a>
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium672x.png" alt="JR-=  BR-,
-JZ    BZ
-" class="math-display"  /></center></td><td class="equation-label">(529)</td></tr></table>
-<!--l. 6315--><p class="nopar" >
-which implies that the projections of <span 
-class="cmbx-10">B </span>lines and <span 
-class="cmbx-10">J </span>lines in the poloidal plane are identical to each
-other. This indicates that the <span 
-class="cmbx-10">J </span>surfaces coincide with the magnetic surfaces.
-</p><!--l. 6320--><p class="indent" >   The poloidal plasma current density is usually small (compared with the toroidal plasma current
-density) but is important for some cases of interest and thus could not be safely neglected. Many model
-equilibria (e.g., Solovev equilibria, DIII-D cyclone base cases) frequently used in simulations assume
-that <span 
-class="cmmi-10">g </span>is a spatial constant, i.e., neglecting the poloidal plasmas current. The conclusions drawn from
-these simulations could be misleading.
-</p><!--l. 6327--><p class="indent" >   Using this and <span 
-class="cmsy-10">∇⋅ </span><span 
-class="cmbx-10">J </span>= 0, and following the same steps in Sec. <a 
-href="tokamak_equilibriumsu7.html#x9-80001.7">1.7<!--tex4ht:ref: 9-5-5 --></a>, we obtain
+src="tokamak_equilibrium649x.png" alt="dP-= − c1,
+dΨ     μ0
+" class="math-display"  /></center></td><td class="equation-label">(508)</td></tr></table>
+<!--l. 6101--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x95-124004r530"></a>
+ id="x95-122002r509"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium673x.png" alt="I   = 1-2π[g(Ψ ) − g(Ψ )],
- pol  μ0      2     1
-" class="math-display"  /></center></td><td class="equation-label">(530)</td></tr></table>
-<!--l. 6332--><p class="nopar" >
+src="tokamak_equilibrium650x.png" alt="  dg-      2
+g dΨ = − c2R0,
+" class="math-display"  /></center></td><td class="equation-label">(509)</td></tr></table>
+<!--l. 6104--><p class="nopar" >
+analytical solution to the GS equation can be found, which is given by<span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xjardin2010">16</a>]</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122003r510"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium651x.png" alt="    1                 1
+Ψ = -(c2R20 + c0R2)Z2 +-(c1 − c0)(R2 − R20)2,
+    2                 8
+" class="math-display"  /></center></td><td class="equation-label">(510)</td></tr></table>
+<!--l. 6110--><p class="nopar" >
 where <span 
-class="cmmi-10">I</span><sub><span 
-class="cmr-7">pol</span></sub> is the poloidal current enclosed by the two magnetic surfaces, the positive direction of <span 
-class="cmmi-10">I</span><sub><span 
-class="cmr-7">pol</span></sub> is
-chosen to be in the clockwise direction when observers look along <img 
-src="tokamak_equilibrium674x.png" alt="ˆϕ"  class="circ"  />. Equation (<a 
-href="#x95-124004r530">530<!--tex4ht:ref: 2-14-e10 --></a>) indicates that the
-diﬀerence of <span 
-class="cmmi-10">g </span>between two magnetic surface is proportional to the poloidal current. For this reason, <span 
-class="cmmi-10">g</span>
-is usually call the “poloidal current function”.
-</p><!--l. 6340--><p class="indent" >   In the above, we see that the relation of <span 
-class="cmmi-10">g </span>with the poloidal electric current is similar to that
-of <span 
-class="cmmi-10">Ψ </span>with the poloidal magnetic ﬂux. This similarity is due to the following diﬀerential
-relations:
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">0</span></sub>, <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">1</span></sub>, <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">2</span></sub>, and <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub> are arbitrary constants. [Proof: By direct substitution, we can verify <span 
+class="cmmi-10">Ψ </span>of this
+form is indeed a solution to the GS equation (<a 
+href="tokamak_equilibriumsu15.html#x19-25005r66">66<!--tex4ht:ref: 7-1-p1 --></a>).] A useful choice for tokamak application is
+to set <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>), <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">1</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup> + 1)<span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>), and <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">2</span></sub> = 0. Then Eq. (<a 
+href="#x95-122003r510">510<!--tex4ht:ref: 4-12-p1 --></a>) is
+written
 </p>
    <table 
-class="equation-star"><tr><td>
+class="equation"><tr><td><a 
+ id="x95-122004r511"></a>
                                                                                 
 
                                                                                 
-                                  <img 
-src="tokamak_equilibrium675x.png" alt="{
-  B = ∇ × A
-  Ψ = RA ϕ"  class="left" align="middle" />
-</td></tr></table>
-<!--l. 6346--><p class="nopar" >
-</p>
-   <table 
-class="equation-star"><tr><td>
-                                 <img 
-src="tokamak_equilibrium676x.png" alt="{
- μ0J = ∇ × B
- g = RB ϕ"  class="left" align="middle" />
-</td></tr></table>
-<!--l. 6350--><p class="nopar" >
-The poloidal plasma current density <span 
-class="cmbx-10">J</span><sub><span 
-class="cmmi-7">p</span></sub> can be further written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium677x.png" alt="Jp ≡ JR ˆR( + JZˆZ          )
-     1--  1-∂g-ˆ   1-∂g-ˆ
-  =  μ0  −R ∂Z R + R ∂R Z  .
-     1
-  =  μ-∇g × ∇ϕ                                   (531)
-      0
-" class="math-display"  /><a 
- id="x95-124005r531"></a></center>
-</div>Using <span 
-class="cmmi-10">g </span>= <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">Ψ</span>), Eq. (<a 
-href="#x95-124005r531">531<!--tex4ht:ref: 15-11-26-1 --></a>) can also be written as <div class="eqnarray">
+src="tokamak_equilibrium652x.png" alt="            [                  ]
+    ---B0--   2 2   κ20  2    22
+Ψ = 2R20κ0q0  R Z  + 4 (R  − R 0) ,
+" class="math-display"  /></center></td><td class="equation-label">(511)</td></tr></table>
+<!--l. 6119--><p class="nopar" >
+which can be solved analytically to give the explicit form of the contour of <span 
+class="cmmi-10">Ψ </span>on (<span 
+class="cmmi-10">R,Z</span>)
+plane:
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122005r512"></a>
    <center class="math-display" >
+<img 
+src="tokamak_equilibrium653x.png" alt="        ∘ -----------------------
+      1   2R2κ0q0    κ2
+Z = ± --  --0----Ψ − -0(R2 − R20)2,
+      R     B0       4
+" class="math-display"  /></center></td><td class="equation-label">(512)</td></tr></table>
+<!--l. 6125--><p class="nopar" >
+which indicates the magnetic surfaces are up-down symmetrical. Using Eq. (<a 
+href="#x95-122001r508">508<!--tex4ht:ref: 11-1-2 --></a>), i.e.,
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122006r513"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium654x.png" alt="dP     c1     B0(κ2+ 1)
+---= − ---= − ----02----,
+dΨ     μ0     μ0R 0κ0q0
+" class="math-display"  /></center></td><td class="equation-label">(513)</td></tr></table>
+<!--l. 6131--><p class="nopar" >
+the pressure is written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122007r514"></a>
                                                                                 
 
                                                                                 
+   <center class="math-display" >
 <img 
-src="tokamak_equilibrium678x.png" alt="Jp =-1-dg-∇Ψ × ∇ϕ
-    μ0 dΨ
-    -1-dg-
-  = μ0 dΨ Bp.                               (532)
+src="tokamak_equilibrium655x.png" alt="             2
+P = P0 − B0-(κ20 +-1)Ψ,
+         μ0R0κ0q0
+" class="math-display"  /></center></td><td class="equation-label">(514)</td></tr></table>
+<!--l. 6136--><p class="nopar" >
+where <span 
+class="cmmi-10">P</span><sub><span 
+class="cmr-7">0</span></sub> is a constant of integration. Note Eq. (<a 
+href="#x95-122004r511">511<!--tex4ht:ref: 6-5-p1 --></a>) indicates that that <span 
+class="cmmi-10">Ψ </span>= 0 at the magnetic axis
+(<span 
+class="cmmi-10">R </span>= <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,Z </span>= 0). Therefore, Eq. (<a 
+href="#x95-122007r514">514<!--tex4ht:ref: 6-5-1 --></a>) indicates that <span 
+class="cmmi-10">P</span><sub><span 
+class="cmr-7">0</span></sub> is the pressure at the magnetic axis. The
+toroidal ﬁeld function <span 
+class="cmmi-10">g </span>is a constant in this case, which implies there is no poloidal current in this
+equilibrium. (For the Solovev equilibrium (<a 
+href="#x95-122004r511">511<!--tex4ht:ref: 6-5-p1 --></a>), I found numerically that the value of the safety factor
+at the magnetic axis (<span 
+class="cmmi-10">R </span>= <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,Z </span>= 0) is equal to <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">g∕</span>(<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>). This result should be able to be proved
+analytically. I will do this later. In calculating the safety factor, we also need the expression of <span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">|</span>,
+which is given analytically by </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium656x.png" alt="       ∘ (---)----(---)--
+          ∂-Ψ  2   ∂-Ψ  2
+|∇Ψ | =   ∂R    +  ∂Z
+         B    ∘ -------------------------------
+     = ---20--  [2RZ2 + κ20(R2 − R20)R ]2 + (2R2Z )2.           (515)
+       2R 0κ0q0
 " class="math-display"  /></center>
-</div>
+</div>)
+<!--l. 6155--><p class="indent" >    
+</p><!--l. 6157--><p class="indent" >   Deﬁne <span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup>, and <span class="overline"><span 
+class="cmmi-10">Ψ</span></span> = <span 
+class="cmmi-10">Ψ∕Ψ</span><sub><span 
+class="cmr-7">0</span></sub>, then Eq. (<a 
+href="#x95-122004r511">511<!--tex4ht:ref: 6-5-p1 --></a>) is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium657x.png" alt="--    1  [--2-2  κ2 --2    ]
+Ψ = ----- R Z  + -0(R  − 1)2  ,                    (516)
+    2κ0q0         4
+" class="math-display"  /><a 
+ id="x95-122009r516"></a></center>
                                                                                 
 
                                                                                 
-   <!--l. 6366--><div class="crosslinks"><p class="noindent">[<a 
+</div>where <span class="overline"><span 
+class="cmmi-10">R</span></span> = <span 
+class="cmmi-10">R∕R</span><sub><span 
+class="cmr-7">0</span></sub>, <span class="overline"><span 
+class="cmmi-10">Z</span></span> = <span 
+class="cmmi-10">Z∕R</span><sub><span 
+class="cmr-7">0</span></sub>. From Eq. (<a 
+href="#x95-122009r516">516<!--tex4ht:ref: 4-24-p1 --></a>), we obtain
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122010r517"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium658x.png" alt="        ∘ -------------------
+--    1       --  κ20 --2
+Z = ± R-  2κ0q0Ψ − -4 (R − 1)2.
+" class="math-display"  /></center></td><td class="equation-label">(517)</td></tr></table>
+<!--l. 6169--><p class="nopar" >
+Given the value of <span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub>, <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>, for each value of <span class="overline"><span 
+class="cmmi-10">Ψ</span></span>, we can plot a magnetic surface on (<span class="overline"><span 
+class="cmmi-10">R</span></span><span 
+class="cmmi-10">,</span><span class="overline"><span 
+class="cmmi-10">Z</span></span>) plane. An
+example of the nested magnetic surfaces is shown in Fig. <a 
+href="#x95-12201138">38<!--tex4ht:ref: 4-24-p6 --></a>.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x95-12201138"></a>
+                                                                                
+
+                                                                                
+<!--l. 6175--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/solovev_equilibrium/fig1/plt.png" alt="pict"  
+ width="180.67499pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 38: </span><span  
+class="content">Flux surfaces of Solovév equilibrium for <span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub> = 1<span 
+class="cmmi-10">.</span>5 and <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub> = 1<span 
+class="cmmi-10">.</span>5, with <span class="overline"><span 
+class="cmmi-10">Ψ</span></span> varying from
+zero (center) to 0.123 (edge). The value of <span class="overline"><span 
+class="cmmi-10">Ψ</span></span> on the edge is determined by the requirement that
+the minimum of <span class="overline"><span 
+class="cmmi-10">R</span></span> is equal to zero. (To prevent “divided by zero” that appears in Eq. (<a 
+href="#x95-122010r517">517<!--tex4ht:ref: 3-12-p1 --></a>)
+when <span 
+class="cmmi-10">R </span>= 0, the value of <span class="overline"><span 
+class="cmmi-10">Ψ</span></span> on the edge is shifted to 0<span 
+class="cmmi-10">.</span>123 <span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">𝜀 </span>when plotting the above ﬁgure,
+where <span 
+class="cmmi-10">𝜀 </span>is a small number, <span 
+class="cmmi-10">𝜀 </span>= 10<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">3</span></sup> in this case.)</span></div><!--tex4ht:label?: x95-12201138 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 6186--><p class="indent" >   The minor radius of a magnetic surface of the Solovev equilibrium can be calculated by using Eq.
+(<a 
+href="#x95-122005r512">512<!--tex4ht:ref: 9-9-1 --></a>), which gives
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122012r518"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium659x.png" alt="      ∘-----√----
+Rin =  R20 −  AΨ,
+" class="math-display"  /></center></td><td class="equation-label">(518)</td></tr></table>
+<!--l. 6190--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122013r519"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium660x.png" alt="      ∘ -----√----
+Rout =  R20 +  A Ψ,
+" class="math-display"  /></center></td><td class="equation-label">(519)</td></tr></table>
+<!--l. 6193--><p class="nopar" >
+and thus
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122014r520"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium661x.png" alt="                ∘ ---------- ∘ ----------
+                  R2 + √A-Ψ −  R2 − √A-Ψ
+a = Rout −-Rin =---0-------------0------.
+        2                   2
+                                                                                
+
+                                                                                
+" class="math-display"  /></center></td><td class="equation-label">(520)</td></tr></table>
+<!--l. 6198--><p class="nopar" >
+where <span 
+class="cmmi-10">A </span>= 8<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub>). In my code of constructing Solovev magnetic surface, the value of <span 
+class="cmmi-10">a </span>is
+speciﬁed by users, and then Eq. (<a 
+href="#x95-122014r520">520<!--tex4ht:ref: 9-9-p2 --></a>) is solved numerically to obtain the value of <span 
+class="cmmi-10">Ψ </span>of the ﬂux surface.
+Note that the case <span 
+class="cmmi-10">Ψ </span>= 0 corresponds to <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">in</span></sub> = <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">out</span></sub> = <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub>, i.e., the magnetic axis, while the case
+<span 
+class="cmmi-10">Ψ </span>= <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>(8<span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>) corresponds to <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">in</span></sub> = 0. Therefore, the reasonable value of <span 
+class="cmmi-10">Ψ </span>of a magnetic surface
+should be in the range 0 <span 
+class="msam-10">≤ </span><span 
+class="cmmi-10">Ψ &#x003C; R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>(8<span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>). This range is used as the interval bracketing a root in
+the bisection root ﬁnder.
+</p><!--l. 6209--><p class="indent" >   Using Eq. (<a 
+href="#x95-122014r520">520<!--tex4ht:ref: 9-9-p2 --></a>), the inverse aspect ratio of a magnetic surface labeled by <span 
+class="cmmi-10">Ψ </span>can be approximated
+as<span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xjardin2010">16</a>]</span>
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122015r521"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium662x.png" alt="    ∘ --------
+       2q0Ψ
+𝜀 ≈   κ-R2B--.
+       0 0 0
+" class="math-display"  /></center></td><td class="equation-label">(521)</td></tr></table>
+<!--l. 6213--><p class="nopar" >
+Therefore, the value of <span 
+class="cmmi-10">Ψ </span>of a magnetic surface with the inverse aspect ratio <span 
+class="cmmi-10">𝜀 </span>is approximately given
+by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x95-122016r522"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium663x.png" alt="    𝜀2κ R2B
+Ψ = ---0-0--0.
+       2q0
+" class="math-display"  /></center></td><td class="equation-label">(522)</td></tr></table>
+<!--l. 6218--><p class="nopar" >
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 6219--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu80.html" >next</a>] [<a 
-href="tokamak_equilibriumsu78.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu78.html#tailtokamak_equilibriumsu78.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu79.html" >front</a>] [<a 
 href="tokamak_equilibriumse15.html#tokamak_equilibriumsu79.html" >up</a>] </p></div>
-<!--l. 6366--><p class="indent" >   <a 
+<!--l. 6219--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu79.html"></a> </p> 
 </body></html> 
