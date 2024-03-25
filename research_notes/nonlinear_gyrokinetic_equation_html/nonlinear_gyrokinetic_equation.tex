@@ -44,7 +44,10 @@
 
 Electromagnetic perturbations of frequency lower than the ion cyclotron
 frequency are widely believed to be more important than high-frequency ones in
-transporting plasma in tokamaks.
+transporting plasma in tokamaks. (This assumption can be verified numerically
+when we are able to do a full simulation including both low-frequency and
+high-frequency perturbations. This kind of verification is not possible at
+present due to computation costs.)
 
 If we assume that only low-frequency perturbations are present, the Vlasov
 equation can be simplified. Specifically, symmetry of the particle
@@ -277,7 +280,7 @@ Here we find some terms cancel each other, giving
 Equation (\ref{22-11-16-3}) is the equation for $f$ in the guiding-center
 coordinates $(X, Y, Z, v_{\perp}', \alpha', v_{\parallel}')$.
 
-\subsection{Gyro-averaging}
+\subsubsection{Gyro-averaging}
 
 Define gyro-phase averaging operator
 \begin{equation}
@@ -1684,7 +1687,7 @@ and should be replaced with $q / m$; one $q$ is missing before $\partial
 
 \subsection{Eliminate $\partial \langle \delta \mathbf{v} \cdot \delta
 \mathbf{A} \rangle_{\alpha} / \partial t$ term on the right-hand side of GK
-equation}
+equation}\label{24-3-21-p1}
 
 Similar to the method of eliminating $\partial \langle \delta \phi
 \rangle_{\alpha} / \partial t$, we define another gyro-phase independent
@@ -1730,11 +1733,12 @@ Then Eq. (\ref{17-5-13-p2}) is written in terms of $\delta h$ as
 where use has been made of that $\partial F_0 / \partial t = 0$ and
 $\mathbf{e}_{\parallel} \cdot \nabla F_0 = 0$. Further noting that
 $v_{\parallel} \delta A_{\parallel} \sim \delta \Phi$, $q \delta \Phi / T \sim
-O (\lambda^1)$, $\partial F_0 / \partial \varepsilon \sim - F_0 m / T$, and
-$\rho \nabla F_0 \sim O (\lambda^1) F_0$, we find that \tmcolor{red}{the red
-term} of the above equation (after divided by $\Omega F_0$) is of order $O
-(\lambda^3)$ and hence can be dropped. Move the second line to the right-hand
-side, giving
+O (\lambda^1)$, $\partial F_0 / \partial \varepsilon \sim - F_0 m / T$,
+\quad$\mathbf{V}_D / v_t \sim O (\lambda^1)$, $\delta \mathbf{V}_D / v_t \sim
+O (\lambda^1)$, and $\rho \nabla F_0 \sim O (\lambda^1) F_0$, we find that
+\tmcolor{red}{the red term} of the above equation (after divided by $\Omega
+F_0$) is of $O (\lambda^3)$, hence can be dropped. Move the second line to the
+right-hand side, giving
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
@@ -1818,25 +1822,23 @@ equation (\ref{19-1-4-e1}) is written as
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
   \right] \delta h \nonumber\\
-  &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 \nonumber\\
-  &  & + \frac{q}{m} [(v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D)
-  \cdot \nabla_X \langle \delta \Phi \rangle_{\alpha}] \frac{\partial
-  F_0}{\partial \varepsilon}, \nonumber\\
-  &  & - \frac{q}{m} [\tmcolor{red}{v_{\parallel} (v_{\parallel}
+  & = & - \delta \mathbf{V}_D \cdot \nabla_X F_0 + \frac{q}{m}
+  [(v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X \langle
+  \delta \Phi \rangle_{\alpha}] \frac{\partial F_0}{\partial \varepsilon}
+  \nonumber\\
+  & - & \frac{q}{m} [\tmcolor{red}{v_{\parallel} (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X \langle \delta
   A_{\parallel} \rangle_{\alpha}} \tmcolor{blue}{} \tmcolor{blue}{- \langle
-  \delta A_{\parallel} \rangle_{\alpha} \mu \mathbf{e}_{\parallel} \cdot
-  \nabla_X B_0}] \frac{\partial F_0}{\partial \varepsilon},  \label{19-1-4-5}
+  \delta A_{\parallel} \rangle_{\alpha} (\mu \mathbf{e}_{\parallel} \cdot
+  \nabla_X B_0)}] \frac{\partial F_0}{\partial \varepsilon},  \label{19-1-4-5}
 \end{eqnarray}
-which agrees with the so-called $p_{\parallel}$ formulation given in
-\tmtexttt{GEM} code manual (the first line of Eq. 28). (It is said that
+which agrees with the so-called $p_{\parallel}$ formulation given in the
+\tmtexttt{GEM} manual (the first line of Eq. 28). (It is said that
 $p_{\parallel}$ formulation uses $p_{\parallel} = v_{\parallel} + q \langle
 \delta A_{\parallel} \rangle_{\alpha} / m$ as an independent variable, but I
 can not relate this explanation to my derivation given above.)
 
-\
-
-\subsubsection{Mixed variable pullback method{\cite{MISHCHENKO2019194}}}
+\subsection{Mixed-variable pullback method{\cite{MISHCHENKO2019194}}}
 
 Define $\delta f^{(h)}$ by
 \begin{equation}
@@ -1851,47 +1853,464 @@ where $\delta A_{\parallel}^{(h)}$ is a part of $\delta A_{\parallel}$:
 \end{equation}
 with $\delta A_{\parallel}^{(s)}$ determined by an evolution equation:
 \begin{equation}
-  \label{23-11-16-1} \frac{\partial \delta A_{\parallel}^{(s)}}{\partial t} =
-  0,
-\end{equation}
-or
-\begin{equation}
   \label{23-11-16-2} \frac{\partial \delta A_{\parallel}^{(s)}}{\partial t} =
   -\mathbf{b} \cdot \nabla \delta \Phi .
 \end{equation}
-Following the same procedure as the above, we obtain an evoluation equation
-for $\delta f^{(h)}$:
-\begin{eqnarray}
-  &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
-  \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
-  \right] \delta f^{(h)} \nonumber\\
-  &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 + \frac{q}{m}
-  [(v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D)
-  \cdot \nabla_X \langle \delta \Phi \rangle_{\alpha}] \frac{\partial
-  F_0}{\partial \varepsilon}, \nonumber\\
-  &  & - \frac{q}{m} [v_{\parallel} (v_{\parallel} \mathbf{e}_{\parallel}
-  +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \langle \delta
-  A_{\parallel}^{(h)} \rangle_{\alpha} - \langle \delta A_{\parallel}^{(h)}
-  \rangle_{\alpha} (\mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0)]
-  \frac{\partial F_0}{\partial \varepsilon},  \label{23-12-4-2}
-\end{eqnarray}
-if we adopt Eq. (\ref{23-11-16-1}) for $\delta A_{\| \nobracket}^{(s)}$; or
+Following the same procedure in Sec. \ref{24-3-21-p1}, we obtain the following
+evoluation equation for $\delta f^{(h)}$:
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
   \right] \delta f^{(h)} \nonumber\\
   &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 + \frac{q}{m}
   [(\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \langle \delta \Phi
-  \rangle_{\alpha}] \frac{\partial F_0}{\partial \varepsilon}, \nonumber\\
+  \rangle_{\alpha}] \frac{\partial F_0}{\partial \varepsilon} \nonumber\\
   &  & - \frac{q}{m} [v_{\parallel} (v_{\parallel} \mathbf{e}_{\parallel}
   +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \langle \delta
   A_{\parallel}^{(h)} \rangle_{\alpha} - \langle \delta A_{\parallel}^{(h)}
   \rangle_{\alpha} (\mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0)]
-  \frac{\partial F_0}{\partial \varepsilon}, 
+  \frac{\partial F_0}{\partial \varepsilon} .  \label{17-6-21-3}
 \end{eqnarray}
-if we adopt Eq. (\ref{23-11-16-2}) for $\delta A_{\|
-\nobracket}^{(s)}$.simulations, disappear on the right-hand side of the
-evolution equation of $\delta f^{(h)}$.
+Next, consider the special case that $F_0$ is a local Maxwellian given by
+\begin{equation}
+  F_0 (\mathbf{X}, \varepsilon) = n_0 (\mathbf{X}) \left( \frac{m}{2 \pi T_0
+  (\mathbf{X})} \right)^{3 / 2} \exp \left[ - \frac{m \varepsilon}{T_0
+  (\mathbf{X})} \right],
+\end{equation}
+Then $\partial F_0 / \partial \varepsilon$ and $\nabla_X F_0$ are written as
+\begin{equation}
+  \label{17-7-16-1} \frac{\partial F_0}{\partial \varepsilon} = \left( -
+  \frac{m}{T} \right) F_0,
+\end{equation}
+and
+\begin{eqnarray}
+  \nabla F_0 & = & \frac{\partial F_0}{\partial n_0} \nabla n_0 +
+  \frac{\partial F_0}{\partial T} \nabla T_0 \nonumber\\
+  & = & F_0 \frac{\nabla n_0}{n_0} + F_0 \left( \frac{m v^2}{2 T_0} -
+  \frac{3}{2} \right) \frac{\nabla T_0}{T_0} \nonumber\\
+  & = & - F_0 \left[ \tmmathbf{\kappa}_n + \left( \frac{m v^2}{2 T_0} -
+  \frac{3}{2} \right) \tmmathbf{\kappa}_T \right],  \label{17-7-16-2}
+\end{eqnarray}
+where $\tmmathbf{\kappa}_n = - \frac{\nabla n_0}{n_0}$, and
+$\tmmathbf{\kappa}_T = - \frac{\nabla T_0}{T_0}$. Consider the case that $F_0
+(\mathbf{X}, \varepsilon)$ is independent of $\theta$ and $\alpha$, then
+$\tmmathbf{\kappa}_n$ and $\tmmathbf{\kappa}_T $are written as
+$\tmmathbf{\kappa}_n = \kappa_n \nabla r$ and $\tmmathbf{\kappa}_T = \kappa_T
+\nabla r$, where $\kappa_n \equiv - \frac{1}{n_0}  \frac{d n_0}{d r}$,
+$\kappa_T \equiv - \frac{1}{T_0} \frac{d T_0}{d r}$, and $r$ is chosen to be
+the minor radius at the low field side.
+
+Using the above results, Eq. (\ref{17-6-21-3}) is written as
+\begin{eqnarray}
+  \frac{d \delta f^{(h)}}{d t} & = & \delta \mathbf{V}_D \cdot \nabla \psi
+  \frac{d r}{d \psi} \left[ \kappa_n + \left( \frac{m v^2}{2 T_0} -
+  \frac{3}{2} \right) \kappa_T \right] F_0 - \frac{q}{T} [(\mathbf{V}_D +
+  \delta \mathbf{V}_D) \cdot \nabla \langle \delta \Phi \rangle] F_0
+  \nonumber\\
+  & + & \frac{q}{T} [v_{\parallel} (v_{\parallel} \mathbf{e}_{\parallel}
+  +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla \langle \delta
+  A_{\parallel}^{(h)} \rangle - \langle \delta A_{\parallel}^{(h)} \rangle
+  (\mu \mathbf{e}_{\parallel} \cdot \nabla B_0)] F_0 .  \label{21-8-8-a1}
+\end{eqnarray}
+
+
+\subsubsection{Weight evolution equation}
+
+The weight of the $j \tmop{th}$ marker is defined by
+\begin{equation}
+  w_j = \delta f^{(h)}  (\mathbf{X}_j, \mathbf{v}_j, t) V_{p j 0},
+\end{equation}
+where $V_{p j 0}$ is the phase space volume occupied by the $j$th marker.
+Multiplying both sides of Eq. (\ref{21-8-8-a1}) by $V_{p j 0}$, and noting
+that $d (V_{p j 0}) / d t = 0$, we obtain
+\begin{eqnarray}
+  \frac{d w_j}{d t} & = & \delta \mathbf{V}_D \cdot \nabla \psi \frac{d r}{d
+  \psi} \left[ \kappa_n + \left( \frac{m v^2}{2 T_0} - \frac{3}{2} \right)
+  \kappa_T \right] V_{p j 0} F_0 - \frac{q}{T} [(\mathbf{V}_D + \delta
+  \mathbf{V}_D) \cdot \langle \nabla \delta \Phi \rangle] V_{p j 0} F_0 .
+  \nonumber\\
+  & + & \frac{q}{T} [v_{\parallel} (v_{\parallel} \mathbf{e}_{\parallel}
+  +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \langle \nabla \delta
+  A_{\parallel}^{(h)} \rangle - \langle \delta A_{\parallel}^{(h)} \rangle
+  (\mu \mathbf{e}_{\parallel} \cdot \nabla B_0)] V_{p j 0} F_0, 
+  \label{17-7-25-1m}
+\end{eqnarray}
+where use has been made of $\nabla \langle \delta \Phi \rangle = \langle
+\nabla \delta \Phi \rangle$ and $\nabla \langle \delta A_{\parallel}^{(h)}
+\rangle = \langle \nabla \delta A_{\parallel}^{(h)} \rangle$.
+
+\tmcolor{blue}{Note that $\nabla \equiv \partial / \partial \mathbf{X}$. Using
+$\mathbf{x}=\mathbf{X}+\mathbf{\rho}$, we obtain
+\begin{eqnarray}
+  \frac{\partial \delta \Phi_g (\mathbf{X}, \alpha, v_{\perp})}{\partial
+  \mathbf{X}} & = & \frac{\partial \delta \Phi_p (\mathbf{X}+\mathbf{\rho}
+  (\mathbf{X}, \alpha, v_{\perp}))}{\partial \mathbf{X}} \nonumber\\
+  & = & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{X}} =
+  \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{x}} \cdot
+  \frac{\partial \mathbf{x}}{\partial \mathbf{X}} \nonumber\\
+  & = & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{x}} \cdot
+  \left( 1 + \frac{\partial \mathbf{\rho}}{\partial \mathbf{X}} \right)
+  \nonumber\\
+  & \approx & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial
+  \mathbf{x}}, 
+\end{eqnarray}
+which is accurate up to $O (\lambda)$ in gyrokinetic ordering. Note that field
+values on a regular $\mathbf{X}$ grid are not available in our simulation
+because $\mathbf{X}$ is sampled by random markers rather than by a regular
+grid. This fact makes it diffcult to numerical compute $\partial / \partial
+\mathbf{X}$. Then the relation $\partial \delta \Phi_g / \partial \mathbf{X}
+\approx \partial \delta \Phi_p / \partial \mathbf{x}$, becomes useful because
+we can use $\delta \Phi$ defined on $\mathbf{x}$ grid (which is available in
+simulations) to compute \ $\partial \delta \Phi_p / \partial \mathbf{x}$ at
+$\mathbf{x}$ grid-points (using finite-difference), and then interpolate it to
+particle position. \ Similarly, we have $\partial \delta A_{\parallel g} /
+\partial \mathbf{X} \approx \partial \delta A_{\parallel p} / \partial
+\mathbf{x}$.
+
+Also note that $\langle \delta \Phi_g \rangle$ is not known on $\mathbf{X}$
+grid (it is known on random markers). So, to calculate $\partial \langle
+\delta \Phi_g \rangle / \partial \mathbf{X}$, we need to exchange the
+operation order:
+\begin{equation}
+  \frac{\delta \langle \delta \Phi_g \rangle}{\partial \mathbf{X}} = \langle
+  \frac{\partial \delta \Phi_g}{\partial \mathbf{X}} \rangle \approx \langle
+  \frac{\partial \delta \Phi_p}{\partial \mathbf{x}} \rangle .
+\end{equation}
+For notation ease, the subscripts $g$ and $p$ will be dropped in the
+following.}
+
+\subsubsection{In field-aligned coordinates}
+
+In field-aligned coordinates $(x, y, z)$, \ $\frac{\partial \delta
+\Phi}{\partial \mathbf{x}}$ can be written as
+\begin{equation}
+  \label{23-11-29-p1} \frac{\partial \delta \Phi}{\partial \mathbf{x}} =
+  \frac{\partial \delta \Phi}{\partial x} \nabla x + \frac{\partial \delta
+  \Phi}{\partial y} \nabla y + \frac{\partial \delta \Phi}{\partial z} \nabla
+  z.
+\end{equation}
+Note that the direction of $\partial \mathbf{r}/ \partial x$ at $\theta = -
+\pi$ is different from that of $\partial \mathbf{r}/ \partial x$ at $\theta =
++ \pi$. This implies that $\partial \delta \Phi / \partial x$ is a
+non-periodic function of $\theta$. Similarly, $\nabla y$ is also a
+non-perioidic functon of $\theta$. Then both $\partial \delta \Phi / \partial
+x$ and $\nabla y$ are discontinuous across the $\theta$ cut ($\theta = \pm
+\pi$).
+
+The gyro-average of expression (\ref{23-11-29-p1}) is written as
+\begin{equation}
+  \langle \frac{\partial \delta \Phi}{\partial \mathbf{x}} \rangle \approx
+  \langle \frac{\partial \delta \Phi}{\partial x} \rangle \nabla x + \langle
+  \frac{\partial \delta \Phi}{\partial y} \rangle \nabla y + \langle
+  \frac{\partial \delta \Phi}{\partial z} \rangle \nabla z,
+\end{equation}
+where we approximate $\nabla x$, $\nabla y$, and $\nabla z$ as constants when
+performing the gyro-averge since they are determined by the equilibrim
+magnetic field, which is nearly constant on the Larmor radius scale. As is
+mentioned above, $\nabla y$ is not continuous at the $\theta$ cut. Do we need
+to worry about this? We do not. This is because we must stick to the same
+branch when we perform gryo-average on it, and hence $\nabla y$ is always
+continous. Then, do we need to worry about the disconunity of $\partial \delta
+\Phi / \partial x$ across the $\theta$ cut when performing the gyro-averge on
+it? We do not either. The reason is the same: we must stick to a single
+branch. The disconunity is just irrelevant here. The discontinuity only
+manifest itself when we need to infer value on $\theta = - \pi$ from that on
+$\theta = + \pi$ (vice versa), i.e., when across branch communication is
+explicitly needed. In TEK, the field equations are not solved at $\theta = +
+\pi$ and hence the field values are not directly obtained. Instead, the field
+values at $\theta = + \pi$ are infered from the field values at $\theta = -
+\pi$ using the coninuity of $\nabla \delta \Phi$. At the $\theta$ cut, the
+continuity of $\nabla \delta \Phi$ requires
+\begin{equation}
+  \langle \frac{\partial \delta \Phi}{\partial x} \rangle^+ \nabla x + \langle
+  \frac{\partial \delta \Phi}{\partial y} \rangle \nabla y^+ = \langle
+  \frac{\partial \delta \Phi}{\partial x} \rangle^- \nabla x + \langle
+  \frac{\partial \delta \Phi}{\partial y} \rangle \nabla y^-,
+\end{equation}
+where the superscript ``+'' and ``$-$'' refer to the location $\theta = + \pi$
+and $\theta = - \pi$, respectively. Dotting the above by $\nabla x$, we obtain
+
+
+\begin{equation}
+  \langle \frac{\partial \delta \Phi}{\partial x} \rangle^+ = \langle
+  \frac{\partial \delta \Phi}{\partial x} \rangle^- + \langle \frac{\partial
+  \delta \Phi}{\partial y} \rangle \frac{\nabla y^- \cdot \nabla x - \nabla
+  y^+ \cdot \nabla x}{| \nabla x |^2},
+\end{equation}
+which is used in TEK to infer the value of $\langle \frac{\partial \delta
+\Phi}{\partial x} \rangle^+$ from that of $\langle \frac{\partial \delta
+\Phi}{\partial x} \rangle^-$.
+
+Similarly, for $\partial \delta A_{\parallel}^{(h)} / \partial \mathbf{x}$, we
+obtain:
+
+
+\begin{equation}
+  \frac{\partial \delta A_{\parallel}^{(h)}}{\partial \mathbf{x}} =
+  \frac{\partial \delta A_{\parallel}^{(h)}}{\partial x} \nabla x +
+  \frac{\partial \delta A_{\parallel}^{(h)}}{\partial y} \nabla y +
+  \frac{\partial \delta A_{\parallel}^{(h)}}{\partial z} \nabla z.
+\end{equation}
+
+\begin{equation}
+  \langle \frac{\partial \delta A_{\parallel}^{(h)}}{\partial \mathbf{x}}
+  \rangle \approx \langle \frac{\partial \delta A_{\parallel}^{(h)}}{\partial
+  x} \rangle \nabla x + \langle \frac{\partial \delta
+  A_{\parallel}^{(h)}}{\partial y} \rangle \nabla y + \langle \frac{\partial
+  \delta A_{\parallel}^{(h)}}{\partial z} \rangle \nabla z
+\end{equation}
+Using these, Eq. (\ref{17-7-25-1m}) is written as
+\begin{eqnarray}
+  \frac{d w_j}{d t} & = & \delta \mathbf{V}_D \cdot \nabla \psi \frac{d r}{d
+  \psi} \left[ \kappa_n + \left( \frac{m v^2}{2 T_0} - \frac{3}{2} \right)
+  \kappa_T \right] V_{p j 0} F_0 \nonumber\\
+  & - & \frac{q}{T} \left[ \langle \frac{\partial \delta \Phi}{\partial x}
+  \rangle \frac{d\mathbf{X}'}{d t} \cdot \nabla x + \langle \frac{\partial
+  \delta \Phi}{\partial y} \rangle \frac{d\mathbf{X}'}{d t} \cdot \nabla y +
+  \langle \frac{\partial \delta \Phi}{\partial z} \rangle
+  \frac{d\mathbf{X}'}{d t} \cdot \nabla z \right] V_{p j 0} F_0 \nonumber\\
+  & + & \frac{q}{T} v_{\parallel} \left( \langle \frac{\partial \delta
+  A_{\parallel}^{(h)}}{\partial x} \rangle \frac{d\mathbf{X}}{d t} \cdot
+  \nabla x + \langle \frac{\partial \delta A_{\parallel}^{(h)}}{\partial y}
+  \rangle \frac{d\mathbf{X}}{d t} \cdot \nabla y + \langle \frac{\partial
+  \delta A_{\parallel}^{(h)}}{\partial z} \rangle \frac{d\mathbf{X}}{d t}
+  \cdot \nabla z \right) V_{p j 0} F_0 \nonumber\\
+  & - & \frac{q}{T} \langle \delta A_{\parallel}^{(h)} \rangle (\mu
+  \mathbf{b} \cdot \nabla B_0) V_{p j 0} F_0, 
+\end{eqnarray}
+where $\frac{d\mathbf{X}}{d t} \equiv v_{\parallel} \mathbf{b}+ \mathbf{V}_D +
+\delta \mathbf{V}_D$ and $\frac{d\mathbf{X}'}{d t} \equiv \mathbf{V}_D +
+\delta \mathbf{V}_D$. Define
+\begin{equation}
+  \delta \overline{\Phi} = \frac{q_u \delta \Phi}{T_u}, \delta
+  \overline{A}_{\parallel}^{(h)} = \frac{q_u v_u \delta
+  A_{\parallel}^{(h)}}{T_u},
+\end{equation}
+Then, a typical term of the above is written as
+\begin{eqnarray*}
+  \frac{q}{T} v_{\parallel} \langle \frac{\partial \delta
+  A_{\parallel}^{(h)}}{\partial x} \rangle \frac{d\mathbf{X}}{d t} \cdot
+  \nabla x t_n & = & \frac{q}{T} \frac{T_u}{q_u v_u} v_n
+  \overline{v}_{\parallel} \langle \frac{\partial \delta
+  \overline{A}_{\parallel}^{(h)}}{\partial x} \rangle \frac{d
+  \overline{\mathbf{X}}}{d \overline{t}} \cdot \overline{\nabla} x\\
+  & = & \frac{q / q_u}{T / T_u} \frac{v_n}{v_u} \overline{v}_{\parallel}
+  \langle \frac{\partial \delta \overline{A}_{\parallel}^{(h)}}{\partial x}
+  \rangle \frac{d \overline{\mathbf{X}}}{d \overline{t}} \cdot
+  \overline{\nabla} x,
+\end{eqnarray*}
+where $\frac{q / q_u}{T / T_u} \frac{v_n}{v_u}$ is the normlizing factor
+needed when coding. The mirror force term:
+\begin{eqnarray}
+  \frac{q}{T} \langle \delta A_{\parallel}^{(h)} \rangle (\mu \mathbf{b} \cdot
+  \nabla B_0) t_n & = & \frac{q}{T} \frac{T_u}{q_u v_u} \frac{B_n \mu_n}{L_n}
+  \langle \delta \overline{A}_{\parallel}^{(h)} \rangle (\overline{\mu}
+  \mathbf{b} \cdot \overline{\nabla} \overline{B}_0) t_n \\
+  & = & \frac{q / q_u}{T / T_u} \frac{1}{v_u} \frac{B_n v_n^2}{L_n B_n}
+  \langle \delta \overline{A}_{\parallel}^{(h)} \rangle (\overline{\mu}
+  \mathbf{b} \cdot \overline{\nabla} \overline{B}_0) t_n \nonumber\\
+  & = & \frac{q / q_u}{T / T_u} \frac{v_n}{v_u} \langle \delta
+  \overline{A}_{\parallel}^{(h)} \rangle (\overline{\mu} \mathbf{b} \cdot
+  \overline{\nabla} \overline{B}_0) \nonumber
+\end{eqnarray}
+where $\frac{q / q_u}{T / T_u} \frac{v_n}{v_u}$ is the normlizing factor
+needed when coding.
+
+The pullback:
+\begin{eqnarray*}
+  \frac{q}{m} \langle v_{\parallel} \delta A_{\parallel}^{(h)} \rangle
+  \frac{\partial F_0}{\partial \varepsilon} V_p & = & \frac{q}{m} \langle
+  v_{\parallel} \delta A_{\parallel}^{(h)} \rangle \left( - \frac{m}{T}
+  \right) F_0 V_p\\
+  & \approx & - \frac{q}{T} v_{\parallel} \langle \delta A_{\parallel}^{(h)}
+  \rangle F_0 V_p\\
+  & = & - \frac{q / q_u}{T / T_u} \frac{v_{\parallel}}{v_u} \langle \delta
+  \overline{A}_{\parallel}^{(h)} \rangle F_0 V_p
+\end{eqnarray*}
+The $\delta \mathbf{E} \times \mathbf{B}_0$ drift term is written as
+\begin{eqnarray*}
+  - \frac{\langle \frac{\partial \delta \Phi}{\partial \mathbf{x}} \rangle
+  \times \mathbf{B}_0}{B_0^2} & = & - \frac{1}{B_0^2} \left( \langle
+  \frac{\partial \delta \Phi}{\partial x} \rangle \nabla x + \langle
+  \frac{\partial \delta \Phi}{\partial y} \rangle \nabla y + \langle
+  \frac{\partial \delta \Phi}{\partial z} \rangle \nabla z \right) \times
+  \mathbf{B}_0\\
+  & = & - \langle \frac{\partial \delta \Phi}{\partial x} \rangle
+  \frac{1}{B_0^2} \nabla x \times \mathbf{B}_0 - \langle \frac{\partial \delta
+  \Phi}{\partial y} \rangle \frac{1}{B_0^2} \nabla y \times \mathbf{B}_0 -
+  \langle \frac{\partial \delta \Phi}{\partial z} \rangle \frac{1}{B_0^2}
+  \nabla z \times \mathbf{B}_0 .
+\end{eqnarray*}
+The $\nabla x$, $\nabla y$, and $\nabla z$ components of the above expression
+are written as
+\begin{eqnarray}
+  - \frac{\langle \frac{\partial \delta \Phi}{\partial \mathbf{x}} \rangle
+  \times \mathbf{B}_0}{B_0^2} \cdot \nabla x & = & - \langle \frac{\partial
+  \delta \Phi}{\partial y} \rangle \frac{1}{B_0^2} \nabla y \times
+  \mathbf{B}_0 \cdot \nabla x - \langle \frac{\partial \delta \Phi}{\partial
+  z} \rangle \frac{1}{B_0^2} \nabla z \times \mathbf{B}_0 \cdot \nabla x
+  \nonumber\\
+  & = & - \langle \frac{\partial \delta \Phi}{\partial y} \rangle
+  \frac{1}{B_0^2} \nabla x \times \nabla y \cdot \mathbf{B}_0 - \langle
+  \frac{\partial \delta \Phi}{\partial z} \rangle \frac{1}{B_0^2} \nabla x
+  \times \nabla z \cdot \mathbf{B}_0 . 
+\end{eqnarray}
+
+\begin{eqnarray}
+  - \frac{\langle \frac{\partial \delta \Phi}{\partial \mathbf{x}} \rangle
+  \times \mathbf{B}_0}{B_0^2} \cdot \nabla y & = & - \langle \frac{\partial
+  \delta \Phi}{\partial x} \rangle \frac{1}{B_0^2} \nabla x \times
+  \mathbf{B}_0 \cdot \nabla y - \langle \frac{\partial \delta \Phi}{\partial
+  z} \rangle \frac{1}{B_0^2} \nabla z \times \mathbf{B}_0 \cdot \nabla y
+  \nonumber\\
+  & = & \langle \frac{\partial \delta \Phi}{\partial x} \rangle
+  \frac{1}{B_0^2} \nabla x \times \nabla y \cdot \mathbf{B}_0 - \langle
+  \frac{\partial \delta \Phi}{\partial z} \rangle \frac{1}{B_0^2} \nabla y
+  \times \nabla z \cdot \mathbf{B}_0 
+\end{eqnarray}
+
+\begin{eqnarray}
+  - \frac{\langle \frac{\partial \delta \Phi}{\partial \mathbf{x}} \rangle
+  \times \mathbf{B}_0}{B_0^2} \cdot \nabla z & = & - \langle \frac{\partial
+  \delta \Phi}{\partial x} \rangle \frac{1}{B_0^2} \nabla x \times
+  \mathbf{B}_0 \cdot \nabla z - \langle \frac{\partial \delta \Phi}{\partial
+  y} \rangle \frac{1}{B_0^2} \nabla y \times \mathbf{B}_0 \cdot \nabla z
+  \nonumber\\
+  & = & \langle \frac{\partial \delta \Phi}{\partial x} \rangle
+  \frac{1}{B_0^2} \nabla x \times \nabla z \cdot \mathbf{B}_0 + \langle
+  \frac{\partial \delta \Phi}{\partial y} \rangle \frac{1}{B_0^2} \nabla y
+  \times \nabla z \cdot \mathbf{B}_0 
+\end{eqnarray}
+
+
+Using
+\begin{equation}
+  \frac{d x}{d t} =\mathbf{V}_G \cdot \nabla x,
+\end{equation}
+i.e.,
+\begin{equation}
+  \frac{d x}{d \overline{t}} = t_n \mathbf{V}_G \cdot \nabla x
+\end{equation}
+To get the normalizing factor, consider only the contribution from $E \times
+B$ drift. Then a typical term is written as
+\begin{eqnarray}
+  \frac{d x}{d \overline{t}} & = & - t_n \langle \frac{\partial \delta
+  \Phi}{\partial y} \rangle \frac{1}{B_0^2} \nabla x \times \nabla y \cdot
+  \mathbf{B}_0 \nonumber\\
+  & = & - \frac{T_u}{q_u} \frac{t_n}{B_n L_n^2} \langle \frac{\partial \delta
+  \overline{\Phi}}{\partial y} \rangle \frac{1}{\overline{B}_0^2}
+  \overline{\nabla} x \times \overline{\nabla} y \cdot \overline{\mathbf{B}}_0
+  \nonumber\\
+  & = & - \frac{T_u}{q_u} \frac{1}{B_n v_n L_n} \langle \frac{\partial \delta
+  \overline{\Phi}}{\partial y} \rangle \frac{1}{\overline{B}_0^2}
+  \overline{\nabla} x \times \overline{\nabla} y \cdot
+  \overline{\mathbf{B}}_0, 
+\end{eqnarray}
+where $T_u / (q_u v_n B_n L_n)$ is the normlizing factor we need when coding.
+
+The magnetic fluttering term is written as
+\begin{eqnarray*}
+  - \frac{v_{\parallel}}{B_0} \langle \mathbf{b} \times \nabla_{\mathbf{x}}
+  (\delta A_{\parallel}) \rangle & = & - \frac{v_{\parallel}}{B_0}
+  \left\langle \mathbf{b} \times \left( \frac{\partial \delta
+  A_{\parallel}}{\partial x} \nabla x + \frac{\partial \delta
+  A_{\parallel}}{\partial y} \nabla y + \frac{\partial \delta
+  A_{\parallel}}{\partial z} \nabla z \right) \right\rangle\\
+  & \approx & - \frac{v_{\parallel}}{B_0} \mathbf{b} \times \left( \langle
+  \frac{\partial \delta A_{\parallel}}{\partial x} \rangle \nabla x + \langle
+  \frac{\partial \delta A_{\parallel}}{\partial y} \rangle \nabla y + \langle
+  \frac{\partial \delta A_{\parallel}}{\partial z} \rangle \nabla z \right)
+\end{eqnarray*}
+The $\nabla x$, $\nabla y$, and $\nabla z$ components of the above expression
+are written as
+\begin{eqnarray}
+  - \frac{v_{\parallel}}{B_0} \langle \mathbf{b} \times \nabla_{\mathbf{x}}
+  (\delta A_{\parallel}) \rangle \cdot \nabla x & = & -
+  \frac{v_{\parallel}}{B_0} \mathbf{b} \times \left( \langle \frac{\partial
+  \delta A_{\parallel}}{\partial y} \rangle \nabla y + \langle \frac{\partial
+  \delta A_{\parallel}}{\partial z} \rangle \nabla z \right) \cdot \nabla x
+  \nonumber\\
+  & = & \frac{v_{\parallel}}{B_0^2} \left( \langle \frac{\partial \delta
+  A_{\parallel}}{\partial y} \rangle \nabla x \times \nabla y + \langle
+  \frac{\partial \delta A_{\parallel}}{\partial z} \rangle \nabla x \times
+  \nabla z \right) \cdot \mathbf{B}_0 
+\end{eqnarray}
+\begin{eqnarray}
+  - \frac{v_{\parallel}}{B_0} \langle \mathbf{b} \times \nabla_{\mathbf{x}}
+  (\delta A_{\parallel}) \rangle \cdot \nabla y & = & -
+  \frac{v_{\parallel}}{B_0} \mathbf{b} \times \left( \langle \frac{\partial
+  \delta A_{\parallel}}{\partial x} \rangle \nabla x + \langle \frac{\partial
+  \delta A_{\parallel}}{\partial z} \rangle \nabla z \right) \cdot \nabla y
+  \nonumber\\
+  & = & \frac{v_{\parallel}}{B_0^2} \left( \langle \frac{\partial \delta
+  A_{\parallel}}{\partial x} \rangle \nabla y \times \nabla x + \langle
+  \frac{\partial \delta A_{\parallel}}{\partial z} \rangle \nabla y \times
+  \nabla z \right) \cdot \mathbf{B}_0 
+\end{eqnarray}
+\begin{eqnarray}
+  - \frac{v_{\parallel}}{B_0} \langle \mathbf{b} \times \nabla_{\mathbf{x}}
+  (\delta A_{\parallel}) \rangle \cdot \nabla z & = & -
+  \frac{v_{\parallel}}{B_0} \mathbf{b} \times \left( \langle \frac{\partial
+  \delta A_{\parallel}}{\partial x} \rangle \nabla x + \langle \frac{\partial
+  \delta A_{\parallel}}{\partial y} \rangle \nabla y \right) \cdot \nabla z
+  \nonumber\\
+  & = & \frac{v_{\parallel}}{B_0^2} \left( \langle \frac{\partial \delta
+  A_{\parallel}}{\partial x} \rangle \nabla z \times \nabla x + \langle
+  \frac{\partial \delta A_{\parallel}}{\partial y} \rangle \nabla z \times
+  \nabla y \right) \cdot \mathbf{B}_0 
+\end{eqnarray}
+
+
+Also to get the normalizing factor needed in the code, consider a typical
+term:
+\begin{eqnarray}
+  \frac{d x}{d \overline{t}} & = & t_n \frac{v_{\parallel}}{B_0^2} \langle
+  \frac{\partial \delta A_{\parallel}}{\partial y} \rangle \nabla x \times
+  \nabla y \cdot \mathbf{B}_0 \nonumber\\
+  & = & \frac{T_u}{q_u v_u} t_n \frac{v_n}{L_n^2 B_n}
+  \frac{\overline{v}_{\parallel}}{\overline{B}_0^2} \langle \frac{\partial
+  \delta \overline{A}_{\parallel}}{\partial y} \rangle \overline{\nabla} x
+  \times \overline{\nabla} y \cdot \overline{\mathbf{B}}_0 \nonumber\\
+  & = & \frac{T_u}{q_u v_u} \frac{1}{L_n B_n}
+  \frac{\overline{v}_{\parallel}}{\overline{B}_0^2} \langle \frac{\partial
+  \delta \overline{A}_{\parallel}}{\partial y} \rangle \overline{\nabla} x
+  \times \overline{\nabla} y \cdot \overline{\mathbf{B}}_0 
+\end{eqnarray}
+
+
+where $T_u / (q_u v_u B_n L_n)$ is the normlizing factor I need when coding.
+
+The basic terms involved in the above expressions can be written as
+\begin{equation}
+  (\nabla x \times \nabla y) \cdot \mathbf{B}_0 = \frac{B_0^2}{\Psi'},
+\end{equation}
+
+\begin{equation}
+  (\nabla x \times \nabla z) \cdot \mathbf{B}_0 = \left( \frac{\partial
+  x}{\partial Z} \frac{\partial z}{\partial R} - \frac{\partial x}{\partial R}
+  \frac{\partial z}{\partial Z} \right) B_{\phi} \equiv W 14
+\end{equation}
+
+
+
+\begin{equation}
+  (\nabla y \times \nabla z) \cdot \mathbf{B}_0 = \overline{B}_R \left(
+  \frac{1}{R}  \frac{\partial \alpha}{\partial \phi} \frac{\partial
+  \theta}{\partial Z} \right) + \overline{B}_{\phi} \left( \frac{\partial
+  \alpha}{\partial Z} \frac{\partial \theta}{\partial R} - \frac{\partial
+  \alpha}{\partial R} \frac{\partial \theta}{\partial Z} \right) +
+  \overline{B}_Z \left( - \frac{1}{R}  \frac{\partial \alpha}{\partial \phi}
+  \frac{\partial \theta}{\partial R} \right) \equiv W 15
+\end{equation}
+
+
+\
+
+\
+
+\
+
+\
 
 In terms of $\delta A_{\parallel}^{(h)}$, the Ampere's law is written as
 \begin{equation}
@@ -1900,21 +2319,22 @@ In terms of $\delta A_{\parallel}^{(h)}$, the Ampere's law is written as
   J_{|| s}^{(h)} + \nabla^2_{\perp} \delta A_{\parallel}^{(s)},
 \end{equation}
 where $\delta J_{|| s}^{(h)}$ is the parallel current carried by the
-distrbution funciton $\delta f^{(h)}_s$, where $s$ is species index. Here
-$\delta A_{\parallel}^{(s)}$ has been moved to the right-hand side since its
-value is already known when we solve the Ampere's law for $\delta
-A_{\parallel}^{(h)}$.
+distrbution funciton $\delta f^{(h)}_s$, where the subscript $s$ is species
+index (do not confuse it with the superscript $s$ of $\delta
+A_{\parallel}^{(s)}$). Here $\delta A_{\parallel}^{(s)}$ has been moved to the
+right-hand side since its value is already known when we solve the Ampere's
+law for $\delta A_{\parallel}^{(h)}$.
 
 Compared with the $p_{\parallel}$ formulation, the improvement of the above
 procedure is that a part of $\delta A_{\parallel}$ is solved from an evolution
-equation (user's choice) and the remainder is solved from the Ampere's law. We
-hope that the former is the dominant part of $\delta A_{\parallel}$ so that
-the remainder solved from the Ampere's law is small and hence the cancellation
-problem of the Ampere's law become less significant. While a wise choice of
-the evolution equation for $\delta A_{\parallel}^{(s)}$ may help ensure that
-$\delta A_{\parallel}^{(s)}$ remain dominant over the entire simulation
-duration, we have a simple and efficient way to make $\delta
-A_{\parallel}^{(s)}$ remain dominant: collect both $\delta
+equation (which is chosen by some physical consideration) and the remainder is
+solved from the Ampere's law. We hope that the former is the dominant part of
+$\delta A_{\parallel}$ so that the remainder solved from the Ampere's law is
+small and hence the cancellation problem (of the Ampere's law) become less
+significant. While a wise choice of the evolution equation for $\delta
+A_{\parallel}^{(s)}$ may help ensure that $\delta A_{\parallel}^{(s)}$ remain
+dominant over the entire simulation duration, we have another simple way to
+make $\delta A_{\parallel}^{(s)}$ remain dominant: collect both $\delta
 A_{\parallel}^{(s)}$ and $\delta A_{\parallel}^{(h)}$ into $\delta
 A_{\parallel}^{(s)}$ at the end of each time step:
 \begin{equation}
@@ -1922,7 +2342,7 @@ A_{\parallel}^{(s)}$ at the end of each time step:
   \nobracket \tmop{old}}^{(s)} + \delta A_{\| \nobracket \tmop{old}}^{(h)} .
 \end{equation}
 Then, to make $\delta A_{\parallel}$ untouched (so that electromagnetic field
-remain unchanged), we need set $\delta A_{\parallel}^{(h)}$ to zero:
+remain unchanged), we set $\delta A_{\parallel}^{(h)}$ to zero:
 \begin{equation}
   \label{23-11-16-p4} \delta A_{\| \nobracket \tmop{new}}^{(h)} = 0.
 \end{equation}
@@ -1958,47 +2378,52 @@ Define
   v_u \delta A_{\parallel}^{(s)}}{T_u}, \delta \overline{J}_{|| s}^{(h)} =
   \frac{\delta J_{\parallel s}^{(s)}}{n_u q_u v_{n s}},
 \end{equation}
-where $q_u, n_u, T_u, m_u, v_u$ are chosen units, $v_{n s}$ is a velocity
-unit, whose value is different among different species. Then the Ampere's law
-(\ref{23-12-4-1}) is written as
+where $q_u, n_u, T_u, v_u$ are chosen units, $v_{n s}$ is a velocity unit for
+a species, whose value is different among different species [$v_{n s} = L_n /
+(2 \pi / (B_n | q_s | / m_s))$]. In \tmtexttt{TEK}, $v_u$ is chosen as $v_{n
+s}$ of the first ion species.
+
+Then the Ampere's law (\ref{23-12-4-1}) is written as
 \begin{equation}
   \left( \sum_s \frac{\omega_{p s}^2}{c^2} - \nabla^2_{\perp} \right) \delta
   \overline{A}_{\parallel}^{(h)} = \frac{\omega_{p u}^2}{T_u / m_u}
   \frac{v_u^2}{c^2} \sum_s \frac{v_{n s}}{v_u} \delta \overline{J}_{||
   s}^{(h)} + \nabla^2_{\perp} \delta \overline{A}_{\parallel}^{(s)},
 \end{equation}
-where use has been made of $\mu_0 = 1 / (c^2 \varepsilon_0)$ and $\omega_{p
-u}^2 = n_u q_u^2 / (m_u \varepsilon_0)$.
+where $\omega_{p u}^2 = n_u q_u^2 / (m_u \varepsilon_0)$, $m_u$ is a mass
+unit, and use has been made of $\mu_0 = 1 / (c^2 \varepsilon_0)$.
 
-$\delta f$ pullback:
-\begin{eqnarray*}
+$\delta f$ pullback in Eq. (\ref{23-11-16-p5}) is now written as (for the case
+of $F_0$ being Maxwellian):
+\begin{eqnarray}
   \delta f^{(h)}_{\tmop{new}} & = & \delta f^{(h)}_{\tmop{old}} + \frac{q}{m}
   \langle v_{\parallel} \delta A_{\parallel \tmop{old}}^{(h)} \rangle_{\alpha}
-  \left( - \frac{m}{T} \right) F_0\\
+  \left( - \frac{m}{T} \right) F_0 \nonumber\\
   & = & f^{(h)}_{\tmop{old}} - \frac{q}{T} \langle v_{\parallel} \delta
-  A_{\parallel \tmop{old}}^{(h)} \rangle_{\alpha} F_0\\
+  A_{\parallel \tmop{old}}^{(h)} \rangle_{\alpha} F_0 \nonumber\\
   & = & f^{(h)}_{\tmop{old}} - \frac{\overline{q}}{\overline{T}}
   \overline{v}_{\parallel} \frac{v_n}{v_u} \langle \delta
-  \overline{A}_{\parallel \tmop{old}}^{(h)} \rangle_{\alpha} F_0
-\end{eqnarray*}
-In terms of units used in TEK, Eq. (\ref{23-11-16-2}) is written as
+  \overline{A}_{\parallel \tmop{old}}^{(h)} \rangle_{\alpha} F_0 
+\end{eqnarray}
+In terms of units used in \tmtexttt{TEK}, Eq. (\ref{23-11-16-2}) is written as
 
 
 \[ \frac{\partial \delta \overline{A}_{\parallel}^{(s)}}{\partial
-   \overline{t}} \frac{T_u}{q_u v_{n i}}  \frac{1}{t_{n i}} = - \frac{T_u}{q_u
-   L_n} \mathbf{b} \cdot \overline{\nabla} \delta \Phi, \]
-where $v_{n i}$ and $t_{n i}$ are units of velocity and time for the main ion
-species. Then the above equation is written as
+   \overline{t}} \frac{T_u}{q_u v_u}  \frac{1}{t_u} = - \frac{T_u}{q_u L_n}
+   \mathbf{b} \cdot \overline{\nabla} \delta \overline{\Phi}, \]
+where $\overline{t} = t / t_u$, $t_u = L_n / v_u$. Then the above equation is
+written as
 \begin{equation}
   \frac{\partial \delta \overline{A}_{\parallel}^{(s)}}{\partial \overline{t}}
-  = -\mathbf{b} \cdot \overline{\nabla} \delta \Phi,
+  = -\mathbf{b} \cdot \overline{\nabla} \delta \overline{\Phi},
 \end{equation}
 i.e.,
 \begin{equation}
   \frac{\partial \delta \overline{A}_{\parallel}^{(s)}}{\partial \overline{t}}
   = - (\mathbf{b} \cdot \overline{\nabla} z) \frac{\partial \delta
-  \Phi}{\partial z} .
+  \overline{\Phi}}{\partial z} .
 \end{equation}
+
 
 \subsection{Discretizing Laplacian operator }
 
@@ -3759,9 +4184,7 @@ left-handed system. The field-line-following coordinate system $(\psi, \theta,
   \tmtexttt{radcor\_1d\_array2(1:n)}, equilibrium is defined on the former
   grid, and perturbations are defined on the latter grid.
   Here $\tmop{nt} = n + 2 m$, $m$ is the number of grid points in one of the
-  two buffer regions (regions in blue color).
-  
-  In the code $n$ is denoted by \tmtexttt{nflux2} and $\tmop{nt}$ is denoted
+  two buffer regions (regions in blue color). In the code $n$ is denoted by \tmtexttt{nflux2} and $\tmop{nt}$ is denoted
   by \tmtexttt{nflux}, $m$ is denoted by \tmtexttt{points\_in\_buffer}. In
   \tmtexttt{GEM} the radial array does no include the buffer regions and the
   index starts at \tmtexttt{0} and ends at \tmtexttt{imx}. Hence
@@ -5352,8 +5775,8 @@ To derive the Frieman-Chen equation, you just need some patience.
 \section{About this document}
 
 These notes were initially written when I visited University of Colorado at
-Boulder (Sept.-Nov. 2016), where I worked with Dr. Yang Chen, who pointed out
-that most gyrokinetic simulations essentially employ Frieman-Chen's nonlinear
+Boulder (Sept.-Nov. 2016), where I worked with Dr. Yang Chen, who said that
+most gyrokinetic simulations essentially employ Frieman-Chen's nonlinear
 gyrokinetic equation. Therefore a careful re-derivation of the equation to get
 familiar to the gyrokinetic orderings and physics included in the model is
 highly desirable, which motivates me to write this note.

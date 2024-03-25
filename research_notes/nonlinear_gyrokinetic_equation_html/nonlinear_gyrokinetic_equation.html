@@ -32,7 +32,7 @@ class="cmr-12">Institute of Plasma Physics, Chinese Academy of Sciences</span>
 <br />                 <span 
 class="cmr-12">Email: yjhu@ipp.cas.cn </span></div><br />
 <div class="date" ><span 
-class="cmr-12">January 2, 2024</span></div>
+class="cmr-12">March 25, 2024</span></div>
    </div>
    <div 
 class="abstract" 
@@ -64,8 +64,6 @@ href="nonlinear_gyrokinetic_equationse1.html#x2-10001" id="QQ2-2-1">Introduction
 href="nonlinear_gyrokinetic_equationse1.html#x2-20001.1" id="QQ2-2-2">Gyrokinetic?</a></span>
 <br />    <span class="subsectionToc" >1.2 <a 
 href="nonlinear_gyrokinetic_equationse1.html#x2-30001.2" id="QQ2-2-3">Guiding-center coordinates: a simple example</a></span>
-<br />    <span class="subsectionToc" >1.3 <a 
-href="nonlinear_gyrokinetic_equationse1.html#x2-40001.3" id="QQ2-2-4">Gyro-averaging</a></span>
 <br />   <span class="sectionToc" >2 <a 
 href="nonlinear_gyrokinetic_equationse2.html#x3-50002" id="QQ2-3-5">Transform Vlasov equation from particle coordinates to guiding-center coordinates</a></span>
 <br />    <span class="subsectionToc" >2.1 <a 
@@ -89,11 +87,11 @@ href="nonlinear_gyrokinetic_equationse3.html#x4-140003" id="QQ2-4-14"><span
 class="cmmi-10">δf </span>form of Vlasov equation in guiding-center variables</a></span>
 <br />    <span class="subsectionToc" >3.1 <a 
 href="nonlinear_gyrokinetic_equationse3.html#x4-150003.1" id="QQ2-4-15">Electromagnetic ﬁeld perturbation</a></span>
+<br />    <span class="subsectionToc" >3.2 <a 
+href="nonlinear_gyrokinetic_equationse3.html#x4-160003.2" id="QQ2-4-16">Distribution function perturbation</a></span>
                                                                                 
 
                                                                                 
-<br />    <span class="subsectionToc" >3.2 <a 
-href="nonlinear_gyrokinetic_equationse3.html#x4-160003.2" id="QQ2-4-16">Distribution function perturbation</a></span>
 <br />    <span class="subsectionToc" >3.3 <a 
 href="nonlinear_gyrokinetic_equationse3.html#x4-170003.3" id="QQ2-4-17">Gyrokinetic ordering</a></span>
 <br />    <span class="subsectionToc" >3.4 <a 
@@ -130,11 +128,13 @@ class="cmsy-10">⟩</span><sub><span
 class="cmmi-7">α</span></sub><span 
 class="cmmi-10">∕∂t </span>term on the right-hand side of GK equation</a></span>
 <br />    <span class="subsectionToc" >4.3 <a 
-href="nonlinear_gyrokinetic_equationse4.html#x5-340004.3" id="QQ2-5-34">Discretizing Laplacian operator </a></span>
+href="nonlinear_gyrokinetic_equationse4.html#x5-330004.3" id="QQ2-5-33">Mixed-variable pullback method[4]</a></span>
 <br />    <span class="subsectionToc" >4.4 <a 
-href="nonlinear_gyrokinetic_equationse4.html#x5-350004.4" id="QQ2-5-35">Summary of distribution function split</a></span>
+href="nonlinear_gyrokinetic_equationse4.html#x5-360004.4" id="QQ2-5-36">Discretizing Laplacian operator </a></span>
 <br />    <span class="subsectionToc" >4.5 <a 
-href="nonlinear_gyrokinetic_equationse4.html#x5-360004.5" id="QQ2-5-36">Velocity space moment of <img 
+href="nonlinear_gyrokinetic_equationse4.html#x5-370004.5" id="QQ2-5-37">Summary of distribution function split</a></span>
+<br />    <span class="subsectionToc" >4.6 <a 
+href="nonlinear_gyrokinetic_equationse4.html#x5-380004.6" id="QQ2-5-38">Velocity space moment of <img 
 src="nonlinear_gyrokinetic_equation0x.png" alt="-q
 m"  class="frac" align="middle" /><span 
 class="cmsy-10">⟨</span><span 
@@ -147,43 +147,43 @@ class="cmmi-7">α</span></sub><img
 src="nonlinear_gyrokinetic_equation1x.png" alt="∂F0
 ∂𝜀"  class="frac" align="middle" /></a></span>
 <br />   <span class="sectionToc" >5 <a 
-href="nonlinear_gyrokinetic_equationse5.html#x6-370005" id="QQ2-6-37">Parallel Ampere’s Law</a></span>
+href="nonlinear_gyrokinetic_equationse5.html#x6-390005" id="QQ2-6-39">Parallel Ampere’s Law</a></span>
 <br />   <span class="sectionToc" >6 <a 
-href="nonlinear_gyrokinetic_equationse6.html#x7-380006" id="QQ2-7-38">Poisson’s equation and polarization density</a></span>
+href="nonlinear_gyrokinetic_equationse6.html#x7-400006" id="QQ2-7-40">Poisson’s equation and polarization density</a></span>
 <br />    <span class="subsectionToc" >6.1 <a 
-href="nonlinear_gyrokinetic_equationse6.html#x7-390006.1" id="QQ2-7-39">Discussion on cancellation scheme</a></span>
+href="nonlinear_gyrokinetic_equationse6.html#x7-410006.1" id="QQ2-7-41">Discussion on cancellation scheme</a></span>
 <br />   <span class="sectionToc" >7 <a 
-href="nonlinear_gyrokinetic_equationse7.html#x8-400007" id="QQ2-8-40">Polarization density expressed as local Fourier expansion</a></span>
+href="nonlinear_gyrokinetic_equationse7.html#x8-420007" id="QQ2-8-42">Polarization density expressed as local Fourier expansion</a></span>
 <br />    <span class="subsectionToc" >7.1 <a 
-href="nonlinear_gyrokinetic_equationse7.html#x8-410007.1" id="QQ2-8-41">Gyro-averaging of <span 
+href="nonlinear_gyrokinetic_equationse7.html#x8-430007.1" id="QQ2-8-43">Gyro-averaging of <span 
 class="cmmi-10">δ</span>Φ in guiding-center coordinates</a></span>
 <br />    <span class="subsectionToc" >7.2 <a 
-href="nonlinear_gyrokinetic_equationse7.html#x8-420007.2" id="QQ2-8-42">Gryo-angle integration in particle coordinates</a></span>
+href="nonlinear_gyrokinetic_equationse7.html#x8-440007.2" id="QQ2-8-44">Gryo-angle integration in particle coordinates</a></span>
 <br />    <span class="subsectionToc" >7.3 <a 
-href="nonlinear_gyrokinetic_equationse7.html#x8-470007.3" id="QQ2-8-47">Pade approximation</a></span>
+href="nonlinear_gyrokinetic_equationse7.html#x8-490007.3" id="QQ2-8-49">Pade approximation</a></span>
 <br />   <span class="sectionToc" >8 <a 
-href="nonlinear_gyrokinetic_equationse8.html#x9-500008" id="QQ2-9-51">Polarization density matrix obtained by numerically integrating in phase
+href="nonlinear_gyrokinetic_equationse8.html#x9-520008" id="QQ2-9-53">Polarization density matrix obtained by numerically integrating in phase
 space using grid</a></span>
 <br />    <span class="subsectionToc" >8.1 <a 
-href="nonlinear_gyrokinetic_equationse8.html#x9-510008.1" id="QQ2-9-52">Direct evaluation of the double gyrophase integration</a></span>
+href="nonlinear_gyrokinetic_equationse8.html#x9-530008.1" id="QQ2-9-54">Direct evaluation of the double gyrophase integration</a></span>
 <br />    <span class="subsectionToc" >8.2 <a 
-href="nonlinear_gyrokinetic_equationse8.html#x9-520008.2" id="QQ2-9-54">Performing the parallel velocity integration</a></span>
+href="nonlinear_gyrokinetic_equationse8.html#x9-540008.2" id="QQ2-9-56">Performing the parallel velocity integration</a></span>
 <br />    <span class="subsectionToc" >8.3 <a 
-href="nonlinear_gyrokinetic_equationse8.html#x9-530008.3" id="QQ2-9-55">Toroidal DFT of polarization density in ﬁeld-aligned coordinates</a></span>
+href="nonlinear_gyrokinetic_equationse8.html#x9-550008.3" id="QQ2-9-57">Toroidal DFT of polarization density in ﬁeld-aligned coordinates</a></span>
 <br />    <span class="subsectionToc" >8.4 <a 
-href="nonlinear_gyrokinetic_equationse8.html#x9-540008.4" id="QQ2-9-56">Using MC integration, to be continued, not necessary</a></span>
+href="nonlinear_gyrokinetic_equationse8.html#x9-560008.4" id="QQ2-9-58">Using MC integration, to be continued, not necessary</a></span>
 <br />   <span class="sectionToc" >A <a 
-href="nonlinear_gyrokinetic_equationse9.html#x10-55000A" id="QQ2-10-57">Adiabatic electron response</a></span>
+href="nonlinear_gyrokinetic_equationse9.html#x10-57000A" id="QQ2-10-59">Adiabatic electron response</a></span>
 <br />    <span class="subsectionToc" >A.1 <a 
-href="nonlinear_gyrokinetic_equationse9.html#x10-56000A.1" id="QQ2-10-58">Poisson’s equation with adiabatic electron response</a></span>
+href="nonlinear_gyrokinetic_equationse9.html#x10-58000A.1" id="QQ2-10-60">Poisson’s equation with adiabatic electron response</a></span>
 <br />   <span class="sectionToc" >B <a 
-href="nonlinear_gyrokinetic_equationse10.html#x11-57000B" id="QQ2-11-59">Characteristic curves of Frieman-Chen nonlinear gyrokinetic equation</a></span>
+href="nonlinear_gyrokinetic_equationse10.html#x11-59000B" id="QQ2-11-61">Characteristic curves of Frieman-Chen nonlinear gyrokinetic equation</a></span>
 <br />    <span class="subsectionToc" >B.1 <a 
-href="nonlinear_gyrokinetic_equationse10.html#x11-58000B.1" id="QQ2-11-60">Time evolution equation for <span 
+href="nonlinear_gyrokinetic_equationse10.html#x11-60000B.1" id="QQ2-11-62">Time evolution equation for <span 
 class="cmbx-10">v</span><sub><span 
 class="cmsy-7">∥</span></sub></a></span>
 <br />   <span class="sectionToc" >C <a 
-href="nonlinear_gyrokinetic_equationse11.html#x12-59000C" id="QQ2-12-61">From (<span 
+href="nonlinear_gyrokinetic_equationse11.html#x12-61000C" id="QQ2-12-63">From (<span 
 class="cmmi-10">δ</span>Φ<span 
 class="cmmi-10">,δ</span><span 
 class="cmbx-10">A</span>) to (<span 
@@ -192,144 +192,81 @@ class="cmbx-10">E</span><span
 class="cmmi-10">,δ</span><span 
 class="cmbx-10">B</span>)</a></span>
 <br />    <span class="subsectionToc" >C.1 <a 
-href="nonlinear_gyrokinetic_equationse11.html#x12-60000C.1" id="QQ2-12-62">Expression of <span 
+href="nonlinear_gyrokinetic_equationse11.html#x12-62000C.1" id="QQ2-12-64">Expression of <span 
 class="cmmi-10">δB</span><sub><span 
 class="cmsy-7">⊥</span></sub> in terms of <span 
 class="cmmi-10">δA</span></a></span>
 <br />    <span class="subsectionToc" >C.2 <a 
-href="nonlinear_gyrokinetic_equationse11.html#x12-62000C.2" id="QQ2-12-64">Expression of <span 
+href="nonlinear_gyrokinetic_equationse11.html#x12-64000C.2" id="QQ2-12-66">Expression of <span 
 class="cmmi-10">δB</span><sub><span 
 class="cmsy-7">∥</span></sub> in terms of <span 
 class="cmmi-10">δA</span></a></span>
 <br />    <span class="subsectionToc" >C.3 <a 
-href="nonlinear_gyrokinetic_equationse11.html#x12-63000C.3" id="QQ2-12-65">Expressing the perturbed drift in terms of <span 
+href="nonlinear_gyrokinetic_equationse11.html#x12-65000C.3" id="QQ2-12-67">Expressing the perturbed drift in terms of <span 
 class="cmmi-10">δE </span>and <span 
 class="cmmi-10">δB</span></a></span>
 <br />    <span class="subsectionToc" >C.4 <a 
-href="nonlinear_gyrokinetic_equationse11.html#x12-64000C.4" id="QQ2-12-66">Expressing the coeﬃcient before <span 
+href="nonlinear_gyrokinetic_equationse11.html#x12-66000C.4" id="QQ2-12-68">Expressing the coeﬃcient before <span 
 class="cmmi-10">∂F</span><sub><span 
 class="cmr-7">0</span></sub><span 
 class="cmmi-10">∕∂𝜀 </span>in terms of <span 
 class="cmmi-10">δE </span>and <span 
 class="cmmi-10">δB</span></a></span>
 <br />   <span class="sectionToc" >D <a 
-href="nonlinear_gyrokinetic_equationse12.html#x13-65000D" id="QQ2-13-67">Coordinate system and grid in TEK code</a></span>
-<br />   In the code <span 
-class="cmmi-10">n </span>is denoted by <span 
-class="cmtt-10">nflux2</span> and nt is denoted by <span 
-class="cmtt-10">nflux</span>, <span 
-class="cmmi-10">m </span>is denoted by <span 
-class="cmtt-10">points</span><span 
-class="cmtt-10">_in</span><span 
-class="cmtt-10">_buffer</span>. In
-<span 
-class="cmtt-10">GEM</span> the radial array does no include the buﬀer regions and the index starts at <span 
-class="cmtt-10">0</span> and ends at <span 
-class="cmtt-10">imx</span>. Hence
-<span 
-class="cmtt-10">n=imx+1</span>.ﬁgure<span class="lofToc" >5 <a 
-href="nonlinear_gyrokinetic_equationse12.html#x13-650035">Toroidal grid used in <span 
-class="cmtt-10">TEK</span> and GEM. TEK array index starts at 1 whereas GEM array
-index starts from 0. In TEK, the toroidal array is <span 
-class="cmtt-10">tor</span><span 
-class="cmtt-10">_1d</span><span 
-class="cmtt-10">_array(1:mtor+1)</span>. source terms, <span 
-class="cmmi-10">δn </span>and <span 
-class="cmmi-10">δj</span><sub><span 
-class="cmsy-7">∥</span></sub>,
-are deﬁned at <span 
-class="cmtt-10">1:mtor</span>; EM ﬁelds are deﬁned at <span 
-class="cmtt-10">1:mtor+1</span>. <span 
-class="cmtt-10">GEM</span> array ends at <span 
-class="cmtt-10">jm</span>. It follows that
-<span 
-class="cmtt-10">mtor=jm</span>.</a></span><br />
-<!--l. 72--><p class="indent" >   <span class="sectionToc" >E <a 
-href="nonlinear_gyrokinetic_equationse13.html#x14-66000E" id="QQ2-14-71">Split-weight scheme for electrons in GEM code</a></span>
-</p><!--l. 73--><p class="indent" >     <span class="subsubsectionToc" >E.0.1 <a 
-href="nonlinear_gyrokinetic_equationse13.html#x14-67000E.0.1" id="QQ2-14-72">special case of <span 
-class="cmmi-10">𝜖</span><sub><span 
-class="cmmi-7">g</span></sub> = 1</a></span>
-</p><!--l. 74--><p class="indent" >   <span class="sectionToc" >F <a 
-href="nonlinear_gyrokinetic_equationse14.html#x15-68000F" id="QQ2-15-73">Implementation of gyrokinetics in particle-in-cell (PIC) codes</a></span>
-</p><!--l. 75--><p class="indent" >    <span class="subsectionToc" >F.1 <a 
-href="nonlinear_gyrokinetic_equationse14.html#x15-69000F.1" id="QQ2-15-74">Monte-Carlo evaluation of distribution function moment at grid-points</a></span>
-</p><!--l. 76--><p class="indent" >    <span class="subsectionToc" >F.2 <a 
-href="nonlinear_gyrokinetic_equationse14.html#x15-70000F.2" id="QQ2-15-75">Monte-Carlo sampling of 6D guiding-center phase-space </a></span>
-</p><!--l. 77--><p class="indent" >   <span class="lofToc" >6 <a 
-href="nonlinear_gyrokinetic_equationse14.html#x15-700076">The spatial grid in the plane perpendicular to the equilibrium magnetic ﬁeld, a guiding-center
-marker <span 
-class="cmmi-10">C</span>, and its gyro-ring with 4 sampling points (sub-markers) on it. The 4 sub-markers are
-calculated by using the transformation (ø:ref 19-1-19-p2) (inverse guiding-center transform). Assume
-that Monte-Carlo weight of the guiding-center marker <span 
-class="cmmi-10">C</span> is <span 
-class="cmmi-10">w</span><sub><span 
-class="cmmi-7">j</span></sub>. Then The Monte-Carlo
+href="nonlinear_gyrokinetic_equationse12.html#x13-67000D" id="QQ2-13-69">Coordinate system and grid in TEK code</a></span>
+<br />   <span class="sectionToc" >E <a 
+href="nonlinear_gyrokinetic_equationse13.html#x14-68000E" id="QQ2-14-73">Split-weight scheme for electrons in GEM code</a></span>
+<br />   <span class="sectionToc" >F <a 
+href="nonlinear_gyrokinetic_equationse14.html#x15-70000F" id="QQ2-15-75">Implementation of gyrokinetics in particle-in-cell (PIC) codes</a></span>
+<br />    <span class="subsectionToc" >F.1 <a 
+href="nonlinear_gyrokinetic_equationse14.html#x15-71000F.1" id="QQ2-15-76">Monte-Carlo evaluation of distribution function moment at grid-points</a></span>
+<br />    <span class="subsectionToc" >F.2 <a 
+href="nonlinear_gyrokinetic_equationse14.html#x15-72000F.2" id="QQ2-15-77">Monte-Carlo sampling of 6D guiding-center phase-space </a></span>
+<br />    <span class="subsectionToc" >F.3 <a 
+href="nonlinear_gyrokinetic_equationse14.html#x15-73000F.3" id="QQ2-15-79">Distribution function transform**check</a></span>
+<br />    <span class="subsectionToc" >F.4 <a 
+href="nonlinear_gyrokinetic_equationse14.html#x15-74000F.4" id="QQ2-15-80">Moments of distribution function expressed as integration over guiding-center
+variables</a></span>
+<br />   <span class="sectionToc" >G <a 
+href="nonlinear_gyrokinetic_equationse15.html#x16-75000G" id="QQ2-16-81">Diamagnetic ﬂow **check**</a></span>
+<br />   <span class="sectionToc" >H <a 
+href="nonlinear_gyrokinetic_equationse16.html#x17-76000H" id="QQ2-17-82">Transform gyrokinetic equation from (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,𝜀,α</span>) to (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) coordinates</a></span>
+<br />    <span class="subsectionToc" >H.1 <a 
+href="nonlinear_gyrokinetic_equationse16.html#x17-77000H.1" id="QQ2-17-83">Recover equation in W. Deng’s 2011 NF paper</a></span>
+<br />   <span class="sectionToc" >I <a 
+href="nonlinear_gyrokinetic_equationse17.html#x18-78000I" id="QQ2-18-84">Drift-kinetic limit</a></span>
+<br />    <span class="subsectionToc" >I.1 <a 
+href="nonlinear_gyrokinetic_equationse17.html#x18-79000I.1" id="QQ2-18-85">Linear case</a></span>
+<br />    <span class="subsectionToc" >I.2 <a 
+href="nonlinear_gyrokinetic_equationse17.html#x18-80000I.2" id="QQ2-18-86">Transform from (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,𝜀</span>) to (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) coordinates</a></span>
+<br />    <span class="subsectionToc" >I.3 <a 
+href="nonlinear_gyrokinetic_equationse17.html#x18-81000I.3" id="QQ2-18-87">Parallel momentum equation</a></span>
+<br />    <span class="subsectionToc" >I.4 <a 
+href="nonlinear_gyrokinetic_equationse17.html#x18-82000I.4" id="QQ2-18-88">Special case in uniform magnetic ﬁeld</a></span>
                                                                                 
 
                                                                                 
-weight of each sub-marker is <span 
-class="cmmi-10">w</span><sub><span 
-class="cmmi-7">j</span></sub><span 
-class="cmmi-10">∕</span>4. The value of integration (ø:ref 19-1-19-p1) at a grid
-point is approximated by <span 
-class="cmmi-10">I∕</span>Δ<span 
-class="cmmi-10">V </span>, where <span 
-class="cmmi-10">I </span>is the Monte-Carlo integration of all sub-markers
-(associated with all guiding-center markers) in the cell, Δ<span 
-class="cmmi-10">V </span>is the cell volume. The cell
-associated with a grid-point (e.g., <span 
-class="cmmi-10">A</span>) is indicated by the dashed rectangle (this is for the
-2D projection, the cell is 3D and it is a cube). If the Dirac delta function is used as the
-shape function of the sub-markers, then calculating the contribution of a sub-marker to a
-grid corresponds to the nearest-point interpolation (for example, the 4 sub-markers will
-contribute nothing to grid point <span 
-class="cmmi-10">B </span>since no-sub marker is located within the cell). In practice,
-the ﬂat-top shape function with its support equal to the cell size is often used, then the
-depositing corresponds to linearly interpolating the weight of each sub-marker to the nearby
-grids.</a></span><br />
-</p><!--l. 78--><p class="indent" >    <span class="subsectionToc" >F.3 <a 
-href="nonlinear_gyrokinetic_equationse14.html#x15-71000F.3" id="QQ2-15-77">Distribution function transform**check</a></span>
-</p><!--l. 79--><p class="indent" >    <span class="subsectionToc" >F.4 <a 
-href="nonlinear_gyrokinetic_equationse14.html#x15-72000F.4" id="QQ2-15-78">Moments of distribution function expressed as integration over guiding-center variables</a></span>
-</p><!--l. 80--><p class="indent" >   <span class="sectionToc" >G <a 
-href="nonlinear_gyrokinetic_equationse15.html#x16-73000G" id="QQ2-16-79">Diamagnetic ﬂow **check**</a></span>
-</p><!--l. 81--><p class="indent" >   <span class="sectionToc" >H <a 
-href="nonlinear_gyrokinetic_equationse16.html#x17-74000H" id="QQ2-17-80">Transform gyrokinetic equation from (@@<span 
-class="cmmi-10">X,μ,𝜀,α</span>) to (@@<span 
-class="cmmi-10">X,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub><span 
-class="cmmi-10">,α</span>) coordinates</a></span>
-</p><!--l. 82--><p class="indent" >    <span class="subsectionToc" >H.1 <a 
-href="nonlinear_gyrokinetic_equationse16.html#x17-75000H.1" id="QQ2-17-81">Recover equation in W. Deng’s 2011 NF paper</a></span>
-</p><!--l. 83--><p class="indent" >   <span class="sectionToc" >I <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-76000I" id="QQ2-18-82">Drift-kinetic limit</a></span>
-</p><!--l. 84--><p class="indent" >    <span class="subsectionToc" >I.1 <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-77000I.1" id="QQ2-18-83">Linear case</a></span>
-</p><!--l. 85--><p class="indent" >    <span class="subsectionToc" >I.2 <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-78000I.2" id="QQ2-18-84">Transform from (@@<span 
-class="cmmi-10">X,μ,𝜀</span>) to (@@<span 
-class="cmmi-10">X,μ,v</span><sub><span 
-class="cmsy-7">∥</span></sub>) coordinates</a></span>
-</p><!--l. 86--><p class="indent" >    <span class="subsectionToc" >I.3 <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-79000I.3" id="QQ2-18-85">Parallel momentum equation</a></span>
-</p><!--l. 87--><p class="indent" >    <span class="subsectionToc" >I.4 <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-80000I.4" id="QQ2-18-86">Special case in uniform magnetic ﬁeld</a></span>
-</p><!--l. 88--><p class="indent" >    <span class="subsectionToc" >I.5 <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-81000I.5" id="QQ2-18-87">Electron perpendicular ﬂow</a></span>
-</p><!--l. 89--><p class="indent" >     <span class="subsubsectionToc" >I.5.1 <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-82000I.5.1" id="QQ2-18-88">Drift kinetic equation</a></span>
-</p><!--l. 90--><p class="indent" >     <span class="subsubsectionToc" >I.5.2 <a 
-href="nonlinear_gyrokinetic_equationse17.html#x18-83000I.5.2" id="QQ2-18-89">Parallel momentum equation</a></span>
-</p><!--l. 91--><p class="indent" >   <span class="sectionToc" >J <a 
-href="nonlinear_gyrokinetic_equationse18.html#x19-84000J" id="QQ2-19-90">Derivation of Eq. (ø:ref 18-9-11-p3), not ﬁnished</a></span>
-</p><!--l. 92--><p class="indent" >   <span class="sectionToc" >K <a 
-href="nonlinear_gyrokinetic_equationse19.html#x20-85000K" id="QQ2-20-91">Modern view of gyrokinetic equation</a></span>
-</p><!--l. 93--><p class="indent" >   <span class="sectionToc" >L <a 
-href="nonlinear_gyrokinetic_equationse20.html#x21-86000L" id="QQ2-21-92">About this document</a></span>
-</p><!--l. 94--><p class="indent" >   <span class="likesectionToc" ><a 
-href="nonlinear_gyrokinetic_equationli1.html#x22-87000L" id="QQ2-22-93">References</a></span>
-</p>
+<br />    <span class="subsectionToc" >I.5 <a 
+href="nonlinear_gyrokinetic_equationse17.html#x18-83000I.5" id="QQ2-18-89">Electron perpendicular ﬂow</a></span>
+<br />   <span class="sectionToc" >J <a 
+href="nonlinear_gyrokinetic_equationse18.html#x19-86000J" id="QQ2-19-92">Derivation of Eq. (123), not ﬁnished</a></span>
+<br />   <span class="sectionToc" >K <a 
+href="nonlinear_gyrokinetic_equationse19.html#x20-87000K" id="QQ2-20-93">Modern view of gyrokinetic equation</a></span>
+<br />   <span class="sectionToc" >L <a 
+href="nonlinear_gyrokinetic_equationse20.html#x21-88000L" id="QQ2-21-94">About this document</a></span>
+<br />   <span class="likesectionToc" ><a 
+href="nonlinear_gyrokinetic_equationli1.html#x22-89000L" id="QQ2-22-95">References</a></span>
    </div>
 
 

@@ -13,15 +13,15 @@
 <link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
 </head><body 
 >
-   <!--l. 3714--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4139--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse13.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html#tailnonlinear_gyrokinetic_equationse11.html" >prev-tail</a>] [<a 
 href="#tailnonlinear_gyrokinetic_equationse12.html">tail</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse12.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">D   </span> <a 
- id="x13-65000D"></a>Coordinate system and grid in TEK code</h3>
-<!--l. 3716--><p class="noindent" >In the magnetic coordinates (<span 
+ id="x13-67000D"></a>Coordinate system and grid in TEK code</h3>
+<!--l. 4141--><p class="noindent" >In the magnetic coordinates (<span 
 class="cmmi-10">ψ,𝜃,ϕ</span>) used in <span 
 class="cmtt-10">TEK</span> code, <span 
 class="cmmi-10">ψ </span>is the normalized poloidal magnetic ﬂux,
@@ -64,11 +64,11 @@ system.
 
                                                                                 
 <a 
- id="x13-650013"></a>
+ id="x13-670013"></a>
                                                                                 
 
                                                                                 
-<!--l. 3729--><p class="noindent" > <img 
+<!--l. 4154--><p class="noindent" > <img 
 src="/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1-.png" alt="PIC"  
  />
 <br /> </p><div class="caption" 
@@ -121,12 +121,12 @@ class="cmtt-10">mpol</span> and <span
 class="cmtt-10">mpol2</span> must
 be chosen in a way that makes <span 
 class="cmtt-10">(mpol-1)/mpol2</span> be an integer, which can be larger than 1, i.e.,
-one simulation cell can span several equilibrium cells.</span></div><!--tex4ht:label?: x13-650013 -->
+one simulation cell can span several equilibrium cells.</span></div><!--tex4ht:label?: x13-670013 -->
                                                                                 
 
                                                                                 
    </div><hr class="endfigure" />
-<!--l. 3753--><p class="indent" >    
+<!--l. 4178--><p class="indent" >    
 </p>
    <hr class="figure" /><div class="figure" 
 >
@@ -134,11 +134,11 @@ one simulation cell can span several equilibrium cells.</span></div><!--tex4ht:l
 
                                                                                 
 <a 
- id="x13-650024"></a>
+ id="x13-670024"></a>
                                                                                 
 
                                                                                 
-<!--l. 3756--><p class="noindent" > <img 
+<!--l. 4181--><p class="noindent" > <img 
 src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.png" alt="pict"  
  width="366.36874pt" />
 <br />  </p><div class="caption" 
@@ -156,21 +156,20 @@ grid, and perturbations are deﬁned on the latter grid. Here nt = <span
 class="cmmi-10">n </span>+ 2<span 
 class="cmmi-10">m</span>, <span 
 class="cmmi-10">m </span>is the number of
-grid points in one of the two buﬀer regions (regions in blue color).
-In  the  code  <span 
-class="cmmi-10">n  </span>is  denoted  by  <span 
-class="cmtt-10">nflux2</span> and  nt  is  denoted  by  <span 
-class="cmtt-10">nflux</span>,  <span 
-class="cmmi-10">m  </span>is  denoted  by
+grid points in one of the two buﬀer regions (regions in blue color). In the code <span 
+class="cmmi-10">n </span>is denoted by
 <span 
+class="cmtt-10">nflux2</span> and nt is denoted by <span 
+class="cmtt-10">nflux</span>, <span 
+class="cmmi-10">m </span>is denoted by <span 
 class="cmtt-10">points</span><span 
 class="cmtt-10">_in</span><span 
 class="cmtt-10">_buffer</span>. In <span 
-class="cmtt-10">GEM</span> the radial array does no include the buﬀer regions and the index
-starts at <span 
+class="cmtt-10">GEM</span> the radial array
+does no include the buﬀer regions and the index starts at <span 
 class="cmtt-10">0</span> and ends at <span 
 class="cmtt-10">imx</span>. Hence <span 
-class="cmtt-10">n=imx+1</span>.</span></div><!--tex4ht:label?: x13-650024 -->
+class="cmtt-10">n=imx+1</span>.</span></div><!--tex4ht:label?: x13-670024 -->
                                                                                 
 
                                                                                 
@@ -181,11 +180,11 @@ class="cmtt-10">n=imx+1</span>.</span></div><!--tex4ht:label?: x13-650024 -->
 
                                                                                 
 <a 
- id="x13-650035"></a>
+ id="x13-670035"></a>
                                                                                 
 
                                                                                 
-<!--l. 3772--><p class="noindent" > <img 
+<!--l. 4195--><p class="noindent" > <img 
 src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/toroidal_grids/a-1.png" alt="pict"  
  width="247.92624pt" />
 <br /> </p><div class="caption" 
@@ -205,28 +204,28 @@ class="cmtt-10">1:mtor+1</span>. <span
 class="cmtt-10">GEM</span> array ends at <span 
 class="cmtt-10">jm</span>. It
 follows that <span 
-class="cmtt-10">mtor=jm</span>.</span></div><!--tex4ht:label?: x13-650035 -->
+class="cmtt-10">mtor=jm</span>.</span></div><!--tex4ht:label?: x13-670035 -->
                                                                                 
 
                                                                                 
    </div><hr class="endfigure" />
-<!--l. 3782--><p class="indent" >    
-</p><!--l. 3784--><p class="indent" >    
-</p><!--l. 3786--><p class="indent" >   GEM array index system is better than TEK’s because my system is not consistent: sometimes I
+<!--l. 4205--><p class="indent" >    
+</p><!--l. 4207--><p class="indent" >    
+</p><!--l. 4209--><p class="indent" >   GEM array index system is better than TEK’s because my system is not consistent: sometimes I
 use 0-based index and sometimes I use 1-based index, sometimes the index ends at n and
 sometimes ends at n+1. It is important to know accurately the transformation between the two
 systems.
-</p><!--l. 3791--><p class="indent" >    
+</p><!--l. 4214--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 3793--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4216--><div class="crosslinks"><p class="noindent">[<a 
 href="nonlinear_gyrokinetic_equationse13.html" >next</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html" >prev</a>] [<a 
 href="nonlinear_gyrokinetic_equationse11.html#tailnonlinear_gyrokinetic_equationse11.html" >prev-tail</a>] [<a 
 href="nonlinear_gyrokinetic_equationse12.html" >front</a>] [<a 
 href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse12.html" >up</a>] </p></div>
-<!--l. 3793--><p class="indent" >   <a 
+<!--l. 4216--><p class="indent" >   <a 
  id="tailnonlinear_gyrokinetic_equationse12.html"></a> </p> 
 </body></html> 
