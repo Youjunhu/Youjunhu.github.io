@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Analytical form of Jacobian (need cleaning up)</title> 
+<head><title>Grad-Shafranov equation with prescribed safety factor proﬁle (to be ﬁnished)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,142 +13,500 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 5247--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu70.html" >next</a>] [<a 
+   <!--l. 5329--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu68.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu68.html#tailtokamak_equilibriumsu68.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu69.html">tail</a>] [<a 
-href="tokamak_equilibriumse13.html#tokamak_equilibriumsu69.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">13.9   </span> <a 
- id="x83-10700013.9"></a>Analytical form of Jacobian (need cleaning up)</h4>
-<!--l. 5249--><p class="noindent" >Consider the Jacobian of the form
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x83-107001r434"></a>
+href="tokamak_equilibriumse15.html#tokamak_equilibriumsu69.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">15.10   </span> <a 
+ id="x85-10900015.10"></a>Grad-Shafranov equation with prescribed safety factor proﬁle (to be ﬁnished)</h4>
+<!--l. 5331--><p class="noindent" >In the GS equation, <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>) is one of the two free functions which can be prescribed by users. In some
+cases, we want to specify the safety factor proﬁle <span 
+class="cmmi-10">q</span>(<span 
+class="cmmi-10">Ψ</span>), instead of <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>), in solving the GS equation.
+Next, we derive the form of the GS equation that contains <span 
+class="cmmi-10">q</span>(<span 
+class="cmmi-10">Ψ</span>), rather than <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">Ψ</span>), as a free function.
+The safety factor deﬁned in Eq. (<a 
+href="tokamak_equilibriumsu31.html#x40-47001r160">160<!--tex4ht:ref: 7-11-p1 --></a>) can be written </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium565x.png" alt="     ( R )m
-𝒥 = μ  ---   ψn,
-       R0
-" class="math-display"  /></center></td><td class="equation-label">(434)</td></tr></table>
-<!--l. 5252--><p class="nopar" >
-where <span 
-class="cmmi-10">m </span>and <span 
-class="cmmi-10">n </span>are arbitrary integers which can be appropriately chosen by users, <span 
-class="cmmi-10">μ</span><sub><span 
-class="cmr-7">0</span></sub> and <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub> are
-constants included for normalization. In the iterative metric method of solving ﬁxed boundary
-equilibrium problem, we ﬁrst construct a coordinates transformation (<span 
-class="cmmi-10">𝜃,ψ</span>) <span 
-class="cmsy-10">→ </span>(<span 
-class="cmmi-10">R</span>(<span 
-class="cmmi-10">𝜃,ψ</span>)<span 
-class="cmmi-10">,Z</span>(<span 
-class="cmmi-10">𝜃,ψ</span>)) (this
-transformation is arbitrary except for that surface <span 
-class="cmmi-10">ψ </span>= 1 coincides with the last closed ﬂux surface),
-then solve the GS equation in (<span 
-class="cmmi-10">𝜃,ψ</span>) coordinate system to get the value of <span 
-class="cmmi-10">Ψ </span>at grid points, and ﬁnally
-adjust the value of (<span 
-class="cmmi-10">R</span>(<span 
-class="cmmi-10">𝜃,ψ</span>)<span 
-class="cmmi-10">,Z</span>(<span 
-class="cmmi-10">𝜃,ψ</span>)) to make surface <span 
-class="cmmi-10">ψ </span>= const lies on a magnetic surface. It is obvious
-the Jacobian of the ﬁnal transformation we obtained usually does not satisfy the constraint given by
-Eq. (<a 
-href="#x83-107001r434">434<!--tex4ht:ref: 1-4-1 --></a>) since we do not use any information of Eq. (<a 
-href="#x83-107001r434">434<!--tex4ht:ref: 1-4-1 --></a>) in the above steps. Now comes the question:
-how to make the transformation obtained above satisfy the constraint Eq. (<a 
-href="#x83-107001r434">434<!--tex4ht:ref: 1-4-1 --></a>) through
-adjusting the values of <span 
-class="cmmi-10">𝜃</span>? To make the constraint Eq. (<a 
-href="#x83-107001r434">434<!--tex4ht:ref: 1-4-1 --></a>) satisﬁed, <span 
-class="cmmi-10">𝜃 </span>and <span 
-class="cmmi-10">ψ </span>should satisfy the
-relation
-</p>
+src="tokamak_equilibrium575x.png" alt="        1  g ∫ 2π𝒥
+q(ψ) = − 2πΨ-′   R2-d𝜃                             (441)
+             ∫02π  −2    ∫ 2π
+    = − 1--g -0∫R---𝒥d𝜃-    𝒥d𝜃
+        2πΨ ′  02π𝒥 d𝜃   0
+                  ∫ 2π
+    = − 1--g′⟨R −2⟩    𝒥d𝜃                          (442)
+        2πΨ        0
+    = − sgn(𝒥 )-V-′-⟨R−2⟩g.                         (443)
+              (2π)2 Ψ ′
+" class="math-display"  /><a 
+ id="x85-109001r443"></a></center>
+</div>Equation (<a 
+href="#x85-109001r443">443<!--tex4ht:ref: 12-21-p2 --></a>) gives the relation between the safety factor <span 
+class="cmmi-10">q </span>and the toroidal ﬁeld function <span 
+class="cmmi-10">g</span>. This
+relation can be used in the GS equation to eliminate <span 
+class="cmmi-10">g </span>in favor of <span 
+class="cmmi-10">q</span>, which gives
    <table 
 class="equation"><tr><td><a 
- id="x83-107002r435"></a>
+ id="x85-109002r444"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium566x.png" alt="          [R (𝜃,ψ )]m
-𝒥 (𝜃,ψ) = μ -------  ψn,
-             R0
-" class="math-display"  /></center></td><td class="equation-label">(435)</td></tr></table>
+src="tokamak_equilibrium576x.png" alt="            (2π)2
+g = − sgn(𝒥 )-′-−2-Ψ ′q.
+           V ⟨R  ⟩
+" class="math-display"  /></center></td><td class="equation-label">(444)</td></tr></table>
                                                                                 
 
                                                                                 
-<!--l. 5272--><p class="nopar" >
-which
-</p><!--l. 5275--><p class="indent" >    
-</p><!--l. 5277--><p class="indent" >    
-</p><!--l. 5279--><p class="indent" >   Using Eq. (), we obtain
+<!--l. 5354--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109003r445"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium577x.png" alt="                 [           ]
+  -dg    -(2π)2-- --(2π-)2--  ′
+⇒ dΨ g = V′⟨R −2⟩q V ′⟨R −2⟩qΨ  ψ.
+" class="math-display"  /></center></td><td class="equation-label">(445)</td></tr></table>
+<!--l. 5359--><p class="nopar" >
+Note that this expression involves the ﬂux surface average, which depends on the ﬂux surface shape and
+the shape is unknown before <span 
+class="cmmi-10">Ψ </span>is determined.
+</p><!--l. 5363--><p class="indent" >   Multiplying Eq. (<a 
+href="tokamak_equilibriumsu90.html#x108-135002r573">573<!--tex4ht:ref: 9-28-e1 --></a>) by <span 
+class="cmmi-10">R</span><sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">2</span></sup> gives
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109004r446"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium578x.png" alt="  [                                 ]
+1  (   𝒥      )    (   𝒥         )        dp       dg
+𝒥-   Ψ′R2|∇ψ |2   +  Ψ ′R2(∇ψ ⋅∇ 𝜃)   + μ0dΨ-+ R −2dΨ-g = 0.
+                ψ                  𝜃
+" class="math-display"  /></center></td><td class="equation-label">(446)</td></tr></table>
+<!--l. 5369--><p class="nopar" >
+Surface-averaging the above equation, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109005r447"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium579x.png" alt="       [                                ]
+2π∫     (  ′ 𝒥    2)    ( ′ 𝒥         )       dp     −2 dg
+V′-  d𝜃  Ψ R2-|∇ψ|    +  Ψ R2-(∇ψ ⋅∇𝜃)    + μ0dΨ-+ ⟨R  ⟩dΨ-g = 0,
+                    ψ                  𝜃
+" class="math-display"  /></center></td><td class="equation-label">(447)</td></tr></table>
+<!--l. 5376--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109006r448"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium580x.png" alt="     ∫    (          )
+⇒  2π-- d𝜃  Ψ′-𝒥-|∇ ψ|2   +μ0 dp-+ ⟨R −2⟩dgg = 0,
+   V′        R2       ψ     dΨ        dΨ
+" class="math-display"  /></center></td><td class="equation-label">(448)</td></tr></table>
+<!--l. 5381--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109007r449"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium581x.png" alt="     [       (       ) ]
+   2π-  ′∫      |∇ψ-|2        -dp     −2 dg-
+⇒  V′ Ψ    d𝜃 𝒥   R2    ψ + μ0dΨ + ⟨R  ⟩dΨg = 0,
+" class="math-display"  /></center></td><td class="equation-label">(449)</td></tr></table>
+<!--l. 5387--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109008r450"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium582x.png" alt="     [     ⟨     ⟩ ]
+   1--  ′ ′ |∇ψ-|2        -dp     −2 dg-
+⇒  V′ V Ψ     R2    ψ + μ0dΨ + ⟨R  ⟩dΨg = 0.
+" class="math-display"  /></center></td><td class="equation-label">(450)</td></tr></table>
+<!--l. 5392--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109009r451"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium583x.png" alt="   [    ⟨     2⟩]
+⇒   V′Ψ′  |∇-ψ2|-    + μ0V′ dp-+ ⟨R−2⟩V′ dg-g = 0,
+           R     ψ       dΨ          dΨ
+" class="math-display"  /></center></td><td class="equation-label">(451)</td></tr></table>
+<!--l. 5398--><p class="nopar" >
+Substitute Eq. (<a 
+href="#x85-109003r445">445<!--tex4ht:ref: 4-18-p3 --></a>) into the above equation to eliminate <span 
+class="cmmi-10">gdg∕dΨ</span>, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109010r452"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium584x.png" alt="  [    ⟨      ⟩ ]                  [       ]
+     ′ ′ |∇ψ|2          ′dp-       4 --qΨ-′--
+⇒  V Ψ    R2     ψ + μ0V dΨ + q(2π) V ′⟨R− 2⟩ ψ = 0,
+" class="math-display"  /></center></td><td class="equation-label">(452)</td></tr></table>
+<!--l. 5405--><p class="nopar" >
+Eq. (<a 
+href="#x85-109010r452">452<!--tex4ht:ref: 4-19-5 --></a>) agrees with Eq. (5.55) in Ref. <span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xjardin2010">16</a>]</span>.
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109011r453"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium585x.png" alt="     ⟨     ⟩     [  ⟨      ⟩]                   [        ]          [       ]
+⇒ V ′ |∇ψ-|2  Ψ′′+  V′  |∇-ψ|2    Ψ′+μ V ′ dp+q (2π)4 ---q----Ψ ′′+q (2π)4  ---q----  Ψ′ = 0
+        R2             R2    ψ     0   dΨ         V′⟨R −2⟩            V′⟨R−2⟩ ψ
+" class="math-display"  /></center></td><td class="equation-label">(453)</td></tr></table>
+<!--l. 5413--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109012r454"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium586x.png" alt="              {                                              }
+    ′′     1   [  ′⟨|∇ψ |2⟩ ]   ′      4[   q    ]   ′     ′ dp
+⇒  Ψ  = −V-′D   V   --R2-    Ψ  +q(2π)  V-′⟨R-−2⟩  Ψ + μ0V  dΨ-
+                            ψ                    ψ
+" class="math-display"  /></center></td><td class="equation-label">(454)</td></tr></table>
+<!--l. 5419--><p class="nopar" >
+where
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109013r455"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium587x.png" alt="    ⟨|∇ ψ|2⟩    (2π )4 ( q )2
+D =  ---2-  + ---−2  --′
+       R      ⟨R   ⟩ V
+" class="math-display"  /></center></td><td class="equation-label">(455)</td></tr></table>
+<!--l. 5424--><p class="nopar" >
+The GS equation is
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109014r456"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium588x.png" alt="△ ⋆Ψ = − μ R2 dp-− g dg-
+         0   dΨ     dΨ
+" class="math-display"  /></center></td><td class="equation-label">(456)</td></tr></table>
+<!--l. 5429--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109015r457"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium589x.png" alt="                          4 [     ′  ]
+⇒  △ ⋆Ψ = − μ0R2-dp−  q(2π)-----qΨ----
+               dΨ    V′⟨R −2⟩ V ′⟨R −2⟩ ψ
+" class="math-display"  /></center></td><td class="equation-label">(457)</td></tr></table>
+<!--l. 5434--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109016r458"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium590x.png" alt="                         4 { [       ]      [        ]  }
+⇒ △ ⋆Ψ = − μ0R2-dp− q(2π)---  ---q----  Ψ′ + ---q---- Ψ′′
+              dΨ    V′⟨R −2⟩   V ′⟨R−2⟩ ψ      V ′⟨R− 2⟩
+" class="math-display"  /></center></td><td class="equation-label">(458)</td></tr></table>
+<!--l. 5440--><p class="nopar" >
+Using Eq. (<a 
+href="#x85-109012r454">454<!--tex4ht:ref: 1-2-4 --></a>) to eliminate <span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">′′</span> in the above equation, the coeﬃcients before (<span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">μ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">dp∕dΨ</span>) is written as
+</p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium591x.png" alt="                { [       ]       }
+B = R2 − -q(2π)4--  ---q---- -1--V′
+         V′⟨R −2⟩   V′⟨R−2⟩  V′D
+    1 {  2    ( q )2 (2π)4 }
+  = D-  R D −  V-′  ⟨R−-2⟩2  .                        (459)
+" class="math-display"  /></center>
+</div>Substituting the expression of <span 
+class="cmmi-10">D </span>into the above equation, we obtain <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium592x.png" alt="       {   ⟨     ⟩           (   )   (   )       }
+B = -1  R2  |∇ψ-|2  + R2 (2π)4-  q--2 −  q--2-(2π)4
+    D         R2        ⟨R −2⟩  V′      V′  ⟨R −2⟩2
+     1 { 2 ⟨|∇ψ |2⟩   ( q )2 (2π)4 (  2    1  ) }
+  = D-  R   --R2-  +  V-′  ⟨R−-2⟩ R  − ⟨R−2⟩   ,             (460)
+" class="math-display"  /><a 
+ id="x85-109018r460"></a></center>
+</div>which is equal to the expression (5.58) in Ref. <span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xjardin2010">16</a>]</span>. The coeﬃcient before <span 
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">′ </span>is written
+as
+   <table 
+class="equation-star"><tr><td>
+<span 
+class="cmmi-10">A </span>= <span 
+class="cmsy-10">−</span><img 
+src="tokamak_equilibrium593x.png" alt="      4
+-q(′2π)−2-
+V ⟨R   ⟩"  class="frac" align="middle" /><img 
+src="tokamak_equilibrium594x.png" alt="{[        ]   [        ]     [(   ⟨    2⟩ )         [        ] ]}
+   -′-q−2-- −   -′-q−2----1′-   V ′ |∇ψ2|     + q(2π)4  -′-q−2--
+   V ⟨R   ⟩ ψ    V ⟨R   ⟩ V  D         R     ψ          V ⟨R   ⟩ ψ"  class="left" align="middle" />
+</td></tr></table>
+<!--l. 5468--><p class="nopar" >
+Deﬁne
 </p>
    <table 
 class="equation-star"><tr><td>
-                           <span 
-class="cmex-10">∫</span>
-                             <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span></sup><span 
-class="cmmi-10">d𝜃 </span>= <span 
-class="cmex-10">∫</span>
-  <sub><span 
-class="cmr-7">0</span></sub><sup><span 
-class="cmmi-7">𝜃</span></sup><span 
-class="cmmi-10">d𝜃</span><img 
-src="tokamak_equilibrium567x.png" alt="-𝒥-
-ψn"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium568x.png" alt="1-
-μ"  class="frac" align="middle" /><img 
-src="tokamak_equilibrium569x.png" alt="(   )
-  R0-
-  R"  class="left" align="middle" /><sup><span 
-class="cmmi-7">m</span></sup>
+                                                                                
+
+                                                                                
+                                 <span 
+class="cmmi-10">α </span>= <img 
+src="tokamak_equilibrium595x.png" alt="⟨     ⟩
+ |∇ψ-|2
+   R2"  class="left" align="middle" /><span 
+class="cmmi-10">,</span>
 </td></tr></table>
-<!--l. 5281--><p class="nopar" >
+<!--l. 5470--><p class="nopar" >
+</p>
+   <table 
+class="equation-star"><tr><td>
+                                  <span 
+class="cmmi-10">β </span>= <img 
+src="tokamak_equilibrium596x.png" alt="   q
+V-′⟨R−-2⟩-"  class="frac" align="middle" /><span 
+class="cmmi-10">.</span>
+</td></tr></table>
+<!--l. 5471--><p class="nopar" >
+</p>
+   <table 
+class="equation-star"><tr><td>
+                   <span 
+class="cmmi-10">A </span>= <span 
+class="cmsy-10">−</span>(2<span 
+class="cmmi-10">π</span>)<sup><span 
+class="cmr-7">4</span></sup><span 
+class="cmmi-10">β</span><img 
+src="tokamak_equilibrium597x.png" alt="{                           }
+ βψ − β--1-[(V′α)ψ + q(2π)4βψ ]
+       V ′D"  class="left" align="middle" />
+</td></tr></table>
+<!--l. 5473--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x83-107003r436"></a>
+ id="x85-109019r461"></a>
+                                                                                
+
+                                                                                
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium570x.png" alt="    ∫ 𝜃   𝒥 1 (R0 )m
-𝜃 =    d𝜃ψn-μ- -R-
-     0
-" class="math-display"  /></center></td><td class="equation-label">(436)</td></tr></table>
-<!--l. 5285--><p class="nopar" >
-normalized to 2<span 
-class="cmmi-10">π</span>, the normalized <span 
-class="cmmi-10">𝜃 </span>is written as
+src="tokamak_equilibrium598x.png" alt="      D                1   ′          4
+=⇒ −-(2π)4β-A = Dβψ − βV-′[(V α)ψ +q(2π) βψ]
+" class="math-display"  /></center></td><td class="equation-label">(461)</td></tr></table>
+<!--l. 5477--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x83-107004r437"></a>
+ id="x85-109020r462"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium571x.png" alt="       ∫𝜃d𝜃-𝒥n 1(R0 )m       ∫𝜃d𝜃𝒥 (1-)m
-𝜃 = 2π∫-02π--ψ𝒥-μ1-(RR0)m-= 2π∫-02π-----R(1)m-
-       0  d𝜃ψnμ  R         0  d𝜃𝒥  R
-" class="math-display"  /></center></td><td class="equation-label">(437)</td></tr></table>
-<!--l. 5293--><p class="nopar" >
-</p><!--l. 5296--><p class="indent" >    
+src="tokamak_equilibrium599x.png" alt="= ⇒ ---D----A = D β − β-1[V′′α + V ′α  + q(2π )4β ]
+    − β(2π)4       ψ    V ′         ψ         ψ
+" class="math-display"  /></center></td><td class="equation-label">(462)</td></tr></table>
+<!--l. 5481--><p class="nopar" >
+Using
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109021r463"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium600x.png" alt="D = α + (2π )4⟨R− 2⟩β2
+" class="math-display"  /></center></td><td class="equation-label">(463)</td></tr></table>
+<!--l. 5485--><p class="nopar" >
+Eq. () is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109022r464"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium601x.png" alt="                                                                    ]
+=⇒  ---D---A = αβ  + (2π)4⟨R −2⟩β2β  − β-1-V′′α − β-1V ′α  − β 1-q(2π )4β
+    − β(2π)4     ψ               ψ    V ′       V ′   ψ    V′      ψ
+" class="math-display"  /></center></td><td class="equation-label">(464)</td></tr></table>
+<!--l. 5492--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109023r465"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium602x.png" alt="       D                 4  −2  2      1  ′′           1     4  ]
+=⇒  −-β(2π-)4A = α βψ + (2π) ⟨R  ⟩β βψ − β V′V α − βαψ − βV-′q(2π) βψ
+" class="math-display"  /></center></td><td class="equation-label">(465)</td></tr></table>
+<!--l. 5498--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109024r466"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium603x.png" alt="   A                                1
+−-β(2π)4D = αβψ + (2π )4⟨R− 2⟩β2βψ − βV-′V ′′α − β αψ − β2⟨R −2⟩(2π)4βψ
+" class="math-display"  /></center></td><td class="equation-label">(466)</td></tr></table>
+<!--l. 5503--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109025r467"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium604x.png" alt="       A               1   ′′
+= ⇒ −-β(2π)4-D = αβψ − βV′V  α− βα ψ
+" class="math-display"  /></center></td><td class="equation-label">(467)</td></tr></table>
+<!--l. 5507--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109026r468"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium605x.png" alt="                   (   )
+=⇒  ---A---D  = − β2 α-   − β 1-V ′′α
+    − β(2π)4          β  ψ    V′
+" class="math-display"  /></center></td><td class="equation-label">(468)</td></tr></table>
+<!--l. 5512--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109027r469"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium606x.png" alt="      A            (α )       1   α
+=⇒  − β(2π)4D = − β2 β   − β2V-′V ′′β-
+                       ψ
+" class="math-display"  /></center></td><td class="equation-label">(469)</td></tr></table>
+<!--l. 5518--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109028r470"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium607x.png" alt="                   [               ]
+      A             (α )     1   α
+=⇒ −-β(2π)4D = − β2  -β   + V-′V ′′β-
+                        ψ
+" class="math-display"  /></center></td><td class="equation-label">(470)</td></tr></table>
+<!--l. 5523--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109029r471"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium608x.png" alt="                      [(  )           ]
+    ---A----      2-1-   α-    ′   ′′α-
+= ⇒ − β(2π)4 D = − β V ′  β  ψV  + V β
+" class="math-display"  /></center></td><td class="equation-label">(471)</td></tr></table>
+<!--l. 5529--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109030r472"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium609x.png" alt="       A            1 (α   )
+=⇒  − β(2π)4D = − β2V-′ β-V′
+                            ψ
+" class="math-display"  /></center></td><td class="equation-label">(472)</td></tr></table>
+<!--l. 5533--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109031r473"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium610x.png" alt="           4 (        )3   [⟨     2⟩   −2    ]
+=⇒  A = (2π)- ----q---   1--  |∇-ψ|-  ⟨R--⟩V ′2
+         D    V ′⟨R −2⟩   V′    R2      q      ψ
+" class="math-display"  /></center></td><td class="equation-label">(473)</td></tr></table>
+<!--l. 5539--><p class="nopar" >
+But the expression of <span 
+class="cmmi-10">A </span>is slightly diﬀerent from that given in Ref. <span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xjardin2010">16</a>]</span> [Eq. (5.57)]. Using the above
+coeﬃcients, the GS equation with the <span 
+class="cmmi-10">q</span>-proﬁle held ﬁxed is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x85-109032r474"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium611x.png" alt="(          )
+  Δ⋆ − A-∂-  Ψ = − B μ0 dp.
+        ∂ψ            dΨ
+" class="math-display"  /></center></td><td class="equation-label">(474)</td></tr></table>
+<!--l. 5546--><p class="nopar" >
+</p><!--l. 5549--><p class="indent" >    
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 5298--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu70.html" >next</a>] [<a 
+   <!--l. 5551--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu68.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu68.html#tailtokamak_equilibriumsu68.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu69.html" >front</a>] [<a 
-href="tokamak_equilibriumse13.html#tokamak_equilibriumsu69.html" >up</a>] </p></div>
-<!--l. 5298--><p class="indent" >   <a 
+href="tokamak_equilibriumse15.html#tokamak_equilibriumsu69.html" >up</a>] </p></div>
+<!--l. 5551--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu69.html"></a> </p> 
 </body></html> 

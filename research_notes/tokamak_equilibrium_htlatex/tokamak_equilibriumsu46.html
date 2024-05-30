@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Covariant form of magnetic ﬁeld in (ψ,𝜃,ζ) coordinate system</title> 
+<head><title>Form of operator (B ×∇ψ∕B2) ⋅∇ in (ψ,𝜃,ζ) coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,157 +13,111 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 3245--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3351--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu47.html" >next</a>] [<a 
 href="tokamak_equilibriumsu45.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu45.html#tailtokamak_equilibriumsu45.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu46.html">tail</a>] [<a 
-href="tokamak_equilibriumse10.html#tokamak_equilibriumsu46.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">10.8   </span> <a 
- id="x57-7200010.8"></a>Covariant form of magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinate system</h4>
-<!--l. 3247--><p class="noindent" >In the above, we have obtained the covariant form of the magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates (i.e., Eq.
-(<a 
-href="tokamak_equilibriumse6.html#x37-44002r154">154<!--tex4ht:ref: 5-6-2 --></a>)). Next, we derive the corresponding form in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinate. In order to do this, we need to
-express the <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ϕ </span>basis vector in terms of <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ</span>, <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃</span>, and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ </span>basis vectors. Using the deﬁnition of the
-generalized toroidal angle, we obtain </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium367x.png" alt="g∇ ϕ = g∇ (ζ + qδ)
-
-    = g∇ ζ + gq∇(δ+ gδ∇q     )
-    = g∇ ζ + gq ∂δ-∇ψ + ∂δ-∇𝜃  + gδq′∇ ψ
-                ∂ψ      ∂𝜃
-      (   ∂δ      ′)        ∂δ
-    =   gq∂ψ-+ gδq  ∇ ψ+ gq∂𝜃-∇𝜃 + g∇ ζ
-
-    = g ∂(qδ)∇ ψ + gq ∂δ∇ 𝜃+ g∇ζ.                        (280)
-         ∂ψ         ∂𝜃
-" class="math-display"  /><a 
- id="x57-72001r280"></a></center>
-</div>Using Eq. (<a 
-href="#x57-72001r280">280<!--tex4ht:ref: 5-6-1 --></a>), the covariant form of the magnetic ﬁeld, Eq. (<a 
-href="tokamak_equilibriumse6.html#x37-44002r154">154<!--tex4ht:ref: 5-6-2 --></a>), is written as
+href="tokamak_equilibriumse12.html#tokamak_equilibriumsu46.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">12.9   </span> <a 
+ id="x59-7400012.9"></a>Form of operator (<span 
+class="cmmi-10">B </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ψ∕B</span><sup><span 
+class="cmr-7">2</span></sup>) <span 
+class="cmsy-10">⋅∇ </span>in (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</h4>
+<!--l. 3353--><p class="noindent" >In solving the MHD eigenmode equations in toroidal geometries, besides the <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇ </span>operator, we will
+also encounter another surface operator (<span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ψ∕B</span><sup><span 
+class="cmr-7">2</span></sup>) <span 
+class="cmsy-10">⋅∇</span>. Next, we derive the form of the this operator
+in (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinate system. Using the covariant form of the equilibrium magnetic ﬁeld [Eq.  (<a 
+href="tokamak_equilibriumsu45.html#x58-73004r284">284<!--tex4ht:ref: 5-6-4 --></a>)],
+we obtain
+</p>
    <table 
 class="equation"><tr><td><a 
- id="x57-72002r281"></a>
+ id="x59-74001r287"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium368x.png" alt="     (  𝒥            ∂(qδ))      (  ∂δ     𝒥      )
-B =   Ψ′--2∇ψ ⋅∇𝜃 + g----- ∇ ψ +  gq---− Ψ′-2|∇ψ |2  ∇𝜃 + g∇ζ.
-        R             ∂ψ            ∂𝜃     R
-" class="math-display"  /></center></td><td class="equation-label">(281)</td></tr></table>
-<!--l. 3274--><p class="nopar" >
-This expression can be further simpliﬁed by using equation (<a 
-href="tokamak_equilibriumsu39.html#x50-65004r252">252<!--tex4ht:ref: 11-12-p1 --></a>) to eliminate <span 
-class="cmmi-10">∂δ∕∂𝜃</span>, which gives
-</p><div class="eqnarray">
-                                                                                
-
-                                                                                
+src="tokamak_equilibrium374x.png" alt="             (          )
+B-×-∇-ψ = -1- − B2-𝒥 − gq  ∇ 𝜃× ∇ ψ+ -g-∇ ζ × ∇ ψ.
+  B2      B2    Ψ ′                 B2
+" class="math-display"  /></center></td><td class="equation-label">(287)</td></tr></table>
+<!--l. 3363--><p class="nopar" >
+Using this, the (<span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ψ∕B</span><sup><span 
+class="cmr-7">2</span></sup>) <span 
+class="cmsy-10">⋅∇ </span>operator is written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium369x.png" alt="     (  𝒥            ∂(qδ))      (  g2    R2          ) 𝒥
-B  =  Ψ′--2∇ψ ⋅∇ 𝜃+ g----- ∇ ψ +  − -′ − gq--− Ψ ′|∇ψ |2  -2∇ 𝜃+ g∇ ζ
-     (  R             ∂ψ  )      (  Ψ      𝒥        )   R
-   =  Ψ′ 𝒥-∇ψ ⋅∇ 𝜃+ g∂(qδ) ∇ ψ +  − g2 +-|∇-Ψ|2− gqR2  𝒥-∇ 𝜃+ g∇ ζ.   (282)
-        R2            ∂ψ               Ψ ′        𝒥   R2
-" class="math-display"  /></center>
-</div>Using <span 
-class="cmmi-10">B</span><sup><span 
-class="cmr-7">2</span></sup> = (<span 
-class="cmsy-10">|∇</span><span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">|</span><sup><span 
-class="cmr-7">2</span></sup> + <span 
-class="cmmi-10">g</span><sup><span 
-class="cmr-7">2</span></sup>)<span 
-class="cmmi-10">∕R</span><sup><span 
-class="cmr-7">2</span></sup>, the above equation is written as <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium370x.png" alt="    (                    )      (              )
-B =  Ψ′-𝒥-∇ψ ⋅∇ 𝜃+ g∂(qδ) ∇ ψ +  − B2R2-− gqR2-  𝒥-∇ 𝜃+ g∇ ζ
-       R2            ∂ψ             Ψ ′      𝒥   R2
-    ( ′ 𝒥           ∂(qδ))      (  B2      )
-  =  Ψ R2-∇ψ ⋅∇ 𝜃+ g-∂ψ-- ∇ ψ +  − Ψ′ 𝒥 − gq ∇ 𝜃+ g∇ζ.           (283)
+src="tokamak_equilibrium375x.png" alt="                (         )
+B-×-∇-ψ      -1- B2-         − 1 ∂- -g-  −1 ∂-
+  B2    ⋅∇ = B2   Ψ′ 𝒥 + gq 𝒥   ∂ζ + B2 𝒥  ∂𝜃             (288)
+             ( 1    𝒥 −1 ) ∂     𝒥−1 ∂
+           =  --′ + g-2-q  ---+g --2---,                  (289)
+              Ψ      B     ∂ζ    B   ∂𝜃
 " class="math-display"  /><a 
- id="x57-72004r283"></a></center>
-</div>Equation (<a 
-href="#x57-72004r283">283<!--tex4ht:ref: 5-6-4 --></a>) is the covariant form of the magnetic ﬁeld in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinate system. For the
-particular choice of the radial coordinate <span 
-class="cmmi-10">ψ </span>= <span 
-class="cmsy-10">−</span><span 
-class="cmmi-10">Ψ </span>and the Jacobian <span 
+ id="x59-74002r289"></a></center>
+</div>which is the form of the operator in (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinate system.
+<!--l. 3378--><p class="indent" >   Examining Eq. (<a 
+href="#x59-74002r289">289<!--tex4ht:ref: 5-9-a3 --></a>), we ﬁnd that the coeﬃcients before the two partial derivatives will be
+independent of <span 
+class="cmmi-10">𝜃 </span>and <span 
+class="cmmi-10">ζ </span>if the Jacobian <span 
+class="cmsy-10">𝒥 </span>is chosen to be of the form <span 
 class="cmsy-10">𝒥 </span>= <span 
 class="cmmi-10">h</span>(<span 
 class="cmmi-10">ψ</span>)<span 
 class="cmmi-10">∕B</span><sup><span 
-class="cmr-7">2</span></sup> (i.e., Boozer’s
-Jacobian, discussed in Sec. <a 
-href="tokamak_equilibriumsu47.html#x58-7300010.9">10.9<!--tex4ht:ref: 18-5-1-p1 --></a>), equation (<a 
-href="#x57-72004r283">283<!--tex4ht:ref: 5-6-4 --></a>) reduces to
-   <table 
-class="equation"><tr><td><a 
- id="x57-72005r284"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium371x.png" alt="    (   𝒥           ∂(qδ))
-B =   −--2∇ψ ⋅∇ 𝜃+ g----- ∇ ψ + I(ψ )∇ 𝜃+ g(ψ)∇ ζ,
-       R             ∂ψ
-" class="math-display"  /></center></td><td class="equation-label">(284)</td></tr></table>
-<!--l. 3309--><p class="nopar" >
-with <span 
-class="cmmi-10">I</span>(<span 
-class="cmmi-10">ψ</span>) = <span 
-class="cmmi-10">h</span>(<span 
-class="cmmi-10">ψ</span>) <span 
-class="cmsy-10">− </span><span 
-class="cmmi-10">gq</span>. The magnetic ﬁeld expression in Eq. (<a 
-href="#x57-72005r284">284<!--tex4ht:ref: 9-10-1 --></a>) frequently appears in tokamak
-literature<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xwhite1984">28</a>]</span>. In this form, the coeﬃcients before both <span 
-class="cmsy-10">∇</span><span 
+class="cmr-7">2</span></sup>, where <span 
+class="cmmi-10">h </span>is some
+magnetic surface function. It is obvious that the independence of the coeﬃcients on <span 
 class="cmmi-10">𝜃 </span>and <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ </span>depends on only the radial
-coordinate. In terms of <span 
-class="cmmi-10">I</span>(<span 
-class="cmmi-10">ψ</span>), the Jabobian can also be written as
+class="cmmi-10">ζ </span>will be
+advantageous to some applications. The coordinate system (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) with the particular choice of
+                                                                                
+
+                                                                                
+<span 
+class="cmsy-10">𝒥 </span>= <span 
+class="cmmi-10">h</span>(<span 
+class="cmmi-10">ψ</span>)<span 
+class="cmmi-10">∕B</span><sup><span 
+class="cmr-7">2</span></sup> is called the Boozer coordinates. The usefulness of the new toroidal angle <span 
+class="cmmi-10">ζ </span>is highlighted
+in Boozer’s choice of the Jacobian, which makes both <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇ </span>and (<span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ψ∕B</span><sup><span 
+class="cmr-7">2</span></sup>) <span 
+class="cmsy-10">⋅∇ </span>be a
+constant-coeﬃcient diﬀerential operator. For other choices of the Jacobian, only the <span 
+class="cmbx-10">B</span><span 
+class="cmsy-10">⋅∇ </span>operator is a
+constant-coeﬃcient diﬀerential operator.
                                                                                 
 
                                                                                 
 </p>
-   <table 
-class="equation"><tr><td><a 
- id="x57-72006r285"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium372x.png" alt="𝒥  = gq+-I.
-      B2
-" class="math-display"  /></center></td><td class="equation-label">(285)</td></tr></table>
-<!--l. 3317--><p class="nopar" >
-                                                                                
-
-                                                                                
-</p>
-   <!--l. 3320--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3392--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu47.html" >next</a>] [<a 
 href="tokamak_equilibriumsu45.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu45.html#tailtokamak_equilibriumsu45.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu46.html" >front</a>] [<a 
-href="tokamak_equilibriumse10.html#tokamak_equilibriumsu46.html" >up</a>] </p></div>
-<!--l. 3320--><p class="indent" >   <a 
+href="tokamak_equilibriumse12.html#tokamak_equilibriumsu46.html" >up</a>] </p></div>
+<!--l. 3392--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu46.html"></a> </p> 
 </body></html> 

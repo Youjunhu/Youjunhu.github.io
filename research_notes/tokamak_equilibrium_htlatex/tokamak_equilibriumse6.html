@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Magnetic surface coordinates (ψ,𝜃,ϕ)</title> 
+<head><title>Curvilinear coordinate system</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,96 +13,61 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1762--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1072--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse7.html" >next</a>] [<a 
 href="tokamak_equilibriumse5.html" >prev</a>] [<a 
 href="tokamak_equilibriumse5.html#tailtokamak_equilibriumse5.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumse6.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse6.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
- id="x37-440006"></a>Magnetic surface coordinates (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>)</h3>
-<!--l. 1764--><p class="noindent" >A coordinate system (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>), where <span 
-class="cmmi-10">ϕ </span>is the usual cylindrical toroidal angle, is called a magnetic
-surface coordinate system if <span 
-class="cmmi-10">Ψ </span>is a function of only <span 
-class="cmmi-10">ψ</span>, i.e., <span 
-class="cmmi-10">∂Ψ∕∂𝜃 </span>= 0 (we also have <span 
-class="cmmi-10">∂Ψ∕∂ϕ </span>= 0 since we
-are considering axially symmetrical case). In terms of (<span 
-class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates, the contravariant form of
-the magnetic ﬁeld, Eq. (<a 
-href="tokamak_equilibriumse5.html#x36-43003r149">149<!--tex4ht:ref: 3-13-p10 --></a>), is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x37-44001r153"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium205x.png" alt="B = − Ψ ′∇ ϕ× ∇ ψ +g 𝒥-∇ ψ ×∇ 𝜃,
-                   R2
-" class="math-display"  /></center></td><td class="equation-label">(153)</td></tr></table>
-<!--l. 1773--><p class="nopar" >
-where <span 
-class="cmmi-10">Ψ</span><span 
-class="cmsy-10">′≡ </span><span 
-class="cmmi-10">dΨ∕dψ</span>. The covariant form of the magnetic ﬁeld, Eq. (<a 
-href="tokamak_equilibriumse5.html#x36-43004r150">150<!--tex4ht:ref: 7-26-1 --></a>), is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x37-44002r154"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium206x.png" alt="    (   𝒥        )      (    𝒥      )
-B =   Ψ′R2∇ ψ ⋅∇𝜃  ∇ψ +  − Ψ′R2-|∇ ψ|2 ∇ 𝜃+ g∇ ϕ.
-" class="math-display"  /></center></td><td class="equation-label">(154)</td></tr></table>
-<!--l. 1781--><p class="nopar" >
-                                                                                
-
-                                                                                
-</p><!--l. 1783--><p class="noindent" >
+ id="x27-330006"></a>Curvilinear coordinate system</h3>
+<!--l. 1074--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
      <span class="subsectionToc" >6.1 <a 
-href="tokamak_equilibriumsu31.html#x38-450006.1">Local safety factor</a></span>
+href="tokamak_equilibriumsu21.html#x28-340006.1">Coordinates transformation</a></span>
 <br />     <span class="subsectionToc" >6.2 <a 
-href="tokamak_equilibriumsu32.html#x39-460006.2">Global safety factor</a></span>
+href="tokamak_equilibriumsu22.html#x29-350006.2">Jacobian</a></span>
 <br />     <span class="subsectionToc" >6.3 <a 
-href="tokamak_equilibriumsu33.html#x40-470006.3">Relation between Jacobian and poloidal angle <span 
-class="cmmi-10">𝜃</span></a></span>
+href="tokamak_equilibriumsu23.html#x30-360006.3">Orthogonality relation between two sets of basis vectors</a></span>
 <br />     <span class="subsectionToc" >6.4 <a 
-href="tokamak_equilibriumsu34.html#x41-480006.4">Calculating poloidal angle</a></span>
+href="tokamak_equilibriumsu24.html#x31-370006.4">An example: (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</a></span>
+<br />     <span class="subsectionToc" >6.5 <a 
+href="tokamak_equilibriumsu25.html#x32-380006.5">Gradient and directional derivative in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
+<br />     <span class="subsectionToc" >6.6 <a 
+href="tokamak_equilibriumsu26.html#x33-390006.6">Divergence operator in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
+<br />     <span class="subsectionToc" >6.7 <a 
+href="tokamak_equilibriumsu27.html#x34-400006.7">Laplacian operator in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
+<br />     <span class="subsectionToc" >6.8 <a 
+href="tokamak_equilibriumsu28.html#x35-410006.8">Curl operator in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</a></span>
+<br />     <span class="subsectionToc" >6.9 <a 
+href="tokamak_equilibriumsu29.html#x36-420006.9">Metric tensor for general coordinate system</a></span>
 <br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-490006.4" id="QQ2-41-56">Normalized poloidal angle</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-500006.4" id="QQ2-41-57">Jacobian for equal-arc-length poloidal angle</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-510006.4" id="QQ2-41-58">Jacobian for equal-volume poloidal angle (Hamada coordinate)</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-520006.4" id="QQ2-41-59">Jacobian of Boozer’s poloidal angle</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-530006.4" id="QQ2-41-60">Jacobian for PEST poloidal angle (straight-ﬁeld-line poloidal angle)</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-540006.4" id="QQ2-41-61">Comparison between diﬀerent types of poloidal angle</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-550006.4" id="QQ2-41-63">Veriﬁcation of Jacobian</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu34.html#x41-560006.4" id="QQ2-41-64">Radial coordinate</a></span>
+href="tokamak_equilibriumsu29.html#x36-430006.9" id="QQ2-36-50">Special case: metric tensor for (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system</a></span>
    </div>
 
 
 
+
+
+
+
+
                                                                                 
 
                                                                                 
-   <!--l. 2265--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1741--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse7.html" >next</a>] [<a 
 href="tokamak_equilibriumse5.html" >prev</a>] [<a 
 href="tokamak_equilibriumse5.html#tailtokamak_equilibriumse5.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumse6.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse6.html" >up</a>] </p></div>
-<!--l. 2265--><p class="indent" >   <a 
+<!--l. 1741--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse6.html"></a> </p> 
 </body></html> 

@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Jacobian</title> 
+<head><title>Orthogonality relation between two sets of basis vectors</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,92 +13,291 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1079--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1164--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu24.html" >next</a>] [<a 
 href="tokamak_equilibriumsu22.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu22.html#tailtokamak_equilibriumsu22.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu23.html">tail</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu23.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
- id="x28-340004.2"></a>Jacobian</h4>
-<!--l. 1081--><p class="noindent" >A useful quality characterizing coordinate transformation is the Jacobian determinant (or simply called
-Jacobian), which, for the transformation in Eq. (<a 
-href="tokamak_equilibriumsu22.html#x27-33003r76">76<!--tex4ht:ref: 11-8-10 --></a>), is deﬁned by
+href="tokamak_equilibriumse6.html#tokamak_equilibriumsu23.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">6.3   </span> <a 
+ id="x30-360006.3"></a>Orthogonality relation between two sets of basis vectors</h4>
+<!--l. 1166--><p class="noindent" >In a curvilinear coordinate system (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">3</span></sub>), there are two kinds of basis vectors: <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">i</span></sub> and
+<span 
+class="cmmi-10">∂</span><span 
+class="cmbx-10">r</span><span 
+class="cmmi-10">∕∂x</span><sub><span 
+class="cmmi-7">i</span></sub>, with <span 
+class="cmmi-10">i </span>= 1<span 
+class="cmmi-10">,</span>2<span 
+class="cmmi-10">,</span>3<span 
+class="cmmi-10">. </span>These two kinds of basis vectors satisfy the following orthogonality
+relation:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x28-34001r77"></a>
+ id="x30-36001r80"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium118x.png" alt="    |           |
-    || ∂∂xx-∂∂xx- ∂∂xx-||
-𝒥 = || ∂1y-∂y2 ∂3y-||,
-    || ∂x∂1z-∂∂xz2 ∂x∂3z-||
-      ∂x1 ∂x2 ∂x3
-" class="math-display"  /></center></td><td class="equation-label">(77)</td></tr></table>
-<!--l. 1093--><p class="nopar" >
-which can also be written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x28-34002r78"></a>
+src="tokamak_equilibrium122x.png" alt="     ∂r
+∇xi ⋅----= δij,
+     ∂xj
+" class="math-display"  /></center></td><td class="equation-label">(80)</td></tr></table>
+<!--l. 1173--><p class="nopar" >
+where <span 
+class="cmmi-10">δ</span><sub><span 
+class="cmmi-7">ij</span></sub> is the Kronical delta function. [Proof: Working in a Cartesian coordinate system (<span 
+class="cmmi-10">x,y,z</span>) with
+the corresponding basis vectors denoted by (<img 
+src="tokamak_equilibrium123x.png" alt="ˆx"  class="circ"  /><span 
+class="cmmi-10">,</span><img 
+src="tokamak_equilibrium124x.png" alt="ˆy"  class="circ"  /><span 
+class="cmmi-10">,</span><img 
+src="tokamak_equilibrium125x.png" alt="ˆz"  class="circ"  />), then the left-hand side of Eq. (<a 
+href="#x30-36001r80">80<!--tex4ht:ref: 4-6-e1 --></a>) can be written
+as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium119x.png" alt="     ∂r    ∂r   ∂r
-𝒥 =  ∂x-× ∂x--⋅∂x--.
-       1     2   3
-" class="math-display"  /></center></td><td class="equation-label">(78)</td></tr></table>
-<!--l. 1099--><p class="nopar" >
-It is easy to prove that the Jacobian <span 
-class="cmsy-10">𝒥 </span>in Eq. (<a 
-href="#x28-34002r78">78<!--tex4ht:ref: 10-21-p3 --></a>) can also be written (the derivation is given in my
-notes on Jacobian)
+src="tokamak_equilibrium126x.png" alt="     ∂r   [( ∂xi)    ( ∂xi)    ( ∂xi)  ] [ ∂x      ∂ˆx    ∂y     ∂ ˆy   ∂z      ∂ˆz ]
+∇xi ⋅∂x-=    ∂x-  ˆx+   ∂y-  ˆy+   ∂z-  ˆz ⋅ ∂x--ˆx+ x∂x--+ ∂x-yˆ+ y∂x--+ ∂x-ˆz +z ∂x--
+       j  [(    )    (    )    (    )  ] [   j       j    j       j   ] j       j
+        =    ∂xi  ˆx+   ∂xi  ˆy+   ∂xi  ˆz ⋅ -∂x-ˆx+ 0+  ∂y-ˆy+ 0 + ∂z-ˆz+ 0         (81)
+             ∂x        ∂y        ∂z       ∂xj        ∂xj       ∂xj
+           ∂xi∂x--  ∂xi-∂y-  ∂xi-∂z-
+        =  ∂x ∂xj + ∂y ∂xj + ∂z ∂xj
+           ∂xi
+        =  ∂x--                                                                (82)
+             j
+        = δij,
+" class="math-display"  /><a 
+ id="x30-36002r82"></a></center>
+                                                                                
+
+                                                                                
+</div>where the second equality is due to <span 
+class="cmmi-10">∂</span><img 
+src="tokamak_equilibrium127x.png" alt="ˆx"  class="circ"  /><span 
+class="cmmi-10">∕∂x</span><sup><span 
+class="cmmi-7">j</span></sup> = 0<span 
+class="cmmi-10">,∂</span><img 
+src="tokamak_equilibrium128x.png" alt="ˆy"  class="circ"  /><span 
+class="cmmi-10">∕∂x</span><sup><span 
+class="cmmi-7">j</span></sup> = 0<span 
+class="cmmi-10">,∂</span><img 
+src="tokamak_equilibrium129x.png" alt="ˆz"  class="circ"  /><span 
+class="cmmi-10">∕∂x</span><sup><span 
+class="cmmi-7">j</span></sup> = 0 since <img 
+src="tokamak_equilibrium130x.png" alt="ˆx"  class="circ"  /><span 
+class="cmmi-10">,</span><img 
+src="tokamak_equilibrium131x.png" alt="ˆy"  class="circ"  /><span 
+class="cmmi-10">,</span><img 
+src="tokamak_equilibrium132x.png" alt="ˆz"  class="circ"  /> are
+constant vectors independent of spatial location; the chain rule has been used in obtaining Eq.
+(<a 
+href="#x30-36002r82">82<!--tex4ht:ref: 18-10-10-p1 --></a>)]
+<!--l. 1206--><p class="indent" >   [The cylindrical coordinate system (<span 
+class="cmmi-10">R,ϕ,Z</span>) is an example of general coordinates. As an exercise, we
+can verify that the cylindrical coordinates have the property given in Eq. (<a 
+href="#x30-36001r80">80<!--tex4ht:ref: 4-6-e1 --></a>). In this case,
+<span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub> cos<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub>, <span 
+class="cmmi-10">y </span>= <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub> sin<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub>, <span 
+class="cmmi-10">z </span>= <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">3</span></sub>, where <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub> <span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">R</span>, <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub> <span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">ϕ</span>, <span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">3</span></sub> <span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">Z</span>.]
+</p><!--l. 1212--><p class="indent" >   It can be proved that <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sup><span 
+class="cmmi-7">i</span></sup> is a contravariant vector while <span 
+class="cmmi-10">∂</span><span 
+class="cmbx-10">r</span><span 
+class="cmmi-10">∕∂x</span><sup><span 
+class="cmmi-7">i</span></sup> is a covariant vector (I do not
+prove this and do not bother with the meaning of these names, just using this as a naming scheme for
+easy reference).
+</p><!--l. 1217--><p class="indent" >   The orthogonality relation in Eq. (<a 
+href="#x30-36001r80">80<!--tex4ht:ref: 4-6-e1 --></a>) is fundamental to the theory of general coordinates. The
+orthogonality relation allows one to write the covariant basis vectors in terms of contravariant basis
+vectors and vice versa. For example, the orthogonality relation tells that <span 
+class="cmmi-10">∂</span><span 
+class="cmbx-10">r</span><span 
+class="cmmi-10">∕∂x</span><sub><span 
+class="cmr-7">1</span></sub> is orthogonal to <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub>
+and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">3</span></sub>, thus, <span 
+class="cmmi-10">∂</span><span 
+class="cmbx-10">r</span><span 
+class="cmmi-10">∕∂x</span><sub><span 
+class="cmr-7">1</span></sub> can be written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x28-34003r79"></a>
+ id="x30-36003r83"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium133x.png" alt="-∂r-= A∇x  × ∇x  ,
+∂x1       2     3
+" class="math-display"  /></center></td><td class="equation-label">(83)</td></tr></table>
+<!--l. 1226--><p class="nopar" >
+where <span 
+class="cmmi-10">A </span>is a unknown variable to be determined. To determine <span 
+class="cmmi-10">A</span>, dotting Eq. (<a 
+href="#x30-36003r83">83<!--tex4ht:ref: 9-7-4 --></a>) by <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub>, and using
+the orthogonality relation again, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-36004r84"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium134x.png" alt="1 = A (∇x2 × ∇x3)⋅∇x1,
+" class="math-display"  /></center></td><td class="equation-label">(84)</td></tr></table>
+<!--l. 1232--><p class="nopar" >
+which gives </p><div class="eqnarray">
                                                                                 
 
                                                                                 
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium120x.png" alt="                    −1
-𝒥  = (∇x1 × ∇x2 ⋅∇x3 ) .
-" class="math-display"  /></center></td><td class="equation-label">(79)</td></tr></table>
-<!--l. 1105--><p class="nopar" >
-Conventionally, the Jacobian of the transformation from the Cartesian coordinates to a particular
-coordinate system <span 
-class="cmmi-10">σ </span>is called the Jacobian of <span 
-class="cmmi-10">σ</span>, without explitly mentioning that this transformation is
-with respect to the Cartesian coordinates.
-</p><!--l. 1111--><p class="indent" >   Using the deﬁntion in Eq. (<a 
-href="#x28-34001r77">77<!--tex4ht:ref: 21-11-29-1 --></a>), the Jacobian <span 
-class="cmsy-10">𝒥 </span>of the Cartesian coordinates can be calculated,
-yielding 1. Likewise, the Jacobian of the cylindrical coordinates (<span 
-class="cmmi-10">R,ϕ,Z</span>) can be calculated as follows:
-</p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium121x.png" alt="    |        |  |                    |
-    ||∂∂xR-∂∂xϕ ∂∂xZ||  || ∂R∂cRosϕ-∂Rc∂oϕsϕ ∂R∂cZosϕ-||
-𝒥 = ||∂y-∂y ∂y||= || ∂Rsinϕ-∂R-sinϕ ∂Rsinϕ-||
-    ||∂∂Rz-∂∂ϕz ∂∂Zz||  ||  ∂∂RZ-    ∂∂ϕZ-   ∂∂ZZ-  ||
-    |∂R ∂ϕ ∂Z     |∂R     ∂ϕ    ∂Z
-    ||cosϕ − R sinϕ 0||
-  = ||sinϕ  R cos ϕ 0||= R
-    | 0     0    1|
+src="tokamak_equilibrium135x.png" alt="    -------1--------
+A = (∇x2 × ∇x3 )⋅∇x1
+ = 𝒥                                          (85)
 " class="math-display"  /></center>
-</div>If the Jacobian of a coordinate system is greater than zero, it is called a right-handed coordinate
-system. Otherwise it is called a left-handed system.
+</div>Thus <span 
+class="cmmi-10">∂</span><span 
+class="cmbx-10">r</span><span 
+class="cmmi-10">∕∂x</span><sub><span 
+class="cmr-7">1</span></sub> is written, in terms of <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub>, <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub>, and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">3</span></sub>, as
+   <table 
+class="equation"><tr><td><a 
+ id="x30-36006r86"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium136x.png" alt="-∂r-= 𝒥 ∇x2 × ∇x3.
+∂x1
+" class="math-display"  /></center></td><td class="equation-label">(86)</td></tr></table>
+<!--l. 1244--><p class="nopar" >
+Similarly, we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-36007r87"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium137x.png" alt=" ∂r
+∂x--= 𝒥 ∇x3 × ∇x1
+   2
+" class="math-display"  /></center></td><td class="equation-label">(87)</td></tr></table>
+<!--l. 1249--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-36008r88"></a>
                                                                                 
 
                                                                                 
-   <!--l. 1140--><div class="crosslinks"><p class="noindent">[<a 
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium138x.png" alt=" ∂r
+----= 𝒥 ∇x1 × ∇x2.
+∂x3
+" class="math-display"  /></center></td><td class="equation-label">(88)</td></tr></table>
+<!--l. 1254--><p class="nopar" >
+Equations (<a 
+href="#x30-36006r86">86<!--tex4ht:ref: 9-8-1 --></a>)-(<a 
+href="#x30-36008r88">88<!--tex4ht:ref: 9-8-3 --></a>) can be generally written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-36009r89"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium139x.png" alt=" ∂r
+∂x- = 𝒥∇xj × ∇xk,
+  i
+" class="math-display"  /></center></td><td class="equation-label">(89)</td></tr></table>
+<!--l. 1259--><p class="nopar" >
+where (<span 
+class="cmmi-10">i,j,k</span>) represents the cyclic order in the variables (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">3</span></sub>). Equation (<a 
+href="#x30-36009r89">89<!--tex4ht:ref: 11-18-1 --></a>) expresses the
+covariant basis vectors in terms of the contravariant basis vectors. On the other hand, from Eq.
+(<a 
+href="#x30-36006r86">86<!--tex4ht:ref: 9-8-1 --></a>)-(<a 
+href="#x30-36008r88">88<!--tex4ht:ref: 9-8-3 --></a>), we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x30-36010r90"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium140x.png" alt="          ∂r    ∂r
+∇xi = 𝒥− 1∂x-× ∂x--,
+            j     k
+" class="math-display"  /></center></td><td class="equation-label">(90)</td></tr></table>
+<!--l. 1267--><p class="nopar" >
+which expresses the contravariant basis vectors in terms of the covariant basis vectors.
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 1271--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu24.html" >next</a>] [<a 
 href="tokamak_equilibriumsu22.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu22.html#tailtokamak_equilibriumsu22.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu23.html" >front</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu23.html" >up</a>] </p></div>
-<!--l. 1140--><p class="indent" >   <a 
+href="tokamak_equilibriumse6.html#tokamak_equilibriumsu23.html" >up</a>] </p></div>
+<!--l. 1271--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu23.html"></a> </p> 
 </body></html> 

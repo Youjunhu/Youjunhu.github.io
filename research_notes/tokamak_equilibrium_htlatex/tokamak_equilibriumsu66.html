@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Fixed boundary equilibrium numerical code</title> 
+<head><title>Benchmark of the code</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,20 +13,45 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 5173--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 5230--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu67.html" >next</a>] [<a 
 href="tokamak_equilibriumsu65.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu65.html#tailtokamak_equilibriumsu65.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu66.html">tail</a>] [<a 
-href="tokamak_equilibriumse13.html#tokamak_equilibriumsu66.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">13.6   </span> <a 
- id="x80-10400013.6"></a>Fixed boundary equilibrium numerical code</h4>
-<!--l. 5175--><p class="noindent" >The tokamak equilibrium problem where the shape of the LCFS is given is called ﬁxed boundary
-equilibrium problem. I wrote a numerical code that uses the iterative metric method<span class="cite">[<a 
-href="tokamak_equilibriumli1.html#Xdelucia1980">11</a>]</span> to solve this
-kind of equilibrium problem. Figure <a 
-href="#x80-10400130">30<!--tex4ht:ref: 12-26-1 --></a> describes the steps involved in the iterative metric
-method.
+href="tokamak_equilibriumse15.html#tokamak_equilibriumsu66.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">15.7   </span> <a 
+ id="x82-10600015.7"></a>Benchmark of the code</h4>
+<!--l. 5232--><p class="noindent" >To benchmark the numerical code, I set the proﬁle of <span 
+class="cmmi-10">P </span>and <span 
+class="cmmi-10">g </span>according to Eqs. (<a 
+href="tokamak_equilibriumsu78.html#x96-123001r511">511<!--tex4ht:ref: 11-1-2 --></a>) and (<a 
+href="tokamak_equilibriumsu78.html#x96-123002r512">512<!--tex4ht:ref: 3-15-a1 --></a>) with
+the parameters <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">2</span></sub> = 0, <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">1</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup> + 1)<span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>), <span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub> = 1<span 
+class="cmmi-10">.</span>5, and <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub> = 1<span 
+class="cmmi-10">.</span>5. The comparison of the
+analytic and numerical results are shown in Fig. <a 
+href="#x82-10600131">31<!--tex4ht:ref: 3-15-a2 --></a>.
 </p>
    <hr class="figure" /><div class="figure" 
 >
@@ -34,51 +59,65 @@ method.
 
                                                                                 
 <a 
- id="x80-10400130"></a>
+ id="x82-10600131"></a>
                                                                                 
 
                                                                                 
-<!--l. 5182--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/inverse_metric_method/fig3/plt.png" alt="pict"  
- width="180.67499pt" /> <img 
-src="my_figure/home/yj/project_new/inverse_metric_method/fig4/plt.png" alt="pict"  
- width="180.67499pt" />
-</p><!--l. 5184--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/inverse_metric_method/fig3/reshape.png" alt="pict"  
- width="180.67499pt" /> <img 
-src="my_figure/home/yj/project_new/inverse_metric_method/fig6/plt.png" alt="pict"  
- width="180.67499pt" />
-</p><!--l. 5186--><p class="noindent" > <img 
-src="my_figure/home/yj/project_new/inverse_metric_method/fig5/plt.png" alt="pict"  
+<!--l. 5239--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/inverse_metric_method/fig13/tmp.png" alt="pict"  
  width="180.67499pt" />
 <br /> </p><div class="caption" 
-><span class="id">Fig. 30: </span><span  
-class="content">Upper left ﬁgure plots the initial coordinate surfaces. After solving the GS equation to
-obtain the location of the magnetic axis, I shift the origin point of the initial coordinate system
-to the location of the magnetic axis (upper right ﬁgure). Then, reshape the coordinate surface so
-that the coordinate surfaces <span 
-class="cmmi-10">ψ </span>= const lies on magnetic surfaces (middle left ﬁgure). Recalculate
-the radial coordinate <span 
-class="cmmi-10">ψ </span>that is consistent with the Jacobian constraint and interpolate ﬂux
-surface to uniform <span 
-class="cmmi-10">ψ </span>coordinates (middle right ﬁgure). Recalculate the poloidal coordinate <span 
-class="cmmi-10">𝜃 </span>that
-is consistent with the Jacobian constraint and interpolate poloidal points on every ﬂux surface
-to uniform <span 
-class="cmmi-10">𝜃 </span>coordinates (bottom left ﬁgure).</span></div><!--tex4ht:label?: x80-10400130 -->
+><span class="id">Fig. 31: </span><span  
+class="content">Agreement between the magnetic surfaces (contours of <span 
+class="cmmi-10">Ψ</span>) given by the Solovev analytic
+formula and those calculated by the numerical code. The two sets of magnetic surfaces are
+indistinguishable at this scale. The boundary magnetic surface is selected by the requirement
+that <span class="overline"><span 
+class="cmmi-10">Ψ</span></span> = 0<span 
+class="cmmi-10">.</span>11022 in the Solovev formula (<a 
+href="tokamak_equilibriumsu78.html#x96-123010r520">520<!--tex4ht:ref: 3-12-p1 --></a>). Parameters: <span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub> = 1<span 
+class="cmmi-10">.</span>5, <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub> = 1<span 
+class="cmmi-10">.</span>5.</span></div><!--tex4ht:label?: x82-10600131 -->
                                                                                 
 
                                                                                 
    </div><hr class="endfigure" />
+<!--l. 5248--><p class="indent" >   Note that the parameter <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">0</span></sub> in the Solovev equilibrium seems to be not needed in the numerical
+calculation. In fact this impression is wrong: the <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">0</span></sub> parameter is actually needed in determining the
+boundary magnetic surface of the numerical equilibrium (in the case considered here <span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">0</span></sub> is chosen as
+<span 
+class="cmmi-10">c</span><sub><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">κ</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>)).
                                                                                 
 
                                                                                 
-   <!--l. 5200--><div class="crosslinks"><p class="noindent">[<a 
+</p>
+   <!--l. 5254--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu67.html" >next</a>] [<a 
 href="tokamak_equilibriumsu65.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu65.html#tailtokamak_equilibriumsu65.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu66.html" >front</a>] [<a 
-href="tokamak_equilibriumse13.html#tokamak_equilibriumsu66.html" >up</a>] </p></div>
-<!--l. 5200--><p class="indent" >   <a 
+href="tokamak_equilibriumse15.html#tokamak_equilibriumsu66.html" >up</a>] </p></div>
+<!--l. 5254--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu66.html"></a> </p> 
 </body></html> 

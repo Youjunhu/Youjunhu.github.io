@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Field-line-following coordinates</title> 
+<head><title>Magnetic surface averaging</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,75 +13,32 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 3408--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2604--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse12.html" >next</a>] [<a 
 href="tokamak_equilibriumse10.html" >prev</a>] [<a 
 href="tokamak_equilibriumse10.html#tailtokamak_equilibriumse10.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumse11.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse11.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">11   </span> <a 
- id="x60-7500011"></a>Field-line-following coordinates</h3>
-<!--l. 3411--><p class="noindent" >
+ id="x47-6200011"></a>Magnetic surface averaging</h3>
+<!--l. 2606--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
      <span class="subsectionToc" >11.1 <a 
-href="tokamak_equilibriumsu49.html#x61-7600011.1">Deﬁnition of the ﬁeld-line-following coordinates (<span 
-class="cmmi-10">ψ,𝜃,α</span>)</a></span>
+href="tokamak_equilibriumsu36.html#x48-6300011.1">Deﬁnition</a></span>
 <br />     <span class="subsectionToc" >11.2 <a 
-href="tokamak_equilibriumsu50.html#x62-7700011.2">Some discussions</a></span>
-<br />     <span class="subsectionToc" >11.3 <a 
-href="tokamak_equilibriumsu51.html#x63-7800011.3">Expression of <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">α</span></a></span>
-<br />     <span class="subsectionToc" >11.4 <a 
-href="tokamak_equilibriumsu52.html#x64-7900011.4">Field-aligned coordinates in GEM[7] and GENE[13] codes</a></span>
-<br />     <span class="subsectionToc" >11.5 <a 
-href="tokamak_equilibriumsu53.html#x65-8000011.5">Visualization of gridpoints in ﬁeld aligned coordinate system</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu53.html#x65-8100011.5" id="QQ2-65-100">Radial wavenumber in ﬁeld-aligned coordinates (<span 
-class="cmmi-10">ψ,𝜃,α</span>)</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu53.html#x65-8200011.5" id="QQ2-65-102">Periodic conditions of physical quantity along <span 
-class="cmmi-10">𝜃 </span>and <span 
-class="cmmi-10">α </span>in ﬁeld-line-following
-coordinates (<span 
-class="cmmi-10">ψ,𝜃,α</span>)</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu53.html#x65-8300011.5" id="QQ2-65-103">Numerical implementation of periodic condition (326)</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu53.html#x65-8400011.5" id="QQ2-65-105"><span 
-class="cmmi-10">α </span>contours on a magnetic surface</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu53.html#x65-8500011.5" id="QQ2-65-108"><span 
-class="cmmi-10">α </span>contours in a toroidal annulus</a></span>
-<br />     <span class="subsectionToc" >11.6 <a 
-href="tokamak_equilibriumsu54.html#x66-8600011.6">Field-line-following mesh in gyrokinetic turbulence simulation codes</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu54.html#x66-8700011.6" id="QQ2-66-114">Mesh in GENE, GYRO, and GEM codes</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu54.html#x66-8800011.6" id="QQ2-66-115">Mesh in GTC and GTS codes[26]</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu54.html#x66-8900011.6" id="QQ2-66-116">Mesh in XGC1 code ***check**</a></span>
-<br />     <span class="subsectionToc" >11.7 <a 
-href="tokamak_equilibriumsu55.html#x67-9000011.7">Numerical veriﬁcation of the ﬁeld-aligned coordinates</a></span>
-<br />      <span class="subsubsectionToc" ><a 
-href="tokamak_equilibriumsu55.html#x67-9100011.7" id="QQ2-67-119">Binormal wavenumber</a></span>
+href="tokamak_equilibriumsu37.html#x49-6400011.2">Flux Surface Functions—to be deleted</a></span>
    </div>
 
-
-
-
-
-
                                                                                 
 
                                                                                 
-   <!--l. 4311--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 2912--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse12.html" >next</a>] [<a 
 href="tokamak_equilibriumse10.html" >prev</a>] [<a 
 href="tokamak_equilibriumse10.html#tailtokamak_equilibriumse10.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumse11.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse11.html" >up</a>] </p></div>
-<!--l. 4311--><p class="indent" >   <a 
+<!--l. 2912--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse11.html"></a> </p> 
 </body></html> 

@@ -722,8 +722,7 @@ of the momentum equation is the force balance (\ref{7-7-force}). (to be sure,
 I need to think about this again). This reasoning is from Youwen
 Sun{\cite{ysun2012}}.
 
-\subsection{Force balance equation in tokamak plasmas: Grad-Shafranov
-equation}\label{3-14-p1}
+\subsection{Force balance in tokamak plasmas}\label{3-14-p1}
 
 \subsubsection{Parallel force balance }
 
@@ -779,7 +778,7 @@ function $g$ defined here is usually called the ``poloidal current function''
 in tokamak literature. The reason for this name is discussed in Sec.
 \ref{2-14-10}.)
 
-\subsubsection{Force balance along the major radius}
+\subsubsection{Force balance along the major radius: Grad-Shafranov equation}
 
 Next, consider the force balance in $\hat{\mathbf{R}}$ direction. The
 $\hat{\mathbf{R}}$ component of the force balance equation (\ref{7-7-force})
@@ -840,6 +839,12 @@ satisfied in three different directions (namely, $\hat{\tmmathbf{\phi}}$,
 $\hat{\mathbf{R}}$, and $\mathbf{B}$ direction) and thus it must be satisfied
 in all the directions.]
 
+Using the GS equation, $J_{\phi}$ can also be expressed as
+\begin{equation}
+  \label{24-5-29-p4} J_{\phi} = \frac{1}{\mu_0 R} \left( \mu_0 R^2 \frac{d
+  P}{d \Psi} + \frac{d g}{d \Psi} g \right) .
+\end{equation}
+
 \subsection{Axisymmetric equilibrium magnetic field}
 
 A general axisymmetric magnetic field (which does not necessarily satisfy the
@@ -859,8 +864,8 @@ specified RHS source terms and boundary conditions.
 The RHS source terms in the GS equation (\ref{7-1-p1}) are $P (\Psi)$ and $g
 (\Psi)$, both of which must be specified before the GS equation can be solved.
 For most cases, the source terms are nonlinear about $\Psi$ and thus the GS
-equation is a two-dimensional (in the cylindrical coordinates $R$ and $Z$)
-nonlinear partial differential equation for $\Psi$.
+equation is a two-dimensional (in $R$ and $Z$) nonlinear partial differential
+equation for $\Psi$.
 
 For most choices of $P (\Psi)$ and $g (\Psi)$, the GS equation (\ref{7-1-p1})
 has to be solved numerically. For some particular choices of $P$ and $g$
@@ -896,37 +901,12 @@ $\mathbf{J}$ (expressed in terms of $g$ and $\Psi$) are given by Eqs.
 further simplified by using the equilibrium constraints, such as $g = g
 (\Psi)$ and $\triangle^{\ast} \Psi = - \mu_0 R^2 \frac{d P}{d \Psi} - \frac{d
 g}{d \Psi} g$. The simplified $\mathbf{J}$ expressions are given in
-\ref{20-4-23-a1}. On the other hand, in the kinetic equilibrium
-reconstruction{\cite{li2013}}, it is the current that is first computed (by
-summing sources of current drive and bootstrap current) and then the current
-is used as constraints for the GS equation, i.e, constraints for the magnetic
-field.
+\ref{20-4-23-a1}.
 
-\subsection{Vacuum magnetic field (not finished)}
-
-In the vacuum region that is between the plasma and the first wall, there is
-no current, i.e.,
-\begin{equation}
-  \nabla \times \mathbf{B}= 0.
-\end{equation}
-Next, let us examine what constraint this condition imposes on the magnetic
-field. Using expression \ (\ref{7-28-6}), the above equation is written as
-\begin{equation}
-  \nabla \times (\nabla \Psi \times \nabla \phi) + \nabla g \times \nabla \phi
-  = 0,
-\end{equation}
-It is not obvious how to draw useful information from the above equation.
-
-In the above, we use the vector potential approach. Next, let us try the
-scalar potential approach:
-\begin{equation}
-  \mathbf{B}= \nabla \Phi,
-\end{equation}
-then the constraint $\nabla \cdot \mathbf{B}= 0$ is written as
-\begin{equation}
-  \nabla^2 \Phi = 0.
-\end{equation}
-
+On the other hand, in the equilibrium reconstruction{\cite{li2013}}, it is the
+current that is first (partially) specified (e.g., by summing sources of
+current drive and bootstrap current) and then the current is used as
+constraints for the GS equation, i.e, constraints for the magnetic field.
 
 \subsection{Equilibrium scaling}
 
@@ -974,61 +954,112 @@ more flexibility in changing the the safety factor profile. Scaling $\Psi$ by
 a factor corresponds to scaling the plasma current and the poloidal magnetic
 field.
 
-\subsection{Free boundary equilibrium problem}
+\section{How to solve Grad-Shafranov equation}
 
-If the value of $\Psi$ on the boundary of the computational box is unknown,
-how do you sovle the GS equation?
+\subsection{Solving by inverting the Laplace operator}
 
-Suppose the boundary is a rectangle in $(R, Z)$ plane. To numerically solve
-the GS equation within this boundary, we need the value of $\Psi$ on the
-boundary. Therefore we need to adopt some initial guess, then solve the GS
-equation to get the value of $\Psi$ within the computational box. Using the
-computed $\Psi$, we can calculate $J_{\phi}$ through Eq. (\ref{6-9-a1}). After
-this, all the current (current in the plasma and in the external coils)
-perpendicular to the poloidal plane is known, we can calculate the value of
-$\Psi$ on the boundary of the box, $\Psi_b$, by using the Green function
-formulation:
+If we want to invert the Laplace operator $\triangle^{\ast}$ of the GS
+equation to solve for $\Psi$, we encounter two issues: (1) the RHS of the GS
+equation involves functions of $\Psi$, where both the functions and $\Psi$ are
+unknown; (2) the values of $\Psi$ on a given boundy should be prescribed,
+which in turn invovles two issues: (a) how to choose the shape of the bounday?
+(b) how to know the value of $\Psi$ on the boundary? The answer to isssues (a)
+and (b) is that we can choose any boundy we like (e.g., rectangular region)
+and guess the values of $\Psi$ on it (which will be updated in iterations
+discussed later). The answer to issue (1) is that the function forms are
+chosen by users, usually as polymials in $\Psi$, e.g. {\cite{lao1985}}
 \begin{equation}
-  \label{10-31-1} \Psi (R', Z') = \int_P G (R, Z ; R', Z') J_{\phi} d R d Z +
-  \sum_{i = 1}^{N_c} G (R^c_i, Z_i^c ; R', Z') I_{\phi} .
+  \frac{d P (\Psi)}{d \Psi} = \sum_{n = 0}^{n_p} \alpha_n x^n - x^{n_p + 1}
+  \sum_{n = 0}^{n_p} \alpha_n,
 \end{equation}
-Note that $\Psi_b$ calculated this way usually differs from the initial guess
-of the value of $\Psi$ on the boundary. Thus, we need to use the $\Psi_b$
-calculated this way as a new guess value of $\Psi$ on the computational
-boundary and repeat the above procedures. The process is repeated until
-$\Psi_b$ obtained in two successive iterations agrees with each other to a
-prescribed tolerance.
 
-\
+\begin{equation}
+  2 g \frac{d g}{d \Psi} = \sum_{n = 0}^{n_g} \beta_n x^n - x^{n_g + 1}
+  \sum_{n = 0}^{n_g} \beta_n,
+\end{equation}
+where $x = (\Psi - \Psi_M) / (\Psi_B - \Psi_M)$, $\Psi_M$ and $\Psi_B$ are
+values of $\Psi$ at the magnetic axis and LCFS (but the locations of the axis
+and LCFS are unknown), the free parameters $\alpha_n$ and $\beta_n$ are
+assumed known (which will be later adjusted in the least-square-minimizing
+iteration to make the resulting solution match some measurements and
+constraints imposed). To make the RHS fully known, we need to guess values of
+$\Psi$ in the inner region. Then inverting \ $\triangle^{\ast}$ to get new
+$\Psi$. The values we obtained via inerting $\triangle^{\ast}$ usually differ
+from what we used in the RHS, so we need to interate until convergence. We
+call this interation as the first-level iteration.
 
-In solving the equilibrium problem, the current in external coils is given
-and known while the current distribution in the plasma is unknown. Therefore,
-solving the equilibrium problem actually corresponds to determining
-$J_{\phi}$.
+After the first-level iteration coverges, we can calculate $J_{\phi}$ through
+Eq. (\ref{24-5-29-p4}) or Eq. (\ref{6-9-a1}). After this, all the current
+(current in the plasma, and current in the external coils, which are assumed
+to be known) perpendicular to the poloidal plane is known, we can calculate
+the value of $\Psi$ on the boundary, $\Psi_b$, by using the Biot-Savart Law
+(see (\ref{24-5-29-p1})):
+\begin{equation}
+  \label{10-31-1} \Psi (R, Z) = \int_P G (R', Z' ; R, Z) J_{\phi} d R' d Z' +
+  \sum_{i = 1}^{N_c} G (R^c_i, Z_i^c ; R, Z) I_{i, \phi}^c,
+\end{equation}
+where $G$ is Green's function given by
+\begin{eqnarray}
+  &  & G (R', Z', R, Z) \nonumber\\
+  & = & \frac{\mu_0 R}{4 \pi} \int_0^{2 \pi} \frac{R' \cos \phi' d
+  \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}} 
+  \label{24-5-29-p2}
+\end{eqnarray}
+If $\Psi_b$ calculated this way differs from the initial guess of the value of
+$\Psi$ on the boundary, we need to iterate: use the $\Psi_b$ calculated as a
+new guess value of $\Psi$ on the boundary and repeat the above procedures
+until convergence. We call this iteration as the second-level
+iteration.{\cite{lao1985efit}}.
 
-\
+The thrid level iteration is to iterate over the free parameters $\alpha_n$,
+$\beta_n$, the PF coil currents, to make the solution match match some
+measurements and constraints imposed. This iteration is an optimization
+problem.
 
-\subsection{Fixed boundary equilibrium and choices of coordinates}
+\subsection{Solving by using integral form of the GS equation}
 
-Before considering the free boundary equilibrium, it is instructive to
-consider the fixed boundary equilibrium problem, where the shape of the
-boundary flux surface is given (i.e., the value of $\Psi$ is a constant on
-this boundary). In dealing with the fixed boundary problem, the curvilinear
-coordinate system is useful. Specifically, the convenience provided by a
-curvilinear coordinate system is that the coordinates can be properly chosen
-to make one of the coordinate surfaces coincide with the given boundary flux
-surface, so that the boundary condition becomes trivial.
+The Green's function method of calculating $\Psi$ from $J_{\phi}$ via Eq.
+(\ref{10-31-1}) can be considered as the integral form of the GS equation.
+Re-examing the previous subsection, we find, instead of inverting the Laplace
+operator to solve for $\Psi$ at the interior points, we can just use Eq.
+(\ref{10-31-1}) to calculate them. The plasma toroidal current $J_{\phi}$ is
+calculated through Eq. (\ref{24-5-29-p4}). In this case, we only have two
+levels of iteration: 1. interation over the rhd of GS equation, 2. iteration
+over the free parameters ($\alpha_n$, $\beta_n$, PF coil currents). The
+iteration over the value of $\Psi$ on the boundary is not needed. So, this is
+a more straightforward method.
+
+\section{Fixed boundary equilibrium and choices of coordinates}
+
+Plasma physists love to consider a kind of simplified problem: the fixed
+boundary equilibrium problem, where the shape of the boundary flux surface is
+given (the value of $\Psi$ is a constant on this boundary). In dealing with
+the fixed boundary problem, the curvilinear coordinate system is useful.
+Specifically, the convenience is that the coordinates can be adjusted to make
+one of the coordinate surfaces coincide with the given boundary flux surface,
+so that the boundary condition becomes trivial.
+
+More generally, curvilinear coordinates can be ajusted to make coordinate
+surfaces coincide with magnetic surfaces (dicussed later). This often
+simplifies analysis of wave and transport problems, especially when we
+properly choose the poloidal/toroidal coordinate to make magnetic field lines
+look like straight lines in terms of these coordinates.
 
 Next section discusses the basic theory of curvilinear coordinates
-system{\cite{boozer2005}}. Many theories and numerical codes use the
-curvilinear coordinate systems that are constructed with one coordinate
-surface coinciding with magnetic surfaces. In these coordinate systems, we
-need to choose a poloidal coordinate $\theta$ and a toroidal coordinate
-$\zeta$. A particular choice for $\theta$ and $\zeta$ is one that makes the
-magnetic field lines be straight lines in $(\theta, \zeta)$ plane. These kinds
-of coordinates are often called magnetic coordinates. That is, ``magnetic
-coordinates \ are defined so they conform to the shape of the magnetic
-surfaces and trivialize the equations for the field lines.''
+system{\cite{boozer2005}}.
+
+In many studies of tokamak plasmas, one need construct a curvilinear
+coordinate system based on a given magnetic cofiguration in order to make the
+problem amenable to analytical methods or numerical methods. Specifically,
+many theories and numerical codes use the curvilinear coordinate systems that
+are constructed with one coordinate surface coinciding with magnetic surfaces.
+In these coordinate systems, we need to choose a poloidal coordinate $\theta$
+and a toroidal coordinate $\zeta$. As metioned above, a particular choice for
+$\theta$ and $\zeta$ is one that makes the magnetic field lines be straight
+lines in $(\theta, \zeta)$ plane. These kinds of coordinates are often called
+magnetic coordinates. That is, ``magnetic coordinates \ are defined so they
+conform to the shape of the magnetic surfaces and trivialize the equations for
+the field lines.''
 
 A further tuned magnetic coordinate system is the so-called field aligned (or
 filed-line following) coordinate system, in which changing one of the three
@@ -1036,16 +1067,9 @@ coordinates with the other two fixed would correspond to following a magnetic
 field line. The field aligned coordinates are discussed in Sec.
 \ref{21-10-8-1}.
 
-\section{Curvilinear coordinate system}
+Next, let us discuss some general properties about coordinates transformation.
 
-In many studies of tokamak plasmas, one need construct a curvilinear
-coordinate system based on a given magnetic cofiguration in order to make the
-problem amenable to analytical methods or numerical methods. Specifically, one
-of the coordinate surfaces of the constructed system will be required to
-coincide with magnetic surfaces. In addition, the magnetic field lines on a
-magnetic surface may be required to have some simple property (e.g., being a
-straight line) via carefully choosing the other two angular coordinates. Next,
-let us discuss some general properties about coordinates transformation.
+\section{Curvilinear coordinate system}
 
 \subsection{Coordinates transformation}
 
@@ -1817,7 +1841,7 @@ as
 If $\hat{q}$ happens to be independent of $\theta$ (i.e., field lines are
 straight in $(\theta, \phi)$ plane), then the above operator becomes a
 constant coefficient differential oprator (after divided by $\mathcal{J}^{-
-1}$). This simplification is useful in that different poloidal harmonics are
+1}$). This simplification is useful because different poloidal harmonics are
 decoupled in this case. We will discuss this issue futher in Sec.
 \ref{23-12-27-1}.
 
@@ -1902,6 +1926,12 @@ Using the fact that $\nabla \psi$ and $\nabla \phi$ are orthogonal and $\nabla
 \end{equation}
 Given $|\mathcal{J} \nabla \psi |$, Eq. (\ref{5-30-p1}) can be integrated to
 determine the $\theta$ coordinate of points on a magnetic surface.
+
+-----
+\begin{equation}
+  \overline{\delta} = \int_0^{\theta} \hat{q} d \theta = - \int_0^{\theta}
+  \frac{g}{R^2}  \frac{\mathcal{J}}{\Psi'} d \theta
+\end{equation}
 
 \subsection{Calculating poloidal angle}
 
@@ -3481,7 +3511,7 @@ $\overline{\delta} = \int_0^{\theta} \hat{q} d \theta$, which is called
 \overline{\delta}$. In \tmtexttt{TEK}, I choose $\theta \in [- \pi, \pi)$ with
 $\theta = - \pi$ corresponding to the high-field-side midplane, and $\theta$
 is increasing along the counter-clockwise direction viewed along $\nabla
-\phi$. \ The $\theta$ cut $(i.e., \theta = \pm \pi)$ is far away from the
+\phi$. \ The $\theta$ cut, i.e., $\theta = \pm \pi$ is far away from the
 low-field-side where ballooning modes often have larger amplitude. The $(x,
 y)$ grid near the $\theta$ cut is highly twisted in real space and
 interplation is needed in mapping physical quantity from the grid at $\theta =
@@ -3499,18 +3529,18 @@ field-aligned coordinates $(\psi, \theta, \alpha)$ provide suitable
 coordinates to be used, where less gridpoints can be used for $\theta$
 coordinate in simulations and even some $\partial / \partial \theta$
 derivatives can be neglected (high-n approximation), which simplifies the
-equations that need to be solved. However, there is a more important reason
-why almost all gyrokinetic codes use field-aligned coordinates: the \
-stability of numerical algorthims is improved when we use coarse grids in the
-parallel direction because the parallel Courant condition (for explicit
-schemes) $\Delta t \leqslant \Delta L_{\parallel} / v_{\parallel}$ can be more
-easily satisfied (especially for the cases with kinetic electrons), where
-$\Delta L_{\parallel}$ is the parallel grid spacing, which is larger when
-coarse grids are used in the parallel direction. This is also mentioned in
-Ref. {\cite{ottaviani2011}} and it seems to be right from my experiences of
-testing several algorithm but a strict test is needed to verify this. This can
-also be understood in the following way: the coarse parallel grid
-automatically filters out physically irrelevant but numerically problematic
+equations that need to be solved. There is another reason why almost all
+gyrokinetic codes use field-aligned coordinates: the \ stability of numerical
+algorthims is improved when we use coarse grids in the parallel direction
+because the parallel Courant condition (for explicit schemes) $\Delta t
+\leqslant \Delta L_{\parallel} / v_{\parallel}$ can be more easily satisfied
+(especially for the cases with kinetic electrons), where $\Delta
+L_{\parallel}$ is the parallel grid spacing, which is larger when coarse grids
+are used in the parallel direction. This is also mentioned in Ref.
+{\cite{ottaviani2011}} and it seems to be right from my experiences of testing
+several algorithm but a strict test is needed to verify this. This can also be
+understood in the following way: the coarse parallel grid automatically
+filters out physically irrelevant but numerically problematic
 high-$k_{\parallel}$ modes, permitting much longer time steps for explicit
 time stepping, in both particle and fluid codes{\cite{dimits1993}}.
 
@@ -3546,21 +3576,31 @@ $\nabla \psi$. However, in field-line-following coordinates $(\psi, \theta,
 $\nabla \alpha$ is not along the binormal direction $\mathbf{B} \times \nabla
 \psi$.
 
-\subsection{Expression of $\nabla \alpha$}
+\subsection{Expression of $\nabla \alpha$, $\nabla \psi \cdot \nabla \alpha$,
+and $\nabla \alpha \cdot \nabla \theta$}
 
-Next, let us calculate the gradient of the generalized toroidal angle
-$\alpha$, which is defined by Eq. (\ref{17-9-15-1}), i.e., $\alpha = \phi -
-\overline{\delta}$, where $\overline{\delta} = \int_0^{\theta} \hat{q} d
-\theta = \int_0^{\theta} \mathbf{B} \cdot \nabla \phi / (\mathbf{B} \cdot
-\nabla \theta) d \theta$. The gradient of $\alpha$ is written as
+The generalized toroidal angle $\alpha$ is defined by Eq. (\ref{17-9-15-1}),
+i.e., $\alpha = \phi - \overline{\delta}$, where $\overline{\delta} =
+\int_0^{\theta} \hat{q} d \theta$. The gradient of $\alpha$ is then written as
 \begin{eqnarray}
   \nabla \alpha & = & \nabla \phi - \nabla \overline{\delta} \nonumber\\
   & = & \frac{\hat{\tmmathbf{\phi}}}{R} - \frac{\partial
   \overline{\delta}}{\partial \psi} \nabla \psi - \frac{\partial
-  \overline{\delta}}{\partial \theta} \nabla \theta . 
+  \overline{\delta}}{\partial \theta} \nabla \theta .  \label{24-4-25-p1}
 \end{eqnarray}
-Using Eqs. (\ref{6-9-e1}) and (\ref{6-9-e2}), the above expression is written
-as
+Then
+\begin{equation}
+  \nabla \psi \cdot \nabla \alpha = - \frac{\partial
+  \overline{\delta}}{\partial \psi} | \nabla \psi |^2 - \frac{\partial
+  \overline{\delta}}{\partial \theta} \nabla \psi \cdot \nabla \theta
+\end{equation}
+\begin{equation}
+  \nabla \alpha \cdot \nabla \theta = - \frac{\partial
+  \overline{\delta}}{\partial \psi} \nabla \psi \cdot \nabla \theta -
+  \frac{\partial \overline{\delta}}{\partial \theta} | \nabla \theta |^2
+\end{equation}
+Another method of computing the above quantities: Using Eqs. (\ref{6-9-e1})
+and (\ref{6-9-e2}), expression (\ref{24-4-25-p1}) is written as
 \begin{eqnarray}
   \nabla \alpha & = & \frac{\hat{\tmmathbf{\phi}}}{R} + \frac{\partial
   \overline{\delta}}{\partial \psi} \frac{R}{\mathcal{J}} (Z_{\theta}
@@ -3616,11 +3656,7 @@ across the $\theta$ cut.) Then
   \frac{\partial \overline{\delta}}{\partial \psi} \frac{R}{\mathcal{J}}
   R_{\theta} \right) \frac{R}{\mathcal{J}} R_{\psi} . 
 \end{eqnarray}
-
-
-\
-
-\
+The figures below plot the spatial variation of some quantities.
 
 \begin{figure}[h]
   \resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig15/p.eps}}\resizebox{0.4\columnwidth}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig15b/p.eps}}
@@ -3994,7 +4030,7 @@ $\alpha$ contours on a magnetic surface.
   contour levels are $\phi_j = \alpha_j = (j - 1) 2 \pi / 4 / (10 - 1)$ with
   $j = 1, 2, \ldots, 10$, i.e., only $1 / 4$ of the full torus. Every $\phi$
   and $\alpha$ contour start from the lower-field-side midplane and go one
-  full poloidal loop. \ Magnetic field from EAST discharge \#59954@3.03s.}
+  poloidal loop. \ Magnetic field from EAST discharge \#59954@3.03s.}
 \end{figure}
 
 As is shown in the left panel of Fig. \ref{17-10-29-1}, with $\phi$ fixed, an
@@ -4054,17 +4090,15 @@ expressed in $(\psi, \theta, \phi)$ coordinates. [Proof: Expression
   \delta A = \delta A_0 (\psi) \cos [m' \theta + n (\phi - \overline{\delta}
   (\psi, \theta)) + \alpha_0]
 \end{equation}
-If $\theta$ is the straight-field-line poloidal angle in $(\psi, \theta,
-\phi)$ coordinate system, then $\overline{\delta} (\psi, \theta) = q \theta$
-and the above equation is written as
+Assume that $\theta$ is the straight-field-line poloidal angle in $(\psi,
+\theta, \phi)$ coordinate system, then $\overline{\delta} (\psi, \theta) = q
+\theta$ and the above equation is written as
 \begin{equation}
   \delta A = \delta A_0 (\psi) \cos [(m' - n q) \theta + n \phi + \alpha_0],
 \end{equation}
 which indicates the poloidal mode number $m$ in $(\psi, \theta, \phi)$
 coordinates is given by $m = m' - n q$. For the case with $m' \sim 1$ and $n
 \gg 1$, $m$ is much larger than one.]
-
-\
 
 Since $\alpha$ contours on a magnetic surface are magnetic field lines, they
 span out the 3D shape of magnetic surface when there are many $\alpha$
@@ -4099,9 +4133,9 @@ Figure \ref{17-9-18-1} compares the $\phi$ coordinate surface of $(\psi,
   family of contours of $\alpha = 2 \pi / 8$, which are all magnetic field
   lines. These field lines are traced by starting from a series of points on
   the low-field-side midplane $(\theta = 0)$ at different radial locations and
-  the field lines are followed by a complete poloidal loop. The radial range
-  is given by $\psi_N \in [0.4 : 0.5]$, where $\psi_N$ is the normalized
-  poloidal magnetic flux. Magnetic field from EAST discharge \#59954@3.03s.}
+  the field lines are followed by one poloidal loop. The radial range is given
+  by $\psi_N \in [0.4 : 0.5]$, where $\psi_N$ is the normalized poloidal
+  magnetic flux. Magnetic field from EAST discharge \#59954@3.03s.}
 \end{figure}
 
 \
@@ -4121,12 +4155,12 @@ Figure \ref{17-9-18-1} compares the $\phi$ coordinate surface of $(\psi,
   \resizebox{8cm}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig15e/p.eps}}\resizebox{0.4\columnwidth}{!}{\includegraphics{/home/yj/project_new/fig_lorentz/fig15f/p.eps}}
   
   \
-  \caption{The value of $\theta$ and $\overline{\delta}$ on an annulus in the
-  poloidal plane $(R, Z)$. Upper panel: using magnetic coordinates, Lower
-  panel: comparison with the results computed in cylindricall coordinates.
-  Both $\theta$ and $\overline{\delta}$ are discontinuous at the $\theta$ cut,
-  $\theta = \pm \pi$, which is chosen on the high-field-side in this case.
-  Here $\overline{\delta} = \int_0^{\theta} \hat{q} d \theta$.}
+  \caption{Values of $\theta$ and $\overline{\delta} \equiv \int_0^{\theta}
+  \hat{q} d \theta$ on an annulus in the poloidal plane $(R, Z)$. Upper panel:
+  using magnetic coordinates. Lower panel: comparison with the results
+  computed in cylindricall coordinates. Both $\theta$ and $\overline{\delta}$
+  are discontinuous at the $\theta$ cut, $\theta = \pm \pi$, which is chosen
+  on the high-field-side.}
 \end{figure}
 
 \
@@ -4134,19 +4168,23 @@ Figure \ref{17-9-18-1} compares the $\phi$ coordinate surface of $(\psi,
 \
 
 \begin{figure}[h]
-  \resizebox{0.8\columnwidth}{!}{\includegraphics{tmp-1.pdf}}
-  
-  \
-  
-  \resizebox{0.8\columnwidth}{!}{\includegraphics{tmp-2.pdf}}
-  \caption{Gridpoints for a fixed value of $\alpha$ (upper pannel). The full
-  grid (lower pannel), which is formed by rotating the gridpoinst toroidally,
-  and recording points at every toroidal angle interval $2 \pi / \tmop{mtor}$,
-  where mtor is the number of grids along the toroidal direction. In the case
-  shown here mtor=16. Radial and poloidal resolution are $64 \times 16$.}
+  \caption{Upper pannel: 2D grid $(\psi, \theta)$ of resolution $(27, 33)$ for
+  a fixed value of $\alpha$. Lower pannel: 3D grid $(\psi, \alpha, \theta)$ of
+  resolution $(27, 4, 33)$ for a toroidal wedge of $2 \pi / 40$. The blue
+  lines are field lines. The 3D grid is generated by rotating the 2D grid
+  toroidally. Only 3 field-lines are shown for both cases.}
 \end{figure}
 
 \
+
+\
+
+The above grid is often called ``flux-tube'', since it is created by
+following field lines, and it looks like a tube if the field lines are very
+near to each other (e.g., when we choose a very narrow radial and toroidal
+region to start from). Since no magnetic field line passes through the sides
+of the tube, the flux through any cross section of the tube is equal. The term
+``flux tube'' is often used in astrophysics.
 
 \
 
@@ -4221,14 +4259,6 @@ implementation of the field-aligned coordinates is correct.
   \frac{\mathbf{B} \cdot \nabla \phi}{\mathbf{B} \cdot \nabla \theta} d
   \theta$.}
 \end{figure}
-
-\
-
-\
-
-\
-
-\
 
 \
 
@@ -6421,9 +6451,9 @@ is expected to set the beta limit in a reactor.)
 $\beta_N$ in large $I_p$ plasmas than in small $I_p$ plasmas. However,
 experiments found it is easier to achieve high $\beta_p$ in small $I_p$
 plasmas than in large $I_p$ plasmas. Examining the expression of $\beta_N$ and
-$\beta_p$ given by Eqs. (\ref{7-25-1m}) and Eq. (\ref{15-6-21-1}),
-respectively, we recognize that pressure limit should have a scaling of
-$\langle p \rangle \propto I_p^{\alpha}$ with $1 < \alpha < 2$. )
+$\beta_p$ given by Eqs. (\ref{7-25-1m}) and Eq. (), respectively, we recognize
+that pressure limit should have a scaling of $\langle p \rangle \propto
+I_p^{\alpha}$ with $1 < \alpha < 2$. )
 
 \subsection{Why bigger tokamaks with larger plasma current are better at
 fusion?}
@@ -6554,6 +6584,31 @@ Another useful quantity is $\mu_0 \langle \mathbf{J} \cdot \mathbf{B}
   \Psi} + \frac{d g}{d \Psi} \langle B^2 \rangle, 
 \end{eqnarray}
 where $\langle \ldots \rangle$ is flux surface averaging operator.
+
+\subsection{Vacuum magnetic field (not finished)}
+
+In the vacuum region that is between the plasma and the first wall, there is
+no current, i.e.,
+\begin{equation}
+  \nabla \times \mathbf{B}= 0.
+\end{equation}
+Next, let us examine what constraint this condition imposes on the magnetic
+field. Using expression \ (\ref{7-28-6}), the above equation is written as
+\begin{equation}
+  \nabla \times (\nabla \Psi \times \nabla \phi) + \nabla g \times \nabla \phi
+  = 0,
+\end{equation}
+It is not obvious how to draw useful information from the above equation.
+
+In the above, we use the vector potential approach. Next, let us try the
+scalar potential approach:
+\begin{equation}
+  \mathbf{B}= \nabla \Phi,
+\end{equation}
+then the constraint $\nabla \cdot \mathbf{B}= 0$ is written as
+\begin{equation}
+  \nabla^2 \Phi = 0.
+\end{equation}
 
 \subsection{Discussion about the poloidal current function,
 check!}\label{11-2-p4}
@@ -7309,10 +7364,8 @@ In Cartesian coordinates, the vector $\mathbf{r}-\mathbf{r}'$ is written as
 
 \subsection{Magnetic vector potential}
 
-The definition of the canonical toroidal angular momentum $P_{\phi}$ involves
-the magnetic vector potential. Hence we need to calculate the vecotor
-potential. Given a current source $\mathbf{J} (\mathbf{r}, t)$, the vector
-potential can be calculated using
+Given a current source $\mathbf{J} (\mathbf{r}, t)$, the vector potential can
+be calculated using
 \begin{equation}
   \label{21-12-11-a1} \mathbf{A} (\mathbf{r}, t) = \frac{\mu_0}{4 \pi}
   \int_{\Omega} \frac{\mathbf{J} (\mathbf{r}', t')}{| \mathbf{r}-\mathbf{r}'
@@ -7327,10 +7380,9 @@ is called the retarded time. For a steady-state source, $\mathbf{J}
 simplified as
 \begin{equation}
   \mathbf{A} (\mathbf{r}) = \frac{\mu_0}{4 \pi} \int_{\Omega} \frac{\mathbf{J}
-  (\mathbf{r}')}{| \mathbf{r}-\mathbf{r}' |} d^3 \mathbf{r}',
+  (\mathbf{r}')}{| \mathbf{r}-\mathbf{r}' |} d^3 \mathbf{r}' .
 \end{equation}
-For a current flowing in a zero-thinkness wire, the above equation is written
-as
+For a current flowing in a thin wire, the above equation is written as
 \begin{equation}
   \mathbf{A} (\mathbf{r}) = \frac{\mu_0}{4 \pi} \int \frac{\mathbf{J}
   (\mathbf{r}')}{| \mathbf{r}-\mathbf{r}' |} d S (\mathbf{r}') \tmop{dl}
@@ -7346,6 +7398,36 @@ element along the wire. Using $\mathbf{J} (\mathbf{r}') d S (\mathbf{r}')
   & = & \frac{\mu_0}{4 \pi} \int \frac{I (\mathbf{r}')}{|
   \mathbf{r}-\mathbf{r}' |} d\mathbf{l} (\mathbf{r}') . 
 \end{eqnarray}
+In cylindrical coordinates, the toroidal component of $\mathbf{A}$, $A_{\phi}
+\equiv \mathbf{A} \cdot \mathbf{e}_{\phi} (\mathbf{r})$, is written as
+\begin{equation}
+  A_{\phi} (\mathbf{r}) = \frac{\mu_0}{4 \pi} \int \frac{I (\mathbf{r}')}{|
+  \mathbf{r}-\mathbf{r}' |} d\mathbf{l} (\mathbf{r}') \cdot \mathbf{e}_{\phi}
+  (\mathbf{r}) .
+\end{equation}
+($A_{\phi}$ is needed in several applications. In solving the free-boundy
+equilibrium problem, we need to calculate $A_{\phi}$ generated by the PF
+coils. In studying the effects of RMP on particles, we need to calculate
+$P_{\phi}$, the canonical toroidal angular momentum, whose defintion involves
+$A_{\phi}$. Then we need to calculate $A_{\phi}$ generated by the RMP coils.)
+
+A PF coil at $(R', Z') $with current $I$ (a filamentary current loop)
+contributes to $A_{\phi}$ at $\phi = 0$ via
+\begin{equation}
+  A_{\phi} (R, Z, \phi = 0) = \frac{\mu_0 I}{4 \pi} \int_0^{2 \pi} \frac{R'
+  \cos \phi' d \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin
+  \phi')^2}} .
+\end{equation}
+Sine $A_{\phi}$ is axsymmetric, the above formula applies to all values of
+$\phi$. Set $I = 1$, we get Green's function:
+\begin{eqnarray}
+  &  & G (R', Z', R, Z) \nonumber\\
+  & = & R A_{\phi} \nonumber\\
+  & = & \frac{\mu_0 R}{4 \pi} \int_0^{2 \pi} \frac{R' \cos \phi' d
+  \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}} 
+  \label{24-5-29-p1}
+\end{eqnarray}
+
 
 \subsection{For wires in poloial plane}
 

@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>An example: (ψ,𝜃,ζ) coordinates</title> 
+<head><title>Gradient and directional derivative in general coordinates (ψ,𝜃,ζ)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,189 +13,89 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 1247--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1339--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu26.html" >next</a>] [<a 
 href="tokamak_equilibriumsu24.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu24.html#tailtokamak_equilibriumsu24.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu25.html">tail</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu25.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
- id="x30-360004.4"></a>An example: (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates</h4>
-<!--l. 1249--><p class="noindent" >Suppose (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) is an arbitrary general coordinate system. Following Einstein’s notation, contravariant
-basis vectors are denoted with upper indices as </p><div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium141x.png" alt="eψ ≡ ∇ ψ; e𝜃 ≡ ∇𝜃; eζ ≡ ∇ζ.                     (91)
-" class="math-display"  /></center>
-</div>and the covariant basis vectors are denoted with low indices as <div class="eqnarray">
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium142x.png" alt="eψ ≡ ∂r; e𝜃 ≡ ∂r; eζ ≡ ∂r.                      (92)
-     ∂ψ      ∂𝜃      ∂ζ
-" class="math-display"  /></center>
-</div>Then the orthogonality relation, Eq. (<a 
-href="tokamak_equilibriumsu24.html#x29-35001r80">80<!--tex4ht:ref: 4-6-e1 --></a>), is written as
+href="tokamak_equilibriumse6.html#tokamak_equilibriumsu25.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">6.5   </span> <a 
+ id="x32-380006.5"></a>Gradient and directional derivative in general coordinates (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>)</h4>
+<!--l. 1341--><p class="noindent" >The gradient of a scalar function <span 
+class="cmmi-10">f</span>(<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) is readily calculated from the chain rule,
+</p>
    <table 
 class="equation"><tr><td><a 
- id="x30-36003r93"></a>
+ id="x32-38001r102"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium143x.png" alt="eα ⋅eβ = δαβ.
+src="tokamak_equilibrium152x.png" alt="∇f =  ∂f∇ ψ + ∂f∇ 𝜃+ ∂f-∇ζ.
+      ∂ψ      ∂𝜃     ∂ ζ
+" class="math-display"  /></center></td><td class="equation-label">(102)</td></tr></table>
+<!--l. 1347--><p class="nopar" >
+Note that the gradient of a scalar function is in the covariant representation. The inverse form of this
+expression is obtained by dotting the above equation respectively by the three contravariant basis
+vectors, yielding
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x32-38002r103"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium153x.png" alt="∂f                     ∂r
+∂ψ-= (𝒥 ∇𝜃 ×∇ ζ)⋅∇f =  ∂ψ-⋅∇f
+" class="math-display"  /></center></td><td class="equation-label">(103)</td></tr></table>
+<!--l. 1355--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x32-38003r104"></a>
                                                                                 
 
                                                                                 
-" class="math-display"  /></center></td><td class="equation-label">(93)</td></tr></table>
-<!--l. 1265--><p class="nopar" >
-In term of the contravairant basis vectors, <span 
-class="cmbx-10">A </span>is written
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium154x.png" alt="∂f                     ∂r
+---= (𝒥 ∇ζ ×∇ ψ)⋅∇f  = ---⋅∇f
+∂𝜃                     ∂𝜃
+" class="math-display"  /></center></td><td class="equation-label">(104)</td></tr></table>
+<!--l. 1360--><p class="nopar" >
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x30-36004r94"></a>
+ id="x32-38004r105"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium144x.png" alt="A  = Aψeψ + A𝜃e𝜃 + A ζeζ,
-" class="math-display"  /></center></td><td class="equation-label">(94)</td></tr></table>
-<!--l. 1270--><p class="nopar" >
-where the components are easily obtained by taking scalar product with <span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">ψ</span></sub><span 
-class="cmmi-10">,</span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">𝜃</span></sub><span 
-class="cmmi-10">,</span>and<span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">ζ</span></sub>, yielding
-<span 
-class="cmmi-10">A</span><sub><span 
-class="cmmi-7">ψ</span></sub> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">ψ</span></sub>, <span 
-class="cmmi-10">A</span><sub><span 
-class="cmmi-7">𝜃</span></sub> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">𝜃</span></sub>, and <span 
-class="cmmi-10">A</span><sub><span 
-class="cmmi-7">ζ</span></sub> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sub><span 
-class="cmmi-7">ζ</span></sub>. Similarly, in term of the covariant basis vectors, <span 
-class="cmbx-10">A </span>is
-written
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x30-36005r95"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium145x.png" alt="A  = Aψeψ + A𝜃e𝜃 + A ζeζ,
-" class="math-display"  /></center></td><td class="equation-label">(95)</td></tr></table>
-<!--l. 1280--><p class="nopar" >
-where <span 
-class="cmmi-10">A</span><sup><span 
-class="cmmi-7">ψ</span></sup> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sup><span 
-class="cmmi-7">ψ</span></sup>, <span 
-class="cmmi-10">A</span><sup><span 
-class="cmmi-7">𝜃</span></sup> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sup><span 
-class="cmmi-7">𝜃</span></sup>, and <span 
-class="cmmi-10">A</span><sup><span 
-class="cmmi-7">ζ</span></sup> = <span 
-class="cmbx-10">A </span><span 
-class="cmsy-10">⋅ </span><span 
-class="cmbx-10">e</span><sup><span 
-class="cmmi-7">ζ</span></sup>.
-</p><!--l. 1285--><p class="indent" >   Using the above notation, the relation in Eq. (<a 
-href="tokamak_equilibriumsu24.html#x29-35009r89">89<!--tex4ht:ref: 11-18-1 --></a>) is written as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x30-36006r96"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium146x.png" alt="eψ = 𝒥 e𝜃 × eζ
-" class="math-display"  /></center></td><td class="equation-label">(96)</td></tr></table>
-<!--l. 1289--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x30-36007r97"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium147x.png" alt="       ζ    ψ
-e𝜃 = 𝒥e  × e
-" class="math-display"  /></center></td><td class="equation-label">(97)</td></tr></table>
-<!--l. 1293--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x30-36008r98"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium148x.png" alt="eζ = 𝒥eψ × e𝜃
-" class="math-display"  /></center></td><td class="equation-label">(98)</td></tr></table>
-<!--l. 1297--><p class="nopar" >
-where  <span 
-class="cmsy-10">𝒥 </span>= [(<span 
+src="tokamak_equilibrium155x.png" alt="∂f                     ∂r
+∂ζ-= (𝒥 ∇ψ × ∇𝜃)⋅∇f  = ∂ζ-⋅∇f
+" class="math-display"  /></center></td><td class="equation-label">(105)</td></tr></table>
+<!--l. 1365--><p class="nopar" >
+Using Eq. (<a 
+href="#x32-38001r102">102<!--tex4ht:ref: 5-6-5 --></a>), the directional derivative in the direction of <span 
 class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">𝜃</span>) <span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">ζ</span>]<sup><span 
-class="cmsy-7">−</span><span 
-class="cmr-7">1</span></sup>. Similarly, the relation in Eq. (<a 
-href="tokamak_equilibriumsu24.html#x29-35010r90">90<!--tex4ht:ref: 20-10-15-a1 --></a>) is written as
+class="cmmi-10">ψ </span>is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x30-36009r99"></a>
+ id="x32-38005r106"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium149x.png" alt="eψ = 𝒥 −1e𝜃 × eζ
-" class="math-display"  /></center></td><td class="equation-label">(99)</td></tr></table>
-<!--l. 1304--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x30-36010r100"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium150x.png" alt="e𝜃 = 𝒥− 1eζ × eψ
-" class="math-display"  /></center></td><td class="equation-label">(100)</td></tr></table>
-<!--l. 1308--><p class="nopar" >
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x30-36011r101"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium151x.png" alt=" ζ    − 1
-e  = 𝒥  eψ × e𝜃
-" class="math-display"  /></center></td><td class="equation-label">(101)</td></tr></table>
-<!--l. 1312--><p class="nopar" >
+src="tokamak_equilibrium156x.png" alt="               ∂f           ∂f            ∂f
+∇ ψ ⋅∇f = |∇ ψ|2∂ψ-+ (∇𝜃 ⋅∇ψ)-∂𝜃 + (∇ ζ ⋅∇ ψ)∂ζ.
+" class="math-display"  /></center></td><td class="equation-label">(106)</td></tr></table>
+<!--l. 1372--><p class="nopar" >
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1314--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1374--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu26.html" >next</a>] [<a 
 href="tokamak_equilibriumsu24.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu24.html#tailtokamak_equilibriumsu24.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu25.html" >front</a>] [<a 
-href="tokamak_equilibriumse4.html#tokamak_equilibriumsu25.html" >up</a>] </p></div>
-<!--l. 1314--><p class="indent" >   <a 
+href="tokamak_equilibriumse6.html#tokamak_equilibriumsu25.html" >up</a>] </p></div>
+<!--l. 1374--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu25.html"></a> </p> 
 </body></html> 

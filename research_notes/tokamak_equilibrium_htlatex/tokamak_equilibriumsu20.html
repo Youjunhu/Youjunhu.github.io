@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Free boundary equilibrium problem</title> 
+<head><title>Solving by using integral form of the GS equation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,74 +13,43 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 977--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu21.html" >next</a>] [<a 
+   <!--l. 1019--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu19.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu19.html#tailtokamak_equilibriumsu19.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumsu20.html">tail</a>] [<a 
-href="tokamak_equilibriumse3.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">3.7   </span> <a 
- id="x24-300003.7"></a>Free boundary equilibrium problem</h4>
-<!--l. 979--><p class="noindent" >If the value of <span 
-class="cmmi-10">Ψ </span>on the boundary of the computational box is unknown, how do you sovle the GS
-equation?
-</p><!--l. 982--><p class="indent" >   Suppose the boundary is a rectangle in (<span 
-class="cmmi-10">R,Z</span>) plane. To numerically solve the GS equation within
-this boundary, we need the value of <span 
-class="cmmi-10">Ψ </span>on the boundary. Therefore we need to adopt some initial guess,
-then solve the GS equation to get the value of <span 
-class="cmmi-10">Ψ </span>within the computational box. Using the
-computed <span 
-class="cmmi-10">Ψ</span>, we can calculate <span 
+href="tokamak_equilibriumse4.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x25-310004.2"></a>Solving by using integral form of the GS equation</h4>
+<!--l. 1021--><p class="noindent" >The Green’s function method of calculating <span 
+class="cmmi-10">Ψ </span>from <span 
 class="cmmi-10">J</span><sub><span 
-class="cmmi-7">ϕ</span></sub> through Eq. (<a 
-href="tokamak_equilibriumsu13.html#x16-19003r54">54<!--tex4ht:ref: 6-9-a1 --></a>). After this, all the current (current
-in the plasma and in the external coils) perpendicular to the poloidal plane is known, we
-can calculate the value of <span 
-class="cmmi-10">Ψ </span>on the boundary of the box, <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub>, by using the Green function
-formulation:
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x24-30001r73"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium108x.png" alt="          ∫                        Nc
-Ψ(R′,Z′) =   G(R,Z;R ′,Z ′)J dRdZ + ∑  G (Rc ,Zc;R′,Z ′)I .
-           P              ϕ       i=1    i  i       ϕ
-" class="math-display"  /></center></td><td class="equation-label">(73)</td></tr></table>
-<!--l. 994--><p class="nopar" >
-Note that <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> calculated this way usually diﬀers from the initial guess of the value of <span 
-class="cmmi-10">Ψ </span>on the
-boundary. Thus, we need to use the <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> calculated this way as a new guess value of <span 
-class="cmmi-10">Ψ </span>on the
-computational boundary and repeat the above procedures. The process is repeated until <span 
-class="cmmi-10">Ψ</span><sub><span 
-class="cmmi-7">b</span></sub> obtained in
-two successive iterations agrees with each other to a prescribed tolerance.
-</p><!--l. 1002--><p class="indent" >    
-</p><!--l. 1004--><p class="indent" >   In solving the equilibrium problem, the current in external coils is given and known while the
-current distribution in the plasma is unknown. Therefore, solving the equilibrium problem actually
-corresponds to determining <span 
+class="cmmi-7">ϕ</span></sub> via Eq. (<a 
+href="tokamak_equilibriumsu19.html#x24-30003r72">72<!--tex4ht:ref: 10-31-1 --></a>) can be considered as the integral
+form of the GS equation. Re-examing the previous subsection, we ﬁnd, instead of inverting the Laplace
+operator to solve for <span 
+class="cmmi-10">Ψ </span>at the interior points, we can just use Eq. (<a 
+href="tokamak_equilibriumsu19.html#x24-30003r72">72<!--tex4ht:ref: 10-31-1 --></a>) to calculate them. The plasma
+toroidal current <span 
 class="cmmi-10">J</span><sub><span 
-class="cmmi-7">ϕ</span></sub>.
-</p><!--l. 1009--><p class="indent" >    
+class="cmmi-7">ϕ</span></sub> is calculated through Eq. (<a 
+href="tokamak_equilibriumsu15.html#x19-25006r67">67<!--tex4ht:ref: 24-5-29-p4 --></a>). In this case, we only have two levels of iteration: 1.
+interation over the rhd of GS equation, 2. iteration over the free parameters (<span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">n</span></sub>, <span 
+class="cmmi-10">β</span><sub><span 
+class="cmmi-7">n</span></sub>, PF coil currents).
+The iteration over the value of <span 
+class="cmmi-10">Ψ </span>on the boundary is not needed. So, this is a more straightforward
+method.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 1011--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu21.html" >next</a>] [<a 
+   <!--l. 1032--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumsu19.html" >prev</a>] [<a 
 href="tokamak_equilibriumsu19.html#tailtokamak_equilibriumsu19.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumsu20.html" >front</a>] [<a 
-href="tokamak_equilibriumse3.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
-<!--l. 1011--><p class="indent" >   <a 
+href="tokamak_equilibriumse4.html#tokamak_equilibriumsu20.html" >up</a>] </p></div>
+<!--l. 1032--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu20.html"></a> </p> 
 </body></html> 

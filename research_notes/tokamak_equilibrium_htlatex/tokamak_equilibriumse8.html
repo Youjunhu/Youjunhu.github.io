@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Constructing model tokamak magnetic ﬁeld</title> 
+<head><title>Magnetic surface coordinates (ψ,𝜃,ϕ)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,130 +13,96 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 2529--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1786--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse9.html" >next</a>] [<a 
 href="tokamak_equilibriumse7.html" >prev</a>] [<a 
 href="tokamak_equilibriumse7.html#tailtokamak_equilibriumse7.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumse8.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse8.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">8   </span> <a 
- id="x45-600008"></a>Constructing model tokamak magnetic ﬁeld</h3>
-<!--l. 2531--><p class="noindent" >In some cases (e.g., turbulence simulation), model tokamak magnetic ﬁeld, which is not an exact
-solution to the GS equation, is often used. In the model, the safety factor proﬁle <span 
-class="cmmi-10">q</span>(<span 
-class="cmmi-10">ψ</span>),
-toroidal ﬁeld function <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">ψ</span>), and the magnetic surface shape (<span 
-class="cmmi-10">R</span>(<span 
-class="cmmi-10">ψ,𝜃</span>)<span 
-class="cmmi-10">,Z</span>(<span 
-class="cmmi-10">ψ,𝜃</span>)) are given. To
-use this model in a simulation, we need to calculate its poloidal magnetic ﬁeld, which is
-determined by the poloidal magnetic ﬂux function <span 
-class="cmmi-10">Ψ</span>. To determine <span 
-class="cmmi-10">Ψ</span>, we need to use Eq. (<a 
-href="tokamak_equilibriumsu32.html#x39-46001r160">160<!--tex4ht:ref: 7-11-p1 --></a>),
-i.e.,
+ id="x38-450008"></a>Magnetic surface coordinates (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>)</h3>
+<!--l. 1788--><p class="noindent" >A coordinate system (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>), where <span 
+class="cmmi-10">ϕ </span>is the usual cylindrical toroidal angle, is called a magnetic
+surface coordinate system if <span 
+class="cmmi-10">Ψ </span>is a function of only <span 
+class="cmmi-10">ψ</span>, i.e., <span 
+class="cmmi-10">∂Ψ∕∂𝜃 </span>= 0 (we also have <span 
+class="cmmi-10">∂Ψ∕∂ϕ </span>= 0 since we
+are considering axially symmetrical case). In terms of (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates, the contravariant form of
+the magnetic ﬁeld, Eq. (<a 
+href="tokamak_equilibriumse7.html#x37-44003r149">149<!--tex4ht:ref: 3-13-p10 --></a>), is written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x45-60001r218"></a>
+ id="x38-45001r153"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium293x.png" alt="             ∫ 2π
-q(ψ) = −-1-g-     𝒥-d𝜃,
-        2π Ψ′  0  R2
-" class="math-display"  /></center></td><td class="equation-label">(218)</td></tr></table>
-<!--l. 2542--><p class="nopar" >
-and re-organize the formula as
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x45-60002r219"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium294x.png" alt="dΨ      1 g(ψ )∫ 2π 𝒥
----= − -------    --2d𝜃,
-dψ     2π q(ψ ) 0  R
-" class="math-display"  /></center></td><td class="equation-label">(219)</td></tr></table>
-<!--l. 2547--><p class="nopar" >
-which can be integrated to obtain <span 
-class="cmmi-10">Ψ </span>and thus the poloidal magnetic ﬁeld <span 
-class="cmbx-10">B</span><sub><span 
-class="cmmi-7">p</span></sub> = <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">Ψ </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">ϕ</span>, where
-<span 
-class="cmsy-10">𝒥 </span>= [(<span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span><span 
-class="cmsy-10">×∇</span><span 
-class="cmmi-10">𝜃</span>) <span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">ϕ</span>]<sup><span 
-class="cmsy-7">−</span><span 
-class="cmr-7">1</span></sup>. The toroidal magnetic ﬁeld can be obtained from <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">ψ</span>) by <span 
-class="cmmi-10">B</span><sub><span 
-class="cmmi-7">ϕ</span></sub> = <span 
-class="cmmi-10">g∕R</span>. In most
-papers, <span 
-class="cmmi-10">g</span>(<span 
-class="cmmi-10">ψ</span>) is chosen to be a constant.
-                                                                                
-
-                                                                                
-</p><!--l. 2554--><p class="indent" >   A typical magnetic surface shape used in simulations is the Miller shape, which is given
-by
-</p>
-   <table 
-class="equation"><tr><td><a 
- id="x45-60003r220"></a>
-   <center class="math-display" >
-<img 
-src="tokamak_equilibrium295x.png" alt="R (r,𝜃) = R0 (r)+ r cos[𝜃+ (sin−1δ(r))sin𝜃]
-Z (r,𝜃) = κ(r)rsin 𝜃
-" class="math-display"  /></center></td><td class="equation-label">(220)</td></tr></table>
-<!--l. 2562--><p class="nopar" >
+src="tokamak_equilibrium205x.png" alt="B = − Ψ ′∇ ϕ× ∇ ψ +g 𝒥-∇ ψ ×∇ 𝜃,
+                   R2
+" class="math-display"  /></center></td><td class="equation-label">(153)</td></tr></table>
+<!--l. 1797--><p class="nopar" >
 where <span 
-class="cmmi-10">r </span>= <span 
-class="cmmi-10">ψ </span>is the radial coordinate, <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub>(<span 
-class="cmmi-10">r</span>), <span 
-class="cmmi-10">δ</span>(<span 
-class="cmmi-10">r</span>), and <span 
-class="cmmi-10">κ</span><sub><span 
-class="cmmi-7">r</span></sub>(<span 
-class="cmmi-10">r</span>) are the Shafronov shift, triangularity, and
-elongation proﬁles, which can be arbitrarily speciﬁed. For the special case of <span 
-class="cmmi-10">R</span><sub><span 
-class="cmr-7">0</span></sub> being a constant,
-<span 
-class="cmmi-10">δ</span>(<span 
-class="cmmi-10">r</span>) = 0, and <span 
-class="cmmi-10">κ</span>(<span 
-class="cmmi-10">r</span>) = 1, this shape reduces to a concentric-circular magnetic ﬁeld. An example of
-calculating the poloidal ﬁeld of the model ﬁeld is given in Sec. <a 
-href="tokamak_equilibriumse12.html#x68-9200012">12<!--tex4ht:ref: 19-4-8-p1 --></a>. This kind of model ﬁeld can be
-called theoretical physicists’ tokamak. Computational physicists often use this model for
-code benchmarking purpose. The famous DIII-D cyclone base case is an example, which
-was extensively used for benchmarking gyrokinetic simulation of ion temperature driven
-turbulence.
+class="cmmi-10">Ψ</span><span 
+class="cmsy-10">′≡ </span><span 
+class="cmmi-10">dΨ∕dψ</span>. The covariant form of the magnetic ﬁeld, Eq. (<a 
+href="tokamak_equilibriumse7.html#x37-44004r150">150<!--tex4ht:ref: 7-26-1 --></a>), is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x38-45002r154"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium206x.png" alt="    (   𝒥        )      (    𝒥      )
+B =   Ψ′R2∇ ψ ⋅∇𝜃  ∇ψ +  − Ψ′R2-|∇ ψ|2 ∇ 𝜃+ g∇ ϕ.
+" class="math-display"  /></center></td><td class="equation-label">(154)</td></tr></table>
+<!--l. 1805--><p class="nopar" >
                                                                                 
 
                                                                                 
+</p><!--l. 1807--><p class="noindent" >
 </p>
-   <!--l. 2574--><div class="crosslinks"><p class="noindent">[<a 
+   <div class="subsectionTOCS">
+     <span class="subsectionToc" >8.1 <a 
+href="tokamak_equilibriumsu30.html#x39-460008.1">Local safety factor</a></span>
+<br />     <span class="subsectionToc" >8.2 <a 
+href="tokamak_equilibriumsu31.html#x40-470008.2">Global safety factor</a></span>
+<br />     <span class="subsectionToc" >8.3 <a 
+href="tokamak_equilibriumsu32.html#x41-480008.3">Relation between Jacobian and poloidal angle <span 
+class="cmmi-10">𝜃</span></a></span>
+<br />     <span class="subsectionToc" >8.4 <a 
+href="tokamak_equilibriumsu33.html#x42-490008.4">Calculating poloidal angle</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-500008.4" id="QQ2-42-57">Normalized poloidal angle</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-510008.4" id="QQ2-42-58">Jacobian for equal-arc-length poloidal angle</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-520008.4" id="QQ2-42-59">Jacobian for equal-volume poloidal angle (Hamada coordinate)</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-530008.4" id="QQ2-42-60">Jacobian of Boozer’s poloidal angle</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-540008.4" id="QQ2-42-61">Jacobian for PEST poloidal angle (straight-ﬁeld-line poloidal angle)</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-550008.4" id="QQ2-42-62">Comparison between diﬀerent types of poloidal angle</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-560008.4" id="QQ2-42-64">Veriﬁcation of Jacobian</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu33.html#x42-570008.4" id="QQ2-42-65">Radial coordinate</a></span>
+   </div>
+
+
+
+                                                                                
+
+                                                                                
+   <!--l. 2295--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse9.html" >next</a>] [<a 
 href="tokamak_equilibriumse7.html" >prev</a>] [<a 
 href="tokamak_equilibriumse7.html#tailtokamak_equilibriumse7.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumse8.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse8.html" >up</a>] </p></div>
-<!--l. 2574--><p class="indent" >   <a 
+<!--l. 2295--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse8.html"></a> </p> 
 </body></html> 

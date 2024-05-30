@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Fixed boundary tokamak equilibrium problem</title> 
+<head><title>Field-line-following coordinates</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,44 +13,67 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 4758--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3438--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse14.html" >next</a>] [<a 
 href="tokamak_equilibriumse12.html" >prev</a>] [<a 
 href="tokamak_equilibriumse12.html#tailtokamak_equilibriumse12.html" >prev-tail</a>] [<a 
 href="#tailtokamak_equilibriumse13.html">tail</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse13.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">13   </span> <a 
- id="x74-9800013"></a>Fixed boundary tokamak equilibrium problem</h3>
-<!--l. 4760--><p class="noindent" >The ﬁxed boundary equilibrium problem (also called the “inverse equilibrium problem” by some
-authors) refers to the case where the shape of a boundary magnetic surface is given and one is asked to
-solve the equilibrium within this magnetic surface. To make it convenient to deal with the shape of the
-boundary, one usually uses a general coordinates system which has one coordinate surface coinciding
-with the given magnetic surface. This makes it trivial to deal with the irregular boundary.
-To obtain the equilibrium, one needs to solve the GS equation in the general coordinate
-system.
-</p><!--l. 4769--><p class="noindent" >
+ id="x61-7600013"></a>Field-line-following coordinates</h3>
+<!--l. 3441--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
      <span class="subsectionToc" >13.1 <a 
-href="tokamak_equilibriumsu61.html#x75-9900013.1">Toroidal elliptic operator in general coordinates</a></span>
+href="tokamak_equilibriumsu48.html#x62-7700013.1">Deﬁnition of the ﬁeld-line-following coordinates (<span 
+class="cmmi-10">ψ,𝜃,α</span>)</a></span>
 <br />     <span class="subsectionToc" >13.2 <a 
-href="tokamak_equilibriumsu62.html#x76-10000013.2">Finite diﬀerence form of toroidal elliptic operator in general coordinate system</a></span>
+href="tokamak_equilibriumsu49.html#x63-7800013.2">Some discussions</a></span>
 <br />     <span class="subsectionToc" >13.3 <a 
-href="tokamak_equilibriumsu63.html#x77-10100013.3">Special treatment at coordinate origin, wrong! to be deleted</a></span>
+href="tokamak_equilibriumsu50.html#x64-7900013.3">Expression of <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">α</span>, <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">α</span>, and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">α </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃</span></a></span>
 <br />     <span class="subsectionToc" >13.4 <a 
-href="tokamak_equilibriumsu64.html#x78-10200013.4">Pressure and toroidal ﬁeld function proﬁle</a></span>
+href="tokamak_equilibriumsu51.html#x65-8000013.4">Field-aligned coordinates in GEM[7] and GENE[13] codes</a></span>
 <br />     <span class="subsectionToc" >13.5 <a 
-href="tokamak_equilibriumsu65.html#x79-10300013.5">Boundary magnetic surface and initial coordinates</a></span>
+href="tokamak_equilibriumsu52.html#x66-8100013.5">Visualization of gridpoints in ﬁeld aligned coordinate system</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu52.html#x66-8200013.5" id="QQ2-66-101">Radial wavenumber in ﬁeld-aligned coordinates (<span 
+class="cmmi-10">ψ,𝜃,α</span>)</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu52.html#x66-8300013.5" id="QQ2-66-103">Periodic conditions of physical quantity along <span 
+class="cmmi-10">𝜃 </span>and <span 
+class="cmmi-10">α </span>in ﬁeld-line-following
+coordinates (<span 
+class="cmmi-10">ψ,𝜃,α</span>)</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu52.html#x66-8400013.5" id="QQ2-66-104">Numerical implementation of periodic condition (329)</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu52.html#x66-8500013.5" id="QQ2-66-106"><span 
+class="cmmi-10">α </span>contours on a magnetic surface</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu52.html#x66-8600013.5" id="QQ2-66-109"><span 
+class="cmmi-10">α </span>contours in a toroidal annulus</a></span>
 <br />     <span class="subsectionToc" >13.6 <a 
-href="tokamak_equilibriumsu66.html#x80-10400013.6">Fixed boundary equilibrium numerical code</a></span>
+href="tokamak_equilibriumsu53.html#x67-8700013.6">Field-line-following mesh in gyrokinetic turbulence simulation codes</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu53.html#x67-8800013.6" id="QQ2-67-115">Mesh in GENE, GYRO, and GEM codes</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu53.html#x67-8900013.6" id="QQ2-67-116">Mesh in GTC and GTS codes[26]</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu53.html#x67-9000013.6" id="QQ2-67-117">Mesh in XGC1 code ***check**</a></span>
 <br />     <span class="subsectionToc" >13.7 <a 
-href="tokamak_equilibriumsu67.html#x81-10500013.7">Benchmark of the code</a></span>
-<br />     <span class="subsectionToc" >13.8 <a 
-href="tokamak_equilibriumsu68.html#x82-10600013.8">Low-beta equilibrium vs. high-beta equilibrium</a></span>
-<br />     <span class="subsectionToc" >13.9 <a 
-href="tokamak_equilibriumsu69.html#x83-10700013.9">Analytical form of Jacobian (need cleaning up)</a></span>
-<br />     <span class="subsectionToc" >13.10 <a 
-href="tokamak_equilibriumsu70.html#x84-10800013.10">Grad-Shafranov equation with prescribed safety factor proﬁle (to be ﬁnished)</a></span>
+href="tokamak_equilibriumsu54.html#x68-9100013.7">Numerical veriﬁcation of the ﬁeld-aligned coordinates</a></span>
+<br />      <span class="subsubsectionToc" ><a 
+href="tokamak_equilibriumsu54.html#x68-9200013.7" id="QQ2-68-120">Binormal wavenumber</a></span>
    </div>
 
 
@@ -58,18 +81,15 @@ href="tokamak_equilibriumsu70.html#x84-10800013.10">Grad-Shafranov equation with
 
 
 
-
-
-
                                                                                 
 
                                                                                 
-   <!--l. 5521--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4341--><div class="crosslinks"><p class="noindent">[<a 
 href="tokamak_equilibriumse14.html" >next</a>] [<a 
 href="tokamak_equilibriumse12.html" >prev</a>] [<a 
 href="tokamak_equilibriumse12.html#tailtokamak_equilibriumse12.html" >prev-tail</a>] [<a 
 href="tokamak_equilibriumse13.html" >front</a>] [<a 
 href="tokamak_equilibrium.html#tokamak_equilibriumse13.html" >up</a>] </p></div>
-<!--l. 5521--><p class="indent" >   <a 
+<!--l. 4341--><p class="indent" >   <a 
  id="tailtokamak_equilibriumse13.html"></a> </p> 
 </body></html> 

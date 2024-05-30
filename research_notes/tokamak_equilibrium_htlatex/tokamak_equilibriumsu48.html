@@ -4,7 +4,7 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Radial diﬀerential operator</title> 
+<head><title>Deﬁnition of the ﬁeld-line-following coordinates (ψ,𝜃,α)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
@@ -13,90 +13,286 @@
 <link rel="stylesheet" type="text/css" href="tokamak_equilibrium.css" /> 
 </head><body 
 >
-   <!--l. 3362--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu47.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu47.html#tailtokamak_equilibriumsu47.html" >prev-tail</a>] [<a 
+   <!--l. 3441--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu49.html" >next</a>] [<a 
 href="#tailtokamak_equilibriumsu48.html">tail</a>] [<a 
-href="tokamak_equilibriumse10.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">10.10   </span> <a 
- id="x59-7400010.10"></a>Radial diﬀerential operator</h4>
-<!--l. 3364--><p class="noindent" >In solving the MHD eigenmode equations in toroidal geometry, we also need the radial
-diﬀerential operator <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span><span 
-class="cmsy-10">⋅∇</span>. Next, we derive the form of the operator in (<span 
-class="cmmi-10">ψ,𝜃,ζ</span>) coordinates.
-Using
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">13.1   </span> <a 
+ id="x62-7700013.1"></a>Deﬁnition of the ﬁeld-line-following coordinates (<span 
+class="cmmi-10">ψ,𝜃,α</span>)</h4>
+<!--l. 3443--><p class="noindent" >In (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinates, a magnetic ﬁeld line is straight in (<span 
+class="cmmi-10">𝜃,ζ</span>) plane with slope being <span 
+class="cmmi-10">q</span>. Then the
+equation for a magnetic ﬁeld line is written as
 </p>
    <table 
-class="equation-star"><tr><td>
-                          <span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">f </span>= <img 
-src="tokamak_equilibrium375x.png" alt="∂f-
-∂ψ"  class="frac" align="middle" /><span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span>+ <img 
-src="tokamak_equilibrium376x.png" alt="∂f-
-∂ 𝜃"  class="frac" align="middle" /><span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">𝜃 </span>+ <img 
-src="tokamak_equilibrium377x.png" alt="∂f-
-∂ζ"  class="frac" align="middle" /><span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ζ,</span>
-</td></tr></table>
-<!--l. 3369--><p class="nopar" >
-the radial diﬀerential operator is written as </p><div class="eqnarray">
+class="equation"><tr><td><a 
+ id="x62-77001r292"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium378x.png" alt="∇ ψ ⋅∇f = |∇ ψ|2∂f-+ (∇𝜃 ⋅∇ ψ)∂f-+ (∇ζ ⋅∇ψ )∂f-
-               ∂ψ           ∂ 𝜃           ∂ζ
-              2∂f-          ∂f-                     ∂f-
-        = |∇ ψ| ∂ψ + (∇𝜃 ⋅∇ ψ)∂ 𝜃 + {∇ [ϕ − qδ(ψ,𝜃)]⋅∇ ψ}∂ζ
-              2∂f           ∂f            ∂f
-        = |∇ ψ| ∂ψ-+ (∇𝜃 ⋅∇ ψ)∂-𝜃 − ∇ [qδ]⋅∇ ψ∂ζ
-               ∂f           ∂f                  ∂f
-        = |∇ ψ|2---+ (∇𝜃 ⋅∇ ψ)---− [q∇δ +δ∇q ]⋅∇ψ ---
-               ∂ψ           ∂ 𝜃  [ (            ∂ζ)        ]
-        = |∇ ψ|2∂f-+ (∇𝜃 ⋅∇ ψ)∂f-−  q  ∂δ-∇ψ + ∂δ∇ 𝜃  + δq′∇ ψ ⋅∇ ψ∂f-
-               ∂ψ           ∂ 𝜃  [   ∂ψ      ∂𝜃         ]        ∂ζ
-              2∂f-          ∂f-   ∂-(qδ)    2   ∂δ-        ∂f-
-        = |∇ ψ| ∂ψ + (∇𝜃 ⋅∇ ψ)∂ 𝜃 −  ∂ ψ |∇ψ| + q∂𝜃 ∇𝜃 ⋅∇ψ  ∂ζ,        (289)
-" class="math-display"  /><a 
- id="x59-74001r289"></a></center>
-</div>where <span 
-class="cmmi-10">∂</span>(<span 
-class="cmmi-10">qδ</span>)<span 
-class="cmmi-10">∕∂ψ </span>and <span 
-class="cmmi-10">q∂δ∕∂𝜃 </span>are given respectively by Eqs. (<a 
-href="tokamak_equilibriumsu39.html#x50-65011r258">258<!--tex4ht:ref: 6-25-a1 --></a>) and (<a 
-href="tokamak_equilibriumsu39.html#x50-65004r252">252<!--tex4ht:ref: 11-12-p1 --></a>). Using the above formula,
-<span 
-class="cmsy-10">∇</span><span 
-class="cmmi-10">ψ </span><span 
-class="cmsy-10">⋅∇</span><span 
-class="cmmi-10">ζ </span>is written as
+src="tokamak_equilibrium381x.png" alt="ζ = q𝜃 + α,
+                                                                                
+
+                                                                                
+" class="math-display"  /></center></td><td class="equation-label">(292)</td></tr></table>
+<!--l. 3448--><p class="nopar" >
+where <span 
+class="cmmi-10">α </span>is a constant in (<span 
+class="cmmi-10">𝜃,ζ</span>) plane and can be used to label magnetic ﬁeld lines on a magnetic surface.
+This motivates us to use <span 
+class="cmmi-10">α</span>, i.e.,
+</p>
    <table 
 class="equation"><tr><td><a 
- id="x59-74002r290"></a>
+ id="x62-77002r293"></a>
    <center class="math-display" >
 <img 
-src="tokamak_equilibrium379x.png" alt="            [                      ]
-             ∂(qδ)   2    ∂δ-
-∇ ψ ⋅∇ζ = −   ∂ψ  |∇ ψ| + q∂𝜃∇ 𝜃⋅∇ ψ .
-" class="math-display"  /></center></td><td class="equation-label">(290)</td></tr></table>
-<!--l. 3405--><p class="nopar" >
-This formula is used in GTAW code.
+src="tokamak_equilibrium382x.png" alt="α ≡ ζ − q𝜃,
+" class="math-display"  /></center></td><td class="equation-label">(293)</td></tr></table>
+<!--l. 3454--><p class="nopar" >
+to replace <span 
+class="cmmi-10">ζ</span>. Then the magnetic ﬁeld in Eq. (<a 
+href="tokamak_equilibriumsu39.html#x52-67003r262">262<!--tex4ht:ref: 3-13-p3 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x62-77003r294"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium383x.png" alt="B = Ψ ′∇ ψ × ∇α,
+" class="math-display"  /></center></td><td class="equation-label">(294)</td></tr></table>
+<!--l. 3459--><p class="nopar" >
+which is called the Clebsch form. The direction
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x62-77004r295"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium384x.png" alt="∂r
+--|ψ,α = 𝒥∇ α× ∇ ψ,
+∂𝜃
+" class="math-display"  /></center></td><td class="equation-label">(295)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 3464--><p class="nopar" >
+is parallel (or anti-parallel) to the magnetic ﬁeld direction. Due to this fact, (<span 
+class="cmmi-10">ψ,𝜃,α</span>) coordinates are
+usually called “ﬁeld-line-following coordinates” or “ﬁeld-aligned coordinates” <span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xbeer1995">2</a>, <a 
+href="tokamak_equilibriumli1.html#Xychen2003">6</a>]</span>.
+</p><!--l. 3470--><p class="indent" >   Equation (<a 
+href="#x62-77003r294">294<!--tex4ht:ref: 10-9-p1 --></a>) implies that
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x62-77005r296"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium385x.png" alt="B ⋅∇α = 0,
+" class="math-display"  /></center></td><td class="equation-label">(296)</td></tr></table>
+<!--l. 3473--><p class="nopar" >
+and
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x62-77006r297"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium386x.png" alt="B ⋅∇ψ = 0,
+" class="math-display"  /></center></td><td class="equation-label">(297)</td></tr></table>
+<!--l. 3477--><p class="nopar" >
+i.e., both <span 
+class="cmmi-10">α </span>and <span 
+class="cmmi-10">ψ </span>are constant along a magnetic ﬁeld line. Taking scalar product of Eq. (<a 
+href="#x62-77003r294">294<!--tex4ht:ref: 10-9-p1 --></a>) with <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">𝜃</span>,
+we obtain
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x62-77007r298"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium387x.png" alt="            ′
+B ⋅∇ 𝜃 = − Ψ-,
+          𝒥
+                                                                                
+
+                                                                                
+" class="math-display"  /></center></td><td class="equation-label">(298)</td></tr></table>
+<!--l. 3482--><p class="nopar" >
+which is nonzero, i.e., only <span 
+class="cmmi-10">𝜃 </span>among (<span 
+class="cmmi-10">ψ,𝜃,α</span>) is changing along a magnetic ﬁeld line. (Here
+<span 
+class="cmsy-10">𝒥 </span>= (<span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">α</span>)<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup> is the Jacobian of the coordinate system (<span 
+class="cmmi-10">ψ,𝜃,α</span>), which happens to be equal to
+the Jacobian of (<span 
+class="cmmi-10">ψ,𝜃,ζ</span>) coordinates.)
+</p><!--l. 3489--><p class="indent" >   Using Eq. (<a 
+href="#x62-77003r294">294<!--tex4ht:ref: 10-9-p1 --></a>), the magnetic diﬀerential operator <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇ </span>in the new coordinate system (<span 
+class="cmmi-10">ψ,𝜃,α</span>) is
+written
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x62-77008r299"></a>
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium388x.png" alt="         Ψ ′∂
+B ⋅∇f  = −-𝒥 ∂𝜃f,
+" class="math-display"  /></center></td><td class="equation-label">(299)</td></tr></table>
+<!--l. 3494--><p class="nopar" >
+which is just a partial derivative over <span 
+class="cmmi-10">𝜃</span>, as is expected, since only <span 
+class="cmmi-10">𝜃 </span>is changing along a magnetic ﬁeld
+line.
+</p><!--l. 3498--><p class="indent" >   By the way, note that (<span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">α</span>)<span 
+class="cmmi-10">∕</span>(<span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃</span>) = 0, i.e., the magnetic ﬁeld lines are straight with zero
+slope on (<span 
+class="cmmi-10">𝜃,α</span>) plane.
+</p><!--l. 3502--><p class="indent" >   Using Eqs. (<a 
+href="#x62-77002r293">293<!--tex4ht:ref: 17-3-18-1 --></a>) and (<a 
+href="tokamak_equilibriumsu38.html#x51-66007r256">256<!--tex4ht:ref: 17-4-11-1 --></a>), <span 
+class="cmmi-10">α </span>can be written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="tokamak_equilibrium389x.png" alt="       ∫ 𝜃
+α = ϕ −   ˆqd𝜃,                            (300)
+        0
+" class="math-display"  /><a 
+ id="x62-77009r300"></a></center>
+</div>where <img 
+src="tokamak_equilibrium390x.png" alt="ˆq"  class="circ"  /> = <span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">ϕ∕</span><span 
+class="cmbx-10">B </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃 </span>is the local safety factor. (If we choose the straight-ﬁeld-line <span 
+class="cmmi-10">𝜃</span>, then <span 
+class="cmmi-10">α </span>is
+written as <span 
+class="cmmi-10">α </span>= <span 
+class="cmmi-10">ϕ</span><span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">q𝜃</span>.) Deﬁne <span class="overline"><span 
+class="cmmi-10">δ</span></span> = <span 
+class="cmex-10">∫</span>
+ <sub><span 
+class="cmr-7">0</span></sub><sup><span 
+class="cmmi-7">𝜃</span></sup><img 
+src="tokamak_equilibrium391x.png" alt="ˆq"  class="circ"  /> <span 
+class="cmmi-10">d𝜃</span>, which is called <span 
+class="cmtt-10">tor</span><span 
+class="cmtt-10">_shift</span> in <span 
+class="cmtt-10">TEK</span> code, then <span 
+class="cmmi-10">α </span>= <span 
+class="cmmi-10">ϕ</span><span 
+class="cmsy-10">−</span><span class="overline"><span 
+class="cmmi-10">δ</span></span>. In
+<span 
+class="cmtt-10">TEK</span>, I choose <span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">∈ </span>[<span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π,π</span>) with <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>corresponding to the high-ﬁeld-side midplane, and <span 
+class="cmmi-10">𝜃 </span>is increasing
+along the counter-clockwise direction viewed along <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ϕ</span>.  The <span 
+class="cmmi-10">𝜃 </span>cut, i.e., <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">±</span><span 
+class="cmmi-10">π </span>is far away from the
+low-ﬁeld-side where ballooning modes often have larger amplitude. The (<span 
+class="cmmi-10">x,y</span>) grid near the <span 
+class="cmmi-10">𝜃 </span>cut is
+highly twisted in real space and interplation is needed in mapping physical quantity from the
+grid at <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>plane to that at <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π</span>. Numerical errors more likely appear there. So
+we prefer that the <span 
+class="cmmi-10">𝜃 </span>cut is located in less important area (area where mode amplitude is
+small).
+                                                                                
+
+                                                                                
+<!--l. 3522--><p class="indent" >   It is widely believed that turbulence responsible for energy transport in tokamak plasmas usually
+has <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">≪ </span><span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">⊥</span></sub>, where <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub> and <span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">⊥</span></sub> are the parallel and perpendicular wavenumbers, respectively. Due to
+this elongated structure along the parallel direction, less grids can be used in the parallel direction than
+that in the perpendicular direction in turbulence simulation. In this case, the ﬁeld-aligned coordinates
+(<span 
+class="cmmi-10">ψ,𝜃,α</span>) provide suitable coordinates to be used, where less gridpoints can be used for <span 
+class="cmmi-10">𝜃 </span>coordinate in
+simulations and even some <span 
+class="cmmi-10">∂∕∂𝜃 </span>derivatives can be neglected (high-n approximation), which
+simpliﬁes the equations that need to be solved. There is another reason why almost all
+gyrokinetic codes use ﬁeld-aligned coordinates: the  stability of numerical algorthims is improved
+when we use coarse grids in the parallel direction because the parallel Courant condition
+(for explicit schemes) <span 
+class="cmmi-10">Δt </span><span 
+class="msam-10">≤ </span><span 
+class="cmmi-10">ΔL</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕v</span><sub><span 
+class="cmsy-7">∥</span></sub> can be more easily satisﬁed (especially for the cases
+with kinetic electrons), where <span 
+class="cmmi-10">ΔL</span><sub><span 
+class="cmsy-7">∥</span></sub> is the parallel grid spacing, which is larger when coarse
+grids are used in the parallel direction. This is also mentioned in Ref. <span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xottaviani2011">21</a>]</span> and it seems
+to be right from my experiences of testing several algorithm but a strict test is needed
+to verify this. This can also be understood in the following way: the coarse parallel grid
+automatically ﬁlters out physically irrelevant but numerically problematic high-<span 
+class="cmmi-10">k</span><sub><span 
+class="cmsy-7">∥</span></sub> modes,
+permitting much longer time steps for explicit time stepping, in both particle and ﬂuid
+codes<span class="cite">[<a 
+href="tokamak_equilibriumli1.html#Xdimits1993">12</a>]</span>.
                                                                                 
 
                                                                                 
 </p>
-   <!--l. 3408--><div class="crosslinks"><p class="noindent">[<a 
-href="tokamak_equilibriumsu47.html" >prev</a>] [<a 
-href="tokamak_equilibriumsu47.html#tailtokamak_equilibriumsu47.html" >prev-tail</a>] [<a 
+   <!--l. 3547--><div class="crosslinks"><p class="noindent">[<a 
+href="tokamak_equilibriumsu49.html" >next</a>] [<a 
 href="tokamak_equilibriumsu48.html" >front</a>] [<a 
-href="tokamak_equilibriumse10.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
-<!--l. 3408--><p class="indent" >   <a 
+href="tokamak_equilibriumse13.html#tokamak_equilibriumsu48.html" >up</a>] </p></div>
+<!--l. 3547--><p class="indent" >   <a 
  id="tailtokamak_equilibriumsu48.html"></a> </p> 
 </body></html> 
