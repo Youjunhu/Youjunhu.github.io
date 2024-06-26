@@ -37,8 +37,9 @@
   coordinate system, based on the 2D equilibrium magnetic field, with a
   desired form of Jacobian by using discrete numerical equilibrium data output
   by the equilibrium reconstructing codes. These are my notes when learning
-  tokamak equilibrium theory. These notes are evolving and are written for my own record.
-  I enjoy seeing the continuous improvement of these notes and my understanding of this simple stuff in tokamak physics.
+  tokamak equilibrium theory. \ These notes are evolving and are written for
+  my own record. I enjoy seeing the continuous improvement of these notes over
+  a long time scale (10 years).
 \end{abstract}
 
 \section{ Axisymmetric magnetic field}\label{5-13-1s}
@@ -51,7 +52,7 @@ Due to the divergence-free nature of magnetic field, i.e., $\nabla \cdot
 where $\mathbf{A}$ is called the vector potential of $\mathbf{B}$. (Using a
 vector potential representation is helpful in that we do not need to worry
 about the condition $\nabla \cdot \mathbf{B}= 0$ once the magnetic field is in
-the vector potential form.)
+that form)
 
 In cylindrical coordinates $(R, \phi, Z)$, the above expression is written
 \begin{equation}
@@ -131,9 +132,9 @@ $\mathbf{B}_p$ is written as
 Next, let's examine the toroidal component $B_{\phi}$. Equation (\ref{9-6-p1})
 indicates that $B_{\phi}$ involves both $A_R$ and $A_Z$, which means that
 using the potential form does not enable useful simplification for $B_{\phi}$.
-Therfore we will directly use $B_{\phi}$. Define $g \equiv R B_{\phi} (R, Z)$,
-(the reason that we define this quantity will become apparent when we discuss
-the forece balance equation) then the toroidal magnetic field is written
+Therfore we will directly use $B_{\phi}$. Define $g \equiv R B_{\phi} (R, Z)$
+(the reason that we define this quantity will become clear when we discuss the
+forece balance), then the toroidal magnetic field is written
 \begin{equation}
   \label{7-28-1} \mathbf{B}_{\phi} = B_{\phi} \hat{\tmmathbf{\phi}} =
   \frac{g}{R} \hat{\tmmathbf{\phi}} = g \nabla \phi .
@@ -141,17 +142,17 @@ the forece balance equation) then the toroidal magnetic field is written
 
 \subsection{General form of axisymmetric magnetic field}
 
-Combining Eqs. (\ref{20-5-9-p10}) and (\ref{7-28-1}), we can write a general
-axisymmetric magnetic field as
+Combining Eqs. (\ref{20-5-9-p10}) and (\ref{7-28-1}), we obtain
 \begin{eqnarray}
   \mathbf{B} & = & \mathbf{B}_p +\mathbf{B}_{\phi} \nonumber\\
-  & = & \nabla \Psi \times \nabla \phi + g \nabla \phi .  \label{7-28-6}
+  & = & \nabla \Psi \times \nabla \phi + g \nabla \phi,  \label{7-28-6}
 \end{eqnarray}
-Expression (\ref{7-28-6}) is a famous formula in tokamak physics.
+which is a general expression of axisymmetric magnetic field. Expression
+(\ref{7-28-6}) is a famous formula in tokamak physics.
 
-\subsection{Gauge transformation of $\Psi$}
+\subsection{Gauge transform of $\Psi$}
 
-Next, we discuss the gauge transformation of the vector potential $\mathbf{A}$
+Let us discuss the gauge transformation of the vector potential $\mathbf{A}$
 in the axisymmetric case. As is well known, magnetic field remains the same
 under the following gauge transformation:
 \begin{equation}
@@ -178,18 +179,22 @@ component of the gauge transformation (\ref{7-25-1}) is written
   f}{\partial \phi} \nonumber\\
   & = & A_{\phi} + \frac{C}{R},  \label{7-24-p1}
 \end{eqnarray}
-where $C$ is a constant. Note that the requirement of being axial symmetry
-greatly reduces the degree of freedom of the gauge transformation for
-$A_{\phi}$ (and thus for $R A_{\phi}$, i..e, $\Psi$). Multiplying Eq.
-(\ref{7-24-p1}) with $R$, we obtain the corresponding gauge transformation for
-$\Psi$,
+where $C$ is a constant. The requirement of being axial symmetry greatly
+reduces the degree of freedom of the gauge transformation for $A_{\phi}$.
+Multiplying Eq. (\ref{7-24-p1}) with $R$, we obtain the corresponding gauge
+transformation for $\Psi$,
 \begin{equation}
   \label{7-24-p3} \Psi^{\tmop{new}} = \Psi + C,
 \end{equation}
 which indicates $\Psi$ has the same gauge transformation as the electric
-potential, i.e., adding a constant. (Note that the definition $\Psi (R, Z)
+potential, i.e., adding a constant. Note that the definition $\Psi (R, Z)
 \equiv R A_{\phi}$ does not imply $\Psi (R = 0, Z) = 0$ because $A_{\phi}$ can
-adopt $1 / R$ dependence under the gauge transformation (\ref{7-24-p1})).
+adopt $1 / R$ dependence under the gauge transformation (\ref{7-24-p1}).
+However, we are usually interested in the situation where $A_{\phi}$ is finite
+at $R = 0$ (and axisymmetry indicates that $A_{\phi} (R = 0, Z)$ is a spatial
+constant). In this case, $\Psi$ is zero at $R = 0$. This is the case we
+encounter in equilibrium reconstruction, where magnetic flux measurements are
+used to constrain the numerically reconstructed $\Psi$.
 
 \subsection{Contours of $\Psi$ in the poloidal plane}\label{20-5-8-p1}
 
@@ -219,8 +224,8 @@ i.e.,
 \begin{equation}
   \label{8-22-1} \frac{d Z}{d R} = \frac{B_Z}{B_R},
 \end{equation}
-which is the equation of the projection of a magnetic field line on $(R, Z)$
-plane. Thus, we prove that contours of $\Psi$ are also the projections of
+which is the equation of the projection of a magnetic field line in $(R, Z)$
+plane. This proves that contours of $\Psi$ are also the projections of
 magnetic field lines in $(R, Z)$ plane.]
 
 \subsection{Magnetic surfaces}
@@ -231,10 +236,12 @@ of revolution that is generated by rotating the projection of a magnetic field
 line on $(R, Z)$ plane around the axis of symmetry, $Z$ axis. The unique
 property of this revolution surface is that no field line point-intersects it
 and a field line with one point on it will have the whole field line on it.
-This revolution surface is called a magnetic surface. For instance, consider
-an arbitrary magnetic field line, whose projection on the poloidal plane is
-shown in Fig. \ref{7-28-5}. A magnetic surface is generated by rotating the
-projection line around the $Z$ axis.
+This revolution surface can be called a magnetic surface. For instance,
+consider an arbitrary magnetic field line, whose projection on the poloidal
+plane is shown in Fig. \ref{7-28-5}. A magnetic surface is generated by
+rotating the projection line around the $Z$ axis (some people disagree with
+this defintion since they only consider toroidal surfaces that are closed
+within a tokamak vessell as magnetic surfaces.)
 
 \begin{figure}[h]
   \includegraphics{/home/yj/theory/tokamak_equilibrium/figures/axisymmetrical_magnetic_field-1b.eps}
@@ -255,9 +262,9 @@ surfaces.
 
 Note that $\Psi$ is defined by $\Psi = R A_{\phi}$, which is just a component
 of the vector potential $\mathbf{A}$, thereby having no obvious physical
-meaning. Next, we try to find the physical meaning of $\Psi$, i.e., try to
-find some simple algebraic relation of $\Psi$ with some quantity that can be
-measured in experiments.
+meaning. Next, we try to find the physical meaning of $\Psi$, i.e., some
+simple algebraic relation of $\Psi$ with some quantity that can be measured in
+experiments.
 
 \begin{figure}[h]
   \includegraphics{/home/yj/theory/tokamak_equilibrium/figures/axisymmetrical_magnetic_field-3b.eps}
@@ -297,15 +304,16 @@ the the physical quantities $\Psi_p$, which is consistent with the fact that
 gauge transformation (\ref{7-24-p3}) dose not change the values of physical
 quantities.
 
-\subsection{Measurement of poloidal magnetic flux}
+\subsection{Measurement of poloidal magnetic flux}\label{24-6-26-1}
 
-By measuring the voltage around a toroidal loop of wire, we can obtain the
-time derivative of the poloidal magnetic flux though the loop and, after
-integrating over time, the poloidal magnetic flux itself. Suppose that the
-loop is located at $(R, Z)$ and denote the magnetic flux through the loop by
-$\Psi_{\tmop{pol}} (R, Z, t)$ (only the poloidal magnetic field contribute to
-this flux since the loop is in the toroidal direction). Then Faraday's law
-gives
+By measuring the voltage around a toroidal wire loop, we can obtain the time
+derivative of the poloidal magnetic flux though the loop and, after
+integrating over time, the poloidal magnetic flux itself.
+
+Suppose that the loop is located at $(R, Z)$ and denote the magnetic flux
+through the loop by $\Psi_{\tmop{pol}} (R, Z, t)$ (only the poloidal magnetic
+field contribute to this flux since the loop is in the toroidal direction).
+Then Faraday's law gives
 \begin{equation}
   \label{8-16-e1} \varepsilon = - \frac{d \Psi_{\tmop{pol}}}{d t},
 \end{equation}
@@ -317,8 +325,8 @@ N \varepsilon$. Using this, Eq. (\ref{8-16-e1}) is written as
 \end{equation}
 Integrating the above equation over time, we obtain
 \begin{equation}
-  \Psi_{\tmop{pol}} (R, Z, t) - \Psi_{\tmop{pol}} (R, Z, 0) = - \frac{1}{N}
-  \int_0^t V dt.
+  \label{24-6-25-e1} \Psi_{\tmop{pol}} (R, Z, t) = \Psi_{\tmop{pol}} (R, Z, 0)
+  - \frac{1}{N} \int_0^t V dt.
 \end{equation}
 The starting time $t = 0$ can be chosen at a time when no plasma is present
 and thus the initial value, $\Psi_{\tmop{pol}} (R, Z, 0)$, is easy to obtain.
@@ -329,37 +337,40 @@ $\Psi_{\tmop{pol}}$ is given by
   \label{19-5-7-1} \Psi_{\tmop{pol}} (R, Z, t) = 2 \pi [\Psi (R, Z, t) - \Psi
   (R = 0, Z, t)],
 \end{equation}
-where $\Psi (R = 0, Z, t)$ is actually a spatial constant since $R = 0$ must
-be a magnetic field line (required by the axisymmetry). $\Psi (R = 0, Z, t)$
-is also a time constant if we choose a gauge that is independent of time. We
-will stick to the time-independent gauge since it does not seem useful to
-choose a time-dependent gauge for $\Psi$. Denote the spatial-temporal constant
-$\Psi (R = 0, Z, t)$ by $C_g$, then Eq. (\ref{19-5-7-1}) is written as
+where $\Psi (R = 0, Z, t)$, as discussed above, is zero. Then Eq.
+(\ref{19-5-7-1}) is written as
 \begin{equation}
-  \Psi (R, Z, t) = \frac{1}{2 \pi} \Psi_{\tmop{pol}} (R, Z, t) + C_g,
+  \Psi (R, Z, t) = \frac{1}{2 \pi} \Psi_{\tmop{pol}} (R, Z, t),
 \end{equation}
-i.e.,
-\begin{equation}
-  \Psi (R, Z, t) = \frac{1}{2 \pi} \left( - \frac{1}{N} \int_0^t V dt +
-  \Psi_{\tmop{pol}} (R, Z, 0) \right) + C_g,
-\end{equation}
-which tells us how to obtain $\Psi$ form the measured voltage $V$.
+which tells us how to obtain $\Psi$ form the measured $\Psi_{\tmop{pol}} (R,
+Z, t)$, which in trun is inferred from the measured voltage $V$, as is given
+by Eq. (\ref{24-6-25-e1}).
+
+Note that the positive normal direction of the surface (where the magnetic
+flux $\Psi_{\tmop{pol}}$ is defined) is chosen in the $\mathbf{Z}$ direction.
 
 The above toroidal loop of wire used to measure poloidal magnetic flux is
 often called ``flux loop'' by tokamak operators. There are usually many flux
-loops (e.g. 37 on EAST{\cite{xiao2007}}, 41 on DIII-D) at different locations
-in the poloidal plane (see Fig. \ref{19-5-4-p1}). The measured value of
-poloidal flux can be used to obtain contours of $\Psi$ and thus obtain a flux
-surface. With the feedback control (by adjusting the current in the poloidal
-field coils), these measurement, along with the poloidal field measurement by
-magnetic probes, can be used to control the shape of the
-last-closed-flux-surface (LCFS), the distance of the LCFS from the first wall,
-and the X-point location. This is often called iso-flux control, gap control,
-or X-point control.
+loops (e.g. 35 on EAST{\cite{xiao2007}}, 41 on DIII-D) at different locations
+in the poloidal plane (see Fig. \ref{19-5-4-p1mm}). The measured value of
+poloidal flux can be used as constraints in reconstructing magnetic
+configuration by, e.g. EFIT. With the feedback control (by adjusting the
+current in the poloidal field coils), these measurement, along with the
+poloidal field measurement by magnetic probes, can be used to control the
+shape of the last-closed-flux-surface (LCFS), the distance of the LCFS from
+the first wall, and the X-point location. This is often called iso-flux
+control, gap control, or X-point control.
 
-\subsection{Closed magnetic surfaces in tokamak}
+\begin{figure}[h]
+  \resizebox{0.5\columnwidth}{!}{\includegraphics{/home/yj/project_new/heq/doc/fig1b/p.eps}}
+  \caption{\label{19-5-4-p1mm}Flux loops (circles) and magnetic probes (blue
+  arows) on EAST tokamak. Arrows indicate the positive normal direction of the
+  probes.}
+\end{figure}
 
-In most part of a tokamak plasma, the contours of $\Psi$ on $(R, Z)$ plane are
+\subsection{Closed magnetic surfaces}
+
+In most part of a tokamak plasma, contours of $\Psi$ on $(R, Z)$ plane are
 closed curves. As discussed above, the contours of $\Psi$ are the projection
 of magnetic lines on the poloidal plane. Closed contours of $\Psi$ implies
 closed magnetic surfaces, as shown in Fig \ref{7-1-p101}.
@@ -378,10 +389,10 @@ axis (in Fig. \ref{7-1-p101}, $\Psi_0$ labels the magnetic axis). Because the
 magnetic axis is the point of maximum/minimum of $\Psi (R, Z)$, the value of
 $\nabla \Psi$ is zero at the magnetic axis. As a result, the poloidal
 component of the equilibrium magnetic field is zero on magnetic axis (refer to
-Eq. (\ref{7-28-6})), i.e., the magnetic field has only toroidal component
+Eq. (\ref{20-5-9-p10})), i.e., the magnetic field has only toroidal component
 there.
 
-As discussed in Sec. \ref{9-5-5}, the poloidal magnetic flux enclosed by a
+As is discussed in Sec. \ref{9-5-5}, the poloidal magnetic flux enclosed by a
 magnetic surface $\Psi$ (the poloidal magnetic flux through the toroidal
 surfaces $S_2$) is given by
 \begin{equation}
@@ -390,21 +401,21 @@ surfaces $S_2$) is given by
 where $\Psi_0$ is the value of $\Psi$ at the magnetic axis. Here the positive
 direction of the surface $S_2$ is defined to be in the clockwise direction
 when an observer looks along the direction of $\hat{\tmmathbf{\phi}}$. In
-practice, we need to pay attention to the positive direction of the toroidal
-surface used to define the poloidal flux (there can be a sign difference when
-choosing different positive directions). Also note, in tokamak literature, the
-poloidal magnetic flux enclosed by a closed magnetic surface can have two
-different definitions, one of which is the the poloidal magnetic flux through
-the surface $S_2$ in Fig. \ref{7-1-p101}, the other one is the poloidal
-magnetic flux through the central hole of the magnetic surface, i.e., the
-poloidal flux through $S_1$ in Fig. \ref{7-1-p101}. The former definition is
-adopted in this article, except explicitly specified otherwise. In the latter
-case, the poloidal magnetic flux is written
+practice, we need to pay attention to the positive direction chosen (there can
+be a sign difference when choosing different positive directions).
+
+Also note, the poloidal magnetic flux enclosed by a closed magnetic surface
+can have two different definitions, one of which is the the poloidal magnetic
+flux through the surface $S_2$ in Fig. \ref{7-1-p101}, the other one is the
+poloidal magnetic flux through the central hole of the magnetic surface, i.e.,
+the poloidal flux through $S_1$ in Fig. \ref{7-1-p101}. In the latter case, as
+is discussed in Sec. \ref{24-6-26-1}, the poloidal magnetic flux is related to
+$\Psi$ by
 \begin{equation}
-  \Psi_p = 2 \pi (\Psi - \Psi_a),
+  \Psi_p = 2 \pi (\Psi - \Psi (R = 0, Z)) = 2 \pi \Psi,
 \end{equation}
-where the positive direction of the surface $S_1$ is defined to be in the
-clockwise direction.
+where the positive direction of the surface $S_1$ is in the clockwise
+direction.
 
 Also note that, since the poloidal magnetic field can be written as
 $\mathbf{B}_p = \nabla \Psi \times \nabla \phi$, the condition
@@ -464,8 +475,8 @@ $\varepsilon \equiv a / R_0$, which is called the inverse aspect ratio.
 
 The four shape parameters for the typical Last-Closed-Flux-Surface (LCFS) of
 EAST tokamak are: major radius $R_0 = 1.85 m$ (can reach $1.9 m$), minor
-radius $a = 0.45 m$, ellipticity $\kappa = 1.8$ (can be in the range from 1.7
-to 1.9), triangularity $\delta_t = 0.6$ (can be in the range from 0.5 to 0.7).
+radius $a = 0.45 m$, ellipticity $\kappa = 1.8$ (can be in the range from 1.5
+to 2.0), triangularity $\delta_t = 0.6$ (can be in the range from 0.3 to 0.6).
 Note that the major radius $R_0$ of the LCFS is usually different from
 $R_{\tmop{axis}}$ (the $R$ coordinate of the magnetic axis). Usually we have
 $R_{\tmop{axis}} > R_0$ due to the so-called Shafranov shift.
@@ -555,6 +566,8 @@ Equation (\ref{9-6-p2}) indicates that the safety factor of a magnetic surface
 is equal to the differential of the toroidal magnetic flux with respect to the
 poloidal magnetic flux enclosed by the magnetic surface.
 
+\
+
 \subsubsection{Rational surfaces vs. irrational surfaces}
 
 If the safety factor of a magnetic surface is a rational number, i.e., $q = m
@@ -577,7 +590,7 @@ example of a field line on a rational surface is shown in Fig. \ref{17-1-1-1}.
 
 \
 
-\subsection{Non-axisymmetric magnetic perturbations}
+\section{Non-axisymmetric magnetic perturbations}
 
 In the above, the magnetic field is assumed to be axisymmetric. With this
 assumption, the poloidal magnetic field (having two components) can be
@@ -586,7 +599,7 @@ $A_{\phi}$ (specifically via $\Psi \equiv A_{\phi} R$). This kind of
 simplification can not be achieved if the axisymmetricity assumption is
 dropped, because other components of the vector potential (namely $A_R$ and
 $A_Z$) will appear in the expression of the poloidal magnetic field. Let us
-re-examine Eq. (\ref{4-16-p1}) for a magnetic perturbation:
+re-examine Eq. (\ref{4-16-p1}) for a general magnetic perturbation:
 \begin{eqnarray}
   \delta \mathbf{B} & = & \left( \frac{1}{R} \frac{\partial \delta
   A_Z}{\partial \phi} - \frac{\partial \delta A_{\phi}}{\partial Z} \right)
@@ -597,7 +610,7 @@ re-examine Eq. (\ref{4-16-p1}) for a magnetic perturbation:
   A_Z}{\partial R} \right) \hat{\tmmathbf{\phi}} .  \label{4-16-p1m}
 \end{eqnarray}
 When studying tearing modes and turbulence, most authors narrow the possible
-perturbed magnetic field by setting $\delta A_R = \delta A_Z = 0$, i.e.,
+perturbations by setting $\delta A_R = \delta A_Z = 0$, i.e.,
 \begin{equation}
   \delta B_R = - \frac{1}{R} \frac{\partial \delta \Psi}{\partial Z},
 \end{equation}
@@ -608,15 +621,15 @@ perturbed magnetic field by setting $\delta A_R = \delta A_Z = 0$, i.e.,
   \delta B_{\phi} = 0.
 \end{equation}
 where $\delta \Psi = R \delta A_{\phi}$. Therefore this kind of magnetic
-perturbation can be written in the same form of the equilibrium poloidal
+perturbation can still be written in the same form of the equilibrium poloidal
 magnetic field:
 \begin{equation}
   \delta \mathbf{B}= \nabla \delta \Psi \times \nabla \phi .
 \end{equation}
-The above approximation is widely used in theory and simulation (e.g., tearing
-mode theory; turbulence simulation, where $\delta A_{\phi}$ is replaced by
-$\delta A_{\parallel}$.) Do we miss some magnetic perturbations that is
-important for plasma transport when using the above specific form?
+The above approximation is widely used in practice, e.g., tearing mode theory;
+turbulence simulation, where $\delta A_{\phi}$ is replaced by $\delta
+A_{\parallel}$. (Do we miss some magnetic perturbations that is important for
+plasma transport when using the above specific form?)
 
 The total magnetic field is then written as
 \begin{equation}
@@ -631,14 +644,14 @@ discuss this in Sec. (), where I will show that contours of the so-called
 helical flux will give the expected island structures near the resonant
 surfaces.**can be worng, I have not checked this.
 
-Next, we return to discuss the 2D case (i.e., assuming axisymmetry).
+Next, we go back to discuss the 2D case (i.e., assuming axisymmetry).
 
 \section{Plasma current density in terms of $\Psi$ and $g$}
 
-When the displacement current term is neglectable (the case we consider in
-this note), the conductive current is just another representation of the
-magnetic field. Specifically, the current density can be written in terms of
-the magnetic field as (Amp{\`e}re's law):
+When the displacement current term is neglectable (the case we consider here),
+the conductive current is just another representation of the magnetic field.
+Specifically, the current density can be written in terms of the magnetic
+field as (Amp{\`e}re's law):
 \begin{equation}
   \label{3-11-p1} \mu_0 \mathbf{J}= \nabla \times \mathbf{B}= - \frac{\partial
   B_{\phi}}{\partial Z} \hat{\mathbf{R}} + \frac{1}{R} \frac{\partial (R
@@ -671,26 +684,25 @@ is given by
   \frac{\partial}{\partial R} \left( \frac{1}{R} \frac{\partial \Psi}{\partial
   R} \right) .  \label{9-5-1}
 \end{eqnarray}
-Define a differential operator $\triangle^{\star}$ by
+Define $\triangle^{\star}$ by
 \begin{equation}
   \triangle^{\ast} \equiv \frac{\partial^2}{\partial Z^2} + R
   \frac{\partial}{\partial R} \left( \frac{1}{R} \frac{\partial}{\partial R}
   \right),
 \end{equation}
 which is the Laplace operator in cylindrical coordinates for the axisymmertic
-case, then Eq. (\ref{9-5-1}) is written
+case, then Eq. (\ref{9-5-1}) is written as
 \begin{equation}
   \label{6-9-a1} J_{\phi} = - \frac{1}{\mu_0 R} \triangle^{\ast} \Psi .
 \end{equation}
+(Many authors call Eq. (\ref{6-9-a1}) the Grad-Shafranov equation. This is
+incorrect. This is just Ampere's law, which has nothing to do with the
+force-balance.)
 
 \section{Constraint of force-balance on magnetic field}
 
-Next, we will consider what constraint the force balance imposes on the
-axisymmetric magnetic field discussed above.
-
-\subsection{MHD momentum equation}
-
-The MHD momentum equation of plasmas is given by
+Let us consider what constraint the force balance imposes on the axisymmetric
+magnetic field discussed above. The MHD momentum equation is given by
 \begin{equation}
   \label{19-5-5-1} \rho \left( \frac{\partial \mathbf{u}}{\partial t}
   +\mathbf{u} \cdot \nabla \mathbf{u} \right) = \rho_q \mathbf{E}+\mathbf{J}
@@ -703,7 +715,7 @@ electric field force $\rho_q \mathbf{E}$ is usually ignored due to either
 $\rho_q = 0$ or $\mathbf{E}= 0$. Further assume that there is no plasma flow
 ($\mathbf{u}= 0$, the flow effect is discussed in \ref{20-4-7-p2}) and the
 plasma pressure is isotropic, then the steady state momentum equation (force
-balance equation) is written
+balance equation) is written as
 \begin{equation}
   \label{7-7-force} \mathbf{J} \times \mathbf{B}= \nabla P,
 \end{equation}
@@ -714,15 +726,13 @@ discharge? To answer this question, we need to go back to the original
 momentum equation (\ref{19-5-5-1}). The imbalance between $\mathbf{J} \times
 \mathbf{B}$ and $\nabla P$ will give rise to the compressional Alfven waves,
 the time-scale of which, $\tau_A$, is much shorter than the time-scale $\tau$
-we are interested in. Therefore, on the time scale $\tau$ and for slow flow
-with $\mathbf{u}< C_s$, where $C_s$ is the the sound speed, the leading order
+we are interested in. Therefore, on the time scale $\tau$ (and for slow flow
+with $\mathbf{u}< C_s$, where $C_s$ is the the sound speed), the leading order
 of the momentum equation is the force balance (\ref{7-7-force}). (to be sure,
 I need to think about this again). This reasoning is from Youwen
 Sun{\cite{ysun2012}}.
 
-\subsection{Force balance in tokamak plasmas}\label{3-14-p1}
-
-\subsubsection{Parallel force balance }
+\subsection{Parallel force balance }
 
 Consider the force balance in the direction of $\mathbf{B}$. Dotting the
 equilibrium equation (\ref{7-7-force}) by $\mathbf{B}$, we obtain
@@ -733,7 +743,7 @@ which implies that $P$ is constant along a magnetic field line. Since $\Psi$
 is also constant along a magnetic field line, $P$ can be expressed in terms of
 only $\Psi$ on a single magnetic line. Note that this does not necessarily
 mean $P$ is a single-valued function of $\Psi$, (i.e. $P = P (\Psi)$). This is
-because $P$ still has the freedom of taking different value on different
+because $P$ still has the freedom of taking different values on different
 magnetic field lines with the same value of $\Psi$ while still satisfying
 $\mathbf{B} \cdot \nabla P = 0$. This situation can appear when there are
 saddle points (X points) in $\Psi$ contours (refer to Sec. \ref{11-2-p4}) and
@@ -748,9 +758,10 @@ i.e., Eq. (\ref{15-11-27-1}) is satisfied, indicating $P = P (\Psi)$ is a
 sufficient condition for the force balance in the parallel (to the magnetic
 field) direction.
 
-\subsubsection{Toroidal force balance}
+\subsection{Toroidal force balance}
 
-Next, consider the $\phi$ component of Eq. (\ref{7-7-force}), which is written
+Consider the force balance in the toroidal direction. The $\phi$ component of
+Eq. (\ref{7-7-force}) is written
 \begin{equation}
   \label{15-11-27-2} J_Z B_R - J_R B_Z = \frac{1}{R} \frac{\partial
   P}{\partial \phi} .
@@ -776,33 +787,37 @@ function $g$ defined here is usually called the ``poloidal current function''
 in tokamak literature. The reason for this name is discussed in Sec.
 \ref{2-14-10}.)
 
-\subsubsection{Force balance along the major radius: Grad-Shafranov equation}
+\subsection{Force balance along the major radius}
 
-Next, consider the force balance in $\hat{\mathbf{R}}$ direction. The
-$\hat{\mathbf{R}}$ component of the force balance equation (\ref{7-7-force})
-is written
+Consider the force balance in $\hat{\mathbf{R}}$ direction. The
+$\hat{\mathbf{R}}$ component of Eq. (\ref{7-7-force}) is written
 \begin{equation}
   \label{7-8-radia} J_{\phi} B_Z - J_Z B_{\phi} = \frac{\partial P}{\partial
   R}
 \end{equation}
 Using the expressions of the current density and magnetic field [Eqs.
-(\ref{6-9-a4}), (\ref{5-2-a1}), and (\ref{6-9-a1})], equation
-(\ref{7-8-radia}) is written
+(\ref{6-9-a4}) and (\ref{5-2-a1})], equation (\ref{7-8-radia}) is written
 \begin{equation}
-  \label{3-30-1} - \frac{1}{R} \triangle^{\ast} \Psi \frac{1}{R}
-  \frac{\partial \Psi}{\partial R} - \frac{1}{R} \frac{\partial g}{\partial R}
-  \frac{g}{R} = \mu_0 \frac{\partial P}{\partial R} .
+  \label{3-30-1} J_{\phi} \frac{1}{R} \frac{\partial \Psi}{\partial R} -
+  \frac{1}{\mu_0 R} \frac{\partial g}{\partial R}  \frac{g}{R} =
+  \frac{\partial P}{\partial R} .
 \end{equation}
 Assuming the sufficient condition discussed above, i.e., $P$ and $g$ are a
 function of only $\Psi$, i.e., $P = P (\Psi)$ and $g = g (\Psi)$, Eq.
 (\ref{3-30-1}) is written
 \begin{equation}
-  - \frac{1}{R} \triangle^{\ast} \Psi \frac{1}{R} \frac{\partial
-  \Psi}{\partial R} - \frac{1}{R} \frac{d g}{d \Psi} \frac{\partial
-  \Psi}{\partial R}  \frac{g}{R} = \mu_0 \frac{d P}{d \Psi} \frac{\partial
-  \Psi}{\partial R},
+  J_{\phi} \frac{1}{R} \frac{\partial \Psi}{\partial R} - \frac{1}{\mu_0 R}
+  \frac{d g}{d \Psi} \frac{\partial \Psi}{\partial R}  \frac{g}{R} = \frac{d
+  P}{d \Psi} \frac{\partial \Psi}{\partial R},
 \end{equation}
 which can be simplified to
+\begin{equation}
+  \label{24-5-29-p4} J_{\phi} = R \frac{d P}{d \Psi} + \frac{1}{\mu_0 R}
+  \frac{d g}{d \Psi} g,
+\end{equation}
+which is the requirement of force-balance along the major radius. On the other
+hand, we know $J_{\phi}$ can be expressed in $\Psi$ via Eq. (\ref{6-9-a1}).
+Combining this with Eq. (\ref{24-5-29-p4}) yields
 \begin{equation}
   \triangle^{\ast} \Psi = - \mu_0 R^2 \frac{d P}{d \Psi} - \frac{d g}{d \Psi}
   g,
@@ -836,12 +851,6 @@ a coincidence. The reason is that the force balance equation has been
 satisfied in three different directions (namely, $\hat{\tmmathbf{\phi}}$,
 $\hat{\mathbf{R}}$, and $\mathbf{B}$ direction) and thus it must be satisfied
 in all the directions.]
-
-Using the GS equation, $J_{\phi}$ can also be expressed as
-\begin{equation}
-  \label{24-5-29-p4} J_{\phi} = \frac{1}{\mu_0 R} \left( \mu_0 R^2 \frac{d
-  P}{d \Psi} + \frac{d g}{d \Psi} g \right) .
-\end{equation}
 
 \subsection{Axisymmetric equilibrium magnetic field}
 
@@ -885,11 +894,6 @@ explicit presence of $\Psi$, but also the flux-surface averaging which
 implicit involves $\Psi$). This indicates that iterations are needed when
 numerically solving the GS equation.
 
-Many physical processes in tokamak are sensitive to the magnetic
-configuration. Serious numerical simulations should use magnetic field that
-satisfies the Grad-Shafranov equation and, if possible, use realistic magnetic
-fields reconstructed from experimental data.
-
 \subsection{Axisymmetric equilibrium current density}
 
 Since $\mathbf{J}= \mu_0^{- 1} \nabla \times \mathbf{B}$, the current density
@@ -901,10 +905,10 @@ further simplified by using the equilibrium constraints, such as $g = g
 g}{d \Psi} g$. The simplified $\mathbf{J}$ expressions are given in
 \ref{20-4-23-a1}.
 
-On the other hand, in the equilibrium reconstruction{\cite{li2013}}, it is the
-current that is first (partially) specified (e.g., by summing sources of
-current drive and bootstrap current) and then the current is used as
-constraints for the GS equation, i.e, constraints for the magnetic field.
+On the other hand, in the kinetic equilibrium reconstruction{\cite{li2013}},
+it is the current that is first (partially) specified (e.g., by summing
+sources of current drive and bootstrap current) and then the current is used
+as constraints for the GS equation, i.e, constraints for the magnetic field.
 
 \subsection{Equilibrium scaling}
 
@@ -952,9 +956,252 @@ more flexibility in changing the the safety factor profile. Scaling $\Psi$ by
 a factor corresponds to scaling the plasma current and the poloidal magnetic
 field.
 
-\section{How to solve Grad-Shafranov equation}
+\section{Numerical methods of reconstructing equilibrium magnetic field}
 
-\subsection{Solving by inverting the Laplace operator}
+\subsection{By using integral form and Picard iteration}
+
+Given all the toroidal currents, $\Psi$ can be calculated using a formula
+similar to the Biot-Savart Law (see (\ref{24-5-29-p1})):
+\begin{equation}
+  \label{10-31-1} \Psi (R, Z) = \int_{\Omega} G (R', Z' ; R, Z) J_{\phi} (R',
+  Z') d R' d Z' + \sum_{i = 0}^{N_c - 1} G (R_i, Z_i ; R, Z) I_i,
+\end{equation}
+where $J_{\phi}$ is the plasma toroidal current density, $I_i$ is the toroidal
+curent in No. $i$ PF coil located at $(R = R_i, Z = Z_i)$, $G$ is a function
+given by
+\begin{eqnarray}
+  &  & G (R', Z', R, Z) \nonumber\\
+  & = & \frac{\mu_0 R}{4 \pi} \int_0^{2 \pi} \frac{R' \cos \phi' d
+  \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}} . 
+  \label{24-5-29-p2}
+\end{eqnarray}
+On the other hand, the force-balance indicates that $J_{\phi}$ can be
+expressed in terms of $\Psi$ via Eq. (\ref{24-5-29-p4}), i.e.,
+\begin{equation}
+  \label{24-6-5-5} J_{\phi} = R \frac{d P}{d \Psi} + \frac{1}{\mu_0 R} g
+  \frac{d g}{d \Psi} .
+\end{equation}
+Substituting this into Eq. (\ref{10-31-1}) gives an implicit formula for
+$\Psi$, which can be iterated (assuuming an initial guess of $\Psi (R, Z)$ on
+the rhs and assuming the function forms, $P (\Psi)$ and $g (\Psi)$, are
+known). Will the iteration turn out to converge? We do not know for sure, and
+numerical experiments indicate it does in some cases{\cite{lao1985}}. Let us
+discuss these cases. The 1D functions, $P (\Psi)$ and $g (\Psi)$, are modeled
+as polynomials in $\Psi$ with coefficients $\alpha_n$ and $\beta_0$ to be
+determined:
+
+
+\begin{equation}
+  \label{24-6-5-1} \frac{d P (\Psi)}{d \Psi} = \alpha_0 + \alpha_1 x +
+  \alpha_2 x^2 - (\alpha_0 + \alpha_1 + \alpha_2) x^3,
+\end{equation}
+
+\begin{equation}
+  \label{24-6-5-2} g \frac{d g}{d \Psi} = \beta_0 (1 - x),
+\end{equation}
+where $x = \overline{\Psi} = (\Psi - \Psi_M) / (\Psi_B - \Psi_M)$, $\Psi_M$
+and $\Psi_B$ are values of $\Psi$ at the magnetic axis and LCFS (values of
+$\Psi_M$ and $\Psi_B$ are figured out from $\Psi (R, Z)$).
+
+Choosing an initial guess of $\Psi (R, Z)$ on gridpoints, we can get the
+values of $\alpha_n$, $\beta_0$, and $I_i$ by solving a least square problem
+that minimises the difference between quantities computed (from $\Psi$ and
+$I_i$) and the corresponding quantities measured in actual experiments. After
+this, the rhs of Eq. (\ref{10-31-1}) is fully known, and we can use this
+equation to update $\Psi (R, Z)$. Then, using the latest $\Psi$, we solve the
+least square problem again. Then we obtain new $\Psi$ using Eq.
+(\ref{10-31-1}) again. We repeat the above procedure until convergecne in
+$\Psi (R, Z)$. This is called Picard iteration.
+
+I use the above method in developing a numerical code called \tmtexttt{HEQ}.
+The following subsection discusses the least square problem in details.
+
+
+\begin{equation}
+  g \frac{d g}{d x \Delta} = \beta_0 (1 - x),
+\end{equation}
+
+\begin{equation}
+  \int_0^x g \frac{d g}{d x \Delta} d x = \int_0^x \beta_0 (1 - x) d x,
+\end{equation}
+\begin{equation}
+  \int_{g (0)}^{g (x)} g d g = \int_0^x \Delta \beta_0 (1 - x) d x,
+\end{equation}
+\begin{equation}
+  \frac{g^2}{2} |_{g (0)}^{g (x)} \nobracket = \Delta \beta_0 \int_0^x (1 - x)
+  d x,
+\end{equation}
+\begin{equation}
+  \frac{g^2}{2} - \frac{g_0^2}{2} = \Delta \beta_0 \left( x - \frac{x^2}{2}
+  \right)
+\end{equation}
+
+
+\subsection{Response matrix $\Gamma$}
+
+Plugging expressions (\ref{24-6-5-1}) and (\ref{24-6-5-2}) into
+(\ref{24-6-5-5}), and organizing the result according to the coefficients
+$(\alpha_0, \alpha_1, \alpha_2, \beta_0)$, we obtain
+\begin{eqnarray}
+  J_{\phi} (R', Z') & = & R' [\alpha_0 + \alpha_1 x + \alpha_2 x^2 - (\alpha_0
+  + \alpha_1 + \alpha_2) x^3] + \frac{1}{\mu_0 R'} \beta_0 (1 - x) \nonumber\\
+  & = & \alpha_0 R' (1 - x^3) + \alpha_1 R' (x - x^3) + \alpha_2 R' (x^2 -
+  x^3) + \beta_0 \frac{1 - x}{\mu_0 R'},  \label{24-6-5-3}
+\end{eqnarray}
+For notation ease, define
+\[ \left\{ \begin{array}{l}
+     b_0 (x) = R' (1 - x^3)\\
+     b_1 (x) = R' (x - x^3)\\
+     b_2 (x) = R' (x^2 - x^3)\\
+     b_3 (x) = (1 - x) / (\mu_0 R')
+   \end{array} \hspace{5em} \right. \left\{ \begin{array}{l}
+     c_0 = \alpha_0\\
+     c_1 = \alpha_1\\
+     c_2 = \alpha_2\\
+     c_3 = \beta_0
+   \end{array} \right. \]
+then Eq. (\ref{24-6-5-3}) is written as
+\begin{equation}
+  \label{24-6-4-p1} J_{\phi} = \sum_{j = 0}^3 c_j b_j (x) .
+\end{equation}
+Plugging expression (\ref{24-6-4-p1}) into Eq. (\ref{10-31-1}), we obtain
+\begin{eqnarray}
+  \Psi (R, Z) & = & \sum_{j = 0}^3 c_j \int_{\Omega} G (R', Z', R, Z) b_j (x)
+  d R' d Z' \nonumber\\
+  & + & \sum_{j = 0}^{N_c - 1} G (R_j^{(c)}, Z_j^{(c)}, R, Z) I_j . 
+  \label{24-6-5-p1}
+\end{eqnarray}
+Define the free parameters as a column vector $\mathbf{u}= (c_0, c_1, c_2,
+c_3, I_0, \ldots, I_{N_c - 1})^T$, and $N = 4 + N_c$, i.e., the size of vector
+$\mathbf{u}$, i.e., the number of free parameters. Then, at a given $(R, Z)$,
+the rhs of Eq. (\ref{24-6-5-p1}) can be written as matrix-vector product,
+$\Gamma u$. Denote the total number of measurements of the poloidal flux by
+$M_{\Psi}$. Then matrix elements of $\Gamma$ for $(i = 0, \ldots, M_{\Psi} -
+1)$ are given by:
+\begin{equation}
+  \Gamma_{i j} = \int_{\Omega} G (R', Z', R_i^{(\tmop{FL})},
+  Z_i^{(\tmop{FL})}) b_j (x) d R' d Z',
+\end{equation}
+for  ($j = 0, \ldots, 3$), and
+\begin{equation}
+  \Gamma_{i j} = G (R_{j - 4}^{(c)}, Z_{j - 4}^{(c)}, R_i^{(\tmop{FL})},
+  Z_i^{(\tmop{FL})}),
+\end{equation}
+for  ($j = 4, \ldots, N - 1$) . Here $(R_i^{(\tmop{FL})}, Z_i^{(\tmop{FL})})$
+is the location where the $i \tmop{th}$ flux measurement is made.
+
+The matrix $\Gamma$ is called ``response matrix'', which is of shape $(M, N)$,
+The value of $M$ is equal to number of measurements included (measurements are
+merged to $\Gamma$ by row stacking). We will include $M_{\Psi}$ measurements
+of the poloidal flux, $M_B$ measurements of the poloidal magnetic field, and 1
+measurement of plasma current. Then $M = M_{\Psi} + M_B + 1$. (For EAST,
+$M_{\Psi} = 35, M_B = 38$.)
+
+\
+
+Next, we consider the poloidal field measurement:
+\begin{equation}
+  B_p (R_i, Z_i) =\mathbf{B}_p \cdot \hat{\mathbf{n}}_i = B_R \hat{n}_{i, R} +
+  B_Z \hat{n}_{i, Z},
+\end{equation}
+where $\hat{\mathbf{n}}_i$ is the positive normal direction of the No. $i$
+magnetic probe, $\hat{n}_{i, R} = \hat{\mathbf{n}}_i \cdot \mathbf{e}_R$,
+$\hat{n}_{i, Z} = \hat{\mathbf{n}}_i \cdot \mathbf{e}_Z$. On the other hand,
+$B_p (R_i, Z_i)$ can be inferred from $\Psi$ via
+\begin{equation}
+  \label{24-6-6-1} B_p  (R_i, Z_i) = \sum_{j = 0}^3 c_j \int_{\Omega} G_B (R',
+  Z', R_i, Z_i) b_j (x) d R' d Z' + \sum_{j = 0}^{N_c - 1} G_B I_j .
+\end{equation}
+where
+\begin{equation}
+  G_B (R', Z', R_i, Z_i) = G_{B_R} (R', Z', R_i, Z_i) \hat{n}_{i, R} + G_{B_Z}
+  (R', Z', R_i, Z_i) \hat{n}_{i, Z},
+\end{equation}
+and $G_{B_R}$ and $G_{B_Z}$ is given by Eq. (\ref{24-6-6-3}) and
+(\ref{24-6-6-4}). The rhs of Eq. (\ref{24-6-6-1}) indicates that the matrix
+elements of $\Gamma$ for $(i = M_{\Psi}, \ldots, M_{\Psi} + M_B - 1)$ are
+given by:
+\begin{equation}
+  \Gamma_{i j} = \int_{\Omega} G_B (R', Z', R_i, Z_i) b_j (x) d R' d Z',
+\end{equation}
+for  ($j = 0, \ldots, 3$), and
+\begin{equation}
+  \Gamma_{i j} = G_B (R_{j - 4}^{(c)}, Z_{j - 4}^{(c)}, R_i, Z_i),
+\end{equation}
+for  ($j = 4, \ldots, N - 1$) .
+
+Next, we consider the constraint of plasma current. The plasma current $I_p$
+can be inferred from $\Psi$ via
+\begin{equation}
+  \label{24-6-6-6} I_p = \int_{\Omega} J_{\phi} d R' d Z' = \sum_{j = 0}^3 c_j
+  \int_{\Omega} b_j (x) d R' d Z' .
+\end{equation}
+The rhs of Eq. (\ref{24-6-6-6}) indicates that the matrix elements of $\Gamma$
+for $i = M_{\Psi} + M_B + 1$ are given by:
+\begin{equation}
+  \Gamma_{i j} = \int_{\Omega} b_j (x) d R' d Z',
+\end{equation}
+for  ($j = 0, \ldots, 3$), and zero for  ($j = 4, \ldots, n - 1$) .
+
+\subsection{Algorithm summary}
+
+Step 0. Initial guess of $\Psi$: $\Psi^{(k)}$ with $k = 0$.
+
+Step 1. Compute elements of response matrix $\Gamma$ using $\Psi^{(k)}$.
+
+Step 2. Solve linear least-square problem to get $(c_1, c_2, c_2, c_4, I_1,
+\ldots, I_{N_c})$.
+
+Step 3. Update $\Psi$ using the Picard iteration:
+\begin{equation}
+  \Psi^{(k + 1)} = \int G J_{\phi} (R', \Psi^{(k)}, c_1, c_2, c_3, c_4) d R' d
+  Z' + \sum_{n = 1}^{N_c} G I_n,
+\end{equation}
+\qquad or in its discrete form:
+\begin{equation}
+  \Psi^{(k + 1)}_{i j} = \sum_{i', j'} G_{i' j' i j} \left( \sum_{n = 1}^4 c_n
+  b_{n, i' j'} \right) d S_{i' j'} + \sum_{n = 1}^{N_c} G_{n, i j}^{(c)} I_n .
+\end{equation}
+
+
+Step 4: $k = k + 1$ and goto Step 1.
+
+\
+
+In Step 1, we first search for the magnetic axis and boundary surface of
+$\Psi^{(k)}$ so that we can get the values of $\Psi^{(k)}$ at those locations.
+These values are needed in computing $x = (\Psi^{(k)} - \Psi_M) / (\Psi_B -
+\Psi_M)$.
+
+\
+
+A formula for computing $q$ value at the magnetic axis [ref. P. M. Bellan's
+paper]:
+\[ q_{\tmop{axis}} = \frac{e^{1 / 2} + e^{- 1 / 2}}{R_{\tmop{axis}}}
+   \frac{B_{\phi \tmop{axis}}}{\mu_0 J_{\phi \tmop{axis}}}, \]
+where
+\begin{equation}
+  e = \left( \frac{\partial^2 \Psi / \partial R^2}{\partial^2 \Psi / \partial
+  Z^2} \right)_{\tmop{axis}} .
+\end{equation}
+\[ J_{\phi \tmop{axis}} = \sum_{j = 0}^3 c_j b_j (x) = c_0 b_0 (0) + c_3 b_3
+   (0) = c_0 R_{\tmop{axis}} + c_3 \frac{1}{\mu_0 R_{\tmop{axis}}} \]
+
+\begin{equation}
+  q_{\tmop{axis}} = \frac{e + 1}{\sqrt{e} R_{\tmop{axis}}^2} \frac{g
+  (0)}{\mu_0 J_{\phi \tmop{axis}}},
+\end{equation}
+
+\begin{equation}
+  \frac{\sqrt{e} R_{\tmop{axis}}^2 \mu_0}{(e + 1) g (0)} \left( c_0
+  R_{\tmop{axis}} + c_3 \frac{1}{\mu_0 R_{\tmop{axis}}} \right) =
+  \frac{1}{q_{\tmop{axis}}}
+\end{equation}
+
+
+\
+
+\subsection{Solving by inverting the Laplace operator--to be deleted}
 
 If we want to invert the Laplace operator $\triangle^{\ast}$ of the GS
 equation to solve for $\Psi$, we encounter two issues: (1) the RHS of the GS
@@ -966,66 +1213,38 @@ and (b) is that we can choose any boundy we like (e.g., rectangular region)
 and guess the values of $\Psi$ on it (which will be updated in iterations
 discussed later). The answer to issue (1) is that the function forms are
 chosen by users, usually as polymials in $\Psi$, e.g. {\cite{lao1985}}
-\begin{equation}
-  \frac{d P (\Psi)}{d \Psi} = \sum_{n = 0}^{n_p} \alpha_n x^n - x^{n_p + 1}
-  \sum_{n = 0}^{n_p} \alpha_n,
-\end{equation}
 
-\begin{equation}
-  2 g \frac{d g}{d \Psi} = \sum_{n = 0}^{n_g} \beta_n x^n - x^{n_g + 1}
-  \sum_{n = 0}^{n_g} \beta_n,
-\end{equation}
 where $x = (\Psi - \Psi_M) / (\Psi_B - \Psi_M)$, $\Psi_M$ and $\Psi_B$ are
 values of $\Psi$ at the magnetic axis and LCFS (but the locations of the axis
 and LCFS are unknown), the free parameters $\alpha_n$ and $\beta_n$ are
-assumed known (which will be later adjusted in the least-square-minimizing
-iteration to make the resulting solution match some measurements and
-constraints imposed). To make the RHS fully known, we need to guess values of
-$\Psi$ in the inner region. Then inverting \ $\triangle^{\ast}$ to get new
-$\Psi$. The values we obtained via inerting $\triangle^{\ast}$ usually differ
-from what we used in the RHS, so we need to interate until convergence. We
-call this interation as the first-level iteration.
+assumed known (which will be later adjusted in the least-square method to make
+the resulting solution approximately match some measurements and constraints
+imposed). To make the RHS fully known, we need to guess values of $\Psi$ in
+the inner region. Then inverting \ $\triangle^{\ast}$ to get new $\Psi$. The
+values we obtained via inerting $\triangle^{\ast}$ usually differ from what we
+used in the RHS, so we need to interate until convergence. We call this
+interation as the first-level iteration.
 
 After the first-level iteration coverges, we can calculate $J_{\phi}$ through
 Eq. (\ref{24-5-29-p4}) or Eq. (\ref{6-9-a1}). After this, all the current
 (current in the plasma, and current in the external coils, which are assumed
-to be known) perpendicular to the poloidal plane is known, we can calculate
-the value of $\Psi$ on the boundary, $\Psi_b$, by using the Biot-Savart Law
-(see (\ref{24-5-29-p1})):
-\begin{equation}
-  \label{10-31-1} \Psi (R, Z) = \int_P G (R', Z' ; R, Z) J_{\phi} d R' d Z' +
-  \sum_{i = 1}^{N_c} G (R^c_i, Z_i^c ; R, Z) I_{i, \phi}^c,
-\end{equation}
-where $G$ is Green's function given by
-\begin{eqnarray}
-  &  & G (R', Z', R, Z) \nonumber\\
-  & = & \frac{\mu_0 R}{4 \pi} \int_0^{2 \pi} \frac{R' \cos \phi' d
-  \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}} 
-  \label{24-5-29-p2}
-\end{eqnarray}
-If $\Psi_b$ calculated this way differs from the initial guess of the value of
-$\Psi$ on the boundary, we need to iterate: use the $\Psi_b$ calculated as a
-new guess value of $\Psi$ on the boundary and repeat the above procedures
-until convergence. We call this iteration as the second-level
+to be known and will be adjusted in the least-square method) perpendicular to
+the poloidal plane is known, we can calculate the value of $\Psi$ on the
+boundary, $\Psi_b$, by using the Green's function method. If $\Psi_b$
+calculated this way differs from the initial guess of the value of $\Psi$ on
+the boundary, we need to iterate: use the $\Psi_b$ calculated as a new guess
+value of $\Psi$ on the boundary and repeat the above procedures until
+convergence. We call this iteration as the second-level
 iteration.{\cite{lao1985efit}}.
 
 The thrid level iteration is to iterate over the free parameters $\alpha_n$,
 $\beta_n$, the PF coil currents, to make the solution match match some
-measurements and constraints imposed. This iteration is an optimization
-problem.
+measurements and constraints imposed in the least square sence. This iteration
+is an optimization problem.
 
-\subsection{Solving by using integral form of the GS equation}
+\
 
-The Green's function method of calculating $\Psi$ from $J_{\phi}$ via Eq.
-(\ref{10-31-1}) can be considered as the integral form of the GS equation.
-Re-examing the previous subsection, we find, instead of inverting the Laplace
-operator to solve for $\Psi$ at the interior points, we can just use Eq.
-(\ref{10-31-1}) to calculate them. The plasma toroidal current $J_{\phi}$ is
-calculated through Eq. (\ref{24-5-29-p4}). In this case, we only have two
-levels of iteration: 1. interation over the rhd of GS equation, 2. iteration
-over the free parameters ($\alpha_n$, $\beta_n$, PF coil currents). The
-iteration over the value of $\Psi$ on the boundary is not needed. So, this is
-a more straightforward method.
+\
 
 \section{Fixed boundary equilibrium and choices of coordinates}
 
@@ -4166,6 +4385,11 @@ Figure \ref{17-9-18-1} compares the $\phi$ coordinate surface of $(\psi,
 \
 
 \begin{figure}[h]
+  \resizebox{0.9\columnwidth}{!}{\includegraphics{/home/yj/theory/tek/etg_paper/grid/fig2/3.eps}}
+  
+  \
+  
+  \resizebox{0.9\columnwidth}{!}{\includegraphics{/home/yj/theory/tek/etg_paper/grid/fig2/4.eps}}
   \caption{Upper pannel: 2D grid $(\psi, \theta)$ of resolution $(27, 33)$ for
   a fixed value of $\alpha$. Lower pannel: 3D grid $(\psi, \alpha, \theta)$ of
   resolution $(27, 4, 33)$ for a toroidal wedge of $2 \pi / 40$. The blue
@@ -5695,41 +5919,49 @@ in Eq. \ (\ref{9-5-e1}) is approximated to
 
 \subsubsection{Poloidal field (PF) coils}
 
-EAST has 12 independently powered superconducting poloidal field (PF) coils,
-as is shown in Fig. \ref{19-5-4-p1}.
+EAST has 14 superconducting poloidal field (PF) coils (only 12 of them are
+independently powered). The layout is shown in Fig. \ref{19-5-4-p1}.
 
 \begin{figure}[h]
   \resizebox{0.5\columnwidth}{!}{\includegraphics{/home/yj/project_new/nbi_fig/fig10b/p.eps}}
   \caption{\label{19-5-4-p1}Coils system of EAST tokamak. Coils PF1 to PF6 are
-  Central Solenoide (CS) coils with 120 turns/coil. Both PF11 and PF12 have 64
+  Central Solenoide (CS) coils with 140 turns/coil. Both PF11 and PF12 have 64
   turns, Both PF13 and PF14 have 32 turns. PF7 and PF9 are adjacent to each
   other and connected in series and thus are considered as one independent
-  coil, with total turns being 248. Similarly PF8 and PF10 are connected in
-  series with total 248 turns. All the PF coils can be considered as shaping
-  coils since they all have effects in shaping the plasmas. In practice, they
-  are further classified according to their main roles. PF1 to PF6 form a
-  solenoid in the center of the torus and thus called Central Solenoide (CS)
-  coils. Their main role is to induce electric field to drive current in the
-  plasma and heat the plasma. As a result, they are often called ``Ohm heating
-  coils''. PF13 and PF14 are mainly used to control (slow) vertical plasma
-  displacement and thus are often called ``vertical field coils'' or
-  ``position control coils''. PF11 and PF12 are used to triangularize the
-  plasma and thus is called ``shaping coils''. PF7+PF9 and PF8+PF10 are often
-  called (by EAST operators) as ``big coils'' or ``divertor coils'' since they
-  have the largest number of turns and current and are used to elongate/shape
-  the plasma to diverter configurations. IC1 and IC2 are copper coils
-  (2turn/coil), which are connected in anti-series and thus have opposite
-  currents. They are close to the plasma (just behind the first wall and
-  within the vacuum vessel) and are used to control fast plasma displacements,
-  specifically VDEs (vertical displacement events). IC1 and IC2 are often
-  called ``fast control coils''. Maximum current per turn in PF coils is
-  14.5kA. Locations of PF coils are from Refs.
-  {\cite{ysun2012}}{\cite{yychen2019}}. The inner green D-shaped structure
-  corresponds to the vaccum vessel wall and the outer red dashed D-shape
-  corresponds to the TF-coils. Note that PF1-14 coils are all located outside
-  of the TF-coils. The small blue circles are ``flux loops'' measuring the
-  poloidal magnetic flux. Red coils are RMP copper coils.}
+  coil, with total turns being 248. The same situation applies for PF8 and
+  PF10. \ Maximum current per turn in PF coils is 14.5kA. Locations of PF
+  coils are from Refs. {\cite{ysun2012}}{\cite{yychen2019}}. The inner green
+  D-shaped structure corresponds to the vaccum vessel wall and the outer red
+  dashed D-shape corresponds to the TF-coils. Note that PF1-14 coils are all
+  located outside of the TF-coils. The small blue circles are ``flux loops''
+  measuring the poloidal magnetic flux. Red coils are RMP copper coils, which
+  generate 3D magnetic perturbations.}
 \end{figure}
+
+All the PF coils can be considered as shaping coils since they all have
+effects in shaping the plasmas. In practice, they are further classified
+according to their main roles. PF1 to PF6 form a solenoid in the center of the
+torus and thus called Central Solenoide (CS) coils. Their main role is to
+induce electric field to drive current in the plasma and heat the plasma. As a
+result, they are often called ``Ohm heating coils''. PF13 and PF14 are mainly
+used to control (slow) vertical plasma displacement and thus are often called
+``vertical field coils'' or ``position control coils''. PF11 and PF12 are used
+to triangularize the plasma and thus is called ``shaping coils''. In order to
+squeeze the plasma to form desied triangularity, their currents need to be in
+the opposite direction of plamsa current (since two opposite currents repel
+each other). PF7+PF9 and PF8+PF10 are often called (by EAST operators) as
+``big coils'' or ``divertor coils'' since they have the largest number of
+turns and current and are used to elongate the plasma to diverter
+configurations.
+
+Besides the 16 superconducting PF coils outside vaccum vessel, EAST has two
+small copper coils within the vaccum vessel (2turn/coil), which are connected
+in anti-series and thus have opposite currents. They are closer to the plasma
+(than other PF coils) and are used to control fast plasma displacements,
+specifically VDEs (vertical displacement events). They are often called ``fast
+control coils''.
+
+\
 
 \subsubsection{Toroidal magnetic Field (TF) coils and toroidal magnetic field
 of EAST tokamak}
@@ -6303,8 +6535,8 @@ described by the static equilibrium without rotation.
 
 \subsection{Poloidal plasma current}\label{2-14-10}
 
-As is discussed in Sec. \ref{3-14-p1}, to satisfy the force balance, $g \equiv
-R B_{\phi}$ must be a magnetic surface function, i.e., $g = g (\Psi)$. Using
+As is discussed in Sec. (), to satisfy the force balance, $g \equiv R
+B_{\phi}$ must be a magnetic surface function, i.e., $g = g (\Psi)$. Using
 this, expression (\ref{5-2-a2}) and (\ref{5-2-a1}) are written
 \begin{equation}
   \mu_0 J_R = - \frac{1}{R} \frac{d g}{d \Psi}  \frac{\partial \Psi}{\partial
@@ -6611,6 +6843,35 @@ then the constraint $\nabla \cdot \mathbf{B}= 0$ is written as
 \subsection{Discussion about the poloidal current function,
 check!}\label{11-2-p4}
 
+\
+
+[check***As discussed in Sec. (), the force balance equation of axisymmetric
+plasma requires that $\mathbf{B} \cdot \nabla g = 0$. From this and the fact
+$\mathbf{B} \cdot \nabla \Psi = 0$, we conclude that $g$ is a function of
+$\Psi$, i.e., $g = g (\Psi)$. However, this reasoning is not rigorous. Note
+the concept of a function requires that a function can not be a one-to-more
+map. This means that $g = g (\Psi)$ indicates that the values of $g$ must be
+equal on two different magnetic field lines that have the same value of
+$\Psi$. However, the two equations $\mathbf{B} \cdot \nabla g = 0$ and
+$\mathbf{B} \cdot \nabla \Psi = 0$ do not require this constraint. To examine
+whether this constraint removes some equilibria from all the possible ones, we
+consider a system with an $X$ point. Inside one of the magnetic islands, we
+use
+\begin{equation}
+  \label{11-2-p1} g = \Psi^2 / (B_0 R_0^3),
+\end{equation}
+and inside the another, we use
+\begin{equation}
+  \label{11-2-p2} g = \Psi^3 / (B_0^2 R_0^5),
+\end{equation}
+Then solve the two GS equations respectively within the boundary of the two
+islands. It is easy to obtain two magnetic surfaces that have the same value
+of $\Psi$ respectively inside the two islands. Equations (\ref{11-2-p1}) and
+(\ref{11-2-p2}) indicate that the values of $g$ on the two magnetic surfaces
+are different from each other. It is obvious the resulting equilibrium that
+contain the two islands can not be recovered by directly solving a single GS
+equation with a given function $g (\Psi)$.**check]
+
 Note that, on both an irrational surface and a rational surface, there are
 infinite number of magnetic field lines that are not connected with each other
 (it is wrong to say there is only one magnetic field line on a irrational
@@ -6628,44 +6889,18 @@ usually not identical with $\mathbf{B}/ B$. Then we obtain
   \mathbf{k} \cdot \nabla f = \hat{\tmmathbf{\phi}} \cdot \nabla f =
   \frac{1}{R}  \frac{\partial f}{\partial \phi} .
 \end{equation}
-If $f$ is independent of $\phi$, then $\mathbf{k} \cdot \nabla \Psi = 0$.
-Combining with the fact that $\mathbf{B} \cdot \nabla f = 0$ and the fact that
-$\mathbf{B}$ and $\mathbf{k}$ are two different directions on the magnetic
-surfaces, we know that $f$ is constant on the surface, i.e., the values of $f$
-on different field lines are equal to each other. If $f$ is non-axisymmetric,
+If $f$ is independent of $\phi$, then $\mathbf{k} \cdot \nabla \Psi = 0$. Then
+the fact that $\mathbf{B} \cdot \nabla f = 0$ and the fact that $\mathbf{B}$
+and $\mathbf{k}$ are two different directions on the magnetic surface,
+indicates that $f$ is constant on the surface, i.e., the values of $f$ on
+different field lines are equal to each other. If $f$ is non-axisymmetric,
 then we know the values of $f$ on different magnetic field lines on the same
-magnetic surface are not equal to each other.
+magnetic surface are not equal to each other. This is the case for the
+$\alpha$ coordinates discussed in Sec. ().
 
 This reasoning is for the case of axsiymmetric magnetic surfaces. It is ready
 to do the same reasoning for non-axisymmetrica magnetic surface after we find
 a convenient direction $\mathbf{k}$ on the magnetic surface.
-
-[check***As discussed in Sec. \ref{3-14-p1}, the force balance equation of
-axisymmetric plasma requires that $\mathbf{B} \cdot \nabla g = 0$. From this
-and the fact $\mathbf{B} \cdot \nabla \Psi = 0$, we conclude that $g$ is a
-function of $\Psi$, i.e., $g = g (\Psi)$. However, this reasoning is not
-rigorous. Note the concept of a function requires that a function can not be a
-one-to-more map. This means that $g = g (\Psi)$ indicates that the values of
-$g$ must be equal on two different magnetic field lines that have the same
-value of $\Psi$. However, the two equations $\mathbf{B} \cdot \nabla g = 0$
-and $\mathbf{B} \cdot \nabla \Psi = 0$ do not require this constraint. To
-examine whether this constraint removes some equilibria from all the possible
-ones, we consider a system with an $X$ point. Inside one of the magnetic
-islands, we use
-\begin{equation}
-  \label{11-2-p1} g = \Psi^2 / (B_0 R_0^3),
-\end{equation}
-and inside the another, we use
-\begin{equation}
-  \label{11-2-p2} g = \Psi^3 / (B_0^2 R_0^5),
-\end{equation}
-Then solve the two GS equations respectively within the boundary of the two
-islands. It is easy to obtain two magnetic surfaces that have the same value
-of $\Psi$ respectively inside the two islands. Equations (\ref{11-2-p1}) and
-(\ref{11-2-p2}) indicate that the values of $g$ on the two magnetic surfaces
-are different from each other. It is obvious the resulting equilibrium that
-contain the two islands can not be recovered by directly solving a single GS
-equation with a given function $g (\Psi)$.**check]
 
 \
 
@@ -7338,27 +7573,21 @@ the GTAW code to calculate $s$ and $\alpha$.
 
 \section{Computing magnetic field generated by coils}
 
-The vacuum RMP field and ripple field generated by coils can be calculated in
-the following way.
+Magnetic field (e.g., equilibrium poloidal field, RMP field, ripple field) and
+vector potential generated by coils can be calculated in the following way.
 
 \subsection{Magnetic field}
 
 The Biot-Savart law for a zero-thinkness wire is given by
 \begin{eqnarray}
-  \mathbf{B} (\mathbf{r}) & = & \frac{\mu_0}{4 \pi} \int I (\mathbf{r}')
-  \frac{d\mathbf{l} (\mathbf{r}') \times (\mathbf{r}-\mathbf{r}')}{|
-  \mathbf{r}-\mathbf{r}' |^3}, 
+  \mathbf{B} (\mathbf{r}) & = & \frac{\mu_0}{4 \pi} \int I \frac{d\mathbf{l}
+  (\mathbf{r}') \times (\mathbf{r}-\mathbf{r}')}{| \mathbf{r}-\mathbf{r}'
+  |^3}, 
 \end{eqnarray}
 where $d\mathbf{l} (\mathbf{r}')$ is a line element along the wire (the
 freedom of choosing which one of the two possible directions along the wire is
-up to users), $I (\mathbf{r}')$ is the current in the wire ($I$ is positive if
-the current in the same direction of $d\mathbf{l}$, otherwise, negative).
-
-In Cartesian coordinates, the vector $\mathbf{r}-\mathbf{r}'$ is written as
-\begin{equation}
-  \label{16-12-16-e2} \mathbf{r}-\mathbf{r}' = (x - x') \hat{\mathbf{e}}_x +
-  (y - y') \hat{\mathbf{e}}_y + (z - z') \hat{\mathbf{e}}_z .
-\end{equation}
+up to users), $I$ is the current in the wire ($I$ is positive if the current
+in the same direction of $d\mathbf{l}$, otherwise, negative).
 
 \subsection{Magnetic vector potential}
 
@@ -7399,9 +7628,9 @@ element along the wire. Using $\mathbf{J} (\mathbf{r}') d S (\mathbf{r}')
 In cylindrical coordinates, the toroidal component of $\mathbf{A}$, $A_{\phi}
 \equiv \mathbf{A} \cdot \mathbf{e}_{\phi} (\mathbf{r})$, is written as
 \begin{equation}
-  A_{\phi} (\mathbf{r}) = \frac{\mu_0}{4 \pi} \int \frac{I (\mathbf{r}')}{|
-  \mathbf{r}-\mathbf{r}' |} d\mathbf{l} (\mathbf{r}') \cdot \mathbf{e}_{\phi}
-  (\mathbf{r}) .
+  \label{24-6-14-p1} A_{\phi} (\mathbf{r}) = \frac{\mu_0}{4 \pi} \int \frac{I
+  (\mathbf{r}')}{| \mathbf{r}-\mathbf{r}' |} d\mathbf{l} (\mathbf{r}') \cdot
+  \mathbf{e}_{\phi} (\mathbf{r}) .
 \end{equation}
 ($A_{\phi}$ is needed in several applications. In solving the free-boundy
 equilibrium problem, we need to calculate $A_{\phi}$ generated by the PF
@@ -7409,21 +7638,155 @@ coils. In studying the effects of RMP on particles, we need to calculate
 $P_{\phi}$, the canonical toroidal angular momentum, whose defintion involves
 $A_{\phi}$. Then we need to calculate $A_{\phi}$ generated by the RMP coils.)
 
-A PF coil at $(R', Z') $with current $I$ (a filamentary current loop)
-contributes to $A_{\phi}$ at $\phi = 0$ via
+\subsection{For wires along toroidal direction}
+
+For a curve along the toroidal direction, the line element $d\mathbf{l}$ in
+terms of the cylindrical basis is written as $d\mathbf{l}' = R' d \phi'
+\hat{\mathbf{e}}_{\phi}'$. Using Cartesian coordinate basis vectors,
+$d\mathbf{l}'$ is written as
+\begin{equation}
+  \label{16-12-16-e3} d\mathbf{l}' = R' d \phi' (- \sin \phi'
+  \hat{\mathbf{e}}_x + \cos \phi' \hat{\mathbf{e}}_y),
+\end{equation}
+and
+\begin{equation}
+  \mathbf{r}' = R' \cos \phi' \hat{\mathbf{e}}_x + R' \sin \phi'
+  \hat{\mathbf{e}}_y + Z' \hat{\mathbf{e}}_z
+\end{equation}
+where a global Cartesian coordinates with $x$ axis in $\phi = 0$ plane is
+assumed.
+
+Let us consider a full toroidal coil at $(R', Z') $with current $I$ (a
+filamentary current loop). Since the problem is symmetric, the magnetic
+field/potential is independent of $\phi$. For calculation ease, we select
+$\phi = 0$ plane and calculate $\mathbf{A}$ and $\mathbf{B}$ values in this
+plane. Then
+\begin{equation}
+  \mathbf{e}_{\phi} (\mathbf{r}) = \hat{\mathbf{e}}_y,
+\end{equation}
+\begin{equation}
+  \mathbf{r}= R \hat{\mathbf{e}}_x + 0 \hat{\mathbf{e}}_y + Z
+  \hat{\mathbf{e}}_z,
+\end{equation}
+Using these, we obtain
+\begin{equation}
+  d\mathbf{l}' \cdot \mathbf{e}_{\phi} (\mathbf{r}) = R' d \phi' \cos \phi' .
+\end{equation}
+and Eq. (\ref{24-6-14-p1}) is written as
 \begin{equation}
   A_{\phi} (R, Z, \phi = 0) = \frac{\mu_0 I}{4 \pi} \int_0^{2 \pi} \frac{R'
   \cos \phi' d \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin
   \phi')^2}} .
 \end{equation}
 Sine $A_{\phi}$ is axsymmetric, the above formula applies to all values of
-$\phi$. Set $I = 1$, we get Green's function:
+$\phi$. Multiply $A_{\phi}$ by $R$ and set $I = 1$, we get Green's function of
+$\Psi$:
 \begin{eqnarray}
   &  & G (R', Z', R, Z) \nonumber\\
   & = & R A_{\phi} \nonumber\\
-  & = & \frac{\mu_0 R}{4 \pi} \int_0^{2 \pi} \frac{R' \cos \phi' d
-  \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}} 
+  & = & \frac{\mu_0}{4 \pi} \int_0^{2 \pi} \frac{R R' \cos \phi' d
+  \phi'}{\sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}}
+  \nonumber\\
+  & = & \frac{\mu_0}{4 \pi} \int_0^{2 \pi} \frac{R R' \cos \phi' d
+  \phi'}{\sqrt{(Z - Z')^2 + R^2 {+ R'}^2 - 2 R R' \cos \phi'}} . 
   \label{24-5-29-p1}
+\end{eqnarray}
+This expression can be directly used in numerical codes to compute the Green
+function table. One can also write the above integration to the elipitic
+integrals and use library to compute these inegreals. Let write the above
+expresion in this form. Define $\theta = (\pi - \phi) / 2$, then $\cos \phi' =
+\cos (\pi - 2 \theta) = - \cos (2 \theta) = 2 \sin^2 \theta - 1$. Using this
+Eq. (\ref{24-5-29-p1}) is written as
+\begin{eqnarray}
+  &  & G (R', Z', R, Z) \nonumber\\
+  & = & \frac{\mu_0}{4 \pi} \int_{\pi / 2}^{- \pi / 2} \frac{- 2 R R' (2
+  \sin^2 \theta - 1) d \theta}{\sqrt{(Z - Z')^2 + R^2 {+ R'}^2 - 2 R R' (2
+  \sin^2 \theta - 1)}} \nonumber\\
+  & = & \frac{\mu_0}{4 \pi} \int_0^{\pi / 2} \frac{4 R R' (2 \sin^2 \theta -
+  1) d \theta}{\sqrt{(Z - Z')^2 + R^2 {+ R'}^2 - 2 R R' (2 \sin^2 \theta -
+  1)}} \nonumber\\
+  & = & \frac{\mu_0}{4 \pi} \int_0^{\pi / 2} \frac{4 R R' (2 \sin^2 \theta -
+  1) d \theta}{\sqrt{(Z - Z')^2 + (R + R')^2 - 4 R R' \sin^2 \theta}} 
+\end{eqnarray}
+Define
+\begin{equation}
+  k^2 = \frac{4 R R'}{(Z - Z')^2 + (R + R')^2}
+\end{equation}
+Then
+\begin{eqnarray*}
+  &  & G (R', Z', R, Z)\\
+  & = & \frac{\mu_0}{4 \pi} \int_0^{\pi / 2} \frac{4 R R' (2 \sin^2 \theta -
+  1) d \theta}{\sqrt{(Z - Z')^2 + (R + R')^2} \sqrt{1 - k^2 \sin^2 \theta}}\\
+  & = & \frac{\mu_0}{2 \pi} \sqrt{R R'} \int_0^{\pi / 2} \frac{k (2 \sin^2
+  \theta - 1) d \theta}{\sqrt{1 - k^2 \sin^2 \theta}}\\
+  & = & \frac{\mu_0}{2 \pi} \frac{\sqrt{R R}}{k} \left[ \int_0^{\pi / 2}
+  \frac{2 - k^2}{\sqrt{1 - k^2 \sin^2 \theta}} d \theta - \int_0^{\pi / 2}
+  \frac{2 - 2 k^2 \sin^2 \theta}{\sqrt{1 - k^2 \sin^2 \theta}} d \theta
+  \right]\\
+  & = & \frac{\mu_0}{2 \pi}  \frac{\sqrt{R R}}{k} \left[ \int_0^{\pi / 2}
+  \frac{2 - k^2}{\sqrt{1 - k^2 \sin^2 \theta}} d \theta - 2 \int_0^{\pi / 2}
+  \sqrt{1 - k^2 \sin^2 \theta} d \theta \right]\\
+  & = & \frac{\mu_0}{2 \pi} \frac{\sqrt{R R'}}{k} [(2 - k^2) K (k) - 2 E (k)]
+\end{eqnarray*}
+where
+\[ E (k) = \int_0^{\pi / 2} \sqrt{1 - k^2 \sin^2 \theta} d \theta \]
+\[ K (k) = \int_0^{\pi / 2} \frac{1}{\sqrt{1 - k^2 \sin^2 \theta}} d \theta,
+\]
+are the eliptic integrals of the first and second kind.
+
+\
+
+\
+
+Similarly, we can calculate the magnetic field:
+\begin{eqnarray}
+  \mathbf{B} (\mathbf{r}) & = & \frac{\mu_0 I}{4 \pi} \oint \frac{d\mathbf{l}'
+  \times (\mathbf{r}-\mathbf{r}')}{| \mathbf{r}-\mathbf{r}' |^3}, 
+  \label{24-6-5-p6m}
+\end{eqnarray}
+where the cross product is written as
+\begin{eqnarray*}
+  d\mathbf{l}' \times (\mathbf{r}-\mathbf{r}') & = & \left|\begin{array}{ccc}
+    \hat{\mathbf{e}}_x & \hat{\mathbf{e}}_y & \hat{\mathbf{e}}_z\\
+    - R' d \phi' \sin \phi' & R' d \phi' \cos \phi' & 0\\
+    R - R' \cos \phi' & - R' \sin \phi' & Z - Z'
+  \end{array}\right|\\
+  & = & \hat{\mathbf{e}}_x R' d \phi' \cos \phi' (Z - Z') +
+  \hat{\mathbf{e}}_y R' d \phi' \sin \phi' (Z - Z')\\
+  & + & \hat{\mathbf{e}}_z \left( {R'}^2 - R R' \cos \phi' \right) d \phi'
+\end{eqnarray*}
+The $\hat{\mathbf{e}}_R (\mathbf{r})$ and $\hat{\mathbf{e}}_Z (\mathbf{r})$
+components of the above result are written as
+\[ \hat{\mathbf{e}}_R \cdot d\mathbf{l}' \times (\mathbf{r}-\mathbf{r}') = R' 
+   (Z - Z') \sin \phi' d \phi' \]
+\[ \hat{\mathbf{e}}_Z \cdot d\mathbf{l}' \times (\mathbf{r}-\mathbf{r}') =
+   \left( {R'}^2 - R R' \cos \phi' \right) d \phi' \]
+Using these in Eq. (\ref{24-6-5-p6m}), $B_R (\mathbf{r})$ and $B_Z
+(\mathbf{r})$ are written as
+
+
+\begin{eqnarray*}
+  B_R & = & \frac{\mu_0 I}{4 \pi} \int_0^{2 \pi} \frac{R'  (Z - Z') \sin
+  \phi'}{\left( \sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}
+  \right)^3} d \phi',
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  B_Z & = & \frac{\mu_0 I}{4 \pi} \int_0^{2 \pi} \frac{{R'}^2 - R R' \cos
+  \phi'}{\left( \sqrt{(Z - Z')^2 + (R - R' \cos \phi')^2 + (R' \sin \phi')^2}
+  \right)^3} d \phi',
+\end{eqnarray*}
+Dropping $I$ in the above expressions gives the corresponding Green's
+function:
+\begin{eqnarray}
+  \label{24-6-6-3} G_{B_R} (R', Z', R, Z) & = & \frac{\mu_0}{4 \pi} \int_0^{2
+  \pi} \frac{R' (Z - Z') \sin \phi'}{\left( \sqrt{(Z - Z')^2 + (R - R' \cos
+  \phi')^2 + (R' \sin \phi')^2} \right)^3} d \phi' 
+\end{eqnarray}
+\begin{eqnarray}
+  \label{24-6-6-4} G_{B_Z} (R', Z', R, Z) & = & \frac{\mu_0}{4 \pi} \int_0^{2
+  \pi} \frac{{R'}^2 - R R' \cos \phi'}{\left( \sqrt{(Z - Z')^2 + (R - R' \cos
+  \phi')^2 + (R' \sin \phi')^2} \right)^3} d \phi' 
 \end{eqnarray}
 
 
@@ -7437,7 +7800,7 @@ $d\mathbf{l}$ is written as
   \label{16-12-16-e1} d\mathbf{l}= d R \cos \phi \hat{\mathbf{e}}_x + d R \sin
   \phi \hat{\mathbf{e}}_y + d Z \hat{\mathbf{e}}_z .
 \end{equation}
-Using Eq. (\ref{16-12-16-e1}) and (\ref{16-12-16-e2}), we obtain
+Using Eq. (\ref{16-12-16-e1}) and (), we obtain
 \begin{equation}
   d\mathbf{l} \times (\mathbf{r}-\mathbf{r}') = \left|\begin{array}{ccc}
     \hat{\mathbf{e}}_x & \hat{\mathbf{e}}_y & \hat{\mathbf{e}}_z\\
@@ -7446,37 +7809,12 @@ Using Eq. (\ref{16-12-16-e1}) and (\ref{16-12-16-e2}), we obtain
   \end{array}\right| .
 \end{equation}
 
-\subsection{For wires along toroidal direction}
-
-For a curve along the toroidal direction, the line element $d\mathbf{l}$ in
-terms of the cylindrical basis is written as $d\mathbf{l}= R d \phi
-\hat{\mathbf{e}}_{\phi}$. Using Cartesian coordinate basis vectors,
-$d\mathbf{l}$ is written as
-\begin{equation}
-  \label{16-12-16-e3} d\mathbf{l}= R d \phi (- \sin \phi \hat{\mathbf{e}}_x +
-  \cos \phi \hat{\mathbf{e}}_y) .
-\end{equation}
-Using Eq. (\ref{16-12-16-e3}) and (\ref{16-12-16-e2}), we obtain
-
-
-\begin{equation}
-  d\mathbf{l} \times (\mathbf{r}-\mathbf{r}') = \left|\begin{array}{ccc}
-    \hat{\mathbf{e}}_x & \hat{\mathbf{e}}_y & \hat{\mathbf{e}}_z\\
-    - R d \phi \sin \phi & R d \phi \cos \phi & 0\\
-    (x - x') & (y - y') & (z - z')
-  \end{array}\right|
-\end{equation}
-
-
-\
-
 \section{About this document}
 
 This document was written by using TeXmacs{\cite{texmacs}}, a structured
 wysiwyw (what you see is what you want) editor for scientists. The HTML
-version of this document is generated by first converting the TeXmacs file to
-TeX format and then using {\texttt{htlatex}} to convert the TeX file to HTML
-format.
+version is generated by first converting the TeXmacs file to TeX format and
+then using {\texttt{htlatex}} to convert the TeX to HTML.
 
 \begin{thebibliography}{10}
   \bibitem[1]{Aymar2002}R Aymar, P Barabaschi, and  Y Shimomura.
@@ -7555,7 +7893,12 @@ format.
   {\newblock}\tmtextit{Computational methods in plasma physics}.
   {\newblock}CRC Press, 2010.{\newblock}
   
-  \bibitem[17]{Lee2001}G.S.~Lee, M.~Kwon, C.J.~Doh, B.G.~Hong, K.~Kim,
+  \bibitem[17]{lao1985}L.L.~Lao, H.~St.~John, R.D.~Stambaugh, A.G.~Kellman,
+  and  W.~Pfeiffer. {\newblock}Reconstruction of current profile parameters
+  and plasma shapes in tokamaks. {\newblock}\tmtextit{Nucl. Fusion},
+  25(11):1611, 1985.{\newblock}
+  
+  \bibitem[18]{Lee2001}G.S.~Lee, M.~Kwon, C.J.~Doh, B.G.~Hong, K.~Kim,
   M.H.~Cho, W.~Namkung, C.S.~Chang, Y.C.~Kim, J.Y.~Kim, H.G.~Jhang, D.K.~Lee,
   K.I.~You, J.H.~Han, M.C.~Kyum, J.W.~Choi, J.~Hong, W.C.~Kim, B.C.~Kim,
   J.H.~Choi, S.H.~Seo, H.K.~Na, H.G.~Lee, S.G.~Lee, S.J.~Yoo, B.J.~Lee,
@@ -7570,26 +7913,26 @@ format.
   {\newblock}\tmtextit{Nuclear Fusion}, 41(10):1515--1523, oct
   2001.{\newblock}
   
-  \bibitem[18]{li2013}G~Q Li, Q~L Ren, J~P Qian, L~L Lao, S~Y Ding, Y~J Chen,
+  \bibitem[19]{li2013}G~Q Li, Q~L Ren, J~P Qian, L~L Lao, S~Y Ding, Y~J Chen,
   Z~X Liu, B Lu, and  Q Zang. {\newblock}Kinetic equilibrium reconstruction on
   east tokamak. {\newblock}\tmtextit{Plasma Phys. Controlled Fusion},
   55(12):125008, 2013.{\newblock}
   
-  \bibitem[19]{Luxon2002}J.L.~Luxon. {\newblock}A design retrospective of the
+  \bibitem[20]{Luxon2002}J.L.~Luxon. {\newblock}A design retrospective of the
   DIII-D tokamak. {\newblock}\tmtextit{Nuclear Fusion}, 42(5):614--633, may
   2002.{\newblock}
   
-  \bibitem[20]{miller1998}R.~L.~Miller, M.~S.~Chu, J.~M.~Greene,
+  \bibitem[21]{miller1998}R.~L.~Miller, M.~S.~Chu, J.~M.~Greene,
   Y.~R.~Lin-Liu, and  R.~E.~Waltz. {\newblock}Noncircular, finite aspect
   ratio, local equilibrium model. {\newblock}\tmtextit{Phys. Plasmas},
   5(4):973--978, 1998.{\newblock}
   
-  \bibitem[21]{ottaviani2011}M.~Ottaviani. {\newblock}An alternative approach
+  \bibitem[22]{ottaviani2011}M.~Ottaviani. {\newblock}An alternative approach
   to field-aligned coordinates for plasma turbulence simulations.
   {\newblock}\tmtextit{Physics Letters A}, 375(15):1677--1685,
   2011.{\newblock}
   
-  \bibitem[22]{sabbagh2006}S.A.~Sabbagh, A.C.~Sontag, J.M.~Bialek, D.A.~Gates,
+  \bibitem[23]{sabbagh2006}S.A.~Sabbagh, A.C.~Sontag, J.M.~Bialek, D.A.~Gates,
   A.H.~Glasser, J.E.~Menard, W.~Zhu, M.G.~Bell, R.E.~Bell, A.~Bondeson,
   C.E.~Bush, J.D.~Callen, M.S.~Chu, C.C.~Hegna, S.M.~Kaye, L.L.~Lao,
   B.P.~LeBlanc, Y.Q.~Liu, R.~Maingi, D.~Mueller, K.C.~Shaing, D.~Stutman,
@@ -7597,41 +7940,41 @@ format.
   rotating high beta nstx plasmas. {\newblock}\tmtextit{Nucl. Fusion},
   46(5):635, 2006.{\newblock}
   
-  \bibitem[23]{song2007}I.~Song, C.~Choi, and  M.~Cho. {\newblock}Quench
+  \bibitem[24]{song2007}I.~Song, C.~Choi, and  M.~Cho. {\newblock}Quench
   protection system for the superconducting coil of the kstar tokamak.
   {\newblock}\tmtextit{IEEE Transactions on Applied Superconductivity},
   17(1):1--6, March 2007.{\newblock}
   
-  \bibitem[24]{ysun2012}Youwen Sun. {\newblock}Tokamak geometry and
+  \bibitem[25]{ysun2012}Youwen Sun. {\newblock}Tokamak geometry and
   equilibrium.
   {\newblock}\url{http://theory.ipp.ac.cn/~yj/other/TOKAMAK_geometry_and_equilibrium_Youwen_Sun_201208.pdf},
   2012. {\newblock}[Online; Institute of Plasma Physics, Chinese Academy of
   Sciences].{\newblock}
   
-  \bibitem[25]{texmacs}Joris van der~Hoeven. {\newblock}Gnu texmacs, a
+  \bibitem[26]{texmacs}Joris van der~Hoeven. {\newblock}Gnu texmacs, a
   structured wysiwyw (what you see is what you want) editor for scientists.
   {\newblock}\url{http://www.texmacs.org/}, 2007.
   {\newblock}[Online].{\newblock}
   
-  \bibitem[26]{wxwang2006}W.~X.~Wang, Z.~Lin, W.~M.~Tang, W.~W.~Lee,
+  \bibitem[27]{wxwang2006}W.~X.~Wang, Z.~Lin, W.~M.~Tang, W.~W.~Lee,
   S.~Ethier, J.~L.~V.~Lewandowski, G.~Rewoldt, T.~S.~Hahm, and  J.~Manickam.
   {\newblock}Gyro-kinetic simulation of global turbulent transport properties
   in tokamak experiments. {\newblock}\tmtextit{Physics of Plasmas},
   13(9):92505, 2006.{\newblock}
   
-  \bibitem[27]{wesson2004}John Wesson. {\newblock}\tmtextit{Tokamaks}.
+  \bibitem[28]{wesson2004}John Wesson. {\newblock}\tmtextit{Tokamaks}.
   {\newblock}Oxford University Press, 2004.{\newblock}
   
-  \bibitem[28]{white1984}R.~B.~White  and  M.~S.~Chance.
+  \bibitem[29]{white1984}R.~B.~White  and  M.~S.~Chance.
   {\newblock}Hamiltonian guiding center drift orbit calculation for plasmas of
   arbitrary cross section. {\newblock}\tmtextit{The Physics of Fluids},
   27(10):2455--2467, 1984.{\newblock}
   
-  \bibitem[29]{xiao2008}B~J Xiao, D~A Humphreys, and  M~L Walker.
+  \bibitem[30]{xiao2008}B~J Xiao, D~A Humphreys, and  M~L Walker.
   {\newblock}East plasma control system. {\newblock}\tmtextit{Fusion
   Engineering and Design}, 83:181, 2008.{\newblock}
   
-  \bibitem[30]{xiao2007}B.~J.~Xiao. {\newblock}The first diverted plasma on
+  \bibitem[31]{xiao2007}B.~J.~Xiao. {\newblock}The first diverted plasma on
   east tokamak. {\newblock}\tmtextit{34th EPS Conference on Plasma Phys},
   2007.{\newblock}
 \end{thebibliography}
