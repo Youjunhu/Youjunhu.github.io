@@ -30,17 +30,28 @@
 \maketitle
 
 \begin{abstract}
-  A routine in operating a tokamake is to reconstruct axisymmetirc poloidal
-  magnetic field under the constraints of MHD force balance and various
-  magnetic measurements. This kind of task can be done by various codes, e.g.,
-  EFIT. Another routine in analsing the tokamak discharge is to constructs a
-  coordinate system, based on the 2D equilibrium magnetic field, with a
-  desired form of Jacobian by using discrete numerical equilibrium data output
-  by the equilibrium reconstructing codes. These are my notes when learning
-  tokamak equilibrium theory. \ These notes are evolving and are written for
-  my own record. I enjoy seeing the continuous improvement of these notes over
-  a long time scale (10 years).
+  I merge all tokamak equilibrium related content I learned into this
+  document. Most of the content is elementary but I still found I got
+  something totally wrong in the first version. Let me know if you spot
+  something specious.
 \end{abstract}
+
+\section{Introduction}
+
+A routine in tokamak operation is to reconstruct magnetic field under the
+constraints of MHD force balance and various measurements. This kind of task
+can be done by various codes, e.g., EFIT. I developed a similar code called
+\tmtexttt{heq} (github.com/youjunhu/heq).
+
+I also discuss the fixed-boundary equilibrium problem, where the boundary
+magnetic surface is given and one is asked to solve the force-balance equation
+within that boundray.
+
+Another topic is how to construct spatial coordinates that conform to the
+shape of the magnetic surfaces, based on discrete numerical equilibrium data
+output by the equilibrium reconstructing codes.
+
+Let us begin with the basics.
 
 \section{ Axisymmetric magnetic field}\label{5-13-1s}
 
@@ -49,12 +60,8 @@ Due to the divergence-free nature of magnetic field, i.e., $\nabla \cdot
 \begin{equation}
   \mathbf{B}= \nabla \times \mathbf{A},
 \end{equation}
-where $\mathbf{A}$ is called the vector potential of $\mathbf{B}$. (Using a
-vector potential representation is helpful in that we do not need to worry
-about the condition $\nabla \cdot \mathbf{B}= 0$ once the magnetic field is in
-that form)
-
-In cylindrical coordinates $(R, \phi, Z)$, the above expression is written
+where $\mathbf{A}$ is called the vector potential of $\mathbf{B}$. In
+cylindrical coordinates $(R, \phi, Z)$, the above expression is written
 \begin{equation}
   \label{4-16-p1} \mathbf{B}= \left( \frac{1}{R} \frac{\partial A_Z}{\partial
   \phi} - \frac{\partial A_{\phi}}{\partial Z} \right) \hat{\mathbf{R}} +
@@ -7810,6 +7817,10 @@ Using Eq. (\ref{16-12-16-e1}) and (), we obtain
 \end{equation}
 
 \section{About this document}
+
+These are my notes when learning tokamak equilibrium theory. \ These notes are
+evolving and are written for my own record. I enjoy seeing the continuous
+improvement of these notes over a long time scale (10 years).
 
 This document was written by using TeXmacs{\cite{texmacs}}, a structured
 wysiwyw (what you see is what you want) editor for scientists. The HTML
