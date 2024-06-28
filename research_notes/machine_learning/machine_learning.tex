@@ -1,12 +1,13 @@
 \documentclass{article}
 \usepackage[english]{babel}
-\usepackage{geometry,amsmath,amssymb,graphicx}
+\usepackage{geometry,amsmath,amssymb,graphicx,alltt}
 \geometry{a4paper}
 
 %%%%%%%%%% Start TeXmacs macros
 \newcommand{\tmaffiliation}[1]{\\ #1}
 \newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
 \newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+\newenvironment{tmcode}[1][]{\begin{alltt} }{\end{alltt}}
 %%%%%%%%%% End TeXmacs macros
 
 \begin{document}
@@ -26,9 +27,8 @@
 
 Artificial intelligence (AI) research has tried many different approaches
 since its founding. In the first decades of the 21st century, the AI research
-is dominated by highly mathematical statistical machine learning (ML), which
-has proved highly successful, helping to solve many challenging problems in
-real life.
+is dominated by highly mathematical optimization machine learning (ML), which
+has proved successful in solving many challenging real life problems.
 
 Many problems in AI can be solved theoretically by searching through many
 possible solutions: Reasoning can be reduced to performing a search. Simple
@@ -40,7 +40,8 @@ mathematical theory of optimization. Modern machine learning is based on these
 methods. Instead, of using detailed explanations to guide the search, it uses
 a combination of{\cite{nielsen2015neural}}: (a) general architectures; (b)
 trying trillions of possibilities, guided by simple ideas (like gradient
-descent) for improvement; and (c) the ability to recognize progress.
+descent) for improvement; and (c) the ability to recognize progress (by
+defining a objective function).
 
 I am interested in applying machine learning to problems in computational
 physics problems that traditional numerical methods can not easily handle
@@ -49,25 +50,25 @@ algorithms are too complicated to easily implement.
 
 Enrico Fermi once criticized the complexity of a model (that contains many
 free parameters) by quoting Johnny von Neumann ``With four parameters I can
-fit an elephant, and with five I can make him wiggle his trunk''.
-
-What Fermi implies is that it is easy to fit existing data and what is
-important is to have a model with predicting capability (fitting data not seen
-yet). The artificial neural network method tackles this difficulty by
-increasing the number of free parameters to millions, with the hope of
-obtaining predicting capability.
+fit an elephant, and with five I can make him wiggle his trunk''. What Fermi
+implies is that it is easy to fit existing data and what is important is to
+have a model with predicting capability (fitting data not seen yet). The
+artificial neural network method tackles this difficulty by increasing the
+number of free parameters to millions, with the hope of obtaining predicting
+capability.
 
 \section{Neural network}
 
 Neural networks consists of multiple layers of interconnected nodes (neurons),
-each having a weight for a connection, a bias and activation function. Each
-layer build upon the previous layer. This progression of computations through
-the network is called forward propagation. Another process called
+each having a weight for a connection, a bias, and an activation function.
+Each layer build upon the previous layer. This progression of computations
+through the network is called forward propagation. Another process called
 backpropagation uses algorithms which moves backwards through the layers to
-efficiently compute the partial derivatives of the loss function with respect
-to the weights and biases. Combining the forward and backward propagation, we
-can calculate errors in predictions and then adjusts the weights and biases
-using the gradient descent method. This process is called training.
+efficiently compute the partial derivatives of the objective function with
+respect to the weights and biases. Combining the forward and backward
+propagation, we can calculate errors in predictions and then adjusts the
+weights and biases using the gradient descent method. This process is called
+training/learning.
 
 \subsection{ Node (neuron or unit), weight, bias, and activation}
 
@@ -106,11 +107,11 @@ rectified linear unit (ReLU),
 \begin{equation}
   \sigma (z) = \max (0, z),
 \end{equation}
-and sigmoid function (``S''-shaped curve, also called logistic function)
+and sigmoid (``S''-shaped curve, also called logistic function)
 \begin{equation}
-  \sigma (z) = \frac{1}{1 + \exp (- z)} .
+  \label{23-7-28-p1} \sigma (z) = \frac{1}{1 + \exp (- z)} .
 \end{equation}
-Define $z_j^l$ by
+For natation ease, define $z_j^l$ by
 \begin{equation}
   \label{22-3-9-1} z^l_j = \sum_k w_{j k}^l a^{l - 1}_k + b^l_j,
 \end{equation}
@@ -140,9 +141,10 @@ layer is often chosen as None, ReLU, logistic/tanh, and is usually different
 from those used in the hidden layers. Here ``None'' means activation $\sigma
 (z) = z$.
 
-\subsection{Loss function}
+\subsection{Objective function}
 
-Define a loss (cost, error) function by
+Define an objective function (can be called loss or cost function depending on
+contexts) by
 \begin{equation}
   \label{22-3-9-e1} C (w, b) \equiv \frac{1}{2 n} \sum_x \| y (x) - a^L \|^2,
 \end{equation}
@@ -161,13 +163,24 @@ Explicitly writing out the vector norm, Eq. (\ref{22-3-9-e1}) is written as
 where $N_L$ is the number of neurons in the output layer.
 
 The cost function is the average error of the approximate solution away from
-the desired exact solution. So the goal of a learning algorithm is to find
-weights and biases that minimize the cost function. To minimize the cost
-function over $(w, b)$ using the gradient descent method, we need to compute
-the partial derivatives $\partial C / \partial w^l_{j k}$ and $\partial C /
-\partial b^l_j$. Next we will discuss how to compute them.
+the desired exact solution. The goal of a learning algorithm is to find
+weights and biases that minimize the cost function. A method of minimizing the
+cost function over $(w, b)$ is the gradient descent method:
+\begin{equation}
+  w_{j k}^l \rightarrow w_{j k}^l - \eta \frac{\partial C}{\partial w_{j
+  k}^l},
+\end{equation}
 
-\subsection{Gradients of loss function}
+\begin{equation}
+  b_j^l \rightarrow b_j^l - \eta \frac{\partial C}{\partial b_j^l},
+\end{equation}
+where $\eta$ is called learning rate, which should be positive.
+
+In using the gradient descent method, we need to compute the partial
+derivatives $\partial C / \partial w^l_{j k}$ and $\partial C / \partial
+b^l_j$. Next we will discuss how to compute them.
+
+\subsection{Gradients of objective function}
 
 Note that the loss function involves an average over all the training
 examples. Denote the loss function for a specific training example by $C_x$,
@@ -296,13 +309,270 @@ algorithm. Eq. (\ref{22-3-14-a1}) can be written in the matrix form:
 \end{equation}
 where $T$ stands for matrix transpose, $\odot$ is the element-wise product.
 
+\section{misc}
+
+\section{Least square}
+
+In the least square method, the loss function is defined as
+\begin{equation}
+  L = \sum_{i = 1}^n | \hat{\mathbf{y}} (\mathbf{x}_i) -\mathbf{y}_i |^2,
+\end{equation}
+where $\hat{\mathbf{y}} (\mathbf{x}_i)$ is the output of the model for the
+input $\mathbf{x}_i$, $n$ is the number of data points.
+
+In the most general case, each data point considers of multiple independent
+variables and multiple dependent variables $(\mathbf{x}, \mathbf{y})$. In
+simple cases, each data point has one independent variable and one dependent
+variable. For example, a data set consists of \tmtextit{n} data-points $(x_i,
+y_i)$, \tmtextit{i} = 1, {\ldots}, \tmtextit{n}, where $x_i$ is an independent
+variable and $y_i$ is a dependent variable whose value is found by
+observation. The model function has the form $y (x) = f (x, \mathbf{\beta})$,
+where \tmtextit{m} adjustable parameters are held in the vector
+$\mathbf{\beta}$. A least squar model is called linear if the model comprises
+a linear combination of the parameters, i.e.,
+\begin{equation}
+  f (x, \mathbf{\beta}) = \sum_{j = 1}^m \beta_j \varphi_j (x),
+\end{equation}
+where $\varphi_j (x)$ are basis functions chosen. Letting $X_{i j} = \varphi_j
+(x_i)$, then the model prediction for input $x_i$ can be written as
+\begin{equation}
+  f_i \equiv f (x_i, \mathbf{\beta}) = \sum_{j = 1}^m X_{i j} \beta_j .
+\end{equation}
+For $n$ data points, the above can be written in matrix form:
+\begin{equation}
+  \mathbf{f}=\mathbf{X}\mathbf{\beta},
+\end{equation}
+where $\mathbf{f}= (f_1, \ldots f_n)^T$.
+
+For linear least-square fitting, we can solve the ``normal equation'' to get
+the fitting coefficients. Alternatively, one can use iterative methods, e.g.,
+the gradient descent method, to minimize the mean square error over the
+coefficients. The following is a complete example in Python:
+\begin{tmcode}
+import numpy as np
+import matplotlib.pyplot as plt
+class Linear_Regression:
+    def __init__(self):
+            self.b = [0, 0]
+            
+    def predict(self, X):
+            Y_pred = self.b[0] + self.b[1]*X
+            return Y_pred
+
+    def update_coeffs(self, X, Y, learning_rate):
+            Y_pred = self.predict(X)
+            m = len(Y)
+            self.b[0] = self.b[0] - (learning_rate * ((1/m) *
+                                                      np.sum(Y_pred - Y)))
+            self.b[1] = self.b[1] - (learning_rate * ((1/m) *
+                                                      np.sum((Y_pred - Y) * X)))
+ 
+ 
+regressor = Linear_Regression()
+Nd=11
+X = np.array([i for i in range(Nd)])
+Y = np.array([2*i for i in range(Nd)]) + np.random.uniform(high=5.0,size=Nd)
+fig, ax = plt.subplots()
+ax.plot(X,Y, 'k.',label='data') 
+Y_pred = regressor.predict(X)
+ax.plot(X, Y_pred, label='Initial fit line')
+
+learning_rate = 0.01
+i = 0
+while i<100:
+    regressor.update_coeffs(X,Y,learning_rate)
+    i = i+1
+
+Y_pred = regressor.predict(X)
+ax.plot(X, Y_pred, 'b-',label='Final Fit Line')
+ax.legend()
+plt.show()
+\end{tmcode}
+The loss function is defined by the mean square error, which \ is not directly
+used in the above code. Only the partial derivatives of the loss function is
+directly used.
+
+\section{Logistic regression for binary classification}
+
+Hypothesis function (the model): Denote the output of the model by $\hat{y}$,
+which is given by
+\begin{equation}
+  \hat{y} = \sigma (z),
+\end{equation}
+where $z = w \cdot x + b$ and $\sigma$ is the sigmoid function given by Eq.
+(\ref{23-7-28-p1}). The model is nonlinear in the unknowns $w$ and $b$.
+
+The loss function is chosen as
+\begin{equation}
+  L = - \frac{1}{m} \sum_{i = 1}^m [y_i \log (\hat{y}_i) + (1 - y_i) \log (1 -
+  \hat{y}_i)],
+\end{equation}
+where $y_i$ is the correct answer of the $\tmop{ith}$ training example ($y_i$
+can take only two values, 0 or 1). The value of $\widehat{y_i}$ is interpreted
+as the probability of $y$ being 1.
+
+Because the model function is nonlinear and the loss function is complicated,
+there is usually no closed-form solution that minimizes the loss function.
+Iterative methods, such as gradient descent, are needed to solve for $w$ and
+$b$. The partial derivatives needed in the gradient desent method can be
+written as
+\begin{eqnarray}
+  \frac{\partial L}{\partial w} & = & - \frac{1}{m} \sum_i \left[ y_i 
+  \frac{1}{\hat{y}_i} \sigma' (z) x_i - (1 - y_i) \frac{1}{(1 - \hat{y}_i)}
+  \sigma' (z) x_i \right] \nonumber\\
+  & = & - \frac{1}{m} \sum_i \left\{ \left[ y_i  \frac{1}{\hat{y}_i} - (1 -
+  y_i) \frac{1}{(1 - \hat{y}_i)} \right] \sigma' (z) x_i \right\} \nonumber\\
+  & = & - \frac{1}{m} \sum_i \left\{ \left[  \frac{y_i -
+  \widehat{y_i}}{\hat{y}_i (1 - \hat{y}_i)} \right] \sigma' (z) x_i \right\}
+  \nonumber\\
+  & = & - \frac{1}{m} \sum_i \left\{ \left[  \frac{y_i -
+  \widehat{y_i}}{\hat{y}_i (1 - \hat{y}_i)} \right] \sigma (1 - \sigma) x_i
+  \right\} \nonumber\\
+  & = & - \frac{1}{m} \sum_i \left\{ \left[  \frac{y_i -
+  \widehat{y_i}}{\hat{y}_i (1 - \hat{y}_i)} \right] \hat{y}_i (1 - \hat{y}_i)
+  x_i \right\} \nonumber\\
+  & = & - \frac{1}{m} \sum_i [ (y_i - \widehat{y_i}) x_i] 
+\end{eqnarray}
+Using
+\begin{equation}
+  \frac{d \sigma}{d z} = \frac{1}{(1 + \exp (- z))^2} \exp (- z) = \sigma^2
+  \exp (- z) = \sigma (1 - \sigma)
+\end{equation}
+The above formula is simplified as
+\begin{equation}
+  \begin{array}{lll}
+    \frac{\partial L}{\partial w} & = & - \frac{1}{m} \sum_i \left\{ \left[ 
+    \frac{y_i - \widehat{y_i}}{\hat{y}_i (1 - \hat{y}_i)} \right] \sigma (1 -
+    \sigma) x_i \right\}\\
+    & = & - \frac{1}{m} \sum_i \left\{ \left[  \frac{y_i -
+    \widehat{y_i}}{\hat{y}_i (1 - \hat{y}_i)} \right] \hat{y}_i (1 -
+    \hat{y}_i) x_i \right\}\\
+    & = & - \frac{1}{m} \sum_i [ (y_i - \widehat{y_i}) x_i]
+  \end{array}
+\end{equation}
+Similary, we obtain
+\begin{equation}
+  \frac{\partial L}{\partial w} = - \frac{1}{m} \sum_i (y_i - \widehat{y_i}) .
+\end{equation}
+
+\subsection{Automatic differentiation}
+
+Forward:
+\begin{tmcode}
+class Expression:
+    def __add__(self, other):
+        return Plus(self, other)
+    def __mul__(self, other):
+        return Multiply(self,other)
+class Variable(Expression):
+    def __init__(self,value):
+        self.value = value
+    def evaluate(self):
+        return self.value
+    def derive(self, v):
+        return 1 if self == v else 0
+
+class Plus(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() + self.b.evaluate()
+    def derive(self,exp):
+        return self.a.derive(exp) + self.b.derive(exp)
+
+class Multiply(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() * self.b.evaluate()
+    def derive(self,exp):
+        return (self.a.derive(exp)*self.b.evaluate() 
+               +self.b.derive(exp)*self.a.evaluate())
+
+# Example: derivatives of z = x * (x + y) + y * y at (x, y) = (2, 3)
+x = Variable(2)
+y = Variable(3)
+z = x * (x + y) + y * y
+print(z.evaluate()) # z, Output: 19
+print(z.derive(x)) # dz/dx,  Output: 7
+print(z.derive(y)) # dz/dy,  Output: 8
+\end{tmcode}
+This simple example illustrates many concepts:
+
+* Class
+
+* Operator overloading
+
+* Subclass, inheritance
+
+* Polymorphism
+
+* Recursion
+
+\
+
+The following is the backword (or reverse) method. This code is a little
+harder to understand than the the forward method.
+\begin{tmcode}
+class Expression:
+    def __add__(self, other):
+        return Plus(self, other)
+    def __mul__(self, other):
+        return Multiply(self, other)
+
+class Variable(Expression):
+    def __init__(self, value):
+        self.value = value
+        self.partial = 0
+    def evaluate(self):
+        pass
+    def derive(self, seed):
+        self.partial += seed
+
+class Plus(Expression):
+    def __init__(self, exp1, exp2):
+        self.a = exp1
+        self.b = exp2
+        self.value = None
+    def evaluate(self):
+        self.a.evaluate()
+        self.b.evaluate()
+        self.value = self.a.value + self.b.value
+    def derive(self, seed):
+        self.a.derive(seed)
+        self.b.derive(seed)
+
+class Multiply(Expression):
+    def __init__(self, exp1, exp2):
+        self.a = exp1
+        self.b = exp2
+        self.value = None
+    def evaluate(self):
+        self.a.evaluate()
+        self.b.evaluate()
+        self.value = self.a.value * self.b.value
+    def derive(self, seed):
+        self.a.derive(self.b.value * seed)
+        self.b.derive(self.a.value * seed)
+
+# Example: Finding the partials of z = x * (x + y) + y * y at (x, y) = (2, 3)
+x = Variable(2)
+y = Variable(3)
+z = x * (x + y) + y * y
+z.evaluate(); print("z =", z.value)  # Output 19
+z.derive(1)
+print(x.partial)  # dz/dx Output:  7
+print(y.partial)  # dz/dy Output:  8
+\end{tmcode}
 \begin{thebibliography}{1}
   \bibitem[1]{nielsen2015neural}Michael~A Nielsen. {\newblock}\tmtextit{Neural
   networks and deep learning},  volume~25. {\newblock}Determination Press:
   http://neuralnetworksanddeeplearning.com/, 2015.{\newblock}
 \end{thebibliography}
 
-\section{miscs}
+\
 
 \
 
