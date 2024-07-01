@@ -309,6 +309,192 @@ algorithm. Eq. (\ref{22-3-14-a1}) can be written in the matrix form:
 \end{equation}
 where $T$ stands for matrix transpose, $\odot$ is the element-wise product.
 
+\
+
+\section{Automatic differentiation}
+
+Automatic differentiation (autodiff) is a set of techniques for computing
+derivatives of numeric functions expressed as source code (i.e. the internal
+mechanism of the function is known). It works by breaking down functions into
+elementary operations (addition, multiplication, etc.) whose derivatives are
+known, and then applies the chain rule to compute the derivatives.
+
+Autodiff can be considered as a kind of symbolic differentiation. The
+difference of autodiff from the traditional symbolic differentiaton is that
+the goal is not to get a compact formula for humans to understand, but for
+computers to evaluate. Therefore the final result from a autodiff is not an
+analytical formula, but numerical data. This goal also makes autodiff more
+efficient since autodiff doses not need to perform some intermedia processes
+that appear when you use traditional symbolic differentiation to get a formula
+and then numerically evaluate the formula.
+
+Autodiff can be better than numerical differentiation (e.g., finite
+difference) in that it avoid truncation errors. When you are given a black-box
+function, you can not use autodiff since the internal mechinism of the
+function is unknown. In this case, the only choice is to use numerical
+differentiation.
+
+Autodiff has two main modes: forward and backward. Forward mode computes a
+single derivative during one pass of the expression tree. The back mode
+computes all the derivatives in a single pass of the expression tree, avoiding
+some computational repetition (compared using forward mode to compute all the
+derivatives sperately). It's more efficient for functions with many inputs and
+few outputs, making it ideal for machine learning where we often compute
+gradients of scalar loss functions with respect to many parameters.
+Backpropagation is a specific instance of backward-mode autodiff. Here is a
+simple Python code implementing autodiff:
+
+\
+
+Forward:
+\begin{tmcode}
+class Expression:
+    def __add__(exp1, exp2):
+        return Plus(exp1, exp2)
+    def __mul__(exp1, exp2):
+        return Multiply(exp1,exp2)
+class Variable(Expression):
+    def __init__(self,value):
+        self.value = value
+    def evaluate(self):
+        return self.value
+    def derive(self, v):
+        return 1 if self == v else 0
+
+class Plus(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() + self.b.evaluate()
+    def derive(self,v):
+        return self.a.derive(v) + self.b.derive(v)
+
+class Multiply(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() * self.b.evaluate()
+    def derive(self, v):
+        return (self.a.derive(v)*self.b.evaluate() 
+               +self.b.derive(v)*self.a.evaluate())
+
+# Example: derivatives of z(x,y) at (x, y) = (2, 3)
+x = Variable(2)
+y = Variable(3)
+z = x * (x + y) + y * y
+print(z.derive(x)) # dz/dx,  Output: 7
+print(z.derive(y)) # dz/dy,  Output: 8
+\end{tmcode}
+This simple example illustrates several important concepts:
+
+* Class, subclass, inheritance
+
+* Operator overloading
+
+* Polymorphism
+
+* Recursion
+
+\
+
+The following is the backward (or reverse) method.
+\begin{tmcode}
+class Expression:
+    def __add__(exp1, exp2):
+        return Plus(exp1,exp2)
+    def __mul__(exp1, exp2):
+        return Multiply(exp1, exp2)
+        
+class Variable(Expression):
+    def __init__(self,value):
+        self.value = value
+        self.partial = 0
+    def evaluate(self):
+        return self.value
+    def derive(self,seed):
+        self.partial += seed
+
+class Plus(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() + self.b.evaluate()
+    def derive(self,seed):
+        self.a.derive(seed)
+        self.b.derive(seed)
+        
+class Multiply(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() * self.b.evaluate()
+    def derive(self,seed):
+        self.a.derive(seed * self.b.evaluate())
+        self.b.derive(seed * self.a.evaluate())
+
+x = Variable(2)
+y = Variable(3)
+z = x * (x + y) + y * y
+z.derive(1)
+print(x.partial)  # dz/dx Output:  7
+print(y.partial)  # dz/dy Output:  8
+\end{tmcode}
+Another method is to use dual numbers. Dual number are expressions of the form
+$a + b \varepsilon$, where $a$ and $b$ are real numbers, and $\varepsilon$ is
+a symbol taken to satisfy $\varepsilon^2 = 0$ with $\varepsilon \neq 0$. Using
+a dual number in the Taylor series, we obtain
+\begin{equation}
+  f (a + b \varepsilon) = \sum_{n = 0}^{\infty} \frac{f^{(n)} (a)}{n!} (b
+  \varepsilon)^n = f (a) + b f' (a) \varepsilon,
+\end{equation}
+since all terms invovling $\varepsilon^2$ and greater powers are zero by the
+defintion of $\varepsilon$. We find the coefficient of $\varepsilon$ in the
+result is the first derivative $f' (a)$. This result can be used in computer
+programs to find derivative of a function by defining a class and overloading
+the basic operators, e.g.
+\begin{equation}
+  a_1 + b_1 \varepsilon + a_2 + b_2 \varepsilon = (a_1 + a_2) + (b_1 + b_2)
+  \varepsilon,
+\end{equation}
+\begin{equation}
+  (a_1 + b_1 \varepsilon) \star (a_2 + b_2 \varepsilon) = a_1 a_2 + (a_1 b_2 +
+  a_2 b_1) \varepsilon .
+\end{equation}
+Here is a Python code:
+\begin{tmcode}
+class Dual:
+    def __init__(self, realPart, infs=0):
+        self.realPart = realPart
+        self.infs = infs
+
+    def __add__(self, other):
+        return Dual(
+            self.realPart + other.realPart,
+            self.infs + other.infs
+        )
+
+    def __mul__(self, other):
+        return Dual(
+            self.realPart * other.realPart,
+            other.realPart * self.infs + self.realPart * other.infs
+        )
+
+def f(x, y):
+    return x * (x + y) + y * y
+x = Dual(2)
+y = Dual(3)
+epsilon = Dual(0, 1)
+a = f(x + epsilon, y)
+b = f(x, y + epsilon)
+print("dz/dx =", a.infs)  # Output: dz/dx= 7
+print("dz/dy =", b.infs)  # Output: dz/dy = 8
+\end{tmcode}
+
+
 \section{misc}
 
 \section{Least square}
@@ -455,117 +641,7 @@ Similary, we obtain
   \frac{\partial L}{\partial w} = - \frac{1}{m} \sum_i (y_i - \widehat{y_i}) .
 \end{equation}
 
-\subsection{Automatic differentiation}
 
-Forward:
-\begin{tmcode}
-class Expression:
-    def __add__(self, other):
-        return Plus(self, other)
-    def __mul__(self, other):
-        return Multiply(self,other)
-class Variable(Expression):
-    def __init__(self,value):
-        self.value = value
-    def evaluate(self):
-        return self.value
-    def derive(self, v):
-        return 1 if self == v else 0
-
-class Plus(Expression):
-    def __init__(self,exp1,exp2):
-        self.a = exp1
-        self.b = exp2
-    def evaluate(self):
-        return self.a.evaluate() + self.b.evaluate()
-    def derive(self,exp):
-        return self.a.derive(exp) + self.b.derive(exp)
-
-class Multiply(Expression):
-    def __init__(self,exp1,exp2):
-        self.a = exp1
-        self.b = exp2
-    def evaluate(self):
-        return self.a.evaluate() * self.b.evaluate()
-    def derive(self,exp):
-        return (self.a.derive(exp)*self.b.evaluate() 
-               +self.b.derive(exp)*self.a.evaluate())
-
-# Example: derivatives of z = x * (x + y) + y * y at (x, y) = (2, 3)
-x = Variable(2)
-y = Variable(3)
-z = x * (x + y) + y * y
-print(z.evaluate()) # z, Output: 19
-print(z.derive(x)) # dz/dx,  Output: 7
-print(z.derive(y)) # dz/dy,  Output: 8
-\end{tmcode}
-This simple example illustrates many concepts:
-
-* Class
-
-* Operator overloading
-
-* Subclass, inheritance
-
-* Polymorphism
-
-* Recursion
-
-\
-
-The following is the backword (or reverse) method. This code is a little
-harder to understand than the the forward method.
-\begin{tmcode}
-class Expression:
-    def __add__(self, other):
-        return Plus(self, other)
-    def __mul__(self, other):
-        return Multiply(self, other)
-
-class Variable(Expression):
-    def __init__(self, value):
-        self.value = value
-        self.partial = 0
-    def evaluate(self):
-        pass
-    def derive(self, seed):
-        self.partial += seed
-
-class Plus(Expression):
-    def __init__(self, exp1, exp2):
-        self.a = exp1
-        self.b = exp2
-        self.value = None
-    def evaluate(self):
-        self.a.evaluate()
-        self.b.evaluate()
-        self.value = self.a.value + self.b.value
-    def derive(self, seed):
-        self.a.derive(seed)
-        self.b.derive(seed)
-
-class Multiply(Expression):
-    def __init__(self, exp1, exp2):
-        self.a = exp1
-        self.b = exp2
-        self.value = None
-    def evaluate(self):
-        self.a.evaluate()
-        self.b.evaluate()
-        self.value = self.a.value * self.b.value
-    def derive(self, seed):
-        self.a.derive(self.b.value * seed)
-        self.b.derive(self.a.value * seed)
-
-# Example: Finding the partials of z = x * (x + y) + y * y at (x, y) = (2, 3)
-x = Variable(2)
-y = Variable(3)
-z = x * (x + y) + y * y
-z.evaluate(); print("z =", z.value)  # Output 19
-z.derive(1)
-print(x.partial)  # dz/dx Output:  7
-print(y.partial)  # dz/dy Output:  8
-\end{tmcode}
 \begin{thebibliography}{1}
   \bibitem[1]{nielsen2015neural}Michael~A Nielsen. {\newblock}\tmtextit{Neural
   networks and deep learning},  volume~25. {\newblock}Determination Press:

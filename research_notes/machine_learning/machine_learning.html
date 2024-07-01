@@ -24,7 +24,7 @@ class="cmr-12">Youjun Hu</span>
 <br /><span 
 class="cmr-12">yjhu@ipp.cas.cn </span></div><br />
 <div class="date" ><span 
-class="cmr-12">June 28, 2024</span></div>
+class="cmr-12">July 1, 2024</span></div>
    </div>
 <!--l. 24--><p class="indent" >    
 </p>
@@ -34,13 +34,15 @@ href="#x1-10001" id="QQ2-1-1">Introduction</a></span>
 <br />   <span class="sectionToc" >2 <a 
 href="#x1-20002" id="QQ2-1-2">Neural network</a></span>
 <br />   <span class="sectionToc" >3 <a 
-href="#x1-70003" id="QQ2-1-8">misc</a></span>
+href="#x1-70003" id="QQ2-1-8">Automatic diﬀerentiation</a></span>
 <br />   <span class="sectionToc" >4 <a 
-href="#x1-80004" id="QQ2-1-9">Least square</a></span>
+href="#x1-80004" id="QQ2-1-9">misc</a></span>
 <br />   <span class="sectionToc" >5 <a 
-href="#x1-90005" id="QQ2-1-10">Logistic regression for binary classiﬁcation</a></span>
+href="#x1-90005" id="QQ2-1-10">Least square</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-100006" id="QQ2-1-11">Logistic regression for binary classiﬁcation</a></span>
 <br />   <span class="likesectionToc" ><a 
-href="#x1-110005.1" id="QQ2-1-12">References</a></span>
+href="#x1-110006" id="QQ2-1-12">References</a></span>
    </div>
    <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
  id="x1-10001"></a>Introduction</h3>
@@ -730,34 +732,938 @@ src="machine_learning25x.png" alt=" l     l+1 T l+1    ′ l
 where <span 
 class="cmmi-10">T </span>stands for matrix transpose, <span 
 class="cmsy-10">⊙ </span>is the element-wise product.
-</p><!--l. 312--><p class="noindent" >
+</p><!--l. 312--><p class="indent" >    
+</p><!--l. 314--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
- id="x1-70003"></a>misc</h3>
-<!--l. 314--><p class="noindent" >
-</p>
-   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
- id="x1-80004"></a>Least square</h3>
-<!--l. 316--><p class="noindent" >In the least square method, the loss function is deﬁned as
+ id="x1-70003"></a>Automatic diﬀerentiation</h3>
+<!--l. 316--><p class="noindent" >Automatic diﬀerentiation (autodiﬀ) is a set of techniques for computing derivatives of numeric
+functions expressed as source code (i.e. the internal mechanism of the function is known). It works by
+breaking down functions into elementary operations (addition, multiplication, etc.) whose derivatives
+are known, and then applies the chain rule to compute the derivatives.
+</p><!--l. 322--><p class="indent" >   Autodiﬀ can be considered as a kind of symbolic diﬀerentiation. The diﬀerence of autodiﬀ from the
+traditional symbolic diﬀerentiaton is that the goal is not to get a compact formula for humans to
+understand, but for computers to evaluate. Therefore the ﬁnal result from a autodiﬀ is
+not an analytical formula, but numerical data. This goal also makes autodiﬀ more eﬃcient
+since autodiﬀ doses not need to perform some intermedia processes that appear when you
+use traditional symbolic diﬀerentiation to get a formula and then numerically evaluate the
+formula.
+</p><!--l. 331--><p class="indent" >   Autodiﬀ can be better than numerical diﬀerentiation (e.g., ﬁnite diﬀerence) in that it avoid
+truncation errors. When you are given a black-box function, you can not use autodiﬀ since the internal
+mechinism of the function is unknown. In this case, the only choice is to use numerical
+diﬀerentiation.
+</p><!--l. 337--><p class="indent" >   Autodiﬀ has two main modes: forward and backward. Forward mode computes a single derivative
+during one pass of the expression tree. The back mode computes all the derivatives in a
+single pass of the expression tree, avoiding some computational repetition (compared using
+forward mode to compute all the derivatives sperately). It’s more eﬃcient for functions with
+many inputs and few outputs, making it ideal for machine learning where we often compute
+gradients of scalar loss functions with respect to many parameters. Backpropagation is a
+speciﬁc instance of backward-mode autodiﬀ. Here is a simple Python code implementing
+autodiﬀ:
+</p><!--l. 347--><p class="indent" >    
+</p><!--l. 349--><p class="indent" >   Forward: </p><div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Expression:</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __add__(exp1,</span><span 
+class="cmtt-10"> exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> Plus(exp1,</span><span 
+class="cmtt-10"> exp2)</span>
+
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __mul__(exp1,</span><span 
+class="cmtt-10"> exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> Multiply(exp1,exp2)</span>
+<br /><span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Variable(Expression):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __init__(self,value):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.value</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> value</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> evaluate(self):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> self.value</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> derive(self,</span><span 
+class="cmtt-10"> v):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> 1</span><span 
+class="cmtt-10"> if</span><span 
+class="cmtt-10"> self</span><span 
+class="cmtt-10"> ==</span><span 
+class="cmtt-10"> v</span><span 
+class="cmtt-10"> else</span><span 
+class="cmtt-10"> 0</span>
+<br />
+<br /><span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Plus(Expression):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __init__(self,exp1,exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.a</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp1</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.b</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp2</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> evaluate(self):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> self.a.evaluate()</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> self.b.evaluate()</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> derive(self,v):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> self.a.derive(v)</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> self.b.derive(v)</span>
+<br />
+<br /><span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Multiply(Expression):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __init__(self,exp1,exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.a</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp1</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.b</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp2</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> evaluate(self):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> self.a.evaluate()</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> self.b.evaluate()</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> derive(self,</span><span 
+class="cmtt-10"> v):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> (self.a.derive(v)*self.b.evaluate()</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> +self.b.derive(v)*self.a.evaluate())</span>
+<br />
+<br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10"> Example:</span><span 
+class="cmtt-10"> derivatives</span><span 
+class="cmtt-10"> of</span><span 
+class="cmtt-10"> z(x,y)</span><span 
+class="cmtt-10"> at</span><span 
+class="cmtt-10"> (x,</span><span 
+class="cmtt-10"> y)</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> (2,</span><span 
+class="cmtt-10"> 3)</span>
+<br /><span 
+class="cmtt-10">x</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> Variable(2)</span>
+<br /><span 
+class="cmtt-10">y</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> Variable(3)</span>
+<br /><span 
+class="cmtt-10">z</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> x</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> (x</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> y)</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> y</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> y</span>
+<br /><span 
+class="cmtt-10">print(z.derive(x))</span><span 
+class="cmtt-10"> #</span><span 
+class="cmtt-10"> dz/dx,</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> Output:</span><span 
+class="cmtt-10"> 7</span>
+<br /><span 
+class="cmtt-10">print(z.derive(y))</span><span 
+class="cmtt-10"> #</span><span 
+class="cmtt-10"> dz/dy,</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> Output:</span><span 
+class="cmtt-10"> 8</span>
+</div>
+</div>
+This simple example illustrates several important concepts:
+<!--l. 392--><p class="indent" >   * Class, subclass, inheritance
+</p><!--l. 394--><p class="indent" >   * Operator overloading
+</p><!--l. 396--><p class="indent" >   * Polymorphism
+</p><!--l. 398--><p class="indent" >   * Recursion
+</p><!--l. 400--><p class="indent" >    
+</p><!--l. 402--><p class="indent" >   The following is the backward (or reverse) method. </p><div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Expression:</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __add__(exp1,</span><span 
+class="cmtt-10"> exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> Plus(exp1,exp2)</span>
+
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __mul__(exp1,</span><span 
+class="cmtt-10"> exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> Multiply(exp1,</span><span 
+class="cmtt-10"> exp2)</span>
+<br />
+<br /><span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Variable(Expression):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __init__(self,value):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.value</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> value</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.partial</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> 0</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> evaluate(self):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> self.value</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> derive(self,seed):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.partial</span><span 
+class="cmtt-10"> +=</span><span 
+class="cmtt-10"> seed</span>
+<br />
+<br /><span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Plus(Expression):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __init__(self,exp1,exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.a</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp1</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.b</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp2</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> evaluate(self):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> self.a.evaluate()</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> self.b.evaluate()</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> derive(self,seed):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.a.derive(seed)</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.b.derive(seed)</span>
+<br />
+<br /><span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Multiply(Expression):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __init__(self,exp1,exp2):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.a</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp1</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.b</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> exp2</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> evaluate(self):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> self.a.evaluate()</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> self.b.evaluate()</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> derive(self,seed):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.a.derive(seed</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> self.b.evaluate())</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.b.derive(seed</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> self.a.evaluate())</span>
+<br />
+<br /><span 
+class="cmtt-10">x</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> Variable(2)</span>
+<br /><span 
+class="cmtt-10">y</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> Variable(3)</span>
+<br /><span 
+class="cmtt-10">z</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> x</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> (x</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> y)</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> y</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> y</span>
+<br /><span 
+class="cmtt-10">z.derive(1)</span>
+<br /><span 
+class="cmtt-10">print(x.partial)</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> #</span><span 
+class="cmtt-10"> dz/dx</span><span 
+class="cmtt-10"> Output:</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> 7</span>
+<br /><span 
+class="cmtt-10">print(y.partial)</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> #</span><span 
+class="cmtt-10"> dz/dy</span><span 
+class="cmtt-10"> Output:</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> 8</span>
+</div>
+</div>
+Another method is to use dual numbers. Dual number are expressions of the form <span 
+class="cmmi-10">a </span>+ <span 
+class="cmmi-10">b𝜀</span>, where <span 
+class="cmmi-10">a </span>and <span 
+class="cmmi-10">b</span>
+are real numbers, and <span 
+class="cmmi-10">𝜀 </span>is a symbol taken to satisfy <span 
+class="cmmi-10">𝜀</span><sup><span 
+class="cmr-7">2</span></sup> = 0 with <span 
+class="cmmi-10">𝜀</span><span 
+class="cmmi-10">≠</span>0. Using a dual number in the Taylor
+series, we obtain
+   <table 
+class="equation"><tr><td><a 
+ id="x1-7001r27"></a>
+
+   <center class="math-display" >
+<img 
+src="machine_learning26x.png" alt="          ∑∞  f(n)(a)   n           ′
+f(a +b𝜀) =      n!  (b𝜀)  = f(a)+ bf (a)𝜀,
+          n=0
+" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
+<!--l. 453--><p class="nopar" >
+since all terms invovling <span 
+class="cmmi-10">𝜀</span><sup><span 
+class="cmr-7">2</span></sup> and greater powers are zero by the deﬁntion of <span 
+class="cmmi-10">𝜀</span>. We ﬁnd the coeﬃcient of <span 
+class="cmmi-10">𝜀</span>
+in the result is the ﬁrst derivative <span 
+class="cmmi-10">f</span><span 
+class="cmsy-10">′</span>(<span 
+class="cmmi-10">a</span>). This result can be used in computer programs
+to ﬁnd derivative of a function by deﬁning a class and overloading the basic operators,
+e.g.
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-8001r27"></a>
+ id="x1-7002r28"></a>
    <center class="math-display" >
 <img 
-src="machine_learning26x.png" alt="    n
-L = ∑  |ˆy(x )− y |2,
-    i=1    i    i
-" class="math-display"  /></center></td><td class="equation-label">(27)</td></tr></table>
-<!--l. 319--><p class="nopar" >
+src="machine_learning27x.png" alt="a1 + b1𝜀+ a2 +b2𝜀 = (a1 + a2) +(b1 + b2)𝜀,
+" class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
+<!--l. 462--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x1-7003r29"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning28x.png" alt="(a1 + b1𝜀)⋆(a2 + b2𝜀) = a1a2 + (a1b2 +a2b1)𝜀.
+" class="math-display"  /></center></td><td class="equation-label">(29)</td></tr></table>
+<!--l. 466--><p class="nopar" >
+Here is a Python code: </p><div class="alltt">
+<div class="obeylines-v">            <span 
+class="cmtt-10">class</span><span 
+class="cmtt-10"> Dual:</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __init__(self,</span><span 
+class="cmtt-10"> realPart,</span><span 
+class="cmtt-10"> infs=0):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.realPart</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> realPart</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.infs</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> infs</span>
+
+<br />
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __add__(self,</span><span 
+class="cmtt-10"> other):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> Dual(</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.realPart</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> other.realPart,</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.infs</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> other.infs</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> )</span>
+<br />
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> def</span><span 
+class="cmtt-10"> __mul__(self,</span><span 
+class="cmtt-10"> other):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> Dual(</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> self.realPart</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> other.realPart,</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> other.realPart</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> self.infs</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> self.realPart</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> other.infs</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> )</span>
+<br />
+<br /><span 
+class="cmtt-10">def</span><span 
+class="cmtt-10"> f(x,</span><span 
+class="cmtt-10"> y):</span>
+<br /><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> return</span><span 
+class="cmtt-10"> x</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> (x</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> y)</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> y</span><span 
+class="cmtt-10"> *</span><span 
+class="cmtt-10"> y</span>
+<br /><span 
+class="cmtt-10">x</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> Dual(2)</span>
+<br /><span 
+class="cmtt-10">y</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> Dual(3)</span>
+<br /><span 
+class="cmtt-10">epsilon</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> Dual(0,</span><span 
+class="cmtt-10"> 1)</span>
+<br /><span 
+class="cmtt-10">a</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> f(x</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> epsilon,</span><span 
+class="cmtt-10"> y)</span>
+<br /><span 
+class="cmtt-10">b</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> f(x,</span><span 
+class="cmtt-10"> y</span><span 
+class="cmtt-10"> +</span><span 
+class="cmtt-10"> epsilon)</span>
+<br /><span 
+class="cmtt-10">print(&#x0022;dz/dx</span><span 
+class="cmtt-10"> =&#x0022;,</span><span 
+class="cmtt-10"> a.infs)</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> #</span><span 
+class="cmtt-10"> Output:</span><span 
+class="cmtt-10"> dz/dx=</span><span 
+class="cmtt-10"> 7</span>
+<br /><span 
+class="cmtt-10">print(&#x0022;dz/dy</span><span 
+class="cmtt-10"> =&#x0022;,</span><span 
+class="cmtt-10"> b.infs)</span><span 
+class="cmtt-10"> </span><span 
+class="cmtt-10"> #</span><span 
+class="cmtt-10"> Output:</span><span 
+class="cmtt-10"> dz/dy</span><span 
+class="cmtt-10"> =</span><span 
+class="cmtt-10"> 8</span>
+</div>
+</div>
+<!--l. 498--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-80004"></a>misc</h3>
+<!--l. 500--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-90005"></a>Least square</h3>
+<!--l. 502--><p class="noindent" >In the least square method, the loss function is deﬁned as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x1-9001r30"></a>
+   <center class="math-display" >
+<img 
+src="machine_learning29x.png" alt="   ∑n           2
+L =    |ˆy(xi)− yi|,
+    i=1
+" class="math-display"  /></center></td><td class="equation-label">(30)</td></tr></table>
+<!--l. 505--><p class="nopar" >
 where <img 
-src="machine_learning27x.png" alt="ˆy"  class="circ"  />(<span 
+src="machine_learning30x.png" alt="ˆy"  class="circ"  />(<span 
 class="cmbx-10">x</span><sub><span 
 class="cmmi-7">i</span></sub>) is the output of the model for the input <span 
 class="cmbx-10">x</span><sub><span 
 class="cmmi-7">i</span></sub>, <span 
 class="cmmi-10">n </span>is the number of data points.
-</p><!--l. 323--><p class="indent" >   In the most general case, each data point considers of multiple independent variables and multiple
+</p><!--l. 509--><p class="indent" >   In the most general case, each data point considers of multiple independent variables and multiple
 dependent variables (<span 
 class="cmbx-10">x</span><span 
 class="cmmi-10">,</span><span 
@@ -787,15 +1693,14 @@ i.e.,
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-8002r28"></a>
-
+ id="x1-9002r31"></a>
    <center class="math-display" >
 <img 
-src="machine_learning28x.png" alt="         m∑
+src="machine_learning31x.png" alt="         m∑
 f (x,β) =    βjφj(x ),
          j=1
-" class="math-display"  /></center></td><td class="equation-label">(28)</td></tr></table>
-<!--l. 335--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(31)</td></tr></table>
+<!--l. 521--><p class="nopar" >
 where <span 
 class="cmmi-10">φ</span><sub><span 
 class="cmmi-7">j</span></sub>(<span 
@@ -812,25 +1717,26 @@ can be written as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-8003r29"></a>
+ id="x1-9003r32"></a>
    <center class="math-display" >
 <img 
-src="machine_learning29x.png" alt="             ∑m
-fi ≡ f(xi,β ) =  Xijβj.
-             j=1
-" class="math-display"  /></center></td><td class="equation-label">(29)</td></tr></table>
-<!--l. 340--><p class="nopar" >
+src="machine_learning32x.png" alt="              m
+f ≡ f(x ,β ) = ∑ X  β .
+ i     i     j=1  ij j
+" class="math-display"  /></center></td><td class="equation-label">(32)</td></tr></table>
+<!--l. 526--><p class="nopar" >
 For <span 
 class="cmmi-10">n </span>data points, the above can be written in matrix form:
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-8004r30"></a>
+ id="x1-9004r33"></a>
+
    <center class="math-display" >
 <img 
-src="machine_learning30x.png" alt="f = Xβ,
-" class="math-display"  /></center></td><td class="equation-label">(30)</td></tr></table>
-<!--l. 344--><p class="nopar" >
+src="machine_learning33x.png" alt="f = Xβ,
+" class="math-display"  /></center></td><td class="equation-label">(33)</td></tr></table>
+<!--l. 530--><p class="nopar" >
 where <span 
 class="cmbx-10">f </span>= (<span 
 class="cmmi-10">f</span><sub><span 
@@ -840,11 +1746,10 @@ class="cmmi-10">…</span><span
 class="cmmi-10">f</span><sub><span 
 class="cmmi-7">n</span></sub>)<sup><span 
 class="cmmi-7">T</span></sup>.
-</p><!--l. 347--><p class="indent" >   For linear least-square ﬁtting, we can solve the “normal equation” to get the ﬁtting coeﬃcients.
+</p><!--l. 533--><p class="indent" >   For linear least-square ﬁtting, we can solve the “normal equation” to get the ﬁtting coeﬃcients.
 Alternatively, one can use iterative methods, e.g., the gradient descent method, to minimize the
 mean square error over the coeﬃcients. The following is a complete example in Python:
 </p><div class="alltt">
-
 <div class="obeylines-v">            <span 
 class="cmtt-10">import</span><span 
 class="cmtt-10"> numpy</span><span 
@@ -1171,6 +2076,7 @@ class="cmtt-10"> 0</span>
 <br /><span 
 class="cmtt-10">while</span><span 
 class="cmtt-10"> i&#x003C;100:</span>
+
 <br /><span 
 class="cmtt-10"> </span><span 
 class="cmtt-10"> </span><span 
@@ -1202,22 +2108,21 @@ class="cmtt-10">plt.show()</span>
 </div>
 The loss function is deﬁned by the mean square error, which  is not directly used in the above code.
 Only the partial derivatives of the loss function is directly used.
-<!--l. 395--><p class="noindent" >
+<!--l. 581--><p class="noindent" >
 </p>
-   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
- id="x1-90005"></a>Logistic regression for binary classiﬁcation</h3>
-
-<!--l. 397--><p class="noindent" >Hypothesis function (the model): Denote the output of the model by <span 
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-100006"></a>Logistic regression for binary classiﬁcation</h3>
+<!--l. 583--><p class="noindent" >Hypothesis function (the model): Denote the output of the model by <span 
 class="cmmi-10">ŷ</span>, which is given by
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-9001r31"></a>
+ id="x1-10001r34"></a>
    <center class="math-display" >
 <img 
-src="machine_learning31x.png" alt="ˆy = σ(z),
-" class="math-display"  /></center></td><td class="equation-label">(31)</td></tr></table>
-<!--l. 401--><p class="nopar" >
+src="machine_learning34x.png" alt="ˆy = σ(z),
+" class="math-display"  /></center></td><td class="equation-label">(34)</td></tr></table>
+<!--l. 587--><p class="nopar" >
 where <span 
 class="cmmi-10">z </span>= <span 
 class="cmmi-10">w </span><span 
@@ -1229,27 +2134,28 @@ href="#x1-3005r4">4<!--tex4ht:ref: 23-7-28-p1 --></a>). The model is nonlinear i
 unknowns <span 
 class="cmmi-10">w </span>and <span 
 class="cmmi-10">b</span>.
-</p><!--l. 405--><p class="indent" >   The loss function is chosen as
+</p><!--l. 591--><p class="indent" >   The loss function is chosen as
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-9002r32"></a>
+ id="x1-10002r35"></a>
    <center class="math-display" >
 <img 
-src="machine_learning32x.png" alt="        m
-L = − 1-∑ [y log(ˆy )+ (1 − y)log(1− ˆy)],
-      m i=1  i    i        i        i
-" class="math-display"  /></center></td><td class="equation-label">(32)</td></tr></table>
-<!--l. 409--><p class="nopar" >
+src="machine_learning35x.png" alt="      1 m∑
+L = − m-  [yilog(ˆyi)+ (1 − yi)log(1− ˆyi)],
+        i=1
+" class="math-display"  /></center></td><td class="equation-label">(35)</td></tr></table>
+
+<!--l. 595--><p class="nopar" >
 where <span 
 class="cmmi-10">y</span><sub><span 
 class="cmmi-7">i</span></sub> is the correct answer of the ith training example (<span 
 class="cmmi-10">y</span><sub><span 
 class="cmmi-7">i</span></sub> can take only two values, 0 or 1). The
 value of <img 
-src="machine_learning33x.png" alt="y^i"  class="widehat"  /> is interpreted as the probability of <span 
+src="machine_learning36x.png" alt="y^i"  class="widehat"  /> is interpreted as the probability of <span 
 class="cmmi-10">y </span>being 1.
-</p><!--l. 414--><p class="indent" >   Because the model function is nonlinear and the loss function is complicated, there is usually no
+</p><!--l. 600--><p class="indent" >   Because the model function is nonlinear and the loss function is complicated, there is usually no
 closed-form solution that minimizes the loss function. Iterative methods, such as gradient descent, are
 needed to solve for <span 
 class="cmmi-10">w </span>and <span 
@@ -1257,7 +2163,7 @@ class="cmmi-10">b</span>. The partial derivatives needed in the gradient desent 
 written as </p><div class="eqnarray">
    <center class="math-display" >
 <img 
-src="machine_learning34x.png" alt="               [                              ]
+src="machine_learning37x.png" alt="               [                              ]
 ∂L- =   −-1 ∑   y 1σ′(z)x  − (1 − y)--1---σ′(z)x
 ∂w       m   i   iˆyi      i      i (1− ˆyi)     i
           1 ∑  {[  1            1   ]      }
@@ -1271,781 +2177,59 @@ src="machine_learning34x.png" alt="               [                             
           1 ∑  {[  yi −y^i ]         }
     =   −m-      ˆy-(1−-ˆy-) ˆyi(1− yˆi)xi
              i    i     i
-    =   −-1 ∑ [(yi − ^yi)xi]                                  (33)
+    =   −-1 ∑ [(yi − ^yi)xi]                                  (36)
          m   i
 " class="math-display"  /></center>
 </div>Using
    <table 
 class="equation"><tr><td><a 
- id="x1-9004r34"></a>
+ id="x1-10004r37"></a>
    <center class="math-display" >
 <img 
-src="machine_learning35x.png" alt="dσ-  -----1-------          2
+src="machine_learning38x.png" alt="dσ-  -----1-------          2
 dz = (1 + exp(− z))2 exp(− z) = σ exp(− z) = σ(1− σ)
-" class="math-display"  /></center></td><td class="equation-label">(34)</td></tr></table>
-<!--l. 440--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(37)</td></tr></table>
+<!--l. 626--><p class="nopar" >
 The above formula is simpliﬁed as
+
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-9005r35"></a>
+ id="x1-10005r38"></a>
    <center class="math-display" >
 <img 
-src="machine_learning36x.png" alt="              { [      ]         }
+src="machine_learning39x.png" alt="              { [      ]         }
 ∂L-  =  − 1-∑    -yi−y^i- σ(1− σ )xi
-∂w        m1 ∑ i{ [ˆyi(y1i−−y ˆy^ii)]         }
-     =  − m-∑ i  ˆyi(1− ˆyi) ˆyi(1− ˆyi)xi
+∂w        m1 ∑ i{ [ˆyi(y1−−y ˆy^i)]         }
+     =  − m-∑ i  ˆyi(i1−i ˆyi) ˆyi(1− ˆyi)xi
      =  − 1m-  i[(yi − y^i)xi]
-
-" class="math-display"  /></center></td><td class="equation-label">(35)</td></tr></table>
-<!--l. 452--><p class="nopar" >
+" class="math-display"  /></center></td><td class="equation-label">(38)</td></tr></table>
+<!--l. 638--><p class="nopar" >
 Similary, we obtain
 </p>
    <table 
 class="equation"><tr><td><a 
- id="x1-9006r36"></a>
+ id="x1-10006r39"></a>
    <center class="math-display" >
 <img 
-src="machine_learning37x.png" alt="∂L-= − 1-∑  (y − ^y).
-∂w     m  i   i   i
-" class="math-display"  /></center></td><td class="equation-label">(36)</td></tr></table>
-<!--l. 456--><p class="nopar" >
-</p><!--l. 458--><p class="noindent" >
+src="machine_learning40x.png" alt="∂L-= − 1-∑  (yi − ^yi).
+∂w     m  i
+" class="math-display"  /></center></td><td class="equation-label">(39)</td></tr></table>
+<!--l. 642--><p class="nopar" >
+</p><!--l. 645--><p class="noindent" >
 </p>
-   <h4 class="subsectionHead"><span class="titlemark">5.1   </span> <a 
- id="x1-100005.1"></a>Automatic diﬀerentiation</h4>
-<!--l. 460--><p class="noindent" >Forward: </p><div class="alltt">
-<div class="obeylines-v">            <span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Expression:</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __add__(self,</span><span 
-class="cmtt-10"> other):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> Plus(self,</span><span 
-class="cmtt-10"> other)</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __mul__(self,</span><span 
-class="cmtt-10"> other):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> Multiply(self,other)</span>
-<br /><span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Variable(Expression):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __init__(self,value):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.value</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> value</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> evaluate(self):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> self.value</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> derive(self,</span><span 
-class="cmtt-10"> v):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> 1</span><span 
-class="cmtt-10"> if</span><span 
-class="cmtt-10"> self</span><span 
-class="cmtt-10"> ==</span><span 
-class="cmtt-10"> v</span><span 
-class="cmtt-10"> else</span><span 
-class="cmtt-10"> 0</span>
-<br />
-<br /><span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Plus(Expression):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __init__(self,exp1,exp2):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp1</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp2</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> evaluate(self):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> self.a.evaluate()</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> self.b.evaluate()</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> derive(self,exp):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> self.a.derive(exp)</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> self.b.derive(exp)</span>
-
-<br />
-<br /><span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Multiply(Expression):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __init__(self,exp1,exp2):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp1</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp2</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> evaluate(self):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> self.a.evaluate()</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> self.b.evaluate()</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> derive(self,exp):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> (self.a.derive(exp)*self.b.evaluate()</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> +self.b.derive(exp)*self.a.evaluate())</span>
-<br />
-<br /><span 
-class="cmtt-10">#</span><span 
-class="cmtt-10"> Example:</span><span 
-class="cmtt-10"> derivatives</span><span 
-class="cmtt-10"> of</span><span 
-class="cmtt-10"> z</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> x</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> (x</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y)</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> y</span><span 
-class="cmtt-10"> at</span><span 
-class="cmtt-10"> (x,</span><span 
-class="cmtt-10"> y)</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> (2,</span><span 
-class="cmtt-10"> 3)</span>
-<br /><span 
-class="cmtt-10">x</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> Variable(2)</span>
-<br /><span 
-class="cmtt-10">y</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> Variable(3)</span>
-<br /><span 
-class="cmtt-10">z</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> x</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> (x</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y)</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> y</span>
-<br /><span 
-class="cmtt-10">print(z.evaluate())</span><span 
-class="cmtt-10"> #</span><span 
-class="cmtt-10"> z,</span><span 
-class="cmtt-10"> Output:</span><span 
-class="cmtt-10"> 19</span>
-<br /><span 
-class="cmtt-10">print(z.derive(x))</span><span 
-class="cmtt-10"> #</span><span 
-class="cmtt-10"> dz/dx,</span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> Output:</span><span 
-class="cmtt-10"> 7</span>
-<br /><span 
-class="cmtt-10">print(z.derive(y))</span><span 
-class="cmtt-10"> #</span><span 
-class="cmtt-10"> dz/dy,</span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> Output:</span><span 
-class="cmtt-10"> 8</span>
-</div>
-</div>
-This simple example illustrates many concepts:
-<!--l. 504--><p class="indent" >   * Class
-</p><!--l. 506--><p class="indent" >   * Operator overloading
-</p><!--l. 508--><p class="indent" >   * Subclass, inheritance
-</p><!--l. 510--><p class="indent" >   * Polymorphism
-</p><!--l. 512--><p class="indent" >   * Recursion
-</p><!--l. 514--><p class="indent" >    
-</p><!--l. 516--><p class="indent" >   The following is the backword (or reverse) method. This code is a little harder to understand than
-the the forward method. </p><div class="alltt">
-<div class="obeylines-v">            <span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Expression:</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __add__(self,</span><span 
-class="cmtt-10"> other):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> Plus(self,</span><span 
-class="cmtt-10"> other)</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __mul__(self,</span><span 
-class="cmtt-10"> other):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> return</span><span 
-class="cmtt-10"> Multiply(self,</span><span 
-class="cmtt-10"> other)</span>
-<br />
-<br /><span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Variable(Expression):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __init__(self,</span><span 
-class="cmtt-10"> value):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.value</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> value</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.partial</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> 0</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> evaluate(self):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> pass</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> derive(self,</span><span 
-class="cmtt-10"> seed):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.partial</span><span 
-class="cmtt-10"> +=</span><span 
-class="cmtt-10"> seed</span>
-<br />
-<br /><span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Plus(Expression):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __init__(self,</span><span 
-class="cmtt-10"> exp1,</span><span 
-class="cmtt-10"> exp2):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp1</span>
-
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp2</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.value</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> None</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> evaluate(self):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a.evaluate()</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b.evaluate()</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.value</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> self.a.value</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> self.b.value</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> derive(self,</span><span 
-class="cmtt-10"> seed):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a.derive(seed)</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b.derive(seed)</span>
-<br />
-<br /><span 
-class="cmtt-10">class</span><span 
-class="cmtt-10"> Multiply(Expression):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> __init__(self,</span><span 
-class="cmtt-10"> exp1,</span><span 
-class="cmtt-10"> exp2):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp1</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> exp2</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.value</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> None</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> evaluate(self):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a.evaluate()</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b.evaluate()</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.value</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> self.a.value</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> self.b.value</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> def</span><span 
-class="cmtt-10"> derive(self,</span><span 
-class="cmtt-10"> seed):</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.a.derive(self.b.value</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> seed)</span>
-<br /><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> self.b.derive(self.a.value</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> seed)</span>
-<br />
-<br /><span 
-class="cmtt-10">#</span><span 
-class="cmtt-10"> Example:</span><span 
-class="cmtt-10"> Finding</span><span 
-class="cmtt-10"> the</span><span 
-class="cmtt-10"> partials</span><span 
-class="cmtt-10"> of</span><span 
-class="cmtt-10"> z</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> x</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> (x</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y)</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> y</span><span 
-class="cmtt-10"> at</span><span 
-class="cmtt-10"> (x,</span><span 
-class="cmtt-10"> y)</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> (2,</span><span 
-class="cmtt-10"> 3)</span>
-<br /><span 
-class="cmtt-10">x</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> Variable(2)</span>
-<br /><span 
-class="cmtt-10">y</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> Variable(3)</span>
-<br /><span 
-class="cmtt-10">z</span><span 
-class="cmtt-10"> =</span><span 
-class="cmtt-10"> x</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> (x</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y)</span><span 
-class="cmtt-10"> +</span><span 
-class="cmtt-10"> y</span><span 
-class="cmtt-10"> *</span><span 
-class="cmtt-10"> y</span>
-<br /><span 
-class="cmtt-10">z.evaluate();</span><span 
-class="cmtt-10"> print(&#x0022;z</span><span 
-class="cmtt-10"> =&#x0022;,</span><span 
-class="cmtt-10"> z.value)</span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> #</span><span 
-class="cmtt-10"> Output</span><span 
-class="cmtt-10"> 19</span>
-<br /><span 
-class="cmtt-10">z.derive(1)</span>
-<br /><span 
-class="cmtt-10">print(x.partial)</span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> #</span><span 
-class="cmtt-10"> dz/dx</span><span 
-class="cmtt-10"> Output:</span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> 7</span>
-<br /><span 
-class="cmtt-10">print(y.partial)</span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> #</span><span 
-class="cmtt-10"> dz/dy</span><span 
-class="cmtt-10"> Output:</span><span 
-class="cmtt-10"> </span><span 
-class="cmtt-10"> 8</span>
-</div>
-</div>
    <h3 class="likesectionHead"><a 
- id="x1-110005.1"></a>References</h3>
-<!--l. 569--><p class="noindent" >
+ id="x1-110006"></a>References</h3>
+<!--l. 645--><p class="noindent" >
    </p><div class="thebibliography">
    <p class="bibitem" ><span class="biblabel">
  [1]<span class="bibsp">   </span></span><a 
  id="Xnielsen2015neural"></a>Michael A Nielsen. <span 
 class="cmti-10">Neural networks and deep learning</span>, volume 25. Determination Press:
    http://neuralnetworksanddeeplearning.com/, 2015.</p></div>
-<!--l. 575--><p class="indent" >    
-</p><!--l. 577--><p class="indent" >    
+
+<!--l. 651--><p class="indent" >    
+</p><!--l. 653--><p class="indent" >    
 </p>
     
 </body></html> 
