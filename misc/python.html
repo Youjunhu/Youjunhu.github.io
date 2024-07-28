@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
   <head>
-    <title>Programming in Python 3</title>
-    <meta content="TeXmacs 2.1.1" name="generator"></meta>
+    <title>Programming in Python</title>
+    <meta charset="utf-8" content="TeXmacs 2.1.4" name="generator"></meta>
     <style type="text/css">
       body { text-align: justify } h5 { display: inline; padding-right: 1em }
       h6 { display: inline; padding-right: 1em } table { border-collapse:
@@ -26,7 +26,10 @@
       .balloon-body { } .ornament { border-width: 1px; border-style: solid;
       border-color: black; display: inline-block; padding: 0.2em; } .right-tab
       { float: right; position: relative; top: -1em; } .no-breaks {
-      white-space: nowrap; } 
+      white-space: nowrap; } .underline { text-decoration: underline; }
+      .overline { text-decoration: overline; } .strike-through {
+      text-decoration: line-through; } del { text-decoration: line-through
+      wavy red; } .fill-out { text-decoration: underline dotted; } 
     </style>
   </head>
   <body>
@@ -34,8 +37,8 @@
       <tr>
         <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
           <tr>
-            <td><font style="font-size: 168.2%"><strong>Programming in Python
-            3</strong></font></td>
+            <td><font style="font-size: 168.2%"><strong>Programming in
+            Python</strong></font></td>
           </tr>
         </table><div class="compact-block" style="margin-top: 1em; margin-bottom: 1em">
           <table class="title-block">
@@ -48,7 +51,7 @@
                   <tbody><tr>
                     <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
                       <p>
-                        <class style="font-variant: small-caps">by Youjun Hu</class>
+                        <class style="font-variant: small-caps">Youjun Hu</class>
                       </p>
                     </center></td>
                   </tr></tbody>
@@ -79,100 +82,101 @@
     <p>
       
     </p>
-    <h2 id="auto-1">1<span style="margin-left: 1em"></span>Introduction<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-1">1.<span style="margin-left: 1em"></span>Introduction<span style="margin-left: 1em"></span></h2>
     <p>
-      Python is an interpreted, object-oriented, high-level programming
-      language with dynamic semantics. Its high-level built in data
-      structures, combined with dynamic typing and dynamic binding, make it
-      attractive for rapid application development, as well as for use as a
-      scripting or glue language to connect existing components together.
+      Python's emphasis on flexibility and readability, combined with
+      high-level builtin data structures, dynamically typed variables, and
+      verstile third-party libraries that are easily accessible, make it
+      attractive for rapid prototyping, as well as for use as a scripting
+      language to connect existing components together.
     </p>
     <p>
-      My primary use of Python is to read numerical data, analyze and
-      visualize these data by using libraries <code>numpy</code> and
-      <code>matplotlib</code>.
-    </p>
-    <p>
-      Python is case sensitive.
-    </p>
-    <p>
-      Python was designed for convenience and hence uses <strong>dynamically
-      typed</strong> variables.
-    </p>
-    <p>
-      Python is lexical scoped, like most contemporary programming languages.
+      Python is case sensitive. Python was designed for convenience and hence
+      uses <strong>dynamically typed</strong> variables. Python is lexical
+      scoped, which means the binding of a free variable inside a function can
+      be infered from where the function is defined, without considering where
+      the function is called (but the value of the free variable can depend on
+      where the function is called because the value of the free variable can
+      be modified somewhere).
     </p>
     <p>
       Python functions are first-class citizens, which means: they can be
       treated like any other variable, can be passed to a function, and can be
-      returned from any other function.
+      returned from a function.
     </p>
     <p>
-      Python, like most languages, is multi-paradigm: object-oriented,
-      procedural (imperative), and functional.
-    </p>
-    <p>
-      Python's sytax emphasizes readability and therefore reduces the cost of
-      program maintenance.
-    </p>
-    <p>
-      Python uses indentation for statement grouping. Leading whitespace
-      (spaces and tabs) at the beginning of a logical line is used to compute
-      the indentation level of the line, which in turn is used to determine
+      Python's syntax emphasizes readability, similar to natural English
+      (contrast to Perl). Python uses indentation for statement grouping.
+      Whitespace (spaces and tabs) at the beginning of a logical line is used
+      to compute the indentation level of the line, which is used to determine
       the grouping of statements (i.e. code blocks such as loops, branchings,
       function/class body). Indentation-based syntax is believed to enhances
-      source code readability. Most programming languages use brackets for
-      defining blocks (e.g., <code>C</code> and <code>Java</code> use
-      curly-brackets, Lisp/Scheme uses round-brackets).
+      source code readability, considering the fact that visual layout is
+      intuitively used by humans to perceive logical concepts.
     </p>
     <p>
-      A python statement can be delimited by a newline or semicolon. Therefore
-      semicolon can be used to put multiple statements in the same line. This
-      works only for some simples statements and does not work for compound
-      statements (e.g., loop) due to the requirement of the layout syntax.
-      Semicolons at the end of a Python command is not necessary, but if used,
-      can suppress some output in interactive modes.
+      Other reasons why python is popular: All Python (intepretor) releases
+      are open source. Python has an active community and lots of libraries
+      and documentation. Python works on many platforms (e.g. Linux, Windows,
+      Mac).
     </p>
     <p>
-      Python tries to keep the number of keywords small and many things in
-      practical programming are done by function calls, rather than keyword
-      statements. For example, early terminating a script is by function
-      calls, such as <code>exit()</code>, <code>sys.exit()</code>, and
-      <code>quit()</code>.
+      Comments in python: (1) anything after a hash (<code>#</code>) is a
+      comment. A comment signifies the end of the logical line unless the
+      implicit line joining rules are invoked.  (2) triple quotes introduce
+      string literals, which can have multiple-lines, and thus can serve as
+      multiple-line comments.
     </p>
+    <p>
+      A python statement ends at a hash or at the end of a line (exception for
+      open brackets, quotes, or parentheses). Semicolon can be used to put
+      multiple statements in the same line. (This works only for some simples
+      statements and does not work for compound statements due to the
+      requirement of the layout syntax.) This syntax makes it legal to put a
+      semicolon at the end of a single statement:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+print(&quot;hello&quot;);</pre>
+    <p>
+      This statement means print(&ldquo;hello&rdquo;) and then do nothing. So,
+      it's actually two statements where the second one is empty. This
+      semantics is often used as a hint in iteractive environments for
+      supressing output.
+    </p>
+    <h3 id="auto-2">1.1.<span style="margin-left: 1em"></span>Python reserved words<span style="margin-left: 1em"></span></h3>
     <p>
       The reserved words (keywords) in Python are as follows.
     </p>
     <p>
-      Value keywords: <code>True, False, None</code>
+      Value: <code>True, False, None</code>
     </p>
     <p>
-      Operator keywords: <code>and, or, not, in, is</code>
+      Operator: <code>and, or, not, in, is</code>
     </p>
     <p>
-      Control flow keywords: <code>if, elif, else</code>, <code>for, while,
-      break, continue, pass</code>, <code>return, yield</code>
+      Control flow: <code>if, elif, else</code>, <code>for, while, break,
+      continue, pass</code>, <code>return, yield</code>
     </p>
     <p>
-      Structure keywords: <code>def, class, lambda, with, as</code>
+      Structure definition: <code>def, class, lambda, with, as</code>
     </p>
     <p>
-      Variable handling keywords: <code>del, global, nonlocal</code>
+      Variable handling: <code>del, global, nonlocal</code>
     </p>
     <p>
-      Import module keywords: <code>import, from, as</code>
+      Import module: <code>import, from, as</code>
     </p>
     <p>
-      Exception-handling keywords: <code>try, except, raise, finally, else,
-      with, assert</code>
+      Exception-handling: <code>try, except, raise, finally, else, with,
+      assert</code>
     </p>
     <p>
-      Asynchronous programming keywords: <code>async, await</code>
+      Asynchronous programming: <code>async, await</code>
     </p>
     <p>
       The keywords <code>else</code> and <code>as</code> have additional uses
       beyond their initial use cases. The <code>else</code> keyword is used
-      with conditionals and loops as well as with <code>try</code> and
+      with conditionals and loops, as well as with <code>try</code> and
       <code>except</code>. The <code>as</code> keyword is used in
       <code>import</code> as well as in the <code>with</code> keyword.
     </p>
@@ -183,122 +187,64 @@
       in contexts related to the pattern matching statement, but this
       distinction is done at the parser level, not when tokenizing.
     </p>
-    <p>
-      A lexical analyzer breaks a file into tokens (a token is a string with
-      an assigned and thus identified meaning). The stream of tokens generated
-      by the lexical analyzer is then used as input to the parser.
-    </p>
-    <p>
-      Comments in python: (1) anything after a hash (<code>#</code>) in a line
-      is a comment. A comment signifies the end of the logical line unless the
-      implicit line joining rules are invoked.  (2) triple quotes introduce
-      string literals, which can have multiple-lines, and thus can serve as
-      multiple-line comments.
-    </p>
-    <h2 id="auto-2">2<span style="margin-left: 1em"></span>Run Python program<span style="margin-left: 1em"></span></h2>
-    <h4 id="auto-3">1<span style="margin-left: 1em"></span>Interactive mode<span style="margin-left: 1em"></span></h4>
-    <p>
-      In a Linux terminal, invoking <code>python</code> without any
-      comand-line option will enter the interactive mode, where we can type
-      python source code:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-yj@pic:~$ python
-&gt;&gt;&gt; 2 + 3
-5</pre>
-    <h4 id="auto-4">2<span style="margin-left: 1em"></span>Script file mode<span style="margin-left: 1em"></span></h4>
-    <p>
-      Create a Python script file <code>a.py</code> (by using any text
-      editor):
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-x = &quot;World&quot;
-print(&quot;Hello &quot; + x)</pre>
-    <p>
-      Then run it in a Linux terminal by specifying the interpreter and the
-      script file:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-python a.py</pre>
-    <p>
-      Another way (in Linux) is to specify the interpreter in the script file,
-      such as:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-#!/usr/bin/python3
-x = &quot;World&quot;
-print(&quot;Hello &quot; + x)</pre>
-    <p>
-      where the first line specifies the interpreter for the present script
-      file. Then we give executable permission to this file:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-chmod u+x a.py</pre>
-    <p>
-      And run it in a Linux terminal (assume that the file is in the present
-      directory):
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-./a.py</pre>
-    <h2 id="auto-5">3<span style="margin-left: 1em"></span>Use python module/library<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-3">2.<span style="margin-left: 1em"></span>Run Python code<span style="margin-left: 1em"></span></h2>
+    <h3 id="auto-4">2.1.<span style="margin-left: 1em"></span>Interactive mode<span style="margin-left: 1em"></span></h3>
+    <ul>
+      <li>
+        <p>
+          Using jupyter-notebook in a web-browser.
+        </p>
+      </li>
+      <li>
+        <p>
+          In a Linux terminal, invoking <code>python</code> without any
+          comand-line option will enter the interactive mode, where python
+          source code can be typed in and run.
+        </p>
+      </li>
+      <li>
+        <p>
+          Running short scripts directly from Shell. Use <code>python -c
+          '&lt;script&gt;'</code>. For example:
+        </p>
+        <pre class="verbatim" xml:space="preserve">
+python -c 'import math; t = math.pi; print(t)'</pre>
+      </li>
+    </ul>
+    <h3 id="auto-5">2.2.<span style="margin-left: 1em"></span>Script file mode<span style="margin-left: 1em"></span></h3>
+    <ul>
+      <li>
+        <p>
+          Create a Python script file <code>a.py</code> (by using any text
+          editor). Then run it in a Linux terminal by specifying the
+          interpreter and the script file: <code>python a.py</code>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Another way (in Linux) is to specify the interpreter in the first
+          line of a python script: <tt>#!/usr/bin/python3</tt>, and then give
+          executable permission to this file: <code>chmod u+x a.py</code>. And
+          run it in a Linux terminal: <code>./a.py</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          In emacs, I run a python code in a buffer by press F8, which runs a
+          python interpreter on the file.
+        </p>
+      </li>
+    </ul>
+    <h2 id="auto-6">3.<span style="margin-left: 1em"></span>Python modules<span style="margin-left: 1em"></span></h2>
     <p>
       In Python, a plain text file containing Python code that is intended to
       be directly executed by the user is usually called script, which is an
       informal term that means top-level program file. On the other hand, a
-      plain text file, which contains Python code that is designed to be
-      imported and used from another Python file, is called module. Use
-      <code>import</code> to get access to python  modules. For example:
+      plain text file, which contains Python code that is intended to be
+      imported and used from another Python file (or from the interactive
+      mode), is called a module.
     </p>
-    <pre class="verbatim" xml:space="preserve">
-import foo</pre>
-    <p>
-      Then python will look for a file with name being <code>foo.py</code>
-      first in the current directory and then in other directories assumed by
-      python. If the file is found, it will be loaded. Here <code>foo</code>
-      is called module name. More examples: 
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-import numpy as np
-import matplotlib.pyplot as plt</pre>
-    <p>
-      A module can contain executable statements as well as function
-      definitions. These statements are intended to initialize the module.
-      They are executed only the first time the module name is encountered in
-      an import statement.
-    </p>
-    <p>
-      Each module has its own private symbol table, which is used as the
-      global symbol table by all functions defined in the module. Thus, the
-      author of a module can use global variables in the module without
-      worrying about accidental clashes with a user's global variables. A user
-      of a module can access a module's global variables using
-      <code>modname.itemname</code>, no matter the item is a function or
-      regular variable.
-    </p>
-    <p>
-      Modules can import other modules. It is customary but not required to
-      place all import statements at the beginning of a module
-    </p>
-    <p>
-      There is a variant of the import statement that imports names from a
-      module directly into the importing module's symbol table. For example:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-from numpy import sin</pre>
-    <p>
-      which import a specific function to the current namespace. Another form
-      of <code>import</code> is
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-from math import *</pre>
-    <p>
-      This imports all names (except those beginning with an underscore)
-      defined in the <code>math</code> package directly in the calling
-      module's namespace. In most cases Python programmers do not use this
-      form since it introduces an unknown set of names into the interpreter,
-      possibly hiding some things you have already defined.
-    </p>
-    <h3 id="auto-6">3.1<span style="margin-left: 1em"></span>Install a new module<span style="margin-left: 1em"></span></h3>
+    <h3 id="auto-7">3.1.<span style="margin-left: 1em"></span>Install a new module<span style="margin-left: 1em"></span></h3>
     <p>
       Command tool <tt class="verbatim"><code>python3-pip</code></tt> can be used to
       install a new package. For example, in a linux terminal,
@@ -308,36 +254,95 @@ pip3 install numpy</pre>
     <p>
       will install the <code>numpy</code> package.
     </p>
-    <h2 id="auto-7">4<span style="margin-left: 1em"></span>Objects, types, values, and name binding<span
-    style="margin-left: 1em"></span></h2>
+    <h3 id="auto-8">3.2.<span style="margin-left: 1em"></span>Use modules<span style="margin-left: 1em"></span></h3>
+    <p>
+      Use <code>import</code> to get access to python  modules. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+import foo</pre>
+    <p>
+      Then python will look for a file with name being <code>foo.py</code>
+      first in the current directory and then in other directories assumed by
+      python. If the file is found, it will be loaded. Here <code>foo</code>
+      is called module name.
+    </p>
+    <p>
+      It is customary to place all import statements at the beginning of a
+      python file. More examples: 
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+import numpy as np
+import matplotlib.pyplot as plt</pre>
+    <p>
+      Modules can import other modules. A module usually only contain function
+      definitions. But a module can also contain executable statements. These
+      statements are intended to initialize the module. They are executed only
+      the first time the module name is encountered in an import statement.
+    </p>
+    <p>
+      Each module has its own namespace, which is used as the global namespace
+      by all functions defined in the module. Thus, the author of a module can
+      use global variables in the module without worrying about accidental
+      clashes with a user's global variables (this rule is just the lexical
+      scoping). A user of a module can access global variables of a module by
+      prefixing the variable with the namespace, i.e.,
+      <code>modname.itemname</code>.
+    </p>
+    <p>
+      We can also imports names from a module directly into the importing
+      module's symbol table. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+from numpy import sin</pre>
+    <p>
+      which import a specific function to the current namespace. In this case,
+      the namespace of numpy is not imported. Then <code>sin</code> can not be
+      accessed by using <code>numpy.sin</code>.
+    </p>
+    <p>
+      Another form of <code>import</code> is
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+from math import *</pre>
+    <p>
+      This imports all names (except those beginning with an underscore)
+      defined in the <code>math</code> package directly in the calling
+      module's namespace. In most cases Python programmers do not use this
+      form since it introduces an unknown set of names into the namespace,
+      shadowing some things you have already defined if there are name
+      collisions.
+    </p>
+    <h2 id="auto-9">4.<span style="margin-left: 1em"></span>Objects, types, values, and name
+    binding<span style="margin-left: 1em"></span></h2>
     <p>
       Objects are Python's abstraction for data. All data in a Python program
-      is represented by objects or by relations between objects. Every object
-      has an identity, a type, and a value. An object's identity never changes
-      once it has been created; you may think of it as the object's address in
-      memory. The <code>id()</code> function returns an integer representing
-      its identity. The &lsquo;<code>is</code>' operator compares the identity
-      of two objects; 
+      is represented by objects. Every object has an identity, a type, and a
+      value.
+    </p>
+    <p>
+      An object's identity never changes once it has been created; you may
+      think of it as the object's address in memory. The <code>id()</code>
+      function returns an integer representing its identity. The
+      &lsquo;<code>is</code>' operator compares the identity of two objects.
     </p>
     <p>
       An object's type determines the operations that the object supports and
       also defines the possible values for objects of that type. The
-      <code>type()</code> function returns an object's type (which is an
-      object itself). Like its identity, an object's type is also
-      unchangeable.
+      <code>type()</code> function returns an object's type. Like its
+      identity, an object's type is also unchangeable.
     </p>
     <p>
       Some objects contain other objects; these are called containers.
       Examples of containers are tuples, lists, sets, and dictionaries.
     </p>
     <p>
-      The value of some objects can change. Objects whose value can change are
-      said to be mutable; objects whose value is unchangeable once they are
-      created are called immutable. The value of an immutable container object
-      that contains a mutable object can change when the latter's value is
-      changed; however the container is still considered immutable, because
-      the <code>id()</code> of its element are not changed. So, immutability
-      is not strictly the same as having an unchangeable value. 
+      Objects whose (first-level) elements are unchangeable once they are
+      created are called immutable. An immutable object can contain an element
+      that is a mutable object. When the elements of the contained mutable
+      object are changed, the value of the imuutable object is changed.
+      However the container is still considered immutable because the
+      <code>id()</code> of its element are not changed. So, immutability is
+      not the same as having an unchangeable value. 
     </p>
     <p>
       An object's mutability is determined by its type; for instance, numbers,
@@ -354,9 +359,9 @@ pip3 install numpy</pre>
       guaranteed to refer to two different, unique, newly created empty lists.
     </p>
     <p>
-      All python's objects were based on a C data structure and its variations
-      no matter the object is a simple object such as an integer, i.e.,
-      primitive, or something more complicated such as a class.
+      All python's objects were based on the C data structure no matter the
+      object is a simple object such as an integer, i.e., primitive, or
+      something more complicated such as a class.
     </p>
     <p>
       On high level of abstraction, concepts in python can be categorized into
@@ -374,18 +379,20 @@ pip3 install numpy</pre>
     </p>
     <p>
       Objects have individuality, and multiple names can be bound to the same
-      object. This is known as aliasing in some languages. Let us first
-      discuss the most basic name binding operation&mdash;assignements. The
-      Python assignment operator is <code>=</code>. Python assignment
-      statements do not return values.  For example
+      object. This is known as aliasing. 
+    </p>
+    <p>
+      Let us first discuss the most basic name binding
+      operation&mdash;assignements:
     </p>
     <pre class="verbatim" xml:space="preserve">
 a = 1
 b = 1</pre>
     <p>
       Then <code>a</code> and <code>b</code> may or may not refer to the same
-      object (this can be checked with the build-in function
-      <code>id()</code>.)
+      object (this can be checked with the build-in function <code>id()</code>
+      or using <code>a is b</code>, which, in my case, returns
+      <code>True</code>)
     </p>
     <pre class="verbatim" xml:space="preserve">
 a = []
@@ -393,7 +400,8 @@ b = []</pre>
     <p>
       Here two objects (empty lists) are created in memory, and are named as
       <code>a</code> and <code>b</code>, respectively. Therefore
-      <code>a</code> and <code>b</code> refer to the different objects.
+      <code>a</code> and <code>b</code> are guaranteed to refer to two
+      different objects. Consider another example:
     </p>
     <pre class="verbatim" xml:space="preserve">
 a = []
@@ -404,35 +412,82 @@ b = a</pre>
       <code>b</code> refer to the same object.
     </p>
     <p>
-      Python's built-in types include bool, numerics, sequences, mappings,
-      classes, instances, and exceptions. Numeric types includes  int, float,
-      and complex. Sequence types include list, tuple, string, and range.
-      Mapping Types &mdash; dict,
+      Objects are never explicitly destroyed; the may be implicitly destoyed:
+      when they become unreachable they may be garbage-collected. An
+      implementation is allowed to postpone garbage collection or omit it
+      altogether &mdash; it is a matter of implementation quality how garbage
+      collection is implemented, as long as no objects are collected that are
+      still reachable.
     </p>
     <p>
-      sets,
+      Python assignment statements do not return values.
     </p>
     <p>
-      Objects are never explicitly destroyed; however, when they become
-      unreachable they may be garbage-collected. An implementation is allowed
-      to postpone garbage collection or omit it altogether &mdash; it is a
-      matter of implementation quality how garbage collection is implemented,
-      as long as no objects are collected that are still reachable.
+      Python adopts dynamical typing, which means type checking happens at run
+      time. In dynamically typed languages, typing is associated with the
+      object that a variable refers to rather than the variable itself.
+      Therefor there is no type declaration for variables. And a variable
+      pointing to an object of a type can be later used to point to an object
+      of another type.
     </p>
-    <h3 id="auto-8">4.1<span style="margin-left: 1em"></span>Argument unpacking<span style="margin-left: 1em"></span></h3>
     <p>
-      Argument unpacking is the idea that a tuple can be split into several
-      variables depending on the length of the sequence. For instance, you can
-      unpack a tuple of two elements into two variables:
+      Here is the type h<strong></strong>ierarchy of Python:
+    </p>
+    <p>
+      <span style="margin-left: 2em"></span>* Numbers:
+    </p>
+    <p>
+      <span style="margin-left: 4em"></span>* Integral: Plain Integers, Long Integers, Booleans.
+    </p>
+    <p>
+      <span style="margin-left: 4em"></span>* Non-Integral: Floating point numbers, Decimals
+      &amp; Fractions,
+    </p>
+    <p>
+      <span style="margin-left: 11em"></span>Complex numbers.
+    </p>
+    <p>
+      <span style="margin-left: 2em"></span>* Collections:
+    </p>
+    <p>
+      <span style="margin-left: 5em"></span>* Sequences: string, tuple, list, byte.
+    </p>
+    <p>
+      <span style="margin-left: 5em"></span>* Sets: set.
+    </p>
+    <p>
+      <span style="margin-left: 5em"></span>* Maps: Dictionary.
+    </p>
+    <p>
+      <span style="margin-left: 2em"></span>* Callables: functions, generators, classes,
+      methods.
+    </p>
+    <p>
+      <span style="margin-left: 2em"></span>* Singleton:  None, NotImplemented, Ellipsis
+      (&hellip;), exceptions.
+    </p>
+    <h3 id="auto-10">4.1.<span style="margin-left: 1em"></span>Parallel assignments, comma operator,
+    unpacking<span style="margin-left: 1em"></span></h3>
+    <pre class="verbatim" xml:space="preserve">
+a, b = 0, 1</pre>
+    <p>
+      This is known as parallel assignment. If the right-hand side of the
+      assignment is a single variable (e.g. a list or tuple), the feature is
+      called unpacking or destructuring assignment:
     </p>
     <pre class="verbatim" xml:space="preserve">
-t = (2, 3)
-a, b = t</pre>
+a, b = (2, 3)</pre>
     <p>
-      In a for loop, argument unpacking can be used along the built-in zip(),
-      which allows you to iterate through two or more sequences at the same
-      time. On each iteration, zip() returns a tuple that collects the
-      elements from all the sequences that were passed:
+      This unpacks a tuple of two elements into two variables.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      In a for loop, argument unpacking can be used along the built-in
+      <code>zip()</code>, which allows you to iterate through two or more
+      sequences at the same time. On each iteration,  <code>zip()</code>
+      returns a tuple that collects one element from each of the sequences:
     </p>
     <pre class="verbatim" xml:space="preserve">
 &gt;&gt;&gt; first = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
@@ -445,53 +500,38 @@ a d g
 b e h
 c f i</pre>
     <p>
-      More examples of argument unpacking (structured assignments):
+      More examples of unpacking:
     </p>
     <p>
       <code><p>
-        a,b,c = 1,2,3
+        (a, b) = (10, (20,30))
       </p><p>
-        (a, (b,c)) = (10, (20,30))
+        a, b<span style="margin-left: 1em"></span>= (10, (20,30))
       </p><p>
         [x,y] = [2,3]
       </p><p>
+        x,y<span style="margin-left: 1em"></span>= [2,3]
+      </p><p>
         a,b,c = 'Hey'
       </p><p>
-        p, *q = &ldquo;Hello&rdquo; # q will refer to a list containing
-        characters after &ldquo;H&rdquo;
+        p, *q = &ldquo;Hello&rdquo; # p will be &ldquo;H&rdquo; and q will be
+        the rest
+      </p><p>
+        p, *q, j = [1,2,3,4,5]
       </p></code>
     </p>
     <p>
-      This kind of structure assignments appear often in everyday coding, in a
-      disguised way when  several variables are assigned with values of a
-      function which returns multiply items. For example:
+      This kind of unpacking appear often in everyday coding, in a disguised
+      way when  several variables are bound to the return value of a function
+      which returns multiply items. For example:
     </p>
     <pre class="verbatim" xml:space="preserve">
 import matplotlib.pyplot as plt
 fig, ax = plt.subplots()
 fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
 fig, ((ax1, ax2),(ax3,ax4)) = plt.subplots(nrows=2, ncols=2)</pre>
-    <p>
-      Python adopts dynamical and strong typing system, where &ldquo;dynmical
-      typing&rdquo; means type checking happens at run time.  In dynamically
-      typed languages, typing is associated with the object that a variable
-      refers to rather than the variable itself (a variable is a pointer
-      pointing to the location where a value is stored). Therefor there is no
-      type declaration for variables in dynamically typed languages. And a
-      variable pointing to an object of a type can be later used to point to
-      an object of another type.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <h2 id="auto-9">5<span style="margin-left: 1em"></span>Flow control<span style="margin-left: 1em"></span></h2>
-    <h3 id="auto-10">5.1<span style="margin-left: 1em"></span>Logical expressions<span style="margin-left: 1em"></span></h3>
-    <p>
-      Relation operators and logical operators in python are:
-    </p>
+    <h2 id="auto-11">5.<span style="margin-left: 1em"></span>Flow control<span style="margin-left: 1em"></span></h2>
+    <h3 id="auto-12">5.1.<span style="margin-left: 1em"></span>Logical expressions<span style="margin-left: 1em"></span></h3>
     <table style="width: 100%">
       <tbody><tr>
         <td style="text-align: center; padding-left: 0em; padding-right: 0em"><table style="display: inline-table; vertical-align: middle">
@@ -526,7 +566,7 @@ fig, ((ax1, ax2),(ax3,ax4)) = plt.subplots(nrows=2, ncols=2)</pre>
       </tr><tr>
         <td style="text-align: center; padding-left: 0em; padding-right: 0em"><div class="caption">
           <font style="font-size: 84.1%"><p>
-            <b>Table 1. </b><a id="auto-11"></a>Relation operators
+            <b>Table 1. </b><a id="auto-13"></a>Relation operators
           </p></font>
         </div></td>
       </tr></tbody>
@@ -550,17 +590,18 @@ fig, ((ax1, ax2),(ax3,ax4)) = plt.subplots(nrows=2, ncols=2)</pre>
       </tr><tr>
         <td style="text-align: center; padding-left: 0em; padding-right: 0em"><div class="caption">
           <font style="font-size: 84.1%"><p>
-            <b>Table 2. </b><a id="auto-12"></a>Logical operators
+            <b>Table 2. </b><a id="auto-14"></a>Logical operators
           </p></font>
         </div></td>
       </tr></tbody>
     </table>
     <p>
       The returned values by the above operators are of logical type (also
-      called bool). (Logical type is a subclass of int.) Logical expressions
-      can be used in several ways, most commonly in conditionals and loops.
+      called bool). (Logical type is a subclass of integral numbers.) Logical
+      expressions can be used in several ways, most commonly in conditionals
+      and loops.
     </p>
-    <h3 id="auto-13">5.2<span style="margin-left: 1em"></span>Conditionals<span style="margin-left: 1em"></span></h3>
+    <h3 id="auto-15">5.2.<span style="margin-left: 1em"></span>Conditionals<span style="margin-left: 1em"></span></h3>
     <p>
       Python <code>if</code> structure takes the following form:
     </p>
@@ -572,9 +613,11 @@ elif a&lt;0:
 else:
     print(&quot;a is positive&quot;)</pre>
     <p>
-      The blocks in a <code>if</code> structur does not introduce a new scope.
-      Therefore, if new variables are defined in the blocks, they are still
-      visible outside the <code>if</code> structure.
+      The blocks in a <code>if</code> structure does not introduce a new
+      scope. Therefore, if new variables are defined in the blocks, they are
+      defined in the global namespace and thus will be still visible outside
+      the <code>if</code> structure. The same applies to the loop structure.
+      (This is different from C)
     </p>
     <p>
       One-line <code>if</code> structure:
@@ -595,18 +638,30 @@ print(&quot;A&quot;) if a &gt; b else print(&quot;B&quot;)</pre>
     <pre class="verbatim" xml:space="preserve">
 abs_a = (a if a&gt;=0 else -a)</pre>
     <p>
-      Another usage of the one-line  <code>if</code> structure is in the list
-      comprehension:
+      Another usage of the one-line <code>if</code> structure is in the list
+      comprehension (although not very readable):
     </p>
     <pre class="verbatim" xml:space="preserve">
 &gt;&gt;&gt; original_prices = [1.25, -9.45, 10.22, 3.78, -5.92, 1.16]
 &gt;&gt;&gt; prices = [i if i &gt; 0 else 0 for i in original_prices]
 &gt;&gt;&gt; prices
 [1.25, 0, 10.22, 3.78, 0, 1.16]</pre>
-    <h3 id="auto-14">5.3<span style="margin-left: 1em"></span>Loop structure<span style="margin-left: 1em"></span></h3>
+    <p>
+      A more readable way would be defining a function and using that function
+      in the comprehension:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def f(i):
+    return i if i&gt;0 else 0
+prices = [f(i) for i in original_prices]</pre>
+    <h3 id="auto-16">5.3.<span style="margin-left: 1em"></span>Loop structure<span style="margin-left: 1em"></span></h3>
     <p>
       Python has two primitive loops: <code>while</code> loop and
       <code>for</code> loop.
+    </p>
+    <h4 id="auto-17">5.3.1.<span style="margin-left: 1em"></span>While-loop<span style="margin-left: 1em"></span></h4>
+    <p>
+      
     </p>
     <pre class="verbatim" xml:space="preserve">
 i = 1 # while-loop requires relevant variables to be ready
@@ -614,44 +669,19 @@ while i &lt; 6:
      print(i)
      i = i + 1</pre>
     <p>
-      The above <code>while</code> loop is quite similar to those in Fortran
-      and C.
+      The above <code>while</code> loop is similar to those in Fortran and C.
     </p>
+    <h4 id="auto-18">5.3.2.<span style="margin-left: 1em"></span>Collection-based loop: For-loop<span
+    style="margin-left: 1em"></span></h4>
     <p>
-      Another python loop structure is the <code>for</code> loop, which is
-      used for iterating over a <strong>sequence</strong> (that is either a
-      list, a tuple, a dictionary, a set, or a string)
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-for x in sequence:
-    body</pre>
-    <p>
-      The above <code>for</code> loop is less like the <code>for</code> loop
-      in C programming language, which looks like the following:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-for(i=start; i&lt;some_threthod; some_operation_modifying_i) {loop_body}</pre>
-    <p>
-      which is essentially a <code>while</code> loop discussed above.
-    </p>
-    <p>
-      Python for-loop is collection based loop, which means it is always used
-      in combination with an iterable object, like a list or a range. With
-      python <code>for</code> loop, we can execute a set of statements, once
-      for each item in a sequence. For example:
+      Another python loop structure is the <code>for</code> loop, which
+      iterates over an iterable object, capturing each element to a local
+      variable for use by the attached block. For example:
     </p>
     <pre class="verbatim" xml:space="preserve">
 fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
-for  x in fruits:
+for x in fruits:
     print(x)</pre>
-    <pre class="verbatim" xml:space="preserve">
-for x in range(0, 3):
-    print(x)</pre>
-    <p>
-      <code>continue</code> and <code>break</code> are similar to
-      <code>cycle</code> and <code>exit</code> of Fortran and can be used in
-      both <code>while</code> and <code>for</code> structures.
-    </p>
     <p>
       In the above, <code>x</code> acts as a dummy variable, which does not
       need to be defined before the loop. The <code>for</code> loop does not
@@ -663,23 +693,24 @@ for x in range(0, 3):
     </p>
     <p>
       Note that the keyword <code>in</code> is used in Python for two
-      different purposes: (1) The <code>in</code> keyword is used to check if
-      a value is present in a sequence (list, range, string etc.). (2) The
-      <code>in</code> keyword is also used to iterate through a sequence in a
-      <code>for</code> loop.
+      different (but related) purposes: (1) The <code>in</code> keyword is
+      used to check if a value is present in a sequence (list, range, string
+      etc.). (2) Combined with <code>for</code>, it is used to iterate through
+      a sequence.
+    </p>
+    <p>
+      The <code>continue</code> statement skips the remainder of the current
+      iteration and continues with the next. The <code>break</code> satement
+      exits a loop.
     </p>
     <p>
       The advantage of collection-based iteration is that it helps avoid the
-      off-by-one error that is common in other programming languages.
+      off-by-one bug (considered as the No. 1 bug by programmers) that is
+      common in other programming languages. The collection-based iteration is
+      borrowed from bash?
     </p>
     <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Nested loops:
+      Collection-based loop can also be nested. For example
     </p>
     <pre class="verbatim" xml:space="preserve">
 list_of_lists = [ [1, 2, 3], [4, 5, 6], [7, 8, 9]]
@@ -687,81 +718,45 @@ for list in list_of_lists:
     for x in list:
         print(x)</pre>
     <p>
-      The <code>with</code> statement clarifies code that previously would use
-      try&hellip;finally blocks to ensure that clean-up code is executed. The
-      with statement is a control-flow structure whose basic structure is:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-with expression [as variable]:
-    with-block</pre>
-    <p>
-      The expression is evaluated, and it should result in an object that
-      supports the context management protocol (that is, has
-      <code>__enter__()</code> and <code>__exit__()</code> methods).
-    </p>
-    <p>
-      The classic example is opening a file, manipulating the file, then
-      closing it:
-    </p>
-    <p>
       
     </p>
-    <pre class="verbatim" xml:space="preserve">
- with open('output.txt', 'w') as f:
-     f.write('Hi there!')</pre>
+    <font color="blue"><p>
+      The collection-based <tt>for</tt> loop is less like the <code>for</code>
+      loop in C, which looks like the following:
+    </p><pre class="verbatim" xml:space="preserve">
+for(i=start; i&lt;some_threthod; some_operation_modifying_i) {loop_body}</pre><p>
+      which is essentially a <code>while</code> loop discussed above.
+    </p></font>
+    <h2 id="auto-19">6.<span style="margin-left: 1em"></span>Functions<span style="margin-left: 1em"></span></h2>
+    <h3 id="auto-20">6.1.<span style="margin-left: 1em"></span>Define and call a function<span style="margin-left: 1em"></span></h3>
     <p>
-      The above with statement will automatically close the file after the
-      nested block of code. The advantage of using a with statement is that it
-      gaurantee that the file will be closed no matter how the nested block
-      exits. If an exception occurs before the end of the block, it will close
-      the file before the exception is caught by an outer exception handler.
-      If the nested block were to contain a return statement, or a continue or
-      break statement, the with statement would automatically close the file
-      in those cases, too.
-    </p>
-    <p>
-      
-    </p>
-    <h2 id="auto-15">6<span style="margin-left: 1em"></span>Function<span style="margin-left: 1em"></span></h2>
-    <h3 id="auto-16">6.1<span style="margin-left: 1em"></span>Define and call a function<span style="margin-left: 1em"></span></h3>
-    <p>
-      Use keyword <code>def</code> to define a function. The syntax is as
-      follows:
+      Use keyword <code>def</code> to define a function:
     </p>
     <pre class="verbatim" xml:space="preserve">
 def func_name ( arg1, arg2, argN ):
     some_codes
     return something</pre>
     <p>
-      The function name follows the keyword <code>def</code>. Then the list of
-      parameters, a colon, and a newline follow. Increase indent, the body of
-      the function definition starts (use <code>return</code> to return
-      value). Going back to the original indent terminates the function
-      definition. For example:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-def sum(ls):
-    s = 0
-    for x in ls:
-        s = s + x
-    return s</pre>
-    <p>
       Call a function:
     </p>
     <pre class="verbatim" xml:space="preserve">
-sum([1,2,3]) # call the function defined above, the result is 6
-a = sum([1,2,3]) #call the function and assign the returned value to a variable</pre>
+func_name(arg1, arg2, argN) #the returned value is not captured
+a = func_name(arg1, arg2, argN)</pre>
+    <p>
+      Note that a bare function name without a parameter tuple refers to a
+      function object rather than calling a function.
+    </p>
     <p>
       Functions can return multiple items:
     </p>
     <pre class="verbatim" xml:space="preserve">
 def func():
-    return 'a', 3, (1,2,3)  # returns a tuple of 3 elements (str, int, tuple)
+    return 'a', 3, (1,2,3)  # returns a tuple of 3 elements
 x1, x2, x3 = func()  # unpacks the tuple of 3 elements into 3 vars
 # x1: 'a'
 # x2: 3
 # x3: (1,2,3)</pre>
-    <h3 id="auto-17">6.2<span style="margin-left: 1em"></span>Arguments are passed by assignment<span
+    <h3 id="auto-21">6.2.<span style="margin-left: 1em"></span>Arguments are passed by assignment<span
     style="margin-left: 1em"></span></h3>
     <p>
       Some languages (e.g. Fortran) handle function arguments as references to
@@ -784,8 +779,8 @@ x1, x2, x3 = func()  # unpacks the tuple of 3 elements into 3 vars
       because actual argument and dummy argument are two names.
     </p>
     <p>
-      The above two facts can be summarized as &ldquo;arguments are passed by
-      assignment&rdquo;, i.e., 
+      Using the semantics of the assigenment in Python, the above facts can be
+      summarized as &ldquo;arguments are passed by assignment&rdquo;, i.e., 
     </p>
     <pre class="verbatim" xml:space="preserve">
 dummy_argument = actual_argument</pre>
@@ -795,8 +790,9 @@ dummy_argument = actual_argument</pre>
       use <code>dummy_argument[0] = some_thing</code>, then this will also
       modify <code>actual_argument[0]</code>. Therefore the effect of
       &ldquo;pass by reference&rdquo; can be achieved by modifying the
-      components/attributes of the object reference passed in. Of course, this
-      requires that the object passed is a mutable object.
+      components/attributes of the object reference passed in. (In practice,
+      returning multiple values from functions is usually better than
+      employing the effect of passing by reference.)
     </p>
     <p>
       To make comparison with other languages, you can say Python passes
@@ -804,26 +800,72 @@ dummy_argument = actual_argument</pre>
       &quot;by reference&quot; you are actually passing by value the reference
       (i.e., the pointer)
     </p>
+    <h3 id="auto-22">6.3.<span style="margin-left: 1em"></span>Parameter list<span style="margin-left: 1em"></span></h3>
     <p>
-      In practical programming, returning multiple values from functions is
-      usually better than employing the effect of passing by reference.
+      The format of parameter list of a function defintion determines the
+      possible ways in which the user provides actual arguments. The following
+      are typical parameter lists:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def f(x, y):  #case1
+def f(x, y=0): #case2: optional parameters with default values
+def f(x, y, *, z): #case3
+def f(x, y, /, w, q, *, z): #case4
+def f(x, y, *arg, **kwarg): #case5
+def f(x, y=0, *arg, **kwarg): #case6</pre>
+    <p>
+      For case1,  <code>f</code> can be called with positional arguments (e.g.
+      f(2,3)), keywords arguments (e.g., f(x=2, y=3)), or the mixed way
+      (e.,g., f(x, y=3)). For the mixed way, positional arguments must go
+      first and then keyword arguments. The advantage of keyword arguments is
+      that they may be specified in arbitrary order.
     </p>
     <p>
-      
+      In case2,  we use <code>par = value</code> to define a parameter with a
+      default value. Default parameters are introduced to allow some arguments
+      to be omitted when the function is called (i.e., they are optional).
+      Non-defualt parameters are not allowed after a default parameter. For
+      example, <code>def f(x, y=0, z):</code> will generate SyntaxError.
     </p>
-    <h3 id="auto-18">6.3<span style="margin-left: 1em"></span>Arguments packing and unpacking<span style="margin-left: 1em"></span></h3>
     <p>
-      A formal argument (dummy argument), which appear in a function
-      defintion, is often referred to as &ldquo;parameter&rdquo;. The actual
-      argument, which appears in a function call, is often referred to as
-      &ldquo;argument&rdquo;. When seeing the word &ldquo;argument&rdquo;, we
-      need to judge from the contex whether it refers to a formal argument or
-      actual argument.
+      Default parameter values are defined only once when the function is
+      defined (that is, when the <code>def</code> statement is executed). If
+      you specify a mutable object as the default value for a parameter and
+      the function is called mutiple times with the default parameter omitted,
+      then the operation on the object will be accumated (e.g., appending to a
+      list).
+    </p>
+    <p>
+      Note that <strong>optional/default</strong> parameters and keyword
+      arguments take similar froms. The difference is that optional/default
+      parameters are for function defintion while keywords arguments are for
+      function invokation.
+    </p>
+    <p>
+      Cases 3 and 4: A bare star &ldquo;<code>*</code>&rdquo; indicates all
+      the following parameters are keyword-only parameters. A
+      &ldquo;<code>/</code>&rdquo; indicates all parameter before it are
+      position-only parameters.
+    </p>
+    <p>
+      Case 5 and case 6 are explained in the following section.
+    </p>
+    <h4 id="auto-23">6.3.1.<span style="margin-left: 1em"></span>Arguments packing<span style="margin-left: 1em"></span></h4>
+    <p>
+      A dummy argument, which appear in a function defintion, is often
+      referred to as &ldquo;parameter&rdquo;. An actual argument, which
+      appears in a function call, is often referred to as
+      &ldquo;argument&rdquo;. But most people do not stick to this rule and
+      use &ldquo;argument&rdquo;/&ldquo;parameter&rdquo; without specifying
+      whether it is a dummy or actual argument. Therefore, when seeing the
+      word &ldquo;argument&rdquo;, we need to judge from the contex whether it
+      refers to a dummy argument or actual argument. I will use
+      &ldquo;formal&rdquo;/&ldquo;actual&rdquo; to distinguish between them.
     </p>
     <p>
       Besides standard positional arguments, there is a special formal
-      argument that can accept a group of positional arguments and pack them
-      into a single iterable object:
+      argument that can accept a group of positional arguments (not keyword
+      arguments) and pack them into a single iterable object:
     </p>
     <pre class="verbatim" xml:space="preserve">
 def my_sum(*args):
@@ -831,61 +873,51 @@ def my_sum(*args):
     for x in args:
         result += x
     return result
-
-print(my_sum(1, 2, 3))</pre>
+&gt;&gt;&gt; my_sum(1, 2, 3)
+6</pre>
     <p>
-      Here my_sum() takes all the parameters that are provided in the input
-      and packs them all into a single iterable object (named
-      <code>args</code> in this case). The name <code>args</code> does not
-      mather. All that matters here is that you use the unpacking operator (*)
-      before <code>args</code>.
+      Here <code>my_sum()</code> takes all the actual arguments and packs them
+      into a single iterable object (named <code>args</code> in this case).
+      The name <code>args</code> does not matter. All that matters here is
+      that you use the unpacking operator (*) before <code>args</code>.
+    </p>
+    <p>
+      **kwargs works just like *args, but instead of accepting positional
+      arguments it accepts keyword (or named) arguments. Take the following
+      example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def concatenate(**kwargs):
+    result = &quot;&quot;
+    for arg in kwargs.values():
+        result += arg
+    return result
+print(concatenate(a=&quot;Hello&quot;, b=&quot;World&quot;, c=&quot;!&quot;))</pre>
+    <p>
+      Note that the keyword arguments are packed into a standard dict. If you
+      iterate over the dictionary and want to return its values, like in the
+      example shown, then you must use <code>kwargs.values()</code>.
+    </p>
+    <p>
+      To recap, in a function defintion, use <tt>*args</tt> and
+      <tt>**kwargs</tt> to accept a changeable number of positional arguments
+      and keyword argument, respectively.
     </p>
     <p>
       
     </p>
     <p>
-      **kwargs works just like *args, but instead of accepting positional
-      arguments it accepts keyword (or named) arguments. (Like args, kwargs is
-      just a name that can be changed to whatever you want. Again, what is
-      important here is the use of the unpacking operator **.) Take the
-      following example:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-# concatenate.py
-def concatenate(**kwargs):
-    result = &quot;&quot;
-    # Iterating over the Python kwargs dictionary
-    for arg in kwargs.values():
-        result += arg
-    return result
-
-print(concatenate(a=&quot;Real&quot;, b=&quot;Python&quot;, c=&quot;Is&quot;, d=&quot;Great&quot;, e=&quot;!&quot;))</pre>
-    <p>
-      Note that in the example above the iterable object is a standard dict.
-      If you iterate over the dictionary and want to return its values, like
-      in the example shown, then you must use kwargs.values().
-    </p>
-    <p>
-      To recap, in a function defintion, use *args and **kwargs to accept a
-      changeable number of positional arguments and keyword argument,
-      respectively.
-    </p>
-    <p>
-      What if you want to create a function that takes a changeable number of
-      both positional and named arguments (keyword arguments)?
-    </p>
-    <p>
-      In this case, you have to bear in mind that order counts. Just as
-      non-default arguments have to precede default arguments, so *args must
-      come before **kwargs.
-    </p>
-    <p>
-      To recap, the correct order for your parameters is:
+      When defining a function, the correct order for parameters is:
     </p>
     <ol>
       <li>
         <p>
-          Standard arguments
+          non-default parameters
+        </p>
+      </li>
+      <li>
+        <p>
+          default parameters
         </p>
       </li>
       <li>
@@ -900,151 +932,61 @@ print(concatenate(a=&quot;Real&quot;, b=&quot;Python&quot;, c=&quot;Is&quot;, d=
       </li>
     </ol>
     <p>
-      You are now able to use *args and **kwargs to define Python functions
-      that take a varying number of input arguments. Let's go a little deeper
-      to understand something more about the unpacking operators.
+      When calling a function, the correst order for argument is:
     </p>
+    <ol>
+      <li>
+        <p>
+          positional arguments
+        </p>
+      </li>
+      <li>
+        <p>
+          keyword arguments
+        </p>
+      </li>
+    </ol>
+    <h4 id="auto-24">6.3.2.<span style="margin-left: 1em"></span>Arguments unpacking<span style="margin-left: 1em"></span></h4>
     <p>
-      The single asterisk operator * can be used on any iterable that Python
-      provides, while the double asterisk operator ** can only be used on
-      dictionaries.
-    </p>
-    <p>
-      starred expression
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      The most straightforward way to pass arguments to a Python function is
-      with positional arguments (also called required arguments).
-    </p>
-    <p>
-      the parameters given in the function definition are referred to as
-      formal parameters, and the arguments in the function call are referred
-      to as actual parameters.
-    </p>
-    <p>
-      Positional arguments must agree in order and number with the parameters
-      declared in the function definition.
-    </p>
-    <p>
-      Keyword arguments must agree with declared parameters in number, but
-      they may be specified in arbitrary order.
-    </p>
-    <p>
-      Default parameters allow some arguments to be omitted when the function
-      is called.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Things can get weird if you specify a default parameter value that is a
-      mutable object.
-    </p>
-    <p>
-      In Python, default parameter values are defined only once when the
-      function is defined (that is, when the def statement is executed). The
-      default value isn't re-defined each time the function is called.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      When a parameter name in a Python function definition is preceded by an
-      asterisk (*), it indicates argument tuple packing. Any corresponding
-      arguments in the function call are packed into a tuple that the function
-      can refer to by the given parameter name. Any name can be used, but
-      <code>args</code> is so commonly chosen that it's practically a
-      standard.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      An analogous operation is available on the other side of the equation in
-      a Python function call. When an argument in a function call is preceded
-      by an asterisk (*), it indicates that the argument is a tuple that
-      should be unpacked and passed to the function as separate values.
-      Although this type of unpacking is called tuple unpacking, it doesn't
-      only work with tuples. The asterisk (*) operator can be applied to any
+      In the above, we see that, when a parameter name in a Python function
+      definition is preceded by an asterisk (*), it indicates that any
+      corresponding arguments in the function call are packed into a tuple
+      that the function can refer to by the given parameter name. An analogous
+      operation is available when calling a function. When an argument in a
+      function call is preceded by an asterisk (*), it indicates that the
+      argument is a tuple that should be unpacked and passed to the function
+      as separate values. The asterisk (*) operator can be applied to any
       iterable in a Python function call.
     </p>
     <p>
-      
+      Preceding a parameter in a Python function definition by a double
+      asterisk (**) indicates that the corresponding keyward arguments should
+      be packed into a dictionary. An analogous operation is available when
+      calling a function. When the double asterisk (**) precedes an argument
+      in a Python function call, it specifies that the argument is a
+      dictionary that should be unpacked, with the resulting items passed to
+      the function as keyword arguments.
+    </p>
+    <h3 id="auto-25">6.4.<span style="margin-left: 1em"></span>Generator Function using yied<span style="margin-left: 1em"></span></h3>
+    <p>
+      Generators, in essence, are a special kind of iterators that are
+      evaluated lazily by rendering elements one by one without the need for
+      loading all elements in the memory.
     </p>
     <p>
-      Argument Dictionary Packing
-    </p>
-    <p>
-      Python has a similar operator, the double asterisk (**), which can be
-      used with Python function parameters and arguments to specify dictionary
-      packing and unpacking. Preceding a parameter in a Python function
-      definition by a double asterisk (**) indicates that the corresponding
-      arguments, which are expected to be <code>key=value</code> pairs, should
-      be packed into a dictionary.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Argument dictionary unpacking is analogous to argument tuple unpacking.
-      When the double asterisk (**) precedes an argument in a Python function
-      call, it specifies that the argument is a dictionary that should be
-      unpacked, with the resulting items passed to the function as keyword
-      arguments. Think of *args as a variable-length positional argument list,
-      and **kwargs as a variable-length keyword argument list.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      The bare variable argument parameter * indicates that there aren't any
-      more positional parameters. This behavior generates appropriate error
-      messages if extra ones are specified. It allows keyword-only parameters
-      to follow.
-    </p>
-    <p>
-      To designate some parameters as positional-only, you specify a bare
-      slash (/) in the parameter list of a function definition. Any parameters
-      to the left of the slash (/) must be specified positionally.
-    </p>
-    <p>
-      The positional-only and keyword-only designators may both be used in the
-      same function definition
+      The regular definition of generators involves the use of the
+      <code>yield</code> keyword, which means sending values back to the
+      caller. For example:
     </p>
     <pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; # This is Python 3.8
-&gt;&gt;&gt; def f(x, y, /, z, w, *, a, b):
-&hellip;     print(x, y, z, w, a, b)
-&hellip;
-
-&gt;&gt;&gt; f(1, 2, z=3, w=4, a=5, b=6)
-1 2 3 4 5 6
-
-&gt;&gt;&gt; f(1, 2, 3, w=4, a=5, b=6)
-1 2 3 4 5 6</pre>
+# a generator yields items instead of returning a list
+def firstn(n):
+    num = 0
+    while num &lt; n:
+        yield num
+        num += 1
+sum_of_first_n = sum(firstn(1000000))</pre>
     <p>
-      In this example:
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      x and y are positional-only.
-    </p>
-    <p>
-      a and b are keyword-only.
-    </p>
-    <p>
-      z and w may be specified positionally or by keyword.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Use the <code>yield</code> keyword to send values back to the caller.
       When you call a function that contains a yield statement anywhere, you
       get a generator object, but no code runs. Then each time you extract an
       object from the generator, Python executes code in the function until it
@@ -1052,185 +994,38 @@ print(concatenate(a=&quot;Real&quot;, b=&quot;Python&quot;, c=&quot;Is&quot;, d=
       you extract another object, Python resumes just after the yield and
       continues until it reaches another yield (often the same one, but one
       iteration later). This continues until the function runs off the end, at
-      which point the generator is deemed exhausted
-    </p>
-    <h3 id="auto-19">6.4<span style="margin-left: 1em"></span>Namespace and Scope<span style="margin-left: 1em"></span></h3>
-    <p>
-      A namespace is a mapping from names to objects. Most namespaces are
-      currently implemented as Python dictionaries.
+      which point the generator is deemed exhausted.
     </p>
     <p>
-      The important thing to know about namespaces is that there is absolutely
-      no relation between names in different namespaces; for instance, two
-      different modules may both define a function maximize without confusion
-      &mdash; users of the modules must prefix it with the module name.
-    </p>
-    <p>
-      The local namespace for a function is created when the function is
-      called, and deleted when the function returns or raises an exception
-      that is not handled within the function.
-    </p>
-    <p>
-      Of course, recursive invocations each have their own local namespace.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      A scope is a textual region of a Python program where a namespace is
-      directly accessible. &ldquo;Directly accessible&rdquo; here means that
-      you do not need to qualified the name with namespace name being suffix,
-      i.e., you can directly use the name itself to access its refereence.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      A variable defined inside a function's body is known as a local
-      variable. Formal arguments identifiers also behave as local variables. A
-      variable created outside of functions is known as a global variable,
-      which can be called a free variable from the perspective of a function.
-    </p>
-    <p>
-      Python adopts the lexical scope, which means the binding of a free
-      variable inside a function can be infered without considering where the
-      function is called (but the value of the free variable can depend on
-      where the function is called because the value of the free variable can
-      be modified somewhere). 
-    </p>
-    <p>
-      Compared with statically typed languages, the scope of a variable in a
-      dynamically typed language like python becomes a little subtle. If a
-      variable is <strong>assigned</strong> a value anywhere within the
-      function's body, it's assumed to be a <strong>local</strong> unless
-      explicitly declared as <code>global</code> or <code>nonlocal</code>.
-    </p>
-    <p>
-      Therefore, to update a global variable inside a function, we need to
-      declare it as global using <code>global</code> key word. If not using
-      <code>global</code> keyword, a variable will be considered as a local
-      variable if there is an assignment statement to the variable somewhere
-      in the body. The locality of the variable will apply before the
-      assignment creating the local variable, and thus if we use it before the
-      assignment, we will get the UnboundLocalError: local variable 'x&rdquo;
-      referenced before assignment.
-    </p>
-    <p>
-      In a nested scope, we can use keyword <code>nonlocal</code> to declare
-      that a variable is from enclosing scopes (scopes enclosing the present
-      scope) but not a global. In other words, <code>nonlocal</code> means
-      &ldquo;not a global or a local variable&rdquo;.
-    </p>
-    <p>
-      The order in which Python looks up names is as follows. If you reference
-      a given name, then Python will look that name up sequentially in the
-      Local, Enclosing, Global, and Built-in namespaces. If the name exits,
-      then you'll get the first occurrence of it. Otherwise, you'll get an
-      error. This rull is often called LEGB rule.
-    </p>
-    <p>
-      What is the relationship between scope and namespaces in Python?
-    </p>
-    <p>
-      The terms, namespace and scope, can be used almost interchangeably
-      because they overlap a lot in what they imply. A namespace is a
-      dictionary, mapping names (as strings) to values. When you make a
-      reference, like <code>print(a)</code>, Python looks through a list of
-      namespaces to try and find one with the name as a key.
-    </p>
-    <p>
-      A scope defines which namespaces will be looked in and in what order.
-      The scope of any reference always starts in the local namespace, and
-      moves outwards until it reaches the module's global namespace, before
-      moving on to the builtins (the namespace that references Python's
-      predefined functions and constants, like <code>range</code> and
-      <code>getattr</code>), which is the end of the line.
-    </p>
-    <p>
-      When we say x is in a function's namespace, we mean it is defined there,
-      locally within the function. When we say x is in the function's scope,
-      we mean x is either in the function's namespace or in any of the outer
-      namespaces that the function's namespace is nested inside.
-    </p>
-    <p>
-      Whenever you define a function (using <code>def</code> or
-      <code>lambda</code>), you create a new namespace and a new scope. The
-      namespace is the new, local hash of names. The scope is the implied
-      chain of namespaces that starts at the new namespace, then works its way
-      through any outer namespaces (outer scopes), up to the global namespace
-      (the global scope), and on to the builtins.
-    </p>
-    <p>
-      A scope refers to a region of a program from where a namespace can be
-      accessed without a prefix.
-    </p>
-    <p>
-      Classes in Python do not introduce a new namespace, which is why class
-      attributes must be qualified with the class name and why instance
-      attributes must be qualified with the instance name. 
-    </p>
-    <p>
-      Lexical scoping:
+      Generator expressions provide a shortcut to build generators out of
+      expressions.
     </p>
     <pre class="verbatim" xml:space="preserve">
-x = 1
-def myfun():
-    return x
-x = 10
-myfun()  # return 10 </pre>
+doubles = list(2*n for n in range(50))</pre>
     <p>
-      Q: Is the above behavior consistent with lexical scoping?
+      By allowing generator expressions, we don't have to write a generator
+      function.
     </p>
     <p>
-      Q.Yes, it is. myfun is using the x variable from the environment where
-      it was defined, but that x variable now holds a new value. Lexical
-      scoping means functions resovle variables from the scope where they were
-      defined, but it doesn't mean they have to take a snapshot of the values
-      of those variables at the time of function definition. The code line
-      <code>x = 1</code> can be dropped and the codes are still valid, i.e.,
-      <code>x</code> can be un-bound when the function is defined.
+      List comprehensions are closer to syntactic sugar for a generator
+      expression inside a list().
     </p>
-    <p>
-      Lexical scoping means functions resolve free variables from the scope
-      where they were defined, not from the scope where they are called.
-    </p>
-    <p>
-      The automatic destruction of unreferenced objects is called garbage
-      collection.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      The nonlocal statement causes corresponding names to refer to previously
-      bound variables in the nearest enclosing function scope. SyntaxError is
-      raised at compile time if the given name does not exist in any enclosing
-      function scope.
-    </p>
-    <p>
-      A global statement cause corresponding name to refer to the name in the
-      global scope (create the binding in the global scope if there is a name
-      binding for that name in the local scope).
-    </p>
-    <h3 id="auto-20">6.5<span style="margin-left: 1em"></span>Nested function, return function as value,
+    <h3 id="auto-26">6.5.<span style="margin-left: 1em"></span>Nested function, return function as value,
     closure<span style="margin-left: 1em"></span></h3>
     <p>
       In Python, we can define a function inside the body of a function
-      definition (function inside function, nested function). The inner
-      functions have access to all outer variables in the enclosing functions.
-      The inner functions can be called in the body of the enclosing function
-      body. This feature is commonplace and can be found in most languages.
-      What is interesting is that the inner function can be returned as the
-      return value of the enclosing function. This feature is only available
-      in languages that treat function as a first citizen. For example
+      (nested function). The inner functions have access to all outer
+      variables in the enclosing functions. The inner functions can be called
+      in the body of the enclosing function body. This feature is commonplace
+      and can be found in most languages. What is interesting is that the
+      inner function can also be returned as the return value of the enclosing
+      function. This feature is only available in languages that treat
+      function as a first citizen. For example
     </p>
     <pre class="verbatim" xml:space="preserve">
 def power_factory(exp):
     def power(base):
-        return base ** exp
+        return base**exp
     return power
 
 square = power_factory(2)
@@ -1259,13 +1054,59 @@ cube(10) #give 1000</pre>
         def prime(x):
             return (f(x+dx)-f(x))/dx
         return prime
-&gt;&gt;&gt; dx=0.01
-&gt;&gt;&gt; mycos=derivative(math.sin,dx)
+&gt;&gt;&gt; dx = 0.01
+&gt;&gt;&gt; mycos = derivative(math.sin, dx)
 &gt;&gt;&gt; mycos(2.0)</pre>
     <p>
-      
+      A more interesting example is an accumulator generator making use of
+      <tt>nonlocal</tt> keyword:
     </p>
-    <h3 id="auto-21">6.6<span style="margin-left: 1em"></span>Function call vs keyword structure<span
+    <pre class="verbatim" xml:space="preserve">
+def foo(n):
+    def inc(x):
+        nonlocal n
+        n += x
+        return n
+    return inc
+
+acc = foo(10)
+print(acc(1)) # Output: 11
+print(acc(2)) # Output: 13 </pre>
+    <h3 id="auto-27">6.6.<span style="margin-left: 1em"></span>Function decorators<span style="margin-left: 1em"></span></h3>
+    <p>
+      A decorator wrap a function, modifying its behavior. For example:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def my_decorator(say_hi):
+    def wrapper(name):
+        print('before')
+        say_hi(name)
+        print('after')
+    return wrapper</pre>
+    <p>
+      The above function accepts a function and returns a function very
+      similar to the orginal one. Next, define a function and pass it to the
+      above function and capture the result with the same function name:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def say_hi(name):
+    print(f&quot;hi!, {name}&quot;)
+say_hi = my_decorator(say_hi)</pre>
+    <p>
+      Python introduces the function decorator syntax to achive the same
+      effect:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+@my_decorator
+def say_hi(name):
+    print(f&quot;hi!, {name}&quot;)</pre>
+    <p>
+      To recap, preceding a function defintion with <code>@dec</code> is
+      equivalent to defining that function first and then passing the function
+      name to the <code>dec</code> function, and capture the returned function
+      with the orginal function name.
+    </p>
+    <h3 id="auto-28">6.7.<span style="margin-left: 1em"></span>Function call vs keyword structure<span
     style="margin-left: 1em"></span></h3>
     <p>
       Arguments in a function call are enclosed in round-brackets whereas
@@ -1273,97 +1114,183 @@ cube(10) #give 1000</pre>
       round-brackets. For example:
     </p>
     <pre class="verbatim" xml:space="preserve">
-x=1
 del x</pre>
     <p>
       where <code>del</code> is a keyword statement and thus its argument
       <code>x</code> is not enclosed by round-brackets. In Python3,
       <code>print</code> becomes a function (in python2, it is a keyword
       statement). Therefore, arguments to python3 print must be enclosed by
-      round-brackets:
+      round-brackets: <code>print(&ldquo;hello&rdquo;)</code>.
     </p>
-    <pre class="verbatim" xml:space="preserve">
-print(&quot;hello&quot;)</pre>
-    <p>
-      In Python3, <code>exec</code> is a build-in function (rather than a
-      keyword) and thus must be called with parentheses:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-exec(&quot;x=12*7&quot;)</pre>
-    <p>
-      Similar to <code>exec</code>, <code>eval</code> is a build-in function,
-      which evaluates an expression given as a string:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-eval(&quot;1+2&quot;)</pre>
-    <p>
-      The difference between <code>exec</code> and <code>eval</code> is that
-      <code>eval</code> returns a value while <code>exec</code> does not.
-      <code>eval</code> can not be used for statements (such as assignment)
-      while <code>exec</code> can be used for both statements and expressions.
-    </p>
-    <p>
-      Statements are different from expressions in that statements do not
-      return results and are executed solely for their side effects, while
-      expressions always return a result and often do not have side effects at
-      all.
-    </p>
-    <h3 id="auto-22">6.7<span style="margin-left: 1em"></span>Built-in functions and library
-    functions<span style="margin-left: 1em"></span></h3>
+    <h3 id="auto-29">6.8.<span style="margin-left: 1em"></span>Built-in functions<span style="margin-left: 1em"></span></h3>
     <p>
       Complete list of python built-in functions can be found at <a href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a>.
       As an example of useful built-in functions, <code>dir()</code>, without
       arguments, return the list of names in the current local scope. With an
       argument, <code>dir</code> attempt to return a list of attributes and
-      methods for that object.
-    </p>
-    <p>
-      Unlike <code>Fortran</code>, mathematical functions like
-      <code>sin</code> and <code>cos</code> are not built-in functions of
-      Python interpreter. These functions are defined in <code>math</code>
-      module. To use them:
+      methods for that object. For example:
     </p>
     <pre class="verbatim" xml:space="preserve">
-import math
-math.sin(1.0)</pre>
+dir(__builtins__)</pre>
     <p>
-      Usually I prefer to use mathematical functions defined in
-      <code>numpy</code> module, which are usually more powerful than their
-      counterparts in <code>math</code> module. For example:
+      returns all names defined in <code>__builtins__</code>.
+    </p>
+    <h2 id="auto-30">7.<span style="margin-left: 1em"></span>Namespace and Scoping rule<span style="margin-left: 1em"></span></h2>
+    <p>
+      A variable defined inside a function's body is known as a local
+      variable. Formal arguments identifiers also behave as local variables. A
+      variable created outside of functions is known as a global variable,
+      which can be called a free variable from the perspective of a function.
+    </p>
+    <p>
+      Python adopts the lexical scope, which means the binding of a free
+      variable inside a function can be infered without considering where the
+      function is called (but the value of the free variable can depend on
+      where the function is called because the value of the free variable can
+      be modified somewhere).
+    </p>
+    <p>
+      If a variable is <strong>assigned</strong> a value anywhere within the
+      function's body, it's assumed to be a <strong>local</strong> unless
+      explicitly declared as <code>global</code> or <code>nonlocal</code>. The
+      locality of the variable will apply before the assignment creating the
+      local variable, and thus if we use it before the assignment, we will get
+      the UnboundLocalError: local variable 'x&rdquo; referenced before
+      assignment. I.e., you can not use a name as a global variable first and
+      then use it as a local variable.
+    </p>
+    <p>
+      A global statement indicates the corresponding name live in the global
+      scope. It does not require that the name is pre-bound.
+    </p>
+    <p>
+      In a nested scope, we can use keyword <code>nonlocal</code> to declare
+      that a variable is from enclosing scopes (scopes enclosing the present
+      scope) but not a global. In other words, <code>nonlocal</code> means
+      &ldquo;not a global or a local variable&rdquo;. The nonlocal statement
+      causes corresponding names to refer to previously bound variables in the
+      nearest enclosing function scope. SyntaxError is raised at compile time
+      if the given name does not exist in any enclosing function scope.
+    </p>
+    <p>
+      A namespace is a mapping from names to objects. Most namespaces are
+      currently implemented as Python dictionaries, i.e., a namespace is a
+      dictionary mapping names (as strings) to values. If you have access to a
+      namespace, then you can access all the names in that namespace by using
+      the dot notation, e.g., <code>numpy.sin</code>.
+    </p>
+    <p>
+      A scope rule defines which namespaces will be looked in and in what
+      order. When you make a reference, e.g., <code>print(foo)</code>, Python
+      looks through a list of namespaces to try to find one with the name as a
+      key. Note that we are not specifying which namespace <code>foo</code>
+      belongs to (because we are not using the dot notation). Therefore Python
+      will determine which namespace <code>foo</code> belongs to by searching
+      a chain of namesapce. This is the scoping rule, i.e., the order in which
+      a language looks up names. In python, the scoping rule is as follows. If
+      you reference a name, then Python will look that name up sequentially in
+      the Local, Enclosing, Global, and Built-in namespaces. If the name
+      exists, then you'll get the first occurrence of it. Otherwise, you'll
+      get an error. This rull is often called LEGB rule.
+    </p>
+    <p>
+      When we say x is in a function's namespace, we mean it is defined there,
+      locally within the function. When we say x is in the function's scope,
+      we mean x is either in the function's namespace or in any of the outer
+      namespaces that the function's namespace is nested inside.
+    </p>
+    <p>
+      Whenever you define a function (using <code>def</code> or
+      <code>lambda</code>), you create a new namespace and a new scope. The
+      namespace is the new, local hash of names. The scope is the implied
+      chain of LEGB.
+    </p>
+    <p>
+      When we say that a variable in a namespace is in scope in a code block,
+      we mean it is directly accessible for the block. &ldquo;Directly
+      accessible&rdquo; here means that you do not need to qualified the name
+      with namespace name being suffix.
+    </p>
+    <p>
+      Classes defintion introduces a new namespace but does not introduce a
+      new scope that functions defined in the class can see. Therefore, if a
+      function defined in a class want to refer to a class attribute, the
+      variable must be qualified with the class name using the dot notation.
+    </p>
+    <p>
+      Create a namespace using a dictionary:
     </p>
     <pre class="verbatim" xml:space="preserve">
-In [5]: import numpy as np
-In [7]: a = [1,2,3] #define a list
-In [8]: np.sin(a)
-Out[8]: array([0.84147098, 0.90929743, 0.14112001])
-In [9]: math.sin(a)
-TypeError: must be real number, not list</pre>
-    <h2 id="auto-23">7<span style="margin-left: 1em"></span>Class<span style="margin-left: 1em"></span></h2>
+&gt;&gt;&gt; from argparse import Namespace
+&gt;&gt;&gt; x = {'a': 1, 'b': 2}
+&gt;&gt;&gt; ns = Namespace(**x)
+&gt;&gt;&gt; ns.a
+1</pre>
+    <p>
+      
+    </p>
+    <p>
+      Lexical scoping:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+x = 1
+def myfun():
+    return x
+x = 10
+myfun()  # return 10 </pre>
+    <p>
+      Q: Is the above behavior consistent with lexical scoping?
+    </p>
+    <p>
+      Q.Yes, it is. myfun is using the x variable from the environment where
+      it was defined, but that x variable now holds a new value. Lexical
+      scoping means functions resovle variables from the scope where they were
+      defined, but it doesn't mean they have to take a snapshot of the values
+      of those variables at the time of function definition. The code line
+      <code>x = 1</code> can be dropped and the codes are still valid, i.e.,
+      <code>x</code> can be un-bound when the function is defined.
+    </p>
+    <p>
+      Lexical scoping means functions resolve free variables from the scope
+      where they were defined, not from the scope where they are called.
+    </p>
+    <p>
+      The local namespace for a function is created when the function is
+      called, and deleted when the function returns or raises an exception
+      that is not handled within the function. Recursive invocations each have
+      their own local namespace.
+    </p>
+    <h2 id="auto-31">8.<span style="margin-left: 1em"></span>Class<span style="margin-left: 1em"></span></h2>
     <p>
       Class concept is a way of bundling data and functionality together, and
-      supporting extention (i.e., inheritance). Define a new class define a
-      new type of object, allowing new instances of that type to be created. A
-      class is a blueprint for the instances of that type. The process of
-      creating the object of that type is called instantiation.
+      supporting extention (i.e., inheritance).
     </p>
     <p>
-      Compared with other programming languages, Python introduces class
-      concepts with a minimum of new syntax and semantics. The following is a
-      typical defintion of a class:
+      Define a new class define a new type, allowing new instances of that
+      type to be created. The process of creating the object of that type is
+      called instantiation. Class allows independent instances with different
+      data (and the same functionality) to be created.
+    </p>
+    <p>
+      Compared with C++, Python introduces class concepts with a minimum of
+      new syntax and semantics. Class definition is syntactically similar to
+      function definition. The <code>class</code> statement executes a block
+      of code and attaches its local namespace to a class. The following is an
+      example of defining a class:
     </p>
     <pre class="verbatim" xml:space="preserve">
-class ComplexNumber:
+class Vector:
     scale = 1
-    def __init__(self, r=0, i=0):
-        self.real = r
-        self.imag = i
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
     def show(self):
-        print(f'{self.real}+{self.imag}j')
+        print(f'{self.x}+{self.y}j')
         print(f'scale={self.scale}')</pre>
     <p>
-      The above define a class named <code>ComplexNumber</code>, with two
-      methods and three attributes named <code>scale</code>,
-      <code>real</code>, and <code>imag</code>.
+      The above define a class named <code>Vector</code>, with two methods and
+      three attributes named <code>scale</code>, <code>x</code>, and
+      <code>y</code>.
     </p>
     <p>
       In practice, the statements inside a class definition will usually be
@@ -1372,88 +1299,105 @@ class ComplexNumber:
       method is assumed by Python to be the object in question. The dummy
       object name is usually called <code>self</code>. This name is just a
       user convention: you can use an arbitry name here (i.e., what matters is
-      its position in the argument list, not its name). We will follow this
-      convention. (When the method is called, users must omit the object name
-      from the argument list, and the name is figured out and inserted to the
-      argument list by python behind the scene.)
+      its position in the argument list, not its name). When the method is
+      called using the dot notation <code>object.method(args)</code>, users
+      must omit the object name from the argument list, and the name is
+      figured out and inserted to the argument list by python behind the
+      scene.
     </p>
     <p>
       In a method, attributes of a class instance are created or referred to
       by using the dot notation: <code>self.attribute</code>. In the above,
-      <code>self.real</code> and <code>self.imag</code> are attributes of an
+      <code>self.x</code> and <code>self.y</code> are attributes of an
       instance, whereas <code>scale</code> is an attribute of the class. Note
       that, if the usual scoping rule applies (i.e., the class defintion forms
       a parent scope for its methods), the attribute <code>scale</code> should
       be assessible in the method by using the name <code>scale</code>. It
       turns out we can refer to <code>scale</code> but must use a different
       name: the attribute must be qualified with the class name, i.e.,
-      <code>ComplexNumber.scale</code>.
-    </p>
-    <p>
-      This indicates that the scope of names defined in a class block is
-      limited to the class block. It does not extend to the code blocks of
-      methods. This is one of the new rules introduced to facilitate class
-      defintion, i.e., class defintion body is not used as a parent scope for
-      methods.  Otherwise, it would make class inheritance confusing: e.g., a
-      method inherited by a subclass would have access to the subclass scope.
-    </p>
-    <p>
-      Note that, in the above, if we
-    </p>
-    <p>
-      The idea is that self.x first looks into the instance for the attribute
-      x, and when that fails, it looks into the class itself.
+      <code>Vector.scale</code>. This indicates that the scope of names
+      defined in a class block is limited to the class block, i.e they don't
+      create an enclosing scope for methods. This is one of the new rules
+      introduced to facilitate class defintion, i.e., class defintion body is
+      not used as a parent scope for methods (Otherwise, it would make class
+      inheritance confusing: e.g., a method inherited by a subclass would have
+      access to the subclass scope.) Put it another way: Although classes
+      define a class local scope or namespace, they don't create an enclosing
+      scope for methods.
     </p>
     <p>
       
     </p>
     <p>
+      Class Attribute vs. Instance Attribute
+    </p>
+    <ul>
+      <li>
+        <p>
+          An instance attribute is a Python variable belonging to one, and
+          only one, object. This variable is only accessible in the scope of
+          this object and it is defined inside the methods (typically in
+          <tt>__init__</tt>) of the class.
+        </p>
+      </li>
+      <li>
+        <p>
+          A class attribute is a Python variable that belongs to a class
+          rather than a particular object. It is shared between all the
+          objects of this class and it is defined outside the methods of the
+          class.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Python classes and objects have different namespaces. The name resolving
+      rule is that the object namespace is before the class namespace: When
+      you access an attribute of an object using the dot convention, it
+      searches first in the namespace of that object for that attribute name.
+      If it is found, it returns the value, otherwise, it searches in the
+      namespace of the class. If nothing is found there as well, it raises an 
+      AttributeError. When you access an attribute as a class property, it
+      searches directly in the class namespace for the name of that attribute.
+      If it is found, it returns the value, otherwise, it raises an
+      AttributeError.
+    </p>
+    <p>
       
     </p>
     <p>
-      Now we can use the class <code>ComplexNumber</code> defined above to
-      create an object:
+      Now we can use the class <code>Vector</code> defined above to create an
+      object:
     </p>
     <pre class="verbatim" xml:space="preserve">
-a = ComplexNumber(2,3)</pre>
+a = Vector(2,3)</pre>
     <p>
       Class instantiation uses function notation with the class name serving
       as a function name. The returned value is a new instance of the class.
     </p>
     <p>
-      If there is a method named <code>__init__</code>, which is ture for the
-      example shown above, it will be used by python as a constructor, which
-      means this method is automatically called when we create an instance of
-      the class.
-    </p>
-    <p>
-      When the method is called, users must omit the object name from the
-      argument list, and the name is figured out and inserted to the argument
-      list by python behind the scene.
-    </p>
-    <p>
       Class functions that begin with double underscore __ are called special
       functions as they have special meaning. Of one particular interest is
-      the __init__() function. This special function gets called whenever a
-      new object of that class is instantiated. This type of function is also
-      called constructors in Object Oriented Programming (OOP). We normally
-      use it to initialize all the variables.
+      the <tt>__init__()</tt> function. This special function gets called
+      whenever a new object of that class is instantiated. This type of
+      function is also called constructors in other programming languages. We
+      normally use it to initialize all the variables.
     </p>
     <p>
       Next, examine the instance we created above:
     </p>
     <pre class="verbatim" xml:space="preserve">
-a.show() #the object a is implitcitly provided as the first argument
-print(a.real)</pre>
+a.show() #a is implitcitly provided as the first argument
+print(a.x)</pre>
     <p>
       In Python, attributes may be referenced/created by methods as well as by
-      users of an object. There are no &ldquo;private&rdquo; instance
-      variables (variables that can only be accessed within methods of an
-      object). In other words, it is imposible to enforce data hiding in
-      python &mdash; it is all based upon convention. The convention (followed
-      by most Python code) is: a name prefixed with an underscore (e.g. _spam)
-      should be treated as a non-public part of the API (whether it is a
-      method or a data member).
+      users of an object (i.e., attributes of an class/object can be created
+      on the fly). There are no &ldquo;private&rdquo; instance variables
+      (variables that can only be accessed within methods of an object). In
+      other words, it is imposible to enforce data hiding in python &mdash; it
+      is all based upon convention. The convention (followed by most Python
+      code) is: a name prefixed with an underscore (e.g. _spam) should be
+      treated as a non-public part of the API (whether it is a method or a
+      data member).
     </p>
     <p>
       Note that clients may add data attributes of their own to an instance
@@ -1461,23 +1405,13 @@ print(a.real)</pre>
       abttributs does not affect the validity of the methods.
     </p>
     <p>
-      
-    </p>
-    <p>
       The global scope associated with a method is the module containing its
-      definition. (A class is never used as a global scope.) While one rarely
-      encounters a good reason for using global data in a method, there are
-      many legitimate uses of the global scope: functions and modules imported
-      into the global scope can be used by methods. 
+      definition. (A class is never used as a global scope.) Typical global
+      entites used in a methods are functions and modules imported in the
+      global scope.
     </p>
     <p>
-      class attribute vs. instance attribute
-    </p>
-    <p>
-      Attributes of an object can be created on the fly.
-    </p>
-    <p>
-      
+      instance method vs. class method vs static method
     </p>
     <p>
       Any method we create in a class will automatically be created as an
@@ -1486,25 +1420,18 @@ print(a.real)</pre>
     </p>
     <p>
       Use the @classmethod decorator or the classmethod() function to define
-      the class method
+      the class method.
     </p>
     <p>
       Use the @staticmethod decorator or the staticmethod() function to define
       a static method.
     </p>
     <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
       we'll find some good reasons why a method would want to reference its
       own class.
     </p>
     <p>
-      A language feature would not be worthy of the name &ldquo;class&rdquo;
-      if it does not support inheritance.
+      
     </p>
     <p>
       Finally, notice that the class .__dict__ and the instance .__dict__ are
@@ -1517,60 +1444,22 @@ print(a.real)</pre>
       
     </p>
     <p>
-      The scope of names defined in a class block is limited to the class
-      block; it does not extend to the code blocks of methods.
+      Classes themselves are objects, which means that a class name can be
+      rebound to new names. This makes importing easy, where we can rename a
+      class name to a new simple name.
     </p>
     <p>
       
-    </p>
-    <p>
-      In general, when you're writing object-oriented code in Python and you
-      try to access an attribute, your program takes the following steps:
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Check the instance local scope or namespace first.
-    </p>
-    <p>
-      If the attribute is not found there, then check the class local scope or
-      namespace.
-    </p>
-    <p>
-      If the name doesn't exist in the class namespace either, then you'll get
-      an AttributeError.
-    </p>
-    <p>
-      Although classes define a class local scope or namespace, they don't
-      create an enclosing scope for methods.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Classes themselves are objects (class objects), which means that a class
-      name can be rebound to new names. This makes importing easy, where we
-      can rename a class name to a new simple name.
     </p>
     <p>
       Most built-in operators with special syntax (arithmetic operators,
       subscripting etc.) can be redefined for class instances.
     </p>
     <p>
-      
-    </p>
-    <p>
-      Python Iterators
-    </p>
-    <p>
-      An iterator is an object that contains a countable number of values and
-      can be iterated upon, meaning that we can traverse through all the
-      values. Technically, in Python, an iterator is an object which
-      implements the iterator protocol, which consist of the methods
+      Python Iterators: An iterator is an object that contains a countable
+      number of values and can be iterated upon, meaning that we can traverse
+      through all the values. Technically, in Python, an iterator is an object
+      which implements the iterator protocol, which consist of the methods
       <code>__iter__()</code> and <code>__next__()</code>. The
       <code>for</code> loop actually creates an iterator object and executes
       the <code>next()</code> method for each loop.
@@ -1578,63 +1467,196 @@ print(a.real)</pre>
     <p>
       
     </p>
-    <h2 id="auto-24">8<span style="margin-left: 1em"></span>Built-in data structure<span style="margin-left: 1em"></span></h2>
     <p>
-      Python has four primitive data structures, namely list, tuple, set, and
-      dict:
+      Here is a famous problem mentioned in Paul Graham's essay: We want to
+      write a function that generates accumulators &ndash; a function that
+      takes a number <span class="no-breaks"><img src="python-1.png" style="margin-left: -0.0124121212121212em; margin-bottom: -0.0248242424242424em; margin-right: -0.0124121212121212em; margin-top: -0.0263272727272728em; vertical-align: 0em; height: 0.496484848484848em"></img>,</span> and returns
+      a function that takes another number <img src="python-2.png" style="margin-left: -0.0124121212121212em; margin-bottom: -0.0248242424242424em; margin-right: -0.0124121212121212em; margin-top: -0.0191272727272727em; vertical-align: 0em; height: 0.726109090909091em"></img> and returns
+      accumulations each time it is invoked (each time, <img src="python-2.png" style="margin-left: -0.0124121212121212em; margin-bottom: -0.0248242424242424em; margin-right: -0.0124121212121212em; margin-top: -0.0191272727272727em; vertical-align: 0em; height: 0.726109090909091em"></img>
+      is added to the previous result, starting from <span class="no-breaks"><img src="python-1.png"
+      style="margin-left: -0.0124121212121212em; margin-bottom: -0.0248242424242424em; margin-right: -0.0124121212121212em; margin-top: -0.0263272727272728em; vertical-align: 0em; height: 0.496484848484848em"></img>).</span> Here is the Python code:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def Ac(n):
+   class dd:
+       def __init__(self,n):
+           self.value = n
+       def inc(self,i):
+           self.value += i
+           return self.value
+       
+   return dd(n).inc
+
+ac = Ac(10)
+print(ac(1), ac(2), ac(3))
+
+class Ac:
+    def __init__(self,n):
+        self.value = n
+    def __call__(self,i):
+        self.value += i
+        return self.value
+
+ac = Ac(10)
+print(ac(1),ac(2),ac(3))</pre>
+    <p>
+      Python 3 introduced the <code>nonlocal</code> keyword. Using this, the
+      solution is:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+def foo(n):
+    def inc(x):
+        nonlocal n
+        n += x
+        return n
+    return inc
+
+acc = foo(10)
+print(acc(1)) # Output: 11
+print(acc(2)) # Output: 13 </pre>
+    <h3 id="auto-32">8.1.<span style="margin-left: 1em"></span>Subclass, inheritance<span style="margin-left: 1em"></span></h3>
+    <p>
+      A language feature would not be worthy of the name &ldquo;class&rdquo;
+      if it does not support inheritance.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+class Shape:
+    def __init__(self, color):
+        self.color = color
+ 
+    def area(self):
+        pass
+ 
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
+ 
+    def area(self):
+        return 3.14 * self.radius ** 2</pre>
+    <p>
+      
+    </p>
+    <p>
+      By default, all Python classes are the subclasses of the object class.
+    </p>
+    <p>
+      
+    </p>
+    <h3 id="auto-33">8.2.<span style="margin-left: 1em"></span> Polymorphism<span style="margin-left: 1em"></span></h3>
+    <p>
+      Function Polymorphism
+    </p>
+    <p>
+      Class Polymorphism
+    </p>
+    <p>
+      Inheritance Class Polymorphism
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The following is the automatic differentiation using backward (or
+      reverse) method.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+class Expression:
+    def __add__(exp1, exp2):
+        return Plus(exp1,exp2)
+    def __mul__(exp1, exp2):
+        return Multiply(exp1, exp2)
+        
+class Variable(Expression):
+    def __init__(self,value):
+        self.value = value
+        self.partial = 0
+    def evaluate(self):
+        return self.value
+    def derive(self,seed):
+        self.partial += seed
+
+class Plus(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() + self.b.evaluate()
+    def derive(self,seed):
+        self.a.derive(seed)
+        self.b.derive(seed)
+        
+class Multiply(Expression):
+    def __init__(self,exp1,exp2):
+        self.a = exp1
+        self.b = exp2
+    def evaluate(self):
+        return self.a.evaluate() * self.b.evaluate()
+    def derive(self,seed):
+        self.a.derive(seed * self.b.evaluate())
+        self.b.derive(seed * self.a.evaluate())
+
+x = Variable(2)
+y = Variable(3)
+z = x * (x + y) + y * y
+z.derive(1)
+print(x.partial)  # dz/dx Output:  7
+print(y.partial)  # dz/dy Output:  8</pre>
+    <p>
+      This simple example illustrates several important concepts:
+    </p>
+    <p>
+      * Class, subclass, inheritance
+    </p>
+    <p>
+      * Operator overloading
+    </p>
+    <p>
+      * Polymorphism
+    </p>
+    <p>
+      * Recursion
+    </p>
+    <h2 id="auto-34">9.<span style="margin-left: 1em"></span>Built-in data structure<span style="margin-left: 1em"></span></h2>
+    <p>
+      Python primitive data structures: list, tuple, set, dict, string.
     </p>
     <pre class="verbatim" xml:space="preserve">
 L = [3, &quot;hello&quot;, 0.5] # list
 t = (1,2,&quot;apple&quot;,3) # tuple
 t =  1,2, &quot;apple&quot;,3  # tuple
-s = {&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;} #set
-d = {&quot;a&quot;:1, &quot;b&quot;:2} #dict,each element has two filds, key and value, separated by :</pre>
+s = {&quot;apple&quot;, &quot;banana&quot;, 1} #set
+d = {&quot;a&quot;:1, &quot;b&quot;:2} #dict
+st = &quot;hello&quot;</pre>
     <p>
       Examining the above codes, we can summarize the sytax for differnt data
       structure: (1) elements in the four data structures are all separated by
       commas; (2) lists are written with <strong>square-brackets</strong>,
       tuples are written with optional <strong>round-brackets</strong>, sets
       and dicts are written with <strong>curly-brackets</strong>; (3) a dict
-      (or hash) is a special set in which each element has two fields, key and
-      value, which are separated by a colon.
+      (or hash table) is a special set in which each element has two fields,
+      key and value, which are separated by a colon.
     </p>
     <p>
       Lists and tuples are <strong>ordered</strong> collections and thus
-      support <strong>indexing</strong> whereas sets and dicts are
-      <strong>unordered</strong> and do not support indexing. The difference
-      between a list and a tuple lies in that a list can be modfied but a
-      tuple is unchangable.
+      support <strong>indexing</strong> (i.e., subscriptable) whereas sets and
+      dicts are <strong>unordered</strong> and do not support indexing. (You
+      can loop through the set items using a for loop, or ask if a specified
+      value is present in a set, by using the <tt>in</tt> keyword.)
     </p>
     <p>
       The primitive type <code>string</code> can also be considered a
       nontrivial data structure, which supports indexing, similar to a list.
     </p>
     <p>
-      Lists, tuples, and strings are subscriptable, but sets are not.
-      Attempting to access an element of an object that isn't subscriptable
-      will raise a TypeError.
+      An object that supports item assignment is called a mutable object.
+      Lists, sets and dictionaries are mutable. Strings and tuples are
+      immutable. 
     </p>
-    <p>
-      An object is mutable if its structure can be changed in place rather
-      than requiring reassignment:
-    </p>
-    <p>
-      Lists and sets are mutable, as are dictionaries and other mapping types.
-      Strings and tuples are not mutable. Attempting to modify an element of
-      an immutable object will raise a TypeError.
-    </p>
-    <p>
-      
-    </p>
-    <h3 id="auto-25">8.1<span style="margin-left: 1em"></span>List<span style="margin-left: 1em"></span></h3>
-    <p>
-      One of the most fundamental data structures in any language is the
-      array. Python does not have a native array data structure, but it has
-      the list data structure which is more general: a list in Python can
-      contain items of various types. For example:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-myList = [3, &quot;hello&quot;, 0.5] #define a list containing three items of different types</pre>
+    <h3 id="auto-35">9.1.<span style="margin-left: 1em"></span>List<span style="margin-left: 1em"></span></h3>
     <p>
       Since a list contains misc items, which are not just numbers, some
       operations on lists are different from array operations that we expect
@@ -1643,47 +1665,17 @@ myList = [3, &quot;hello&quot;, 0.5] #define a list containing three items of di
     <pre class="verbatim" xml:space="preserve">
 In [12]: a=[1,2,3]
 In [13]: 2*a
-Out[13]: [1, 2, 3, 1, 2, 3] #rather than doubling each element vale in the list</pre>
+Out[13]: [1, 2, 3, 1, 2, 3] #rather than doubling each element</pre>
     <p>
       Adding lists concatenates them, just as the &ldquo;<tt>+</tt>&rdquo;
-      operator concatenates strings. To use the standard array operation, we
-      can use <code>numpy.asarray</code> to convert a list to an array:
+      operator concatenates strings. The Python standard library defines an
+      array type, which is still a list type, except that the type of objects
+      stored in it is constrained to a single type. As a result, this array
+      type is not as versatile, efficient, or useful as the NumPy array.
     </p>
-    <pre class="verbatim" xml:space="preserve">
-In [16]: b=np.asarray(a)
-In [17]: 2*b
-Out[17]: array([2, 4, 6])</pre>
-    <p>
-      The Python standard library defines an array type, which is still a list
-      type, except that the type of objects stored in it is constrained to a
-      single type. The methods of this array type are different from the usual
-      array operation. For example, <code>2*a</code> is not to double the
-      value of the each element in the array:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-In [1]: import array
-In [2]: a=array.array('d', [1,2])
-In [3]: 2*a
-Out[3]: array('d', [1.0, 2.0, 1.0, 2.0])</pre>
-    <p>
-      As a result, this array type is not as versatile, efficient, or useful
-      as the NumPy array. I will not be using Python arrays at all. Therefore,
-      whenever I refer to an &ldquo;array,&rdquo; I mean a &ldquo;NumPy
-      array.&rdquo;
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-In [1]: import numpy as np
-In [2]: a=[1,2,3]
-In [3]: b=np.array(a)
-In [4]: b
-Out[4]: array([1, 2, 3])
-In [5]: 2*b
-Out[5]: array([2, 4, 6])</pre>
-    <h4 id="auto-26">8.1.1<span style="margin-left: 1em"></span>Addressing and Slicing lists<span style="margin-left: 1em"></span></h4>
     <p>
       List elements can be accessed by using indexes. Indexes of a list start
-      from zero, i.e., <code>myList[0]</code> corresponds to the first item in
-      the list. Elements of a list can also be accessed by using negative
+      from zero. Elements of a list can also be accessed by using negative
       index. For example <code>myList[-1]</code> refers to the last element of
       the list, and <code>myList[-2]</code> refers to the next-to-last element
       of the list, etc.
@@ -1703,23 +1695,19 @@ Out[5]: array([2, 4, 6])</pre>
       <code>numpy</code> array objects.
     </p>
     <p>
-      
-    </p>
-    <h4 id="auto-27">8.1.2<span style="margin-left: 1em"></span>List methods<span style="margin-left: 1em"></span></h4>
-    <p>
       Python is an object-orientated language, and as such it uses classes to
       define data types, including its primitive types. A list object has some
-      predefined methods. These methods are invoked in the same way as in
-      other object-orientated Languages, i.e.,
-      <code>instant.method(arg1,arg2,&hellip;)</code>. For example:
+      predefined methods. These methods are invoked as using dot notation,
+      e.g., <code>instant.method(arg1,arg2,&hellip;)</code>. For example:
     </p>
     <pre class="verbatim" xml:space="preserve">
 mylist.append('d') #will add 'd' to the list
-mylist.pop(2) # will remove items by position (index), remove the 3rd item
+mylist.pop(2) # will remove items by index, remove the 3rd item
 mylist.remove(x) # Remove the first item from the list whose value is x.
 mylist.index(x) #return the index of the first item whose value is x
-mylist.count(x) # Return the number of times x appears in the list.
-list.insert(i, x) #will insert an item before element with index i.</pre>
+mylist.count(x) # Return the number of times x appears
+list.insert(i, x) #will insert an item before element with index i.
+list2.extend(list2)</pre>
     <p>
       We can view all the methods defined for a object by using the built-in
       function <code>dir</code>. For example:
@@ -1727,7 +1715,9 @@ list.insert(i, x) #will insert an item before element with index i.</pre>
     <pre class="verbatim" xml:space="preserve">
 L = [] # define a list object
 dir(L) # view all the methods of the list object</pre>
-    <h3 id="auto-28">8.2<span style="margin-left: 1em"></span>List Comprehensions<span style="margin-left: 1em"></span></h3>
+    <p>
+      List Comprehensions
+    </p>
     <p>
       A list comprehension consists of brackets containing an expression
       followed by a <code>for</code> clause, then zero or more
@@ -1747,18 +1737,15 @@ dir(L) # view all the methods of the list object</pre>
 &gt;&gt;&gt; [(x, y) for x in [1, 2, 3] for y in [3, 1, 4] if x != y]
 [(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]</pre>
     <p>
-      List comprehensions are also more declarative than loops, which means
-      they're easier to read and understand. Loops require you to focus on how
-      the list is created. You have to manually create an empty list, loop
-      over the elements, and add each of them to the end of the list. With a
-      list comprehension in Python, you can instead focus on what you want to
-      go in the list and trust that Python will take care of how the list
+      List comprehensions are more declarative than loops, which means they're
+      easier to read and understand. Loops require you to focus on how the
+      list is created. You have to manually create an empty list, loop over
+      the elements, and add each of them to the end of the list. With a list
+      comprehension in Python, you can instead focus on what you want to go in
+      the list and trust that Python will take care of how the list
       construction takes place.
     </p>
-    <p>
-      
-    </p>
-    <h3 id="auto-29">8.3<span style="margin-left: 1em"></span>String and string methods<span style="margin-left: 1em"></span></h3>
+    <h3 id="auto-36">9.2.<span style="margin-left: 1em"></span>String<span style="margin-left: 1em"></span></h3>
     <p>
       Single or double quotation marks are used to define a string value:
     </p>
@@ -1767,15 +1754,7 @@ In [17]: a = 'hello, world' # string
 In [18]: a = &quot;hello, world&quot; # string</pre>
     <p>
       Each character in a string corresponds to an index and can be accessed
-      using index notation (similar to a list):
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-In [19]: a[0]
-Out[19]: 'h'
-In [21]: a[0:6]
-Out[21]: 'hello,'</pre>
-    <p>
-      String methods:
+      using index notation (similar to a list). String methods:
     </p>
     <pre class="verbatim" xml:space="preserve">
 a = &quot;hello, world&quot; # string
@@ -1783,99 +1762,60 @@ a.split(&quot;,&quot;)  #Splits the string at the specified separator, and retur
 a.find(&quot;o&quot;) #Searches the string for &quot;o&quot; and returns the position where it was found</pre>
     <p>
       Again, we can view all the methods defined for <code>string</code>
-      object by using the built-in function <code>dir</code>. Or search
-      &ldquo;python string methods&rdquo; online to find useful methods of
-      string objects. Note that all string methods returns new values. They do
-      not change the original string.
+      object by using the built-in function <code>dir</code>. Note that all
+      string methods returns new values. They do not change the original
+      string.
     </p>
-    <h3 id="auto-30">8.4<span style="margin-left: 1em"></span>Tuple<span style="margin-left: 1em"></span></h3>
+    <p>
+      f-strings,
+    </p>
+    <h3 id="auto-37">9.3.<span style="margin-left: 1em"></span>Tuple<span style="margin-left: 1em"></span></h3>
     <p>
       Another data structure similar to list is tuple, which is an ordered
-      collection of items enclosed in round-brackets (parentheses):
+      collection of items separated by comman and (optionally) enclosed in
+      round-brackets (parentheses):
     </p>
     <pre class="verbatim" xml:space="preserve">
 t=(1,2,&quot;apple&quot;)</pre>
     <p>
-      The round-brackets are optional.
+      The round-brackets are optional. Slicing and addressing a tuple are
+      similar to those of a list. Like a list, we can loop through the tuple
+      items by using a <code>for</code> loop. Unlike a list,  Tuples are
+      <strong>unchangeable</strong>. Once a tuple is created, we cannot change
+      its values.
     </p>
     <p>
-      Slicing and addressing a tuple are similar to those of a list. Like a
-      list, we can loop through the tuple items by using a <code>for</code>
-      loop. Unlike a list,  Tuples are <strong>unchangeable</strong>. Once a
-      tuple is created, we cannot change its values.
+      Tuple methods
     </p>
-    <h4 id="auto-31">8.4.1<span style="margin-left: 1em"></span>Tuple methods<span style="margin-left: 1em"></span></h4>
     <pre class="verbatim" xml:space="preserve">
 mytuble.count(&quot;apple&quot;) # Returns the number of times a specified value occurs in a tuple
 mytuble.index(&quot;apple&quot;) # Searches the tuple for a specified value and returns the index</pre>
-    <h3 id="auto-32">8.5<span style="margin-left: 1em"></span>Set<span style="margin-left: 1em"></span></h3>
-    <pre class="verbatim" xml:space="preserve">
-a={&quot;dd&quot;, 1, (3,4)} #an items in set can be a tuple, but can not be a list</pre>
-    <p>
-      A set itself may be modified, but the elements contained in the set must
-      be of an immutable type. Therefore a list can not be an element of a
-      set.
-    </p>
-    <p>
-      Set items are unordered, unindexed, and do not allow duplicate values.
-      Set items are unchangeable, but you can remove items and add new items.
-    </p>
-    <h4 id="auto-33">8.5.1<span style="margin-left: 1em"></span>Access items in a set<span style="margin-left: 1em"></span></h4>
-    <p>
-      We can not access an item in a set by referring to an index, since sets
-      are unordered and have no index:
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-In [7]: a={&quot;dd&quot;, 1}
-In [8]: a[1]
-TypeError: 'set' object does not support indexing</pre>
-    <p>
-      But we can loop through a set using <code>for</code> loop, or ask if a
-      specified value is present in a set by using the <code>in</code>
-      keyword.
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-myset = {&quot;apple&quot;, &lsquo;&lsquo;banana&quot;, &lsquo;&lsquo;cherry&quot;}
-print(&quot;banana&quot; in myset) #True
-for x in myset:
-    print(x)</pre>
-    <h4 id="auto-34">8.5.2<span style="margin-left: 1em"></span>Set methods<span style="margin-left: 1em"></span></h4>
-    <pre class="verbatim" xml:space="preserve">
-myset.add(&quot;apple&quot;) # adds an element to the set
-myset.remove(&quot;apple&quot;) # removes a particular element from the set
-myset.pop() # removes an random element from the set, retuns the removed item</pre>
-    <h4 id="auto-35">8.5.3<span style="margin-left: 1em"></span>Set comprehension<span style="margin-left: 1em"></span></h4>
-    <pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt;s = {v for v in 'abcdabcd' if v not in 'cb'}
-&gt;&gt;&gt; print(s)
-{'a', 'd'}</pre>
-    <p>
-      In <code>Racket</code>, the above set comprehension is written as
-    </p>
-    <pre class="verbatim" xml:space="preserve">
-(for/set ([v &quot;ABCDABCD&quot;] #:unless (member v (string-&gt;list &quot;CB&quot;))) v )</pre>
-    <h3 id="auto-36">8.6<span style="margin-left: 1em"></span>Dictionary<span style="margin-left: 1em"></span></h3>
+    <h3 id="auto-38">9.4.<span style="margin-left: 1em"></span>Dictionary<span style="margin-left: 1em"></span></h3>
     <p>
       A dictionary is a collection of a pair of items enclosed in curly
       brackets:
     </p>
     <pre class="verbatim" xml:space="preserve">
-d={&quot;a&quot;:1, &quot;b&quot;:2} #each element has two filds, key and value, separated by :</pre>
+d={&quot;a&quot;:1, &quot;b&quot;:2} </pre>
     <p>
-      In other languages, data types similar to Python dictionaries may be
-      called &ldquo;hashmaps&rdquo; or &ldquo;associative arrays&rdquo;.
+      each element has two filds, key and value, separated by :
+    </p>
+    <p>
+      In other languages, this type may be called &ldquo;hashmaps&rdquo; or
+      &ldquo;associative arrays&rdquo;.
     </p>
     <p>
       Dictionaries can be built up and added to in a straightforward manner:
     </p>
     <pre class="verbatim" xml:space="preserve">
 In [8]: d = {}
-In [9]: d[&quot;last name&quot;] = &lsquo;&lsquo;Alberts&quot;
-In [10]: d[&quot;first name&quot;] = &lsquo;&lsquo;Marie&quot;
-In [11]: d[&quot;birthday&quot;] = &lsquo;&lsquo;January 27&quot;
+In [9]: d[&quot;last name&quot;] = &quot;Alberts&quot;
+In [10]: d[&quot;first name&quot;] = &quot;Marie&quot;
+In [11]: d[&quot;birthday&quot;] = &quot;January 27&quot;
 In [12]: d
 Out[12]: {'birthday': 'January 27', 'first name': 'Marie','last name': 'Alberts'}        </pre>
     <p>
+      As shown above, the values in a dict can be referred to by using keys.
       The type of keys of a dictionary can be string, int, float, and even a
       tuple. For example:
     </p>
@@ -1887,13 +1827,70 @@ Out[16]: 4</pre>
       It is interesting to note that referencing a dictionary item is very
       similar to referencing a list element if the keys are of int type.
     </p>
-    <h4 id="auto-37">8.6.1<span style="margin-left: 1em"></span>Dictionary methods<span style="margin-left: 1em"></span></h4>
-    <pre class="verbatim" xml:space="preserve">
-d={&quot;a&quot;:1, &quot;b&quot;:2}
-d.keys() # return all the keys of a dictionary
-d.values() # return all the values of a dictionary</pre>
     <p>
-      The following is a summary of useage of various brackets in python:
+      Properties and methods of a dict can be shown by using
+      <code>dir(dict)</code>. Some examples:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+d.keys() # return all the keys 
+d.values() # return all the values
+d.items() # return all the tuples (key,value)</pre>
+    <h3 id="auto-39">9.5.<span style="margin-left: 1em"></span>Set<span style="margin-left: 1em"></span></h3>
+    <p>
+      You can think of sets in a technical sense, namely that they are
+      unordered, unindexed, mutable, and contain unique (do not allow
+      duplicate values) and hashable values.
+    </p>
+    <p>
+      Think of sets as dictionaries without any values. Whatever applies to
+      dict keys also applies to the elements of a set. A list can not be an
+      element of a set because lists are unhashable.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+a={&quot;dd&quot;, 1, (3,4)} #an items in set can be a tuple, but can not be a list</pre>
+    <p>
+      An object is hashable if it has a hash value which never changes during
+      its lifetime (it needs a __hash__() method), and can be compared to
+      other objects (it needs an __eq__() or __cmp__() method). Hashable
+      objects which compare equal must have the same hash value.
+    </p>
+    <p>
+      Hashability makes an object usable as a dictionary key and a set member,
+      because these data structures use the hash value internally.
+    </p>
+    <p>
+      All of Python's immutable built-in objects are hashable, while no
+      mutable containers (such as lists or dictionaries) are. Objects which
+      are instances of user-defined classes are hashable by default; they all
+      compare unequal, and their hash value is their id().
+    </p>
+    <p>
+      We can not access an item in a set by referring to an index, since sets
+      are unordered and have no index. But we can loop through a set using
+      <code>for</code> loop, or ask if a specified value is present in a set
+      by using the <code>in</code> keyword.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+myset = {&quot;apple&quot;, &lsquo;&lsquo;banana&quot;, &lsquo;&lsquo;cherry&quot;}
+for x in myset:
+    print(x)
+print(&quot;banana&quot; in myset) #True</pre>
+    <p>
+      Some methods of the set object:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+myset.add(&quot;apple&quot;) # adds an element to the set
+myset.remove(&quot;apple&quot;) # removes a particular element from the set
+myset.pop() # removes an random element from the set, retuns the removed item</pre>
+    <p>
+      Similar to list comprehension, there is set comprehension:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt;s = {v for v in 'abcdabcd' if v not in 'cb'}
+&gt;&gt;&gt; print(s)
+{'a', 'd'}</pre>
+    <p>
+      Summary of useage of various brackets in python:
     </p>
     <ul>
       <li>
@@ -1906,22 +1903,25 @@ d.values() # return all the values of a dictionary</pre>
       </li>
       <li>
         <p>
-          round brackets <code>()</code> are basically used to group things.
-          Specifically, <code>()</code> are used in function definitions/calls
-          to gather arguments, generator expressions, defining order of
-          operations, and tuples, where <code>()</code> can be omitted if
-          there is no ambiguity.
+          round brackets <code>()</code> are used in function
+          definitions/calls, class instancination, generator expressions,
+          defining order of operations, and tuples, where <code>()</code> can
+          be omitted if there is no ambiguity.
         </p>
       </li>
       <li>
         <p>
           curly brackets <code>{}</code> are used in defining the two hash
-          table types&ndash; dictionaries and sets.
+          table types&ndash; dictionaries and sets, in performing string
+          interpolation using &ldquo;f-strings&rdquo;
         </p>
       </li>
     </ul>
-    <h2 id="auto-38">9<span style="margin-left: 1em"></span>File Handling<span style="margin-left: 1em"></span></h2>
-    <h3 id="auto-39">9.1<span style="margin-left: 1em"></span>Create file object<span style="margin-left: 1em"></span></h3>
+    <p>
+      
+    </p>
+    <h2 id="auto-40">10.<span style="margin-left: 1em"></span>File Handling<span style="margin-left: 1em"></span></h2>
+    <h3 id="auto-41">10.1.<span style="margin-left: 1em"></span>Create file object<span style="margin-left: 1em"></span></h3>
     <p>
       Python builtin function <code>open()</code> takes two parameters;
       <em>filename</em>, and <em>mode</em>, and returns a file object. For
@@ -1933,12 +1933,12 @@ f = open('t.txt', 'r')</pre>
       There are four different modes for opening a file:
     </p>
     <p>
-      <code>&quot;r&quot;</code> - Read - Default value. Opens a file for
-      reading, error if the file does not exist
+      <code>&quot;r&quot;</code> - Read - Default value. error if the file
+      does not exist.
     </p>
     <p>
       <code>&quot;a&quot;</code> - Append - Opens a file for appending,
-      creates the file if it does not exist
+      creates the file if it does not exist.
     </p>
     <p>
       <code>&quot;w&quot;</code> - Write - Opens a file for writing, creates
@@ -1953,27 +1953,40 @@ f = open('t.txt', 'r')</pre>
       text mode
     </p>
     <p>
-      <code>&quot;t&quot;</code> - Text - Default value. Text mode
+      <code>&quot;t&quot;</code> - Text - Default value. 
     </p>
     <p>
-      <code>&quot;b&quot;</code> - Binary - Binary mode (e.g. images)
+      <code>&quot;b&quot;</code> - Binary - Binary mode
     </p>
-    <h3 id="auto-40">9.2<span style="margin-left: 1em"></span>Methods of file object<span style="margin-left: 1em"></span></h3>
+    <h3 id="auto-42">10.2.<span style="margin-left: 1em"></span>Methods of file object<span style="margin-left: 1em"></span></h3>
     <p>
-      A python file object has several predefined methods, such as
-      <code>read</code>, <code>readline</code>, <code>readlines</code>. For
-      example:
+      A python file object has several predefined methods. To read a file, we
+      can use its methods, such as <code>read</code>, <code>readline</code>,
+      <code>readlines</code>. To write to a file, we can use
+      <code>write</code>. However, <code>write</code> is limited to string
+      data, which makes it inconventient to use in most cases. A more
+      convenient way is to use <code>print</code> and use the file object as
+      an argument:
     </p>
     <pre class="verbatim" xml:space="preserve">
-f = open('t.txt', 'r')
+print(&quot;This is x1: &quot;, x1, file=f)</pre>
+    <p>
+      More examples:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
 txt = f.read() #readin the entire file, return a string
-f.close() 
+f.close()
+<pre class="verbatim" xml:space="preserve">f = open(&quot;t.txt&quot;, &quot;w&quot;)
+f.write(&quot;hello&quot;) #write to the file
+f.write(&quot;\n&quot;)
+f.close() </pre>
 f = open('t.txt', 'r')
-txt1 = f.readline() #readin one line from the file, return a string
-txt2 = f.readline() #readin another line from the file
+txt1 = f.readline() #readin a line from the file, return a string
+txt2 = f.readline() #readin another line
 f.close()
 f = open('t.txt', 'r')
-txt = f.readlines() #read the entire file, return a list of string (one string=&gt;one line)</pre>
+txt = f.readlines() #read the entire file, return a list of string
+#(one string=&gt;one line)</pre>
     <p>
       A file object can also be converted to a list:
     </p>
@@ -1981,51 +1994,172 @@ txt = f.readlines() #read the entire file, return a list of string (one string=&
 f = open('t.txt', 'r')
 a = list(f) # return a list, the same as a = f.readlines()</pre>
     <p>
-      A python file object is also an iterator, which means that we can loop
-      over the file object:
+      A file object is also an iterator, which means that we can loop over it:
     </p>
     <pre class="verbatim" xml:space="preserve">
 f=open('t.txt', 'r')
 for line in f:
     print(line, end='')</pre>
-    <h2 id="auto-41">10<span style="margin-left: 1em"></span>Numpy and matplotlib<span style="margin-left: 1em"></span></h2>
+    <p>
+      Besides builtin functions, there are lots of third-party libriaries for
+      handling files. For reading/writing arrays from/to a file, we can use
+      numpy function <code>np.loadtxt()</code> for reading and
+      <tt>np.savetxt()</tt> for writing:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+data = np.loadtxt('myfile.txt')
+np.savetxt('myfile.txt', (x,y,z))
+np.savetxt('myfile.txt', np.transpose([x,y,z]))
+np.savetxt('myfile.txt', np.column_stack([x,y,z]))
+np.savetxt('myfile.txt', np.c_[x,y,z])</pre>
+    <p>
+      For reading files, we can also use <tt>np.genfromtxt()</tt>, which is
+      more flexible.
+    </p>
+    <h2 id="auto-43">11.<span style="margin-left: 1em"></span>With<span style="margin-left: 1em"></span></h2>
+    <p>
+      The <code>with</code> statement clarifies code that previously would use
+      try&hellip;finally blocks to ensure that clean-up code is executed.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+with expression [as variable]:
+    with-block</pre>
+    <p>
+      The expression is evaluated, and it should result in an object that
+      supports the context management protocol (that is, has
+      <code>__enter__()</code> and <code>__exit__()</code> methods). This kind
+      of objects are called context managers.
+    </p>
+    <p>
+      The classic example is opening a file, manipulating the file, then
+      closing it:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+ with open('output.txt', 'w') as f:
+     f.write('Hi there!')</pre>
+    <p>
+      The above <code>with</code> statement will automatically close the file
+      after the nested block of code. The advantage of using a with statement
+      is that it gaurantee that the file will be closed no matter how the
+      nested block exits. If an exception occurs before the end of the block,
+      it will close the file before the exception is caught by an outer
+      exception handler. If the nested block were to contain a return
+      statement, or a continue or break statement, the <code>with</code>
+      statement would automatically close the file in those cases, too.
+    </p>
+    <h2 id="auto-44">12.<span style="margin-left: 1em"></span>Numpy<span style="margin-left: 1em"></span></h2>
     <p>
       NumPy is the reason why Python stands among the ranks of R, Matlab, and
       Julia, as one of the most popular languages for doing STEM-related
       computing. It is a third-party library (i.e. it is not part of Python's
       standard library) that facilitates numerical computing in Python by
-      providing users with a versatile N-dimensional array object for storing
-      data, and powerful mathematical functions for operating on those arrays
-      of numbers. NumPy makes use of a process known as vectorization, that
-      enables a degree of computational efficiency that is otherwise
-      unachievable by the Python language.
+      providing users with N-dimensional array objects for storing data, and
+      mathematical functions for operating on them. NumPy makes use of a
+      process known as vectorization, that enables a degree of computational
+      efficiency that is otherwise unachievable by the Python language.
     </p>
     <p>
-      The impact that NumPy has had on the landscape of numerical computing in
-      Python is hard to overstate. Whether you are plotting data in
-      matplotlib, analyzing tabular data via pandas and xarray, using OpenCV
-      for image and video processing, doing astrophysics research with the
-      help of astropy, or trying out machine learning with Scikit-Learn and
-      MyGrad, you are using Python libraries that bare the indelible mark of
-      NumPy. At their core, each of these libraries depend on NumPy's
-      N-dimensional array and its efficient vectorization capabilities. NumPy
-      also fundamentally impacts the designs of these libraries and the way
-      that they interface with their users. Thus, one cannot leverage these
-      tools effectively, and cannot do STEM work in Python in general, without
-      having a solid foundation in NumPy.
+      Many libraries depend on NumPy's N-dimensional arrays. NumPy also
+      fundamentally impacts the designs of these libraries and the way that
+      they interface with their users.
     </p>
-    <h3 id="auto-42">10.1<span style="margin-left: 1em"></span>Numpy array<span style="margin-left: 1em"></span></h3>
+    <pre class="verbatim" xml:space="preserve">
+import numpy as np</pre>
     <p>
-      NumPy is used to work with arrays. The array object in NumPy is called
-      <code>ndarray</code>. The data of a NumPy array are stored in contiguous
-      block of system memory. This is the main difference between an array and
-      a pure Python structure, such as a list, where the items are scattered
-      across the system memory. This aspect is the critical feature that makes
-      NumPy arrays efficient.
+      The n-dimensional array object in NumPy is called <code>ndarray</code>,
+      all elements of which are of the same type. The data of a
+      <code>ndarray</code> object are stored in contiguous block of system
+      memory, which makes NumPy arrays efficient. 
     </p>
     <p>
-      We can create a NumPy ndarray object by using various functions, such
-      as<code> np.array()</code> and <code>np.zeros()</code>.
+      
+    </p>
+    <p>
+      <code>ndarray</code> objects can be created by using various functions,
+      such as <code>np.ndarray()</code>, <code>np.array()</code>,
+      <code>np.zeros()</code> <code>np.empty()</code>,
+      <code>np.linspace()</code>, <code>np.meshgrid()</code>,
+      <code>np.mgrid[]</code>, <code>np.ogrid[]</code>. 
+    </p>
+    <p>
+      <code>np.meshgrid</code> is modelled after Matlab's meshgrid command. I
+      stick to using indexing='ij', which is less confusing than the case with
+      indexing='xy'.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; m = 4; n = 3;
+&gt;&gt;&gt; x = np.linspace(1,4,m)
+&gt;&gt;&gt; y = np.linspace(5,7,n)
+&gt;&gt;&gt; xx, yy = np.meshgrid(x,y, indexing='ij')</pre>
+    <p>
+      Numpy has another function <tt>ix_</tt> that's similar to meshgrid:
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+xx, yy = np.ix_(x,y)</pre>
+    <p>
+      In this case, you get compact arrays that can be broadcasted between
+      each other.
+    </p>
+    <p>
+      Another family of methods of geting mesh-grid is to use <tt>mgrid</tt>
+      and <tt>ogrid</tt>, which are instances that returns mesh-grid when
+      idexed. The difference between them is that <tt>mgrid</tt> returns a
+      dense (i.e., fleshed out) mesh-grid while <tt>ogrid</tt> returns compact
+      one.
+    </p>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; m=4;  n=3;
+&gt;&gt;&gt; XX, YY = np.mgrid[1:4:m*1j, 5:7:n*1j]
+&gt;&gt;&gt; XX
+array([[1., 1., 1.],
+       [2., 2., 2.],
+       [3., 3., 3.],
+       [4., 4., 4.]])
+&gt;&gt;&gt; YY
+array([[5., 6., 7.],
+       [5., 6., 7.],
+       [5., 6., 7.],
+       [5., 6., 7.]])
+# Here the shape of <code>XX</code> and <code>YY</code> is <code>(m,n)</code>. </pre>
+    <pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; a, b = np.ogrid[1:4:m*1j, 5:7:n*1j]
+&gt;&gt;&gt; a
+array([[1.],
+       [2.],
+       [3.],
+       [4.]])
+&gt;&gt;&gt; b
+array([[5., 6., 7.]])
+&gt;&gt;&gt; XX, YY = np.broadcast_arrays(a,b)</pre>
+    <p>
+      <tt>mgrid</tt> and <tt>ogrid</tt> are less versatile than
+      <tt>meshgrid</tt> in that they are limitted to uniform case and thus can
+      not use arbitary grids (e.g. grids read from numerical files).
+      <tt>mgrid</tt> and <tt>ogrid</tt> can be used to generate 1D grid, and
+      can be used in place of linspace().
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Numpy is ensentially about vectorization (avoid explicit
+      looping/indexing in python so that they can be done in C efficiently).
+      As a result, we want to make relevant arrays be of the same shape or be
+      able to be boradcasted between each other.
+    </p>
+    <p>
+      When operating on two arrays, NumPy compares their shapes element-wise,
+      starting with the trailing (i.e. rightmost) dimensions and works its way
+      left. Two dimensions are compatible when they are equal, or one of them
+      is 1. When broadcasting, arrays do not need to have the same number of
+      dimensions.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
     </p>
     <p>
       <code>ndarray.tolist()</code> Return a copy of the array data as a
@@ -2037,36 +2171,11 @@ for line in f:
     <p>
       
     </p>
-    <pre class="verbatim" xml:space="preserve">
-x=np.array([1,2,3,4])
-y=np.array([5,6,7])
-XX, YY = np.meshgrid(x,y)</pre>
-    <div style="margin-top: 1em; margin-bottom: 1em">
-      <table style="width: 100%">
-        <tbody><tr>
-          <td style="text-align: center; padding-left: 0em; padding-right: 0em"><img class="image" src="meshgrid.png" width="70%"></img></td>
-        </tr><tr>
-          <td style="text-align: center; padding-left: 0em; padding-right: 0em; height: 0.5em"></td>
-        </tr><tr>
-          <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-left: 1.5em; padding-right: 1.5em"><div class="caption">
-            <font style="font-size: 84.1%"><p>
-              <b>Figure 1. </b><a id="auto-43"></a>
-            </p></font>
-          </div></td>
-        </tr></tbody>
-      </table>
-    </div>
-    <p>
-      
-    </p>
     <p>
       &ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;
     </p>
     <p>
-      Practically all software has some bugs; it's a matter of frequency and
-      severity rather than absolute perfection. When a bug does occur, you
-      want to spend the minimum amount of time getting from the observed
-      symptom to the root cause.
+      
     </p>
     <p>
       While a CPU-bound task is characterized by the computer's cores
@@ -2090,9 +2199,7 @@ XX, YY = np.meshgrid(x,y)</pre>
       single-process design: it uses cooperative multitasking.
     </p>
     <p>
-      All Python (intepretor) releases are open source. Python works on many
-      platforms (e.g. Linux, Windows, Mac). Python has lots of libraries,
-      documentation, and an active community. 
+      
     </p>
     <p>
       
@@ -2124,8 +2231,21 @@ XX, YY = np.meshgrid(x,y)</pre>
     <p>
       
     </p>
-    <p>
-      
-    </p>
+    <h2 id="auto-45">Bibliography<span style="margin-left: 1em"></span></h2>
+    <div class="compact-block" style="text-indent: 0em">
+      <font style="font-size: 84.0%"><dl>
+        <p>
+          <dt>
+            <strong>[1]  </strong>
+          </dt>
+          <dd>
+            <p>
+              <a id="bib-TeXmacs:website"></a>J. van der Hoeven et al. GNU TeXmacs. <a href="https://www.texmacs.org"><tt>https://www.texmacs.org</tt></a>,
+              1998.
+            </p>
+          </dd>
+        </p>
+      </dl></font>
+    </div>
   </body>
 </html>
