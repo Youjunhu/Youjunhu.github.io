@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{llncs}
 \usepackage[english]{babel}
 \usepackage{geometry,amsmath,graphicx,hyperref,xcolor}
 \geometry{a4paper}
@@ -7,7 +7,6 @@
 \newcommand{\infixand}{\text{ and }}
 \newcommand{\nobracket}{}
 \newcommand{\nosymbol}{}
-\newcommand{\tmaffiliation}[1]{\\ #1}
 \newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
 \newcommand{\tmem}[1]{{\em #1\/}}
 \newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
@@ -23,10 +22,11 @@
 
 \title{Nonlinear gyrokinetic equation}
 
-\author{
-  Youjun Hu
-  \tmaffiliation{Institute of Plasma Physics, Chinese Academy of Sciences\\
-  Email: yjhu@ipp.cas.cn}
+\author{Youjun Hu\inst{1}}
+
+\institute{
+  Institute of Plasma Physics, Chinese Academy of Sciences\\
+  Email: yjhu@ipp.cas.cn
 }
 
 \maketitle
@@ -84,7 +84,7 @@ $(\mathbf{x}, \mathbf{v})$, besides the time $t$.
 Choose Cartesian coordinates $(x, y, z)$ for the configuration space
 $\mathbf{x}$. Consider a simple case where the electromagnetic field is a
 time-independent field given by $\mathbf{B}= B_0 (x, y, z) \hat{\mathbf{z}}$
-and $\mathbf{E}= 0$. Let us examine the Vlasov equation in this case and look
+and $\mathbf{E}= 0$. Let us examine the Vlasov equation in this case and see
 whether there is any coordinate system that can simplify the Vlasov equation.
 
 Describe the velocity space using a right-handed cylindrical coordinates
@@ -93,7 +93,8 @@ $(v_{\perp}, \alpha, v_{\parallel})$, where $v_{\parallel} =\mathbf{v} \cdot
 vector along the magnetic field, $\alpha$ is the azimuthal angle of the
 perpendicular velocity ($\mathbf{v}_{\perp} =\mathbf{v}- v_{\parallel}
 \mathbf{e}_z$) relative to $\mathbf{e}_x$. Note that these coordinates are
-defined relative to the local magnetic field, which may vary in space.
+defined relative to the local magnetic field, which, in more general cases,
+may vary in space.
 
 Next, let us express the spatial gradient of $f$ in terms of partial
 derivatives:
@@ -104,7 +105,7 @@ derivatives:
   \left. \frac{\partial f}{\partial z} \right|_{\mathbf{v}} \mathbf{e}_z . 
   \label{23-11-7-e1}
 \end{eqnarray}
-Note that this gradient is taking by holding $\mathbf{v}$ constant (i.e.,
+Note that this gradient is taken by holding $\mathbf{v}$ constant (i.e.,
 $(v_x, v_y, v_z)$ constant rather than $(v_{\perp}, \alpha, v_{\parallel})$
 constant). So, we need do the following coordinate transform:
 \begin{equation}
@@ -355,8 +356,8 @@ Given $(\mathbf{x}, \mathbf{v})$, it is straightforward to obtain $\mathbf{X}$
 by using Eq. (\ref{16-9-21-1}). On the other hand, the inverse transform
 (i.e., given $(\mathbf{X}, \mathbf{v})$, to find $\mathbf{x}$) is in principle
 not easy because $\Omega$ and $\mathbf{e}_{\parallel}$ depend on $\mathbf{x}$,
-which usually requires solving a nonlinear equation for the root .
-Numerically, one can use
+which usually requires solving a nonlinear equation for its root. Numerically,
+one can use
 \begin{equation}
   \label{18-9-13-p1} \mathbf{x}_{n + 1} =\mathbf{X}-\mathbf{v} \times
   \frac{\tmmathbf{e}_{\parallel} (\mathbf{x}_n)}{\Omega (\mathbf{x}_n)},
@@ -365,16 +366,12 @@ as an iteration scheme to compute $\mathbf{x}$, with the initial guess chosen
 as $\mathbf{x}_0 =\mathbf{X}$. If we stop at the first iteration, then
 \begin{equation}
   \label{19-1-19-p2} \mathbf{x} \approx \mathbf{X}-\mathbf{v} \times
-  \frac{\tmmathbf{e}_{\parallel} (\mathbf{X})}{\Omega (\mathbf{X})},
+  \frac{\tmmathbf{e}_{\parallel} (\mathbf{X})}{\Omega (\mathbf{X})} .
 \end{equation}
 In gyrokinetic PIC simulation, Eq. (\ref{19-1-19-p2}) is used as the inverse
 guiding-center transformation. This transformation needs to be performed
-numerically when we deposit markers to grids or when we calculate the
+numerically when we deposit markers to grids, or when we calculate the
 gyro-averaged field to be used in pushing guiding-centers.
-
-For later use, define $\tmmathbf{\rho} \equiv -\mathbf{v} \times
-\mathbf{e}_{\parallel} / \Omega$, which is the vector gyro-radius pointing
-from the the guiding-center to the particle position.
 
 [The equilibrium magnetic field we will consider has spatial scale length much
 larger than the thermal gyro radius $\rho$. In this case the difference
@@ -388,6 +385,10 @@ $\mathbf{x}$ or $\mathbf{X}$. What matters is where the perturbed fields are
 evaluated: at $\mathbf{x}$ or at $\mathbf{X}$. The values of perturbed fields
 at $\mathbf{x}$ or at $\mathbf{X}$ are different and this is called the finite
 Larmor radius (FLR) effect.]
+
+For later use, define $\tmmathbf{\rho} \equiv -\mathbf{v} \times
+\mathbf{e}_{\parallel} / \Omega$, which is the vector gyro-radius pointing
+from the the guiding-center to the particle position.
 
 \subsection{Choosing velocity coordinates}
 
@@ -1578,22 +1579,21 @@ is finally written as
 \begin{eqnarray}
   &  & \frac{\partial \delta G_0}{\partial t} + \left( v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D - \underbrace{\tmcolor{red}{\frac{q}{m}
-  \nabla_X \langle \delta L \rangle_{\alpha} \times
+  \nabla \langle \delta L \rangle \times
   \frac{\tmmathbf{e}_{\parallel}}{\Omega}}}_{\tmop{nonlinear}} \right) \cdot
   \nabla_X \delta G_0 \nonumber\\
-  &  & = \underbrace{\left( \tmcolor{red}{\frac{q}{m} \nabla_X \langle \delta
-  L \rangle_{\alpha} \times \frac{\tmmathbf{e}_{\parallel}}{\Omega}} \right)
-  \cdot \nabla_X F_{g 0}}_{\tmop{spatial} - \tmop{drive}} -
-  \underbrace{\frac{q}{m}  \frac{\partial \langle \delta L
-  \rangle_{\alpha}}{\partial t}  \frac{\partial F_{g 0}}{\partial
-  \varepsilon}}_{\tmop{velocit} - \tmop{space} - \tmop{damp}} . 
+  &  & = \underbrace{\left( \tmcolor{red}{\frac{q}{m} \nabla \langle \delta L
+  \rangle \times \frac{\tmmathbf{e}_{\parallel}}{\Omega}} \right) \cdot
+  \nabla_X F_{g 0}}_{\tmop{spatial} - \tmop{drive}} - \underbrace{\frac{q}{m} 
+  \frac{\partial \langle \delta L \rangle}{\partial t}  \frac{\partial F_{g
+  0}}{\partial \varepsilon}}_{\tmop{velocit} - \tmop{space} - \tmop{damp}} . 
   \label{16-10-16-2}
 \end{eqnarray}
 where $\mathbf{V}_D$ is the equilibrium guiding-center drift velocity,
-$\langle \ldots \rangle_{\alpha}$ is the gyro-phase averaging operator,
-$\delta L = \delta \Phi -\mathbf{v} \cdot \delta \mathbf{A}$, and $\delta G_0
-= \delta G_0 (\mathbf{X}, \varepsilon, \mu, t)$ is gyro-angle independent and
-is related to the perturbed distribution function $\delta F_g$ by
+$\langle \ldots \rangle$ is the gyro-phase averaging operator, $\delta L =
+\delta \Phi -\mathbf{v} \cdot \delta \mathbf{A}$, and $\delta G_0 = \delta G_0
+(\mathbf{X}, \varepsilon, \mu, t)$ is gyro-angle independent and is related to
+the perturbed distribution function $\delta F_g$ by
 \begin{equation}
   \delta F_g = \tmcolor{blue}{\frac{q}{m} \delta \Phi \frac{\partial F_{g
   0}}{\partial \varepsilon}} + \delta G_0,
@@ -1606,31 +1606,91 @@ equation given in Ref. {\cite{frieman1982}}. Note that the nonlinear terms
 only appear on the left-hand side of Eq. (\ref{16-10-16-2}) and all the terms
 on the right-hand side are linear. The term
 \begin{equation}
-  \label{19-1-3-1} \tmcolor{red}{- \frac{q}{m} \nabla_X \langle \delta L
-  \rangle_{\alpha} \times \frac{\tmmathbf{e}_{\parallel}}{\Omega}} \equiv
-  \delta \mathbf{V}_D,
+  \tmcolor{red}{- \frac{q}{m} \nabla \langle \delta L \rangle \times
+  \frac{\tmmathbf{e}_{\parallel}}{\Omega}}
 \end{equation}
 consists of the $\delta \mathbf{E} \times \mathbf{B}_0$ drift and magnetic
 fluttering term (refer to \ expression (\ref{21-8-5-p1}) in Sec.
 \ref{16-10-13-1}). For notaiton ease, this term is denoted by $\delta
-\mathbf{V}_D$.
+\mathbf{V}_D$ in the following:
+\begin{equation}
+  \label{19-1-3-1} \delta \mathbf{V}_D \equiv - \frac{q}{m} \nabla \langle
+  \delta L \rangle \times \frac{\tmmathbf{e}_{\parallel}}{\Omega} = -
+  \frac{q}{m} \nabla \langle \delta \Phi -\mathbf{v} \cdot \delta \mathbf{A}
+  \rangle_{\alpha} \times \frac{\mathbf{e}_{\parallel}}{\Omega}
+\end{equation}
 
-\section{Gyrokinetic equation in forms amenable to numerical computation}
 
-\subsection{Eliminate $\partial \langle \delta \phi \rangle_{\alpha} /
-\partial t$ term on the right-hand side of Eq. (\ref{16-10-16-2})}
+\tmcolor{blue}{Note that $\nabla \equiv \partial / \partial \mathbf{X}$, which
+is taken in the guiding-center coordinates $(\mathbf{X}, \varepsilon, \mu,
+\alpha)$ while holding $(\varepsilon, \mu, \alpha)$ constant. How do we
+numerically calculate $\partial \Phi_g / \partial \mathbf{X}$ in PIC
+simulations? The difficulty is that $\mathbf{X}$ grid is not available, which
+makes it difficult to use the finite difference method. We note $\mathbf{x}$
+grid is available in PIC simulations. It turns out we can make use of
+$\mathbf{x}$ grid to approximatly calculate the derivatives in $\mathbf{X}$
+space. Using $\mathbf{x}=\mathbf{X}+\mathbf{\rho}$ and the definition $\delta
+\Phi_g (\mathbf{X}, \alpha, v_{\perp}) = \delta \Phi_p (\mathbf{x})$ we obtain
+\begin{eqnarray}
+  \frac{\partial \delta \Phi_g (\mathbf{X}, \alpha, v_{\perp})}{\partial
+  \mathbf{X}} & = & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial
+  \mathbf{X}} \nonumber\\
+  & = & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{x}} \cdot
+  \frac{\partial \mathbf{x}}{\partial \mathbf{X}} \nonumber\\
+  & = & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{x}} \cdot
+  \left( 1 + \frac{\partial \mathbf{\rho}}{\partial \mathbf{X}} \right)
+  \nonumber\\
+  & \approx & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial
+  \mathbf{x}}, 
+\end{eqnarray}
+which is accurate up to $O (\lambda)$ in gyrokinetic ordering. The above
+relation indicates that the value of $\partial \delta \Phi_g / \partial
+\mathbf{X}$ at a guidng-center location is approximately equal to the value of
+$\partial \delta \Phi_g / \partial \mathbf{x}$ at the corresponding particle
+position. Therefore we can use $\delta \Phi$ defined on $\mathbf{x}$ grid to
+compute \ $\partial \delta \Phi_p / \partial \mathbf{x}$, and interpolate it
+to the particle position and this is a good approximation of $\partial \delta
+\Phi_g / \partial \mathbf{X}$.
+
+Similarly, we have $\partial \delta A_{\parallel g} / \partial \mathbf{X}
+\approx \partial \delta A_{\parallel p} / \partial \mathbf{x}$.
+
+Also note that $\langle \delta \Phi_g \rangle$ is not known on $\mathbf{X}$
+grid (it is known on random markers). So, to calculate $\partial \langle
+\delta \Phi_g \rangle / \partial \mathbf{X}$, we need to exchange the
+operation order:
+\begin{equation}
+  \frac{\delta \langle \delta \Phi_g \rangle}{\partial \mathbf{X}} = \langle
+  \frac{\partial \delta \Phi_g}{\partial \mathbf{X}} \rangle \approx \langle
+  \frac{\partial \delta \Phi_p}{\partial \mathbf{x}} \rangle .
+\end{equation}
+For notation ease, the subscripts $g$ and $p$ are usually dropped. Which one
+is intended should be obvious from the context.}
+
+\
+
+\section{Gyrokinetic equation suitable for numerical simulation}
+
+The gyrokinetic equation (\ref{16-10-16-2}) contains time derivatives on the
+right-hand side, which is problematic if treated by using explicit finite
+difference in PIC simulations. Next, we discuss some methods that can
+eliminate these terms, making the gyrokinetic equation more amenable to PIC
+simulations.
+
+\subsection{Eliminate $\partial \langle \delta \phi \rangle / \partial t$ term
+on the right-hand side of Eq. (\ref{16-10-16-2})}
 
 Note that the coefficient before $\tmcolor{red}{\partial F_0 / \partial
 \varepsilon}$ in Eq. (\ref{16-10-16-2}) involves the time derivative of
 $\langle \delta \phi \rangle_{\alpha}$, which is problematic if treated by
-using explicit finite difference in particle simulations (I test the algorithm
-that treats this term by implicit scheme, the result roughly agrees with the
-standard method discussed in Sec. \ref{19-1-4-1}). It turns out that $\partial
-\langle \delta \Phi \rangle_{\alpha} / \partial t$ can be eliminated by
-defining another gyro-phase independent function $\delta f$ by
+using explicit finite difference (I test the algorithm that treats this term
+by implicit scheme, the result roughly agrees with the standard method
+discussed in Sec. \ref{19-1-4-1}). It turns out that $\partial \langle \delta
+\Phi \rangle_{\alpha} / \partial t$ can be eliminated by defining another
+gyro-phase independent function $\delta f$ by
 \begin{equation}
-  \label{16-10-16-1} \delta f = \frac{q}{m} \langle \delta \Phi
-  \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon} + \delta G_0 .
+  \label{16-10-16-1} \delta f = \frac{q}{m} \langle \delta \Phi \rangle
+  \frac{\partial F_0}{\partial \varepsilon} + \delta G_0 .
 \end{equation}
 Substituting this into Eq. (\ref{16-10-16-2}), we obtain the equation for
 $\delta f$:
@@ -1641,14 +1701,14 @@ $\delta f$:
   &  & - \frac{q}{m}  \frac{\partial F_0}{\partial \varepsilon} \left[
   \frac{\partial}{\partial t} + (v_{\parallel} \mathbf{e}_{\parallel}
   +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \right] \langle \delta
-  \Phi \rangle_{\alpha} \nonumber\\
-  &  & \tmcolor{blue}{- \frac{q}{m}  \langle \delta \Phi \rangle_{\alpha}
-  \left[ \frac{\partial}{\partial t} + (v_{\parallel} \mathbf{e}_{\parallel}
+  \Phi \rangle \nonumber\\
+  &  & \tmcolor{blue}{- \frac{q}{m}  \langle \delta \Phi \rangle \left[
+  \frac{\partial}{\partial t} + (v_{\parallel} \mathbf{e}_{\parallel}
   +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \right] \frac{\partial
   F_0}{\partial \varepsilon}} \nonumber\\
   &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 - \frac{q}{m} 
-  \frac{\partial \langle \delta L \rangle_{\alpha}}{\partial t} 
-  \frac{\partial F_0}{\partial \varepsilon} . 
+  \frac{\partial \langle \delta L \rangle}{\partial t}  \frac{\partial
+  F_0}{\partial \varepsilon} . 
 \end{eqnarray}
 Noting that $\partial F_0 / \partial t = 0$, $\mathbf{e}_{\parallel} \cdot
 \nabla F_0 = 0$, $\partial F_0 / \partial \varepsilon \approx - F_0 m / T$, we
@@ -1664,71 +1724,85 @@ written as
   \right] \delta f \nonumber\\
   &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 \nonumber\\
   &  & - \frac{q}{m} \left[ - \frac{\partial \langle \mathbf{v} \cdot \delta
-  \mathbf{A} \rangle_{\alpha}}{\partial t} - (v_{\parallel}
-  \mathbf{e}_{\parallel} +\mathbf{V}_D + \tmcolor{red}{\delta \mathbf{V}_D})
-  \cdot \tmcolor{red}{\nabla_X \langle \delta \Phi \rangle_{\alpha}} \right]
-  \frac{\partial F_0}{\partial \varepsilon},  \label{17-5-13-p2}
+  \mathbf{A} \rangle}{\partial t} - (v_{\parallel} \mathbf{e}_{\parallel}
+  +\mathbf{V}_D + \tmcolor{red}{\delta \mathbf{V}_D}) \cdot
+  \tmcolor{red}{\nabla_X \langle \delta \Phi \rangle} \right] \frac{\partial
+  F_0}{\partial \varepsilon},  \label{17-5-13-p2}
 \end{eqnarray}
 where two $\partial \langle \phi \rangle_{\alpha} / \partial t$ terms cancel
 each other. Note that the right-hand side of Eq. (\ref{17-5-13-p2}) contains a
 nonlinear term $\tmcolor{red}{\delta \mathbf{V}_D \cdot \nabla_X \langle
-\delta \Phi \rangle_{\alpha}}$. This is different from the original
-Frieman-Chen equation, where all nonlinear terms appear on the left-hand side.
-For the electrostatic limit, this term disappears because $\delta
-\mathbf{V}_D$ is perpendicular to $\nabla_X \langle \delta \Phi
-\rangle_{\alpha}$.
+\delta \Phi \rangle}$. This is different from the original Frieman-Chen
+equation, where all nonlinear terms appear on the left-hand side. For the
+electrostatic limit, this term disappears because $\delta \mathbf{V}_D$ is
+perpendicular to $\nabla_X \langle \delta \Phi \rangle_{\alpha}$.
 
-[Equation (\ref{17-5-13-p2}) corresponds to Eq. (A8) in Yang Chen's
-paper{\cite{ychen2009}} (where the first minus on the right-hand side is wrong
-and should be replaced with $q / m$; one $q$ is missing before $\partial
-(\mathbf{v} \cdot \delta \mathbf{A}) / \partial t$ in A9).]
-
-\
+Using
+\[ \delta \mathbf{V}_D = - \frac{q}{m} \nabla \langle \delta \Phi -\mathbf{v}
+   \cdot \delta \mathbf{A} \rangle \times
+   \frac{\mathbf{e}_{\parallel}}{\Omega} \]
+in the right-hand side of Eq. (\ref{17-5-13-p2}) yields
+\begin{eqnarray}
+  &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
+  \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
+  \right] \delta f \nonumber\\
+  &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 \nonumber\\
+  &  & + \frac{q}{m} \left[ \frac{\partial \langle \mathbf{v} \cdot \delta
+  \mathbf{A} \rangle}{\partial t} + \left( v_{\parallel}
+  \mathbf{e}_{\parallel} +\mathbf{V}_D + \tmcolor{red}{\frac{q}{m} \nabla_X
+  \langle \mathbf{v} \cdot \delta \mathbf{A} \rangle \times
+  \frac{\tmmathbf{e}_{\parallel}}{\Omega}} \tmcolor{red}{} \right)
+  \tmcolor{red}{\cdot \nabla_X \langle \delta \Phi \rangle} \right]
+  \frac{\partial F_0}{\partial \varepsilon} .  \label{24-12-10-1}
+\end{eqnarray}
+[Equation (\ref{24-12-10-1}) corresponds to Eqs. (A8-A9) in Yang Chen's
+paper{\cite{ychen2009}}, where the first minus on the right-hand side of Eq.
+(A8) is wrong and should be replaced with $q / m$; one $q$ is missing before
+$\partial \langle \mathbf{v} \cdot \delta \mathbf{A} \rangle / \partial t$ in
+Eq. (A9).]
 
 \subsection{Eliminate $\partial \langle \delta \mathbf{v} \cdot \delta
-\mathbf{A} \rangle_{\alpha} / \partial t$ term on the right-hand side of GK
+\mathbf{A} \rangle / \partial t$ term on the right-hand side of GK
 equation}\label{24-3-21-p1}
 
-Similar to the method of eliminating $\partial \langle \delta \phi
-\rangle_{\alpha} / \partial t$, we define another gyro-phase independent
-function by
+Similar to the method of eliminating $\partial \langle \delta \phi \rangle /
+\partial t$, we define another gyro-phase independent function by
 \begin{equation}
-  \label{23-11-15-1} \delta h = \delta f - \frac{q}{m} \langle \mathbf{v}
-  \cdot \delta \mathbf{A} \rangle_{\alpha} \frac{\partial F_0}{\partial
-  \varepsilon} .
+  \label{23-11-15-1} \delta h = \delta f - \frac{q}{m} \frac{\partial
+  F_0}{\partial \varepsilon} \langle \mathbf{v} \cdot \delta \mathbf{A}
+  \rangle .
 \end{equation}
 Most gyrokinetic simulations approximate the vector potential as $\delta
 \mathbf{A} \approx \delta A_{\parallel} \mathbf{e}_{\parallel}$. Let us
-simplify Eq. (\ref{19-1-4-e1}) for this case. Then $\langle \mathbf{v} \cdot
+simplify Eq. (\ref{17-5-13-p2}) for this case. Then $\langle \mathbf{v} \cdot
 \delta \mathbf{A} \rangle_{\alpha}$ is written as
 \begin{equation}
   \label{19-3-26-e1} \langle \mathbf{v} \cdot \delta \mathbf{A}
-  \rangle_{\alpha} \approx \langle v_{\parallel} \delta A_{\parallel}
-  \rangle_{\alpha} .
+  \rangle_{\alpha} \approx \langle v_{\parallel} \delta A_{\parallel} \rangle
+  .
 \end{equation}
 Then expression (\ref{23-11-15-1}) is written as
 \begin{equation}
   \delta h = \delta f - \frac{q}{m} \langle v_{\parallel} \delta A_{\parallel}
-  \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon} .
+  \rangle \frac{\partial F_0}{\partial \varepsilon} .
 \end{equation}
 Then Eq. (\ref{17-5-13-p2}) is written in terms of $\delta h$ as
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
   \right] \delta h \nonumber\\
-  &  & + \frac{q}{m}  \frac{\partial F_0}{\partial \varepsilon} \left[ \left(
-  \frac{\partial}{\partial t} + v_{\parallel} \mathbf{e}_{\parallel}
-  +\mathbf{V}_D + \delta \mathbf{V}_D \right) \cdot \nabla_X \right] \langle
-  v_{\parallel} \delta A_{\parallel} \rangle_{\alpha} \nonumber\\
+  &  & + \frac{q}{m} \frac{\partial F_0}{\partial \varepsilon} \left[
+  \frac{\partial}{\partial t} + (v_{\parallel} \mathbf{e}_{\parallel}
+  +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \right]  \langle
+  v_{\parallel} \delta A_{\parallel} \rangle \nonumber\\
   &  & \tmcolor{red}{+ \frac{q}{m} \langle v_{\parallel} \delta A_{\parallel}
-  \rangle_{\alpha} [(\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X]
-  \left( \frac{\partial F_0}{\partial \varepsilon} \right)} \nonumber\\
+  \rangle [(\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X] \left(
+  \frac{\partial F_0}{\partial \varepsilon} \right)} \nonumber\\
   &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 \nonumber\\
   &  & - \frac{q}{m} \left[ - \frac{\partial \langle v_{\parallel} \delta
-  A_{\parallel} \rangle_{\alpha}}{\partial t} - (v_{\parallel}
-  \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
-  \langle \delta \Phi \rangle_{\alpha} \right] \frac{\partial F_0}{\partial
-  \varepsilon}, 
+  A_{\parallel} \rangle}{\partial t} - (v_{\parallel} \mathbf{e}_{\parallel}
+  +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \langle \delta \Phi
+  \rangle \right] \frac{\partial F_0}{\partial \varepsilon}, 
 \end{eqnarray}
 where use has been made of that $\partial F_0 / \partial t = 0$ and
 $\mathbf{e}_{\parallel} \cdot \nabla F_0 = 0$. Further noting that
@@ -1746,15 +1820,14 @@ right-hand side, giving
   &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 \nonumber\\
   &  & + \frac{q}{m} [(v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D +
   \tmcolor{blue}{\delta \mathbf{V}_D}) \tmcolor{blue}{\cdot \nabla_X (\langle
-  \delta \Phi - v_{\parallel} \delta A_{\parallel} \rangle_{\alpha})}]
-  \frac{\partial F_0}{\partial \varepsilon},  \label{19-1-3-e1}
+  \delta \Phi - v_{\parallel} \delta A_{\parallel} \rangle)}] \frac{\partial
+  F_0}{\partial \varepsilon},  \label{19-1-3-e1}
 \end{eqnarray}
-where $\partial \langle v_{\parallel} \delta A_{\parallel} \rangle_{\alpha} /
-\partial t$ terms cancel each other. Further note that $\delta \mathbf{V}_D$
-(given by Eq. (\ref{19-1-3-1})) is perpendicular to $\nabla_X \langle \delta
-\Phi - v_{\parallel} \delta A_{\parallel} \rangle_{\alpha}$. Therefore the
-blue term in Eq. (\ref{19-1-3-e1}) is zero, then Eq. (\ref{19-1-3-e1})
-simplifies to
+where $\partial \langle v_{\parallel} \delta A_{\parallel} \rangle / \partial
+t$ terms cancel each other. Further note that $\delta \mathbf{V}_D$ (given by
+Eq. (\ref{19-1-3-1})) is perpendicular to $\nabla_X \langle \delta \Phi -
+v_{\parallel} \delta A_{\parallel} \rangle$. Therefore the blue term in Eq.
+(\ref{19-1-3-e1}) is zero, then Eq. (\ref{19-1-3-e1}) simplifies to
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
@@ -1762,8 +1835,7 @@ simplifies to
   &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 \nonumber\\
   &  & + \frac{q}{m} [(v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D)
   \cdot \nabla_X \langle \delta \Phi - v_{\parallel} \delta A_{\parallel}
-  \rangle_{\alpha}] \frac{\partial F_0}{\partial \varepsilon} . 
-  \label{19-1-4-e1}
+  \rangle] \frac{\partial F_0}{\partial \varepsilon} .  \label{19-1-4-e1}
 \end{eqnarray}
 Note that in terms of $(\mathbf{X}, \varepsilon, \mu, \alpha, \sigma)$
 coordinates, $v_{\parallel}$ is written as
@@ -1778,41 +1850,41 @@ approximated as a constant when gyro-angle $\alpha$ changes. Then
 $v_{\parallel}$ can be taken out of the gyro-averaging in expression
 (\ref{19-3-26-e1}), yielding
 \begin{equation}
-  \langle v_{\parallel} \delta A_{\parallel} \rangle_{\alpha} \approx
-  v_{\parallel} \langle \delta A_{\parallel} \rangle_{\alpha} .
+  \langle v_{\parallel} \delta A_{\parallel} \rangle \approx v_{\parallel}
+  \langle \delta A_{\parallel} \rangle .
 \end{equation}
 Using this, the term related to $\delta A_{\parallel}$ in (\ref{19-1-4-e1})
 can be further written as
 \begin{eqnarray}
   (v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X \langle
-  v_{\parallel} \delta A_{\parallel} \rangle_{\alpha} & = & (v_{\parallel}
+  v_{\parallel} \delta A_{\parallel} \rangle & = & (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X (v_{\parallel} \langle
-  \delta A_{\parallel} \rangle_{\alpha}) \nonumber\\
-  & = & \tmcolor{blue}{\langle \delta A_{\parallel} \rangle_{\alpha}
-  (v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X
-  (v_{\parallel})} + \tmcolor{red}{v_{\parallel} (v_{\parallel}
-  \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X \langle \delta
-  A_{\parallel} \rangle_{\alpha}} . 
+  \delta A_{\parallel} \rangle) \nonumber\\
+  & = & \tmcolor{blue}{\langle \delta A_{\parallel} \rangle (v_{\parallel}
+  \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X (v_{\parallel})}
+  \nonumber\\
+  & + & \tmcolor{red}{v_{\parallel} (v_{\parallel} \mathbf{e}_{\parallel}
+  +\mathbf{V}_D) \cdot \nabla_X \langle \delta A_{\parallel} \rangle} . 
 \end{eqnarray}
 Using expression (\ref{19-3-27-1}), $(v_{\parallel} \mathbf{e}_{\parallel}
 +\mathbf{V}_D) \cdot \nabla_X (v_{\parallel})$ is written as
 \begin{eqnarray}
-  \tmcolor{blue}{\langle \delta A_{\parallel} \rangle_{\alpha} (v_{\parallel}
+  \tmcolor{blue}{\langle \delta A_{\parallel} \rangle (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X (v_{\parallel})} &
-  \approx & \langle \delta A_{\parallel} \rangle_{\alpha} (v_{\parallel}
+  \approx & \langle \delta A_{\parallel} \rangle (v_{\parallel}
   \mathbf{e}_{\parallel}) \cdot \nabla_X (v_{\parallel}) \nonumber\\
-  & = & \langle \delta A_{\parallel} \rangle_{\alpha} (v_{\parallel}
+  & = & \langle \delta A_{\parallel} \rangle (v_{\parallel}
   \mathbf{e}_{\parallel}) \cdot \nabla_X \left( \sigma \sqrt{2 \varepsilon - 2
   \mu B_0} \right) \nonumber\\
-  & = & \langle \delta A_{\parallel} \rangle_{\alpha} \sigma (v_{\parallel}
+  & = & \langle \delta A_{\parallel} \rangle \sigma (v_{\parallel}
   \mathbf{e}_{\parallel}) \cdot \nabla_X \left( \sqrt{2 \varepsilon - 2 \mu
   B_0} \right) \nonumber\\
-  & = & \langle \delta A_{\parallel} \rangle_{\alpha} \sigma v_{\parallel}
-  \frac{- 2 \mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0}{2 \sqrt{2
-  \varepsilon - 2 \mu B_0}} \nonumber\\
-  & = & \langle \delta A_{\parallel} \rangle_{\alpha} v_{\parallel} \frac{- 2
-  \mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0}{2 v_{\parallel}} \nonumber\\
-  & = & \tmcolor{blue}{- \langle \delta A_{\parallel} \rangle_{\alpha} \mu
+  & = & \langle \delta A_{\parallel} \rangle \sigma v_{\parallel} \frac{- 2
+  \mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0}{2 \sqrt{2 \varepsilon - 2 \mu
+  B_0}} \nonumber\\
+  & = & \langle \delta A_{\parallel} \rangle v_{\parallel} \frac{- 2 \mu
+  \mathbf{e}_{\parallel} \cdot \nabla_X B_0}{2 v_{\parallel}} \nonumber\\
+  & = & \tmcolor{blue}{- \langle \delta A_{\parallel} \rangle \mu
   \mathbf{e}_{\parallel} \cdot \nabla_X B_0 .} 
 \end{eqnarray}
 (We can also obtain $\nabla_X (v_{\parallel}) = - \mu (\nabla B_0) /
@@ -1824,27 +1896,26 @@ equation (\ref{19-1-4-e1}) is written as
   \right] \delta h \nonumber\\
   & = & - \delta \mathbf{V}_D \cdot \nabla_X F_0 + \frac{q}{m}
   [(v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X \langle
-  \delta \Phi \rangle_{\alpha}] \frac{\partial F_0}{\partial \varepsilon}
-  \nonumber\\
+  \delta \Phi \rangle] \frac{\partial F_0}{\partial \varepsilon} \nonumber\\
   & - & \frac{q}{m} [\tmcolor{red}{v_{\parallel} (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D) \cdot \nabla_X \langle \delta
-  A_{\parallel} \rangle_{\alpha}} \tmcolor{blue}{} \tmcolor{blue}{- \langle
-  \delta A_{\parallel} \rangle_{\alpha} (\mu \mathbf{e}_{\parallel} \cdot
-  \nabla_X B_0)}] \frac{\partial F_0}{\partial \varepsilon},  \label{19-1-4-5}
+  A_{\parallel} \rangle} \tmcolor{blue}{} \tmcolor{blue}{- \langle \delta
+  A_{\parallel} \rangle (\mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0)}]
+  \frac{\partial F_0}{\partial \varepsilon},  \label{19-1-4-5}
 \end{eqnarray}
 which agrees with the so-called $p_{\parallel}$ formulation given in the
 \tmtexttt{GEM} manual (the first line of Eq. 28). (It is said that
 $p_{\parallel}$ formulation uses $p_{\parallel} = v_{\parallel} + q \langle
-\delta A_{\parallel} \rangle_{\alpha} / m$ as an independent variable, but I
-can not relate this explanation to my derivation given above.)
+\delta A_{\parallel} \rangle / m$ as an independent variable, but I can not
+relate this explanation to my derivation given above.)
 
 \subsection{Mixed-variable pullback method{\cite{MISHCHENKO2019194}}}
 
 Define $\delta f^{(h)}$ by
 \begin{equation}
-  \label{23-11-16-p1} \delta f^{(h)} = \delta f - \frac{q}{m} \langle
-  v_{\parallel} \delta A_{\parallel}^{(h)} \rangle_{\alpha} \frac{\partial
-  F_0}{\partial \varepsilon},
+  \label{23-11-16-p1} \delta f^{(h)} = \delta f - \frac{q}{m} \frac{\partial
+  F_0}{\partial \varepsilon} \langle v_{\parallel} \delta A_{\parallel}^{(h)}
+  \rangle,
 \end{equation}
 where $\delta A_{\parallel}^{(h)}$ is a part of $\delta A_{\parallel}$:
 \begin{equation}
@@ -1856,21 +1927,81 @@ with $\delta A_{\parallel}^{(s)}$ determined by an evolution equation:
   \label{23-11-16-2} \frac{\partial \delta A_{\parallel}^{(s)}}{\partial t} =
   -\mathbf{b} \cdot \nabla \delta \Phi .
 \end{equation}
-Following the same procedure in Sec. \ref{24-3-21-p1}, we obtain the following
-evoluation equation for $\delta f^{(h)}$:
+Begining with Eq. (\ref{17-5-13-p2}) and following the same procedure in Sec.
+\ref{24-3-21-p1}, we obtain the following evoluation equation for $\delta
+f^{(h)}$:
 \begin{eqnarray}
   &  & \left[ \frac{\partial}{\partial t} + (v_{\parallel}
   \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X
   \right] \delta f^{(h)} \nonumber\\
   &  & = - \delta \mathbf{V}_D \cdot \nabla_X F_0 + \frac{q}{m}
-  [(\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \langle \delta \Phi
-  \rangle_{\alpha}] \frac{\partial F_0}{\partial \varepsilon} \nonumber\\
-  &  & - \frac{q}{m} [v_{\parallel} (v_{\parallel} \mathbf{e}_{\parallel}
-  +\mathbf{V}_D + \delta \mathbf{V}_D) \cdot \nabla_X \langle \delta
-  A_{\parallel}^{(h)} \rangle_{\alpha} - \langle \delta A_{\parallel}^{(h)}
-  \rangle_{\alpha} (\mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0)]
-  \frac{\partial F_0}{\partial \varepsilon} .  \label{17-6-21-3}
+  \frac{\partial F_0}{\partial \varepsilon} [(\mathbf{V}_D + \delta
+  \mathbf{V}_D) \cdot \nabla_X \langle \delta \Phi \rangle] \nonumber\\
+  &  & - \frac{q}{m} \frac{\partial F_0}{\partial \varepsilon} [v_{\parallel}
+  (v_{\parallel} \mathbf{e}_{\parallel} +\mathbf{V}_D + \delta \mathbf{V}_D)
+  \cdot \nabla_X \langle \delta A_{\parallel}^{(h)} \rangle - \langle \delta
+  A_{\parallel}^{(h)} \rangle (\mu \mathbf{e}_{\parallel} \cdot \nabla_X B_0)]
+  .  \label{17-6-21-3}
 \end{eqnarray}
+In terms of $\delta A_{\parallel}^{(h)}$, the parallel Ampere's law is written
+as
+\begin{equation}
+  \label{23-12-4-1} \left( \sum_j \frac{\omega_{p j}^2}{c^2} -
+  \nabla^2_{\perp} \right) \delta A_{\parallel}^{(h)} = \mu_0  \left( \sum_j
+  \delta J_{||j}^{(h)} \right) + \nabla^2_{\perp} \delta A_{\parallel}^{(s)},
+\end{equation}
+where $\delta J_{|| j}^{(h)}$ is the parallel current carried by the
+distrbution funciton $\delta f^{(h)}_j$, where the subscript $j$ is species
+index. Here $\delta A_{\parallel}^{(s)}$ has been moved to the right-hand side
+since its value is already known when we solve the Ampere's law for $\delta
+A_{\parallel}^{(h)}$.
+
+Compared with the $p_{\parallel}$ formulation, the improvement of the above
+procedure is that a part of $\delta A_{\parallel}$ is solved from an evolution
+equation (which is chosen by some physical consideration) and the remainder is
+solved from the Ampere's law. We hope that $A_{\parallel}^{(s)}$ is the
+dominant part of $\delta A_{\parallel}$ so that the remainder solved from the
+Ampere's law is small and hence the cancellation problem (of the Ampere's law)
+become less significant. While a clever choice of the evolution equation for
+$\delta A_{\parallel}^{(s)}$ may help ensure that $\delta A_{\parallel}^{(s)}$
+remain dominant over the entire simulation duration, we have another simple
+way to make $\delta A_{\parallel}^{(s)}$ remain dominant: collect both $\delta
+A_{\parallel}^{(s)}$ and $\delta A_{\parallel}^{(h)}$ into $\delta
+A_{\parallel}^{(s)}$ at the end of each time step:
+\begin{equation}
+  \label{23-11-16-p3} \delta A_{\| \nobracket \tmop{new}}^{(s)} = \delta A_{\|
+  \nobracket \tmop{old}}^{(s)} + \delta A_{\| \nobracket \tmop{old}}^{(h)} .
+\end{equation}
+Then, to make $\delta A_{\parallel}$ untouched (so that electromagnetic field
+remain unchanged), we set $\delta A_{\parallel}^{(h)}$ to zero:
+\begin{equation}
+  \label{23-11-16-p4} \delta A_{\| \nobracket \tmop{new}}^{(h)} = 0.
+\end{equation}
+Here ``old'' and ``new'' refers to before and after the re-spliting,
+respectively. Note that this re-spliting is made at the end of each time step
+and does not correspond to any time evolution. This re-splitting keeps the
+value of $\delta A_{\| \nobracket}$ untouched and hence does not influence the
+electromagnetic field. Meanwhile, the definition of Eq. (\ref{23-11-16-p1})
+indicates that, for a given $\delta f$, the re-splitting will make the value
+of $\delta f^{(h)}$ increase by $\Delta = \frac{q}{m} \langle v_{\parallel}
+\delta A_{\parallel \tmop{old}}^{(h)} \rangle_{\alpha} \frac{\partial
+F_0}{\partial \varepsilon}$ since $\delta A^{(h)}$ is reduced by $\delta
+A^{(h)}_{\tmop{old}}$. To keep $\delta f$ unchanged, which is what we need to
+ensure, we must add $\Delta$ to $\delta f^{(h)}$:
+\begin{equation}
+  \label{23-11-16-p5} \delta f^{(h)}_{\tmop{new}} = \delta
+  f^{(h)}_{\tmop{old}} + \frac{q}{m} \langle v_{\parallel} \delta A_{\parallel
+  \tmop{old}}^{(h)} \rangle \frac{\partial F_0}{\partial \varepsilon} .
+\end{equation}
+After the operations in (\ref{23-11-16-p3}) (\ref{23-11-16-p4}) and
+(\ref{23-11-16-p5}), both the electromagnetic field and the distribution
+function $\delta f$ remain unchanged. Therefore we do not change any physical
+state of the system. Hence the above operations can only have effects on
+numerical round-off errors. As mentioned above, we hope the numerical effects
+will reduce the cancellation errors.
+
+\
+
 Next, consider the special case that $F_0$ is a local Maxwellian given by
 \begin{equation}
   F_0 (\mathbf{X}, \varepsilon) = n_0 (\mathbf{X}) \left( \frac{m}{2 \pi T_0
@@ -1898,7 +2029,7 @@ $\tmmathbf{\kappa}_n$ and $\tmmathbf{\kappa}_T $are written as
 $\tmmathbf{\kappa}_n = \kappa_n \nabla r$ and $\tmmathbf{\kappa}_T = \kappa_T
 \nabla r$, where $\kappa_n \equiv - \frac{1}{n_0}  \frac{d n_0}{d r}$,
 $\kappa_T \equiv - \frac{1}{T_0} \frac{d T_0}{d r}$, and $r$ is chosen to be
-the minor radius at the low field side.
+the minor radius one the low field side.
 
 Using the above results, Eq. (\ref{17-6-21-3}) is written as
 \begin{eqnarray}
@@ -1912,7 +2043,6 @@ Using the above results, Eq. (\ref{17-6-21-3}) is written as
   A_{\parallel}^{(h)} \rangle - \langle \delta A_{\parallel}^{(h)} \rangle
   (\mu \mathbf{e}_{\parallel} \cdot \nabla B_0)] F_0 .  \label{21-8-8-a1}
 \end{eqnarray}
-
 
 \subsubsection{Weight evolution equation}
 
@@ -1938,46 +2068,6 @@ that $d (V_{p j 0}) / d t = 0$, we obtain
 where use has been made of $\nabla \langle \delta \Phi \rangle = \langle
 \nabla \delta \Phi \rangle$ and $\nabla \langle \delta A_{\parallel}^{(h)}
 \rangle = \langle \nabla \delta A_{\parallel}^{(h)} \rangle$.
-
-\tmcolor{blue}{Note that $\nabla \equiv \partial / \partial \mathbf{X}$. Using
-$\mathbf{x}=\mathbf{X}+\mathbf{\rho}$, we obtain
-\begin{eqnarray}
-  \frac{\partial \delta \Phi_g (\mathbf{X}, \alpha, v_{\perp})}{\partial
-  \mathbf{X}} & = & \frac{\partial \delta \Phi_p (\mathbf{X}+\mathbf{\rho}
-  (\mathbf{X}, \alpha, v_{\perp}))}{\partial \mathbf{X}} \nonumber\\
-  & = & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{X}} =
-  \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{x}} \cdot
-  \frac{\partial \mathbf{x}}{\partial \mathbf{X}} \nonumber\\
-  & = & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial \mathbf{x}} \cdot
-  \left( 1 + \frac{\partial \mathbf{\rho}}{\partial \mathbf{X}} \right)
-  \nonumber\\
-  & \approx & \frac{\partial \delta \Phi_p (\mathbf{x})}{\partial
-  \mathbf{x}}, 
-\end{eqnarray}
-which is accurate up to $O (\lambda)$ in gyrokinetic ordering. Note that field
-values on a regular $\mathbf{X}$ grid are not available in our simulation
-because $\mathbf{X}$ is sampled by random markers rather than by a regular
-grid. This fact makes it diffcult to numerical compute $\partial / \partial
-\mathbf{X}$. Then the relation $\partial \delta \Phi_g / \partial \mathbf{X}
-\approx \partial \delta \Phi_p / \partial \mathbf{x}$, becomes useful because
-we can use $\delta \Phi$ defined on $\mathbf{x}$ grid (which is available in
-simulations) to compute \ $\partial \delta \Phi_p / \partial \mathbf{x}$ at
-$\mathbf{x}$ grid-points (using finite-difference), and then interpolate it to
-particle position. \ Similarly, we have $\partial \delta A_{\parallel g} /
-\partial \mathbf{X} \approx \partial \delta A_{\parallel p} / \partial
-\mathbf{x}$.
-
-Also note that $\langle \delta \Phi_g \rangle$ is not known on $\mathbf{X}$
-grid (it is known on random markers). So, to calculate $\partial \langle
-\delta \Phi_g \rangle / \partial \mathbf{X}$, we need to exchange the
-operation order:
-\begin{equation}
-  \frac{\delta \langle \delta \Phi_g \rangle}{\partial \mathbf{X}} = \langle
-  \frac{\partial \delta \Phi_g}{\partial \mathbf{X}} \rangle \approx \langle
-  \frac{\partial \delta \Phi_p}{\partial \mathbf{x}} \rangle .
-\end{equation}
-For notation ease, the subscripts $g$ and $p$ will be dropped in the
-following.}
 
 \subsubsection{In field-aligned coordinates}
 
@@ -2291,84 +2381,17 @@ The basic terms involved in the above expressions can be written as
   \frac{\partial z}{\partial Z} \right) B_{\phi} \equiv W 14
 \end{equation}
 
-
-
-\begin{equation}
-  (\nabla y \times \nabla z) \cdot \mathbf{B}_0 = \overline{B}_R \left(
+\begin{eqnarray}
+  (\nabla y \times \nabla z) \cdot \mathbf{B}_0 & = & \overline{B}_R \left(
   \frac{1}{R}  \frac{\partial \alpha}{\partial \phi} \frac{\partial
   \theta}{\partial Z} \right) + \overline{B}_{\phi} \left( \frac{\partial
   \alpha}{\partial Z} \frac{\partial \theta}{\partial R} - \frac{\partial
   \alpha}{\partial R} \frac{\partial \theta}{\partial Z} \right) +
   \overline{B}_Z \left( - \frac{1}{R}  \frac{\partial \alpha}{\partial \phi}
-  \frac{\partial \theta}{\partial R} \right) \equiv W 15
-\end{equation}
+  \frac{\partial \theta}{\partial R} \right) \nonumber\\
+  & \equiv & W 15 
+\end{eqnarray}
 
-
-\
-
-\
-
-\
-
-\
-
-In terms of $\delta A_{\parallel}^{(h)}$, the Ampere's law is written as
-\begin{equation}
-  \label{23-12-4-1} \left( \sum_s \frac{\omega_{p s}^2}{c^2} -
-  \nabla^2_{\perp} \right) \delta A_{\parallel}^{(h)} = \mu_0  \sum_s \delta
-  J_{|| s}^{(h)} + \nabla^2_{\perp} \delta A_{\parallel}^{(s)},
-\end{equation}
-where $\delta J_{|| s}^{(h)}$ is the parallel current carried by the
-distrbution funciton $\delta f^{(h)}_s$, where the subscript $s$ is species
-index (do not confuse it with the superscript $s$ of $\delta
-A_{\parallel}^{(s)}$). Here $\delta A_{\parallel}^{(s)}$ has been moved to the
-right-hand side since its value is already known when we solve the Ampere's
-law for $\delta A_{\parallel}^{(h)}$.
-
-Compared with the $p_{\parallel}$ formulation, the improvement of the above
-procedure is that a part of $\delta A_{\parallel}$ is solved from an evolution
-equation (which is chosen by some physical consideration) and the remainder is
-solved from the Ampere's law. We hope that the former is the dominant part of
-$\delta A_{\parallel}$ so that the remainder solved from the Ampere's law is
-small and hence the cancellation problem (of the Ampere's law) become less
-significant. While a wise choice of the evolution equation for $\delta
-A_{\parallel}^{(s)}$ may help ensure that $\delta A_{\parallel}^{(s)}$ remain
-dominant over the entire simulation duration, we have another simple way to
-make $\delta A_{\parallel}^{(s)}$ remain dominant: collect both $\delta
-A_{\parallel}^{(s)}$ and $\delta A_{\parallel}^{(h)}$ into $\delta
-A_{\parallel}^{(s)}$ at the end of each time step:
-\begin{equation}
-  \label{23-11-16-p3} \delta A_{\| \nobracket \tmop{new}}^{(s)} = \delta A_{\|
-  \nobracket \tmop{old}}^{(s)} + \delta A_{\| \nobracket \tmop{old}}^{(h)} .
-\end{equation}
-Then, to make $\delta A_{\parallel}$ untouched (so that electromagnetic field
-remain unchanged), we set $\delta A_{\parallel}^{(h)}$ to zero:
-\begin{equation}
-  \label{23-11-16-p4} \delta A_{\| \nobracket \tmop{new}}^{(h)} = 0.
-\end{equation}
-Here ``old'' and ``new'' refers to before and after the re-spliting,
-respectively. Note that this re-spliting is made at the end of each time step
-and does not correspond to any time evolution. This re-splitting keeps the
-value of $\delta A_{\| \nobracket}$ untouched and hence does not influence the
-electromagnetic field. Meanwhile, the definition of Eq. (\ref{23-11-16-p1})
-indicates that, for a given $\delta f$, the re-splitting will make the value
-of $\delta f^{(h)}$ increase by $\Delta = \frac{q}{m} \langle v_{\parallel}
-\delta A_{\parallel \tmop{old}}^{(h)} \rangle_{\alpha} \frac{\partial
-F_0}{\partial \varepsilon}$ since $\delta A^{(h)}$ is reduced by $\delta
-A^{(h)}_{\tmop{old}}$. In other words, to keep $\delta f$ unchanged, which is
-what we need to ensure, we must add $\Delta$ to $\delta f^{(h)}$:
-\begin{equation}
-  \label{23-11-16-p5} \delta f^{(h)}_{\tmop{new}} = \delta
-  f^{(h)}_{\tmop{old}} + \frac{q}{m} \langle v_{\parallel} \delta A_{\parallel
-  \tmop{old}}^{(h)} \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon}
-  .
-\end{equation}
-After the operations in (\ref{23-11-16-p3}) (\ref{23-11-16-p4}) and
-(\ref{23-11-16-p5}), both the electromagnetic field and the distribution
-function $\delta f$ remain unchanged. Therefore we do not change any physical
-process of the system. Hence the above operations can only have effects on
-numerical round-off errors. As mentioned above, we hope the numerical effects
-will reduce the cancellation errors.
 
 Define
 \begin{equation}
@@ -2376,7 +2399,7 @@ Define
   \overline{A}_{\parallel}^{(h)} = \frac{q_u v_u \delta
   A_{\parallel}^{(h)}}{T_u}, \delta \overline{A}_{\parallel}^{(s)} = \frac{q_u
   v_u \delta A_{\parallel}^{(s)}}{T_u}, \delta \overline{J}_{|| s}^{(h)} =
-  \frac{\delta J_{\parallel s}^{(s)}}{n_u q_u v_{n s}},
+  \frac{\delta J_{\parallel s}^{(h)}}{n_u q_u v_{n s}},
 \end{equation}
 where $q_u, n_u, T_u, v_u$ are chosen units, $v_{n s}$ is a velocity unit for
 a species, whose value is different among different species [$v_{n s} = L_n /
@@ -2386,12 +2409,11 @@ s}$ of the first ion species.
 Then the Ampere's law (\ref{23-12-4-1}) is written as
 \begin{equation}
   \left( \sum_s \frac{\omega_{p s}^2}{c^2} - \nabla^2_{\perp} \right) \delta
-  \overline{A}_{\parallel}^{(h)} = \frac{\omega_{p u}^2}{T_u / m_u}
+  \overline{A}_{\parallel}^{(h)} = \frac{n_u q_u^2}{\varepsilon_0 T_u} 
   \frac{v_u^2}{c^2} \sum_s \frac{v_{n s}}{v_u} \delta \overline{J}_{||
   s}^{(h)} + \nabla^2_{\perp} \delta \overline{A}_{\parallel}^{(s)},
 \end{equation}
-where $\omega_{p u}^2 = n_u q_u^2 / (m_u \varepsilon_0)$, $m_u$ is a mass
-unit, and use has been made of $\mu_0 = 1 / (c^2 \varepsilon_0)$.
+where use has been made of $\mu_0 = 1 / (c^2 \varepsilon_0)$.
 
 $\delta f$ pullback in Eq. (\ref{23-11-16-p5}) is now written as (for the case
 of $F_0$ being Maxwellian):
@@ -2425,112 +2447,20 @@ i.e.,
 \end{equation}
 
 
-\subsection{Discretizing Laplacian operator }
-
-The Laplacian operator is approximated as
-\begin{equation}
-  \label{23-12-16-3} \nabla_{\perp}^2 \delta A_{\parallel} \approx
-  \frac{\partial^2 \delta A_{\parallel}}{\partial^2 x}  | \nabla x|^2 +
-  \frac{\partial^2 \delta A_{\parallel}}{\partial^2 y}  | \nabla y|^2 +
-  \frac{\partial^2 \delta A_{\parallel}}{\partial^{\nosymbol} x \partial y} 2
-  \nabla x \cdot \nabla y.
-\end{equation}
-To approximate $\delta A_{\parallel}$ of zero boundary condition
-$A_{\parallel} (x = 0) = A_{\parallel}  (x = L_x) = 0$, the sine expansion can
-be adopted. In the $y$ direction, full Fourier expansion is needed. Then, at
-each value of $z$, $A_{\parallel} (x, y, z)$ is approximated by the following
-two-dimensional expansion:
-\begin{equation}
-  \delta A_{\parallel} (x, y, z) \approx \sum_{n = - N_y / 2}^{N_y / 2} \exp
-  \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1} A_{m, n} (z)
-  \sin \left( \frac{m \pi}{L_x} (x - x_0) \right),
-\end{equation}
-Using this expression, Eq. (\ref{23-12-16-3}) is written as
-\begin{eqnarray*}
-  - \nabla_{\perp}^2 \delta A_{\parallel} & = & \sum_{n = - N_y / 2}^{N_y / 2}
-  \exp \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1} \delta
-  A_{m, n} (z)\\
-  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
-  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
-  \frac{m \pi}{L_x} (x - x_0) \right) - i n \frac{2 \pi}{L_y} \left( \frac{m
-  \pi}{L_x} \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{m \pi}{L_x} (x
-  - x_0) \right) \right\}
-\end{eqnarray*}
-At $x = x_j$, with $x_j - x_0 = j \Delta$ and $L_x / \Delta = N_x$, the above
-expression is written as
-\begin{eqnarray}
-  - \nabla_{\perp}^2 \delta A_{\parallel} & = & \sum_{n = - N_y / 2}^{N_y / 2}
-  \exp \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1}
-  \tmcolor{blue}{\delta A_{m, n} (z)} \nonumber\\
-  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
-  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
-  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
-  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
-  \right\},  \label{23-12-16-1}
-\end{eqnarray}
-where $\nabla x$ and $\nabla y$ are evaluated at $x_j$. Plugging the DST
-coefficients
-\begin{equation}
-  \tmcolor{blue}{\delta A_{m, n} (z)} = \frac{2}{N_x} \sum_{j' = 1}^{N_x - 1}
-  A_n (x_{j'}, z) \sin \left( \frac{j' m \pi}{N_x} \right),
-\end{equation}
-into expression (\ref{23-12-16-1}) gives
-\begin{eqnarray*}
-  - \nabla_{\perp}^2 \delta A_{\parallel} & = & \sum_{n = - N_y / 2}^{N_y / 2}
-  \exp \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1}
-  \tmcolor{blue}{\frac{2}{N_x} \sum_{j' = 1}^{N_x - 1} A_n (x_{j'}, z) \sin
-  \left( \frac{j' m \pi}{N_x} \right)}\\
-  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
-  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
-  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
-  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
-  \right\}
-\end{eqnarray*}
-For a single toroidal harmonic, the above expression reduces to
-\begin{eqnarray}
-  &  & \sum_{m = 1}^{N_x - 1} \tmcolor{blue}{\frac{2}{N_x} \sum_{j' = 1}^{N_x
-  - 1} A_n (x_{j'}, z) \sin \left( \frac{j' m \pi}{N_x} \right)} \nonumber\\
-  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
-  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
-  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
-  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
-  \right\}  \label{23-12-27-e1}
-\end{eqnarray}
-Define
-\begin{eqnarray*}
-  M_{j j', n} & \equiv & \sum_{m = 1}^{N_x - 1} \frac{2}{N_x} \sin \left(
-  \frac{j' m \pi}{N_x} \right)\\
-  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
-  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
-  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
-  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
-  \right\}
-\end{eqnarray*}
-then expression (\ref{23-12-27-e1}) is written as
-\begin{equation}
-  \sum_{j' = 1}^{N_x - 1} M_{j j', n} A_n (x_{j'}, z) .
-\end{equation}
-
-
-\
-
-\
-
 \subsection{Summary of distribution function split}\label{2023-10-31-p1}
 
 In simulations, the seemingly trivial thing on how to split the distribution
-function is often considered to be a big deal. Separating the perturbation
-from the total distribution function gets the famous name ``$\delta f$
-particle method'', in contrast to the conventional particle method which is
-now called full-f particle method.
+function is often a big deal. Separating the perturbation from the total
+distribution function gives rise to the the famous ``$\delta f$ particle
+method'', in contrast to the conventional particle method which is now called
+full-f particle method.
 
 In the above, the perturbed part of the distribution function, $\delta F$, is
 split at least three times in order to (1) simplify the gyrokinetic equation
 by splitting out the adiabatic response; (2) eliminate the time derivatives,
-$\partial \delta \phi / \partial t$, and (3) $\partial \delta \mathbf{A}/
-\partial t$, on the right-hand. To avoid confusion, I summarize the split of
-the distribution function here. The total distribution function $F$ is split
-as
+$\partial \delta \phi / \partial t$ and $\partial \delta \mathbf{A}/ \partial
+t$, on the right-hand. To avoid confusion, I summarize the split of the
+distribution function here. The total distribution function $F$ is split as
 \begin{equation}
   \label{19-1-4-6} F = F_0 + \delta F,
 \end{equation}
@@ -2539,81 +2469,36 @@ perturbed part of the total distribution function. $\delta F$ is further split
 as
 \begin{equation}
   \label{19-1-3-e2} \delta F = \delta h + \tmcolor{red}{\frac{q}{m} (\delta
-  \Phi - \langle \delta \Phi \rangle_{\alpha}) \frac{\partial F_0}{\partial
+  \Phi - \langle \delta \Phi \rangle) \frac{\partial F_0}{\partial
   \varepsilon}} + \tmcolor{blue}{\frac{q}{m} \langle \mathbf{v} \cdot \delta
-  \mathbf{A} \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon}},
+  \mathbf{A} \rangle \frac{\partial F_0}{\partial \varepsilon}},
 \end{equation}
 where $\delta h$ satisfies the gyrokinetic equation (\ref{19-1-4-e1}) or
 (\ref{19-1-4-5}). In PIC simulations, $\delta h$ is evolved by using markers
 and its moment in the phase-space is evaluated via Monte-Carlo integration.
+The blue and red terms explicitly depends on the unknown perturbed field.
+After being integrated in the velocity space, these two terms give \ the
+polarization density and the skin current, respectively. The polarization
+density is discussed in Sec. \ref{19-1-4-1}. The skin current is discussed in
+Sec. (\ref{24-12-10-e1}) and the so-called ``cancellation problem'' is
+discussed in Sec. \ref{24-12-10-e2}.
 
-\
+\subsection{Skin current}\label{24-12-10-e1}\label{19-3-21-8}
 
-The integration of the red and blue terms can be approximated analytically in
-terms of $\delta \Phi$ and $\delta \mathbf{A}$. But this can also be evaluated
-using markers, i.e., using Monte-Carlo method, to avoid the inaccurate
-cancellation between the integration of these parts and the integration of
-$\delta h$.
-
-\
-
-Another issue is how to accurately solve for $\delta \Phi$ from the Poisson
-equation and $\delta \mathbf{A}$ from the Ampere's law. To make the solution
-accurate, one need to have a large term that is explictly dependent on $\delta
-\Phi$ and $\delta \mathbf{A}$ to appear on the left-hand side of the equations
-and small terms appear on the right-hand side.
-
-The red term in expression (\ref{19-1-3-e2}) gives ``the polarization
-density'' when integrated in the velocity space (discussed in Sec.
-\ref{19-1-4-1}). The reason for the name ``polarization'' is that $(\delta
-\Phi - \langle \delta \Phi \rangle_{\alpha})$ is the difference between the
-local value and the averaged value on a gyro-ring, expressing a kind of
-``separation''.
-
-\
-
-are also needed to be evaluated using Monte-Carlo markers.
-
-\
-
-This term is moved to the left-hand side of the Poisson equation and is
-utilized in solving the Poisson equation. The blue term also has an explicit
-dependence on $\delta \mathbf{A}$, which, however, will cause numerical
-problems in particle simulations if it is moved to the left-hand side of the
-Ampere equation. This is the ``cancellation problem'' in gyrokinetic
-simulations discussed in Sec. \ref{2023-10-31-p1}.
-
-\
-
-The blue and red terms in the above expression explicitly depends on the
-perturbed field. The velocity integrations of these two terms can be performed
-analytically. However, in some cases, the phase space integration of the blue
-terms must be evaluated using markers, i.e., using Monte-Carlo method, to
-avoid the inaccurate cancellation between the integration of these parts and
-the integration of $\delta h$ (the latter is computed using Monte-Carlo
-method). When will the inaccurate cancellation is significant depends on the
-problem being investigated and thus can only be determined by actual numerical
-experiments. Electromagnetic particle simulation experiments indicate that the
-parallel current carried by the blue term must be evaluated via Monte-Carlo
-method, otherwise inaccurate cancellation between this term and $\delta h$
-will give rise to numerical instabilities.
-
-\subsection{Velocity space moment of $\frac{q}{m} \langle \mathbf{v} \cdot
-\delta \mathbf{A} \rangle_{\alpha} \frac{\partial F_0}{\partial
-\varepsilon}$}\label{19-3-21-8}
-
+Let us calculate the velocity space moment of $\frac{q}{m} \langle \mathbf{v}
+\cdot \delta \mathbf{A} \rangle \frac{\partial F_0}{\partial \varepsilon}$.
 Consider the approximation $\delta \mathbf{A} \approx \delta A_{\parallel}
 \mathbf{e}_{\parallel}$, then the blue term in Eq. (\ref{19-1-3-e2}) is
 written as
 \begin{equation}
   \tmcolor{blue}{\frac{q}{m} \langle v_{\parallel} \delta A_{\parallel}
-  \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon}} .
+  \rangle \frac{\partial F_0}{\partial \varepsilon}} .
 \end{equation}
 Notice that $v_{\parallel}$ can be taken out of the gyro-averaging. Then the
 above equation is written
 \begin{equation}
   \tmcolor{blue}{\frac{q}{m} v_{\parallel} \langle \delta A_{\parallel}
-  \rangle_{\alpha} \frac{\partial F_0}{\partial \varepsilon}} .
+  \rangle \frac{\partial F_0}{\partial \varepsilon}} .
 \end{equation}
 If we neglect the FLR effect, then the above expression is written
 \begin{equation}
@@ -2670,14 +2555,14 @@ Using $c = 1 / \sqrt{\mu_0 \varepsilon_0}$ and $\omega_p^2 = n_0 q^2 / (m
   \mu_0 \delta j_{\parallel} = - \frac{\omega_p^2}{c^2} \delta A_{\parallel},
 \end{equation}
 where the $c / \omega_{p s}$ is often called the skin depth of species ``s''.
-The skin current can also be written as
+This current $\delta j_{\parallel}$ is often called ``skin current'', which
+can also be written as
 \begin{equation}
   \mu_0 \delta j_{\parallel} = - \frac{\beta}{\rho^2} \delta A_{\parallel},
 \end{equation}
 where $\rho = \sqrt{2 T / m} / \Omega$ is the thermal Larmor radius.
 
-\section{Parallel Ampere's Law}
-
+\section{Parallel Ampere's Law}\label{24-12-10-e2}
 \begin{equation}
   \label{19-3-21-6} - \nabla^2_{\perp} \delta A_{\parallel}^{(n + 1)} = \mu_0 
   (\delta J_{||i}^{(n + 1)} + \delta J_{||e}^{(n + 1)}),
@@ -2699,14 +2584,13 @@ where the parallel currents are given by
 where $\delta J_{\parallel i}'$ and $\delta J_{\parallel e}'$ is the parallel
 current carried by the distribution function $\delta h$ in Eq.
 (\ref{19-1-3-e2}), which are updated from the value at the $n \tmop{th}$ time
-step to the $(n + 1) \tmop{th}$ time step using an explicit scheme and
-therefore does not depends on the field at the $(n + 1) \tmop{th}$ step.
-\tmcolor{blue}{The blue terms} \ in Eqs. (\ref{19-3-21-4}) and
-(\ref{19-3-21-5}) are sometimes called ``skin current'', which depend on the
-unknown field at the $(n + 1) \tmop{th}$ step and thus need to be moved to the
-left-hand side of Ampere's law (\ref{19-3-21-6}) if we want to solve this
-equation by direct methods. In this case, equation (\ref{19-3-21-6}) is
-written as
+step using an explicit scheme and therefore does not depends on the field at
+the $(n + 1) \tmop{th}$ step. \tmcolor{blue}{The blue terms} \ in Eqs.
+(\ref{19-3-21-4}) and (\ref{19-3-21-5}) are called ``skin current'', which
+depend on the unknown field at the $(n + 1) \tmop{th}$ step and thus need to
+be moved to the left-hand side of Ampere's law (\ref{19-3-21-6}) if we want to
+solve this equation by direct methods. In this case, equation
+(\ref{19-3-21-6}) is written as
 \begin{eqnarray}
   &  & - \nabla^2_{\perp} \delta A_{\parallel}^{(n + 1)} - \mu_0
   \tmcolor{blue}{\int {(v_{\parallel}^{(n + 1)})^2}  \frac{q^2_i}{m_i} \langle
@@ -2789,6 +2673,91 @@ is simplified as
 \end{eqnarray}
 Note that the blue term will be evaluated using Monte-Carlo markers.
 
+\subsection{Discretizing Laplacian operator }
+
+In \tmtexttt{TEK}, the Laplacian operator is approximated as
+\begin{equation}
+  \label{23-12-16-3} \nabla_{\perp}^2 \delta A_{\parallel} \approx
+  \frac{\partial^2 \delta A_{\parallel}}{\partial^2 x}  | \nabla x|^2 +
+  \frac{\partial^2 \delta A_{\parallel}}{\partial^2 y}  | \nabla y|^2 +
+  \frac{\partial^2 \delta A_{\parallel}}{\partial^{\nosymbol} x \partial y} 2
+  \nabla x \cdot \nabla y.
+\end{equation}
+To approximate $\delta A_{\parallel}$ of zero boundary condition
+$A_{\parallel} (x = 0) = A_{\parallel}  (x = L_x) = 0$, the sine expansion can
+be adopted. In the $y$ direction, full Fourier expansion is needed. Then, at
+each value of $z$, $A_{\parallel} (x, y, z)$ is approximated by the following
+two-dimensional expansion:
+\begin{equation}
+  \delta A_{\parallel} (x, y, z) \approx \sum_{n = - N_y / 2}^{N_y / 2} \exp
+  \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1} A_{m, n} (z)
+  \sin \left( \frac{m \pi}{L_x} (x - x_0) \right),
+\end{equation}
+Using this expression, Eq. (\ref{23-12-16-3}) is written as
+\begin{eqnarray*}
+  - \nabla_{\perp}^2 \delta A_{\parallel} & = & \sum_{n = - N_y / 2}^{N_y / 2}
+  \exp \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1} \delta
+  A_{m, n} (z)\\
+  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
+  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
+  \frac{m \pi}{L_x} (x - x_0) \right) - i n \frac{2 \pi}{L_y} \left( \frac{m
+  \pi}{L_x} \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{m \pi}{L_x} (x
+  - x_0) \right) \right\}
+\end{eqnarray*}
+At $x = x_j$, with $x_j - x_0 = j \Delta$ and $L_x / \Delta = N_x$, the above
+expression is written as
+\begin{eqnarray}
+  - \nabla_{\perp}^2 \delta A_{\parallel} & = & \sum_{n = - N_y / 2}^{N_y / 2}
+  \exp \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1}
+  \tmcolor{blue}{\delta A_{m, n} (z)} \nonumber\\
+  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
+  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
+  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
+  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
+  \right\},  \label{23-12-16-1}
+\end{eqnarray}
+where $\nabla x$ and $\nabla y$ are evaluated at $x_j$. Plugging the DST
+coefficients
+\begin{equation}
+  \tmcolor{blue}{\delta A_{m, n} (z)} = \frac{2}{N_x} \sum_{j' = 1}^{N_x - 1}
+  A_n (x_{j'}, z) \sin \left( \frac{j' m \pi}{N_x} \right),
+\end{equation}
+into expression (\ref{23-12-16-1}) gives
+\begin{eqnarray*}
+  - \nabla_{\perp}^2 \delta A_{\parallel} & = & \sum_{n = - N_y / 2}^{N_y / 2}
+  \exp \left( i n \frac{2 \pi}{L_y} y \right) \sum_{m = 1}^{N_x - 1}
+  \tmcolor{blue}{\frac{2}{N_x} \sum_{j' = 1}^{N_x - 1} A_n (x_{j'}, z) \sin
+  \left( \frac{j' m \pi}{N_x} \right)}\\
+  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
+  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
+  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
+  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
+  \right\}
+\end{eqnarray*}
+For a single toroidal harmonic, the above expression reduces to
+\begin{eqnarray}
+  &  & \sum_{m = 1}^{N_x - 1} \tmcolor{blue}{\frac{2}{N_x} \sum_{j' = 1}^{N_x
+  - 1} A_n (x_{j'}, z) \sin \left( \frac{j' m \pi}{N_x} \right)} \nonumber\\
+  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
+  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
+  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
+  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
+  \right\}  \label{23-12-27-e1}
+\end{eqnarray}
+Define
+\begin{eqnarray*}
+  M_{j j', n} & \equiv & \sum_{m = 1}^{N_x - 1} \frac{2}{N_x} \sin \left(
+  \frac{j' m \pi}{N_x} \right)\\
+  & \times & \left\{ \left[ \left( \frac{m \pi}{L_x} \right)^2 | \nabla x|^2
+  + \left( n \frac{2 \pi}{L_y} \right)^2 | \nabla y|^2 \right] \sin \left(
+  \frac{j m \pi}{N_x} \right) - i n \frac{2 \pi}{L_y} \left( \frac{m \pi}{L_x}
+  \right) 2 \nabla x \cdot \nabla y \cos \left( \frac{j m \pi}{N_x} \right)
+  \right\}
+\end{eqnarray*}
+then expression (\ref{23-12-27-e1}) is written as
+\begin{equation}
+  \sum_{j' = 1}^{N_x - 1} M_{j j', n} A_n (x_{j'}, z) .
+\end{equation}
 \section{Poisson's equation and polarization density}\label{19-1-4-1}
 
 Poisson's equation is written as
@@ -3447,7 +3416,7 @@ combination of values of $\delta \Phi$ at grid-points.
 \
 
 \begin{figure}[h]
-  \resizebox{238pt}{237pt}{\includegraphics{nonlinear_gyrokinetic_equation-1.pdf}}
+  \resizebox{238pt}{237pt}{\includegraphics{../figures/double_gyro/p-1.pdf}}
   \caption{\label{21-8-22-a1}Given a $v_{\perp}$, then the double gyro-angle
   integration in Eq. (\ref{21-8-22-e1}) at a particle location $\mathbf{x}$ is
   evaluated by the following steps: Use the guiding center transform to get
@@ -4136,80 +4105,6 @@ finally written as
   \label{18-8-26-2}
 \end{eqnarray}
 
-\section{Coordinate system and grid in TEK code}
-
-In the magnetic coordinates $(\psi, \theta, \phi)$ used in \tmtexttt{TEK}
-code, $\psi$ is the normalized poloidal magnetic flux, $\psi = (\Psi -
-\Psi_{\tmop{axis}}) / (\Psi_{\tmop{lcfs}} - \Psi_{\tmop{axis}})$, $\theta$ is
-increasing along the anti-clockwise direction when viewed along $\nabla \phi$
-direction, $\phi$ is the toroidal angle of the right-handed cylindrical
-coordinates $(R, \phi, Z)$. In this convention the Jacobian of the $(\psi,
-\theta, \phi)$ coordinate system, $\mathcal{J} = (\nabla \psi \cdot \nabla
-\theta \times \nabla \phi)$ is negative, i.e., $(\psi, \theta, \phi)$ is a
-left-handed system. The field-line-following coordinate system $(\psi, \theta,
-\alpha)$ is also a left-handed system. The coordinate system $(x = \psi, y =
-\alpha, z = \theta)$ is a right-handed system.
-
-\begin{figure}[h]
-  \includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1.pdf}
-  \caption{Poloidal grid for equilibrium quantities used in \tmtexttt{TEK} and
-  \tmtexttt{GEM} code. The array starts at $\theta = - \pi$ and ends at
-  $\theta = + \pi$ ($\theta = \pm \pi$ is chosen to be at the high-field side
-  midplane in both the codes). \tmtexttt{TEK} array index starts from 1
-  whereas GEM array index starts from $0$. Hence \tmtexttt{mpol=nth+1}.
-  \tmtexttt{nth} is denoted by \tmtexttt{ntheta} in GEM.
-  I do not need to make connection with GEM's equilibrium poloidal array
-  because there is no coupling of equilibrium quantities between the code
-  written by me and the original code in GEM.
-  The coupling happens for the perturbed quanties, whose poloidal grids need
-  to be consistent.\quad TEK poloidal grid-points for perturbation are indexed
-  as \tmtexttt{0:mpol2} with the index \tmtexttt{0} corresponding to $\theta =
-  - \pi$ and the index \tmtexttt{mpol2} corresponding to $\theta = + \pi$.
-  Field equation is solved at \tmtexttt{$0 : \tmop{mpol} 2 - 1$}. (The field
-  at \tmtexttt{mpol2}, i.e., $\theta = + \pi$, is obtained by inerpolating the
-  field at $\theta = - \pi$.) \tmtexttt{mpol2} is determined by
-  \tmtexttt{mpol2=numproc/ntube}, i.e., \tmtexttt{mpol2} is the total number
-  of cells along the $\theta$ direction use for MPI parallelation.
-  \tmtexttt{mpol} and \tmtexttt{mpol2} must be chosen in a way that makes
-  \tmtexttt{(mpol-1)/mpol2} be an integer, which can be larger than 1, i.e.,
-  one simulation cell can span several equilibrium cells.}
-\end{figure}
-
-\
-
-\begin{figure}[h]
-  \resizebox{0.9\columnwidth}{!}{\includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.eps}}
-  \caption{Radial grid used in \tmtexttt{TEK}. Two radial arrays are used in
-  the code, \tmtexttt{radcor\_1d\_array(1:nt)} and
-  \tmtexttt{radcor\_1d\_array2(1:n)}, equilibrium is defined on the former
-  grid, and perturbations are defined on the latter grid.
-  Here $\tmop{nt} = n + 2 m$, $m$ is the number of grid points in one of the
-  two buffer regions (regions in blue color). In the code $n$ is denoted by \tmtexttt{nflux2} and $\tmop{nt}$ is denoted
-  by \tmtexttt{nflux}, $m$ is denoted by \tmtexttt{points\_in\_buffer}. In
-  \tmtexttt{GEM} the radial array does no include the buffer regions and the
-  index starts at \tmtexttt{0} and ends at \tmtexttt{imx}. Hence
-  \tmtexttt{n=imx+1}.}
-\end{figure}
-
-\begin{figure}[h]
-  \includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/toroidal_grids/a-1.eps}
-  \caption{Toroidal grid used in \tmtexttt{TEK} and GEM. TEK array index
-  starts at 1 whereas GEM array index starts from $0$. In TEK, the toroidal
-  array is \tmtexttt{tor\_1d\_array(1:mtor+1)}. source terms, $\delta n$ and
-  $\delta j_{\parallel}$, are defined at \tmtexttt{1:mtor}; EM fields are
-  defined at \tmtexttt{1:mtor+1}.
-  \tmtexttt{GEM} array ends at \tmtexttt{jm}. It follows that
-  \tmtexttt{mtor=jm}.}
-\end{figure}
-
-\
-
-\
-
-GEM array index system is better than TEK's because my system is not
-consistent: sometimes I use 0-based index and sometimes I use 1-based index,
-sometimes the index ends at n and sometimes ends at n+1. It is important to
-know accurately the transformation between the two systems.
 
 \
 
@@ -4378,12 +4273,115 @@ In GEM, the split weight method is used only for electrons, and $\partial
 $\partial \delta \Phi / \partial t$, which is obtained from the vorticity
 equation (rather than from time-difference scheme).
 
-\
-
 When using the split weight scheme, a $\partial \delta \phi / \partial t$
 terms appear in the right-hand-side of the weight evolution equation. GEM
 makes use of the vorticity equation (time derivative of the Poissson equation)
 to evaluate $\partial \delta \phi / \partial t$.
+
+\section{Coordinate system and grid in \tmtexttt{TEK} code}
+
+In $(\psi, \theta, \phi)$ coordinates:
+\begin{itemize}
+  \item $\psi$ is the normalized poloidal magnetic flux, $\psi = (\Psi -
+  \Psi_{\tmop{axis}}) / (\Psi_{\tmop{lcfs}} - \Psi_{\tmop{axis}})$.
+  
+  \item $\theta \in [- \pi, \pi)$ is increasing along the anti-clockwise
+  direction when viewed along $\nabla \phi$ direction with $\theta = - \pi$ at
+  the high-field-side midplane.
+  
+  \item $\phi$ is the toroidal angle of the right-handed cylindrical
+  coordinates $(R, \phi, Z)$.
+\end{itemize}
+In this convention, the Jacobian of the $(\psi, \theta, \phi)$ coordinate
+system, $\mathcal{J} = (\nabla \psi \cdot \nabla \theta \times \nabla \phi)$
+is negative, i.e., $(\psi, \theta, \phi)$ is a left-handed system. The
+field-line-following coordinate system $(\psi, \theta, \alpha)$ is also a
+left-handed system. The coordinate system $(x = \psi, y = \alpha, z = \theta)$
+is a right-handed system.
+
+\subsection{Poloidal grid}
+
+\begin{figure}[h]
+  \includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1.pdf}
+  \caption{Poloidal grid for equilibrium quantities used in \tmtexttt{TEK} and
+  \tmtexttt{GEM} code. The array starts at $\theta = - \pi$ and ends at
+  $\theta = + \pi$ ($\theta = \pm \pi$ is chosen to be at the high-field side
+  midplane in both the codes). \tmtexttt{TEK} array index starts from 1
+  whereas GEM array index starts from $0$. Hence \tmtexttt{mpol=nth+1}.
+  \tmtexttt{nth} is denoted by \tmtexttt{ntheta} in GEM. In TEK,
+  \tmtexttt{mpol} must be an odd number, so that the array has a midpoint,
+  whose index is given by \tmtexttt{(mpol+1)/2}, which corresponds to $\theta
+  = 0$.}
+\end{figure}
+
+I do not need to make connection with GEM's equilibrium poloidal array because
+there is no coupling of equilibrium quantities between the code written by me
+and the original code in GEM. The coupling happens for the perturbed quanties,
+whose poloidal grids need to be consistent.
+
+
+\begin{itemize}
+  \item The gridpoint number along $\theta$ for perturbations is denoted by
+  \tmtexttt{mpol2}. Its value is not chosen by users. Instead, it is equal to
+  \tmtexttt{numproc/ntube}, i.e., \tmtexttt{mpol2} is the total number of
+  cells along $\theta$ for MPI parallelation. (\tmtexttt{numproc} and
+  \tmtexttt{ntube} must be chosen in a way that makes \
+  \tmtexttt{numproc/ntube} an integer.)
+  
+  \item Poloidal grid-points for perturbations are indexed as
+  \tmtexttt{0:mpol2-1}, with \tmtexttt{0} corresponding to $\theta = - \pi$
+  and \tmtexttt{mpol2} corresponding to $\theta = \pi$. Field equations are
+  solved at \tmtexttt{$0 : \tmop{mpol} 2 - 1$}. (The field at
+  \tmtexttt{mpol2}, i.e., $\theta = + \pi$, is not identical to that at
+  $\theta = - \pi$ due to toroidal shift of a magnetic field line when it
+  finish one poloidal loop, and is obtained by toroidally inerpolating the
+  fields at $\theta = - \pi$.) No array for this is actually used in the code.
+  The indexes just correspond to \tmtexttt{gclr} of MPI processors.
+  
+  \item The equilibrium poloidal gridpoint number, \tmtexttt{mpol}, must be
+  chosen in a way that makes \tmtexttt{(mpol-1)/mpol2} an integer, which can
+  be larger than 1, i.e., one simulation cell can span several equilibrium
+  cells.
+\end{itemize}
+
+
+\subsection{Toroidal grid}
+
+\begin{figure}[h]
+  \includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/toroidal_grids/a-1.eps}
+  \caption{Toroidal grid used in \tmtexttt{TEK} and GEM. In TEK, the toroidal
+  array is \tmtexttt{tor\_1d\_array(1:mtor+1)}.  Source terms, $\delta n$ and $\delta j_{\parallel}$, and EM fields are
+  defined at \tmtexttt{1:mtor}.
+  GEM array index starts from $0$ and ends at \tmtexttt{jm}. It follows that
+  \tmtexttt{mtor=jm}.}
+\end{figure}
+
+\
+
+\subsection{Radial grid}
+
+\
+
+\begin{figure}[h]
+  \resizebox{0.9\columnwidth}{!}{\includegraphics{/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.eps}}
+  \caption{Radial grid used in \tmtexttt{TEK}. Two radial arrays are used in
+  the code, \tmtexttt{radcor\_1d\_array(1:nt)} and
+  \tmtexttt{radcor\_1d\_array2(1:n)}, equilibrium is defined on the former
+  grid, and perturbations are defined on the latter grid. Here $\tmop{nt} = n
+  + 2 m$, $m$ is the number of grid points in one of the two buffer regions
+  (regions in blue color). In the code $n$ is denoted by \tmtexttt{nflux2} and
+  $\tmop{nt}$ is denoted by \tmtexttt{nflux}, $m$ is denoted by
+  \tmtexttt{points\_in\_buffer}. In \tmtexttt{GEM} the radial array does no
+  include the buffer regions and the index starts at \tmtexttt{0} and ends at
+  \tmtexttt{imx}. Hence \tmtexttt{n=imx+1}.}
+\end{figure}
+
+GEM array index system is better than TEK's because my system is not
+consistent: sometimes I use 0-based index and sometimes I use 1-based index,
+sometimes the index ends at n and sometimes ends at n+1. It is important to
+know accurately the transformation between the two systems.
+
+\
 
 \section{Implementation of gyrokinetics in particle-in-cell (PIC) codes}
 
@@ -4671,6 +4669,12 @@ the guiding-center location as an image of the particle position. When working
 in the guiding-center coordinates, I prefer to reason by transforming back to
 the particle position. This reasoning is clear and help me avoid some
 confusions I used to have.
+
+\
+
+In coding, the initial sampling of the phase space is performed for particles
+($(\mathbf{v}, \mathbf{x})$ of particles) and then is transformed to
+guiding-center coordinates.
 
 \
 
