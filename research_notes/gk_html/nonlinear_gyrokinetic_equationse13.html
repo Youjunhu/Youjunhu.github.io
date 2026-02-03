@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Implementation of gyrokinetics in particle-in-cell (PIC) codes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,3,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 4581--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse14.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse12.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse12.html#tailnonlinear_gyrokinetic_equationse12.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationse13.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse13.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">E   </span> <a 
+ id="x14-73000E"></a>Implementation of gyrokinetics in particle-in-cell (PIC) codes</h3>
+<!--l. 4583--><p class="noindent" > 
+</p><!--l. 4586--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">E.1   </span> <a 
+ id="x14-74000E.1"></a>Inverse guiding-center transform in ﬁeld-following coordinates (x,y,z)</h4>
+<!--l. 4588--><p class="noindent" >Deﬁne two unit vectors:
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation403x.png" alt="a1 = ∇x--,
+     |∇x |
+" class="math-display"  /><a 
+ id="x14-74001r348"></a></div>
+   </td><td class="equation-label">(348)</td></tr></table>
+<!--l. 4591--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation404x.png" alt="        -∇x-
+a2 = b× |∇x |,
+" class="math-display"  /><a 
+ id="x14-74002r349"></a></div>
+   </td><td class="equation-label">(349)</td></tr></table>
+<!--l. 4595--><p class="nopar" >both of which are perpendicular to the equilibrium magnetic ﬁeld. Then a random gyro-radius vector <span 
+class="cmmib-10">ρ</span>
+can be constructed by
+</p>
+   <table 
+class="equation"><tr><td>
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation405x.png" alt="ρ = ρ[cos(α0 + α)a1 + sin(α0 +α )a2],
+" class="math-display"  /><a 
+ id="x14-74003r350"></a></div>
+   </td><td class="equation-label">(350)</td></tr></table>
+<!--l. 4601--><p class="nopar" >where <span 
+class="cmmi-10">α</span><sub><span 
+class="cmr-7">0</span></sub> is a random angle in [0 : 2<span 
+class="cmmi-10">π</span>] among diﬀerent markers, <span 
+class="cmmi-10">α </span>is an angle variable in [0 : 2<span 
+class="cmmi-10">π</span>] that
+will be discretized with uniform intervals for each marker, and <span 
+class="cmmi-10">ρ </span>= <span 
+class="cmmi-10">m</span><img 
+src="nonlinear_gyrokinetic_equation406x.png" alt="√-----
+ 2B0 μ"  class="sqrt"  /><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmsy-10">|</span><span 
+class="cmmi-10">q</span><span 
+class="cmsy-10">|</span>) is the gyro-radius
+calculated using the magnetic ﬁeld at the guiding-center location (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,z</span><sub><span 
+class="cmr-7">0</span></sub>). Then the particle location
+(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">,z</span><sub><span 
+class="cmmi-7">p</span></sub>) corresponding to this Larmor vector can be approximated by the Talor expansion at
+(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,z</span><sub><span 
+class="cmr-7">0</span></sub>):
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation407x.png" alt="(
+{ xp ≈ x0 + ρ ⋅∇x
+( yp ≈ y0 + ρ⋅∇y
+  zp ≈ z0 + ρ⋅∇z
+" class="math-display"  /><a 
+ id="x14-74004r351"></a></div>
+   </td><td class="equation-label">(351)</td></tr></table>
+<!--l. 4615--><p class="nopar" >Using expressions (<a 
+href="#x14-74001r348">348<!--tex4ht:ref: 19-3-8-1 --></a>), (<a 
+href="#x14-74002r349">349<!--tex4ht:ref: 19-3-8-2 --></a>), (<a 
+href="#x14-74003r350">350<!--tex4ht:ref: 19-3-12-e1 --></a>), equation (<a 
+href="#x14-74004r351">351<!--tex4ht:ref: 19-3-8-3 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation408x.png" alt="(| xp = x0 + ρcos(α0 + α)|∇x |
+|{ y = y  + ρcos(α  + α) ∇x-⋅∇y + ρ sin(α + α)(b ×-∇x-)⋅∇y
+|  p   0        0     |∇x|            0    (    |∇x|)      ,
+|( zp = z0 + ρcos(α0 + α) ∇|∇xx| ⋅∇z + ρ sin(α0 + α) b × |∇∇xx| ⋅∇z
+" class="math-display"  /><a 
+ id="x14-74005r352"></a></div>
+   </td><td class="equation-label">(352)</td></tr></table>
+<!--l. 4628--><p class="nopar" >where <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">x</span>, <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">y</span>, and <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">z </span>are all evaluated at the guiding-center position (<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">,z</span><sub><span 
+class="cmr-7">0</span></sub>).
+                                                                                
+
+                                                                                
+</p><!--l. 4633--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">E.2   </span> <a 
+ id="x14-75000E.2"></a>Monte-Carlo evaluation of distribution function moment at grid-points</h4>
+<!--l. 4635--><p class="noindent" >Suppose that the 6D guiding-center phase-space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is described by (<span 
+class="cmmi-10">ψ,𝜃,ϕ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>)
+coordinates, where <span 
+class="cmmi-10">α </span>is the gyro-angle. Denote the Jacobian of the coordinate system by
+<span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub>.
+</p><!--l. 4640--><p class="indent" >   Suppose that we sample the 6D phase-space by using a probability function <span 
+class="cmmi-10">P</span>(<span 
+class="cmmi-10">ψ,𝜃,ϕ,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>).
+(Then the eﬀecitive probability function used in rejection method is <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">v</span></sub>.) Note that we will
+sample a distribution function <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) that happens to be independent of the
+gyro-angle <span 
+class="cmmi-10">α</span>. Since <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> is uniform in <span 
+class="cmmi-10">α</span>, it is natural to smaple <span 
+class="cmmi-10">α </span>using a uniform probability
+function, i.e., <span 
+class="cmmi-10">P</span>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) can be chosen to be independent of <span 
+class="cmmi-10">α</span>. Then the weight is also
+independent of <span 
+class="cmmi-10">α</span>. In terms of sampling <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub>, there is no need to specify <span 
+class="cmmi-10">α </span>because both <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> and
+marker distribution <span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P </span>are indepedent of <span 
+class="cmmi-10">α</span>. However, sampling <span 
+class="cmmi-10">α </span>is still necessary in
+simulations. From the perspective of programming, it is ready to understand why <span 
+class="cmmi-10">α </span>needs to be
+speciﬁed: when computing density at grid-points, we need to compute particle locations
+from the guiding-center locations which requires us to specify the gyro-angle <span 
+class="cmmi-10">α </span>for each
+marker. Speciﬁcally, markers in guiding-center space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) with ﬁxed (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) but
+diﬀerent values of <span 
+class="cmmi-10">α </span>correspond to markers in particle space with diﬀerent locations (and
+diﬀerent <span 
+class="cmmi-10">α</span><span 
+class="cmsy-10">′</span>). In the PIC method of computing <span 
+class="cmmi-10">δn </span>or <span 
+class="cmmi-10">δj</span><sub><span 
+class="cmsy-7">∥</span></sub> at ﬁxed <span 
+class="cmbx-10">x</span>, the contribution of each
+particle marker to the density is aﬀected by the distance of the particle marker to the ﬁxed <span 
+class="cmbx-10">x</span>.
+Therefore diﬀerent values of <span 
+class="cmmi-10">α </span>contributes diﬀerently to <span 
+class="cmmi-10">δn </span>or <span 
+class="cmmi-10">δj</span><sub><span 
+class="cmsy-7">∥</span></sub>, and thus the resolution of <span 
+class="cmmi-10">α</span>
+matters.
+</p><!--l. 4666--><p class="indent" >   For a marker with coordinators (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>), the corresponding particle position can be calculated
+by using the inverse guiding-center transformation (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6003r29">29<!--tex4ht:ref: 19-1-19-p2 --></a>). Then we can deposit the marker weight to
+grid-points in the same way that we do in conventional PIC simulations. Looping over all markers, we
+build the particle density at grids.
+</p><!--l. 4673--><p class="indent" >   Compared with conventional PIC methods, where particle positions are directly sampled, what is
+the beneﬁt of sampling guiding-center positions and then transform them back to the particle
+positions? More computations are involved since we need to numerically perform the inverse
+guiding-center transformation. The answer lies in the important fact that the distribution function
+<span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>) that needs to be numerically evaluated in gyrokinetic simulation is actually
+independent of the gyro-angle <span 
+class="cmmi-10">α</span>. Furthermore, we use a probability density function <span 
+class="cmmi-10">P</span>
+that is independent of <span 
+class="cmmi-10">α </span>to sample the 6D phase space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>). Then the marker
+weight <span 
+class="cmmi-10">w </span><span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>) is independent of <span 
+class="cmmi-10">α</span>, where <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub> is number of markers loaded. This fact
+enable resolution in particle coordinates can be increased in a trivial way, as described
+below.
+</p><!--l. 4687--><p class="indent" >   Suppose we have a concrete sampling of <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> in the 6D phase-space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,α</span>), i.e.,
+(<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">j</span></sub>) with <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub>, then we can do the inverse guiding-center transform and then
+deposit particles to the grids to obtain a moment (e.g. density).
+</p><!--l. 4693--><p class="indent" >   Since <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> is independent of <span 
+class="cmmi-10">α</span>, the sampli Maybe the real reason is that I lack the interests in
+learning them.ng <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> with <span 
+class="cmmi-10">j </span>= 0<span 
+class="cmmi-10">,</span>1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub> are uniform distributed random numbers. Therefore we can
+generate another sampling of <span 
+class="cmmi-10">α </span>(denoted by <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>with <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub>) using random number generators
+and combine <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>with the old sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) to obtain a new sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′</span>).
+ The values of <span 
+class="cmmi-10">w </span>at the new sampling points are equal to the original values, i.e., <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmsy-10">′ </span>= <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub>
+since the particle weight <span 
+class="cmmi-10">w </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>) is independent of <span 
+class="cmmi-10">α</span>.  Using the new sampling
+and following the same procedures given above, we can estimate values of the moment at
+grid-points again, which will diﬀer from the estimation obtained using the old sampling
+because the resulting sampling of <span 
+class="cmbx-10">x </span>and <span 
+class="cmmi-10">α</span><span 
+class="cmsy-10">′ </span>for <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> is diﬀerent. Taking the average of the two
+estimations will give a more accurate estimation because the resolution in <span 
+class="cmbxti-10">x </span>and <span 
+class="cmmi-10">α</span><span 
+class="cmsy-10">′ </span>for <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> is
+                                                                                
+
+                                                                                
+increased.
+</p><!--l. 4710--><p class="indent" >   [Note that even if <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> is dependent on <span 
+class="cmmi-10">α </span>due to the possible dependence of <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">rv</span></sub> on <span 
+class="cmmi-10">α</span>, we still can
+easily generate a new set of sampling which diﬀers from the old sampling only in <span 
+class="cmmi-10">α</span>. Speciﬁcally, in the
+rejection method, we use the old sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) for each reject step and only adjust <span 
+class="cmmi-10">α </span>to
+satisfy the acceptance criteria.]
+</p><!--l. 4717--><p class="indent" >   We can also construct a new sampling by replacing <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> with <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub> + <span 
+class="cmmi-10">Δ</span>, where <span 
+class="cmmi-10">Δ </span>is a constant. Then
+the new set of sampling (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,α</span><sub><span 
+class="cmmi-7">j</span></sub> + <span 
+class="cmmi-10">Δ,w</span><sub><span 
+class="cmmi-7">j</span></sub>) with <span 
+class="cmmi-10">j </span>= 1<span 
+class="cmmi-10">,</span><span 
+class="cmmi-10">…</span><span 
+class="cmmi-10">,N</span><sub><span 
+class="cmmi-7">p</span></sub> is still a consistent set of
+sampling.
+</p><!--l. 4722--><p class="indent" >   In doing the deposition, each marker has a single gyro-angle. Due to the independence of the weight
+(<span 
+class="cmmi-10">w </span>= <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub><span 
+class="cmmi-10">P</span>)) of the gyro-angle, the particle phase space resolution can be increased in a way that
+there can be several gyro-angles for a single (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>). This gives the wrong impression that the
+gyro-angle of a guiding-center marker is arbitrary. The correct understanding is that given
+above, i.e., we do several (say 4) separate sampling of the phase space and then average the
+results.
+</p><!--l. 4731--><p class="indent" >   In the code, the gyro-angle is deﬁned relative to the direction <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ∕</span><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">ψ</span><span 
+class="cmsy-10">| </span>at the guiding-center
+position. Speciﬁcally, the gyro-angle is deﬁned as the included angle between <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ∕</span><span 
+class="cmsy-10">|∇</span><span 
+class="cmmi-10">ψ</span><span 
+class="cmsy-10">| </span>and
+<span 
+class="cmsy-10">−</span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">× </span><span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">∕Ω</span>(<span 
+class="cmbx-10">x</span>), where <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">∕Ω</span>(<span 
+class="cmbx-10">x</span>) is approximated by the value at the guiding-center
+location.
+</p><!--l. 4738--><p class="indent" >    
+</p><!--l. 4740--><p class="indent" >   Then (<span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmmi-7">j</span></sub>) can be evolved by using the guiding-center motion equation. (It is
+obvious how to evalute the gyro-averaging of the electromagnetic ﬁelds needed in pusing
+markers.)
+</p><!--l. 4745--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">E.3   </span> <a 
+ id="x14-76000E.3"></a>Monte-Carlo sampling of 6D guiding-center phase-space </h4>
+<!--l. 4747--><p class="noindent" >Suppose that the 6D guiding-center phase-space (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is described by (<span 
+class="cmmi-10">ψ,𝜃,ϕ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,α</span>) coordinates.
+The Jacobian of the coordinate system is given by <span 
+class="cmsy-10">𝒥 </span>= <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub>, where <span 
+class="cmsy-10">𝒥</span><sub><span 
+class="cmmi-7">r</span></sub> = <span 
+class="cmsy-10">𝒥 </span>(<span 
+class="cmmi-10">ψ,𝜃</span>) is the Jacobian of
+the coordinates (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>). Suppose that we sample the 6D phase-space by using the following probability
+density function:
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation409x.png" alt="                                 [     2   2  ]
+                  -1 (-m--)3∕2      m(v∥ +-v⊥-)
+P(ψ,𝜃,ϕ,v∥,v⊥, α) = Vr 2πT     exp −    2T      ,
+" class="math-display"  /><a 
+ id="x14-76001r353"></a></div>
+   </td><td class="equation-label">(353)</td></tr></table>
+<!--l. 4758--><p class="nopar" >where <span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">r</span></sub> is the volume of the spatial simulation box, <span 
+class="cmmi-10">T </span>is a constant temperature. <span 
+class="cmmi-10">P </span>given above is
+independent of <span 
+class="cmmi-10">ψ,𝜃,ϕ </span>and <span 
+class="cmmi-10">α</span>. It is ready to verify that the above <span 
+class="cmmi-10">P </span>satisﬁes the following normalization
+condition:
+                                                                                
+
+                                                                                
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation410x.png" alt="∫  ∫           ∫  ∫ +∞ ∫ ∞∫ 2π
+      PdvdX =                  Pv⊥dαdv⊥dv ∥𝒥rd ψd𝜃dϕ = 1.
+ Vr             Vr  −∞   0   0
+" class="math-display"  /><a 
+ id="x14-76002r354"></a></div>
+   </td><td class="equation-label">(354)</td></tr></table>
+<!--l. 4767--><p class="nopar" >I use the rejection method to numerically generate <span 
+class="cmmi-10">N</span><sub><span 
+class="cmmi-7">p</span></sub> markers that satisfy the above probability
+density function. [The eﬀective probability density function actually used in the rejection method is <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">′</span>,
+which is related to <span 
+class="cmmi-10">P </span>by
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation411x.png" alt="P′ = |𝒥r𝒥v|P = |𝒥r (ψ,𝜃)|v⊥P
+" class="math-display"  /><a 
+ id="x14-76003r355"></a></div>
+   </td><td class="equation-label">(355)</td></tr></table>
+<!--l. 4775--><p class="nopar" >Note that <span 
+class="cmmi-10">P</span><span 
+class="cmsy-10">′ </span>does not depend on the gyro-angle <span 
+class="cmmi-10">α</span>.]
+</p><!--l. 4778--><p class="indent" >   Then the weight of a marker sampling <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> is written as
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation412x.png" alt="    δfg(ψ,𝜃,ϕ,v∥,v⊥)-
+w =      NpP       .
+" class="math-display"  /><a 
+ id="x14-76004r356"></a></div>
+   </td><td class="equation-label">(356)</td></tr></table>
+<!--l. 4782--><p class="nopar" >Since both <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> and <span 
+class="cmmi-10">P </span>are independent of the gyro-angle <span 
+class="cmmi-10">α</span>, <span 
+class="cmmi-10">w </span>is also independent of <span 
+class="cmmi-10">α</span>.
+                                                                                
+
+                                                                                
+</p><!--l. 4786--><p class="indent" >   The numerical representation of <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> is written
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation413x.png" alt="        1  N∑p
+δf˜g = -----   wjδ(ψ− ψj)δ(𝜃− 𝜃j)δ(ϕ − ϕj)δ(v∥ − v∥j)δ(v⊥ − v⊥j)δ(α − αj).
+      𝒥rv⊥  j
+" class="math-display"  /><a 
+ id="x14-76005r357"></a></div>
+   </td><td class="equation-label">(357)</td></tr></table>
+<!--l. 4792--><p class="nopar" >Although the distribution function <span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> to be sampled is independent of the gyro-angle <span 
+class="cmmi-10">α</span>,
+we still need to specify the gyro-angle because we need to use the inverse guiding-center
+transformation, which needs the gyro-angle. Each marker needs to have a speciﬁc gyro-angle value <span 
+class="cmmi-10">α</span><sub><span 
+class="cmmi-7">j</span></sub>
+so that we know how to transform its <span 
+class="cmbx-10">X</span><sub><span 
+class="cmmi-7">j</span></sub> to <span 
+class="cmbx-10">x</span><sub><span 
+class="cmmi-7">j</span></sub> and then do the charge deposition in <span 
+class="cmbx-10">x</span>
+space.
+</p><!--l. 4800--><p class="indent" >   To increase the resolution over the gyro-angle (the quantity of intest to us, e.g., density, is the
+integration of the particle distribution function at ﬁxed spatial location, and the distribution at the
+ﬁxed location is not uniform in the gyro-angle. So the resolution over <span 
+class="cmmi-10">α </span>matters), we need to load more
+markers. However, thanks to the fact that both sampling probability density function <span 
+class="cmmi-10">P </span>and
+<span 
+class="cmmi-10">δf</span><sub><span 
+class="cmmi-7">g</span></sub> are independent of <span 
+class="cmmi-10">α</span>, the resolution over the gyro-angle can be increased in a simple
+way.
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation414x.png" alt="       n1(x-)+-n2(x-)+-n3(x-)+-n4(x-)
+n(x) =             4             .
+" class="math-display"  /><a 
+ id="x14-76006r358"></a></div>
+   </td><td class="equation-label">(358)</td></tr></table>
+<!--l. 4810--><p class="nopar" >This corresponds to sampling the 6D phase-space 4 separate times (each time with identical
+sampling points in (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>) but diﬀerent sampling points in <span 
+class="cmmi-10">α</span>) and then using the averaging
+of the 4 Monte-Carlo integrals to estimate the exact value. This estimation can also be
+(roughly) considered as a Monte-Carlo estimation using 4 times larger number of markers
+as that is originally used (the Monte-Carlo estimation using truly 4 time larger number
+of markers is more accurate than the result we obtained above because the former also
+increase the resolution of (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>) while the latter keeps the resolution of (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub>)
+unchanged.)
+                                                                                
+
+                                                                                
+</p><!--l. 4822--><p class="indent" >   In numerical implementation, we choose <span 
+class="cmmi-10">N </span>sampling points that are evenly distributed on the
+gyro-ring (<span 
+class="cmmi-10">N </span>is usually 4 as a compromise between eﬃciency and accuracy). And the weight is evenly
+split by the <span 
+class="cmmi-10">N </span>sub-markers on the gyro-ring. Therefore each sub-marker have a Monte-Carlo weight
+<span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">∕N</span>, where <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub> is the weight of the <span 
+class="cmmi-10">j</span> th marker. Then calculating the integration (<a 
+href="#x14-78003r364">364<!--tex4ht:ref: 19-1-19-p1 --></a>) at a grid
+corresponds to depositing all the <span 
+class="cmmi-10">N </span>sub-markers associated with each guiding-center marker to the grid,
+as is illustrated in Fig. <a 
+href="#x14-7600714">14<!--tex4ht:ref: 19-1-19-p4 --></a>. However, interpreting in this way is confusing to me because: why can you
+split a single sampling into <span 
+class="cmmi-10">N </span>diﬀerent samplings? I prefer the above interpretation that the 6D
+phase space is sampled 4 separate times and thus we get 4 estimations and ﬁnally we take
+the averaging of these 4 estimations. It took a long time for me to ﬁnally ﬁnd this way of
+understanding.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x14-7600714"></a>
+                                                                                
+
+                                                                                
+<!--l. 4837--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/grids_cells/grids-3.png" alt="pict"  
+ width="182.6825pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 14:  </span><span  
+class="content">The  spatial  grid  in  the  plane  perpendicular  to  the  equilibrium  magnetic  ﬁeld,  a
+guiding-center marker <span 
+class="cmmi-10">C</span>, and its gyro-ring with 4 sampling points (sub-markers) on it. The 4
+sub-markers are calculated by using the transformation (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6003r29">29<!--tex4ht:ref: 19-1-19-p2 --></a>) (inverse guiding-center transform).
+Assume that Monte-Carlo weight of the guiding-center marker <span 
+class="cmmi-10">C</span> is <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub>. Then The Monte-Carlo
+weight of each sub-marker is <span 
+class="cmmi-10">w</span><sub><span 
+class="cmmi-7">j</span></sub><span 
+class="cmmi-10">∕</span>4. The value of integration (<a 
+href="#x14-78003r364">364<!--tex4ht:ref: 19-1-19-p1 --></a>) at a grid point is approximated
+by  <span 
+class="cmmi-10">I∕ΔV </span>,  where  <span 
+class="cmmi-10">I  </span>is  the  Monte-Carlo  integration  of  all  sub-markers  (associated  with  all
+guiding-center markers) in the cell, <span 
+class="cmmi-10">ΔV </span>is the cell volume. The cell associated with a grid-point
+(e.g., <span 
+class="cmmi-10">A</span>) is indicated by the dashed rectangle (this is for the 2D projection, the cell is 3D and
+it is a cube). If the Dirac delta function is used as the shape function of the sub-markers,
+then calculating the contribution of a sub-marker to a grid corresponds to the nearest-point
+interpolation (for example, the 4 sub-markers will contribute nothing to grid point <span 
+class="cmmi-10">B </span>since no-sub
+marker is located within the cell). In practice, the ﬂat-top shape function with its support equal
+to the cell size is often used, then the depositing corresponds to linearly interpolating the weight
+of each sub-marker to the nearby grids.</span></div><!--tex4ht:label?: x14-7600714 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 4860--><p class="indent" >    
+</p><!--l. 4862--><p class="indent" >   In summary, the phase-space to be sampled in gyrokinetic simulations are still 6D rather than
+5D. In this sense, the statement that gyrokinetic simulation works in a 5D phase space is
+misleading. We are still working in the 6D phase-space. The only subtle thing is that the sixth
+dimension, i.e., gyro-angle, can be sampled in an easy way that is independent of the other 5
+variables.
+</p><!--l. 4869--><p class="indent" >   In numerical implementation, the gyro-angle may not be explicitly used. We just try to ﬁnd 4
+arbitrary points on the gyro-ring that are easy to calculate. Some codes (e.g. ORB5) introduces a
+random variable to rotate these 4 points for diﬀerent markers so that the gyro-angle can be sampled
+less biased.
+</p><!--l. 4875--><p class="indent" >   From the view of particle simulations, the gyrokinetic model can be considered as a noise reduction
+method, where the averaging over the gyro-angle is equivalent to a time averaging over a gyro-period,
+which reduces the ﬂuctuation level (in both time and space) associated with evaluating the
+Monte-Carlo phase integration. Here the averaging in gyrokinetic particle simulation refers to taking
+several points on a gyro-ring when depositing markers to spatial grids to obtain the density and current
+on the grids. (Another gyro-averaging appears in evaluating the guiding-center drift.) In gyrokinetic
+particle simulation, even a step size smaller than a gyro-period is taken, the quantities used
+in the model is still the ones averaged over one gyro-period. In this sense, a gyrokinetic
+simulation is only meaningful when the time step size is larger than one gyro-period. [**Some
+authors may disagree with that the gyro-averaging is a time-averaging. They may consider the
+gyro-averaging as the phase-space integration over the gyro-angle coordinate. This view
+seems to be right in Euler simulations but seems to be wrong in particle simulations. The
+reason is as follows. For each marker, choose a random gyro-phase and then do the inverse
+transformation to obtain particle position, and sum over all markers (this corresponds to phase-space
+Monte-Carlo integration, which include the gyro-angle integration, so no further gyro-angle
+integration is needed); choose another random gyro-phase and repeat the above procedure
+(this can be interpreted as do the phase-space Monte-Carlo integration at another time),
+choose further random gyro-phase for each marker and repeat. Finally averaging all the
+above values to obtain the ﬁnal estimation of the phase-space integration. This amounts to
+a time-averaging over a gyro-motion. In summary, sampling several times with diﬀerent
+gyro-phases for each marker and taking the average amounts to the time averaging over
+gyro-motion**]
+</p><!--l. 4903--><p class="indent" >   When doing the time-average over the ion cyclotron motion, the time variation of the low-frequency
+mode is negligible and only the spatial variation of the modes is important. For the gyro-motion, only
+the gyro-angle is changing and all the other variables, (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub>),  are approximately constant. As a
+result, this time averaging ﬁnally reduces to a gyro-averaging.
+</p><!--l. 4910--><p class="indent" >    
+</p><!--l. 4912--><p class="indent" >   I prefer to reason in terms of particle position and velocity, and consider the guiding-center location
+as an image of the particle position. When working in the guiding-center coordinates, I prefer to reason
+by transforming back to the particle position. This reasoning is clear and help me avoid some
+confusions I used to have.
+</p><!--l. 4918--><p class="indent" >    
+</p><!--l. 4920--><p class="indent" >   In coding, the initial sampling of the phase space is performed for particles ((<span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">x</span>) of particles) and
+then is transformed to guiding-center coordinates.
+</p><!--l. 4924--><p class="indent" >    
+</p><!--l. 4926--><p class="indent" >    
+                                                                                
+
+                                                                                
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">E.4   </span> <a 
+ id="x14-77000E.4"></a>Distribution function transform**check</h4>
+<!--l. 4930--><p class="noindent" >In the above, we assume that <span 
+class="cmbx-10">X </span>and <span 
+class="cmbx-10">x </span>are related to each other by the guiding-center transformation
+(<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6001r27">27<!--tex4ht:ref: 16-9-21-1 --></a>) or (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6003r29">29<!--tex4ht:ref: 19-1-19-p2 --></a>) , i.e., <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">X </span>are not independent. For some cases, it may be convenient to treat <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">X</span>
+as independent variables and express the guiding-center transformation via an integral of the Dirac
+delta function. For example,
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation415x.png" alt="         ∫         3
+fp(x,v) =  fg(X,v)δ (X − x+ ρ)dX,
+" class="math-display"  /><a 
+ id="x14-77001r359"></a></div>
+   </td><td class="equation-label">(359)</td></tr></table>
+<!--l. 4939--><p class="nopar" >where <span 
+class="cmbx-10">x </span>and <span 
+class="cmbx-10">X </span>are considered as independent variables, <span 
+class="cmmib-10">ρ</span> is the gyroradius evaluated at <span 
+class="cmbx-10">x</span>,
+<span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x </span><span 
+class="cmsy-10">− </span><span 
+class="cmbx-10">X </span><span 
+class="cmsy-10">−</span><span 
+class="cmmib-10">ρ</span>) is the three-dimensional Dirac delta function. [In terms of general coordinates
+(<span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">3</span></sub>), the three-dimensional Dirac delta function is deﬁned via the 1D Dirac delta function as
+follows:
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation416x.png" alt="δ3(x) = -1-δ(x1)δ(x2)δ(x3),
+       |𝒥 |
+" class="math-display"  /><a 
+ id="x14-77002r360"></a></div>
+   </td><td class="equation-label">(360)</td></tr></table>
+<!--l. 4949--><p class="nopar" >where <span 
+class="cmsy-10">𝒥 </span>is the the Jacobian of the general coordinate system. The Jacobian is included in order to
+make <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x</span>) satisfy the normalization condition <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">x </span>= <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">δ</span><sup><span 
+class="cmr-7">3</span></sup>(<span 
+class="cmbx-10">x</span>)<span 
+class="cmsy-10">|𝒥|</span><span 
+class="cmmi-10">dx</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">dx</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">dx</span><sub><span 
+class="cmr-7">3</span></sub> = 1.]
+</p><!--l. 4955--><p class="indent" >   Expression (<a 
+href="#x14-77001r359">359<!--tex4ht:ref: 19-1-20-e1 --></a>) can be considered as a transformation that transforms an arbitrary function from
+the guiding-center coordinates to the particle coordinates. Similarly,
+</p>
+   <table 
+class="equation"><tr><td>
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation417x.png" alt="          ∫
+fg(X,v) =   fp(x,v)δ3(x − X − ρ )dx,
+" class="math-display"  /><a 
+ id="x14-77003r361"></a></div>
+   </td><td class="equation-label">(361)</td></tr></table>
+<!--l. 4961--><p class="nopar" >is a transformation that transforms an arbitrary function from the the particle coordinates to the
+guiding-center coordinates.
+</p><!--l. 4966--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">E.5   </span> <a 
+ id="x14-78000E.5"></a>Moments of distribution function expressed as integration over guiding-center
+variables</h4>
+<!--l. 4968--><p class="noindent" >In terms of particle variables (<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>), it is straightforward to calculate the moment of the distribution
+function. For example, the number density <span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) is given by
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation418x.png" alt="      ∫
+n(x) =  fp(x,v)dv.
+" class="math-display"  /><a 
+ id="x14-78001r362"></a></div>
+   </td><td class="equation-label">(362)</td></tr></table>
+<!--l. 4974--><p class="nopar" >However, it is a little diﬃcult to calculate <span 
+class="cmmi-10">n</span>(<span 
+class="cmbx-10">x</span>) at real space location <span 
+class="cmbx-10">x </span>by using the guiding-center
+variables (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>). This is because holding <span 
+class="cmbx-10">x </span>constant and changing <span 
+class="cmbx-10">v</span>, which is required by the
+integration in Eq. (<a 
+href="#x14-78001r362">362<!--tex4ht:ref: 18-12-26-p1 --></a>), means the guiding-center variable <span 
+class="cmbx-10">X </span>is changing according to Eq. (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-6001r27">27<!--tex4ht:ref: 16-9-21-1 --></a>). Using
+Eq. (<a 
+href="nonlinear_gyrokinetic_equationse2.html#x3-9001r34">34<!--tex4ht:ref: 17-8-19-p1 --></a>), expression (<a 
+href="#x14-78001r362">362<!--tex4ht:ref: 18-12-26-p1 --></a>) is written as
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation419x.png" alt="      ∫
+n(x) =   f (X (x,v),v )dv,
+          g
+" class="math-display"  /><a 
+ id="x14-78002r363"></a></div>
+   </td><td class="equation-label">(363)</td></tr></table>
+<!--l. 4985--><p class="nopar" >As is mentioned above, the <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>integration in Eq. (<a 
+href="#x14-78002r363">363<!--tex4ht:ref: 18-12-26-p2 --></a>) should be performed by holding <span 
+class="cmbx-10">x </span>constant and
+changing <span 
+class="cmbx-10">v</span>, which means the guiding-center variable <span 
+class="cmbx-10">X </span>= <span 
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) is changing. This means that, in
+(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) space, the above integration is a (generalized) curve integral along the the curve
+ <span 
+class="cmbx-10">X</span>(<span 
+class="cmbx-10">v</span>) = <span 
+class="cmbx-10">x </span><span 
+class="cmsy-10">−</span><span 
+class="cmmib-10">ρ</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,</span><span 
+class="cmbx-10">v</span>) with <span 
+class="cmbx-10">x </span>being constant. Treating <span 
+class="cmbx-10">X </span>and <span 
+class="cmbx-10">x </span>as independent variables and using the
+Dirac delta function <span 
+class="cmmi-10">δ</span>, this curve integral can be written as the following double integration over the
+independent variables <span 
+class="cmbx-10">X </span>and <span 
+class="cmbx-10">v</span>:
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation420x.png" alt="      ∫  ∫         3
+n(x) =     fg(X, v)δ (X − x + ρ)dvdX.
+" class="math-display"  /><a 
+ id="x14-78003r364"></a></div>
+   </td><td class="equation-label">(364)</td></tr></table>
+<!--l. 5000--><p class="nopar" >Another perspective of interpreting Eq. (<a 
+href="#x14-78003r364">364<!--tex4ht:ref: 19-1-19-p1 --></a>) is that we are ﬁrst using the transformation (<a 
+href="#x14-77001r359">359<!--tex4ht:ref: 19-1-20-e1 --></a>) to
+transform <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">g</span></sub> to <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> and then integrating <span 
+class="cmmi-10">f</span><sub><span 
+class="cmmi-7">p</span></sub> in the velocity space.
+</p><!--l. 5005--><p class="indent" >    
+</p><!--l. 5007--><p class="indent" >    
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 5009--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse14.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse12.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse12.html#tailnonlinear_gyrokinetic_equationse12.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse13.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse13.html" >up</a>] </p></div>
+<!--l. 5009--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse13.html"></a>  </p> 
+</body></html> 

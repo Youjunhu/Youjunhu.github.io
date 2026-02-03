@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Drift-kinetic limit</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,3,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 5378--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse17.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse15.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse15.html#tailnonlinear_gyrokinetic_equationse15.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationse16.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse16.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">H   </span> <a 
+ id="x17-82000H"></a>Drift-kinetic limit</h3>
+<!--l. 5380--><p class="noindent" >In the drift-kinetic limit, <span 
+class="cmsy-10">⟨</span><span 
+class="cmbx-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmsy-10">⋅</span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">E</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub> = 0, <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δB</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">v</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub> = 0, and <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δh</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub> = <span 
+class="cmmi-10">δh</span>, where <span 
+class="cmmi-10">δh </span>is an arbitrary ﬁeld
+quantity. Using these, gyrokinetic equation (<a 
+href="nonlinear_gyrokinetic_equationse11.html#x12-68004rC.4">347<!--tex4ht:ref: 18-8-26-2 --></a>) is written as </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation454x.png" alt="[ ∂  (                   δB   )    ]
+ -- +  v∥e∥ + vD + vE +v∥--⊥- ⋅∇X   δf
+ ∂t (           )        B0  [(                 )    ]
+= −  vE + v δB⊥-  ⋅∇XF0 − -q   v e + vD + v δB⊥-  ⋅δE ∂F0-.     (392)
+           ∥ B0           m     ∥ ∥        ∥ B0        ∂𝜀
+" class="math-display"  /><a 
+ id="x17-82001rH"></a></div>
+   </div>
+<!--l. 5397--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">H.1   </span> <a 
+ id="x17-83000H.1"></a>Linear case</h4>
+<!--l. 5399--><p class="noindent" >Neglecting the nonlinear terms, drift-kinetic equation (<a 
+href="#x17-82001rH">392<!--tex4ht:ref: 17-5-14-e1 --></a>) is written </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation455x.png" alt="[ ∂-                 ]
+  ∂t + (v∥e∥ + vD) ⋅∇X δf
+    (       δB  )          q                ∂F
+= −   vE +v∥---⊥  ⋅∇XF0  − --[(v∥e∥ + vD )⋅δE]-0.           (393)
+             B0            m                ∂ 𝜀
+" class="math-display"  /><a 
+ id="x17-83001rH.1"></a></div>
+   </div>
+                                                                                
+
+                                                                                
+<!--l. 5410--><p class="indent" >   Next let us derive the parallel momentum equation from the linear drift kinetic equation (this is
+needed in my simulation). Multiplying the linear drift kinetic equation (<a 
+href="#x17-83001rH.1">393<!--tex4ht:ref: 17-5-17-p1 --></a>) by <span 
+class="cmmi-10">qv</span><sub><span 
+class="cmsy-7">∥</span></sub> and then
+integrating over velocity space, we obtain </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation456x.png" alt="∂δj∥     ∫
+ ∂t  = − q  dvv∥(v∥e∥ + vD )⋅∇X δf
+        ∫     (        δB   )         q  ∫                    ∂F
+     − q  dvv∥  vE + v∥ --⊥- ⋅∇XF0  − --q  dvv∥[(v∥e∥ + vD)⋅δE ]--0.  (394)
+                       B0            m                        ∂𝜀
+" class="math-display"  /><a 
+ id="x17-83002rH.1"></a></div>
+   </div>
+<!--l. 5424--><p class="indent" >   Equation (<a 
+href="#x17-83002rH.1">394<!--tex4ht:ref: 17-7-20-1 --></a>) involve <span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">δf </span>and this should be avoided in particle methods whose goal is to avoid
+directly evaluating the derivatives of <span 
+class="cmmi-10">δf </span>over phase-space coordinates. On the other hand, the partial
+derivatives of velocity moment of <span 
+class="cmmi-10">δf </span>are allowed. Therefore, we would like to make the velocity
+integration of <span 
+class="cmmi-10">δf </span>appear. Note that <span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">δf </span>here is taken by holding (<span 
+class="cmmi-10">𝜀,μ</span>) constant and thus <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>
+is not a constant and thus can not be moved inside <span 
+class="cmsy-10">∇</span><sub><span 
+class="cmmi-7">X</span></sub>. Next, to facilitate performing
+the integration over <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>, we transform the linear drift kinetic equation (<a 
+href="#x17-83001rH.1">393<!--tex4ht:ref: 17-5-17-p1 --></a>) into variable
+(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub>).
+</p><!--l. 5436--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">H.2   </span> <a 
+ id="x17-84000H.2"></a>Transform from (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,𝜀</span>) to (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) coordinates</h4>
+<!--l. 5438--><p class="noindent" >The kinetic equation given above is written in terms of variable (<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,𝜀</span>). Next, we transform it into
+coordinates (<span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,μ</span><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) which is deﬁned by
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation457x.png" alt=" ′
+X (X,μ,𝜀) = X,
+" class="math-display"  /><a 
+ id="x17-84001r395"></a></div>
+   </td><td class="equation-label">(395)</td></tr></table>
+<!--l. 5443--><p class="nopar" >
+                                                                                
+
+                                                                                
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation458x.png" alt="μ′(X,μ,𝜀) = μ,
+" class="math-display"  /><a 
+ id="x17-84002r396"></a></div>
+   </td><td class="equation-label">(396)</td></tr></table>
+<!--l. 5446--><p class="nopar" >and
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation459x.png" alt="           ∘ -------------
+v∥(X, μ,𝜀) =  2(𝜀 − μB0(X )).
+" class="math-display"  /><a 
+ id="x17-84003r397"></a></div>
+   </td><td class="equation-label">(397)</td></tr></table>
+<!--l. 5451--><p class="nopar" >Use this, we have </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation460x.png" alt="∂δG0-     ∂X′∂-δG0   ∂μ′∂δG0-  ∂v∥∂-δG0-
+∂X  |μ,𝜀 = ∂X  ∂X ′ + ∂X  ∂μ′ + ∂X  ∂v∥
+          ∂δG0       ∂ δG0    μ ∂B0 ∂δG0
+       =  ∂X-′ |μ,v∥ + 0-∂μ′-− v-dX-∂v--,               (398)
+                              ∥      ∥
+" class="math-display"  /></div>
+   </div>
+<!--l. 5465--><p class="indent" >   and </p><div class="eqnarray">
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation461x.png" alt="∂F    ∂F ∂ μ′  ∂F  ∂v
+--0-= --0′--- + --0---∥
+∂𝜀    ∂μ  ∂𝜀   ∂v∥ ∂𝜀
+    = 0∂F0-+ ∂F0∂v∥
+       ∂μ′   ∂v∥ ∂𝜀
+      ∂F0-1
+    = ∂v∥v∥                                   (399)
+" class="math-display"  /></div>
+   </div>
+<!--l. 5476--><p class="indent" >   Then, in terms of variable (<span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">′</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub>), equation (<a 
+href="#x17-83001rH.1">393<!--tex4ht:ref: 17-5-17-p1 --></a>) is written </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation462x.png" alt=" ∂δf                           ∂ δf
+ ∂t-+ (v∥e∥ + vD )⋅∇δf − e∥ ⋅μ∇B-∂v∥
+    (           )        (          )              [(        )    ]
+= −   vE + v∥δB-⊥ ⋅∇F0 +   vE-+ δB⊥-  ⋅μ∇B ∂F0-− -q   e∥ + vD  ⋅δE  ∂F0,(400)
+             B0            v∥    B0        ∂v∥   m         v∥       ∂v∥
+" class="math-display"  /><a 
+ id="x17-84006rH.2"></a></div>
+   </div>
+<!--l. 5491--><p class="indent" >   where <span 
+class="cmsy-10">∇≡ </span><span 
+class="cmmi-10">∂∕∂</span><span 
+class="cmbx-10">X</span><span 
+class="cmsy-10">′|</span><sub><span 
+class="cmmi-7">μ,v</span><sub><span 
+class="cmsy-5">∥</span></sub></sub>.
+</p><!--l. 5494--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">H.3   </span> <a 
+ id="x17-85000H.3"></a>Parallel momentum equation</h4>
+<!--l. 5496--><p class="noindent" >Multiplying the linear drift kinetic equation (<a 
+href="#x17-84006rH.2">400<!--tex4ht:ref: 17-5-14-e3 --></a>) by <span 
+class="cmmi-10">qv</span><sub><span 
+class="cmsy-7">∥</span></sub> and then integrating over velocity space, we
+obtain </p><div class="eqnarray">
+   <div class="math-display" >
+                                                                                
+
+                                                                                
+<img 
+src="nonlinear_gyrokinetic_equation463x.png" alt="       ∫                          ∫
+∂δj∥+ q   dvv (v e + v  )⋅∇  δf − q  dvv e ⋅μ∇B  ∂δf-
+ ∂t          ∥ ∥ ∥   D     X           ∥ ∥      ∂v∥
+    ∫      (       δB ⊥)           ∫     ( vE   δB⊥ )      ∂F0
+= − q  dvv∥ vE + v∥-B0-  ⋅∇XF0 + q   dvv∥  v--+ -B0-  ⋅μ∇B ∂v--
+     ∫     [(        )    ]                 ∥                ∥
+−-qq   dvv∥  e∥ + vD- ⋅δE  ∂F0-.                                  (401)
+ m                v∥       ∂v ∥
+" class="math-display"  /><a 
+ id="x17-85001rH.3"></a></div>
+   </div>
+<!--l. 5515--><p class="indent" >   Consider the simple case that <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> does not carry current, i.e., <span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>(<span 
+class="cmbx-10">X</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) is an even function about
+<span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub>. Then it is obvious that the integration of the terms in red in Eq. (<a 
+href="#x17-85001rH.3">401<!--tex4ht:ref: 17-5-18-1 --></a>) are all zero. Among the rest
+terms, only the following term
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation464x.png" alt="     ∫
+  q-                 ∂F0-1-
+− m q  dvv∥[(v∥e∥)⋅δE ]∂v∥v∥
+" class="math-display"  /><a 
+ id="x17-85002r402"></a></div>
+   </td><td class="equation-label">(402)</td></tr></table>
+<!--l. 5524--><p class="nopar" >explicitly depends on <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">E</span>. Using <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>= 2<span 
+class="cmmi-10">πBdv</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">dμ</span>, the integration in the above expression can be
+analytically performed, giving </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation465x.png" alt="    ∫
+−-qq   dvv∥[(v∥e∥)⋅δE]∂F0-1
+ m                   ∂v∥v∥
+   q2 ∫               ∂F0
+= −m-   2πBdv∥dμv∥δE ∥∂v∥-
+    2 ∫          ∫
+= − q   2πBd μδE∥  v∥∂F0-dv∥
+   m             (    ∂v∥    )
+   q2 ∫               ∫
+= −m    2πBd μδE∥  0−   F0dv∥
+  q2
+= --δE∥n0.                                        (403)
+  m
+" class="math-display"  /></div>
+   </div>
+<!--l. 5542--><p class="indent" >   Using these results, the parallel momentum equation (<a 
+href="#x17-85001rH.3">401<!--tex4ht:ref: 17-5-18-1 --></a>) is written </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation466x.png" alt="                  ∫                         ∫
+∂δj∥   q2                                                 ∂δf-
+ ∂t  = m δE∥n0 − q  dvv∥(v∥e∥ + vD)⋅∇X δf + q  dvv∥e∥ ⋅μ ∇B ∂v∥
+         ∫      (  δB  )         ∫      (δB  )       ∂F
+       − q  dvv∥ v∥---⊥  ⋅∇F0 + q   dvv∥ ---⊥  ⋅μ∇B  --0,         (404)
+                    B0                    B0         ∂v∥
+" class="math-display"  /><a 
+ id="x17-85004rH.3"></a></div>
+   </div>
+<!--l. 5556--><p class="indent" >   where the explicit dependence on <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">E </span>is via the ﬁrst term <span 
+class="cmmi-10">q</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">n</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">δE</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">∕m</span>, with all the the other terms
+being explicitly independent of <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">E </span>(<span 
+class="cmmi-10">δf </span>and <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">B </span>implicitly depend on <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">E</span>).
+</p><!--l. 5561--><p class="indent" >   Equation (<a 
+href="#x17-85004rH.3">404<!--tex4ht:ref: 17-5-18-p3 --></a>) involve derivatives of <span 
+class="cmmi-10">δf </span>with respect to space and <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> and these should be avoided in
+the particle method whose goal is to avoid directly evaluating these derivatives. Using integration by
+parts, the terms involving <span 
+class="cmmi-10">∂∕∂v</span><sub><span 
+class="cmsy-7">∥</span></sub> can be simpliﬁed, yielding </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation467x.png" alt="                 ∫                                  ∫
+∂δj∥= q2δE  n − q  dvv (v e + v  )⋅∇  δf − q(e ⋅∇B )  μδf dv
+ ∂t    m   ∥ 0         ∥ ∥ ∥   D    X        ∥    0
+         ∫     (   δB⊥-)         ( δB-⊥-)       ∫
+      − q  dvv∥  v∥ B0   ⋅∇F0 − q  B0   ⋅(∇B0 )  μF0dv,          (405)
+" class="math-display"  /></div>
+   </div>
+<!--l. 5577--><p class="indent" >   Deﬁne <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">⊥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>2<span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>and <span 
+class="cmmi-10">δp</span><sub><span 
+class="cmsy-7">⊥</span></sub> = <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">⊥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δf∕</span>2<span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span>, then the above equation is written
+</p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation468x.png" alt="        2         ∫
+∂-δj∥ = q-δE ∥n0 − q  dvv∥(v∥e∥ + vD) ⋅∇X δf − q(e∥ ⋅∇B0 ) δp⊥
+ ∂t    m  ∫     (       )         (    )             mB0
+       − q  dvv   v δB⊥- ⋅∇F  − q  δB-⊥  ⋅(∇B  ) p⊥0-,          (406)
+               ∥   ∥B0       0      B0        0 mB0
+" class="math-display"  /><a 
+ id="x17-85006rH.3"></a></div>
+   </div>
+<!--l. 5591--><p class="indent" >   Next, we try to eliminate the spatial gradient of <span 
+class="cmmi-10">δf </span>by changing the order of integration. The second
+term on the right-hand side of Eq. (<a 
+href="#x17-85006rH.3">406<!--tex4ht:ref: 17-5-18-p8 --></a>) is written </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation469x.png" alt="  ∫
+− q  dvv ∥(v∥e∥)⋅∇X δf,
+    ∫
+= − q  2πB  dv dμv2e ⋅∇  δf
+          0  ∥   ∥ ∥   X
+               ∫  2
+= − q2πB0e∥ ⋅∇X  v∥δfdv∥dμ
+             (  1  ∫         )
+= − qB0e∥ ⋅∇X  ----  mv2∥δfdv
+             ( mB0 )
+= − qB0e∥ ⋅∇X  δp∥- ,                             (407)
+               mB0
+" class="math-display"  /></div>
+   </div>
+<!--l. 5606--><p class="indent" >   where <span 
+class="cmmi-10">δp</span><sub><span 
+class="cmsy-7">∥</span></sub> = <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">δfd</span><span 
+class="cmbx-10">v</span>. Similarly, the term <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">q</span> <span 
+class="cmex-10">∫</span>
+ <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><img 
+src="nonlinear_gyrokinetic_equation470x.png" alt="(     )
+ v∥δBB0⊥-"  class="left" align="middle" /><span 
+class="cmsy-10">⋅∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> is written as
+</p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation471x.png" alt="   ∫     (       )
+− q  dvv  v  δB-⊥- ⋅∇  F
+        ∥  ∥ B0      X  0
+     ∫          (  2δB⊥ )
+= − q  2πB0dv∥dμ  v∥-B0-  ⋅∇XF0
+     (    )        ∫
+= − q δB-⊥  ⋅B0∇X    (v2∥F02πdv∥dμ)
+     ( B0 )        [  ∫          ]
+= − q δB-⊥  ⋅B ∇    1-  (mv2F dv)
+       B0     0  X  B      ∥ 0
+             ( p∥0 )
+= − qδB ⊥ ⋅∇X mB0-                                  (408)
+" class="math-display"  /></div>
+   </div>
+<!--l. 5623--><p class="indent" >   where <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmex-10">∫</span>
+  <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span>. Similarly, the term <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">q</span> <span 
+class="cmex-10">∫</span>
+ <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> <span 
+class="cmsy-10">⋅∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">δf </span>can be written as the gradient of
+moments of <span 
+class="cmmi-10">δf</span>. Let us work on this. The drift <span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> is given by
+</p>
+   <table 
+class="equation"><tr><td>
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation472x.png" alt="      B0vΩ∥∇-×-b-    -μ--
+vD =     B ⋆   v∥ + ΩB ⋆B0 × ∇B0.
+           ∥           ∥
+" class="math-display"  /><a 
+ id="x17-85009r409"></a></div>
+   </td><td class="equation-label">(409)</td></tr></table>
+<!--l. 5631--><p class="nopar" >where <span 
+class="cmmi-10">B</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmmi-7">⋆</span></sup> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">0</span></sub><img 
+src="nonlinear_gyrokinetic_equation473x.png" alt="(             )
+ 1 + v∥Ωb ⋅∇ × b"  class="left" align="middle" /> (refer to my another notes).  Using <span 
+class="cmbx-10">b </span><span 
+class="cmsy-10">⋅∇× </span><span 
+class="cmbx-10">b </span><span 
+class="cmsy-10">≈ </span>0, we obtain
+<span 
+class="cmmi-10">B</span><sub><span 
+class="cmsy-7">∥</span></sub><sup><span 
+class="cmmi-7">⋆</span></sup> <span 
+class="cmsy-10">≈ </span><span 
+class="cmmi-10">B</span>. Then <span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> is written
+</p>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation474x.png" alt="      2
+vD =  v∥-∇ ×b + μ-b × ∇B0.
+      Ω        Ω
+" class="math-display"  /></div>
+<!--l. 5638--><p class="indent" >   Using this and <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>= 2<span 
+class="cmmi-10">πB</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">dv</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">dμ</span>, the term <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">q</span> <span 
+class="cmex-10">∫</span>
+ <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v</span><span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> <span 
+class="cmsy-10">⋅∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmmi-10">δf </span>is written as </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation475x.png" alt="                                     (                   )
+  ∫                    ∫              v2∥        μ
+− q  dvv∥vD ⋅∇X δf = − q 2πB0dv ∥dμv∥  -Ω∇ × b + Ω-b ×∇B0   ⋅∇X δf
+                                        ∫                                  ∫
+                  = − q2πB0-1(∇ × b)⋅∇X    v3∥δf dv∥dμ − q2πB0-1(b ×∇B0 )⋅∇X    v∥μδfdv∥dμ
+                           Ω          (    ∫       )       Ω              (   ∫         )
+                         1-             -1-   3           -1               -1-
+                  = − qB0Ω (∇ × b)⋅∇X   B0   v∥δfdv  − qB0Ω (b× ∇B0 )⋅∇X   B0   v∥μδfdv  ,
+                                   ( 1 ∫  3     )                  ( 1 ∫        )
+                  = − m(∇ × b)⋅∇X   B--  v∥δfdv  − m (b× ∇B0 )⋅∇X   B--  v∥μδfdv  ,   (410)
+                                      0                               0
+" class="math-display"  /></div>
+   </div>
+<!--l. 5660--><p class="indent" >   which are the third order moments of <span 
+class="cmmi-10">δf </span>and may be neglect-able (a guess, not veriﬁed). Using the
+above results, the linear parallel momentum equation is ﬁnally written </p><div class="eqnarray">
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation476x.png" alt="       2                  (    )
+∂δj∥-= e-ne0δE∥ +eB0b ⋅∇X   -δp∥  + e(b⋅∇B0 )-δp⊥
+∂t      m        (     )   mB(0   )          mB0
+                  -p∥0       δB-⊥         p⊥0-
+      +eδB ⊥ ⋅∇X  mB0    +e   B0   ⋅(∇B0 )mB0 .
+                     ( 1 ∫       )                  (  1 ∫        )
+      − m (∇ × b)⋅∇X  B--  v3∥δfdv  − m (b × ∇B0 )⋅∇X   B--  v∥μδfdv   (411)
+                        0                              0
+" class="math-display"  /><a 
+ id="x17-85011rH.3"></a></div>
+   </div>
+<!--l. 5676--><p class="indent" >   Deﬁne
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation477x.png" alt="       (     )
+        -p∥0    ∇B0- p⊥0-
+D0 = ∇  mB0   +  B0  mB0 ,
+" class="math-display"  /><a 
+ id="x17-85012r412"></a></div>
+   </td><td class="equation-label">(412)</td></tr></table>
+<!--l. 5680--><p class="nopar" >which, for the isotropic case (<span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">⊥</span><span 
+class="cmr-7">0</span></sub> = <span 
+class="cmmi-10">p</span><sub><span 
+class="cmr-7">0</span></sub>), is simpliﬁed to
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation478x.png" alt="     ∇p0-
+D0 = mB0 .
+" class="math-display"  /><a 
+ id="x17-85013r413"></a></div>
+   </td><td class="equation-label">(413)</td></tr></table>
+<!--l. 5685--><p class="nopar" >then Eq. (<a 
+href="#x17-85011rH.3">411<!--tex4ht:ref: 17-5-19-2 --></a>) is written as </p><div class="eqnarray">
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation479x.png" alt="        2
+∂δj∥=  en0-δE∥ + eδB ⊥ ⋅D0
+ ∂t     m       (    )
+    + eB0b ⋅∇X   -δp∥  + e(b⋅∇B0 )-δp⊥
+                 mB0(    ∫       ) mB0              (    ∫        )
+                     -1-   3                         -1-
+    − m (∇ × b)⋅∇X   B0   v∥δfdv  − m (b × ∇B0 )⋅∇X   B0   v∥μδfdv  . (414)
+" class="math-display"  /></div>
+   </div>
+<!--l. 5701--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">H.4   </span> <a 
+ id="x17-86000H.4"></a>Special case in uniform magnetic ﬁeld</h4>
+<!--l. 5703--><p class="noindent" >In the case of uniform magnetic ﬁeld, the parallel momentum equation (<a 
+href="#x17-85011rH.3">411<!--tex4ht:ref: 17-5-19-2 --></a>) is written
+as
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation480x.png" alt="∂δj∥   q                        δB⊥
+-∂t- = m-qE∥ne0 − qe∥ ⋅∇X (δp∥)− q-B-⋅∇Xp ∥0.
+                                  0
+" class="math-display"  /><a 
+ id="x17-86001r415"></a></div>
+   </td><td class="equation-label">(415)</td></tr></table>
+<!--l. 5710--><p class="nopar" >
+</p><!--l. 5712--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">H.5   </span> <a 
+ id="x17-87000H.5"></a>Electron perpendicular ﬂow</h4>
+<!--l. 5714--><p class="noindent" >Using the gyrokinetic theory and taking the drift-kinetic limit, the perturbed perpendicular electron
+ﬂow, <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">V</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmsy-7">⊥</span></sub>, is written (see Sec. <a 
+href="nonlinear_gyrokinetic_equationse14.html#x15-79000F">F<!--tex4ht:ref: 17-9-26-1 --></a> or Appendix in Yang Chen’s paper<span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#Xychen2009">1</a>]</span>)
+</p>
+   <table 
+class="equation"><tr><td>
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation481x.png" alt="n δV    = ne0δE ×b − -1-b × ∇ δp
+ e0  e⊥   B◟0-◝◜---◞  e◟B0--◝◜---⊥e◞
+           E×B ﬂow     diamagneticﬂow
+" class="math-display"  /><a 
+ id="x17-87001r416"></a></div>
+   </td><td class="equation-label">(416)</td></tr></table>
+<!--l. 5722--><p class="nopar" >where <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmr-7">0</span></sub> is the equilibrium electron number density, <span 
+class="cmmi-10">δp</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmsy-7">⊥</span></sub> is the perturbed perpendicular pressure of
+electrons.
+</p><!--l. 5726--><p class="indent" >    
+</p><!--l. 5728--><p class="indent" >    
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x17-88000"></a>Drift kinetic equation</h5>
+<!--l. 5732--><p class="noindent" >Drift kinetic equation is written
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation482x.png" alt="∂f   (           δE × b)       (  e             ) ∂f
+-∂t +  v∥b˜+ vD + --B0--  ⋅∇f +  − m-δE∥ − μb˜⋅∇B  ∂v∥ = 0,
+" class="math-display"  /><a 
+ id="x17-88001r417"></a></div>
+   </td><td class="equation-label">(417)</td></tr></table>
+<!--l. 5739--><p class="nopar" >where <span 
+class="cmmi-10">f </span>= <span 
+class="cmmi-10">f</span>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">,t</span>), <span 
+class="cmmi-10">μ </span>= <span 
+class="cmmi-10">mv</span><sub><span 
+class="cmsy-7">⊥</span></sub><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">∕B</span><sub><span 
+class="cmr-7">0</span></sub> is the magnetic moment, <img 
+src="nonlinear_gyrokinetic_equation483x.png" alt="˜b"  class="tilde"  /> = <span 
+class="cmbx-10">b </span>+ <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">B</span><sub><span 
+class="cmsy-7">⊥</span></sub><span 
+class="cmmi-10">∕B</span><sub><span 
+class="cmr-7">0</span></sub>, <span 
+class="cmbx-10">b </span>= <span 
+class="cmbx-10">B</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕B</span><sub><span 
+class="cmr-7">0</span></sub> is the
+unit vector along the equilibrium magnetic ﬁeld, <span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub> = <span 
+class="cmbx-10">v</span><sub><span 
+class="cmmi-7">D</span></sub>(<span 
+class="cmbx-10">x</span><span 
+class="cmmi-10">,μ,v</span><sub><span 
+class="cmsy-7">∥</span></sub>) is the guiding-center drift in the
+equilibrium magnetic ﬁeld. <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">E </span>and <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">B </span>are the perturbed electric ﬁeld and magnetic ﬁeld,
+respectively.
+</p>
+   <h5 class="subsubsectionHead"><a 
+ id="x17-89000"></a>Parallel momentum equation</h5>
+<!--l. 5750--><p class="noindent" >Multiplying the drift kinetic equation () by <span 
+class="cmmi-10">v</span><sub><span 
+class="cmsy-7">∥</span></sub> and then integrating over velocity space, we
+obtain
+</p>
+   <table 
+class="equation"><tr><td>
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation484x.png" alt="∫           ∫   (                 )          ∫   (                )
+  ∂fev∥dv +   v∥  v∥˜b + vD + δE-×-b  ⋅∇fedv +   v∥ − e-δE∥ − μ ˜b⋅∇B  ∂fedv = 0,
+    ∂t                        B0                    m               ∂v∥
+" class="math-display"  /><a 
+ id="x17-89001r418"></a></div>
+   </td><td class="equation-label">(418)</td></tr></table>
+<!--l. 5759--><p class="nopar" >which can be written as
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation485x.png" alt="          (                  )
+∂J∥e-  ∫       ˜       δE-×-e∥          ∫    (  e-      ˜     ) ∂fe
+∂t  +   v∥  v∥b + vD +   B0     ⋅∇fedv +   v∥ − m δE ∥ − μb ⋅∇B  ∂v∥dv = 0,
+" class="math-display"  /><a 
+ id="x17-89002r419"></a></div>
+   </td><td class="equation-label">(419)</td></tr></table>
+<!--l. 5768--><p class="nopar" >Using <span 
+class="cmmi-10">d</span><span 
+class="cmbx-10">v </span>= <span 
+class="cmmi-10">B</span><sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup>2<span 
+class="cmmi-10">πmdv</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmmi-10">dμ</span>, the last term on the RHS of the above equation is written
+</p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation486x.png" alt="∫ ∫    (                )
+     v∥ − e-δE ∥ − μ˜b ⋅∇B  ∂fedv
+          m               ∂v∥
+  ∫ ∫    (  e-      ˜     ) ∂fe  B-
+=      v∥ − m δE ∥ − μb ⋅∇B  ∂v∥2πm dv∥dμ
+    e      B  ∫ ∫   ∂f                  B ∫   ∫   ∂f
+= − --δE∥2π--     v∥--edv∥dμ − (˜b ⋅∇B )2π-  μ   v∥--edv∥dμ
+    m      m  ∫ (   ∂v∥   ∫      )      m         ∂v∫∥  (         ∫      )
+= − e-δE 2πB-    v f |+∞  −   fdv   dμ− (˜b ⋅∇B )2πB-  μ  v f |+∞  −   fdv   dμ
+    m   ∥  m      ∥ e−∞       e ∥                m       ∥ e− ∞      e ∥
+  -e      B-∫ ∫           ˜        B-∫   ∫
+= m δE ∥2πm      fedv∥dμ + (b ⋅∇B )2πm    μ  fedv∥dμ
+   e        ∫ ∫
+= m-δE ∥ne +    μ(˜b ⋅∇B )fedv                                             (420)
+   e
+≈ m-δE ∥ne
+" class="math-display"  /></div>
+   </div>
+   <div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation487x.png" alt="∫ ∫
+    v∥(v∥˜b)⋅∇fedv
+  ∫ ∫
+=     ˜b ⋅∇(v2f )dv
+            ∥ e
+  ∫ ∫ ˜     2     B-
+=     b ⋅∇(v∥fe)2π m dv∥dμ
+      ( ∫ ∫       1      )
+= ˜b⋅∇       v2∥fe2π--dv∥dμ  B0
+      (   )       m
+= ˜b⋅∇   p∥- B0
+      ( B0      )
+  ˜     p∥0 +-δp∥
+= b⋅∇      B0     B0
+      ( p∥0)          (δp∥)
+= ˜b⋅∇   --- B0 + ˜b ⋅∇  ---  B0
+      ( B0 )           B0(   )          (   )
+≈ b⋅∇   p∥0 B0 + δB-⊥ ⋅∇  p∥0  B0 + b ⋅∇  δp∥- B0
+        B0        B0      B0              B0
+             δB⊥-
+≈ b⋅∇ (p∥0)+  B0  ⋅∇ (p∥0)+ b ⋅∇(δp∥)                        (421)
+  δB⊥-
+=  B0 ⋅∇ (p∥0)+ b ⋅∇ (δp∥)
+" class="math-display"  /></div>
+   </div>
+<!--l. 5824--><p class="indent" >   where use has been made of <span 
+class="cmbx-10">b </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">p</span><sub><span 
+class="cmsy-7">∥</span><span 
+class="cmr-7">0</span></sub> = 0.
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation488x.png" alt="∂-δJe∥     e-       δB-⊥
+  ∂t  = − m δE ∥ne − B0  ⋅∇(p∥0)− b⋅∇ (δp∥)
+" class="math-display"  /><a 
+ id="x17-89005r422"></a></div>
+   </td><td class="equation-label">(422)</td></tr></table>
+<!--l. 5829--><p class="nopar" >Using Eq. () in Eq. (), we obtain
+</p>
+   <table 
+class="equation"><tr><td>
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation489x.png" alt="                                [                        ]
+   e-                            δB-⊥
+μ0em δE∥ne + b ⋅∇ × ∇ × δE = − μ0e B0  ⋅∇(pe∥0) +b ⋅∇ (δpe∥)
+" class="math-display"  /><a 
+ id="x17-89006r423"></a></div>
+   </td><td class="equation-label">(423)</td></tr></table>
+<!--l. 5836--><p class="nopar" >
+</p><!--l. 5839--><p class="indent" >    
+</p><!--l. 5841--><p class="indent" >   ————–
+</p><!--l. 5843--><p class="indent" >    
+</p><!--l. 5845--><p class="indent" >    
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation490x.png" alt="                      (                                      )
+                          δB⊥-         -q
+− b⋅∇ × ∇ × δE = − μ0e − qB0  ⋅∇Xp ∥0 + m qE∥ne0 − qe∥ ⋅∇X (δp∥) .
+" class="math-display"  /><a 
+ id="x17-89007r424"></a></div>
+   </td><td class="equation-label">(424)</td></tr></table>
+<!--l. 5853--><p class="nopar" >
+</p><!--l. 5856--><p class="indent" >    
+</p><!--l. 5858--><p class="indent" >   ddddd </p><div class="eqnarray">
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation491x.png" alt="∫ ∫   (                 )
+    v   v ˜b+ v  + δE-×-b  ⋅∇f dv
+     ∥   ∥    D     B0        e
+  ∫ ∫ (   ˜       δE-×-b)
+=       v∥b+ vD +   B0    ⋅∇ (v∥fe)dv
+  ∫ ∫                 ∫ ∫                ∫  ∫ δE × b
+=     v∥˜b ⋅∇(v∥fe)dv +     vD ⋅∇ (v∥fe)dv+      ------ ⋅∇ (v∥fe)dv
+  ∫ ∫               ∫ ∫                 ∫ ∫     B0
+=     ˜b ⋅∇(v2∥fe)dv+      vD ⋅∇ (v∥fe)dv +    δE-×-b ⋅∇(v∥fe)dv
+  ∫ ∫                      ∫ ∫                B0      ∫ ∫
+=     ˜b ⋅∇(v2fe)2πB-dv dμ+     vD ⋅∇ (v fe)2πB-dv dμ +     δE-×-b ⋅∇(v fe)2π B-dvdμ
+  ∫      (  ∥     m   ∥)    ∫  ∫       ∥    m   ∥      ∫ ∫  B0       ∥     m  ∥
+    ˜      2    1-                            B-           δE-×-b           B-
+=   b ⋅∇  v∥fe2πm dv∥dμ B +      vD ⋅∇(v∥fe)2π m dv∥dμ +       B0   ⋅∇ (v∥fe)2πm dv∥dμ
+      ( p∥)    ∫ ∫              B         ∫ ∫ δE × b           B
+= ˜b⋅∇   B- B +      vD ⋅∇ (v∥fe)2πm-dv∥dμ +     --B--- ⋅∇(v∥fe)2π m-dv∥dμ
+      ( p )    ∫ ∫                               0  ∫ ∫
+= ˜b⋅∇   -∥ B +      -1-b × (μ∇B )⋅∇ (v∥fe)2π B-dv∥dμ+      -1-b × (mv2∥κ)⋅∇ (v∥fe)2πB-dv∥dμ
+  ∫ ∫   B           mΩ                     m             mΩ                     m
++     δE-×-b ⋅∇(v∥fe)2π B-dv∥dμ
+        B0             m
+" class="math-display"  /></div>
+   </div>
+<!--l. 5900--><p class="indent" >    
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 5902--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse17.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse15.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse15.html#tailnonlinear_gyrokinetic_equationse15.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse16.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse16.html" >up</a>] </p></div>
+<!--l. 5902--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse16.html"></a>   </p> 
+</body></html> 

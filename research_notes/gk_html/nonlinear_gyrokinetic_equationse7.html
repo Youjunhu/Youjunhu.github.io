@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>TEK benchmarking with GENE in DIII-D cyclone base case</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,3,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 3635--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse8.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse6.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse6.html#tailnonlinear_gyrokinetic_equationse6.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationse7.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse7.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x8-560007"></a>TEK benchmarking with GENE in DIII-D cyclone base case</h3>
+<!--l. 3637--><p class="noindent" >The DIII-D cyclone base case is a circular and concentric magnetic conﬁguration. The main parameters
+are summarized in Table <a 
+href="#x8-560011">1<!--tex4ht:ref: 18-2-13-a1 --></a>. All parameters are the same as those in T. Gorler’s paper<span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#Xgorler2016">4</a>]</span>. (This
+conﬁguratgion was inspired by DIII-D H-mode discharge #81499 and used in the cyclone project for
+benchmarking various gyrokinetic ITG turbulence simulations.)
+</p>
+   <div class="table">
+                                                                                
+
+                                                                                
+<!--l. 3644--><p class="indent" >   <a 
+ id="x8-560011"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                
+
+                                                                                
+<div class="tabular"> <table id="TBL-1" class="tabular" 
+ 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1" /></colgroup><colgroup id="TBL-1-2g"><col 
+id="TBL-1-2" /></colgroup><colgroup id="TBL-1-3g"><col 
+id="TBL-1-3" /></colgroup><colgroup id="TBL-1-4g"><col 
+id="TBL-1-4" /></colgroup><colgroup id="TBL-1-5g"><col 
+id="TBL-1-5" /></colgroup><colgroup id="TBL-1-6g"><col 
+id="TBL-1-6" /></colgroup><colgroup id="TBL-1-7g"><col 
+id="TBL-1-7" /></colgroup><colgroup id="TBL-1-8g"><col 
+id="TBL-1-8" /></colgroup><colgroup id="TBL-1-9g"><col 
+id="TBL-1-9" /></colgroup><colgroup id="TBL-1-10g"><col 
+id="TBL-1-10" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-1"  
+class="td11"> <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub>  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-2"  
+class="td11">  <span 
+class="cmmi-10">a   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-3"  
+class="td11">  <span 
+class="cmmi-10">r</span><sub><span 
+class="cmr-7">0</span></sub>    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-4"  
+class="td11"> <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-5"  
+class="td11"> <span 
+class="cmmi-10">ŝ</span><sub><span 
+class="cmr-7">0</span></sub>  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-6"  
+class="td11"><span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">axis</span></sub></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-7"  
+class="td11"><img 
+src="nonlinear_gyrokinetic_equation330x.png" alt="ˆκ"  class="circ"  /><sub><span 
+class="cmmi-7">T</span><sub><span 
+class="cmmi-5">i</span></sub></sub><span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-8"  
+class="td11"><img 
+src="nonlinear_gyrokinetic_equation331x.png" alt="ˆκ"  class="circ"  /><sub><span 
+class="cmmi-7">n</span><sub><span 
+class="cmmi-5">i</span></sub></sub><span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-9"  
+class="td11">  <span 
+class="cmmi-10">T</span><sub><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">0</span></sub>    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-10"  
+class="td11"><span 
+class="cmmi-10">q</span><sub><span 
+class="cmmi-7">i</span></sub><span 
+class="cmmi-10">T</span><sub><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">eT</span><sub><span 
+class="cmmi-7">e</span><span 
+class="cmr-7">0</span></sub>)</td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-1"  
+class="td11">1<span 
+class="cmmi-10">.</span>67<span 
+class="cmmi-10">m</span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-2"  
+class="td11">0<span 
+class="cmmi-10">.</span>60<span 
+class="cmmi-10">m</span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-3"  
+class="td11">0<span 
+class="cmmi-10">.</span>30<span 
+class="cmmi-10">m</span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-4"  
+class="td11">1.41</td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-5"  
+class="td11">0<span 
+class="cmmi-10">.</span>84</td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-6"  
+class="td11"> 2<span 
+class="cmmi-10">.</span>0<span 
+class="cmmi-10">T </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-7"  
+class="td11"> 6.96  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-8"  
+class="td11"> 2.23  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-9"  
+class="td11">2.14keV</td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-10"  
+class="td11">     1        </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-3-1"  
+class="td11">      </td></tr></table>                                                                        </div>
+<br /> <div class="caption" 
+><span class="id">Table 1: </span><span  
+class="content">DIII-D cyclone base case parameters<span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#XDimits2000">2</a>]</span><span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#Xgorler2016">4</a>]</span> where <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub> is the major radius of the magnetic
+axis, <span 
+class="cmmi-10">a </span>is the minor radius of the last-closed-ﬂux-surface, <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub>  is the value of safety factor at
+<span 
+class="cmmi-10">r </span>= <span 
+class="cmmi-10">r</span><sub><span 
+class="cmr-7">0</span></sub>  = 0<span 
+class="cmmi-10">.</span>5<span 
+class="cmmi-10">a</span>, <span 
+class="cmmi-10">ŝ</span><sub><span 
+class="cmr-7">0</span></sub>  is the value of the magnetic shear <span 
+class="cmmi-10">ŝ</span> = <span 
+class="cmmi-10">rq</span><sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">1</span></sup><span 
+class="cmmi-10">dq∕dr </span>at <span 
+class="cmmi-10">r </span>= <span 
+class="cmmi-10">r</span><sub><span 
+class="cmr-7">0</span></sub>. <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">axis</span></sub>  is the
+magnetic ﬁeld strength at the magnetic axis. The toroidal ﬁeld function <span 
+class="cmmi-10">g</span>(<span 
+class="cmmi-10">r</span>) = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmmi-7">ϕ</span></sub><span 
+class="cmmi-10">R </span>is assumed
+to be a constant independent of <span 
+class="cmmi-10">r</span>, i.e., <span 
+class="cmmi-10">g </span>= <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">axis</span></sub><span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub>. <span 
+class="cmmi-10">T</span><sub><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">0</span></sub> is the ion temperature at <span 
+class="cmmi-10">r </span>= <span 
+class="cmmi-10">r</span><sub><span 
+class="cmr-7">0</span></sub>. Assume
+Deuterium plasma, then <span 
+class="cmmi-10">R</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕ρ</span><sub><span 
+class="cmmi-7">i</span></sub> = 500 and <span 
+class="cmmi-10">a∕ρ</span><sub><span 
+class="cmmi-7">i</span></sub> = 180. where <span 
+class="cmmi-10">ρ</span><sub><span 
+class="cmmi-7">i</span></sub> = <img 
+src="nonlinear_gyrokinetic_equation332x.png" alt="∘ ------
+  Ti0∕mi"  class="sqrt"  /><span 
+class="cmmi-10">∕Ω</span><sub><span 
+class="cmmi-7">i</span></sub> is the thermal
+ion gyro-radius, <span 
+class="cmmi-10">Ω</span><sub><span 
+class="cmmi-7">i</span></sub> = <span 
+class="cmmi-10">B</span><sub><span 
+class="cmr-7">axis</span></sub><span 
+class="cmmi-10">q</span><sub><span 
+class="cmmi-7">i</span></sub><span 
+class="cmmi-10">∕m</span><sub><span 
+class="cmmi-7">i</span></sub> is the ion cyclotron angular frequency at the magnetic axis.</span></div><!--tex4ht:label?: x8-560011 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfloat" />
+   </div>
+<!--l. 3670--><p class="indent" >   The safety factor proﬁle is chosen as <span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#XLapillonne2010">6</a>]</span>
+</p>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation333x.png" alt="                            2
+q(r) = 0.86− 0.16r∕a+ 2.52(r∕a)
+" class="math-display"  /></div>
+<!--l. 3672--><p class="indent" >   This proﬁle gives <span 
+class="cmmi-10">q</span><sub><span 
+class="cmr-7">0</span></sub> <span 
+class="cmsy-10">≡ </span><span 
+class="cmmi-10">q</span>(0) = 1<span 
+class="cmmi-10">.</span>41 and <span 
+class="cmmi-10">ŝ</span> = 0<span 
+class="cmmi-10">.</span>84 at <span 
+class="cmmi-10">r </span>= <span 
+class="cmmi-10">r</span><sub><span 
+class="cmr-7">0</span></sub>. The equilibrium ion temperature and
+number density proﬁle are given by
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation334x.png" alt="          (              (r − r0) )
+Ti = Ti0exp − ˆκTiaΔTi tanh -----    .
+                           ΔTia
+" class="math-display"  /><a 
+ id="x8-56002r283"></a></div>
+   </td><td class="equation-label">(283)</td></tr></table>
+<!--l. 3677--><p class="nopar" >
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation335x.png" alt="          (              (      ))
+                          r-−-r0
+ni = ni0exp − ˆκniaΔni tanh  Δnia    .
+" class="math-display"  /><a 
+ id="x8-56003r284"></a></div>
+   </td><td class="equation-label">(284)</td></tr></table>
+<!--l. 3681--><p class="nopar" >where <span 
+class="cmmi-10">Δ</span><sub><span 
+class="cmmi-7">T</span><sub><span 
+class="cmmi-5">i</span></sub></sub> = <span 
+class="cmmi-10">Δ</span><sub><span 
+class="cmmi-7">n</span><sub><span 
+class="cmmi-5">i</span></sub></sub> = 0<span 
+class="cmmi-10">.</span>3, <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">0</span></sub> = 4<span 
+class="cmmi-10">.</span>66 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmr-7">19</span></sup><span 
+class="cmmi-10">m</span><sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">3</span></sup>, <span 
+class="cmmi-10">T</span><sub><span 
+class="cmmi-7">i</span><span 
+class="cmr-7">0</span></sub> = 2<span 
+class="cmmi-10">.</span>14keV. Then the radial derivatives are written
+as </p><div class="eqnarray">
+                                                                                
+
+                                                                                
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation336x.png" alt="                        (      )
+dTi = T(− ˆκ aΔ  )-d tanh  r−-r0
+ dr    i   Ti  Tidr       ΔTia
+                     2( r−-r0) --1--
+    = Ti(− ˆκTiaΔTi) sech   ΔTia   ΔTia
+                ( r− r )
+    = − TiˆκTi sech2----0
+                   ΔTia
+" class="math-display"  /></div>
+   </div>
+<!--l. 3694--><p class="indent" >   The corresponding gradient scale lengths of <span 
+class="cmmi-10">T</span><sub><span 
+class="cmmi-7">i</span></sub> and <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">i</span></sub> are then given by
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation337x.png" alt="                      (      )
+κTi = − 1-dTi = ˆκTi sech2 r−-r0 ,
+       Ti dr             ΔTia
+" class="math-display"  /><a 
+ id="x8-56005r285"></a></div>
+   </td><td class="equation-label">(285)</td></tr></table>
+<!--l. 3698--><p class="nopar" >and
+</p>
+   <table 
+class="equation"><tr><td>
+   <div class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation338x.png" alt="                      (      )
+       1-dni         2  r−-r0
+κni = − ni dr = ˆκni sech Δnia   ,
+" class="math-display"  /><a 
+ id="x8-56006r286"></a></div>
+   </td><td class="equation-label">(286)</td></tr></table>
+                                                                                
+
+                                                                                
+<!--l. 3703--><p class="nopar" >where sech<sup><span 
+class="cmr-7">2</span></sup>(<span 
+class="cmsy-10">⋅</span>) <span 
+class="cmsy-10">≡ </span>1 <span 
+class="cmsy-10">−</span> tanh<sup><span 
+class="cmr-7">2</span></sup>(<span 
+class="cmsy-10">⋅</span>). The electron density and temperature proﬁles are assumed to be
+identical to those of ions. The electron mass is set as <span 
+class="cmmi-10">m</span><sub><span 
+class="cmmi-7">e</span></sub> = 1<span 
+class="cmmi-10">.</span>82 <span 
+class="cmsy-10">× </span>10<sup><span 
+class="cmsy-7">−</span><span 
+class="cmr-7">30</span></sup><span 
+class="cmmi-10">kg</span>, i.e., two times the realistic
+value of electron mass.
+</p><!--l. 3709--><p class="indent" >   The proﬁles of safety factor, temperature, and density are plotted in Fig. <a 
+href="#x8-560073">3<!--tex4ht:ref: 18-10-8-e1 --></a>.
+</p><!--l. 3712--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-560073"></a>
+                                                                                
+
+                                                                                
+<!--l. 3715--><p class="noindent" > <img 
+src="my_figure/home/yj/project_new/fig_lorentz/etg/fig3b/p.png" alt="pict"  
+ width="254.95248pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 3: </span><span  
+class="content">Radial proﬁles of safety factor, temperature, and density of the above DIII-D cyclone
+test case. The dashed lines indicate the radial simulation box 0<span 
+class="cmmi-10">.</span>3 <span 
+class="msam-10">≤ </span><span 
+class="cmmi-10">r∕a </span><span 
+class="msam-10">≤ </span>0<span 
+class="cmmi-10">.</span>7.</span></div><!--tex4ht:label?: x8-560073 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3721--><p class="indent" >    
+</p><!--l. 3723--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-560084"></a>
+                                                                                
+
+                                                                                
+<!--l. 3726--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig5d/spectrum.png" alt="pict"  
+ width="72.26999pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 4: </span><span  
+class="content">Benchmarking of TEK code with GENE for the ITG-KBM transition. Upper panel:
+growth rate; lower panel: angular frequency. </span></div><!--tex4ht:label?: x8-560084 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3731--><p class="indent" >    
+</p><!--l. 3733--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-560095"></a>
+                                                                                
+
+                                                                                
+<!--l. 3736--><p class="noindent" > 
+</p><!--l. 3738--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig1v/spectrum.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3740--><p class="noindent" > 
+<br /> </p><div class="caption" 
+><span class="id">Fig. 5: </span><span  
+class="content">ITG-TEM transition benchmarking</span></div><!--tex4ht:label?: x8-560095 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3744--><p class="indent" >   Mode structures:
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-560106"></a>
+                                                                                
+
+                                                                                
+<!--l. 3747--><p class="noindent" > 
+</p><!--l. 3749--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig4d/poloidal_plane_t004001Phi_nonzonal.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig4d/poloidal_plane_t004001Apara_nonzonal.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3751--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig4d/poloidal_plane_t004001Phi_nonzonal1d.png" alt="pict"  
+ width="72.26999pt" />                                     1.6022d-16<img 
+src="/home/yj/theory/tek/cbc/fig4d/poloidal_plane_t004001Apara_nonzonal1d.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3753--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig4d/poloidal_plane_t004001Phi_nonzonal1d_theta.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig4d/poloidal_plane_t004001Apara_nonzonal1d_theta.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3755--><p class="noindent" > 
+<br /> </p><div class="caption" 
+><span class="id">Fig. 6: </span><span  
+class="content">ITG  <span 
+class="cmmi-10">n </span>= 20.</span></div><!--tex4ht:label?: x8-560106 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3759--><p class="indent" >   ITG-KBM transition:
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-560117"></a>
+                                                                                
+
+                                                                                
+<!--l. 3762--><p class="noindent" > 
+</p><!--l. 3764--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig2b/p008001.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig2/p008001.png" alt="pict"  
+ width="72.26999pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 7: </span><span  
+class="content">itg-kbm transition, seems to succeed, to be continued. left: real <span 
+class="cmmi-10">m</span><sub><span 
+class="cmmi-7">e</span></sub>, right: half <span 
+class="cmmi-10">m</span><sub><span 
+class="cmmi-7">e</span></sub>,(3)
+increase radial resolution bottom left: <span 
+class="cmmi-10">δϕ</span>, bottom right: <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub>.</span></div><!--tex4ht:label?: x8-560117 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-560128"></a>
+                                                                                
+
+                                                                                
+<!--l. 3771--><p class="noindent" > 
+</p><!--l. 3773--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig3b/p008001.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig3/p008001.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3775--><p class="noindent" > 
+<br /> </p><div class="caption" 
+><span class="id">Fig. 8: </span><span  
+class="content"><span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> and <span 
+class="cmmi-10">δΦ </span>for <span 
+class="cmmi-10">n</span><sub><span 
+class="cmmi-7">e</span></sub><span 
+class="cmmi-10">∕n</span><sub><span 
+class="cmr-7">ref</span></sub> = 2<span 
+class="cmmi-10">.</span>4</span></div><!--tex4ht:label?: x8-560128 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3780--><p class="indent" >    
+</p><!--l. 3782--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-560139"></a>
+                                                                                
+
+                                                                                
+<!--l. 3785--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig3d/poloidal_plane_t004001Phi_nonzonal.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig3d/poloidal_plane_t004001Apara_nonzonal.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3787--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig3d/poloidal_plane_t004001Phi_nonzonal1d.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig3d/poloidal_plane_t004001Apara_nonzonal1d.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3789--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig3d/poloidal_plane_t004001Phi_nonzonal1d_theta.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig3d/poloidal_plane_t004001Apara_nonzonal1d_theta.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3791--><p class="noindent" > 
+<br /> </p><div class="caption" 
+><span class="id">Fig. 9: </span><span  
+class="content">equal-arc-length poloidal angle. <span 
+class="cmmi-10">δϕ </span>and <span 
+class="cmmi-10">δA</span><sub><span 
+class="cmsy-7">∥</span></sub> at <span 
+class="cmmi-10">n∕n</span><sub><span 
+class="cmr-7">ref</span></sub> = 2<span 
+class="cmmi-10">.</span>4.</span></div><!--tex4ht:label?: x8-560139 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3796--><p class="indent" >    
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x8-5601410"></a>
+                                                                                
+
+                                                                                
+<!--l. 3799--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig3e/poloidal_plane_t004001Phi_nonzonal.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig3e/poloidal_plane_t004001Apara_nonzonal.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3801--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig3e/poloidal_plane_t004001Phi_nonzonal1d.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig3e/poloidal_plane_t004001Apara_nonzonal1d.png" alt="pict"  
+ width="72.26999pt" />
+</p><!--l. 3803--><p class="noindent" ><img 
+src="/home/yj/theory/tek/cbc/fig3e/poloidal_plane_t004001Phi_nonzonal1d_theta.png" alt="pict"  
+ width="72.26999pt" />                                     <img 
+src="/home/yj/theory/tek/cbc/fig3e/poloidal_plane_t004001Apara_nonzonal1d_theta.png" alt="pict"  
+ width="72.26999pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 10: </span><span  
+class="content">The same as Fig. <a 
+href="#x8-560139">9<!--tex4ht:ref: 25-6-25-1 --></a> excep the radial range is narrowed.</span></div><!--tex4ht:label?: x8-5601410 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 3808--><p class="indent" >    
+</p><!--l. 3810--><p class="indent" >    
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 3812--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse8.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse6.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse6.html#tailnonlinear_gyrokinetic_equationse6.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse7.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse7.html" >up</a>] </p></div>
+<!--l. 3812--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse7.html"></a> </p> 
+</body></html> 

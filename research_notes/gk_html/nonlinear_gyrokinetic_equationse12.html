@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Coordinate system and grid in TEK code</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,3,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 4477--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse13.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse11.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse11.html#tailnonlinear_gyrokinetic_equationse11.html" >prev-tail</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationse12.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse12.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">D   </span> <a 
+ id="x13-69000D"></a>Coordinate system and grid in <span 
+class="cmtt-10">TEK</span> code</h3>
+<!--l. 4479--><p class="noindent" >In (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinates: </p>
+   <ul class="itemize1">
+   <li class="itemize">
+   <!--l. 4481--><p class="noindent" ><span 
+class="cmmi-10">ψ </span>is the normalized poloidal magnetic ﬂux, <span 
+class="cmmi-10">ψ </span>= (<span 
+class="cmmi-10">Ψ </span><span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">axis</span></sub>)<span 
+class="cmmi-10">∕</span>(<span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">lcfs</span></sub> <span 
+class="cmsy-10">− </span><span 
+class="cmmi-10">Ψ</span><sub><span 
+class="cmr-7">axis</span></sub>).
+   </p></li>
+   <li class="itemize">
+   <!--l. 4484--><p class="noindent" ><span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">∈ </span>[<span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π,π</span>) is increasing along the anti-clockwise direction when viewed along <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ϕ </span>direction
+   with <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>at the high-ﬁeld-side midplane.
+   </p></li>
+   <li class="itemize">
+   <!--l. 4488--><p class="noindent" ><span 
+class="cmmi-10">ϕ </span>is the toroidal angle of the right-handed cylindrical coordinates (<span 
+class="cmmi-10">R,ϕ,Z</span>).</p></li></ul>
+<!--l. 4491--><p class="noindent" >In this convention, the Jacobian of the (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) coordinate system, <span 
+class="cmsy-10">𝒥 </span>= (<span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">ψ </span><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">𝜃 </span><span 
+class="cmsy-10">×∇</span><span 
+class="cmmi-10">ϕ</span>) is negative,
+i.e., (<span 
+class="cmmi-10">ψ,𝜃,ϕ</span>) is a left-handed system. The ﬁeld-line-following coordinate system (<span 
+class="cmmi-10">ψ,𝜃,α</span>) is
+also a left-handed system. The coordinate system (<span 
+class="cmmi-10">x </span>= <span 
+class="cmmi-10">ψ,y </span>= <span 
+class="cmmi-10">α,z </span>= <span 
+class="cmmi-10">𝜃</span>) is a right-handed
+system.
+</p><!--l. 4498--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">D.1   </span> <a 
+ id="x13-70000D.1"></a>Poloidal grid</h4>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x13-7000111"></a>
+                                                                                
+
+                                                                                
+<!--l. 4501--><p class="noindent" > <img 
+src="/home/yj/theory/figures/my_grids_and_gem_grids/poloidal_grids/a-1-.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 11: </span><span  
+class="content">Poloidal grid for equilibrium quantities used in <span 
+class="cmtt-10">TEK</span> and <span 
+class="cmtt-10">GEM</span> code. The array starts
+at <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>and ends at <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π </span>(<span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">±</span><span 
+class="cmmi-10">π </span>is chosen to be at the high-ﬁeld side midplane in
+both the codes). <span 
+class="cmtt-10">TEK</span> array index starts from 1 whereas GEM array index starts from 0. Hence
+<span 
+class="cmtt-10">mpol=nth+1</span>. <span 
+class="cmtt-10">nth</span> is denoted by <span 
+class="cmtt-10">ntheta</span> in GEM. In <span 
+class="cmtt-10">TEK</span>, <span 
+class="cmtt-10">mpol</span> must be an odd number, so that
+the array has a midpoint indexed by <span 
+class="cmtt-10">(mpol+1)/2</span>, which corresponds to <span 
+class="cmmi-10">𝜃 </span>= 0.</span></div><!--tex4ht:label?: x13-7000111 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 4512--><p class="indent" >   I do not need to make connection with GEM’s equilibrium poloidal array because there is no
+coupling of equilibrium quantities between the code written by me and the original code in
+GEM. The coupling happens for the perturbed quanties, whose poloidal grids need to be
+consistent.
+</p>
+   <ul class="itemize1">
+   <li class="itemize">
+   <!--l. 4519--><p class="noindent" >The gridpoint number along <span 
+class="cmmi-10">𝜃 </span>for perturbations is denoted by <span 
+class="cmtt-10">mpol2</span>. Its value is not chosen
+   by users. Instead, it is equal to <span 
+class="cmtt-10">numproc/ntube</span>, i.e., <span 
+class="cmtt-10">mpol2</span> is the total number of cells
+   along <span 
+class="cmmi-10">𝜃 </span>for MPI parallelation. (<span 
+class="cmtt-10">numproc</span> and <span 
+class="cmtt-10">ntube</span> must be chosen in a way that makes
+    <span 
+class="cmtt-10">numproc/ntube</span> an integer.)
+   </p></li>
+   <li class="itemize">
+   <!--l. 4526--><p class="noindent" >Poloidal grid-points for perturbations are indexed as <span 
+class="cmtt-10">0:mpol2-1</span>, with <span 
+class="cmtt-10">0</span> corresponding to
+   <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>and <span 
+class="cmtt-10">mpol2</span> corresponding to <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmmi-10">π</span>. Field equations are solved at 0 : mpol2 <span 
+class="cmsy-10">− </span>1. (The
+   ﬁeld at <span 
+class="cmtt-10">mpol2</span>, i.e., <span 
+class="cmmi-10">𝜃 </span>= +<span 
+class="cmmi-10">π</span>, is not identical to that at <span 
+class="cmmi-10">𝜃 </span>= <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π </span>due to toroidal shift of a
+   magnetic ﬁeld line when it ﬁnish one poloidal loop, and is obtained by toroidally inerpolating
+   the ﬁelds at <span 
+class="cmmi-10">𝜃 </span>=  <span 
+class="cmsy-10">−</span><span 
+class="cmmi-10">π</span>.) No array for this is actually used in the code. The indexes just
+   correspond to <span 
+class="cmtt-10">gclr</span> of MPI processors.
+   </p></li>
+   <li class="itemize">
+   <!--l. 4536--><p class="noindent" >The equilibrium poloidal gridpoint number, <span 
+class="cmtt-10">mpol</span>, must be chosen in a way that makes
+   <span 
+class="cmtt-10">(mpol-1)/mpol2</span> an integer, which can be larger than 1, i.e., one simulation cell can span
+   several equilibrium cells.</p></li></ul>
+   <h4 class="subsectionHead"><span class="titlemark">D.2   </span> <a 
+ id="x13-71000D.2"></a>Toroidal grid</h4>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x13-7100112"></a>
+                                                                                
+
+                                                                                
+<!--l. 4546--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/toroidal_grids/a-1.png" alt="pict"  
+ width="247.92624pt" />
+<br />  </p><div class="caption" 
+><span class="id">Fig. 12:   </span><span  
+class="content">Toroidal   grid   used   in   <span 
+class="cmtt-10">TEK</span>  and   GEM.   In   TEK,   the   toroidal   array   is
+<span 
+class="cmtt-10">tor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array(1:mtor+1)</span>. Source terms, <span 
+class="cmmi-10">δn </span>and <span 
+class="cmmi-10">δj</span><sub><span 
+class="cmsy-7">∥</span></sub>, and EM ﬁelds are deﬁned at <span 
+class="cmtt-10">1:mtor</span>. GEM
+array index starts from 0 and ends at <span 
+class="cmtt-10">jm</span>. It follows that <span 
+class="cmtt-10">mtor=jm</span>.</span></div><!--tex4ht:label?: x13-7100112 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 4554--><p class="indent" >    
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">D.3   </span> <a 
+ id="x13-72000D.3"></a>Radial grid</h4>
+<!--l. 4558--><p class="noindent" > 
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                
+
+                                                                                
+<a 
+ id="x13-7200113"></a>
+                                                                                
+
+                                                                                
+<!--l. 4561--><p class="noindent" > <img 
+src="my_figure/home/yj/theory/figures/my_grids_and_gem_grids/radial_grids/a-1.png" alt="pict"  
+ width="366.36874pt" />
+<br /> </p><div class="caption" 
+><span class="id">Fig. 13: </span><span  
+class="content">Radial grid used in <span 
+class="cmtt-10">TEK</span>. Two radial arrays are used in the code, <span 
+class="cmtt-10">radcor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array(1:nt)</span>
+and <span 
+class="cmtt-10">radcor</span><span 
+class="cmtt-10">_1d</span><span 
+class="cmtt-10">_array2(1:n)</span>, equilibrium is deﬁned on the former grid, and perturbations are
+deﬁned on the latter grid. Here nt = <span 
+class="cmmi-10">n </span>+ 2<span 
+class="cmmi-10">m</span>, <span 
+class="cmmi-10">m </span>is the number of grid points in one of the two
+buﬀer regions (regions in blue color). In the code <span 
+class="cmmi-10">n </span>is denoted by <span 
+class="cmtt-10">nflux2</span> and nt is denoted by
+<span 
+class="cmtt-10">nflux</span>, <span 
+class="cmmi-10">m </span>is denoted by <span 
+class="cmtt-10">points</span><span 
+class="cmtt-10">_in</span><span 
+class="cmtt-10">_buffer</span>. In <span 
+class="cmtt-10">GEM</span> the radial array does no include the buﬀer
+regions and the index starts at <span 
+class="cmtt-10">0</span> and ends at <span 
+class="cmtt-10">imx</span>. Hence <span 
+class="cmtt-10">n=imx+1</span>.</span></div><!--tex4ht:label?: x13-7200113 -->
+                                                                                
+
+                                                                                
+   </div><hr class="endfigure" />
+<!--l. 4574--><p class="indent" >   GEM array index system is better than TEK’s because my system is not consistent: sometimes I
+use 0-based index and sometimes I use 1-based index, sometimes the index ends at n and
+sometimes ends at n+1. It is important to know accurately the transformation between the two
+systems.
+</p><!--l. 4579--><p class="indent" >    
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 4581--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationse13.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationse11.html" >prev</a>] [<a 
+href="nonlinear_gyrokinetic_equationse11.html#tailnonlinear_gyrokinetic_equationse11.html" >prev-tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse12.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equation.html#nonlinear_gyrokinetic_equationse12.html" >up</a>] </p></div>
+<!--l. 4581--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationse12.html"></a>  </p> 
+</body></html> 

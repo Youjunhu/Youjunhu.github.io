@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Eliminate ∂⟨δϕ⟩α∕∂t term on the right-hand side of Eq. (133)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,4,charset=utf-8,html --> 
+<meta name="src" content="nonlinear_gyrokinetic_equation.tex" /> 
+<link rel="stylesheet" type="text/css" href="nonlinear_gyrokinetic_equation.css" /> 
+</head><body 
+>
+   <!--l. 1610--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu19.html" >next</a>] [<a 
+href="#tailnonlinear_gyrokinetic_equationsu18.html">tail</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html#nonlinear_gyrokinetic_equationsu18.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x24-320005.1"></a>Eliminate <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>term on the right-hand side of Eq. (133)</h4>
+<!--l. 1612--><p class="noindent" >Note that the coeﬃcient before <span 
+class="cmmi-10">∂F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕∂𝜀</span> in Eq. (<a 
+href="nonlinear_gyrokinetic_equationse5.html#x23-31001r133">133<!--tex4ht:ref: 16-10-16-2 --></a>) involves the time derivative of <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>, which is
+problematic if treated by using explicit ﬁnite diﬀerence in particle simulations (I test the algorithm that
+treats this term by implicit scheme, the result roughly agrees with the standard method discussed in
+Sec. <a 
+href="nonlinear_gyrokinetic_equationsu23.html#x29-410005.6">5.6<!--tex4ht:ref: 19-1-4-1 --></a>). It turns out that <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δΦ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>can be eliminated by deﬁning another gyro-phase independent
+function <span 
+class="cmmi-10">δf </span>by
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x24-32001r135"></a>
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation143x.png" alt="     q      ∂F
+δf = --⟨δΦ ⟩α --0-+δG0.
+     m      ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(135)</td></tr></table>
+<!--l. 1623--><p class="nopar" >
+Then, in terms of <span 
+class="cmmi-10">δf</span>, the perturbed distribution function <span 
+class="cmmi-10">δF </span>is written as
+</p>
+   <table 
+class="equation"><tr><td><a 
+ id="x24-32002r136"></a>
+                                                                                
+
+                                                                                
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation144x.png" alt="δF =  q-(δΦ − ⟨δΦ ⟩α )∂F0+ δf.
+      m            ∂𝜀
+" class="math-display"  /></center></td><td class="equation-label">(136)</td></tr></table>
+<!--l. 1630--><p class="nopar" >
+Using Eq. (<a 
+href="#x24-32001r135">135<!--tex4ht:ref: 16-10-16-1 --></a>) and Eq. (<a 
+href="nonlinear_gyrokinetic_equationse5.html#x23-31001r133">133<!--tex4ht:ref: 16-10-16-2 --></a>), the equation for <span 
+class="cmmi-10">δf </span>is written as </p><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation145x.png" alt="[ ∂                        ]
+ ∂t + (v∥e∥ + VD + δVD )⋅∇X  δf
+        [                         ]
+− q-∂F0- ∂-+ (v∥e∥ + VD + δVD )⋅∇X  ⟨δϕ⟩α
+  m ∂ 𝜀  ∂[t                        ]
+− q-⟨δϕ⟩   ∂-+ (v e + V  + δV  )⋅∇    ∂F0-
+  m    α  ∂t    ∥ ∥    D     D    X  ∂ 𝜀
+                 q ∂⟨δL ⟩α ∂F0
+= − δVD ⋅∇XF0 − m- --∂t---∂𝜀-                          (137)
+" class="math-display"  /></center>
+</div>Noting that <span 
+class="cmmi-10">∂F</span><sub><span 
+class="cmr-7">0</span></sub><span 
+class="cmmi-10">∕∂t </span>= 0, <span 
+class="cmbx-10">e</span><sub><span 
+class="cmsy-7">∥</span></sub><span 
+class="cmsy-10">⋅∇</span><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> = 0, <span 
+class="cmsy-10">∇</span><span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub> <span 
+class="cmsy-10">∼ </span><span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">λ</span><sup><span 
+class="cmr-7">1</span></sup>)<span 
+class="cmmi-10">F</span><sub><span 
+class="cmr-7">0</span></sub>, we ﬁnd that the third line of the
+above equation is of order <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">λ</span><sup><span 
+class="cmr-7">3</span></sup>) and thus can be dropped. Moving the second line to the
+right-hand side and noting that <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δL</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub> = <span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δϕ </span><span 
+class="cmsy-10">− </span><span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>, the above equation is written as
+<div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="nonlinear_gyrokinetic_equation146x.png" alt="[                          ]
+ -∂ + (ve  + V  + δV  )⋅∇   δf
+ ∂t    ∥ ∥    D      D    X
+= − δVD ⋅∇XF0
+  q [  ∂⟨v⋅δA ⟩α                            ] ∂F0
+− m- − ---∂t----− (v∥e∥ + VD + δVD )⋅∇X ⟨δΦ⟩α ∂𝜀-,          (138)
+" class="math-display"  /><a 
+ id="x24-32004r138"></a></center>
+</div>where two <span 
+class="cmmi-10">∂</span><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">ϕ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub><span 
+class="cmmi-10">∕∂t </span>terms cancel each other. Note that the right-hand side of Eq. (<a 
+href="#x24-32004r138">138<!--tex4ht:ref: 17-5-13-p2 --></a>) contains a
+nonlinear term <span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">V</span><sub><span 
+class="cmmi-7">D</span></sub> <span 
+class="cmsy-10">⋅∇</span><sub><span 
+class="cmmi-7">X</span></sub><span 
+class="cmsy-10">⟨</span><span 
+class="cmmi-10">δΦ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>. This is diﬀerent from the original Frieman-Chen equation, where all
+nonlinear terms appear on the left-hand side. [Equation (<a 
+href="#x24-32004r138">138<!--tex4ht:ref: 17-5-13-p2 --></a>) corresponds to Eq. (A8) in Yang Chen’s
+paper<span class="cite">[<a 
+href="nonlinear_gyrokinetic_equationli1.html#Xychen2009">2</a>]</span> (where the ﬁrst minus on the right-hand side is wrong and should be replaced with <span 
+class="cmmi-10">q∕m</span>; one <span 
+class="cmmi-10">q</span>
+is missing before <span 
+class="cmmi-10">∂</span>(<span 
+class="cmbx-10">v </span><span 
+class="cmsy-10">⋅ </span><span 
+class="cmmi-10">δ</span><span 
+class="cmbx-10">A</span>)<span 
+class="cmmi-10">∕∂t </span>in A9).]
+<!--l. 1676--><p class="indent" >   The blue term in expression (<a 
+href="#x24-32002r136">136<!--tex4ht:ref: 17-8-19-2 --></a>) gives “the polarization density” when integrated in the velocity
+space (discussed in Sec. <a 
+href="nonlinear_gyrokinetic_equationsu23.html#x29-410005.6">5.6<!--tex4ht:ref: 19-1-4-1 --></a>). The reason for the name “polarization” is that (<span 
+class="cmmi-10">δΦ </span><span 
+class="cmsy-10">−⟨</span><span 
+class="cmmi-10">δΦ</span><span 
+class="cmsy-10">⟩</span><sub><span 
+class="cmmi-7">α</span></sub>) is the
+diﬀerence between the local value and the averaged value on a gyro-ring, expressing a kind of
+“separation”.
+                                                                                
+
+                                                                                
+</p>
+   <!--l. 1683--><div class="crosslinks"><p class="noindent">[<a 
+href="nonlinear_gyrokinetic_equationsu19.html" >next</a>] [<a 
+href="nonlinear_gyrokinetic_equationsu18.html" >front</a>] [<a 
+href="nonlinear_gyrokinetic_equationse5.html#nonlinear_gyrokinetic_equationsu18.html" >up</a>] </p></div>
+<!--l. 1683--><p class="indent" >   <a 
+ id="tailnonlinear_gyrokinetic_equationsu18.html"></a> </p> 
+</body></html> 
